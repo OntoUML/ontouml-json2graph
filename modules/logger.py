@@ -6,9 +6,7 @@ from datetime import datetime
 
 
 def logger_get_date_time() -> str:
-    """
-    Return a string in a specified format with date and time.
-    Format example: 2022.10.23-14.43
+    """ Return a string in a specified format with date and time. Format example: 2022.10.23-14.43
 
     :return: Formatted date and time.
     :rtype: str
@@ -16,15 +14,12 @@ def logger_get_date_time() -> str:
 
     now = datetime.now()
     date_time = now.strftime("%Y.%m.%d-%H.%M.%S")
-    print(f"{date_time = }")
-    print(f"{type(date_time) = }")
 
     return date_time
 
 
 def initialize_logger() -> logging.Logger:
-    """
-    Create and initialize logger. The created logger is called 'execution-logger'.
+    """ Create and initialize logger. The created logger is called 'execution-logger'.
 
     :return: Created logger called 'execution-logger'.
     :rtype: logging.Logger
