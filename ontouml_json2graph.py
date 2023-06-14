@@ -2,7 +2,7 @@
 import time
 
 from modules.arguments import treat_user_arguments
-from modules.decode import decode_json_to_graph
+from modules.decoder.decode_main import decode_json_to_graph
 from modules.input_output import safe_load_json_file, save_graph_file
 from modules.logger import initialize_logger
 from modules.utils import get_date_time
