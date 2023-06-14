@@ -1,28 +1,18 @@
-""" Functions to be used in diverse occasions. """
-import json
-
-from modules.errors import report_error_io_read
-from modules.logger import initialize_logger
-
-LOGGER = initialize_logger()
+""" Diverse util and auxiliary functions. """
+from datetime import datetime
 
 
-def safe_load_json_file(json_path: str) -> dict:
-    """ Safely loads the JSON file inputted by the user as an argument into a dictionary.
+def get_date_time(date_time_format: str) -> str:
+    """ Return a string with date and time according to the specified format received as argument.
+    For valid formats: https://docs.python.org/3.11/library/datetime.html#strftime-and-strptime-format-codes
 
-    :param json_path: Path to the JSON file to be loaded.
-    :type json_path: str
-    :return: Dictionary with loaded JSON's data.
-    :rtype: dict
+    :param date_time_format: Valid format accepted by the datetime function.
+    :type date_time_format: str
+    :return: Formatted current date and time.
+    :rtype: str
     """
 
-    try:
-        with open(json_path, "r") as read_file:
-            json_data = json.load(read_file)
-    except IOError as error:
-        file_description = f"input json file"
-        report_error_io_read(json_path, file_description, error)
+    now = datetime.now()
+    date_time = now.strftime(date_time_format)
 
-    LOGGER.debug(f"JSON file {json_path} successfully loaded to dictionary.")
-
-    return json_data
+    return date_time

@@ -1,15 +1,15 @@
 {
-  "id" : "dGSNHRGFS_j2pAvw",
-  "name" : "MyTestModel",
-  "description" : null,
-  "type" : "Project",
-  "model" : {
-    "id" : "dGSNHRGFS_j2pAvw_root",
-    "name" : "MyTestModel",
-    "description" : null,
-    "type" : "Package",
-    "propertyAssignments" : null,
-    "contents" : null
+  "id": "dGSNHRGFS_j2pAvw",
+  "name": "MyTestModel",
+  "description": null,
+  "type": "Project",
+  "model": {
+    "id": "dGSNHRGFS_j2pAvw_root",
+    "name": "MyTestModel",
+    "description": null,
+    "type": "Package",
+    "propertyAssignments": null,
+    "contents": null
   },
-  "diagrams" : null
+  "diagrams": null
 }
