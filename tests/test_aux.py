@@ -12,7 +12,7 @@ def get_test_list() -> list[str]:
     """ Returns a list with all JSON files in the test_files folder.
 
     :return: List with complete path of all JSON files in the test_files folder.
-    :rtype: list[pathlib.Path]
+    :rtype: list[str]
     """
 
     test_files_folder = "test_files/"
@@ -36,6 +36,7 @@ def print_graphs_differences(iso_result_graph: Graph, iso_expected_graph: Graph)
 
     in_both, in_resulting, in_expected = graph_diff(iso_result_graph, iso_expected_graph)
 
+    # TODO (@pedropaulofb): This must be fixed. Use a relative path instead.
     base_path = "C:\\Users\\PFavatoBarcelos\\Dev\\Work\\ontouml-json2graph\\tests\\test_files\\"
 
     safe_write_graph_file(in_both, base_path + "test_both.ttl", "ttl")
