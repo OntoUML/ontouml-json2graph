@@ -168,3 +168,4 @@ cython_debug/
 /.idea/vcs.xml
 /logs/
 /results/
+/.idea/workspace.xml

@@ -15,8 +15,8 @@ def get_test_list() -> list[str]:
     :rtype: list[pathlib.Path]
     """
 
-    test_files_folder = "tests/test_files"
-    list_test_files = glob.glob(test_files_folder + '/*.json')
+    test_files_folder = "test_files/"
+    list_test_files = glob.glob(test_files_folder + '*.json')
     list_test_files.sort()
 
     return list_test_files
@@ -43,8 +43,16 @@ def print_graphs_differences(iso_result_graph: Graph, iso_expected_graph: Graph)
     safe_save_graph_file(in_expected, base_path + "test_oe.ttl", "ttl")
 
 
-def compare_graphs(resulting_graph_path: str, expected_graph_path: str) -> None:
-    """ Verifies if resulting graph corresponds to expected graph. """
+def compare_graphs(resulting_graph_path: str, expected_graph_path: str) -> bool:
+    """ Verifies if resulting graph corresponds to expected graph.
+
+    :param resulting_graph_path: Path to the generated resulting graph file.
+    :type resulting_graph_path: str
+    :param expected_graph_path: Path to the expected graph file.
+    :type expected_graph_path: str
+    :return: Boolean value indicating if the resulting and expected graphs are equal.
+    :rtype: bool
+    """
 
     result_graph = load_all_graph_safely(resulting_graph_path)
     expected_graph = load_all_graph_safely(expected_graph_path)
