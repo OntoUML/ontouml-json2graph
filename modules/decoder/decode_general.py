@@ -1,10 +1,13 @@
+""" General decoding functions. """
+
 from rdflib import Graph, URIRef, RDF, Literal
 
 from globals import USER_BASE_URI, ONTOUML_URI
 
 
 def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph) -> None:
-    """ Receives a dictionary and decode every value that is not a dictionary to the OntoUML Graph.
+    """ Receives a dictionary and decode every value to the OntoUML Graph.
+    Recursively evaluate the dictionary to create all possible instances, setting their types and attributes.
 
     :param dictionary_data: Dictionary to have its fields decoded.
     :type dictionary_data: dict
@@ -21,19 +24,20 @@ def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph) -> None:
     ontouml_graph.add((new_instance, RDF.type, instance_type))
 
     # Adding other attributes
-    for key in list(dictionary_data.keys()):
-
-        # Values that are dictionaries are not treated
-        if type(dictionary_data[key]) is dict:
-            continue
+    for key in dictionary_data.keys():
 
         # id and type were already treated and are skipped
         if key == "id" or key == "type":
             continue
 
-        new_attribute_type = URIRef(ONTOUML_URI + key)
-        new_attribute_value = Literal(dictionary_data[key])
-        ontouml_graph.add((new_instance, new_attribute_type, new_attribute_value))
+        # Recursively treats sub-dictionaries
+        if type(dictionary_data[key]) is dict:
+            decode_dictionary(dictionary_data[key], ontouml_graph)
+            continue
+
+        new_predicate = URIRef(ONTOUML_URI + key)
+        new_object = Literal(dictionary_data[key])
+        ontouml_graph.add((new_instance, new_predicate, new_object))
 
 
 def clean_null_data(dictionary_data) -> dict:

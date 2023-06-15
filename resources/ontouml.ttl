@@ -1,0 +1,590 @@
+@prefix ontouml: <https://w3id.org/ontouml#> .
+@prefix dcat:    <http://www.w3.org/ns/dcat#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann:    <http://purl.org/vocab/vann/> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@base <https://w3id.org/ontouml> .
+
+<https://w3id.org/ontouml>
+    a                             owl:Ontology ;
+    dct:identifier                "https://w3id.org/ontouml"^^xsd:anyURI ;
+    dct:title                     "OntoUML Metamodel Vocabulary"@en ;
+    dct:description               "A reference implementation of the OntoUML metamodel in OWL."@en ;
+    dcat:landingPage              <https://w3id.org/ontouml/git> ;
+    vann:preferredNamespacePrefix "ontouml"@en ;
+    vann:preferredNamespaceUri    "https://w3id.org/ontouml#"^^xsd:anyURI ;
+    dct:creator                   <https://orcid.org/0000-0002-5385-5761>, <https://orcid.org/0000-0003-2528-3118> ;
+    dct:contributor               <https://orcid.org/0000-0003-3385-4769>, <https://orcid.org/0000-0003-2736-7817> ;
+    owl:versionIRI                <https://w3id.org/ontouml/1.0> ;
+    owl:versionInfo               "1.0"@en ;
+    dct:license                   <https://creativecommons.org/licenses/by-sa/4.0> ;
+    dct:issued                    "2022-04-03"^^xsd:date ;
+    dct:modified                  "2023-03-14"^^xsd:date ;
+    dct:language:                 "en" ;
+    dcat:keyword                  "OntoUML"@en, "Metamodel"@en, "Ontology-Driven Conceptual Modeling"@en ;
+    dct:isReferencedBy            <https://doi.org/10.1007/978-3-031-17995-2_1>,
+                                  <https://dblp.org/rec/conf/jowo/FonsecaSVFGA21.html> ;
+    dct:conformsTo:               <https://purl.org/krdb-core/ontouml-js> .
+
+ontouml:aggregationKind
+    a           owl:ObjectProperty ;
+    rdfs:domain ontouml:Property ;
+    rdfs:range  ontouml:AggregationKind .
+
+ontouml:attribute
+    a                  owl:ObjectProperty ;
+    rdfs:subPropertyOf ontouml:property ;
+    rdfs:domain        ontouml:Class ;
+    rdfs:range         ontouml:Property .
+
+ontouml:cardinality
+    a           owl:ObjectProperty ;
+    rdfs:domain ontouml:Property ;
+    rdfs:range  ontouml:Cardinality .
+
+ontouml:categorizer
+    a           owl:ObjectProperty ;
+    rdfs:domain ontouml:GeneralizationSet ;
+    rdfs:range  ontouml:Class .
+
+ontouml:containsModelElement
+    a           owl:ObjectProperty ;
+    rdfs:domain ontouml:Package ;
+    rdfs:range  ontouml:ModelElement .
+
+ontouml:containsView
+    a           owl:ObjectProperty ;
+    rdfs:domain ontouml:Diagram ;
+    rdfs:range  ontouml:ElementView .
+
+ontouml:diagram
+    a           owl:ObjectProperty ;
+    rdfs:domain ontouml:Project ;
+    rdfs:range  ontouml:Diagram .
+
+ontouml:general
+    a           owl:ObjectProperty ;
+    rdfs:domain ontouml:Generalization ;
+    rdfs:range  ontouml:Classifier .
+
+ontouml:generalization
+    a           owl:ObjectProperty ;
+    rdfs:domain ontouml:GeneralizationSet ;
+    rdfs:range  ontouml:Generalization .
+
+ontouml:isViewOf
+    a           owl:ObjectProperty ;
+    rdfs:domain ontouml:ElementView ;
+    rdfs:range  ontouml:ModelElement .
+
+ontouml:literal
+    a           owl:ObjectProperty ;
+    rdfs:domain ontouml:Class ;
+    rdfs:range  ontouml:Literal .
+
+ontouml:model
+    a           owl:ObjectProperty ;
+    rdfs:domain ontouml:Project ;
+    rdfs:range  ontouml:Package .
+
+ontouml:owner
+    a           owl:ObjectProperty ;
+    rdfs:domain ontouml:Diagram ;
+    rdfs:range  ontouml:ModelElement .
+
+ontouml:point
+    a           owl:ObjectProperty ;
+    rdfs:domain ontouml:Path ;
+    rdfs:range  ontouml:Point .
+
+ontouml:property
+    a           owl:ObjectProperty ;
+    rdfs:domain ontouml:Classifier ;
+    rdfs:range  ontouml:Property ;
+    rdfs:comment
+                "Identifies a property exhibited by instances of the classifier. If the classifier is a class, the property is an attribute. If the classifier is a relation, the property is a relation end."@en .
+
+ontouml:propertyType
+    a           owl:ObjectProperty ;
+    rdfs:domain ontouml:Property ;
+    rdfs:range  ontouml:Classifier .
+
+ontouml:redefinesProperty
+    a           owl:ObjectProperty ;
+    rdfs:domain ontouml:Property ;
+    rdfs:range  ontouml:Property .
+
+ontouml:relationEnd
+    a                  owl:ObjectProperty ;
+    rdfs:subPropertyOf ontouml:property ;
+    rdfs:domain        ontouml:Relation ;
+    rdfs:range         ontouml:Property .
+
+ontouml:restrictedTo
+    a            owl:ObjectProperty ;
+    rdfs:domain  ontouml:Class ;
+    rdfs:range   ontouml:OntologicalNature ;
+    rdfs:comment "Identifies an ontological nature that the instances of the class may have."@en .
+
+ontouml:shape
+    a           owl:ObjectProperty ;
+    rdfs:domain ontouml:ElementView ;
+    rdfs:range  ontouml:Shape .
+
+ontouml:sourceEnd
+    a                  owl:ObjectProperty ;
+    rdfs:subPropertyOf ontouml:relationEnd ;
+    rdfs:domain        ontouml:Relation ;
+    rdfs:range         ontouml:Property .
+
+ontouml:sourceView
+    a           owl:ObjectProperty ;
+    rdfs:domain ontouml:ConnectorView ;
+    rdfs:range  ontouml:ElementView .
+
+ontouml:specific
+    a           owl:ObjectProperty ;
+    rdfs:domain ontouml:Generalization ;
+    rdfs:range  ontouml:Classifier .
+
+ontouml:stereotype
+    a            owl:ObjectProperty ;
+    rdfs:domain  ontouml:Decoratable ;
+    rdfs:range   ontouml:Stereotype ;
+    rdfs:comment "Identifies the stereotype applied to the decoratable."@en .
+
+ontouml:subsetsProperty
+    a           owl:ObjectProperty ;
+    rdfs:domain ontouml:Property ;
+    rdfs:range  ontouml:Property .
+
+ontouml:targetEnd
+    a                  owl:ObjectProperty ;
+    rdfs:subPropertyOf ontouml:relationEnd ;
+    rdfs:domain        ontouml:Relation ;
+    rdfs:range         ontouml:Property .
+
+ontouml:targetView
+    a           owl:ObjectProperty ;
+    rdfs:domain ontouml:ConnectorView ;
+    rdfs:range  ontouml:ElementView .
+
+ontouml:topLeftPosition
+    a           owl:ObjectProperty ;
+    rdfs:domain ontouml:RectangularShape ;
+    rdfs:range  ontouml:Point .
+
+ontouml:cardinalityValue
+    a           owl:DatatypeProperty ;
+    rdfs:domain ontouml:Cardinality .
+
+ontouml:description
+    a           owl:DatatypeProperty ;
+    rdfs:domain ontouml:OntoumlElement ;
+    rdfs:range  [ rdf:type    rdfs:Datatype ;
+                  owl:unionOf ( xsd:string
+                                rdf:langString ) ] .
+
+ontouml:height
+    a           owl:DatatypeProperty ;
+    rdfs:domain ontouml:RectangularShape ;
+    rdfs:range  xsd:positiveInteger .
+
+ontouml:id
+    a           owl:DatatypeProperty ;
+    rdfs:domain ontouml:OntoumlElement ;
+    rdfs:range  xsd:string ;
+    rdfs:comment
+                "A non-empty string that uniquely identifies an object of a given type (e.g. ontouml:Class, ontouml:Relation) in a project."@en .
+
+ontouml:isAbstract
+    a           owl:DatatypeProperty ;
+    rdfs:domain ontouml:Classifier ;
+    rdfs:range  xsd:boolean ;
+    rdfs:comment
+                "Identifies if the classifier can have direct instances. If set to true, the classifier must be specialized before being instantiated. Otherwise, it can have direct instances."@en .
+
+ontouml:isComplete
+    a           owl:DatatypeProperty ;
+    rdfs:domain ontouml:GeneralizationSet ;
+    rdfs:range  xsd:boolean .
+
+ontouml:isDerived
+    a           owl:DatatypeProperty ;
+    rdfs:domain ontouml:Decoratable ;
+    rdfs:range  xsd:boolean ;
+    rdfs:comment
+                "Identifies if the extension of the classifier or the value of a property can be \"computed\" by means of a derivation rule. For instance, the class Child can be modelled as a derived class if defined as a person whose age is less or equal to 10."@en .
+
+ontouml:isDisjoint
+    a           owl:DatatypeProperty ;
+    rdfs:domain ontouml:GeneralizationSet ;
+    rdfs:range  xsd:boolean .
+
+ontouml:isExtensional
+    a           owl:DatatypeProperty ;
+    rdfs:domain ontouml:Class ;
+    rdfs:range  xsd:boolean ;
+    rdfs:comment
+                "Identifies if a class decorated as «collective» is extensionally defined (i.e., it's parts cannot change)."@en .
+
+ontouml:isOrdered
+    a           owl:DatatypeProperty ;
+    rdfs:domain ontouml:Property ;
+    rdfs:range  xsd:boolean .
+
+ontouml:isPowertype
+    a            owl:DatatypeProperty ;
+    rdfs:domain  ontouml:Class ;
+    rdfs:range   xsd:boolean ;
+    rdfs:comment """Identifies if a class decorated as «type» is a powertype in the sense of Cardelli (1988).
+                    
+                    Cardelli, L.: Structural subtyping and the notion of power type. In: 15th ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages. pp. 70–79 (1988). https://doi.org/10.1145/73560.73566
+                    """@en .
+
+ontouml:isReadOnly
+    a           owl:DatatypeProperty ;
+    rdfs:domain ontouml:Property ;
+    rdfs:range  xsd:boolean .
+
+ontouml:lowerBound
+    a           owl:DatatypeProperty ;
+    rdfs:domain ontouml:Cardinality ;
+    rdfs:range  xsd:positiveInteger .
+
+ontouml:name
+    a           owl:DatatypeProperty ;
+    rdfs:domain ontouml:OntoumlElement ;
+    rdfs:range  [ rdf:type    rdfs:Datatype ;
+                  owl:unionOf ( xsd:string
+                                rdf:langString ) ] .
+
+ontouml:order
+    a           owl:DatatypeProperty ;
+    rdfs:domain ontouml:Class ;
+    rdfs:range  xsd:positiveInteger ;
+    rdfs:comment
+                "Identifies the type-order of a class decorated as «type». Its minimum value is \"2\". Orderless types are represented with \"*\"."@en .
+
+ontouml:upperBound
+    a           owl:DatatypeProperty ;
+    rdfs:domain ontouml:Cardinality .
+
+ontouml:width
+    a           owl:DatatypeProperty ;
+    rdfs:domain ontouml:RectangularShape ;
+    rdfs:range  xsd:positiveInteger .
+
+ontouml:x
+    a           owl:DatatypeProperty ;
+    rdfs:domain ontouml:Point ;
+    rdfs:range  xsd:decimal .
+
+ontouml:y
+    a           owl:DatatypeProperty ;
+    rdfs:domain ontouml:Point ;
+    rdfs:range  xsd:decimal .
+
+ontouml:AggregationKind
+    a                   owl:Class ;
+    owl:equivalentClass [ a         owl:Class ;
+                          owl:oneOf ( ontouml:composite
+                                      ontouml:none
+                                      ontouml:shared ) ] .
+
+ontouml:Cardinality
+    a owl:Class .
+
+ontouml:Class
+    a               owl:Class ;
+    rdfs:subClassOf ontouml:Classifier .
+
+ontouml:ClassStereotype
+    a               owl:Class ;
+    rdfs:subClassOf ontouml:Stereotype .
+
+ontouml:ClassView
+    a               owl:Class ;
+    rdfs:subClassOf ontouml:NodeView .
+
+ontouml:Classifier
+    a               owl:Class ;
+    rdfs:subClassOf ontouml:Decoratable .
+
+ontouml:ConnectorView
+    a               owl:Class ;
+    rdfs:subClassOf ontouml:ElementView .
+
+ontouml:Decoratable
+    a               owl:Class ;
+    rdfs:subClassOf ontouml:ModelElement .
+
+ontouml:Diagram
+    a               owl:Class ;
+    rdfs:subClassOf ontouml:OntoumlElement .
+
+ontouml:DiagramElement
+    a               owl:Class ;
+    rdfs:subClassOf ontouml:OntoumlElement .
+
+ontouml:ElementView
+    a               owl:Class ;
+    rdfs:subClassOf ontouml:DiagramElement .
+
+ontouml:Generalization
+    a               owl:Class ;
+    rdfs:subClassOf ontouml:ModelElement .
+
+ontouml:GeneralizationSet
+    a               owl:Class ;
+    rdfs:subClassOf ontouml:ModelElement .
+
+ontouml:GeneralizationSetView
+    a               owl:Class ;
+    rdfs:subClassOf ontouml:NodeView .
+
+ontouml:GeneralizationView
+    a               owl:Class ;
+    rdfs:subClassOf ontouml:ConnectorView .
+
+ontouml:Literal
+    a               owl:Class ;
+    rdfs:subClassOf ontouml:ModelElement .
+
+ontouml:ModelElement
+    a               owl:Class ;
+    rdfs:subClassOf ontouml:OntoumlElement .
+
+ontouml:NodeView
+    a               owl:Class ;
+    rdfs:subClassOf ontouml:ElementView .
+
+ontouml:OntologicalNature
+    a                   owl:Class ;
+    owl:equivalentClass [ a         owl:Class ;
+                          owl:oneOf ( ontouml:abstractNature
+                                      ontouml:collectiveNature
+                                      ontouml:eventNature
+                                      ontouml:extrinsicModeNature
+                                      ontouml:functionalComplexNature
+                                      ontouml:intrinsicModeNature
+                                      ontouml:qualityNature
+                                      ontouml:quantityNature
+                                      ontouml:relatorNature
+                                      ontouml:situationNature
+                                      ontouml:typeNature ) ] .
+
+ontouml:OntoumlElement
+    a owl:Class .
+
+ontouml:Package
+    a               owl:Class ;
+    rdfs:subClassOf ontouml:ModelElement .
+
+ontouml:PackageView
+    a               owl:Class ;
+    rdfs:subClassOf ontouml:NodeView .
+
+ontouml:Path
+    a               owl:Class ;
+    rdfs:subClassOf ontouml:Shape .
+
+ontouml:Point
+    a owl:Class .
+
+ontouml:Project
+    a               owl:Class ;
+    rdfs:subClassOf ontouml:OntoumlElement .
+
+ontouml:Property
+    a               owl:Class ;
+    rdfs:subClassOf ontouml:Decoratable .
+
+ontouml:PropertyStereotype
+    a               owl:Class ;
+    rdfs:subClassOf ontouml:Stereotype .
+
+ontouml:Rectangle
+    a               owl:Class ;
+    rdfs:subClassOf ontouml:RectangularShape .
+
+ontouml:RectangularShape
+    a               owl:Class ;
+    rdfs:subClassOf ontouml:Shape .
+
+ontouml:Relation
+    a               owl:Class ;
+    rdfs:subClassOf ontouml:Classifier .
+
+ontouml:RelationStereotype
+    a               owl:Class ;
+    rdfs:subClassOf ontouml:Stereotype .
+
+ontouml:RelationView
+    a               owl:Class ;
+    rdfs:subClassOf ontouml:ConnectorView .
+
+ontouml:Shape
+    a               owl:Class ;
+    rdfs:subClassOf ontouml:DiagramElement .
+
+ontouml:Stereotype
+    a owl:Class .
+
+ontouml:Text
+    a               owl:Class ;
+    rdfs:subClassOf ontouml:RectangularShape .
+
+
+ontouml:abstract
+    a owl:NamedIndividual, ontouml:ClassStereotype .
+
+ontouml:abstractNature
+    a owl:NamedIndividual, ontouml:OntologicalNature .
+
+ontouml:begin
+    a owl:NamedIndividual, ontouml:PropertyStereotype .
+
+ontouml:category
+    a owl:NamedIndividual, ontouml:ClassStereotype .
+
+ontouml:characterization
+    a owl:NamedIndividual, ontouml:RelationStereotype .
+
+ontouml:collective
+    a owl:NamedIndividual, ontouml:ClassStereotype .
+
+ontouml:collectiveNature
+    a owl:NamedIndividual, ontouml:OntologicalNature .
+
+ontouml:comparative
+    a owl:NamedIndividual, ontouml:RelationStereotype .
+
+ontouml:componentOf
+    a owl:NamedIndividual, ontouml:RelationStereotype .
+
+ontouml:composite
+    a owl:NamedIndividual, ontouml:AggregationKind .
+
+ontouml:datatype
+    a owl:NamedIndividual, ontouml:ClassStereotype .
+
+ontouml:end
+    a owl:NamedIndividual, ontouml:PropertyStereotype .
+
+ontouml:enumeration
+    a owl:NamedIndividual, ontouml:ClassStereotype .
+
+ontouml:event
+    a owl:NamedIndividual, ontouml:ClassStereotype .
+
+ontouml:eventNature
+    a owl:NamedIndividual, ontouml:OntologicalNature .
+
+ontouml:externalDependency
+    a owl:NamedIndividual, ontouml:RelationStereotype .
+
+ontouml:extrinsicModeNature
+    a owl:NamedIndividual, ontouml:OntologicalNature .
+
+ontouml:functionalComplexNature
+    a owl:NamedIndividual, ontouml:OntologicalNature .
+
+ontouml:historicalDependence
+    a owl:NamedIndividual, ontouml:RelationStereotype .
+
+ontouml:historicalRole
+    a owl:NamedIndividual, ontouml:ClassStereotype .
+
+ontouml:historicalRoleMixin
+    a owl:NamedIndividual, ontouml:ClassStereotype .
+
+ontouml:intrinsicModeNature
+    a owl:NamedIndividual, ontouml:OntologicalNature .
+
+ontouml:kind
+    a owl:NamedIndividual, ontouml:ClassStereotype .
+
+ontouml:material
+    a owl:NamedIndividual, ontouml:RelationStereotype .
+
+ontouml:mediation
+    a owl:NamedIndividual, ontouml:RelationStereotype .
+
+ontouml:memberOf
+    a owl:NamedIndividual, ontouml:RelationStereotype .
+
+ontouml:mixin
+    a owl:NamedIndividual, ontouml:ClassStereotype .
+
+ontouml:mode
+    a owl:NamedIndividual, ontouml:ClassStereotype .
+
+ontouml:none
+    a owl:NamedIndividual, ontouml:AggregationKind .
+
+ontouml:participation
+    a owl:NamedIndividual, ontouml:RelationStereotype .
+
+ontouml:participational
+    a owl:NamedIndividual, ontouml:RelationStereotype .
+
+ontouml:phase
+    a owl:NamedIndividual, ontouml:ClassStereotype .
+
+ontouml:phaseMixin
+    a owl:NamedIndividual, ontouml:ClassStereotype .
+
+ontouml:quality
+    a owl:NamedIndividual, ontouml:ClassStereotype .
+
+ontouml:qualityNature
+    a owl:NamedIndividual, ontouml:OntologicalNature .
+
+ontouml:quantity
+    a owl:NamedIndividual, ontouml:ClassStereotype .
+
+ontouml:quantityNature
+    a owl:NamedIndividual, ontouml:OntologicalNature .
+
+ontouml:relator
+    a owl:NamedIndividual, ontouml:ClassStereotype .
+
+ontouml:relatorNature
+    a owl:NamedIndividual, ontouml:OntologicalNature .
+
+ontouml:role
+    a owl:NamedIndividual, ontouml:ClassStereotype .
+
+ontouml:roleMixin
+    a owl:NamedIndividual, ontouml:ClassStereotype .
+
+ontouml:shared
+    a owl:NamedIndividual, ontouml:AggregationKind .
+
+ontouml:situation
+    a owl:NamedIndividual, ontouml:ClassStereotype .
+
+ontouml:situationNature
+    a owl:NamedIndividual, ontouml:OntologicalNature .
+
+ontouml:subCollectionOf
+    a owl:NamedIndividual, ontouml:RelationStereotype .
+
+ontouml:subQuantityOf
+    a owl:NamedIndividual, ontouml:RelationStereotype .
+
+ontouml:subkind
+    a owl:NamedIndividual, ontouml:ClassStereotype .
+
+ontouml:type
+    a owl:NamedIndividual, ontouml:ClassStereotype .
+
+ontouml:typeNature
+    a owl:NamedIndividual, ontouml:OntologicalNature .
+
+rdf:langString
+    a rdfs:Datatype .

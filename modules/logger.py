@@ -18,9 +18,14 @@ def logger_get_date_time() -> str:
     return date_time
 
 
-def initialize_logger() -> logging.Logger:
+def initialize_logger(execution_mode: str = "production") -> logging.Logger:
     """ Create and initialize logger. The created logger is called 'execution-logger'.
+    Different triggers are defined for each execution mode:
+        - production: INFO
+        - test: ERROR
 
+    :param execution_mode: Information about execution mode. Valid values are 'production' and 'test'.
+    :type execution_mode: str
     :return: Created logger called 'execution-logger'.
     :rtype: logging.Logger
     """
@@ -36,7 +41,11 @@ def initialize_logger() -> logging.Logger:
 
         # Creating CONSOLE handlers
         console_handler = logging.StreamHandler()
-        console_handler.setLevel(logging.INFO)
+
+        if execution_mode == "production":
+            console_handler.setLevel(logging.INFO)
+        else:
+            console_handler.setLevel(logging.ERROR)
 
         # If directory "/log" does not exist, create it
         # IMPORTANT: do not substitute for own error function because of circular dependency.

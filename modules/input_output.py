@@ -50,7 +50,7 @@ def safe_load_json_file(json_path: str) -> dict:
     return json_data
 
 
-def save_graph_file(ontouml_graph: Graph, json_path: str, graph_format: str) -> None:
+def save_graph_file(ontouml_graph: Graph, json_path: str, graph_format: str) -> str:
     """Saves the ontology graph into a file with syntax defined by the user.
 
     :param ontouml_graph: Graph compliant with the OntoUML Vocabulary.
@@ -61,6 +61,8 @@ def save_graph_file(ontouml_graph: Graph, json_path: str, graph_format: str) -> 
     :type json_path: str
     :param graph_format: Syntax selected by the user to save the graph.
     :type graph_format: str
+    :return: Saved output file path.
+    :rtype: str
     """
 
     # Collecting information for result file name and path
@@ -76,6 +78,8 @@ def save_graph_file(ontouml_graph: Graph, json_path: str, graph_format: str) -> 
     output_file_path = project_directory + "\\" + results_directory + "\\" + output_file_name
 
     safe_save_graph_file(ontouml_graph, output_file_path, graph_format)
+
+    return output_file_path
 
 
 def safe_save_graph_file(ontouml_graph: Graph, output_file_name: str, syntax: str) -> None:
@@ -94,5 +98,3 @@ def safe_save_graph_file(ontouml_graph: Graph, output_file_name: str, syntax: st
     except OSError as error:
         file_description = f"output graph file"
         report_error_io_write(output_file_name, file_description, error)
-
-    LOGGER.info(f"Output graph file successfully saved at {output_file_name}.")

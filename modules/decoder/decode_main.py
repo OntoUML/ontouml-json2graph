@@ -2,12 +2,10 @@
 
 from rdflib import Graph
 
-from globals import ONTOUML_URI
-from modules.decoder.decode_general import clean_null_data
-from modules.decoder.decode_project import decode_project
+from globals import ONTOUML_URI, USER_BASE_URI
+from modules.decoder.decode_general import clean_null_data, decode_dictionary
+from modules.decoder.decode_project import set_project_model, set_project_diagrams, set_project_property
 
-
-# TODO (@pedropaulofb): Every dictionary must have an id and a type. Validate.
 
 def decode_json_to_graph(json_data: dict) -> Graph:
     """ Receives the loaded JSON data and decodes it into a graph that complies to the OntoUML Vocabulary.
@@ -21,19 +19,17 @@ def decode_json_to_graph(json_data: dict) -> Graph:
     # Creating OntoUML Graph
     ontouml_graph = Graph()
     ontouml_graph.bind("ontouml", ONTOUML_URI)
+    ontouml_graph.bind("", USER_BASE_URI)
 
-    # Get clean Project and decode
+    # Get clean data
     project_data = clean_null_data(json_data)
-    decode_project(project_data, ontouml_graph)
 
-    # Get clean Model and decode
-    # if "model" in project_data.keys():
-    #     model_data = project_data["model"]
-    #     decode_models(models_data, ontouml_graph)
+    # Create all instances and set their types
+    decode_dictionary(project_data, ontouml_graph)
 
-    # Get clean Diagrams and decode
-    # if "diagrams" in project_data.keys():
-    #     diagrams_data = project_data["diagrams"]
-    #     decode_diagrams(diagrams_data, ontouml_graph)
+    set_project_model(project_data, ontouml_graph)
+    set_project_diagrams(project_data, ontouml_graph)
+
+    set_project_property(ontouml_graph)
 
     return ontouml_graph
