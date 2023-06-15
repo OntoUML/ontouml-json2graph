@@ -1,4 +1,5 @@
 """ Main test function. """
+from pathlib import Path
 
 import pytest
 
@@ -19,6 +20,8 @@ def test_ontouml_json2graph(input_file: str) -> None:
     :type input_file: str
     """
 
+    test_name = Path(input_file).stem
+
     # Create resulting Graph in ttl syntax
     resulting_graph_file = ontouml_json2graph(input_file, "ttl", "test")
 
@@ -26,6 +29,6 @@ def test_ontouml_json2graph(input_file: str) -> None:
     expected_graph_file = input_file.replace(".json", ".ttl")
 
     # Comparing resulting and expected graphs
-    is_equal = compare_graphs(resulting_graph_file, expected_graph_file)
+    is_equal = compare_graphs(resulting_graph_file, expected_graph_file, test_name)
 
     assert is_equal

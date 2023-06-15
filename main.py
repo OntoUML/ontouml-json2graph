@@ -60,10 +60,3 @@ if __name__ == '__main__':
 
     # Execute
     ontouml_json2graph(json_path, graph_format, "production")
-
-# TODO (@pedropaulofb): Use validator for JSON (https://json-schema.org/implementations.html#validator-python)
-# TODO (@pedropaulofb): Use validator for Graph (https://pypi.org/project/pyshacl/)
-# TODO (@pedropaulofb): Create argument for defining base URI
-# TODO (@pedropaulofb): Create argument for defining ontology's language tag (@en, @pt-br, etc.).
-#  Default is to generate without language tag.
-# TODO (@pedropaulofb): Create an option to update the resource/ontouml.ttl

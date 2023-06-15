@@ -62,5 +62,5 @@ def set_project_diagrams(project_data: dict, ontouml_graph: Graph) -> None:
     """
 
     if "diagrams" in project_data.keys():
-        # TODO ()
+        # TBD
         pass
