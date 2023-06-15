@@ -1,9 +1,9 @@
 """ Main test function. """
 
 import pytest
+from tests.test_aux import compare_graphs, get_test_list
 
 from ontouml_json2graph import ontouml_json2graph
-from tests.test_aux import compare_graphs, get_test_list
 
 LIST_OF_TESTS = get_test_list()
 

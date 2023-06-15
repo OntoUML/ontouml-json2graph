@@ -1,5 +1,4 @@
 """ Main file for ontouml-json2graph. """
-import glob
 import time
 
 from modules.arguments import treat_user_arguments
@@ -54,9 +53,6 @@ def ontouml_json2graph(json_path: str, graph_format: str, execution_mode: str = 
 
 
 if __name__ == '__main__':
-    get_test_list()
-    exit(3)
-
     # Treat arguments
     arguments_dictionary = treat_user_arguments()
     json_path = arguments_dictionary["json_path"]
