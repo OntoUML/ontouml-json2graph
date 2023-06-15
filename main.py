@@ -34,8 +34,6 @@ def ontouml_json2graph(json_path: str, graph_format: str, execution_mode: str = 
     # Load JSON
     json_data = safe_load_json_file(json_path)
 
-    print(json_data)
-
     # Decode JSON into Graph
     ontouml_graph = decode_json_to_graph(json_data)
 
