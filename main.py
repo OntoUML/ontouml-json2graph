@@ -3,7 +3,7 @@ import time
 
 from modules.arguments import treat_user_arguments
 from modules.decoder.decode_main import decode_json_to_graph
-from modules.input_output import safe_load_json_file, save_graph_file
+from modules.input_output import safe_load_json_file, write_graph_file
 from modules.logger import initialize_logger
 from modules.utils import get_date_time
 
@@ -17,7 +17,7 @@ def ontouml_json2graph(json_path: str, graph_format: str, execution_mode: str = 
     :type graph_format: str
     :param execution_mode: Information about execution mode. Valid values are 'production' (default) and 'test'.
     :type execution_mode: str
-    :return: Saved output file path.
+    :return: Saved output file path. Used for testing.
     :rtype: str
     """
 
@@ -34,6 +34,8 @@ def ontouml_json2graph(json_path: str, graph_format: str, execution_mode: str = 
     # Load JSON
     json_data = safe_load_json_file(json_path)
 
+    print(json_data)
+
     # Decode JSON into Graph
     ontouml_graph = decode_json_to_graph(json_data)
 
@@ -46,7 +48,7 @@ def ontouml_json2graph(json_path: str, graph_format: str, execution_mode: str = 
         logger.info(f"Decoding concluded on {end_date_time}. Total execution time: {elapsed_time} seconds.")
 
     # Save graph as specified format
-    output_file_path = save_graph_file(ontouml_graph, json_path, graph_format)
+    output_file_path = write_graph_file(ontouml_graph, json_path, graph_format)
     logger.info(f"Output graph file successfully saved at {output_file_path}.")
 
     return output_file_path

@@ -4,7 +4,7 @@ import glob
 from rdflib import Graph
 from rdflib.compare import graph_diff, to_isomorphic
 
-from modules.input_output import safe_save_graph_file
+from modules.input_output import safe_write_graph_file
 from modules.utils import load_all_graph_safely
 
 
@@ -38,9 +38,9 @@ def print_graphs_differences(iso_result_graph: Graph, iso_expected_graph: Graph)
 
     base_path = "C:\\Users\\PFavatoBarcelos\\Dev\\Work\\ontouml-json2graph\\tests\\test_files\\"
 
-    safe_save_graph_file(in_both, base_path + "test_both.ttl", "ttl")
-    safe_save_graph_file(in_resulting, base_path + "test_or.ttl", "ttl")
-    safe_save_graph_file(in_expected, base_path + "test_oe.ttl", "ttl")
+    safe_write_graph_file(in_both, base_path + "test_both.ttl", "ttl")
+    safe_write_graph_file(in_resulting, base_path + "test_or.ttl", "ttl")
+    safe_write_graph_file(in_expected, base_path + "test_oe.ttl", "ttl")
 
 
 def compare_graphs(resulting_graph_path: str, expected_graph_path: str) -> bool:

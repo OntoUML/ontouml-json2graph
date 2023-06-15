@@ -50,13 +50,11 @@ def safe_load_json_file(json_path: str) -> dict:
     return json_data
 
 
-def save_graph_file(ontouml_graph: Graph, json_path: str, graph_format: str) -> str:
+def write_graph_file(ontouml_graph: Graph, json_path: str, graph_format: str) -> str:
     """Saves the ontology graph into a file with syntax defined by the user.
 
     :param ontouml_graph: Graph compliant with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
-    :param end_date_time_file: String containing the software's execution end date and time.
-    :type end_date_time_file: str
     :param json_path: Path to the input json file.
     :type json_path: str
     :param graph_format: Syntax selected by the user to save the graph.
@@ -77,12 +75,12 @@ def save_graph_file(ontouml_graph: Graph, json_path: str, graph_format: str) -> 
     output_file_name = loaded_file_name + "." + graph_format
     output_file_path = project_directory + "\\" + results_directory + "\\" + output_file_name
 
-    safe_save_graph_file(ontouml_graph, output_file_path, graph_format)
+    safe_write_graph_file(ontouml_graph, output_file_path, graph_format)
 
     return output_file_path
 
 
-def safe_save_graph_file(ontouml_graph: Graph, output_file_name: str, syntax: str) -> None:
+def safe_write_graph_file(ontouml_graph: Graph, output_file_name: str, syntax: str) -> None:
     """ Safely saves the graph into a file in the informed destination with the desired syntax.
 
     :param ontouml_graph: Graph compliant with the OntoUML Vocabulary.

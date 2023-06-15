@@ -21,16 +21,17 @@ def treat_user_arguments() -> dict:
     about_message = SOFTWARE_ACRONYM + " - version " + SOFTWARE_VERSION
 
     # PARSING ARGUMENTS
-    arguments_parser = argparse.ArgumentParser(prog="ontouml-json2graph",
+    arguments_parser = argparse.ArgumentParser(prog=SOFTWARE_ACRONYM,
                                                description=SOFTWARE_NAME + ". Version: " + SOFTWARE_VERSION,
                                                allow_abbrev=False, epilog="More information at: " + SOFTWARE_URL)
 
     arguments_parser.version = about_message
 
     # POSITIONAL ARGUMENT
-    arguments_parser.add_argument("json_file", type=str, action="store", help="The path of the json file to be loaded.")
+    arguments_parser.add_argument("json_file", type=str, action="store",
+                                  help="The path of the JSON file to be encoded.")
 
-    # OPTION ARGUMENT
+    # OPTIONAL ARGUMENT
     arguments_parser.add_argument("-f", "--format", action="store", choices=ALLOWED_GRAPH_FORMATS, default="ttl",
                                   help="Format to save the decoded file. Default is 'ttl'.")
 
