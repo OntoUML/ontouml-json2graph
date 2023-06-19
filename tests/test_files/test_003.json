@@ -1,0 +1,22 @@
+{
+  "id" : "dGSNHRGFS_j2pAvw",
+  "name" : "MyTestModel",
+  "description" : null,
+  "type" : "Project",
+  "model" : {
+    "id" : "dGSNHRGFS_j2pAvw_root",
+    "name" : "MyTestModel",
+    "description" : null,
+    "type" : "Package",
+    "propertyAssignments" : null,
+    "contents" : [ {
+      "id" : "zRudyxGFS_j2pAmH",
+      "name" : "MyPackage",
+      "description" : null,
+      "type" : "Package",
+      "propertyAssignments" : null,
+      "contents" : null
+    } ]
+  },
+  "diagrams" : null
+}

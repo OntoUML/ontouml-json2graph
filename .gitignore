@@ -169,3 +169,8 @@ cython_debug/
 /logs/
 /results/
 /.idea/workspace.xml
+
+*vpp*bak*
+*vpp*lck*
+
+/.idea/sonarlint/*
