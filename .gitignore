@@ -125,6 +125,7 @@ celerybeat.pid
 .venv
 env/
 venv/
+/venv/
 ENV/
 env.bak/
 venv.bak/
@@ -169,8 +170,9 @@ cython_debug/
 /logs/
 /results/
 /.idea/workspace.xml
+/.idea/sonarlint/*
 
+# Vistual Paradigm files for testing
 *vpp*bak*
 *vpp*lck*
 
-/.idea/sonarlint/*

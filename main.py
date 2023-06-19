@@ -5,7 +5,7 @@ from modules.arguments import treat_user_arguments
 from modules.decoder.decode_main import decode_json_to_graph
 from modules.input_output import safe_load_json_file, write_graph_file
 from modules.logger import initialize_logger
-from modules.utils import get_date_time
+from modules.utils_general import get_date_time
 
 
 def ontouml_json2graph(json_path: str, graph_format: str, execution_mode: str = "production") -> str:

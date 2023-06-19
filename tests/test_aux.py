@@ -5,7 +5,7 @@ from rdflib import Graph
 from rdflib.compare import graph_diff, to_isomorphic
 
 from modules.input_output import safe_write_graph_file
-from modules.utils import load_all_graph_safely
+from modules.utils_graph import load_all_graph_safely
 
 
 def get_test_list() -> list[str]:

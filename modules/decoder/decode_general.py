@@ -2,7 +2,7 @@
 
 from rdflib import Graph, URIRef, RDF, Literal
 
-from globals import USER_BASE_URI, ONTOUML_URI
+from globals import ONTOLOGY_URI, ONTOUML_URI
 
 
 def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph) -> None:
@@ -16,7 +16,7 @@ def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph) -> None:
     """
 
     # Creating instance
-    instance_uri = USER_BASE_URI + dictionary_data["id"]
+    instance_uri = ONTOLOGY_URI + dictionary_data["id"]
     new_instance = URIRef(instance_uri)
 
     # Setting instance type
@@ -28,6 +28,12 @@ def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph) -> None:
 
         # id and type were already treated and are skipped
         if key == "id" or key == "type":
+            continue
+
+        # Recursively treats sub-dictionaries inside lists
+        if type(dictionary_data[key]) is list:
+            for item in dictionary_data[key]:
+                decode_dictionary(item, ontouml_graph)
             continue
 
         # Recursively treats sub-dictionaries
@@ -53,6 +59,13 @@ def clean_null_data(dictionary_data) -> dict:
 
     # Using list() to force a copy of the keys. Avoids "RuntimeError: dictionary changed size during iteration".
     for key in list(dictionary_data.keys()):
+
+        # Recursively treats sub-dictionaries inside lists
+        if type(dictionary_data[key]) is list:
+            for item in dictionary_data[key]:
+                clean_null_data(item)
+
+        # Recursively treats sub-dictionaries
         if type(dictionary_data[key]) is dict:
             clean_null_data(dictionary_data[key])
 
