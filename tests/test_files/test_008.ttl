@@ -1,0 +1,55 @@
+@prefix :        <https://example.org#>.
+@prefix ontouml: <https://w3id.org/ontouml#>.
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl:     <http://www.w3.org/2002/07/owl#>.
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#>.
+
+:dGSNHRGFS_j2pAvw
+    rdf:type        ontouml:Project ;
+    ontouml:name    "MyTestModel" ;
+    ontouml:model   :dGSNHRGFS_j2pAvw_root ;
+    ontouml:diagram :k8p6WxGFS_j2pApt, <https://example.org#8tD6WxGFS_j2pAqD>, :rmX6WxGFS_j2pAqf .
+
+:dGSNHRGFS_j2pAvw_root
+    rdf:type                     ontouml:Package ;
+    ontouml:project              :dGSNHRGFS_j2pAvw ;
+    ontouml:name                 "MyTestModel" ;
+    ontouml:containsModelElement <https://example.org#7cxaWxGFS_j2pAoO>, :n4ZaWxGFS_j2pAoS .
+
+<https://example.org#7cxaWxGFS_j2pAoO>
+    rdf:type                     ontouml:Package ;
+    ontouml:project              :dGSNHRGFS_j2pAvw ;
+    ontouml:name                 "MyPackage" ;
+    ontouml:containsModelElement <https://example.org#.XQ6WxGFS_j2pAor> .
+
+:n4ZaWxGFS_j2pAoS
+    rdf:type                     ontouml:Package ;
+    ontouml:project              :dGSNHRGFS_j2pAvw ;
+    ontouml:name                 "MyModel" ;
+    ontouml:containsModelElement :g2A6WxGFS_j2pAol .
+
+<https://example.org#.XQ6WxGFS_j2pAor>
+    rdf:type        ontouml:Package ;
+    ontouml:project :dGSNHRGFS_j2pAvw ;
+    ontouml:name    "MyPackage3" .
+
+:g2A6WxGFS_j2pAol
+    rdf:type        ontouml:Package ;
+    ontouml:project :dGSNHRGFS_j2pAvw ;
+    ontouml:name    "MyPackage2" .
+
+:k8p6WxGFS_j2pApt
+    rdf:type        ontouml:Diagram ;
+    ontouml:project :dGSNHRGFS_j2pAvw ;
+    ontouml:name    "MyModelClassDiagram1" .
+
+<https://example.org#8tD6WxGFS_j2pAqD>
+    rdf:type        ontouml:Diagram ;
+    ontouml:project :dGSNHRGFS_j2pAvw ;
+    ontouml:name    "MyPackageClassDiagram1" .
+
+:rmX6WxGFS_j2pAqf
+    rdf:type        ontouml:Diagram ;
+    ontouml:project :dGSNHRGFS_j2pAvw ;
+    ontouml:name    "MyPackage3ClassDiagram" .

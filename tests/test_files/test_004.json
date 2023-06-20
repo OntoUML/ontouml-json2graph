@@ -11,8 +11,16 @@
     "propertyAssignments": null,
     "contents": [
       {
-        "id": "zRudyxGFS_j2pAmH",
+        "id": "7cxaWxGFS_j2pAoO",
         "name": "MyPackage",
+        "description": null,
+        "type": "Package",
+        "propertyAssignments": null,
+        "contents": null
+      },
+      {
+        "id": "n4ZaWxGFS_j2pAoS",
+        "name": "MyModel",
         "description": null,
         "type": "Package",
         "propertyAssignments": null,

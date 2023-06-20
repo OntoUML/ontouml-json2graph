@@ -1,0 +1,50 @@
+{
+  "id": "dGSNHRGFS_j2pAvw",
+  "name": "MyTestModel",
+  "description": null,
+  "type": "Project",
+  "model": {
+    "id": "dGSNHRGFS_j2pAvw_root",
+    "name": "MyTestModel",
+    "description": null,
+    "type": "Package",
+    "propertyAssignments": null,
+    "contents": [
+      {
+        "id": "7cxaWxGFS_j2pAoO",
+        "name": "MyPackage",
+        "description": null,
+        "type": "Package",
+        "propertyAssignments": null,
+        "contents": [
+          {
+            "id": ".XQ6WxGFS_j2pAor",
+            "name": "MyPackage3",
+            "description": null,
+            "type": "Package",
+            "propertyAssignments": null,
+            "contents": null
+          }
+        ]
+      },
+      {
+        "id": "n4ZaWxGFS_j2pAoS",
+        "name": "MyModel",
+        "description": null,
+        "type": "Package",
+        "propertyAssignments": null,
+        "contents": [
+          {
+            "id": "g2A6WxGFS_j2pAol",
+            "name": "MyPackage2",
+            "description": null,
+            "type": "Package",
+            "propertyAssignments": null,
+            "contents": null
+          }
+        ]
+      }
+    ]
+  },
+  "diagrams": null
+}

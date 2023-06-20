@@ -6,5 +6,5 @@
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#>.
 
 :dGSNHRGFS_j2pAvw
-    rdf:type      ontouml:Project ;
-    ontouml:name  "MyTestModel" .
+    rdf:type     ontouml:Project ;
+    ontouml:name "MyTestModel" .
