@@ -1,5 +1,34 @@
 """ Functions to decode specificities of the object Project. """
-from rdflib import Graph
+from rdflib import Graph, URIRef
+
+from globals import URI_ONTOLOGY, URI_ONTOUML
+from modules.utils_graph import get_all_ids_for_type
+
+
+def get_package_contents(dictionary_data: dict, package_id: str) -> list[dict]:
+    """ Returns the value of the 'contents' field for the given Package (received as an id).
+
+    :param dictionary_data: Dictionary to have its fields decoded.
+    :type dictionary_data: dict
+    :param package_id: ID of the Package to have its list of contents returned.
+    :type package_id: str
+    :return: List of contents for a given Package.
+    :rtype: list[dict]
+    """
+
+    list_contents = []
+
+    # End of recursion
+    if dictionary_data["id"] == package_id and "contents" in dictionary_data:
+        list_contents = dictionary_data["contents"].copy()
+
+    else:
+        # Recursively treats sub-dictionaries
+        for key in dictionary_data.keys():
+            if type(dictionary_data[key]) is dict:
+                list_contents = get_package_contents(dictionary_data[key], package_id)
+
+    return list_contents
 
 
 def set_package_containsmodelelement_property(dictionary_data: dict, ontouml_graph: Graph) -> None:
@@ -11,14 +40,28 @@ def set_package_containsmodelelement_property(dictionary_data: dict, ontouml_gra
     :type ontouml_graph: Graph
     """
 
-    # Get ids of all objects Package
-    list_package_ids = get_
+    # Get ids of all objects of type Package
+    list_package_ids = get_all_ids_for_type(ontouml_graph, "Package")
 
+    # For each Package (known ids):
+    for package_id in list_package_ids:
+        # Get the list inside the 'contents' key
+        package_id_contents_list = get_package_contents(dictionary_data, package_id)
 
-    # For each object, get the list inside the 'contents' key and filter all ids there available.
-    # Set containsModelElement relation between the Project object id and these ids.
+        # If list is empty, do nothing
+        if not package_id_contents_list:
+            continue
 
-    pass
+        # Create a list of all ids inside the returned list
+        list_related_ids = []
+        for content in package_id_contents_list:
+            list_related_ids.append(content["id"])
+
+        # Include found related elements in graph using ontouml:containsModelElement
+        for related_id in list_related_ids:
+            ontouml_graph.add((URIRef(URI_ONTOLOGY + package_id),
+                               URIRef(URI_ONTOUML + "containsModelElement"),
+                               URIRef(URI_ONTOLOGY + related_id)))
 
 
 def create_package_properties(dictionary_data: dict, ontouml_graph: Graph) -> None:

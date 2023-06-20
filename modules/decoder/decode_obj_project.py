@@ -2,7 +2,7 @@
 
 from rdflib import Graph, URIRef, RDF
 
-from globals import ONTOUML_URI, ONTOLOGY_URI
+from globals import URI_ONTOUML, URI_ONTOLOGY
 from modules.sparql_queries import NOT_PROJECT_ELEMENTS
 from modules.utils_graph import load_all_graph_safely
 
@@ -15,19 +15,16 @@ def set_project_project_properties(ontouml_graph: Graph) -> None:
     """
 
     # Get Project
-    graph_project = ontouml_graph.value(predicate=RDF.type, object=URIRef(ONTOUML_URI + 'Project'))
+    graph_project = ontouml_graph.value(predicate=RDF.type, object=URIRef(URI_ONTOUML + 'Project'))
 
-    # If there is a project
-    if graph_project:
+    # Getting all OntoUML Elements that are not Project
+    ontouml_meta_graph = load_all_graph_safely("resources/ontouml.ttl")
+    aggregated_graph = ontouml_meta_graph + ontouml_graph
+    query_answer = aggregated_graph.query(NOT_PROJECT_ELEMENTS)
 
-        # Getting all OntoUML Elements that are not Project
-        ontouml_meta_graph = load_all_graph_safely("resources/ontouml.ttl")
-        aggregated_graph = ontouml_meta_graph + ontouml_graph
-        query_answer = aggregated_graph.query(NOT_PROJECT_ELEMENTS)
-
-        # Setting all not-Project OntoumlElements to the got Project via ontouml:project
-        for row in query_answer:
-            ontouml_graph.add((row.inst, URIRef(ONTOUML_URI + "project"), graph_project))
+    # Setting all not-Project OntoumlElements to the got Project via ontouml:project
+    for row in query_answer:
+        ontouml_graph.add((row.inst, URIRef(URI_ONTOUML + "project"), graph_project))
 
 
 def set_project_model_property(project_data: dict, ontouml_graph: Graph) -> None:
@@ -40,9 +37,9 @@ def set_project_model_property(project_data: dict, ontouml_graph: Graph) -> None
     """
 
     if "model" in project_data.keys():
-        statement_subject = URIRef(ONTOLOGY_URI + project_data["id"])
-        statement_predicate = URIRef(ONTOUML_URI + "model")
-        statement_object = URIRef(ONTOLOGY_URI + project_data["model"]["id"])
+        statement_subject = URIRef(URI_ONTOLOGY + project_data["id"])
+        statement_predicate = URIRef(URI_ONTOUML + "model")
+        statement_object = URIRef(URI_ONTOLOGY + project_data["model"]["id"])
         ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
 

@@ -2,7 +2,35 @@
 
 from rdflib import Graph, URIRef, RDF, Literal
 
-from globals import ONTOLOGY_URI, ONTOUML_URI
+from globals import URI_ONTOLOGY, URI_ONTOUML
+from modules.sparql_queries import GET_ELEMENT_AND_TYPE
+from modules.utils_graph import load_all_graph_safely
+
+
+def count_elements(ontouml_graph: Graph) -> dict:
+    """ Returns a dictionary with all element types on graphs and their respective quantity.
+
+    :param ontouml_graph: Knowledge graph with loaded objects' ids and types
+    :type ontouml_graph: Graph
+    :return: Dictionary with types and respective quantities present on graph.
+    :rtype: dict
+    """
+
+    element_counting = {}
+
+    ontouml_meta_graph = load_all_graph_safely("resources/ontouml.ttl")
+    aggregated_graph = ontouml_meta_graph + ontouml_graph
+    query_answer = aggregated_graph.query(GET_ELEMENT_AND_TYPE)
+
+    for row in query_answer:
+        element_type = row.inst_type.toPython().replace(URI_ONTOUML, "")
+
+        if element_type in element_counting:
+            element_counting[element_type] += 1
+        else:
+            element_counting[element_type] = 1
+
+    return element_counting
 
 
 def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph) -> None:
@@ -16,17 +44,17 @@ def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph) -> None:
     """
 
     # Creating instance
-    instance_uri = ONTOLOGY_URI + dictionary_data["id"]
+    instance_uri = URI_ONTOLOGY + dictionary_data["id"]
     new_instance = URIRef(instance_uri)
 
     # Setting instance type
-    instance_type = URIRef(ONTOUML_URI + dictionary_data["type"])
+    instance_type = URIRef(URI_ONTOUML + dictionary_data["type"])
     ontouml_graph.add((new_instance, RDF.type, instance_type))
 
     # Adding other attributes
     for key in dictionary_data.keys():
 
-        # id and type were already treated and are skipped
+        # if id or type was already treated, skip
         if key == "id" or key == "type":
             continue
 
@@ -41,7 +69,7 @@ def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph) -> None:
             decode_dictionary(dictionary_data[key], ontouml_graph)
             continue
 
-        new_predicate = URIRef(ONTOUML_URI + key)
+        new_predicate = URIRef(URI_ONTOUML + key)
         new_object = Literal(dictionary_data[key])
         ontouml_graph.add((new_instance, new_predicate, new_object))
 

@@ -1,6 +1,8 @@
-from rdflib import Graph, URIRef
+""" Util functions related to graphs. """
 
-from globals import ONTOUML_URI, ONTOLOGY_URI
+from rdflib import Graph, URIRef, RDF
+
+from globals import URI_ONTOUML, URI_ONTOLOGY
 from modules.errors import report_error_io_read
 from modules.utils_general import LOGGER
 
@@ -27,7 +29,6 @@ def load_all_graph_safely(ontology_file: str) -> Graph:
     return ontology_graph
 
 
-# TODO (@pedropaulofb): PAREI AQUI! VALIDAR!
 def get_all_ids_for_type(ontology_graph: Graph, element_type: str) -> list[str]:
     """ Queries the graph for all elements of the given element_type and returns a list of their ids.
 
@@ -39,9 +40,9 @@ def get_all_ids_for_type(ontology_graph: Graph, element_type: str) -> list[str]:
 
     list_of_ids_of_type = []
 
-    # Getting all OntoUML Elements that are not Project
-    for s, p, o in ontology_graph.triples((None, URIRef(ONTOUML_URI + "type"), URIRef(ONTOLOGY_URI + element_type))):
-        for element_id in ontology_graph.objects((s, URIRef(ONTOUML_URI + "id"))):
-            list_of_ids_of_type.append(element_id)
+    # Getting the ID of all OntoUML Elements that are of element_type
+    for element in ontology_graph.subjects(RDF.type, URIRef(URI_ONTOUML + element_type)):
+        element = element.toPython().replace(URI_ONTOLOGY, "")
+        list_of_ids_of_type.append(element)
 
     return list_of_ids_of_type
