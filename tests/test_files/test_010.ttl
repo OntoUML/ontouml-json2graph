@@ -6,30 +6,30 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 
 :dGSNHRGFS_j2pAvw rdf:type ontouml:Project;
-    ontouml:name "MyTestModel"@en;
+    ontouml:name "MyTestModel";
     ontouml:model :dGSNHRGFS_j2pAvw_root;
     ontouml:diagram :k8p6WxGFS_j2pApt, :8tD6WxGFS_j2pAqD, :rmX6WxGFS_j2pAqf, :7duFxGFS_j2pAm7.
 :dGSNHRGFS_j2pAvw_root rdf:type ontouml:Package;
     ontouml:project :dGSNHRGFS_j2pAvw;
-    ontouml:name "MyTestModel"@en;
+    ontouml:name "MyTestModel";
     ontouml:containsModelElement :7cxaWxGFS_j2pAoO, :n4ZaWxGFS_j2pAoS.
 :7cxaWxGFS_j2pAoO rdf:type ontouml:Package;
     ontouml:project :dGSNHRGFS_j2pAvw;
-    ontouml:name "MyPackage"@en;
+    ontouml:name "MyPackage";
     ontouml:containsModelElement :XQ6WxGFS_j2pAor.
 :n4ZaWxGFS_j2pAoS rdf:type ontouml:Package;
     ontouml:project :dGSNHRGFS_j2pAvw;
-    ontouml:name "MyModel"@en;
+    ontouml:name "MyModel";
     ontouml:containsModelElement :g2A6WxGFS_j2pAol, :gGhuFxGFS_j2pAmk.
 :XQ6WxGFS_j2pAor rdf:type ontouml:Package;
     ontouml:project :dGSNHRGFS_j2pAvw;
-    ontouml:name "MyPackage3"@en.
+    ontouml:name "MyPackage3".
 :g2A6WxGFS_j2pAol rdf:type ontouml:Package;
     ontouml:project :dGSNHRGFS_j2pAvw;
-    ontouml:name "MyPackage2"@en.
+    ontouml:name "MyPackage2".
 :gGhuFxGFS_j2pAmk rdf:type ontouml:Class;
     ontouml:project :dGSNHRGFS_j2pAvw;
-    ontouml:name "MyClass1"@en;
+    ontouml:name "MyClass1";
     ontouml:isAbstract "false"^^xsd:boolean;
     ontouml:isDerived "false"^^xsd:boolean;
     ontouml:isExtensional "false"^^xsd:boolean;
@@ -37,20 +37,20 @@
     ontouml:order "1"^^xsd:positiveInteger.
 :k8p6WxGFS_j2pApt rdf:type ontouml:Diagram;
     ontouml:project :dGSNHRGFS_j2pAvw;
-    ontouml:name "MyModelClassDiagram1"@en;
+    ontouml:name "MyModelClassDiagram1";
     ontouml:containsView :b6huFxGFS_j2pAmj;
     ontouml:owner :n4ZaWxGFS_j2pAoS.
 :8tD6WxGFS_j2pAqD rdf:type ontouml:Diagram;
     ontouml:project :dGSNHRGFS_j2pAvw;
-    ontouml:name "MyPackageClassDiagram1"@en;
+    ontouml:name "MyPackageClassDiagram1";
     ontouml:owner :7cxaWxGFS_j2pAoO.
 :rmX6WxGFS_j2pAqf rdf:type ontouml:Diagram;
     ontouml:project :dGSNHRGFS_j2pAvw;
-    ontouml:name "MyPackage3ClassDiagram"@en;
+    ontouml:name "MyPackage3ClassDiagram";
     ontouml:owner :XQ6WxGFS_j2pAor.
 :7duFxGFS_j2pAm7 rdf:type ontouml:Diagram;
     ontouml:project :dGSNHRGFS_j2pAvw;
-    ontouml:name "MyClass1ClassDiagram"@en;
+    ontouml:name "MyClass1ClassDiagram";
     ontouml:owner :gGhuFxGFS_j2pAmk.
 :b6huFxGFS_j2pAmj rdf:type ontouml:ClassView;
     ontouml:project :dGSNHRGFS_j2pAvw;
