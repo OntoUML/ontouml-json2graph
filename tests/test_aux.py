@@ -39,6 +39,7 @@ def print_graphs_differences(iso_result_graph: Graph, iso_expected_graph: Graph,
     in_both, in_resulting, in_expected = graph_diff(iso_result_graph, iso_expected_graph)
 
     base_path = "results/"
+
     safe_write_graph_file(in_both, base_path + test_name + "_both.ttl", "ttl")
     safe_write_graph_file(in_resulting, base_path + test_name + "_only_result.ttl", "ttl")
     safe_write_graph_file(in_expected, base_path + test_name + "_only_expect.ttl", "ttl")

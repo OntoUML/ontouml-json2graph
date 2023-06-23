@@ -1,21 +1,21 @@
 """ Functions to decode specificities of the object Project. """
-from pprint import pprint
 
 from rdflib import Graph, URIRef
 
 from globals import URI_ONTOLOGY, URI_ONTOUML
-from modules.errors import report_error_requirement_not_met
 from modules.utils_graph import get_all_ids_for_type
 
 
 def get_package_contents(dictionary_data: dict, package_id: str, list_contents: list = []) -> list[dict]:
     """ Receives the dictionary with all loaded JSON data and returns the value of the 'contents' field for a given
-    Package (received as an id).
+    object (defined by the received value of its ID).
 
     :param dictionary_data: Dictionary to have its fields decoded.
     :type dictionary_data: dict
     :param package_id: ID of the Package to have its list of contents returned.
     :type package_id: str
+    :param list_contents: Optional. Used to identify if the desired value was already found and exit recursion.
+    :type list_contents: list
     :return: List of contents for a given Package.
     :rtype: list[dict]
     """
@@ -30,7 +30,7 @@ def get_package_contents(dictionary_data: dict, package_id: str, list_contents: 
     # Recursively treats sub-dictionaries
     else:
 
-        if list_contents != []:
+        if list_contents:
             return list_contents
 
         for key in dictionary_data.keys():
@@ -43,6 +43,7 @@ def get_package_contents(dictionary_data: dict, package_id: str, list_contents: 
             elif type(dictionary_data[key]) is list:
                 for item in dictionary_data[key]:
                     list_contents = get_package_contents(item, package_id, list_contents)
+
                     if list_contents:
                         break
 

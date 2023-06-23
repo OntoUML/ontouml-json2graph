@@ -3,7 +3,8 @@
 from rdflib import Graph
 
 from globals import URI_ONTOUML, URI_ONTOLOGY
-from modules.decoder.decode_general import clean_null_data, decode_dictionary, count_elements
+from modules.decoder.decode_utils import clean_null_data, decode_dictionary, count_elements
+from modules.decoder.decode_obj_diagram import create_diagram_properties
 from modules.decoder.decode_obj_package import create_package_properties
 from modules.decoder.decode_obj_project import create_project_properties
 
@@ -34,8 +35,10 @@ def decode_json_to_graph(json_data: dict) -> Graph:
 
     # SPECIFIC DECODING: create specific properties according to different object types
     if "Project" in element_counting:
-        create_project_properties(dictionary_data, ontouml_graph)
+        create_project_properties(dictionary_data, ontouml_graph, element_counting)
     if "Package" in element_counting:
         create_package_properties(dictionary_data, ontouml_graph)
+    if "Diagram" in element_counting:
+        create_diagram_properties(dictionary_data, ontouml_graph)
 
     return ontouml_graph

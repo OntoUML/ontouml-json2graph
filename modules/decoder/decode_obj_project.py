@@ -1,72 +1,104 @@
 """ Functions to decode specificities of the object Project. """
 
-from rdflib import Graph, URIRef, RDF
+from rdflib import Graph, URIRef
 
 from globals import URI_ONTOUML, URI_ONTOLOGY
-from modules.sparql_queries import NOT_PROJECT_ELEMENTS
-from modules.utils_graph import load_all_graph_safely
+from modules.decoder.decode_utils import get_all_ids_of_specific_type, get_subdictionary_for_specific_id
 
 
-def set_project_project_properties(ontouml_graph: Graph) -> None:
-    """ Sets ontouml:project object property between Project and its related elements.
+def set_project_project_properties(project_id: str, project_data: dict, ontouml_graph: Graph,
+                                   element_counting: dict) -> None:
+    """ Sets the ontouml:project object property between a ontouml:Project (obj) and all its related entities (subj).
 
+    :param project_id: ID of the Project being treated.
+    :type project_id: str
+    :param project_data: Project's data to have its fields decoded.
+    :type project_data: dict
+    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary
+    :type ontouml_graph: Graph
+    :param element_counting: Dictionary with types and respective quantities present on graph.
+    :type element_counting: dict
+    """
+
+    # The list of available types can be found in the element_counting dictionary.
+    for available_type in element_counting.keys():
+
+        # Projects do not have project properties with other projects
+        if available_type == "Project":
+            continue
+
+        # Get every project's related objects' ids
+        list_objects_ids = get_all_ids_of_specific_type(project_data, available_type)
+
+        for json_object_id in list_objects_ids:
+            statement_subject = URIRef(URI_ONTOLOGY + json_object_id)
+            statement_predicate = URIRef(URI_ONTOUML + "project")
+            statement_object = URIRef(URI_ONTOLOGY + project_id)
+            ontouml_graph.add((statement_subject, statement_predicate, statement_object))
+
+
+def set_project_model_property(project_id: str, project_data: dict, ontouml_graph: Graph) -> None:
+    """ Sets ontouml:model relation between an ontouml:Project and its related model.
+
+    :param project_id: ID of the Project being treated.
+    :type project_id: str
+    :param project_data: Project's data to have its fields decoded.
+    :type project_data: dict
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary
     :type ontouml_graph: Graph
     """
 
-    # Get Project
-    graph_project = ontouml_graph.value(predicate=RDF.type, object=URIRef(URI_ONTOUML + 'Project'))
-
-    # Getting all OntoUML Elements that are not Project
-    ontouml_meta_graph = load_all_graph_safely("resources/ontouml.ttl")
-    aggregated_graph = ontouml_meta_graph + ontouml_graph
-    query_answer = aggregated_graph.query(NOT_PROJECT_ELEMENTS)
-
-    # Setting all not-Project OntoumlElements to the got Project via ontouml:project
-    for row in query_answer:
-        ontouml_graph.add((row.inst, URIRef(URI_ONTOUML + "project"), graph_project))
-
-
-def set_project_model_property(project_data: dict, ontouml_graph: Graph) -> None:
-    """ Sets ontouml:model relation between a Project and its related model.
-
-    :param project_data: Inputted JSON's clean dictionary.
-    :type project_data: str
-    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary
-    :type ontouml_graph: Graph
-    """
-
-    if "model" in project_data.keys():
-        statement_subject = URIRef(URI_ONTOLOGY + project_data["id"])
+    if "model" in project_data:
+        statement_subject = URIRef(URI_ONTOLOGY + project_id)
         statement_predicate = URIRef(URI_ONTOUML + "model")
         statement_object = URIRef(URI_ONTOLOGY + project_data["model"]["id"])
         ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
 
-def set_project_diagrams_properties(project_data: dict, ontouml_graph: Graph) -> None:
-    """ Sets relations between Project and its related diagrams.
+def set_project_diagrams_properties(project_id: str, project_dictionary: dict, ontouml_graph: Graph) -> None:
+    """ Sets the ontouml:diagram object property between a ontouml:Project and its related ontouml:Diagram entities.
 
-    :param project_data: Inputted JSON's clean dictionary.
-    :type project_data: str
+    :param project_id: ID of the Project being treated.
+    :type project_id: str
+    :param project_dictionary: Project's data to have its fields decoded.
+    :type project_dictionary: dict
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary
     :type ontouml_graph: Graph
     """
 
-    if "diagrams" in project_data.keys():
-        # TODO (@pedropaulofb): To be implemented.
-        pass
+    # Getting all Diagrams for a specific Project
+    list_all_diagram_ids = get_all_ids_of_specific_type(project_dictionary, "Diagram")
+
+    for diagram_id in list_all_diagram_ids:
+        statement_subject = URIRef(URI_ONTOLOGY + project_id)
+        statement_predicate = URIRef(URI_ONTOUML + "diagram")
+        statement_object = URIRef(URI_ONTOLOGY + diagram_id)
+        ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
 
-def create_project_properties(dictionary_data: dict, ontouml_graph: Graph) -> None:
-    """ Main function for decoding a Project object.
-    It only calls other specific functions for setting the object's specific properties.
+def create_project_properties(json_data: dict, ontouml_graph: Graph, element_counting: dict) -> None:
+    """ Main function for decoding every object of type Project.
+    This function considers that there may be multiple projects in the loaded JSON file.
 
-    :param dictionary_data: Dictionary to have its fields decoded.
-    :type dictionary_data: dict
+    :param json_data: JSON's data to have its fields decoded loaded into a dictionary.
+    :type json_data: dict
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary
     :type ontouml_graph: Graph
+    :param element_counting: Dictionary with types and respective quantities present on graph.
+    :type element_counting: dict
     """
 
-    set_project_project_properties(ontouml_graph)
-    set_project_model_property(dictionary_data, ontouml_graph)
-    set_project_diagrams_properties(dictionary_data, ontouml_graph)
+    # Get all Projects' IDs
+    list_all_project_ids = get_all_ids_of_specific_type(json_data, "Project")
+
+    # For each Project, get all its related Diagrams and set the respective relation in the graph
+    for project_id in list_all_project_ids:
+
+        # Getting specific Project's dictionary
+        project_dictionary = get_subdictionary_for_specific_id(json_data, project_id)
+
+        set_project_project_properties(project_id, project_dictionary, ontouml_graph, element_counting)
+        set_project_model_property(project_id, project_dictionary, ontouml_graph)
+
+        if "Diagram" in element_counting:
+            set_project_diagrams_properties(project_id, project_dictionary, ontouml_graph)
