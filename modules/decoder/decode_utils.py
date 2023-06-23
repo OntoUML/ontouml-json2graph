@@ -173,6 +173,10 @@ def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph) -> None:
         if key == "id" or key == "type":
             continue
 
+        # If it is of a restricted type, do not add other attributes now
+        if dictionary_data["type"] == "Rectangle":
+            continue
+
         # Recursively treats sub-dictionaries inside lists
         if type(dictionary_data[key]) is list:
             for item in dictionary_data[key]:

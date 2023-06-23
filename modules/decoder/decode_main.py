@@ -1,4 +1,5 @@
 """ JSON decode functions. """
+from pprint import pprint
 
 from rdflib import Graph
 
@@ -32,6 +33,8 @@ def decode_json_to_graph(json_data: dict) -> Graph:
 
     # Counting elements for performance enhancement
     element_counting = count_elements(ontouml_graph)
+
+    # TREAT: Class, ClassView, Rectangle
 
     # SPECIFIC DECODING: create specific properties according to different object types
     if "Project" in element_counting:
