@@ -18,7 +18,7 @@
         "propertyAssignments": null,
         "contents": [
           {
-            "id": ".XQ6WxGFS_j2pAor",
+            "id": "XQ6WxGFS_j2pAor",
             "name": "MyPackage3",
             "description": null,
             "type": "Package",
@@ -56,7 +56,7 @@
         "id": "n4ZaWxGFS_j2pAoS",
         "type": "Package"
       },
-      "contents": []
+      "contents": null
     },
     {
       "id": "8tD6WxGFS_j2pAqD",
@@ -67,7 +67,7 @@
         "id": "7cxaWxGFS_j2pAoO",
         "type": "Package"
       },
-      "contents": []
+      "contents": null
     }
   ]
 }

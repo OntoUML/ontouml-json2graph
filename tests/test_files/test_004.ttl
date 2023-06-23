@@ -14,9 +14,9 @@
     rdf:type                     ontouml:Package ;
     ontouml:project              :dGSNHRGFS_j2pAvw ;
     ontouml:name                 "MyTestModel" ;
-    ontouml:containsModelElement <https://example.org#7cxaWxGFS_j2pAoO>, :n4ZaWxGFS_j2pAoS .
+    ontouml:containsModelElement :7cxaWxGFS_j2pAoO, :n4ZaWxGFS_j2pAoS .
 
-<https://example.org#7cxaWxGFS_j2pAoO>
+:7cxaWxGFS_j2pAoO
     rdf:type        ontouml:Package ;
     ontouml:project :dGSNHRGFS_j2pAvw ;
     ontouml:name    "MyPackage" .

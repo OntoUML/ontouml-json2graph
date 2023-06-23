@@ -14,13 +14,13 @@
     rdf:type                     ontouml:Package ;
     ontouml:project              :dGSNHRGFS_j2pAvw ;
     ontouml:name                 "MyTestModel" ;
-    ontouml:containsModelElement <https://example.org#7cxaWxGFS_j2pAoO>, :n4ZaWxGFS_j2pAoS .
+    ontouml:containsModelElement :7cxaWxGFS_j2pAoO, :n4ZaWxGFS_j2pAoS .
 
-<https://example.org#7cxaWxGFS_j2pAoO>
+:7cxaWxGFS_j2pAoO
     rdf:type                     ontouml:Package ;
     ontouml:project              :dGSNHRGFS_j2pAvw ;
     ontouml:name                 "MyPackage" ;
-    ontouml:containsModelElement <https://example.org#.XQ6WxGFS_j2pAor> .
+    ontouml:containsModelElement :XQ6WxGFS_j2pAor .
 
 :n4ZaWxGFS_j2pAoS
     rdf:type                     ontouml:Package ;
@@ -28,7 +28,7 @@
     ontouml:name                 "MyModel" ;
     ontouml:containsModelElement :g2A6WxGFS_j2pAol .
 
-<https://example.org#.XQ6WxGFS_j2pAor>
+:XQ6WxGFS_j2pAor
     rdf:type        ontouml:Package ;
     ontouml:project :dGSNHRGFS_j2pAvw ;
     ontouml:name    "MyPackage3" .

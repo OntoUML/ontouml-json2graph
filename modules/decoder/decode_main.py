@@ -23,6 +23,7 @@ def decode_json_to_graph(json_data: dict) -> Graph:
     ontouml_graph.bind("", URI_ONTOLOGY)
 
     # Get clean data
+    # Dictionary data is all the JSON data loaded as a dictionary to be manipulated
     dictionary_data = clean_null_data(json_data)
 
     # GENERAL DECODING: creating all instances and setting their types.
