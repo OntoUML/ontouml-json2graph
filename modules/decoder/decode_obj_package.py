@@ -43,7 +43,7 @@ def get_package_contents(dictionary_data: dict, package_id: str, list_contents: 
             elif type(dictionary_data[key]) is list:
                 for item in dictionary_data[key]:
                     list_contents = get_package_contents(item, package_id, list_contents)
-                    if list_contents != []:
+                    if list_contents:
                         break
 
     return list_contents
@@ -61,18 +61,11 @@ def set_package_containsmodelelement_property(dictionary_data: dict, ontouml_gra
     # Get ids of all objects of type Package
     list_package_ids = get_all_ids_for_type(ontouml_graph, "Package")
 
-    print(f"\n{list_package_ids = }")
-
     # For each Package (known ids):
     for package_id in list_package_ids:
 
-        print()
-        print(f"{package_id = }")
-
         # Get the list inside the 'contents' key
         package_id_contents_list = get_package_contents(dictionary_data, package_id)
-
-        print(f"{package_id_contents_list = }")
 
         # If list is empty, do nothing
         if not package_id_contents_list:
@@ -99,7 +92,5 @@ def create_package_properties(dictionary_data: dict, ontouml_graph: Graph) -> No
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary
     :type ontouml_graph: Graph
     """
-
-    pprint(dictionary_data)
 
     set_package_containsmodelelement_property(dictionary_data, ontouml_graph)
