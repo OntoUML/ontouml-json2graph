@@ -5,6 +5,7 @@ from rdflib import Graph, URIRef
 from globals import URI_ONTOLOGY, URI_ONTOUML
 from modules.utils_graph import get_all_ids_for_type
 
+# TODO (@pedropaulofb): Verify possible use of get_list_subdictionaries_for_specific_type as in Diagram.
 
 def get_package_contents(dictionary_data: dict, package_id: str, list_contents: list = []) -> list[dict]:
     """ Receives the dictionary with all loaded JSON data and returns the value of the 'contents' field for a given
@@ -50,27 +51,22 @@ def get_package_contents(dictionary_data: dict, package_id: str, list_contents: 
     return list_contents
 
 
-def set_package_containsmodelelement_property(dictionary_data: dict, ontouml_graph: Graph) -> None:
+def set_package_containsmodelelement_property(package_id: str, dictionary_data: dict, ontouml_graph: Graph) -> None:
     """ Set object property ontouml:containsModelElement between a Package and its containing ModelElements.
 
+    :param package_id: ID of the package being treated.
+    :type package_id: str
     :param dictionary_data: Dictionary to have its fields decoded.
     :type dictionary_data: dict
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary
     :type ontouml_graph: Graph
     """
 
-    # Get ids of all objects of type Package
-    list_package_ids = get_all_ids_for_type(ontouml_graph, "Package")
+    # Get the list inside the 'contents' key
+    package_id_contents_list = get_package_contents(dictionary_data, package_id)
 
-    # For each Package (known ids):
-    for package_id in list_package_ids:
-
-        # Get the list inside the 'contents' key
-        package_id_contents_list = get_package_contents(dictionary_data, package_id)
-
-        # If list is empty, do nothing
-        if not package_id_contents_list:
-            continue
+    # Treat only non-empy cases
+    if package_id_contents_list:
 
         # Create a list of all ids inside the returned list
         list_related_ids = []
@@ -94,4 +90,9 @@ def create_package_properties(dictionary_data: dict, ontouml_graph: Graph) -> No
     :type ontouml_graph: Graph
     """
 
-    set_package_containsmodelelement_property(dictionary_data, ontouml_graph)
+    # Get ids of all objects of type Package
+    list_package_ids = get_all_ids_for_type(ontouml_graph, "Package")
+
+    # For each Package (known ids):
+    for package_id in list_package_ids:
+        set_package_containsmodelelement_property(package_id, dictionary_data, ontouml_graph)

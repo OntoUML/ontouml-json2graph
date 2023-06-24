@@ -42,7 +42,7 @@ def get_all_ids_for_type(ontology_graph: Graph, element_type: str) -> list[str]:
 
     # Getting the ID of all OntoUML Elements that are of element_type
     for element in ontology_graph.subjects(RDF.type, URIRef(URI_ONTOUML + element_type)):
-        element = element.toPython().replace(URI_ONTOLOGY, "")
+        element = element.fragment
         list_of_ids_of_type.append(element)
 
     return list_of_ids_of_type

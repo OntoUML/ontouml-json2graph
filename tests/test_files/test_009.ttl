@@ -77,8 +77,8 @@
 :b6huFxGFS_j2pAmj_shape
     rdf:type                ontouml:Rectangle ;
     ontouml:project         :dGSNHRGFS_j2pAvw ;
-    ontouml:height          "40"^^xsd:positiveInteger ;
-    ontouml:width           "80"^^xsd:positiveInteger ;
+    ontouml:height          40 ;
+    ontouml:width           80 ;
     ontouml:topLeftPosition :b6huFxGFS_j2pAmj_shape_point .
 
 :b6huFxGFS_j2pAmj_shape_point
