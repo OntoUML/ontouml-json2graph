@@ -1,61 +1,87 @@
-@prefix : <https://example.org#>.
+@prefix :        <https://example.org#>.
 @prefix ontouml: <https://w3id.org/ontouml#>.
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
-@prefix owl: <http://www.w3.org/2002/07/owl#>.
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl:     <http://www.w3.org/2002/07/owl#>.
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#>.
 
-:dGSNHRGFS_j2pAvw rdf:type ontouml:Project;
-    ontouml:name "MyTestModel";
-    ontouml:model :dGSNHRGFS_j2pAvw_root;
-    ontouml:diagram :k8p6WxGFS_j2pApt, :8tD6WxGFS_j2pAqD, :rmX6WxGFS_j2pAqf.
-:dGSNHRGFS_j2pAvw_root rdf:type ontouml:Package;
-    ontouml:project :dGSNHRGFS_j2pAvw;
-    ontouml:name "MyTestModel";
-    ontouml:containsModelElement :7cxaWxGFS_j2pAoO, :n4ZaWxGFS_j2pAoS.
-:7cxaWxGFS_j2pAoO rdf:type ontouml:Package;
-    ontouml:project :dGSNHRGFS_j2pAvw;
-    ontouml:name "MyPackage";
-    ontouml:containsModelElement :XQ6WxGFS_j2pAor.
-:n4ZaWxGFS_j2pAoS rdf:type ontouml:Package;
-    ontouml:project :dGSNHRGFS_j2pAvw;
-    ontouml:name "MyModel";
-    ontouml:containsModelElement :g2A6WxGFS_j2pAol, :gGhuFxGFS_j2pAmk.
-:XQ6WxGFS_j2pAor rdf:type ontouml:Package;
-    ontouml:project :dGSNHRGFS_j2pAvw;
-    ontouml:name "MyPackage3".
-:g2A6WxGFS_j2pAol rdf:type ontouml:Package;
-    ontouml:project :dGSNHRGFS_j2pAvw;
-    ontouml:name "MyPackage2".
-:gGhuFxGFS_j2pAmk rdf:type ontouml:Class;
-    ontouml:project :dGSNHRGFS_j2pAvw;
-    ontouml:name "MyClass1";
-    ontouml:isAbstract "false"^^xsd:boolean;
-    ontouml:isDerived "false"^^xsd:boolean;
-    ontouml:isExtensional "false"^^xsd:boolean;
-    ontouml:isPowertype "false"^^xsd:boolean;
-    ontouml:order "1"^^xsd:positiveInteger.
-:k8p6WxGFS_j2pApt rdf:type ontouml:Diagram;
-    ontouml:project :dGSNHRGFS_j2pAvw;
-    ontouml:name "MyModelClassDiagram1";
-    ontouml:containsView :b6huFxGFS_j2pAmj;
-    ontouml:owner :n4ZaWxGFS_j2pAoS .
-:8tD6WxGFS_j2pAqD rdf:type ontouml:Diagram;
-    ontouml:project :dGSNHRGFS_j2pAvw;
-    ontouml:name "MyPackageClassDiagram1";
-    ontouml:owner :7cxaWxGFS_j2pAoO.
-:rmX6WxGFS_j2pAqf rdf:type ontouml:Diagram;
-    ontouml:project :dGSNHRGFS_j2pAvw;
-    ontouml:name "MyPackage3ClassDiagram";
-    ontouml:owner :XQ6WxGFS_j2pAor.
-:b6huFxGFS_j2pAmj rdf:type ontouml:ClassView;
-    ontouml:project :dGSNHRGFS_j2pAvw;
-    ontouml:isViewOf :gGhuFxGFS_j2pAmk;
-    ontouml:shape :b6huFxGFS_j2pAmj_shape.
-:b6huFxGFS_j2pAmj_shape rdf:type ontouml:Rectangle;
-    ontouml:height "40"^^xsd:positiveInteger;
-    ontouml:width "80"^^xsd:positiveInteger;
-    ontouml:topLeftPosition :b6huFxGFS_j2pAmj_shape_point.
-:b6huFxGFS_j2pAmj_shape_point rdf:type ontouml:Point;
-    ontouml:xCoordinate 312;
-    ontouml:yCoordinate 185.
+:dGSNHRGFS_j2pAvw
+    rdf:type        ontouml:Project ;
+    ontouml:name    "MyTestModel" ;
+    ontouml:model   :dGSNHRGFS_j2pAvw_root ;
+    ontouml:diagram :k8p6WxGFS_j2pApt, :8tD6WxGFS_j2pAqD, :rmX6WxGFS_j2pAqf .
+
+:dGSNHRGFS_j2pAvw_root
+    rdf:type                     ontouml:Package ;
+    ontouml:project              :dGSNHRGFS_j2pAvw ;
+    ontouml:name                 "MyTestModel" ;
+    ontouml:containsModelElement :7cxaWxGFS_j2pAoO, :n4ZaWxGFS_j2pAoS .
+
+:7cxaWxGFS_j2pAoO
+    rdf:type                     ontouml:Package ;
+    ontouml:project              :dGSNHRGFS_j2pAvw ;
+    ontouml:name                 "MyPackage" ;
+    ontouml:containsModelElement :XQ6WxGFS_j2pAor .
+
+:n4ZaWxGFS_j2pAoS
+    rdf:type                     ontouml:Package ;
+    ontouml:project              :dGSNHRGFS_j2pAvw ;
+    ontouml:name                 "MyModel" ;
+    ontouml:containsModelElement :g2A6WxGFS_j2pAol, :gGhuFxGFS_j2pAmk .
+
+:XQ6WxGFS_j2pAor
+    rdf:type        ontouml:Package ;
+    ontouml:project :dGSNHRGFS_j2pAvw ;
+    ontouml:name    "MyPackage3" .
+
+:g2A6WxGFS_j2pAol
+    rdf:type        ontouml:Package ;
+    ontouml:project :dGSNHRGFS_j2pAvw ;
+    ontouml:name    "MyPackage2" .
+
+:gGhuFxGFS_j2pAmk
+    rdf:type              ontouml:Class ;
+    ontouml:project       :dGSNHRGFS_j2pAvw ;
+    ontouml:name          "MyClass1" ;
+    ontouml:isAbstract    "false"^^xsd:boolean ;
+    ontouml:isDerived     "false"^^xsd:boolean ;
+    ontouml:isExtensional "false"^^xsd:boolean ;
+    ontouml:isPowertype   "false"^^xsd:boolean ;
+    ontouml:order         "1"^^xsd:positiveInteger .
+
+:k8p6WxGFS_j2pApt
+    rdf:type             ontouml:Diagram ;
+    ontouml:project      :dGSNHRGFS_j2pAvw ;
+    ontouml:name         "MyModelClassDiagram1" ;
+    ontouml:containsView :b6huFxGFS_j2pAmj ;
+    ontouml:owner        :n4ZaWxGFS_j2pAoS .
+
+:8tD6WxGFS_j2pAqD
+    rdf:type        ontouml:Diagram ;
+    ontouml:project :dGSNHRGFS_j2pAvw ;
+    ontouml:name    "MyPackageClassDiagram1" ;
+    ontouml:owner   :7cxaWxGFS_j2pAoO .
+
+:rmX6WxGFS_j2pAqf
+    rdf:type        ontouml:Diagram ;
+    ontouml:project :dGSNHRGFS_j2pAvw ;
+    ontouml:name    "MyPackage3ClassDiagram" ;
+    ontouml:owner   :XQ6WxGFS_j2pAor .
+
+:b6huFxGFS_j2pAmj
+    rdf:type         ontouml:ClassView ;
+    ontouml:project  :dGSNHRGFS_j2pAvw ;
+    ontouml:isViewOf :gGhuFxGFS_j2pAmk ;
+    ontouml:shape    :b6huFxGFS_j2pAmj_shape .
+
+:b6huFxGFS_j2pAmj_shape
+    rdf:type                ontouml:Rectangle ;
+    ontouml:project         :dGSNHRGFS_j2pAvw ;
+    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:width           "80"^^xsd:positiveInteger ;
+    ontouml:topLeftPosition :b6huFxGFS_j2pAmj_shape_point .
+
+:b6huFxGFS_j2pAmj_shape_point
+    rdf:type            ontouml:Point ;
+    ontouml:xCoordinate 312 ;
+    ontouml:yCoordinate 185 .
