@@ -20,5 +20,3 @@ def get_date_time(date_time_format: str) -> str:
     date_time = now.strftime(date_time_format)
 
     return date_time
-
-

@@ -176,3 +176,4 @@ cython_debug/
 *vpp*bak*
 *vpp*lck*
 
+/.idea/.gitignore

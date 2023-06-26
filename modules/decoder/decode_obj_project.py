@@ -5,6 +5,7 @@ from rdflib import Graph, URIRef
 from globals import URI_ONTOUML, URI_ONTOLOGY
 from modules.decoder.decode_utils import get_all_ids_of_specific_type, get_subdictionary_for_specific_id
 
+
 # TODO (@pedropaulofb): Verify possible use of get_list_subdictionaries_for_specific_type as in Diagram.
 
 def set_project_project_properties(project_id: str, project_data: dict, ontouml_graph: Graph,

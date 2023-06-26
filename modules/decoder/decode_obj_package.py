@@ -5,6 +5,7 @@ from rdflib import Graph, URIRef
 from globals import URI_ONTOLOGY, URI_ONTOUML
 from modules.utils_graph import get_all_ids_for_type
 
+
 # TODO (@pedropaulofb): Verify possible use of get_list_subdictionaries_for_specific_type as in Diagram.
 
 def get_package_contents(dictionary_data: dict, package_id: str, list_contents: list = []) -> list[dict]:

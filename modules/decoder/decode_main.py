@@ -1,8 +1,9 @@
 """ JSON decode functions. """
 
-from rdflib import Graph, URIRef, Literal, RDF
+from rdflib import Graph, URIRef, Literal, RDF, XSD
 
 from globals import URI_ONTOUML, URI_ONTOLOGY
+from modules.decoder.decode_obj_classview import create_classview_properties
 from modules.decoder.decode_obj_diagram import create_diagram_properties
 from modules.decoder.decode_obj_package import create_package_properties
 from modules.decoder.decode_obj_project import create_project_properties
@@ -21,6 +22,7 @@ def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph) -> None:
     """
 
     restricted_fields = ["x", "y"]
+    positive_integer_fields = ["order"]
 
     # Creating instance
     instance_uri = URI_ONTOLOGY + dictionary_data["id"]
@@ -52,8 +54,16 @@ def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph) -> None:
             decode_dictionary(dictionary_data[key], ontouml_graph)
             continue
 
+        # Graph's predicate definition
         new_predicate = URIRef(URI_ONTOUML + key)
-        new_object = Literal(dictionary_data[key])
+
+        # Graph's object definition
+        if key in positive_integer_fields:
+            new_object = Literal(dictionary_data[key], datatype=XSD.positiveInteger)
+        else:
+            new_object = Literal(dictionary_data[key])
+
+        # Adding to graph
         ontouml_graph.add((new_instance, new_predicate, new_object))
 
 
@@ -89,8 +99,12 @@ def decode_json_to_graph(json_data: dict) -> Graph:
     if "Package" in element_counting:
         create_package_properties(dictionary_data, ontouml_graph)
     if "Diagram" in element_counting:
-        create_diagram_properties(dictionary_data, ontouml_graph)
+        create_diagram_properties(dictionary_data, ontouml_graph, element_counting)
     if "Rectangle" in element_counting:
         create_rectangle_properties(dictionary_data, ontouml_graph)
+    # if "Class" in element_counting:
+    #     create_class_properties(dictionary_data, ontouml_graph)
+    if "ClassView" in element_counting:
+        create_classview_properties(dictionary_data, ontouml_graph)
 
     return ontouml_graph

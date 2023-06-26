@@ -2,7 +2,7 @@
 
 from rdflib import Graph, URIRef, RDF
 
-from globals import URI_ONTOUML, URI_ONTOLOGY
+from globals import URI_ONTOUML
 from modules.errors import report_error_io_read
 from modules.utils_general import LOGGER
 
