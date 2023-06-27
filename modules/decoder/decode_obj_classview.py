@@ -1,8 +1,32 @@
 """ Functions to decode specificities of the object ClassView. """
 
-from rdflib import Graph
+from rdflib import Graph, URIRef
 
+from globals import URI_ONTOLOGY, URI_ONTOUML
 from modules.decoder.decode_utils import get_list_subdictionaries_for_specific_type
+
+
+def set_classview_shape(classview_dict: dict, ontouml_graph: Graph) -> None:
+    """ Set ClassView's shape and isViewOf properties.
+
+    :param classview_dict: ClassView object loaded as a dictionary.
+    :type classview_dict: dict
+    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary
+    :type ontouml_graph: Graph
+    """
+
+    # Setting shape property. A ClassView's shape is always named after it, adding the suffix '_shape'.
+    shape_name = classview_dict['id'] + "_shape"
+
+    ontouml_graph.add((URIRef(URI_ONTOLOGY + classview_dict['id']),
+                       URIRef(URI_ONTOUML + "shape"),
+                       URIRef(URI_ONTOLOGY + shape_name)))
+
+    # TODO (@pedropaulofb): correct
+    # Setting isViewOf property.
+    ontouml_graph.add((URIRef(URI_ONTOLOGY + classview_dict['id']),
+                       URIRef(URI_ONTOUML + "isViewOf"),
+                       URIRef(URI_ONTOLOGY + classview_dict['modelElement']['id'])))
 
 
 def create_classview_properties(json_data: dict, ontouml_graph: Graph) -> None:
@@ -21,8 +45,10 @@ def create_classview_properties(json_data: dict, ontouml_graph: Graph) -> None:
 
     # pprint(list_all_classview_dicts)
 
-    # # Treat each Rectangle
-    # for classview_dict in list_all_classview_dicts:
-    #
-    #     # Set width and height
-    #     set_rectangle_coordinates(classview_dict, ontouml_graph)
+    # Treat each Rectangle
+    for classview_dict in list_all_classview_dicts:
+
+        # Set shape property
+        set_classview_shape(classview_dict, ontouml_graph)
+        set_classview_isviewof(classview_dict, ontouml_graph)
+
