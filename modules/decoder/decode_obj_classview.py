@@ -6,7 +6,7 @@ from globals import URI_ONTOLOGY, URI_ONTOUML
 from modules.decoder.decode_utils import get_list_subdictionaries_for_specific_type
 
 
-def set_classview_shape(classview_dict: dict, ontouml_graph: Graph) -> None:
+def set_classview_properties(classview_dict: dict, ontouml_graph: Graph) -> None:
     """ Set ClassView's shape and isViewOf properties.
 
     :param classview_dict: ClassView object loaded as a dictionary.
@@ -22,7 +22,6 @@ def set_classview_shape(classview_dict: dict, ontouml_graph: Graph) -> None:
                        URIRef(URI_ONTOUML + "shape"),
                        URIRef(URI_ONTOLOGY + shape_name)))
 
-    # TODO (@pedropaulofb): correct
     # Setting isViewOf property.
     ontouml_graph.add((URIRef(URI_ONTOLOGY + classview_dict['id']),
                        URIRef(URI_ONTOUML + "isViewOf"),
@@ -47,8 +46,5 @@ def create_classview_properties(json_data: dict, ontouml_graph: Graph) -> None:
 
     # Treat each Rectangle
     for classview_dict in list_all_classview_dicts:
-
-        # Set shape property
-        set_classview_shape(classview_dict, ontouml_graph)
-        set_classview_isviewof(classview_dict, ontouml_graph)
-
+        # Setting shape and isViewOf properties
+        set_classview_properties(classview_dict, ontouml_graph)
