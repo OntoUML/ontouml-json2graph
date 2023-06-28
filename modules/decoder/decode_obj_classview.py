@@ -3,7 +3,7 @@
 from rdflib import Graph, URIRef
 
 from globals import URI_ONTOLOGY, URI_ONTOUML
-from modules.decoder.decode_utils import get_list_subdictionaries_for_specific_type
+from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type
 
 
 def set_classview_properties(classview_dict: dict, ontouml_graph: Graph) -> None:

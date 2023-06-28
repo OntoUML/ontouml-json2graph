@@ -40,14 +40,13 @@
     ontouml:name    "MyPackage2" .
 
 :gGhuFxGFS_j2pAmk
-    rdf:type              ontouml:Class ;
-    ontouml:project       :dGSNHRGFS_j2pAvw ;
-    ontouml:name          "MyClass1" ;
-    ontouml:isAbstract    "false"^^xsd:boolean ;
-    ontouml:isDerived     "false"^^xsd:boolean ;
-    ontouml:isExtensional "false"^^xsd:boolean ;
-    ontouml:isPowertype   "false"^^xsd:boolean ;
-    ontouml:order         "1"^^xsd:positiveInteger .
+    rdf:type            ontouml:Class ;
+    ontouml:project     :dGSNHRGFS_j2pAvw ;
+    ontouml:name        "MyClass1" ;
+    ontouml:isAbstract  "false"^^xsd:boolean ;
+    ontouml:isDerived   "false"^^xsd:boolean ;
+    ontouml:isPowertype "false"^^xsd:boolean ;
+    ontouml:order       "1"^^xsd:positiveInteger .
 
 :k8p6WxGFS_j2pApt
     rdf:type             ontouml:Diagram ;
@@ -82,6 +81,7 @@
 
 :b6huFxGFS_j2pAmj_shape
     rdf:type                ontouml:Rectangle ;
+    ontouml:project         :dGSNHRGFS_j2pAvw ;
     ontouml:height          "40"^^xsd:positiveInteger ;
     ontouml:width           "80"^^xsd:positiveInteger ;
     ontouml:topLeftPosition :b6huFxGFS_j2pAmj_shape_point .

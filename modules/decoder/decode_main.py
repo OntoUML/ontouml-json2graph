@@ -3,12 +3,12 @@
 from rdflib import Graph, URIRef, Literal, RDF, XSD
 
 from globals import URI_ONTOUML, URI_ONTOLOGY
+from modules.decoder.decode_general import clean_null_data, count_elements
 from modules.decoder.decode_obj_classview import create_classview_properties
 from modules.decoder.decode_obj_diagram import create_diagram_properties
 from modules.decoder.decode_obj_package import create_package_properties
 from modules.decoder.decode_obj_project import create_project_properties
 from modules.decoder.decode_obj_rectangle import create_rectangle_properties
-from modules.decoder.decode_utils import clean_null_data, count_elements
 
 
 def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph) -> None:
@@ -22,7 +22,7 @@ def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph) -> None:
     """
 
     restricted_fields = ["x", "y"]
-    positive_integer_fields = ["order"]
+    positive_integer_fields = ["width", "height", "order"]
 
     # Creating instance
     instance_uri = URI_ONTOLOGY + dictionary_data["id"]
