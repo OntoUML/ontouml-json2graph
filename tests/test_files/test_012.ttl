@@ -120,7 +120,8 @@
     rdf:type                ontouml:Rectangle ;
     ontouml:height          "40"^^xsd:positiveInteger ;
     ontouml:width           "80"^^xsd:positiveInteger ;
-    ontouml:topLeftPosition :YxbuFxGFS_j2pAna_shape_point .
+    ontouml:topLeftPosition :YxbuFxGFS_j2pAna_shape_point ;
+    ontouml:project         :dGSNHRGFS_j2pAvw .
 
 :YxbuFxGFS_j2pAna_shape_point
     rdf:type            ontouml:Point ;
