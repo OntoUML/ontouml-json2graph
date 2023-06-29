@@ -4,6 +4,7 @@ from rdflib import Graph, URIRef, Literal, RDF, XSD
 
 from globals import URI_ONTOUML, URI_ONTOLOGY
 from modules.decoder.decode_general import clean_null_data, count_elements
+from modules.decoder.decode_obj_class import create_class_properties
 from modules.decoder.decode_obj_classview import create_classview_properties
 from modules.decoder.decode_obj_diagram import create_diagram_properties
 from modules.decoder.decode_obj_package import create_package_properties
@@ -91,8 +92,6 @@ def decode_json_to_graph(json_data: dict) -> Graph:
     # Counting elements for performance enhancement
     element_counting = count_elements(ontouml_graph)
 
-    # TREAT: Class, ClassView, Rectangle
-
     # SPECIFIC DECODING: create specific properties according to different object types
     if "Project" in element_counting:
         create_project_properties(dictionary_data, ontouml_graph, element_counting)
@@ -100,6 +99,8 @@ def decode_json_to_graph(json_data: dict) -> Graph:
         create_package_properties(dictionary_data, ontouml_graph)
     if "Diagram" in element_counting:
         create_diagram_properties(dictionary_data, ontouml_graph, element_counting)
+    if "Class" in element_counting:
+        create_class_properties(dictionary_data, ontouml_graph)
     if "Rectangle" in element_counting:
         create_rectangle_properties(dictionary_data, ontouml_graph)
     if "ClassView" in element_counting:
