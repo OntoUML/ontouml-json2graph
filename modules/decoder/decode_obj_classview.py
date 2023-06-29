@@ -42,8 +42,6 @@ def create_classview_properties(json_data: dict, ontouml_graph: Graph) -> None:
     # Get all ClassView' dictionaries
     list_all_classview_dicts = get_list_subdictionaries_for_specific_type(json_data, "ClassView")
 
-    # pprint(list_all_classview_dicts)
-
     # Treat each Rectangle
     for classview_dict in list_all_classview_dicts:
         # Setting shape and isViewOf properties

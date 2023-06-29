@@ -1,5 +1,4 @@
 """ Functions to decode specificities of the object Class. """
-from pprint import pprint
 
 from rdflib import Graph, URIRef, XSD, Literal
 
@@ -54,8 +53,6 @@ def create_class_properties(json_data: dict, ontouml_graph: Graph) -> None:
 
     # Get all class' dictionaries
     list_all_class_dicts = get_list_subdictionaries_for_specific_type(json_data, "Class")
-
-    pprint(list_all_class_dicts)
 
     # Treat each Rectangle
     for class_dict in list_all_class_dicts:
