@@ -60,7 +60,7 @@ def set_class_order(class_dict: dict, ontouml_graph: Graph) -> None:
 
 
 def set_class_stereotypes(class_dict: dict, ontouml_graph: Graph) -> None:
-    """ Set ontouml:stereotype relation between a class and an instance representing an ontouml stereotype.
+    """ Sets ontouml:stereotype relation between a class and an instance representing an ontouml stereotype.
 
     :param class_dict: Class object loaded as a dictionary.
     :type class_dict: dict
@@ -98,6 +98,37 @@ def set_class_stereotypes(class_dict: dict, ontouml_graph: Graph) -> None:
         elif class_stereotype not in ENUM_CLASS_STEREOTYPE:
             LOGGER.error(f"Invalid stereotype {class_dict['stereotype']} defined for class {class_dict['name']}. "
                          f"The transformation output is not syntactically valid.")
+
+
+def set_class_restricted_to(class_dict: dict, ontouml_graph: Graph) -> None:
+    """ Sets the ontouml:restrictedTo relation between a class and its related ontouml:OntologicalNature instance.
+
+    :param class_dict: Class object loaded as a dictionary.
+    :type class_dict: dict
+    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary
+    :type ontouml_graph: Graph
+    """
+
+    mapping = {
+        "abstract": "abstractNature",
+        "collective": "collectiveNature",
+        "event": "eventNature",
+        "extrinsic-mode": "extrinsicModeNature",
+        "functional-complex": "functionalComplexNature",
+        "intrinsic-mode": "intrinsicModeNature",
+        "quality": "qualityNature",
+        "quantity": "quantityNature",
+        "relator": "relatorNature",
+        "situation": "situationNature",
+        "type": "typeNature"
+    }
+
+    if "restrictedTo" in class_dict:
+
+        for restriction in class_dict["restrictedTo"]:
+            ontouml_graph.add((URIRef(URI_ONTOLOGY + class_dict['id']),
+                               URIRef(URI_ONTOUML + "restrictedTo"),
+                               URIRef(URI_ONTOUML + mapping[restriction])))
 
 
 def validate_class_defaults(class_dict: dict, ontouml_graph: Graph) -> None:
@@ -153,6 +184,7 @@ def validate_class_defaults(class_dict: dict, ontouml_graph: Graph) -> None:
                            Literal(False)))
 
 
+# TODO (@pedropaulofb): To be implemented.
 def validate_class_constraints(class_dict: dict, ontouml_graph: Graph) -> None:
     """ Verifies all Class dictionaries and check if the constraints related to classes were correctly considered and
     fixes them when they are not.
@@ -204,5 +236,6 @@ def create_class_properties(json_data: dict, ontouml_graph: Graph) -> None:
         # Validating default values
         set_class_order(class_dict, ontouml_graph)
         set_class_stereotypes(class_dict, ontouml_graph)
+        set_class_restricted_to(class_dict, ontouml_graph)
         validate_class_defaults(class_dict, ontouml_graph)
         validate_class_constraints(class_dict, ontouml_graph)

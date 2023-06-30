@@ -46,7 +46,7 @@
     ontouml:isAbstract  "false"^^xsd:boolean ;
     ontouml:isDerived   "false"^^xsd:boolean ;
     ontouml:isPowertype "false"^^xsd:boolean ;
-    ontouml:order       "1"^^xsd:positiveInteger ;
+    ontouml:order       "1"^^xsd:nonNegativeInteger ;
     ontouml:stereotype  ontouml:ClassStereotype .
 
 :b5teFxGFS_j2pAm3
@@ -56,7 +56,7 @@
     ontouml:isAbstract  "false"^^xsd:boolean ;
     ontouml:isDerived   "false"^^xsd:boolean ;
     ontouml:isPowertype "false"^^xsd:boolean ;
-    ontouml:order       "1"^^xsd:positiveInteger ;
+    ontouml:order       "1"^^xsd:nonNegativeInteger ;
     ontouml:stereotype  ontouml:ClassStereotype .
 
 :gGhuFxGFS_j2pAmk
@@ -66,7 +66,7 @@
     ontouml:isAbstract  "false"^^xsd:boolean ;
     ontouml:isDerived   "false"^^xsd:boolean ;
     ontouml:isPowertype "false"^^xsd:boolean ;
-    ontouml:order       "1"^^xsd:positiveInteger ;
+    ontouml:order       "1"^^xsd:nonNegativeInteger ;
     ontouml:stereotype  ontouml:ClassStereotype .
 
 :k8p6WxGFS_j2pApt
