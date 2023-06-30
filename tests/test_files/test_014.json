@@ -18,7 +18,7 @@
         "propertyAssignments": null,
         "contents": [
           {
-            "id": ".XQ6WxGFS_j2pAor",
+            "id": "XQ6WxGFS_j2pAor",
             "name": "MyPackage3",
             "description": null,
             "type": "Package",
@@ -360,7 +360,7 @@
         "id": "7cxaWxGFS_j2pAoO",
         "type": "Package"
       },
-      "contents": []
+      "contents": null
     },
     {
       "id": "rmX6WxGFS_j2pAqf",
@@ -368,13 +368,13 @@
       "description": null,
       "type": "Diagram",
       "owner": {
-        "id": ".XQ6WxGFS_j2pAor",
+        "id": "XQ6WxGFS_j2pAor",
         "type": "Package"
       },
-      "contents": []
+      "contents": null
     },
     {
-      "id": "_7duFxGFS_j2pAm7",
+      "id": "7duFxGFS_j2pAm7",
       "name": "MyClass1ClassDiagram",
       "description": null,
       "type": "Diagram",
