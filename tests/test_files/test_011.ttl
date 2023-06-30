@@ -47,7 +47,7 @@
     ontouml:isDerived   "false"^^xsd:boolean ;
     ontouml:isPowertype "false"^^xsd:boolean ;
     ontouml:order       "1"^^xsd:positiveInteger ;
-    ontouml:stereotype ontouml:ClassStereotype .
+    ontouml:stereotype  ontouml:ClassStereotype .
 
 :gGhuFxGFS_j2pAmk
     rdf:type            ontouml:Class ;

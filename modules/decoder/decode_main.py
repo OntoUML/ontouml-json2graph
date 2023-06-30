@@ -10,6 +10,9 @@ from modules.decoder.decode_obj_diagram import create_diagram_properties
 from modules.decoder.decode_obj_package import create_package_properties
 from modules.decoder.decode_obj_project import create_project_properties
 from modules.decoder.decode_obj_rectangle import create_rectangle_properties
+from modules.logger import initialize_logger
+
+LOGGER = initialize_logger()
 
 
 def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph) -> None:
@@ -60,8 +63,13 @@ def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph) -> None:
         new_predicate = URIRef(URI_ONTOUML + key)
 
         # Graph's object definition
+
         if key in positive_integer_fields and dictionary_data[key] != '*':
-            new_object = Literal(dictionary_data[key], datatype=XSD.positiveInteger)
+            if type(dictionary_data[key]) is not int:
+                LOGGER.warning(f"The object with ID {dictionary_data['id']} has an invalid type for its field '{key}' "
+                               f"and was not transformed (expected type 'int', received '{type(dictionary_data[key]).__name__}').")
+            else:
+                new_object = Literal(dictionary_data[key], datatype=XSD.positiveInteger)
         else:
             new_object = Literal(dictionary_data[key])
 
