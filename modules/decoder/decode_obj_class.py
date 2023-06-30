@@ -45,7 +45,7 @@ def set_class_order(class_dict: dict, ontouml_graph: Graph) -> None:
 
     # Case A: if 'order' field is null, it will receive the default value (see function set_class_defaults)
     if "order" not in class_dict:
-        pass
+        return
 
     # Case C: receives 0, representing an orderless class.
     elif class_dict["order"] == "*":
@@ -140,8 +140,8 @@ def set_class_restricted_to(class_dict: dict, ontouml_graph: Graph) -> None:
                                URIRef(URI_ONTOUML + mapping[restriction])))
 
 
-def set_class_is_extensional(class_dict: dict, ontouml_graph: Graph) -> None:
-    """ Creates the isExtensional attribute of a class in the resulting graph.
+def set_class_attributes(class_dict: dict, ontouml_graph: Graph) -> None:
+    """ Creates the isPowertype and isExtensional attribute of a class in the resulting graph.
 
     :param class_dict: Class object loaded as a dictionary.
     :type class_dict: dict
@@ -153,6 +153,11 @@ def set_class_is_extensional(class_dict: dict, ontouml_graph: Graph) -> None:
         ontouml_graph.add((URIRef(URI_ONTOLOGY + class_dict['id']),
                            URIRef(URI_ONTOUML + "isExtensional"),
                            Literal(class_dict["isExtensional"])))
+
+    if "isPowertype" in class_dict:
+        ontouml_graph.add((URIRef(URI_ONTOLOGY + class_dict['id']),
+                           URIRef(URI_ONTOUML + "isPowertype"),
+                           Literal(class_dict["isPowertype"])))
 
 
 def set_class_defaults(class_dict: dict, ontouml_graph: Graph) -> None:
@@ -217,7 +222,8 @@ def validate_class_constraints(class_dict: dict, ontouml_graph: Graph) -> None:
     A) isExtensional must be null when the class's stereotype is not 'collective'
     B) order must be greater than 1 when class's stereotype is 'type'
     C) class's order must be 1 when class's stereotype is not 'type'
-    D) class's isPowertype must be false when class's stereotype is not 'type'
+    D) class must have stereotype 'type' when no stereotype is informed and when its isPowertype attribute is true
+    E) class's isPowertype must be false when class's stereotype is not 'type'
 
     :param class_dict: Class object loaded as a dictionary.
     :type class_dict: dict
@@ -231,13 +237,30 @@ def validate_class_constraints(class_dict: dict, ontouml_graph: Graph) -> None:
     if ("isExtensional" in class_dict) and class_stereotype != "collective":
         LOGGER.warning(
             f"Class '{class_dict['name']}' of stereotype '{class_stereotype}' had its isExtensional "
-            f"attribute (originally '{class_dict['isExtensional']}') removed as it is not a collective.")
+            f"attribute (originally '{class_dict['isExtensional']}') removed as it is not of stereotype collective.")
         class_dict.pop('isExtensional')
 
-    # Constraint: order must be greater than 1 when the class's stereotype is 'type'
+    # Constraint B: order must be greater than 1 when the class's stereotype is 'type'
+    # Class that is type and has order = 1 is set to 2 and modification is reported as warning
 
-    # Constraint: class's order must be 1 when class's stereotype is not 'type'
-    # Constraint: class's isPowertype must be false when class's stereotype is not 'type'
+    # Constraint C: class's order must be 1 when class's stereotype is not 'type'
+    # Class that is not type and has order > 1 is set to 1 and modification is reported as warning
+
+    # Constraint D: class must have stereotype 'type' when no stereotype and when its isPowertype attribute is true
+    if "isPowertype" in class_dict:
+        if class_dict["isPowertype"] and class_stereotype == "null":
+            LOGGER.warning(
+                f"Class '{class_dict['name']}' had its stereotype (originally unknown) set 'type' as its isPowertype "
+                f"attribute is 'True'.")
+            class_dict['stereotype'] = "type"
+
+    # Constraint E: class's isPowertype must be false when class's stereotype is not ('type' or undefined)
+    if "isPowertype" in class_dict:
+        if class_dict["isPowertype"] and not (class_stereotype == "type" or class_stereotype == "null"):
+            LOGGER.warning(
+                f"Class '{class_dict['name']}' of stereotype '{class_stereotype}' had its isPowertype "
+                f"attribute (originally '{class_dict['isPowertype']}') set to 1 as it is not of stereotype type.")
+            class_dict['isPowertype'] = False
 
 
 def create_class_properties(json_data: dict, ontouml_graph: Graph) -> None:
@@ -270,4 +293,4 @@ def create_class_properties(json_data: dict, ontouml_graph: Graph) -> None:
         set_class_stereotypes(class_dict, ontouml_graph)
         set_class_restricted_to(class_dict, ontouml_graph)
         set_class_defaults(class_dict, ontouml_graph)
-        set_class_is_extensional(class_dict, ontouml_graph)
+        set_class_attributes(class_dict, ontouml_graph)

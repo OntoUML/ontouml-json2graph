@@ -1,0 +1,607 @@
+@prefix :        <https://example.org#>.
+@prefix ontouml: <https://w3id.org/ontouml#>.
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl:     <http://www.w3.org/2002/07/owl#>.
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#>.
+
+:dGSNHRGFS_j2pAvw
+    rdf:type        ontouml:Project ;
+    ontouml:name    "MyTestModel" ;
+    ontouml:model   :dGSNHRGFS_j2pAvw_root ;
+    ontouml:diagram :k8p6WxGFS_j2pApt, :8tD6WxGFS_j2pAqD, :rmX6WxGFS_j2pAqf, :7duFxGFS_j2pAm7 .
+
+:dGSNHRGFS_j2pAvw_root
+    rdf:type                     ontouml:Package ;
+    ontouml:project              :dGSNHRGFS_j2pAvw ;
+    ontouml:name                 "MyTestModel" ;
+    ontouml:containsModelElement :7cxaWxGFS_j2pAoO, :n4ZaWxGFS_j2pAoS, :YxbuFxGFS_j2pAnb, :b5teFxGFS_j2pAm3,
+                                 :Y2ADQJGGAqACNwmq, :CYYDQJGGAqACNwnH, :HI0DQJGGAqACNwnd, :kACDQJGGAqACNwnq,
+                                 :lT6DQJGGAqACNwoB, :IY2DQJGGAqACNwoW, :zqJDQJGGAqACNwo8, :xq5DQJGGAqACNwpY,
+                                 :wwFDQJGGAqACNwpj, :hdFDQJGGAqACNwpu, :MrUQwJGGAqACNwoT, :DkgZwJGGAqACNwnm,
+                                 :PDUZwJGGAqACNwn8 .
+
+:7cxaWxGFS_j2pAoO
+    rdf:type                     ontouml:Package ;
+    ontouml:project              :dGSNHRGFS_j2pAvw ;
+    ontouml:name                 "MyPackage" ;
+    ontouml:containsModelElement :XQ6WxGFS_j2pAor .
+
+:n4ZaWxGFS_j2pAoS
+    rdf:type                     ontouml:Package ;
+    ontouml:project              :dGSNHRGFS_j2pAvw ;
+    ontouml:name                 "MyModel" ;
+    ontouml:containsModelElement :g2A6WxGFS_j2pAol, :gGhuFxGFS_j2pAmk .
+
+:XQ6WxGFS_j2pAor
+    rdf:type        ontouml:Package ;
+    ontouml:project :dGSNHRGFS_j2pAvw ;
+    ontouml:name    "MyPackage3" .
+
+:g2A6WxGFS_j2pAol
+    rdf:type        ontouml:Package ;
+    ontouml:project :dGSNHRGFS_j2pAvw ;
+    ontouml:name    "MyPackage2" .
+
+:YxbuFxGFS_j2pAnb
+    rdf:type            ontouml:Class ;
+    ontouml:project     :dGSNHRGFS_j2pAvw ;
+    ontouml:name        "MyClass2" ;
+    ontouml:isAbstract  "false"^^xsd:boolean ;
+    ontouml:isDerived   "false"^^xsd:boolean ;
+    ontouml:isPowertype "false"^^xsd:boolean ;
+    ontouml:order       "1"^^xsd:nonNegativeInteger ;
+    ontouml:stereotype  ontouml:ClassStereotype .
+
+:b5teFxGFS_j2pAm3
+    rdf:type            ontouml:Class ;
+    ontouml:project     :dGSNHRGFS_j2pAvw ;
+    ontouml:name        "ClassOutDiagram" ;
+    ontouml:isAbstract  "false"^^xsd:boolean ;
+    ontouml:isDerived   "false"^^xsd:boolean ;
+    ontouml:isPowertype "false"^^xsd:boolean ;
+    ontouml:order       "1"^^xsd:nonNegativeInteger ;
+    ontouml:stereotype  ontouml:ClassStereotype .
+
+:Y2ADQJGGAqACNwmq
+    rdf:type            ontouml:Class ;
+    ontouml:project     :dGSNHRGFS_j2pAvw ;
+    ontouml:name        "ClassStereotypeOut" ;
+    ontouml:stereotype  ontouml:Agent ;
+    ontouml:isAbstract  "false"^^xsd:boolean ;
+    ontouml:isDerived   "false"^^xsd:boolean ;
+    ontouml:isPowertype "false"^^xsd:boolean ;
+    ontouml:order       "1"^^xsd:nonNegativeInteger .
+
+:CYYDQJGGAqACNwnH
+    rdf:type             ontouml:Class ;
+    ontouml:project      :dGSNHRGFS_j2pAvw ;
+    ontouml:name         "ClassStereotypeKind" ;
+    ontouml:stereotype   ontouml:kind ;
+    ontouml:restrictedTo ontouml:functionalComplexNature ;
+    ontouml:isAbstract   "false"^^xsd:boolean ;
+    ontouml:isDerived    "false"^^xsd:boolean ;
+    ontouml:isPowertype  "false"^^xsd:boolean ;
+    ontouml:order        "1"^^xsd:nonNegativeInteger .
+
+:HI0DQJGGAqACNwnd
+    rdf:type            ontouml:Class ;
+    ontouml:project     :dGSNHRGFS_j2pAvw ;
+    ontouml:name        "Class" ;
+    ontouml:isAbstract  "false"^^xsd:boolean ;
+    ontouml:isDerived   "false"^^xsd:boolean ;
+    ontouml:isPowertype "false"^^xsd:boolean ;
+    ontouml:order       "1"^^xsd:nonNegativeInteger .
+
+:kACDQJGGAqACNwnq
+    rdf:type              ontouml:Class ;
+    ontouml:project       :dGSNHRGFS_j2pAvw ;
+    ontouml:name          "ClassSterCollectiveTrue" ;
+    ontouml:stereotype    ontouml:collective ;
+    ontouml:restrictedTo  ontouml:collectiveNature ;
+    ontouml:isAbstract    "false"^^xsd:boolean ;
+    ontouml:isDerived     "false"^^xsd:boolean ;
+    ontouml:isExtensional "true"^^xsd:boolean ;
+    ontouml:isPowertype   "false"^^xsd:boolean ;
+    ontouml:order         "1"^^xsd:nonNegativeInteger .
+
+:lT6DQJGGAqACNwoB
+    rdf:type              ontouml:Class ;
+    ontouml:project       :dGSNHRGFS_j2pAvw ;
+    ontouml:name          "ClassSterCollectiveFalse" ;
+    ontouml:stereotype    ontouml:collective ;
+    ontouml:restrictedTo  ontouml:collectiveNature ;
+    ontouml:isAbstract    "false"^^xsd:boolean ;
+    ontouml:isDerived     "false"^^xsd:boolean ;
+    ontouml:isExtensional "false"^^xsd:boolean ;
+    ontouml:isPowertype   "false"^^xsd:boolean ;
+    ontouml:order         "1"^^xsd:nonNegativeInteger .
+
+:IY2DQJGGAqACNwoW
+    rdf:type             ontouml:Class ;
+    ontouml:project      :dGSNHRGFS_j2pAvw ;
+    ontouml:name         "ClassSterTypeNotDef" ;
+    ontouml:stereotype   ontouml:type ;
+    ontouml:restrictedTo ontouml:typeNature ;
+    ontouml:isAbstract   "false"^^xsd:boolean ;
+    ontouml:isDerived    "false"^^xsd:boolean ;
+    ontouml:isPowertype  "false"^^xsd:boolean ;
+    ontouml:order        "2"^^xsd:nonNegativeInteger .
+
+:zqJDQJGGAqACNwo8
+    rdf:type             ontouml:Class ;
+    ontouml:project      :dGSNHRGFS_j2pAvw ;
+    ontouml:name         "ClassSterType0" ;
+    ontouml:stereotype   ontouml:type ;
+    ontouml:restrictedTo ontouml:typeNature ;
+    ontouml:isAbstract   "false"^^xsd:boolean ;
+    ontouml:isDerived    "false"^^xsd:boolean ;
+    ontouml:isPowertype  "false"^^xsd:boolean ;
+    ontouml:order        "0"^^xsd:nonNegativeInteger .
+
+:xq5DQJGGAqACNwpY
+    rdf:type             ontouml:Class ;
+    ontouml:project      :dGSNHRGFS_j2pAvw ;
+    ontouml:name         "ClassSterType1" ;
+    ontouml:stereotype   ontouml:type ;
+    ontouml:restrictedTo ontouml:typeNature ;
+    ontouml:isAbstract   "false"^^xsd:boolean ;
+    ontouml:isDerived    "false"^^xsd:boolean ;
+    ontouml:isPowertype  "false"^^xsd:boolean ;
+    ontouml:order        "1"^^xsd:nonNegativeInteger .
+
+:wwFDQJGGAqACNwpj
+    rdf:type             ontouml:Class ;
+    ontouml:project      :dGSNHRGFS_j2pAvw ;
+    ontouml:name         "ClassSterType2" ;
+    ontouml:stereotype   ontouml:type ;
+    ontouml:restrictedTo ontouml:typeNature ;
+    ontouml:isAbstract   "false"^^xsd:boolean ;
+    ontouml:isDerived    "false"^^xsd:boolean ;
+    ontouml:isPowertype  "false"^^xsd:boolean ;
+    ontouml:order        "2"^^xsd:nonNegativeInteger .
+
+:hdFDQJGGAqACNwpu
+    rdf:type             ontouml:Class ;
+    ontouml:project      :dGSNHRGFS_j2pAvw ;
+    ontouml:name         "ClassSterType*" ;
+    ontouml:stereotype   ontouml:type ;
+    ontouml:restrictedTo ontouml:typeNature ;
+    ontouml:isAbstract   "false"^^xsd:boolean ;
+    ontouml:isDerived    "false"^^xsd:boolean ;
+    ontouml:isPowertype  "false"^^xsd:boolean ;
+    ontouml:order        "0"^^xsd:nonNegativeInteger .
+
+:MrUQwJGGAqACNwoT
+    rdf:type             ontouml:Class ;
+    ontouml:project      :dGSNHRGFS_j2pAvw ;
+    ontouml:name         "ClassSterTypeInvalid" ;
+    ontouml:stereotype   ontouml:type ;
+    ontouml:restrictedTo ontouml:typeNature ;
+    ontouml:isAbstract   "false"^^xsd:boolean ;
+    ontouml:isDerived    "false"^^xsd:boolean ;
+    ontouml:isPowertype  "false"^^xsd:boolean ;
+    ontouml:order        "2"^^xsd:nonNegativeInteger .
+
+:DkgZwJGGAqACNwnm
+    rdf:type            ontouml:Class ;
+    ontouml:project     :dGSNHRGFS_j2pAvw ;
+    ontouml:name        "MultipleSterNonOU" ;
+    ontouml:stereotype  ontouml:Consumer ;
+    ontouml:isAbstract  "false"^^xsd:boolean ;
+    ontouml:isDerived   "false"^^xsd:boolean ;
+    ontouml:isPowertype "false"^^xsd:boolean ;
+    ontouml:order       "1"^^xsd:nonNegativeInteger .
+
+:PDUZwJGGAqACNwn8
+    rdf:type             ontouml:Class ;
+    ontouml:project      :dGSNHRGFS_j2pAvw ;
+    ontouml:name         "MultipleSterOU" ;
+    ontouml:stereotype   ontouml:kind ;
+    ontouml:restrictedTo ontouml:functionalComplexNature ;
+    ontouml:isAbstract   "false"^^xsd:boolean ;
+    ontouml:isDerived    "false"^^xsd:boolean ;
+    ontouml:isPowertype  "false"^^xsd:boolean ;
+    ontouml:order        "1"^^xsd:nonNegativeInteger .
+
+:gGhuFxGFS_j2pAmk
+    rdf:type            ontouml:Class ;
+    ontouml:project     :dGSNHRGFS_j2pAvw ;
+    ontouml:name        "MyClass1" ;
+    ontouml:isAbstract  "false"^^xsd:boolean ;
+    ontouml:isDerived   "false"^^xsd:boolean ;
+    ontouml:isPowertype "false"^^xsd:boolean ;
+    ontouml:order       "1"^^xsd:nonNegativeInteger ;
+    ontouml:stereotype  ontouml:ClassStereotype .
+
+:k8p6WxGFS_j2pApt
+    rdf:type             ontouml:Diagram ;
+    ontouml:project      :dGSNHRGFS_j2pAvw ;
+    ontouml:name         "MyModelClassDiagram1" ;
+    ontouml:containsView :b6huFxGFS_j2pAmj .
+
+:8tD6WxGFS_j2pAqD
+    rdf:type        ontouml:Diagram ;
+    ontouml:project :dGSNHRGFS_j2pAvw ;
+    ontouml:name    "MyPackageClassDiagram1" .
+
+:rmX6WxGFS_j2pAqf
+    rdf:type        ontouml:Diagram ;
+    ontouml:project :dGSNHRGFS_j2pAvw ;
+    ontouml:name    "MyPackage3ClassDiagram" .
+
+:7duFxGFS_j2pAm7
+    rdf:type             ontouml:Diagram ;
+    ontouml:project      :dGSNHRGFS_j2pAvw ;
+    ontouml:name         "MyClass1ClassDiagram" ;
+    ontouml:containsView :o2ADQJGGAqACNwmp, :wwFDQJGGAqACNwpi, :kACDQJGGAqACNwnp, :8YYDQJGGAqACNwnG, :PDUZwJGGAqACNwn7,
+                         :lT6DQJGGAqACNwoA, :DkgZwJGGAqACNwnl, :xq5DQJGGAqACNwpX, :BdFDQJGGAqACNwpt, :IY2DQJGGAqACNwoV,
+                         :4rUQwJGGAqACNwoS, :YxbuFxGFS_j2pAna, :zqJDQJGGAqACNwo7 .
+
+:b6huFxGFS_j2pAmj
+    rdf:type         ontouml:ClassView ;
+    ontouml:project  :dGSNHRGFS_j2pAvw ;
+    ontouml:isViewOf :gGhuFxGFS_j2pAmk ;
+    ontouml:shape    :b6huFxGFS_j2pAmj_shape .
+
+:o2ADQJGGAqACNwmp
+    rdf:type         ontouml:ClassView ;
+    ontouml:project  :dGSNHRGFS_j2pAvw ;
+    ontouml:isViewOf :Y2ADQJGGAqACNwmq ;
+    ontouml:shape    :o2ADQJGGAqACNwmp_shape .
+
+:wwFDQJGGAqACNwpi
+    rdf:type         ontouml:ClassView ;
+    ontouml:project  :dGSNHRGFS_j2pAvw ;
+    ontouml:isViewOf :wwFDQJGGAqACNwpj ;
+    ontouml:shape    :wwFDQJGGAqACNwpi_shape .
+
+:kACDQJGGAqACNwnp
+    rdf:type         ontouml:ClassView ;
+    ontouml:project  :dGSNHRGFS_j2pAvw ;
+    ontouml:isViewOf :kACDQJGGAqACNwnq ;
+    ontouml:shape    :kACDQJGGAqACNwnp_shape .
+
+:8YYDQJGGAqACNwnG
+    rdf:type         ontouml:ClassView ;
+    ontouml:project  :dGSNHRGFS_j2pAvw ;
+    ontouml:isViewOf :CYYDQJGGAqACNwnH ;
+    ontouml:shape    :8YYDQJGGAqACNwnG_shape .
+
+:PDUZwJGGAqACNwn7
+    rdf:type         ontouml:ClassView ;
+    ontouml:project  :dGSNHRGFS_j2pAvw ;
+    ontouml:isViewOf :PDUZwJGGAqACNwn8 ;
+    ontouml:shape    :PDUZwJGGAqACNwn7_shape .
+
+:lT6DQJGGAqACNwoA
+    rdf:type         ontouml:ClassView ;
+    ontouml:project  :dGSNHRGFS_j2pAvw ;
+    ontouml:isViewOf :lT6DQJGGAqACNwoB ;
+    ontouml:shape    :lT6DQJGGAqACNwoA_shape .
+
+:DkgZwJGGAqACNwnl
+    rdf:type         ontouml:ClassView ;
+    ontouml:project  :dGSNHRGFS_j2pAvw ;
+    ontouml:isViewOf :DkgZwJGGAqACNwnm ;
+    ontouml:shape    :DkgZwJGGAqACNwnl_shape .
+
+:xq5DQJGGAqACNwpX
+    rdf:type         ontouml:ClassView ;
+    ontouml:project  :dGSNHRGFS_j2pAvw ;
+    ontouml:isViewOf :xq5DQJGGAqACNwpY ;
+    ontouml:shape    :xq5DQJGGAqACNwpX_shape .
+
+:BdFDQJGGAqACNwpt
+    rdf:type         ontouml:ClassView ;
+    ontouml:project  :dGSNHRGFS_j2pAvw ;
+    ontouml:isViewOf :hdFDQJGGAqACNwpu ;
+    ontouml:shape    :BdFDQJGGAqACNwpt_shape .
+
+:IY2DQJGGAqACNwoV
+    rdf:type         ontouml:ClassView ;
+    ontouml:project  :dGSNHRGFS_j2pAvw ;
+    ontouml:isViewOf :IY2DQJGGAqACNwoW ;
+    ontouml:shape    :IY2DQJGGAqACNwoV_shape .
+
+:4rUQwJGGAqACNwoS
+    rdf:type         ontouml:ClassView ;
+    ontouml:project  :dGSNHRGFS_j2pAvw ;
+    ontouml:isViewOf :MrUQwJGGAqACNwoT ;
+    ontouml:shape    :4rUQwJGGAqACNwoS_shape .
+
+:YxbuFxGFS_j2pAna
+    rdf:type         ontouml:ClassView ;
+    ontouml:project  :dGSNHRGFS_j2pAvw ;
+    ontouml:isViewOf :YxbuFxGFS_j2pAnb ;
+    ontouml:shape    :YxbuFxGFS_j2pAna_shape .
+
+:zqJDQJGGAqACNwo7
+    rdf:type         ontouml:ClassView ;
+    ontouml:project  :dGSNHRGFS_j2pAvw ;
+    ontouml:isViewOf :zqJDQJGGAqACNwo8 ;
+    ontouml:shape    :zqJDQJGGAqACNwo7_shape .
+
+:b6huFxGFS_j2pAmj_shape
+    rdf:type                ontouml:Rectangle ;
+    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:width           "80"^^xsd:positiveInteger ;
+    ontouml:topLeftPosition :b6huFxGFS_j2pAmj_shape_point .
+
+:b6huFxGFS_j2pAmj_shape_point
+    rdf:type            ontouml:Point ;
+    ontouml:xCoordinate 312 ;
+    ontouml:yCoordinate 185 .
+
+:o2ADQJGGAqACNwmp_shape
+    rdf:type                ontouml:Rectangle ;
+    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:width           "116"^^xsd:positiveInteger ;
+    ontouml:topLeftPosition :o2ADQJGGAqACNwmp_shape_point .
+
+:o2ADQJGGAqACNwmp_shape_point
+    rdf:type            ontouml:Point ;
+    ontouml:xCoordinate 14 ;
+    ontouml:yCoordinate 748 .
+
+:wwFDQJGGAqACNwpi_shape
+    rdf:type                ontouml:Rectangle ;
+    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:width           "93"^^xsd:positiveInteger ;
+    ontouml:topLeftPosition :wwFDQJGGAqACNwpi_shape_point .
+
+:wwFDQJGGAqACNwpi_shape_point
+    rdf:type            ontouml:Point ;
+    ontouml:xCoordinate 717 ;
+    ontouml:yCoordinate 314 .
+
+:kACDQJGGAqACNwnp_shape
+    rdf:type                ontouml:Rectangle ;
+    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:width           "149"^^xsd:positiveInteger ;
+    ontouml:topLeftPosition :kACDQJGGAqACNwnp_shape_point .
+
+:kACDQJGGAqACNwnp_shape_point
+    rdf:type            ontouml:Point ;
+    ontouml:xCoordinate 27 ;
+    ontouml:yCoordinate 24 .
+
+:8YYDQJGGAqACNwnG_shape
+    rdf:type                ontouml:Rectangle ;
+    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:width           "298"^^xsd:positiveInteger ;
+    ontouml:topLeftPosition :8YYDQJGGAqACNwnG_shape_point .
+
+:8YYDQJGGAqACNwnG_shape_point
+    rdf:type            ontouml:Point ;
+    ontouml:xCoordinate 1384 ;
+    ontouml:yCoordinate 24 .
+
+:PDUZwJGGAqACNwn7_shape
+    rdf:type                ontouml:Rectangle ;
+    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:width           "92"^^xsd:positiveInteger ;
+    ontouml:topLeftPosition :PDUZwJGGAqACNwn7_shape_point .
+
+:PDUZwJGGAqACNwn7_shape_point
+    rdf:type            ontouml:Point ;
+    ontouml:xCoordinate 1657 ;
+    ontouml:yCoordinate 617 .
+
+:lT6DQJGGAqACNwoA_shape
+    rdf:type                ontouml:Rectangle ;
+    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:width           "141"^^xsd:positiveInteger ;
+    ontouml:topLeftPosition :lT6DQJGGAqACNwoA_shape_point .
+
+:lT6DQJGGAqACNwoA_shape_point
+    rdf:type            ontouml:Point ;
+    ontouml:xCoordinate 1541 ;
+    ontouml:yCoordinate 748 .
+
+:DkgZwJGGAqACNwnl_shape
+    rdf:type                ontouml:Rectangle ;
+    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:width           "115"^^xsd:positiveInteger ;
+    ontouml:topLeftPosition :DkgZwJGGAqACNwnl_shape_point .
+
+:DkgZwJGGAqACNwnl_shape_point
+    rdf:type            ontouml:Point ;
+    ontouml:xCoordinate 314 ;
+    ontouml:yCoordinate 450 .
+
+:xq5DQJGGAqACNwpX_shape
+    rdf:type                ontouml:Rectangle ;
+    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:width           "93"^^xsd:positiveInteger ;
+    ontouml:topLeftPosition :xq5DQJGGAqACNwpX_shape_point .
+
+:xq5DQJGGAqACNwpX_shape_point
+    rdf:type            ontouml:Point ;
+    ontouml:xCoordinate 716 ;
+    ontouml:yCoordinate 211 .
+
+:BdFDQJGGAqACNwpt_shape
+    rdf:type                ontouml:Rectangle ;
+    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:width           "91"^^xsd:positiveInteger ;
+    ontouml:topLeftPosition :BdFDQJGGAqACNwpt_shape_point .
+
+:BdFDQJGGAqACNwpt_shape_point
+    rdf:type            ontouml:Point ;
+    ontouml:xCoordinate 717 ;
+    ontouml:yCoordinate 408 .
+
+:IY2DQJGGAqACNwoV_shape
+    rdf:type                ontouml:Rectangle ;
+    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:width           "87"^^xsd:positiveInteger ;
+    ontouml:topLeftPosition :IY2DQJGGAqACNwoV_shape_point .
+
+:IY2DQJGGAqACNwoV_shape_point
+    rdf:type            ontouml:Point ;
+    ontouml:xCoordinate 701 ;
+    ontouml:yCoordinate 37 .
+
+:4rUQwJGGAqACNwoS_shape
+    rdf:type                ontouml:Rectangle ;
+    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:width           "122"^^xsd:positiveInteger ;
+    ontouml:topLeftPosition :4rUQwJGGAqACNwoS_shape_point .
+
+:4rUQwJGGAqACNwoS_shape_point
+    rdf:type            ontouml:Point ;
+    ontouml:xCoordinate 959 ;
+    ontouml:yCoordinate 273 .
+
+:YxbuFxGFS_j2pAna_shape
+    rdf:type                ontouml:Rectangle ;
+    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:width           "80"^^xsd:positiveInteger ;
+    ontouml:topLeftPosition :YxbuFxGFS_j2pAna_shape_point ;
+    ontouml:project         :dGSNHRGFS_j2pAvw .
+
+:YxbuFxGFS_j2pAna_shape_point
+    rdf:type            ontouml:Point ;
+    ontouml:xCoordinate 358 ;
+    ontouml:yCoordinate 310 .
+
+:zqJDQJGGAqACNwo7_shape
+    rdf:type                ontouml:Rectangle ;
+    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:width           "80"^^xsd:positiveInteger ;
+    ontouml:topLeftPosition :zqJDQJGGAqACNwo7_shape_point .
+
+:zqJDQJGGAqACNwo7_shape_point
+    rdf:type            ontouml:Point ;
+    ontouml:xCoordinate 707 ;
+    ontouml:yCoordinate 120 .
+
+# MANUALLY ADDED STATEMENTS ---------------------------------
+
+:XQ6WxGFS_j2pAor
+    ontouml:project :dGSNHRGFS_j2pAvw .
+
+:4rUQwJGGAqACNwoS
+    ontouml:project :dGSNHRGFS_j2pAvw .
+
+:4rUQwJGGAqACNwoS_shape
+    ontouml:project :dGSNHRGFS_j2pAvw .
+
+:8YYDQJGGAqACNwnG_shape
+    ontouml:project :dGSNHRGFS_j2pAvw .
+
+:7duFxGFS_j2pAm7
+    ontouml:project :dGSNHRGFS_j2pAvw .
+
+:b6huFxGFS_j2pAmj_shape
+    ontouml:project :dGSNHRGFS_j2pAvw .
+
+:BdFDQJGGAqACNwpt_shape
+    ontouml:project :dGSNHRGFS_j2pAvw .
+
+:HI0DQJGGAqACNwnd
+    ontouml:stereotype ontouml:ClassStereotype .
+
+:IY2DQJGGAqACNwoV_shape
+    ontouml:project :dGSNHRGFS_j2pAvw .
+
+:kACDQJGGAqACNwnp_shape
+    ontouml:project :dGSNHRGFS_j2pAvw .
+
+:kACDQJGGAqACNwnq
+    a ontouml:CollectiveClass .
+
+:lT6DQJGGAqACNwoA_shape
+    ontouml:project :dGSNHRGFS_j2pAvw .
+
+:lT6DQJGGAqACNwoB
+    a ontouml:CollectiveClass .
+
+:MrUQwJGGAqACNwoT
+    ontouml:project :dGSNHRGFS_j2pAvw .
+
+:o2ADQJGGAqACNwmp_shape
+    ontouml:project :dGSNHRGFS_j2pAvw .
+
+:wwFDQJGGAqACNwpi_shape
+    ontouml:project :dGSNHRGFS_j2pAvw .
+
+:xq5DQJGGAqACNwpX_shape
+    ontouml:project :dGSNHRGFS_j2pAvw .
+
+:zqJDQJGGAqACNwo7_shape
+    ontouml:project :dGSNHRGFS_j2pAvw .
+
+:7cxaWxGFS_j2pAoO
+    ontouml:containsModelElement :XQ6WxGFS_j2pAor .
+
+:PDUZwJGGAqACNwn7_shape
+    ontouml:project :dGSNHRGFS_j2pAvw .
+
+:DkgZwJGGAqACNwnl_shape
+    ontouml:project :dGSNHRGFS_j2pAvw .
+
+
+:7duFxGFS_j2pAm7
+    ontouml:owner :gGhuFxGFS_j2pAmk .
+
+:8tD6WxGFS_j2pAqD
+    ontouml:owner :7cxaWxGFS_j2pAoO .
+
+:k8p6WxGFS_j2pApt
+    ontouml:owner :n4ZaWxGFS_j2pAoS .
+
+:rmX6WxGFS_j2pAqf
+    ontouml:owner :XQ6WxGFS_j2pAor .
+
+# MANUALLY ADDED ----------
+
+:n4ZaWxGFS_j2pAoS
+    ontouml:containsModelElement :gGhuFxGFS_j2pAmkX1, :gGhuFxGFS_j2pAmkX2 .
+
+:gGhuFxGFS_j2pAmkX1
+    a                   ontouml:Class ;
+    ontouml:isAbstract  false ;
+    ontouml:isDerived   false ;
+    ontouml:isPowertype false ;
+    ontouml:name        "MyClassX1" ;
+    ontouml:order       "1"^^xsd:nonNegativeInteger ;
+    ontouml:project     :dGSNHRGFS_j2pAvw ;
+    ontouml:stereotype  ontouml:kind .
+
+:gGhuFxGFS_j2pAmkX2
+    a                   ontouml:Class ;
+    ontouml:isAbstract  false ;
+    ontouml:isDerived   false ;
+    ontouml:isPowertype false ;
+    ontouml:name        "MyClassX2" ;
+    ontouml:order       "1"^^xsd:nonNegativeInteger ;
+    ontouml:project     :dGSNHRGFS_j2pAvw ;
+    ontouml:stereotype  ontouml:ClassStereotype .
+
+# MANUALLY ADDED FOR TEST 16
+
+:n4ZaWxGFS_j2pAoS
+    ontouml:containsModelElement :gGhuFxGFS_j2pAmkX3, :gGhuFxGFS_j2pAmkX4 .
+
+:gGhuFxGFS_j2pAmkX3
+    a                   ontouml:Class ;
+    ontouml:isAbstract  false ;
+    ontouml:isDerived   false ;
+    ontouml:isPowertype true ;
+    ontouml:name        "MyClassX3" ;
+    ontouml:order       "2"^^xsd:nonNegativeInteger ;
+    ontouml:project     :dGSNHRGFS_j2pAvw ;
+    ontouml:stereotype  ontouml:type .
+
+:gGhuFxGFS_j2pAmkX4
+    a                   ontouml:Class ;
+    ontouml:isAbstract  false ;
+    ontouml:isDerived   false ;
+    ontouml:isPowertype false ;
+    ontouml:name        "MyClassX4" ;
+    ontouml:order       "1"^^xsd:nonNegativeInteger ;
+    ontouml:project     :dGSNHRGFS_j2pAvw ;
+    ontouml:stereotype  ontouml:kind .
+
