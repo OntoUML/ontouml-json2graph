@@ -29,7 +29,7 @@ def ontouml_json2graph(json_path: str, graph_format: str, execution_mode: str = 
         start_date_time = get_date_time(time_screen_format)
         st = time.perf_counter()
 
-        logger.info(f"OntoUML JSON2Graph decoder started on {start_date_time}!")
+        logger.info(f"OntoUML JSON2Graph decoder started on {start_date_time}!\n")
 
     # Load JSON
     json_data = safe_load_json_file(json_path)
@@ -43,6 +43,8 @@ def ontouml_json2graph(json_path: str, graph_format: str, execution_mode: str = 
         et = time.perf_counter()
         elapsed_time = round((et - st), 3)
 
+        time.sleep(0.1)
+        print()
         logger.info(f"Decoding concluded on {end_date_time}. Total execution time: {elapsed_time} seconds.")
 
     # Save graph as specified format
