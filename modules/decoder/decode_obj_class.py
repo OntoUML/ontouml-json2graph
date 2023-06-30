@@ -29,6 +29,36 @@ def get_stereotype(class_dict: dict) -> str:
     return result_stereotype
 
 
+def set_class_order(class_dict: dict, ontouml_graph: Graph) -> None:
+    """ Sets an ontouml:Class's ontouml:order property based on the received value of the object's field 'order'.
+
+    The treated possibilities are:
+    a) invalid value (null, non integers, integers <= 0) ---> is converted to the default value of the class
+    b) positive integers ---> directly converted
+    c) * (representing an orderless type) ---> converted to 0 (representation of orderless in the OntoUML Vocabulary).
+
+    :param class_dict: Class object loaded as a dictionary.
+    :type class_dict: dict
+    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary
+    :type ontouml_graph: Graph
+    """
+
+    if "order" not in class_dict:
+        pass
+    elif class_dict["order"] == "*":
+        ontouml_graph.add((URIRef(URI_ONTOLOGY + class_dict['id']),
+                           URIRef(URI_ONTOUML + "order"),
+                           Literal(0, datatype=XSD.nonNegativeInteger)))
+    elif (type(class_dict["order"]) is int) and (class_dict["order"] <= 0):
+        class_dict.pop("order")
+    elif type(class_dict["order"]):
+        ontouml_graph.add((URIRef(URI_ONTOLOGY + class_dict['id']),
+                           URIRef(URI_ONTOUML + "order"),
+                           Literal(class_dict['order'], datatype=XSD.nonNegativeInteger)))
+    else:
+        class_dict.pop("order")
+
+
 def set_class_stereotypes(class_dict: dict, ontouml_graph: Graph) -> None:
     """ Set ontouml:stereotype relation between a class and an instance representing an ontouml stereotype.
 
@@ -98,7 +128,7 @@ def validate_class_defaults(class_dict: dict, ontouml_graph: Graph) -> None:
             LOGGER.warning(warning_not_type)
             ontouml_graph.add((URIRef(URI_ONTOLOGY + class_dict['id']),
                                URIRef(URI_ONTOUML + "order"),
-                               Literal(1, datatype=XSD.positiveInteger)))
+                               Literal(1, datatype=XSD.nonNegativeInteger)))
 
         # Default: order default value = 2 when stereotype is 'type'
         elif class_stereotype == 'type':
@@ -107,7 +137,7 @@ def validate_class_defaults(class_dict: dict, ontouml_graph: Graph) -> None:
                 f"(default to classes with stereotype 'type').")
             ontouml_graph.add((URIRef(URI_ONTOLOGY + class_dict['id']),
                                URIRef(URI_ONTOUML + "order"),
-                               Literal(2, datatype=XSD.positiveInteger)))
+                               Literal(2, datatype=XSD.nonNegativeInteger)))
 
         # Unexpected value received for class_stereotype
         else:
@@ -172,6 +202,7 @@ def create_class_properties(json_data: dict, ontouml_graph: Graph) -> None:
             continue
 
         # Validating default values
+        set_class_order(class_dict, ontouml_graph)
         set_class_stereotypes(class_dict, ontouml_graph)
         validate_class_defaults(class_dict, ontouml_graph)
         validate_class_constraints(class_dict, ontouml_graph)

@@ -25,8 +25,8 @@ def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph) -> None:
     :type ontouml_graph: Graph
     """
 
-    restricted_fields = ["x", "y", "stereotype"]
-    positive_integer_fields = ["width", "height", "order"]
+    restricted_fields = ["x", "y", "stereotype", "order"]
+    positive_integer_fields = ["width", "height"]
 
     # Creating instance
     instance_uri = URI_ONTOLOGY + dictionary_data["id"]
@@ -59,15 +59,17 @@ def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph) -> None:
             decode_dictionary(dictionary_data[key], ontouml_graph)
             continue
 
-        # Graph's predicate definition
+        # Graph's PREDICATE definition
         new_predicate = URIRef(URI_ONTOUML + key)
 
-        # Graph's object definition
-
-        if key in positive_integer_fields and dictionary_data[key] != '*':
+        # Graph's OBJECT definition
+        if key in positive_integer_fields:
+            # Checking if is not integer (as int or as string)
             if type(dictionary_data[key]) is not int:
-                LOGGER.warning(f"The object with ID {dictionary_data['id']} has an invalid type for its field '{key}' "
-                               f"and was not transformed (expected type 'int', received '{type(dictionary_data[key]).__name__}').")
+                if not dictionary_data[key].isdigit():
+                    LOGGER.warning(f"The object with ID {dictionary_data['id']} has an invalid type for its "
+                                   f"field '{key}' and was not transformed (expected type 'int', "
+                                   f"received '{type(dictionary_data[key]).__name__}').")
             else:
                 new_object = Literal(dictionary_data[key], datatype=XSD.positiveInteger)
         else:

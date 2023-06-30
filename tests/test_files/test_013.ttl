@@ -50,7 +50,7 @@
     ontouml:isAbstract  "false"^^xsd:boolean ;
     ontouml:isDerived   "false"^^xsd:boolean ;
     ontouml:isPowertype "false"^^xsd:boolean ;
-    ontouml:order       "1"^^xsd:positiveInteger ;
+    ontouml:order       "1"^^xsd:nonNegativeInteger ;
     ontouml:stereotype  ontouml:ClassStereotype .
 
 :b5teFxGFS_j2pAm3
@@ -60,7 +60,7 @@
     ontouml:isAbstract  "false"^^xsd:boolean ;
     ontouml:isDerived   "false"^^xsd:boolean ;
     ontouml:isPowertype "false"^^xsd:boolean ;
-    ontouml:order       "1"^^xsd:positiveInteger ;
+    ontouml:order       "1"^^xsd:nonNegativeInteger ;
     ontouml:stereotype  ontouml:ClassStereotype .
 
 :Y2ADQJGGAqACNwmq
@@ -71,7 +71,7 @@
     ontouml:isAbstract  "false"^^xsd:boolean ;
     ontouml:isDerived   "false"^^xsd:boolean ;
     ontouml:isPowertype "false"^^xsd:boolean ;
-    ontouml:order       "1"^^xsd:positiveInteger .
+    ontouml:order       "1"^^xsd:nonNegativeInteger .
 
 :CYYDQJGGAqACNwnH
     rdf:type             ontouml:Class ;
@@ -82,7 +82,7 @@
     ontouml:isAbstract   "false"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
     ontouml:isPowertype  "false"^^xsd:boolean ;
-    ontouml:order        "1"^^xsd:positiveInteger .
+    ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :HI0DQJGGAqACNwnd
     rdf:type            ontouml:Class ;
@@ -91,7 +91,7 @@
     ontouml:isAbstract  "false"^^xsd:boolean ;
     ontouml:isDerived   "false"^^xsd:boolean ;
     ontouml:isPowertype "false"^^xsd:boolean ;
-    ontouml:order       "1"^^xsd:positiveInteger ;
+    ontouml:order       "1"^^xsd:nonNegativeInteger ;
     ontouml:stereotype  ontouml:ClassStereotype .
 
 :kACDQJGGAqACNwnq
@@ -104,7 +104,7 @@
     ontouml:isDerived     "false"^^xsd:boolean ;
     ontouml:isExtensional "true"^^xsd:boolean ;
     ontouml:isPowertype   "false"^^xsd:boolean ;
-    ontouml:order         "1"^^xsd:positiveInteger .
+    ontouml:order         "1"^^xsd:nonNegativeInteger .
 
 :lT6DQJGGAqACNwoB
     rdf:type              ontouml:Class ;
@@ -116,7 +116,7 @@
     ontouml:isDerived     "false"^^xsd:boolean ;
     ontouml:isExtensional "false"^^xsd:boolean ;
     ontouml:isPowertype   "false"^^xsd:boolean ;
-    ontouml:order         "1"^^xsd:positiveInteger .
+    ontouml:order         "1"^^xsd:nonNegativeInteger .
 
 :IY2DQJGGAqACNwoW
     rdf:type             ontouml:Class ;
@@ -127,7 +127,7 @@
     ontouml:isAbstract   "false"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
     ontouml:isPowertype  "false"^^xsd:boolean ;
-    ontouml:order        "2"^^xsd:positiveInteger .
+    ontouml:order        "2"^^xsd:nonNegativeInteger .
 
 :zqJDQJGGAqACNwo8
     rdf:type             ontouml:Class ;
@@ -138,7 +138,7 @@
     ontouml:isAbstract   "false"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
     ontouml:isPowertype  "false"^^xsd:boolean ;
-    ontouml:order        "0"^^xsd:positiveInteger .
+    ontouml:order        "0"^^xsd:nonNegativeInteger .
 
 :xq5DQJGGAqACNwpY
     rdf:type             ontouml:Class ;
@@ -149,7 +149,7 @@
     ontouml:isAbstract   "false"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
     ontouml:isPowertype  "false"^^xsd:boolean ;
-    ontouml:order        "1"^^xsd:positiveInteger .
+    ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :wwFDQJGGAqACNwpj
     rdf:type             ontouml:Class ;
@@ -160,7 +160,7 @@
     ontouml:isAbstract   "false"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
     ontouml:isPowertype  "false"^^xsd:boolean ;
-    ontouml:order        "2"^^xsd:positiveInteger .
+    ontouml:order        "2"^^xsd:nonNegativeInteger .
 
 :hdFDQJGGAqACNwpu
     rdf:type             ontouml:Class ;
@@ -171,7 +171,7 @@
     ontouml:isAbstract   "false"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
     ontouml:isPowertype  "false"^^xsd:boolean ;
-    ontouml:order        "Infinity"^^xsd:positiveInteger .
+    ontouml:order        "0"^^xsd:nonNegativeInteger .
 
 :gGhuFxGFS_j2pAmk
     rdf:type            ontouml:Class ;
@@ -180,7 +180,7 @@
     ontouml:isAbstract  "false"^^xsd:boolean ;
     ontouml:isDerived   "false"^^xsd:boolean ;
     ontouml:isPowertype "false"^^xsd:boolean ;
-    ontouml:order       "1"^^xsd:positiveInteger ;
+    ontouml:order       "1"^^xsd:nonNegativeInteger ;
     ontouml:stereotype  ontouml:ClassStereotype .
 
 :k8p6WxGFS_j2pApt
@@ -468,5 +468,17 @@
     ontouml:isDerived   false ;
     ontouml:isPowertype false ;
     ontouml:name        "ClassSterTypeInvalid" ;
-    ontouml:order       "2"^^xsd:positiveInteger ;
+    ontouml:order       "2"^^xsd:nonNegativeInteger ;
     ontouml:stereotype  ontouml:type .
+
+:4rUQwJGGAqACNwoS a ontouml:ClassView ;
+    ontouml:isViewOf :MrUQwJGGAqACNwoT ;
+    ontouml:shape :4rUQwJGGAqACNwoS_shape .
+
+:k8p6WxGFS_j2pApt ontouml:owner :n4ZaWxGFS_j2pAoS .
+
+:rmX6WxGFS_j2pAqf ontouml:owner :XQ6WxGFS_j2pAor .
+
+:7duFxGFS_j2pAm7 ontouml:owner :gGhuFxGFS_j2pAmk .
+
+:8tD6WxGFS_j2pAqD ontouml:owner :7cxaWxGFS_j2pAoO .
