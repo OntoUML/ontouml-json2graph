@@ -62,7 +62,8 @@
     ontouml:isDerived     "false"^^xsd:boolean ;
     ontouml:isExtensional "false"^^xsd:boolean ;
     ontouml:isPowertype   "false"^^xsd:boolean ;
-    ontouml:order         "1"^^xsd:positiveInteger .
+    ontouml:order         "1"^^xsd:positiveInteger ;
+    ontouml:stereotype ontouml:ClassStereotype .
 
 :Y2ADQJGGAqACNwmq
     rdf:type              ontouml:Class ;
