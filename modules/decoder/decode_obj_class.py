@@ -1,7 +1,7 @@
 """ Functions to decode specificities of the object Class. """
 import inspect
 
-from rdflib import Graph, URIRef, XSD, Literal
+from rdflib import Graph, URIRef, XSD, Literal, RDF
 
 from globals import URI_ONTOLOGY, URI_ONTOUML
 from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type
@@ -58,8 +58,14 @@ def set_class_stereotypes(class_dict: dict, ontouml_graph: Graph) -> None:
                            URIRef(URI_ONTOUML + "stereotype"),
                            URIRef(URI_ONTOUML + class_dict['stereotype'])))
 
+        # Adding information that an ontouml:Class is an ontouml:CollectiveClass
+        if class_stereotype == "collective":
+            ontouml_graph.add((URIRef(URI_ONTOLOGY + class_dict['id']),
+                               URIRef(RDF.type),
+                               URIRef(URI_ONTOUML + "CollectiveClass")))
+
         # If declared but invalid, create and report error
-        if class_stereotype not in ENUM_CLASS_STEREOTYPE:
+        elif class_stereotype not in ENUM_CLASS_STEREOTYPE:
             LOGGER.error(f"Invalid stereotype {class_dict['stereotype']} defined for class {class_dict['name']}. "
                          f"The transformation output is not syntactically valid.")
 

@@ -490,3 +490,24 @@
     rdf:type            ontouml:Point ;
     ontouml:xCoordinate 707 ;
     ontouml:yCoordinate 120 .
+
+# Manually added statements
+
+:XQ6WxGFS_j2pAor ontouml:project :dGSNHRGFS_j2pAvw .
+:4rUQwJGGAqACNwoS ontouml:project :dGSNHRGFS_j2pAvw .
+:4rUQwJGGAqACNwoS_shape ontouml:project :dGSNHRGFS_j2pAvw .
+:8YYDQJGGAqACNwnG_shape ontouml:project :dGSNHRGFS_j2pAvw .
+:7duFxGFS_j2pAm7 ontouml:project :dGSNHRGFS_j2pAvw .
+:b6huFxGFS_j2pAmj_shape ontouml:project :dGSNHRGFS_j2pAvw .
+:BdFDQJGGAqACNwpt_shape ontouml:project :dGSNHRGFS_j2pAvw .
+:HI0DQJGGAqACNwnd ontouml:stereotype ontouml:ClassStereotype .
+:IY2DQJGGAqACNwoV_shape ontouml:project :dGSNHRGFS_j2pAvw .
+:kACDQJGGAqACNwnp_shape ontouml:project :dGSNHRGFS_j2pAvw .
+:kACDQJGGAqACNwnq a ontouml:CollectiveClass .
+:lT6DQJGGAqACNwoA_shape ontouml:project :dGSNHRGFS_j2pAvw .
+:lT6DQJGGAqACNwoB a ontouml:CollectiveClass .
+:MrUQwJGGAqACNwoT ontouml:project :dGSNHRGFS_j2pAvw .
+:o2ADQJGGAqACNwmp_shape ontouml:project :dGSNHRGFS_j2pAvw .
+:wwFDQJGGAqACNwpi_shape ontouml:project :dGSNHRGFS_j2pAvw .
+:xq5DQJGGAqACNwpX_shape ontouml:project :dGSNHRGFS_j2pAvw .
+:zqJDQJGGAqACNwo7_shape ontouml:project :dGSNHRGFS_j2pAvw .
