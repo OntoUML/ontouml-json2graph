@@ -25,7 +25,7 @@ def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph) -> None:
     :type ontouml_graph: Graph
     """
 
-    restricted_fields = ["x", "y", "stereotype", "order"]
+    restricted_fields = ["x", "y", "stereotype", "order", "isExtensional"]
     positive_integer_fields = ["width", "height"]
 
     # Creating instance

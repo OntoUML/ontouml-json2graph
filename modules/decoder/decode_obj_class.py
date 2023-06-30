@@ -12,17 +12,17 @@ LOGGER = initialize_logger()
 
 
 def get_stereotype(class_dict: dict) -> str:
-    """ For coding reasons (dictionary index), it is necessary to check if a class has its stereotype not set.
-    Returns the evaluated class's stereotype or 'is_null' when the stereotype is absent.
+    """ For coding reasons (dictionary index error), it is necessary to check if a class has its stereotype not set.
+    Returns the evaluated class's stereotype or 'null' when the stereotype is absent.
 
     :param class_dict: Class object loaded as a dictionary.
     :type class_dict: dict
-    :return: Evaluated class's stereotype or 'is_null' when the stereotype is absent.
+    :return: Evaluated class's stereotype or 'null' when the stereotype is absent.
     :rtype: str
     """
 
     if "stereotype" not in class_dict:
-        result_stereotype = "is_null"
+        result_stereotype = "null"
     else:
         result_stereotype = class_dict["stereotype"]
 
@@ -33,9 +33,9 @@ def set_class_order(class_dict: dict, ontouml_graph: Graph) -> None:
     """ Sets an ontouml:Class's ontouml:order property based on the received value of the object's field 'order'.
 
     The treated possibilities are:
-    a) invalid value (null, non integers, integers <= 0) ---> is converted to the default value of the class
-    b) positive integers ---> directly converted
-    c) * (representing an orderless type) ---> converted to 0 (representation of orderless in the OntoUML Vocabulary).
+    A) invalid value (null, non integers, integers <= 0) ---> is converted to the default value of the class
+    B) positive integers ---> directly converted
+    C) * (representing an orderless type) ---> converted to 0 (representation of orderless in the OntoUML Vocabulary).
 
     :param class_dict: Class object loaded as a dictionary.
     :type class_dict: dict
@@ -84,7 +84,7 @@ def set_class_stereotypes(class_dict: dict, ontouml_graph: Graph) -> None:
     class_stereotype = get_stereotype(class_dict)
 
     # Verifying for non declared stereotypes. If not declared, point to ClassStereotype and report warning.
-    if class_stereotype == "is_null":
+    if class_stereotype == "null":
 
         LOGGER.warning(f"Stereotype not defined for class {class_dict['name']}.")
 
@@ -140,6 +140,21 @@ def set_class_restricted_to(class_dict: dict, ontouml_graph: Graph) -> None:
                                URIRef(URI_ONTOUML + mapping[restriction])))
 
 
+def set_class_is_extensional(class_dict: dict, ontouml_graph: Graph) -> None:
+    """ Creates the isExtensional attribute of a class in the resulting graph.
+
+    :param class_dict: Class object loaded as a dictionary.
+    :type class_dict: dict
+    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary
+    :type ontouml_graph: Graph
+    """
+
+    if "isExtensional" in class_dict:
+        ontouml_graph.add((URIRef(URI_ONTOLOGY + class_dict['id']),
+                           URIRef(URI_ONTOUML + "isExtensional"),
+                           Literal(class_dict["isExtensional"])))
+
+
 def set_class_defaults(class_dict: dict, ontouml_graph: Graph) -> None:
     """ Verifies a class dictionary and check if their non-nullable attributes were set or not.
     If not, creates default values.
@@ -157,14 +172,14 @@ def set_class_defaults(class_dict: dict, ontouml_graph: Graph) -> None:
 
     class_stereotype = get_stereotype(class_dict)
 
-    warning_not_type = f"The class {class_dict['name']} had its 'order' attribute (originally null) set to 1 " \
+    warning_not_type = f"The class '{class_dict['name']}' had its order attribute (originally 'null') set to 1 " \
                        f"(default to classes with stereotype different than 'type')."
 
     # DEFAULT: ORDER VALUE
     if "order" not in class_dict:
 
         # Default: order default value = 1 when stereotype is not 'type'
-        if (class_stereotype == "is_null") or (class_stereotype != 'type'):
+        if (class_stereotype == "null") or (class_stereotype != 'type'):
             LOGGER.warning(warning_not_type)
             ontouml_graph.add((URIRef(URI_ONTOLOGY + class_dict['id']),
                                URIRef(URI_ONTOUML + "order"),
@@ -199,10 +214,10 @@ def validate_class_constraints(class_dict: dict, ontouml_graph: Graph) -> None:
     fixes them when they are not.
 
     The checked constraints are:
-    - isExtensional must be null when the class's stereotype is not 'collective'
-    - order must be greater than 1 when class's stereotype is 'type'
-    - class's order must be 1 when class's stereotype is not 'type'
-    - class's isPowertype must be false when class's stereotype is not 'type'
+    A) isExtensional must be null when the class's stereotype is not 'collective'
+    B) order must be greater than 1 when class's stereotype is 'type'
+    C) class's order must be 1 when class's stereotype is not 'type'
+    D) class's isPowertype must be false when class's stereotype is not 'type'
 
     :param class_dict: Class object loaded as a dictionary.
     :type class_dict: dict
@@ -210,7 +225,14 @@ def validate_class_constraints(class_dict: dict, ontouml_graph: Graph) -> None:
     :type ontouml_graph: Graph
     """
 
-    # Constraint: isExtensional must be null when the class's stereotype is not 'collective'
+    class_stereotype = get_stereotype(class_dict)
+
+    # Constraint A: isExtensional must be null when the class's stereotype is not 'collective'
+    if ("isExtensional" in class_dict) and class_stereotype != "collective":
+        LOGGER.warning(
+            f"Class '{class_dict['name']}' of stereotype '{class_stereotype}' had its isExtensional "
+            f"attribute (originally '{class_dict['isExtensional']}') removed as it is not a collective.")
+        class_dict.pop('isExtensional')
 
     # Constraint: order must be greater than 1 when the class's stereotype is 'type'
 
@@ -243,8 +265,9 @@ def create_class_properties(json_data: dict, ontouml_graph: Graph) -> None:
             continue
 
         # Validating default values
+        validate_class_constraints(class_dict, ontouml_graph)
         set_class_order(class_dict, ontouml_graph)
         set_class_stereotypes(class_dict, ontouml_graph)
         set_class_restricted_to(class_dict, ontouml_graph)
         set_class_defaults(class_dict, ontouml_graph)
-        validate_class_constraints(class_dict, ontouml_graph)
+        set_class_is_extensional(class_dict, ontouml_graph)

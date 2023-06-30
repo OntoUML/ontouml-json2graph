@@ -43,6 +43,7 @@ def ontouml_json2graph(json_path: str, graph_format: str, execution_mode: str = 
         et = time.perf_counter()
         elapsed_time = round((et - st), 3)
 
+        # The sleep function is for the correct printing. The performance is not affected as it only runs in production
         time.sleep(0.1)
         print()
         logger.info(f"Decoding concluded on {end_date_time}. Total execution time: {elapsed_time} seconds.")
