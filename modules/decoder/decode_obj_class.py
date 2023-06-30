@@ -43,18 +43,27 @@ def set_class_order(class_dict: dict, ontouml_graph: Graph) -> None:
     :type ontouml_graph: Graph
     """
 
+    # Case A: if 'order' field is null, it will receive the default value (see function set_class_defaults)
     if "order" not in class_dict:
         pass
+
+    # Case C: receives 0, representing an orderless class.
     elif class_dict["order"] == "*":
         ontouml_graph.add((URIRef(URI_ONTOLOGY + class_dict['id']),
                            URIRef(URI_ONTOUML + "order"),
                            Literal(0, datatype=XSD.nonNegativeInteger)))
+
+    # Case A: remove invalid information so the field can be treated as null and then receive the default value.
     elif (type(class_dict["order"]) is int) and (class_dict["order"] <= 0):
         class_dict.pop("order")
+
+    # Case B
     elif type(class_dict["order"]):
         ontouml_graph.add((URIRef(URI_ONTOLOGY + class_dict['id']),
                            URIRef(URI_ONTOUML + "order"),
                            Literal(class_dict['order'], datatype=XSD.nonNegativeInteger)))
+
+    # Case A: remove invalid information so the field can be treated as null and then receive the default value.
     else:
         class_dict.pop("order")
 
@@ -131,9 +140,9 @@ def set_class_restricted_to(class_dict: dict, ontouml_graph: Graph) -> None:
                                URIRef(URI_ONTOUML + mapping[restriction])))
 
 
-def validate_class_defaults(class_dict: dict, ontouml_graph: Graph) -> None:
-    """ Verifies all Class dictionaries and check if their default values (not nullable) were not set (i.e., if they are
-    null) and fixes them.
+def set_class_defaults(class_dict: dict, ontouml_graph: Graph) -> None:
+    """ Verifies a class dictionary and check if their non-nullable attributes were set or not.
+    If not, creates default values.
 
     Default values checked are:
     - order default value = 1 when class's stereotype is not 'type'
@@ -237,5 +246,5 @@ def create_class_properties(json_data: dict, ontouml_graph: Graph) -> None:
         set_class_order(class_dict, ontouml_graph)
         set_class_stereotypes(class_dict, ontouml_graph)
         set_class_restricted_to(class_dict, ontouml_graph)
-        validate_class_defaults(class_dict, ontouml_graph)
+        set_class_defaults(class_dict, ontouml_graph)
         validate_class_constraints(class_dict, ontouml_graph)
