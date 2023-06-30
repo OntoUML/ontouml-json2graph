@@ -1,17 +1,36 @@
 """ Functions to decode specificities of the object Class. """
+import inspect
 
 from rdflib import Graph, URIRef, XSD, Literal
 
 from globals import URI_ONTOLOGY, URI_ONTOUML
 from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type
+from modules.errors import report_error_end_of_switch
 from modules.logger import initialize_logger
 
 LOGGER = initialize_logger()
 
 
-def validate_class_defaults(class_dict: dict, ontouml_graph: Graph) -> None:
-    """ Verifies all Class dictionaries and check if their default values (not nullable) were not set (i.e., if they are
-    null) and fixes them.
+def get_stereotype(class_dict: dict) -> str:
+    """ For coding reasons (dictionary index), it is necessary to check if a class has its stereotype not set.
+    Returns the evaluated class's stereotype or 'is_null' when the stereotype is absent.
+
+    :param class_dict: Class object loaded as a dictionary.
+    :type class_dict: dict
+    :return: Evaluated class's stereotype or 'is_null' when the stereotype is absent.
+    :rtype: str
+    """
+
+    if "stereotype" not in class_dict:
+        result_stereotype = "is_null"
+    else:
+        result_stereotype = class_dict["stereotype"]
+
+    return result_stereotype
+
+
+def set_class_stereotypes(class_dict: dict, ontouml_graph: Graph) -> None:
+    """ Set ontouml:stereotype relation between a class and an instance representing an ontouml stereotype.
 
     :param class_dict: Class object loaded as a dictionary.
     :type class_dict: dict
@@ -19,22 +38,107 @@ def validate_class_defaults(class_dict: dict, ontouml_graph: Graph) -> None:
     :type ontouml_graph: Graph
     """
 
-    # Order default value = 1 when not stereotype 'type'
-    # TODO (@pedropaulofb): and value = 2 when stereotype 'type'
-    if "order" not in class_dict:
-        LOGGER.warning(
-            f"The class with id {class_dict['id']} had 'order' attribute (originally null) set to 1 (default).")
-        ontouml_graph.add((URIRef(URI_ONTOLOGY + class_dict['id']),
-                           URIRef(URI_ONTOUML + "order"),
-                           Literal(1, datatype=XSD.positiveInteger)))
+    ENUM_CLASS_STEREOTYPE = ["type", "historicalRole", "historicalRoleMixin", "event", "situation", "category", "mixin",
+                             "roleMixin", "phaseMixin", "kind", "collective", "quantity", "relator", "quality", "mode",
+                             "subkind", "role", "phase", "enumeration", "datatype", "abstract"]
 
-    # isPowertype default value = False
+    class_stereotype = get_stereotype(class_dict)
+
+    # Verifying for non declared stereotypes. If not declared, point to ClassStereotype and report warning.
+    if class_stereotype == "is_null":
+
+        LOGGER.warning(f"Stereotype not defined for class {class_dict['name']}.")
+
+        ontouml_graph.add((URIRef(URI_ONTOLOGY + class_dict['id']),
+                           URIRef(URI_ONTOUML + "stereotype"),
+                           URIRef(URI_ONTOUML + "ClassStereotype")))
+
+    else:
+        ontouml_graph.add((URIRef(URI_ONTOLOGY + class_dict['id']),
+                           URIRef(URI_ONTOUML + "stereotype"),
+                           URIRef(URI_ONTOUML + class_dict['stereotype'])))
+
+        # If declared but invalid, create and report error
+        if class_stereotype not in ENUM_CLASS_STEREOTYPE:
+            LOGGER.error(f"Invalid stereotype {class_dict['stereotype']} defined for class {class_dict['name']}. "
+                         f"The transformation output is not syntactically valid.")
+
+
+def validate_class_defaults(class_dict: dict, ontouml_graph: Graph) -> None:
+    """ Verifies all Class dictionaries and check if their default values (not nullable) were not set (i.e., if they are
+    null) and fixes them.
+
+    Default values checked are:
+    - order default value = 1 when class's stereotype is not 'type'
+    - order default value = 2 when class's stereotype 'type'
+    - isPowertype default value = False
+
+    :param class_dict: Class object loaded as a dictionary.
+    :type class_dict: dict
+    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary
+    :type ontouml_graph: Graph
+    """
+
+    class_stereotype = get_stereotype(class_dict)
+
+    warning_not_type = f"The class {class_dict['name']} had its 'order' attribute (originally null) set to 1 " \
+                       f"(default to classes with stereotype different than 'type')."
+
+    # DEFAULT: ORDER VALUE
+    if "order" not in class_dict:
+
+        # Default: order default value = 1 when stereotype is not 'type'
+        if (class_stereotype == "is_null") or (class_stereotype != 'type'):
+            LOGGER.warning(warning_not_type)
+            ontouml_graph.add((URIRef(URI_ONTOLOGY + class_dict['id']),
+                               URIRef(URI_ONTOUML + "order"),
+                               Literal(1, datatype=XSD.positiveInteger)))
+
+        # Default: order default value = 2 when stereotype is 'type'
+        elif class_stereotype == 'type':
+            LOGGER.warning(
+                f"The class {class_dict['name']} had its 'order' attribute (originally null) set to 2 "
+                f"(default to classes with stereotype 'type').")
+            ontouml_graph.add((URIRef(URI_ONTOLOGY + class_dict['id']),
+                               URIRef(URI_ONTOUML + "order"),
+                               Literal(2, datatype=XSD.positiveInteger)))
+
+        # Unexpected value received for class_stereotype
+        else:
+            current_function = inspect.stack()[0][3]
+            report_error_end_of_switch("class_stereotype", current_function)
+
+    # DEFAULT: ISPOWERTYPE DEFAULT VALUE = FALSE
     if "isPowertype" not in class_dict:
         LOGGER.warning(
-            f"The class with id {class_dict['id']} had 'isPowertype' attribute (originally null) set to False (default).")
+            f"The class {class_dict['name']} had its 'isPowertype' attribute (originally null) set to False (default).")
         ontouml_graph.add((URIRef(URI_ONTOLOGY + class_dict['id']),
                            URIRef(URI_ONTOUML + "isPowertype"),
                            Literal(False)))
+
+
+def validate_class_constraints(class_dict: dict, ontouml_graph: Graph) -> None:
+    """ Verifies all Class dictionaries and check if the constraints related to classes were correctly considered and
+    fixes them when they are not.
+
+    The checked constraints are:
+    - isExtensional must be null when the class's stereotype is not 'collective'
+    - order must be greater than 1 when class's stereotype is 'type'
+    - class's order must be 1 when class's stereotype is not 'type'
+    - class's isPowertype must be false when class's stereotype is not 'type'
+
+    :param class_dict: Class object loaded as a dictionary.
+    :type class_dict: dict
+    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary
+    :type ontouml_graph: Graph
+    """
+
+    # Constraint: isExtensional must be null when the class's stereotype is not 'collective'
+
+    # Constraint: order must be greater than 1 when the class's stereotype is 'type'
+
+    # Constraint: class's order must be 1 when class's stereotype is not 'type'
+    # Constraint: class's isPowertype must be false when class's stereotype is not 'type'
 
 
 def create_class_properties(json_data: dict, ontouml_graph: Graph) -> None:
@@ -62,4 +166,6 @@ def create_class_properties(json_data: dict, ontouml_graph: Graph) -> None:
             continue
 
         # Validating default values
+        set_class_stereotypes(class_dict, ontouml_graph)
         validate_class_defaults(class_dict, ontouml_graph)
+        validate_class_constraints(class_dict, ontouml_graph)

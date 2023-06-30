@@ -65,7 +65,8 @@ def get_list_subdictionaries_for_specific_type(dictionary_data: dict, wanted_typ
         # Treating list fields
         if type(dictionary_data[dict_field]) is list:
             for item in dictionary_data[dict_field]:
-                return_list = get_list_subdictionaries_for_specific_type(item, wanted_type, return_list)
+                if type(item) is dict:
+                    return_list = get_list_subdictionaries_for_specific_type(item, wanted_type, return_list)
 
     return return_list
 
@@ -139,7 +140,8 @@ def get_all_ids_of_specific_type(dictionary_data: dict, wanted_type: str, list_i
         # Treating list fields
         if type(dictionary_data[dict_field]) is list:
             for item in dictionary_data[dict_field]:
-                list_ids_for_type = get_all_ids_of_specific_type(item, wanted_type, list_ids_for_type)
+                if type(item) is dict:
+                    list_ids_for_type = get_all_ids_of_specific_type(item, wanted_type, list_ids_for_type)
 
     # remove duplicates
     list_ids_for_type = list(dict.fromkeys(list_ids_for_type))
@@ -164,7 +166,8 @@ def clean_null_data(dictionary_data) -> dict:
         # Recursively treats sub-dictionaries inside lists
         if type(dictionary_data[key]) is list:
             for item in dictionary_data[key]:
-                clean_null_data(item)
+                if type(item) is dict:
+                    clean_null_data(item)
 
         # Recursively treats sub-dictionaries
         if type(dictionary_data[key]) is dict:

@@ -44,7 +44,8 @@ def get_package_contents(dictionary_data: dict, package_id: str, list_contents: 
             # Treat case list
             elif type(dictionary_data[key]) is list:
                 for item in dictionary_data[key]:
-                    list_contents = get_package_contents(item, package_id, list_contents)
+                    if type(item) is dict:
+                        list_contents = get_package_contents(item, package_id, list_contents)
 
                     if list_contents:
                         break

@@ -14,3 +14,15 @@ ALLOWED_GRAPH_FORMATS = ["turtle", "ttl", "turtle2", "xml", "pretty-xml", "json-
 # URIs
 URI_ONTOLOGY = "https://example.org#"
 URI_ONTOUML = "https://w3id.org/ontouml#"
+
+# ONTOUML ENUMERATIONS
+
+ENUM_RELATION_STEREOTYPE = ["material", "derivation", "comparative", "mediation", "characterization",
+                            "externalDependence", "componentOf", "memberOf", "subCollectionOf", "subQuantityOf",
+                            "instantiation", "termination", "participational", "participation", "historicalDependence",
+                            "creation", "manifestation", "brigsAbout", "triggers"]
+
+ENUM_PROPERTY_STEREOTYPE = ["begin", "end"]
+
+ENUM_ONTOLOGICAL_NATURE = ["abstract", "collective", "event", "extrinsic-mode", "functional-complex", "intrinsic-mode",
+                           "quality", "quantity", "relator", "situation", "type"]

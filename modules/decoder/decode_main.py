@@ -47,7 +47,8 @@ def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph) -> None:
         # Recursively treats sub-dictionaries inside lists
         if type(dictionary_data[key]) is list:
             for item in dictionary_data[key]:
-                decode_dictionary(item, ontouml_graph)
+                if type(item) is dict:
+                    decode_dictionary(item, ontouml_graph)
             continue
 
         # Recursively treats sub-dictionaries
@@ -59,7 +60,7 @@ def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph) -> None:
         new_predicate = URIRef(URI_ONTOUML + key)
 
         # Graph's object definition
-        if key in positive_integer_fields:
+        if key in positive_integer_fields and dictionary_data[key] != '*':
             new_object = Literal(dictionary_data[key], datatype=XSD.positiveInteger)
         else:
             new_object = Literal(dictionary_data[key])

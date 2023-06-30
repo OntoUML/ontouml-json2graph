@@ -1,4 +1,4 @@
-@prefix :        <https://w3id.org/ontouml-models/model/ont1#>.
+@prefix :        <https://example.org#>.
 @prefix ontouml: <https://w3id.org/ontouml#>.
 @prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#>.
@@ -35,7 +35,8 @@
 :XQ6WxGFS_j2pAor
     rdf:type        ontouml:Package ;
     ontouml:project :dGSNHRGFS_j2pAvw ;
-    ontouml:name    "MyPackage3" .
+    ontouml:name    "MyPackage3" ;
+    ontouml:project :dGSNHRGFS_j2pAvw .
 
 :g2A6WxGFS_j2pAol
     rdf:type        ontouml:Package ;
@@ -315,7 +316,8 @@
     rdf:type                ontouml:Rectangle ;
     ontouml:height          "40"^^xsd:positiveInteger ;
     ontouml:width           "80"^^xsd:positiveInteger ;
-    ontouml:topLeftPosition :YxbuFxGFS_j2pAna_shape_point .
+    ontouml:topLeftPosition :YxbuFxGFS_j2pAna_shape_point ;
+    ontouml:project         :dGSNHRGFS_j2pAvw .
 
 :YxbuFxGFS_j2pAna_shape_point
     rdf:type            ontouml:Point ;
