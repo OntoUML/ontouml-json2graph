@@ -213,7 +213,6 @@ def set_class_defaults(class_dict: dict, ontouml_graph: Graph) -> None:
                            Literal(False)))
 
 
-# TODO (@pedropaulofb): To be implemented.
 def validate_class_constraints(class_dict: dict, ontouml_graph: Graph) -> None:
     """ Verifies all Class dictionaries and check if the constraints related to classes were correctly considered and
     fixes them when they are not.
@@ -240,11 +239,21 @@ def validate_class_constraints(class_dict: dict, ontouml_graph: Graph) -> None:
             f"attribute (originally '{class_dict['isExtensional']}') removed as it is not of stereotype collective.")
         class_dict.pop('isExtensional')
 
-    # Constraint B: order must be greater than 1 when the class's stereotype is 'type'
-    # Class that is type and has order = 1 is set to 2 and modification is reported as warning
+    # Constraints B and C depend on the existence of the order attribute
+    if "order" in class_dict:
 
-    # Constraint C: class's order must be 1 when class's stereotype is not 'type'
-    # Class that is not type and has order > 1 is set to 1 and modification is reported as warning
+        # Constraint B: order must be greater than 1 when the class's stereotype is 'type'
+        if class_stereotype == "type" and ((class_dict["order"] == 1) or (class_dict["order"] == "1")):
+            LOGGER.warning(f"Class '{class_dict['name']}' of stereotype '{class_stereotype}' had its order attribute "
+                           f"(originally '{class_dict['order']}') set to '2' (default for 'type').")
+            class_dict.pop('order')
+
+        # Constraint C: class's order must be 1 when class's stereotype is not 'type'
+        if class_stereotype != "type" and class_dict["order"] != 1:
+            LOGGER.warning(
+                f"Class '{class_dict['name']}' of stereotype '{class_stereotype}' had its order attribute "
+                f"(originally '{class_dict['order']}') set to '1' as it is not a 'type').")
+            class_dict.pop('order')
 
     # Constraint D: class must have stereotype 'type' when no stereotype and when its isPowertype attribute is true
     if "isPowertype" in class_dict:

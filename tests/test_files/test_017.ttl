@@ -579,3 +579,77 @@
     ontouml:order       "1"^^xsd:nonNegativeInteger ;
     ontouml:project     :dGSNHRGFS_j2pAvw ;
     ontouml:stereotype  ontouml:ClassStereotype .
+
+# MANUALLY ADDED FOR TEST 16
+
+:n4ZaWxGFS_j2pAoS
+    ontouml:containsModelElement :gGhuFxGFS_j2pAmkX3, :gGhuFxGFS_j2pAmkX4 .
+
+:gGhuFxGFS_j2pAmkX3
+    a                   ontouml:Class ;
+    ontouml:isAbstract  false ;
+    ontouml:isDerived   false ;
+    ontouml:isPowertype true ;
+    ontouml:name        "MyClassX3" ;
+    ontouml:order       "2"^^xsd:nonNegativeInteger ;
+    ontouml:project     :dGSNHRGFS_j2pAvw ;
+    ontouml:stereotype  ontouml:type .
+
+:gGhuFxGFS_j2pAmkX4
+    a                   ontouml:Class ;
+    ontouml:isAbstract  false ;
+    ontouml:isDerived   false ;
+    ontouml:isPowertype false ;
+    ontouml:name        "MyClassX4" ;
+    ontouml:order       "1"^^xsd:nonNegativeInteger ;
+    ontouml:project     :dGSNHRGFS_j2pAvw ;
+    ontouml:stereotype  ontouml:kind .
+
+
+# MANUALLY ADDED FOR TEST 17 --------------
+
+:n4ZaWxGFS_j2pAoS
+    ontouml:containsModelElement :gGhuFxGFS_j2pAmkX5, :gGhuFxGFS_j2pAmkX6 .
+
+:gGhuFxGFS_j2pAmkX5
+    a                   ontouml:Class ;
+    ontouml:isAbstract  false ;
+    ontouml:isDerived   false ;
+    ontouml:isPowertype true ;
+    ontouml:name        "MyClassX5" ;
+    ontouml:order       "2"^^xsd:nonNegativeInteger ;
+    ontouml:project     :dGSNHRGFS_j2pAvw ;
+    ontouml:stereotype  ontouml:type .
+
+:gGhuFxGFS_j2pAmkX6
+    a                   ontouml:Class ;
+    ontouml:isAbstract  false ;
+    ontouml:isDerived   false ;
+    ontouml:isPowertype false ;
+    ontouml:name        "MyClassX6" ;
+    ontouml:order       "1"^^xsd:nonNegativeInteger ;
+    ontouml:project     :dGSNHRGFS_j2pAvw ;
+    ontouml:stereotype  ontouml:kind .
+
+:gGhuFxGFS_j2pAmkX7
+    a                   ontouml:Class ;
+    ontouml:isAbstract  false ;
+    ontouml:isDerived   false ;
+    ontouml:isPowertype false ;
+    ontouml:name        "MyClassX7" ;
+    ontouml:order       "1"^^xsd:nonNegativeInteger ;
+    ontouml:project     :dGSNHRGFS_j2pAvw ;
+    ontouml:stereotype  ontouml:kind .
+
+:gGhuFxGFS_j2pAmkX8
+    a                   ontouml:Class ;
+    ontouml:isAbstract  false ;
+    ontouml:isDerived   false ;
+    ontouml:isPowertype false ;
+    ontouml:name        "MyClassX8" ;
+    ontouml:order       "1"^^xsd:nonNegativeInteger ;
+    ontouml:project     :dGSNHRGFS_j2pAvw ;
+    ontouml:stereotype  ontouml:kind .
+
+:n4ZaWxGFS_j2pAoS
+    ontouml:containsModelElement :gGhuFxGFS_j2pAmkX7, :gGhuFxGFS_j2pAmkX8 .

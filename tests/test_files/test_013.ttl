@@ -149,7 +149,7 @@
     ontouml:isAbstract   "false"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
     ontouml:isPowertype  "false"^^xsd:boolean ;
-    ontouml:order        "1"^^xsd:nonNegativeInteger .
+    ontouml:order        "2"^^xsd:nonNegativeInteger .
 
 :wwFDQJGGAqACNwpj
     rdf:type             ontouml:Class ;
