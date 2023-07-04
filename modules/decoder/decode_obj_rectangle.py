@@ -37,8 +37,17 @@ def set_rectangle_coordinates(rectangle_dict: dict, ontouml_graph: Graph) -> Non
 
 def create_rectangle_properties(json_data: dict, ontouml_graph: Graph) -> None:
     """ Main function for decoding an object of type Rectangle.
-    Receives the whole JSON loaded data as a dictionary to be manipulated and create all properties related to
-    objects from type 'Rectangle'.
+
+    Receives the whole JSON loaded data as a dictionary and manipulates it to create all properties in which the
+    object's type is domain of.
+
+    Created instances:
+        - ontouml:Point
+
+    Created properties:
+        - ontouml:topLeftPosition (domain ontouml:RectangularShape, range ontouml:Point)
+        - ontouml:xCoordinate (domain ontouml:Point, range xsd:integer)
+        - ontouml:yCoordinate (domain ontouml:Point, range xsd:integer)
 
     :param json_data: JSON's data to have its fields decoded loaded into a dictionary.
     :type json_data: dict

@@ -112,8 +112,12 @@ def decode_json_to_graph(json_data: dict) -> Graph:
         create_diagram_properties(dictionary_data, ontouml_graph, element_counting)
     if "Class" in element_counting:
         create_class_properties(dictionary_data, ontouml_graph)
+
+    # Generalize and treat vocabulary
     if "Rectangle" in element_counting:
         create_rectangle_properties(dictionary_data, ontouml_graph)
+
+    # Generalize and treat vocabulary
     if "ClassView" in element_counting:
         create_classview_properties(dictionary_data, ontouml_graph)
 

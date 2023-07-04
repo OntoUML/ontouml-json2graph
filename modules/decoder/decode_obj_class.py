@@ -32,7 +32,7 @@ def get_stereotype(class_dict: dict) -> str:
     return result_stereotype
 
 
-def set_class_order(class_dict: dict, ontouml_graph: Graph) -> None:
+def set_class_order_nonnegativeinteger(class_dict: dict, ontouml_graph: Graph) -> None:
     """ Sets an ontouml:Class's ontouml:order property based on the received value of the object's field 'order'.
 
     The treated possibilities are:
@@ -71,7 +71,7 @@ def set_class_order(class_dict: dict, ontouml_graph: Graph) -> None:
         class_dict.pop("order")
 
 
-def set_class_stereotypes(class_dict: dict, ontouml_graph: Graph) -> None:
+def set_class_stereotypes_stereotype(class_dict: dict, ontouml_graph: Graph) -> None:
     """ Sets ontouml:stereotype relation between a class and an instance representing an ontouml stereotype.
 
     :param class_dict: Class object loaded as a dictionary.
@@ -112,7 +112,7 @@ def set_class_stereotypes(class_dict: dict, ontouml_graph: Graph) -> None:
                          f"The transformation output is not syntactically valid.")
 
 
-def set_class_restricted_to(class_dict: dict, ontouml_graph: Graph) -> None:
+def set_class_restrictedto_ontologicalnature(class_dict: dict, ontouml_graph: Graph) -> None:
     """ Sets the ontouml:restrictedTo relation between a class and its related ontouml:OntologicalNature instance.
 
     :param class_dict: Class object loaded as a dictionary.
@@ -301,14 +301,20 @@ def create_class_properties(json_data: dict, ontouml_graph: Graph) -> None:
     # Treat each Rectangle
     for class_dict in list_all_class_dicts:
 
-        # Skipping dictionaries that refer to classes
+        # Skipping dictionaries that only make reference to classes (and not class dictionaries)
         if "name" not in class_dict:
             continue
 
         # Validating default values
         validate_class_constraints(class_dict)
-        set_class_order(class_dict, ontouml_graph)
-        set_class_stereotypes(class_dict, ontouml_graph)
-        set_class_restricted_to(class_dict, ontouml_graph)
+
+        # Setting properties
+        set_class_order_nonnegativeinteger(class_dict, ontouml_graph)
+        set_class_stereotypes_stereotype(class_dict, ontouml_graph)
+        set_class_restrictedto_ontologicalnature(class_dict, ontouml_graph)
+
+        # Setting default values when the values were not provided
         set_class_defaults(class_dict, ontouml_graph)
+
+        # Setting isPowertype and isExtensional
         set_class_attributes(class_dict, ontouml_graph)
