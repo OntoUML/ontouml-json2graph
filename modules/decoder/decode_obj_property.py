@@ -117,12 +117,12 @@ def create_property_properties(json_data: dict, ontouml_graph: Graph) -> None:
         - ontouml:Cardinality
 
     Created properties:
-        - ontouml:aggregationKind (range ontouml:AggregationKind)
-        - ontouml:propertyType (range ontouml:Classifier)
+        - ontouml:aggregationKind (domain ontouml:Property, range ontouml:AggregationKind)
+        - ontouml:propertyType (domain ontouml:Property, range ontouml:Classifier)
         - ontouml:cardinality (domain ontouml:Property, range ontouml:Cardinality)
         - ontouml:cardinalityValue (domain ontouml:Cardinality, range xsd:string)
-        - ontouml:lowerBound (domain ontouml:Cardinality, range xsd:positiveInteger)
-        - ontouml:upperBound (domain ontouml:Cardinality)
+        - ontouml:lowerBound (domain ontouml:Cardinality, range xsd:string)
+        - ontouml:upperBound (domain ontouml:Cardinality, range xsd:string)
 
     :param json_data: JSON's data to have its fields decoded loaded into a dictionary.
     :type json_data: dict
