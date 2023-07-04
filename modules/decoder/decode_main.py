@@ -9,7 +9,7 @@ from modules.decoder.decode_obj_classview import create_classview_properties
 from modules.decoder.decode_obj_diagram import create_diagram_properties
 from modules.decoder.decode_obj_package import create_package_properties
 from modules.decoder.decode_obj_project import create_project_properties
-from modules.decoder.decode_obj_rectangle import create_rectangularshape_properties
+from modules.decoder.decode_obj_rectangularshape import create_rectangularshape_properties
 from modules.logger import initialize_logger
 
 LOGGER = initialize_logger()
@@ -112,8 +112,6 @@ def decode_json_to_graph(json_data: dict) -> Graph:
         create_diagram_properties(dictionary_data, ontouml_graph, element_counting)
     if "Class" in element_counting:
         create_class_properties(dictionary_data, ontouml_graph)
-
-    # Generalize and treat vocabulary
     if ("Rectangle" in element_counting) or ("Text" in element_counting):
         create_rectangularshape_properties(dictionary_data, ontouml_graph)
 
