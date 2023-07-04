@@ -20,7 +20,7 @@
     ontouml:project :fJlIhJGGAqACNw3E;
     ontouml:name "Class1";
     ontouml:stereotype ontouml:quality;
-    ontouml:restrictedTo ontouml:quality;
+    ontouml:restrictedTo ontouml:qualityNature;
     ontouml:isAbstract "false"^^xsd:boolean;
     ontouml:isDerived "false"^^xsd:boolean;
     ontouml:isPowertype "false"^^xsd:boolean;
@@ -132,3 +132,11 @@
 :V6jIhJGGAqACNxHR_shape_point rdf:type ontouml:Point;
     ontouml:xCoordinate 497;
     ontouml:yCoordinate 136.
+
+# MANUALLY ADDED
+
+:FA1IhJGGAqACNxGf ontouml:owner :fJlIhJGGAqACNw3E_root .
+:oeYohJGGAqACNxH9_shape ontouml:project :fJlIhJGGAqACNw3E .
+:jDdIhJGGAqACNxG5 ontouml:owner :2EDIhJGGAqACNxHJ .
+:V6jIhJGGAqACNxHR_shape ontouml:project :fJlIhJGGAqACNw3E .
+:hz1IhJGGAqACNxGy_shape ontouml:project :fJlIhJGGAqACNw3E .
