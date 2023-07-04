@@ -1,6 +1,10 @@
 """ Functions to decode objects of type Class.
-Functions to set object properties are named according to the nomenclature: set_<subject>_<predicate>_<object>
-(except when said otherwise).
+
+Function's nomenclatures:
+    - Functions that set one property are named: set_<subject>_<predicate>_<object>.
+    - Functions that set multiple object properties are named: set_<subject>_relations.
+    - Functions that set multiple data properties are named: set_<subject>_attributes.
+    - Functions that set both object and data properties are named: set_<subject>_properties.
 """
 
 import inspect
@@ -145,7 +149,7 @@ def set_class_restrictedto_ontologicalnature(class_dict: dict, ontouml_graph: Gr
 
 
 def set_class_attributes(class_dict: dict, ontouml_graph: Graph) -> None:
-    """ Creates the isPowertype and isExtensional attribute of a class in the resulting graph.
+    """ Defines the ontouml:isPowertype and ontouml:isExtensional data properties of an ontouml:Class in the graph.
 
     :param class_dict: Class object loaded as a dictionary.
     :type class_dict: dict

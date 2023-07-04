@@ -2,10 +2,10 @@
 
 from rdflib import Graph, URIRef, Literal, RDF, XSD
 
-from globals import URI_ONTOUML, URI_ONTOLOGY
+from globals import URI_ONTOUML, URI_ONTOLOGY, ELEMENT_VIEW_TYPES
 from modules.decoder.decode_general import clean_null_data, count_elements_graph
 from modules.decoder.decode_obj_class import create_class_properties
-from modules.decoder.decode_obj_classview import create_classview_properties
+from modules.decoder.decode_obj_elementview import create_elementview_properties
 from modules.decoder.decode_obj_diagram import create_diagram_properties
 from modules.decoder.decode_obj_package import create_package_properties
 from modules.decoder.decode_obj_project import create_project_properties
@@ -114,9 +114,7 @@ def decode_json_to_graph(json_data: dict) -> Graph:
         create_class_properties(dictionary_data, ontouml_graph)
     if ("Rectangle" in element_counting) or ("Text" in element_counting):
         create_rectangularshape_properties(dictionary_data, ontouml_graph)
-
-    # Generalize and treat vocabulary
-    if "ClassView" in element_counting:
-        create_classview_properties(dictionary_data, ontouml_graph)
+    if set(ELEMENT_VIEW_TYPES).intersection(element_counting.keys()):
+        create_elementview_properties(dictionary_data, ontouml_graph)
 
     return ontouml_graph
