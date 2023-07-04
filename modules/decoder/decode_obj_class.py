@@ -1,5 +1,6 @@
 """ Functions to decode objects of type Class.
-Functions to set object properties are named according to the nomenclature: set_<subject>_<predicate>_<object>.
+Functions to set object properties are named according to the nomenclature: set_<subject>_<predicate>_<object>
+(except when said otherwise).
 """
 
 import inspect
