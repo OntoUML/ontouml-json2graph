@@ -4,9 +4,9 @@ Functions to set object properties are named according to the nomenclature: set_
 
 from rdflib import Graph, URIRef
 
-from globals import URI_ONTOUML, URI_ONTOLOGY
+from globals import URI_ONTOUML, URI_ONTOLOGY, ELEMENT_VIEW_TYPES
 from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type
-from modules.utils_general import count_elements
+from modules.utils_general import count_elements_types
 
 
 def set_diagram_owner_modelelement(diagram_dict: dict, ontouml_graph: Graph) -> None:
@@ -55,7 +55,7 @@ def create_diagram_properties(json_data: dict, ontouml_graph: Graph, element_cou
     """ Main function for decoding objects of type 'Diagram'.
 
     Receives the whole JSON loaded data as a dictionary and manipulates it to create all properties in which the
-    object's type is range of.
+    object's type is domain of.
 
     Created object properties:
         - ontouml:owner (range ontouml:ModelElement)
@@ -70,8 +70,7 @@ def create_diagram_properties(json_data: dict, ontouml_graph: Graph, element_cou
     """
 
     # Used for performance improvement
-    view_types = ["ClassView", "PackageView", "GeneralizationSetView", "RelationView", "GeneralizationView"]
-    num_elementviews = count_elements(view_types, element_counting)
+    num_elementviews = count_elements_types(ELEMENT_VIEW_TYPES, element_counting)
 
     # Setting diagram properties
     diagrams_dicts_list = get_list_subdictionaries_for_specific_type(json_data, "Diagram")

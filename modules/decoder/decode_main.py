@@ -1,4 +1,4 @@
-""" JSON decode functions. """
+""" JSON decode functions."""
 
 from rdflib import Graph, URIRef, Literal, RDF, XSD
 

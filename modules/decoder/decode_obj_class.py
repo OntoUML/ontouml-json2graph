@@ -1,4 +1,7 @@
-""" Functions to decode specificities of the object Class. """
+""" Functions to decode objects of type Class.
+Functions to set object properties are named according to the nomenclature: set_<subject>_<predicate>_<object>.
+"""
+
 import inspect
 
 from rdflib import Graph, URIRef, XSD, Literal, RDF
@@ -118,7 +121,7 @@ def set_class_restricted_to(class_dict: dict, ontouml_graph: Graph) -> None:
     :type ontouml_graph: Graph
     """
 
-    mapping = {
+    restriction_nature_mapping = {
         "abstract": "abstractNature",
         "collective": "collectiveNature",
         "event": "eventNature",
@@ -137,7 +140,7 @@ def set_class_restricted_to(class_dict: dict, ontouml_graph: Graph) -> None:
         for restriction in class_dict["restrictedTo"]:
             ontouml_graph.add((URIRef(URI_ONTOLOGY + class_dict['id']),
                                URIRef(URI_ONTOUML + "restrictedTo"),
-                               URIRef(URI_ONTOUML + mapping[restriction])))
+                               URIRef(URI_ONTOUML + restriction_nature_mapping[restriction])))
 
 
 def set_class_attributes(class_dict: dict, ontouml_graph: Graph) -> None:
@@ -271,9 +274,17 @@ def validate_class_constraints(class_dict: dict) -> None:
 
 
 def create_class_properties(json_data: dict, ontouml_graph: Graph) -> None:
-    """ Main function for decoding an object of type Class.
-    Receives the whole JSON loaded data as a dictionary to be manipulated and create all properties related to
-    objects from this type.
+    """ Main function for decoding an object of type 'Class'.
+
+    Receives the whole JSON loaded data as a dictionary and manipulates it to create all properties in which the
+    object's type is domain of.
+
+    Created properties:
+        - ontouml:order (range xsd:nonNegativeInteger)
+        - ontouml:stereotype (range ontouml:Stereotype)
+        - ontouml:restrictedTo (range ontouml:OntologicalNature)
+        - ontouml:isPowertype (range xsd:boolean)
+        - ontouml:isExtensional (range xsd:boolean)
 
     Dictionaries containing classes IDs are used for reference. One of its characteristics is that they do not have the
     field 'name'. These are not Classes dictionaries and, hence, are not treated here.

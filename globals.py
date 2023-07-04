@@ -26,3 +26,8 @@ ENUM_PROPERTY_STEREOTYPE = ["begin", "end"]
 
 ENUM_ONTOLOGICAL_NATURE = ["abstract", "collective", "event", "extrinsic-mode", "functional-complex", "intrinsic-mode",
                            "quality", "quantity", "relator", "situation", "type"]
+
+
+# ABSTRACT CLASSES TYPES
+
+ELEMENT_VIEW_TYPES = ["ClassView", "PackageView", "GeneralizationSetView", "RelationView", "GeneralizationView"]

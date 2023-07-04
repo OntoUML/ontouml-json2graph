@@ -6,7 +6,7 @@ from rdflib import Graph, URIRef
 
 from globals import URI_ONTOUML, URI_ONTOLOGY
 from modules.decoder.decode_general import get_all_ids_of_specific_type, get_list_subdictionaries_for_specific_type
-from modules.utils_general import count_elements
+from modules.utils_general import count_elements_types
 
 
 def set_ontoumlelement_project_project(project_dict: dict, ontouml_graph: Graph, element_counting: dict) -> None:
@@ -102,7 +102,7 @@ def create_project_properties(json_data: dict, ontouml_graph: Graph, element_cou
     """
 
     # Used for performance improvement
-    num_diagrams = count_elements(["Diagram"], element_counting)
+    num_diagrams = count_elements_types(["Diagram"], element_counting)
 
     # Getting all Project dictionaries
     projects_dicts_list = get_list_subdictionaries_for_specific_type(json_data, "Project")
