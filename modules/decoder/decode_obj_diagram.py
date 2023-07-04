@@ -1,13 +1,15 @@
-""" Functions to decode objects of type Diagram. """
+""" Functions to decode objects of type Diagram.
+Functions to set object properties are named according to the nomenclature: set_<subject>_<predicate>_<object>.
+"""
 
 from rdflib import Graph, URIRef
 
 from globals import URI_ONTOUML, URI_ONTOLOGY
 from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type
-from modules.utils_general import count_element
+from modules.utils_general import count_elements
 
 
-def set_diagram_owner(diagram_dict: dict, ontouml_graph: Graph) -> None:
+def set_diagram_owner_modelelement(diagram_dict: dict, ontouml_graph: Graph) -> None:
     """ Set the owner property between a Diagram and its related Package.
 
     :param diagram_dict: Diagram object loaded as a dictionary.
@@ -22,7 +24,7 @@ def set_diagram_owner(diagram_dict: dict, ontouml_graph: Graph) -> None:
     ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
 
-def set_diagram_containsview(diagram_dict: dict, ontouml_graph: Graph) -> bool:
+def set_diagram_containsview_elementview(diagram_dict: dict, ontouml_graph: Graph) -> bool:
     """ Set the containsView property between a Diagram and its related ClassView.
 
     :param diagram_dict: Diagram object loaded as a dictionary.
@@ -56,8 +58,8 @@ def create_diagram_properties(json_data: dict, ontouml_graph: Graph, element_cou
     object's type is range of.
 
     Created object properties:
-        - ontouml:owner (range:ModelElement)
-        - ontouml:containsView (range:ElementView)
+        - ontouml:owner (range ontouml:ModelElement)
+        - ontouml:containsView (range ontouml:ElementView)
 
     :param json_data: JSON's data to have its fields decoded loaded into a dictionary.
     :type json_data: dict
@@ -68,17 +70,18 @@ def create_diagram_properties(json_data: dict, ontouml_graph: Graph, element_cou
     """
 
     # Used for performance improvement
-    num_classviews = count_element("ClassView", element_counting)
+    view_types = ["ClassView", "PackageView", "GeneralizationSetView", "RelationView", "GeneralizationView"]
+    num_elementviews = count_elements(view_types, element_counting)
 
     # Setting diagram properties
     diagrams_dicts_list = get_list_subdictionaries_for_specific_type(json_data, "Diagram")
 
     for diagram_dict in diagrams_dicts_list:
 
-        set_diagram_owner(diagram_dict, ontouml_graph)
+        set_diagram_owner_modelelement(diagram_dict, ontouml_graph)
 
         # Treats relations between Diagrams and ClassView only while there are ClassViews still untreated
-        if num_classviews > 0:
-            property_set = set_diagram_containsview(diagram_dict, ontouml_graph)
+        if num_elementviews > 0:
+            property_set = set_diagram_containsview_elementview(diagram_dict, ontouml_graph)
             if property_set:
-                num_classviews -= 1
+                num_elementviews -= 1

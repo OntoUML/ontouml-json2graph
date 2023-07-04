@@ -1,4 +1,6 @@
-""" Functions to decode objects of type Package. """
+""" Functions to decode objects of type Package.
+Functions to set object properties are named according to the nomenclature: set_<subject>_<predicate>_<object>.
+"""
 
 from rdflib import Graph, URIRef
 
@@ -51,8 +53,9 @@ def get_package_contents(package_dict: dict, package_id: str, list_contents: lis
     return list_contents
 
 
-def set_package_containsmodelelement_property(package_dict: dict, ontouml_graph: Graph) -> None:
-    """ Set object property ontouml:containsModelElement between a Package and its containing ModelElements.
+def set_package_containsmodelelement_modelelement(package_dict: dict, ontouml_graph: Graph) -> None:
+    """ Set object property ontouml:containsModelElement between an ontouml:Package and an ontouml:ModelElement it
+    contains.
 
     :param package_dict: Package's data to have its fields decoded.
     :type package_dict: dict
@@ -82,10 +85,10 @@ def create_package_properties(json_data: dict, ontouml_graph: Graph) -> None:
     """ Main function for decoding an object of type Package.
 
     Receives the whole JSON loaded data as a dictionary and manipulates it to create all properties in which the
-    object's type is range or domain of.
+    object's type is domain of.
 
     Created object properties:
-        - ontouml:containsModelElement (range:Package)
+        - ontouml:containsModelElement (range:ModelElement)
 
     :param json_data: JSON's data to have its fields decoded loaded into a dictionary.
     :type json_data: dict
@@ -97,4 +100,4 @@ def create_package_properties(json_data: dict, ontouml_graph: Graph) -> None:
     packages_dicts_list = get_list_subdictionaries_for_specific_type(json_data, "Package")
 
     for package_dict in packages_dicts_list:
-        set_package_containsmodelelement_property(package_dict, ontouml_graph)
+        set_package_containsmodelelement_modelelement(package_dict, ontouml_graph)

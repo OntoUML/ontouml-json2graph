@@ -5,21 +5,23 @@ from modules.logger import initialize_logger
 
 LOGGER = initialize_logger()
 
-def count_element(element_type:str, element_counting:dict)->int:
+def count_elements(element_type_list:list[str], element_counting:dict)->int:
     """ Returns the number of elements of a given type in the already counted data.
     Receives a dictionary of number of items and returns the value corresponding to the provided argument.
 
-    :param element_type: Type of the element to have its count value returned.
-    :type element_type: str
+    :param element_type_list: List of types of elements to have their count value returned.
+    :type element_type_list: list[str]
     :param element_counting: Dictionary with types and corresponding number of occurrences.
     :type element_counting: dict
     :return: Number of occurrences of the element of the given type.
     :rtype: int
     """
-    if element_type in element_counting:
-        num_element = element_counting[element_type]
-    else:
-        num_element = 0
+
+    num_element = 0
+
+    for element_type in element_type_list:
+        if element_type in element_counting:
+            num_element = element_counting[element_type]
 
     return num_element
 

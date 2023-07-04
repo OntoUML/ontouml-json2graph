@@ -6,7 +6,7 @@ from modules.sparql_queries import GET_ELEMENT_AND_TYPE
 from modules.utils_graph import load_all_graph_safely
 
 
-def count_elements(ontouml_graph: Graph) -> dict:
+def count_elements_graph(ontouml_graph: Graph) -> dict:
     """ Returns a dictionary with all element types on graphs and their respective quantity.
 
     :param ontouml_graph: Knowledge graph with loaded objects' ids and types
