@@ -21,7 +21,7 @@ def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph) -> None:
 
     :param dictionary_data: Dictionary to have its fields decoded.
     :type dictionary_data: dict
-    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary
+    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
 

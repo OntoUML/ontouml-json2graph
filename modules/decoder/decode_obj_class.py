@@ -39,7 +39,7 @@ def set_class_order(class_dict: dict, ontouml_graph: Graph) -> None:
 
     :param class_dict: Class object loaded as a dictionary.
     :type class_dict: dict
-    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary
+    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
 
@@ -73,7 +73,7 @@ def set_class_stereotypes(class_dict: dict, ontouml_graph: Graph) -> None:
 
     :param class_dict: Class object loaded as a dictionary.
     :type class_dict: dict
-    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary
+    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
 
@@ -114,7 +114,7 @@ def set_class_restricted_to(class_dict: dict, ontouml_graph: Graph) -> None:
 
     :param class_dict: Class object loaded as a dictionary.
     :type class_dict: dict
-    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary
+    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
 
@@ -145,7 +145,7 @@ def set_class_attributes(class_dict: dict, ontouml_graph: Graph) -> None:
 
     :param class_dict: Class object loaded as a dictionary.
     :type class_dict: dict
-    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary
+    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
 
@@ -171,7 +171,7 @@ def set_class_defaults(class_dict: dict, ontouml_graph: Graph) -> None:
 
     :param class_dict: Class object loaded as a dictionary.
     :type class_dict: dict
-    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary
+    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
 
@@ -280,7 +280,7 @@ def create_class_properties(json_data: dict, ontouml_graph: Graph) -> None:
 
     :param json_data: JSON's data to have its fields decoded loaded into a dictionary.
     :type json_data: dict
-    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary
+    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
 

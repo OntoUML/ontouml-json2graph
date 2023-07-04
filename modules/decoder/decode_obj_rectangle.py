@@ -11,7 +11,7 @@ def set_rectangle_coordinates(rectangle_dict: dict, ontouml_graph: Graph) -> Non
 
     :param rectangle_dict: Rectangle object loaded as a dictionary.
     :type rectangle_dict: dict
-    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary
+    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
 
@@ -42,7 +42,7 @@ def create_rectangle_properties(json_data: dict, ontouml_graph: Graph) -> None:
 
     :param json_data: JSON's data to have its fields decoded loaded into a dictionary.
     :type json_data: dict
-    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary
+    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
 

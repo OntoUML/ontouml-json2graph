@@ -60,7 +60,7 @@ def set_package_containsmodelelement_property(package_id: str, dictionary_data: 
     :type package_id: str
     :param dictionary_data: Dictionary to have its fields decoded.
     :type dictionary_data: dict
-    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary
+    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
 
@@ -88,7 +88,7 @@ def create_package_properties(dictionary_data: dict, ontouml_graph: Graph) -> No
 
     :param dictionary_data: Dictionary to have its fields decoded.
     :type dictionary_data: dict
-    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary
+    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
 

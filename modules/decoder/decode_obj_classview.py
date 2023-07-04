@@ -11,7 +11,7 @@ def set_classview_properties(classview_dict: dict, ontouml_graph: Graph) -> None
 
     :param classview_dict: ClassView object loaded as a dictionary.
     :type classview_dict: dict
-    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary
+    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
 
@@ -35,7 +35,7 @@ def create_classview_properties(json_data: dict, ontouml_graph: Graph) -> None:
 
     :param json_data: JSON's data to have its fields decoded loaded into a dictionary.
     :type json_data: dict
-    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary
+    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
 

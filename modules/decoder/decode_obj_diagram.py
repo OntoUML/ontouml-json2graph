@@ -11,7 +11,7 @@ def set_diagram_owner(diagram_dict: dict, ontouml_graph: Graph) -> None:
 
     :param diagram_dict: Diagram object loaded as a dictionary.
     :type diagram_dict: dict
-    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary
+    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
 
@@ -26,9 +26,9 @@ def set_diagram_containsview(diagram_dict: dict, ontouml_graph: Graph) -> bool:
 
     :param diagram_dict: Diagram object loaded as a dictionary.
     :type diagram_dict: dict
-    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary
+    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
-    :return: Boolean value indication if a containsView property was set (True) or not (False).
+    :return: Indication if there are ClassViews still to be treated.
     :rtype: bool
     """
 
@@ -41,6 +41,7 @@ def set_diagram_containsview(diagram_dict: dict, ontouml_graph: Graph) -> bool:
 
         ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
+    # Informs if there are ClassViews still to be treated
     if len(list_related_classviews):
         return True
     else:
@@ -48,13 +49,18 @@ def set_diagram_containsview(diagram_dict: dict, ontouml_graph: Graph) -> bool:
 
 
 def create_diagram_properties(json_data: dict, ontouml_graph: Graph, element_counting: dict) -> None:
-    """ Main function for decoding an object of type Diagram.
-    Receives the whole JSON loaded data as a dictionary to be manipulated and create all properties related to
-    objects from type 'Diagram'.
+    """ Main function for decoding objects of type 'Diagram'.
+
+    Receives the whole JSON loaded data as a dictionary and manipulates it to create all properties in which the
+    object's type is range of.
+
+    Created object properties:
+        - ontouml:owner (range:ModelElement)
+        - ontouml:containsView (range:ElementView)
 
     :param json_data: JSON's data to have its fields decoded loaded into a dictionary.
     :type json_data: dict
-    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary
+    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     :param element_counting: Dictionary with types and respective quantities present on graph.
     :type element_counting: dict
@@ -62,9 +68,9 @@ def create_diagram_properties(json_data: dict, ontouml_graph: Graph, element_cou
 
     # Used for performance improvement
     if "ClassView" in element_counting:
-        num_classview = element_counting["ClassView"]
+        num_classviews = element_counting["ClassView"]
     else:
-        num_classview = 0
+        num_classviews = 0
 
     # Setting diagram properties
     diagrams_dicts_list = get_list_subdictionaries_for_specific_type(json_data, "Diagram")
@@ -74,7 +80,7 @@ def create_diagram_properties(json_data: dict, ontouml_graph: Graph, element_cou
         set_diagram_owner(diagram_dict, ontouml_graph)
 
         # Treats relations between Diagrams and ClassView only while there are ClassViews still untreated
-        if num_classview > 0:
+        if num_classviews > 0:
             property_set = set_diagram_containsview(diagram_dict, ontouml_graph)
             if property_set:
-                num_classview -= 1
+                num_classviews -= 1
