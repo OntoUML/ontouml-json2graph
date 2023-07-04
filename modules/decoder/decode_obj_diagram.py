@@ -1,9 +1,10 @@
-""" Decode objects from type Diagram. """
+""" Functions to decode objects of type Diagram. """
 
 from rdflib import Graph, URIRef
 
 from globals import URI_ONTOUML, URI_ONTOLOGY
 from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type
+from modules.utils_general import count_element
 
 
 def set_diagram_owner(diagram_dict: dict, ontouml_graph: Graph) -> None:
@@ -67,10 +68,7 @@ def create_diagram_properties(json_data: dict, ontouml_graph: Graph, element_cou
     """
 
     # Used for performance improvement
-    if "ClassView" in element_counting:
-        num_classviews = element_counting["ClassView"]
-    else:
-        num_classviews = 0
+    num_classviews = count_element("ClassView", element_counting)
 
     # Setting diagram properties
     diagrams_dicts_list = get_list_subdictionaries_for_specific_type(json_data, "Diagram")

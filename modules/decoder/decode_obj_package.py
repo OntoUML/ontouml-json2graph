@@ -1,19 +1,17 @@
-""" Functions to decode specificities of the object Project. """
+""" Functions to decode objects of type Package. """
 
 from rdflib import Graph, URIRef
 
 from globals import URI_ONTOLOGY, URI_ONTOUML
-from modules.utils_graph import get_all_ids_for_type
+from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type
 
 
-# TODO (@pedropaulofb): Verify possible use of get_list_subdictionaries_for_specific_type as in Diagram.
-
-def get_package_contents(dictionary_data: dict, package_id: str, list_contents: list = []) -> list[dict]:
+def get_package_contents(package_dict: dict, package_id: str, list_contents: list = []) -> list[dict]:
     """ Receives the dictionary with all loaded JSON data and returns the value of the 'contents' field for a given
     object (defined by the received value of its ID).
 
-    :param dictionary_data: Dictionary to have its fields decoded.
-    :type dictionary_data: dict
+    :param package_dict: Package's data to have its fields decoded.
+    :type package_dict: dict
     :param package_id: ID of the Package to have its list of contents returned.
     :type package_id: str
     :param list_contents: Optional. Used to identify if the desired value was already found and exit recursion.
@@ -23,9 +21,9 @@ def get_package_contents(dictionary_data: dict, package_id: str, list_contents: 
     """
 
     # End of recursion
-    if dictionary_data["id"] == package_id:
-        if "contents" in dictionary_data:
-            list_contents = dictionary_data["contents"].copy()
+    if package_dict["id"] == package_id:
+        if "contents" in package_dict:
+            list_contents = package_dict["contents"].copy()
         else:
             list_contents = []
 
@@ -35,15 +33,15 @@ def get_package_contents(dictionary_data: dict, package_id: str, list_contents: 
         if list_contents:
             return list_contents
 
-        for key in dictionary_data.keys():
+        for key in package_dict.keys():
 
             # Treat case dictionary
-            if type(dictionary_data[key]) is dict:
-                list_contents = get_package_contents(dictionary_data[key], package_id)
+            if type(package_dict[key]) is dict:
+                list_contents = get_package_contents(package_dict[key], package_id)
 
             # Treat case list
-            elif type(dictionary_data[key]) is list:
-                for item in dictionary_data[key]:
+            elif type(package_dict[key]) is list:
+                for item in package_dict[key]:
                     if type(item) is dict:
                         list_contents = get_package_contents(item, package_id, list_contents)
 
@@ -53,19 +51,17 @@ def get_package_contents(dictionary_data: dict, package_id: str, list_contents: 
     return list_contents
 
 
-def set_package_containsmodelelement_property(package_id: str, dictionary_data: dict, ontouml_graph: Graph) -> None:
+def set_package_containsmodelelement_property(package_dict: dict, ontouml_graph: Graph) -> None:
     """ Set object property ontouml:containsModelElement between a Package and its containing ModelElements.
 
-    :param package_id: ID of the package being treated.
-    :type package_id: str
-    :param dictionary_data: Dictionary to have its fields decoded.
-    :type dictionary_data: dict
+    :param package_dict: Package's data to have its fields decoded.
+    :type package_dict: dict
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
 
     # Get the list inside the 'contents' key
-    package_id_contents_list = get_package_contents(dictionary_data, package_id)
+    package_id_contents_list = get_package_contents(package_dict, package_dict["id"])
 
     # Treat only non-empy cases
     if package_id_contents_list:
@@ -77,24 +73,28 @@ def set_package_containsmodelelement_property(package_id: str, dictionary_data: 
 
         # Include found related elements in graph using ontouml:containsModelElement
         for related_id in list_related_ids:
-            ontouml_graph.add((URIRef(URI_ONTOLOGY + package_id),
+            ontouml_graph.add((URIRef(URI_ONTOLOGY + package_dict["id"]),
                                URIRef(URI_ONTOUML + "containsModelElement"),
                                URIRef(URI_ONTOLOGY + related_id)))
 
 
-def create_package_properties(dictionary_data: dict, ontouml_graph: Graph) -> None:
+def create_package_properties(json_data: dict, ontouml_graph: Graph) -> None:
     """ Main function for decoding an object of type Package.
-    It only calls other specific functions for setting the object's specific properties.
 
-    :param dictionary_data: Dictionary to have its fields decoded.
-    :type dictionary_data: dict
+    Receives the whole JSON loaded data as a dictionary and manipulates it to create all properties in which the
+    object's type is range or domain of.
+
+    Created object properties:
+        - ontouml:containsModelElement (range:Package)
+
+    :param json_data: JSON's data to have its fields decoded loaded into a dictionary.
+    :type json_data: dict
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
 
-    # Get ids of all objects of type Package
-    list_package_ids = get_all_ids_for_type(ontouml_graph, "Package")
+    # Getting all Project dictionaries
+    packages_dicts_list = get_list_subdictionaries_for_specific_type(json_data, "Package")
 
-    # For each Package (known ids):
-    for package_id in list_package_ids:
-        set_package_containsmodelelement_property(package_id, dictionary_data, ontouml_graph)
+    for package_dict in packages_dicts_list:
+        set_package_containsmodelelement_property(package_dict, ontouml_graph)
