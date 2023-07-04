@@ -1,0 +1,195 @@
+{
+  "id" : "fJlIhJGGAqACNw3E",
+  "name" : "test_018",
+  "description" : null,
+  "type" : "Project",
+  "model" : {
+    "id" : "fJlIhJGGAqACNw3E_root",
+    "name" : "test_018",
+    "description" : null,
+    "type" : "Package",
+    "propertyAssignments" : null,
+    "contents" : [ {
+      "id" : "2EDIhJGGAqACNxHJ",
+      "name" : "ClassDiagram2",
+      "description" : null,
+      "type" : "Package",
+      "propertyAssignments" : null,
+      "contents" : null
+    }, {
+      "id" : "hz1IhJGGAqACNxGz",
+      "name" : "Class1",
+      "description" : null,
+      "type" : "Class",
+      "propertyAssignments" : null,
+      "stereotype" : "quality",
+      "isAbstract" : false,
+      "isDerived" : false,
+      "properties" : [ {
+        "id" : "II2khJGGAqACNwm0",
+        "name" : "attribute1Class1",
+        "description" : null,
+        "type" : "Property",
+        "propertyAssignments" : null,
+        "stereotype" : null,
+        "isDerived" : false,
+        "isReadOnly" : false,
+        "isOrdered" : false,
+        "cardinality" : null,
+        "propertyType" : null,
+        "subsettedProperties" : null,
+        "redefinedProperties" : null,
+        "aggregationKind" : "NONE"
+      }, {
+        "id" : "MCOkhJGGAqACNwm3",
+        "name" : "attribute2Class1",
+        "description" : null,
+        "type" : "Property",
+        "propertyAssignments" : null,
+        "stereotype" : null,
+        "isDerived" : false,
+        "isReadOnly" : false,
+        "isOrdered" : false,
+        "cardinality" : null,
+        "propertyType" : null,
+        "subsettedProperties" : null,
+        "redefinedProperties" : null,
+        "aggregationKind" : "NONE"
+      }, {
+        "id" : "vnOkhJGGAqACNwm6",
+        "name" : "attribute3Class1",
+        "description" : null,
+        "type" : "Property",
+        "propertyAssignments" : null,
+        "stereotype" : null,
+        "isDerived" : false,
+        "isReadOnly" : false,
+        "isOrdered" : false,
+        "cardinality" : null,
+        "propertyType" : {
+          "id" : "gplIhJGGAqACNw3K",
+          "type" : "Class"
+        },
+        "subsettedProperties" : null,
+        "redefinedProperties" : null,
+        "aggregationKind" : "NONE"
+      }, {
+        "id" : "onZkhJGGAqACNwnW",
+        "name" : "attribute4Class1",
+        "description" : null,
+        "type" : "Property",
+        "propertyAssignments" : null,
+        "stereotype" : null,
+        "isDerived" : false,
+        "isReadOnly" : false,
+        "isOrdered" : false,
+        "cardinality" : null,
+        "propertyType" : null,
+        "subsettedProperties" : null,
+        "redefinedProperties" : null,
+        "aggregationKind" : "NONE"
+      }, {
+        "id" : "Xr5khJGGAqACNwnZ",
+        "name" : "attribute5Class1",
+        "description" : null,
+        "type" : "Property",
+        "propertyAssignments" : null,
+        "stereotype" : null,
+        "isDerived" : false,
+        "isReadOnly" : false,
+        "isOrdered" : false,
+        "cardinality" : null,
+        "propertyType" : null,
+        "subsettedProperties" : null,
+        "redefinedProperties" : null,
+        "aggregationKind" : "NONE"
+      } ],
+      "isExtensional" : null,
+      "isPowertype" : null,
+      "order" : null,
+      "literals" : null,
+      "restrictedTo" : [ "quality" ]
+    }, {
+      "id" : "gplIhJGGAqACNw3K",
+      "name" : "int",
+      "description" : null,
+      "type" : "Class",
+      "propertyAssignments" : null,
+      "stereotype" : "datatype",
+      "isAbstract" : false,
+      "isDerived" : false,
+      "properties" : null,
+      "isExtensional" : null,
+      "isPowertype" : null,
+      "order" : null,
+      "literals" : null,
+      "restrictedTo" : [ "abstract" ]
+    } ]
+  },
+  "diagrams" : [ {
+    "id" : "FA1IhJGGAqACNxGf",
+    "name" : "Class Diagram1",
+    "description" : null,
+    "type" : "Diagram",
+    "owner" : {
+      "id" : "fJlIhJGGAqACNw3E_root",
+      "type" : "Package"
+    },
+    "contents" : [ {
+      "id" : "hz1IhJGGAqACNxGy",
+      "type" : "ClassView",
+      "modelElement" : {
+        "id" : "hz1IhJGGAqACNxGz",
+        "type" : "Class"
+      },
+      "shape" : {
+        "id" : "hz1IhJGGAqACNxGy_shape",
+        "type" : "Rectangle",
+        "x" : 440,
+        "y" : 208,
+        "width" : 80,
+        "height" : 40
+      }
+    }, {
+      "id" : "oeYohJGGAqACNxH9",
+      "type" : "ClassView",
+      "modelElement" : {
+        "id" : "hz1IhJGGAqACNxGz",
+        "type" : "Class"
+      },
+      "shape" : {
+        "id" : "oeYohJGGAqACNxH9_shape",
+        "type" : "Rectangle",
+        "x" : 1421,
+        "y" : 119,
+        "width" : 80,
+        "height" : 40
+      }
+    } ]
+  }, {
+    "id" : "jDdIhJGGAqACNxG5",
+    "name" : "ClassDiagram2",
+    "description" : null,
+    "type" : "Diagram",
+    "owner" : {
+      "id" : "2EDIhJGGAqACNxHJ",
+      "type" : "Package"
+    },
+    "contents" : [ {
+      "id" : "V6jIhJGGAqACNxHR",
+      "type" : "ClassView",
+      "modelElement" : {
+        "id" : "hz1IhJGGAqACNxGz",
+        "type" : "Class"
+      },
+      "shape" : {
+        "id" : "V6jIhJGGAqACNxHR_shape",
+        "type" : "Rectangle",
+        "x" : 497,
+        "y" : 136,
+        "width" : 396,
+        "height" : 428
+      }
+    } ]
+  } ]
+}
