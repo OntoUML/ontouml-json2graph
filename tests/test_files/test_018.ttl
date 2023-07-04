@@ -1,0 +1,94 @@
+@prefix :        <https://example.org#>.
+@prefix ontouml: <https://w3id.org/ontouml#>.
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl:     <http://www.w3.org/2002/07/owl#>.
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#>.
+
+:fJlIhJGGAqACNw3E
+    rdf:type        ontouml:Project ;
+    ontouml:name    "test_018" ;
+    ontouml:model   :fJlIhJGGAqACNw3E_root ;
+    ontouml:diagram :FA1IhJGGAqACNxGf, :jDdIhJGGAqACNxG5 .
+
+:fJlIhJGGAqACNw3E_root
+    rdf:type                     ontouml:Package ;
+    ontouml:project              :fJlIhJGGAqACNw3E ;
+    ontouml:name                 "test_018" ;
+    ontouml:containsModelElement :2EDIhJGGAqACNxHJ, :hz1IhJGGAqACNxGz .
+
+:2EDIhJGGAqACNxHJ
+    rdf:type        ontouml:Package ;
+    ontouml:project :fJlIhJGGAqACNw3E ;
+    ontouml:name    "ClassDiagram2" .
+
+:hz1IhJGGAqACNxGz
+    rdf:type              ontouml:Class ;
+    ontouml:project       :fJlIhJGGAqACNw3E ;
+    ontouml:name          "Class1" ;
+    ontouml:stereotype    ontouml:quality ;
+    ontouml:restrictedTo  ontouml:qualityNature ;
+    ontouml:isAbstract    "false"^^xsd:boolean ;
+    ontouml:isDerived     "false"^^xsd:boolean ;
+    ontouml:isPowertype   "false"^^xsd:boolean ;
+    ontouml:order         "1"^^xsd:nonNegativeInteger .
+
+:FA1IhJGGAqACNxGf
+    rdf:type             ontouml:Diagram ;
+    ontouml:project      :fJlIhJGGAqACNw3E ;
+    ontouml:name         "Class Diagram1" ;
+    ontouml:containsView :hz1IhJGGAqACNxGy .
+
+:jDdIhJGGAqACNxG5
+    rdf:type             ontouml:Diagram ;
+    ontouml:project      :fJlIhJGGAqACNw3E ;
+    ontouml:name         "ClassDiagram2" ;
+    ontouml:containsView :V6jIhJGGAqACNxHR .
+
+:hz1IhJGGAqACNxGy
+    rdf:type         ontouml:ClassView ;
+    ontouml:project  :fJlIhJGGAqACNw3E ;
+    ontouml:isViewOf :hz1IhJGGAqACNxGz ;
+    ontouml:shape    :hz1IhJGGAqACNxGy_shape .
+
+:V6jIhJGGAqACNxHR
+    rdf:type         ontouml:ClassView ;
+    ontouml:project  :fJlIhJGGAqACNw3E ;
+    ontouml:isViewOf :hz1IhJGGAqACNxGz ;
+    ontouml:shape    :V6jIhJGGAqACNxHR_shape .
+
+:hz1IhJGGAqACNxGy_shape
+    rdf:type                ontouml:Rectangle ;
+    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:width           "80"^^xsd:positiveInteger ;
+    ontouml:topLeftPosition :hz1IhJGGAqACNxGy_shape_point .
+
+:hz1IhJGGAqACNxGy_shape_point
+    rdf:type            ontouml:Point ;
+    ontouml:xCoordinate 440 ;
+    ontouml:yCoordinate 208 .
+
+:V6jIhJGGAqACNxHR_shape
+    rdf:type                ontouml:Rectangle ;
+    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:width           "80"^^xsd:positiveInteger ;
+    ontouml:topLeftPosition :V6jIhJGGAqACNxHR_shape_point .
+
+:V6jIhJGGAqACNxHR_shape_point
+    rdf:type            ontouml:Point ;
+    ontouml:xCoordinate 133 ;
+    ontouml:yCoordinate 129 .
+
+# MANUALLY ADDED -- TEST 18
+
+:FA1IhJGGAqACNxGf
+    ontouml:owner :fJlIhJGGAqACNw3E_root .
+
+:V6jIhJGGAqACNxHR_shape
+    ontouml:project :fJlIhJGGAqACNw3E .
+
+:hz1IhJGGAqACNxGy_shape
+    ontouml:project :fJlIhJGGAqACNw3E .
+
+:jDdIhJGGAqACNxG5
+    ontouml:owner :2EDIhJGGAqACNxHJ .
