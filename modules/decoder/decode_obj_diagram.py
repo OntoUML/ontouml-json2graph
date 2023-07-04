@@ -10,7 +10,7 @@ from modules.utils_general import count_elements_types
 
 
 def set_diagram_owner_modelelement(diagram_dict: dict, ontouml_graph: Graph) -> None:
-    """ Set the owner property between a Diagram and its related Package.
+    """ Set the ontouml:owner property between an ontouml:Diagram and its related ontouml:Package.
 
     :param diagram_dict: Diagram object loaded as a dictionary.
     :type diagram_dict: dict

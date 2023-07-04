@@ -5,10 +5,11 @@ from rdflib import Graph, URIRef, Literal, RDF, XSD
 from globals import URI_ONTOUML, URI_ONTOLOGY, ELEMENT_VIEW_TYPES
 from modules.decoder.decode_general import clean_null_data, count_elements_graph
 from modules.decoder.decode_obj_class import create_class_properties
-from modules.decoder.decode_obj_elementview import create_elementview_properties
 from modules.decoder.decode_obj_diagram import create_diagram_properties
+from modules.decoder.decode_obj_elementview import create_elementview_properties
 from modules.decoder.decode_obj_package import create_package_properties
 from modules.decoder.decode_obj_project import create_project_properties
+from modules.decoder.decode_obj_property import create_property_properties
 from modules.decoder.decode_obj_rectangularshape import create_rectangularshape_properties
 from modules.logger import initialize_logger
 
@@ -19,13 +20,16 @@ def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph) -> None:
     """ Receives a dictionary and decode every known value to the OntoUML Graph.
     Recursively evaluate the dictionary to create all possible instances, setting their types and attributes.
 
+    Properties that are directly decoded in the general decoder:
+        height, isAbstract, isDerived, isOrdered, isReadOnly, name, width
+
     :param dictionary_data: Dictionary to have its fields decoded.
     :type dictionary_data: dict
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
 
-    restricted_fields = ["x", "y", "stereotype", "order", "isExtensional", "isPowertype"]
+    restricted_fields = ["x", "y", "stereotype", "order", "isExtensional", "isPowertype", "aggregationKind"]
     positive_integer_fields = ["width", "height"]
 
     # Creating instance
@@ -102,6 +106,7 @@ def decode_json_to_graph(json_data: dict) -> Graph:
 
     # Counting elements for performance enhancement
     element_counting = count_elements_graph(ontouml_graph)
+    LOGGER.debug(f"The following objects were identified in the inputted data: {element_counting} ")
 
     # SPECIFIC DECODING: create specific properties according to different object types
     if "Project" in element_counting:
@@ -111,10 +116,12 @@ def decode_json_to_graph(json_data: dict) -> Graph:
     if "Diagram" in element_counting:
         create_diagram_properties(dictionary_data, ontouml_graph, element_counting)
     if "Class" in element_counting:
-        create_class_properties(dictionary_data, ontouml_graph)
+        create_class_properties(dictionary_data, ontouml_graph, element_counting)
     if ("Rectangle" in element_counting) or ("Text" in element_counting):
         create_rectangularshape_properties(dictionary_data, ontouml_graph)
     if set(ELEMENT_VIEW_TYPES).intersection(element_counting.keys()):
         create_elementview_properties(dictionary_data, ontouml_graph)
+    if "Property" in element_counting:
+        create_property_properties(dictionary_data, ontouml_graph)
 
     return ontouml_graph

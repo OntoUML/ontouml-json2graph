@@ -15,6 +15,7 @@ from globals import URI_ONTOLOGY, URI_ONTOUML
 from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type
 from modules.errors import report_error_end_of_switch
 from modules.logger import initialize_logger
+from modules.utils_general import count_elements_types
 
 LOGGER = initialize_logger()
 
@@ -278,7 +279,34 @@ def validate_class_constraints(class_dict: dict) -> None:
             class_dict['isPowertype'] = False
 
 
-def create_class_properties(json_data: dict, ontouml_graph: Graph) -> None:
+def set_class_attribute_property(class_dict: dict, ontouml_graph: Graph) -> bool:
+    """ Sets ontouml:attribute relation between an ontouml:Class and an ontouml:Property.
+
+    :param class_dict: Class object loaded as a dictionary.
+    :type class_dict: dict
+    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
+    :type ontouml_graph: Graph
+    :return: Indication if there are entities of type ontouml:Property still to be treated.
+    :rtype: bool
+    """
+
+    list_related_properties = get_list_subdictionaries_for_specific_type(class_dict, "Property")
+
+    for related_property in list_related_properties:
+        statement_subject = URIRef(URI_ONTOLOGY + class_dict["id"])
+        statement_predicate = URIRef(URI_ONTOUML + "attribute")
+        statement_object = URIRef(URI_ONTOLOGY + related_property["id"])
+
+        ontouml_graph.add((statement_subject, statement_predicate, statement_object))
+
+    # Informs if there are ClassViews still to be treated
+    if len(list_related_properties):
+        return True
+    else:
+        return False
+
+
+def create_class_properties(json_data: dict, ontouml_graph: Graph, element_counting: dict) -> None:
     """ Main function for decoding an object of type 'Class'.
 
     Receives the whole JSON loaded data as a dictionary and manipulates it to create all properties in which the
@@ -290,6 +318,7 @@ def create_class_properties(json_data: dict, ontouml_graph: Graph) -> None:
         - ontouml:restrictedTo (range ontouml:OntologicalNature)
         - ontouml:isPowertype (range xsd:boolean)
         - ontouml:isExtensional (range xsd:boolean)
+        - ontouml:attribute (range ontouml:Property)
 
     Dictionaries containing classes IDs are used for reference. One of its characteristics is that they do not have the
     field 'name'. These are not Classes dictionaries and, hence, are not treated here.
@@ -298,7 +327,12 @@ def create_class_properties(json_data: dict, ontouml_graph: Graph) -> None:
     :type json_data: dict
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
+    :param element_counting: Dictionary with types and respective quantities present on graph.
+    :type element_counting: dict
     """
+
+    # Used for performance improvement
+    num_properties = count_elements_types(["Property"], element_counting)
 
     # Get all class' dictionaries
     list_all_class_dicts = get_list_subdictionaries_for_specific_type(json_data, "Class")
@@ -323,3 +357,9 @@ def create_class_properties(json_data: dict, ontouml_graph: Graph) -> None:
 
         # Setting isPowertype and isExtensional
         set_class_attributes(class_dict, ontouml_graph)
+
+        # Treats relations between Classes and Properties only while there are Properties still untreated
+        if num_properties > 0:
+            property_set = set_class_attribute_property(class_dict, ontouml_graph)
+            if property_set:
+                num_properties -= 1

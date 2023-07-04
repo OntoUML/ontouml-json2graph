@@ -23,15 +23,15 @@
     ontouml:name    "ClassDiagram2" .
 
 :hz1IhJGGAqACNxGz
-    rdf:type              ontouml:Class ;
-    ontouml:project       :fJlIhJGGAqACNw3E ;
-    ontouml:name          "Class1" ;
-    ontouml:stereotype    ontouml:quality ;
-    ontouml:restrictedTo  ontouml:qualityNature ;
-    ontouml:isAbstract    "false"^^xsd:boolean ;
-    ontouml:isDerived     "false"^^xsd:boolean ;
-    ontouml:isPowertype   "false"^^xsd:boolean ;
-    ontouml:order         "1"^^xsd:nonNegativeInteger .
+    rdf:type             ontouml:Class ;
+    ontouml:project      :fJlIhJGGAqACNw3E ;
+    ontouml:name         "Class1" ;
+    ontouml:stereotype   ontouml:quality ;
+    ontouml:restrictedTo ontouml:qualityNature ;
+    ontouml:isAbstract   "false"^^xsd:boolean ;
+    ontouml:isDerived    "false"^^xsd:boolean ;
+    ontouml:isPowertype  "false"^^xsd:boolean ;
+    ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :FA1IhJGGAqACNxGf
     rdf:type             ontouml:Diagram ;

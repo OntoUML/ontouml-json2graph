@@ -1,4 +1,11 @@
-""" Functions to decode specificities of the object Project. """
+""" Functions to decode specificities of the object RectangularShare.
+
+Function's nomenclatures:
+    - Functions that set one property are named: set_<subject>_<predicate>_<object>.
+    - Functions that set multiple object properties are named: set_<subject>_relations.
+    - Functions that set multiple data properties are named: set_<subject>_attributes.
+    - Functions that set both object and data properties are named: set_<subject>_properties.
+"""
 
 from rdflib import Graph, URIRef, RDF, Literal
 

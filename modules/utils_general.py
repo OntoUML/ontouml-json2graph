@@ -5,7 +5,8 @@ from modules.logger import initialize_logger
 
 LOGGER = initialize_logger()
 
-def count_elements_types(element_type_list:list[str], element_counting:dict)->int:
+
+def count_elements_types(element_type_list: list[str], element_counting: dict) -> int:
     """ Returns the number of elements (in the already counted data) of the types given in a list.
     Receives a dictionary of number of items and returns the value corresponding to the provided argument.
 
@@ -24,6 +25,7 @@ def count_elements_types(element_type_list:list[str], element_counting:dict)->in
             num_element = element_counting[element_type]
 
     return num_element
+
 
 def get_date_time(date_time_format: str) -> str:
     """ Return a string with date and time according to the specified format received as argument.

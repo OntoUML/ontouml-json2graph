@@ -1,87 +1,99 @@
 {
-  "id" : "fJlIhJGGAqACNw3E",
-  "name" : "test_018",
-  "description" : null,
-  "type" : "Project",
-  "model" : {
-    "id" : "fJlIhJGGAqACNw3E_root",
-    "name" : "test_018",
-    "description" : null,
-    "type" : "Package",
-    "propertyAssignments" : null,
-    "contents" : [ {
-      "id" : "2EDIhJGGAqACNxHJ",
-      "name" : "ClassDiagram2",
-      "description" : null,
-      "type" : "Package",
-      "propertyAssignments" : null,
-      "contents" : null
-    }, {
-      "id" : "hz1IhJGGAqACNxGz",
-      "name" : "Class1",
-      "description" : null,
-      "type" : "Class",
-      "propertyAssignments" : null,
-      "stereotype" : "quality",
-      "isAbstract" : false,
-      "isDerived" : false,
-      "properties" : null,
-      "isExtensional" : null,
-      "isPowertype" : null,
-      "order" : null,
-      "literals" : null,
-      "restrictedTo" : [ "quality" ]
-    } ]
+  "id": "fJlIhJGGAqACNw3E",
+  "name": "test_018",
+  "description": null,
+  "type": "Project",
+  "model": {
+    "id": "fJlIhJGGAqACNw3E_root",
+    "name": "test_018",
+    "description": null,
+    "type": "Package",
+    "propertyAssignments": null,
+    "contents": [
+      {
+        "id": "2EDIhJGGAqACNxHJ",
+        "name": "ClassDiagram2",
+        "description": null,
+        "type": "Package",
+        "propertyAssignments": null,
+        "contents": null
+      },
+      {
+        "id": "hz1IhJGGAqACNxGz",
+        "name": "Class1",
+        "description": null,
+        "type": "Class",
+        "propertyAssignments": null,
+        "stereotype": "quality",
+        "isAbstract": false,
+        "isDerived": false,
+        "properties": null,
+        "isExtensional": null,
+        "isPowertype": null,
+        "order": null,
+        "literals": null,
+        "restrictedTo": [
+          "quality"
+        ]
+      }
+    ]
   },
-  "diagrams" : [ {
-    "id" : "FA1IhJGGAqACNxGf",
-    "name" : "Class Diagram1",
-    "description" : null,
-    "type" : "Diagram",
-    "owner" : {
-      "id" : "fJlIhJGGAqACNw3E_root",
-      "type" : "Package"
-    },
-    "contents" : [ {
-      "id" : "hz1IhJGGAqACNxGy",
-      "type" : "ClassView",
-      "modelElement" : {
-        "id" : "hz1IhJGGAqACNxGz",
-        "type" : "Class"
+  "diagrams": [
+    {
+      "id": "FA1IhJGGAqACNxGf",
+      "name": "Class Diagram1",
+      "description": null,
+      "type": "Diagram",
+      "owner": {
+        "id": "fJlIhJGGAqACNw3E_root",
+        "type": "Package"
       },
-      "shape" : {
-        "id" : "hz1IhJGGAqACNxGy_shape",
-        "type" : "Rectangle",
-        "x" : 440,
-        "y" : 208,
-        "width" : 80,
-        "height" : 40
-      }
-    } ]
-  }, {
-    "id" : "jDdIhJGGAqACNxG5",
-    "name" : "ClassDiagram2",
-    "description" : null,
-    "type" : "Diagram",
-    "owner" : {
-      "id" : "2EDIhJGGAqACNxHJ",
-      "type" : "Package"
+      "contents": [
+        {
+          "id": "hz1IhJGGAqACNxGy",
+          "type": "ClassView",
+          "modelElement": {
+            "id": "hz1IhJGGAqACNxGz",
+            "type": "Class"
+          },
+          "shape": {
+            "id": "hz1IhJGGAqACNxGy_shape",
+            "type": "Rectangle",
+            "x": 440,
+            "y": 208,
+            "width": 80,
+            "height": 40
+          }
+        }
+      ]
     },
-    "contents" : [ {
-      "id" : "V6jIhJGGAqACNxHR",
-      "type" : "ClassView",
-      "modelElement" : {
-        "id" : "hz1IhJGGAqACNxGz",
-        "type" : "Class"
+    {
+      "id": "jDdIhJGGAqACNxG5",
+      "name": "ClassDiagram2",
+      "description": null,
+      "type": "Diagram",
+      "owner": {
+        "id": "2EDIhJGGAqACNxHJ",
+        "type": "Package"
       },
-      "shape" : {
-        "id" : "V6jIhJGGAqACNxHR_shape",
-        "type" : "Rectangle",
-        "x" : 133,
-        "y" : 129,
-        "width" : 80,
-        "height" : 40
-      }
-    } ]
-  } ]
+      "contents": [
+        {
+          "id": "V6jIhJGGAqACNxHR",
+          "type": "ClassView",
+          "modelElement": {
+            "id": "hz1IhJGGAqACNxGz",
+            "type": "Class"
+          },
+          "shape": {
+            "id": "V6jIhJGGAqACNxHR_shape",
+            "type": "Rectangle",
+            "x": 133,
+            "y": 129,
+            "width": 80,
+            "height": 40
+          }
+        }
+      ]
+    }
+  ]
 }
