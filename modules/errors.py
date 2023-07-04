@@ -15,7 +15,7 @@ def report_error_requirement_not_met(error_message: str) -> None:
     """
 
     LOGGER.error(f"{error_message} Program aborted.")
-    raise ValueError(f"Software's requirement not met!")
+    raise ValueError("Software's requirement not met!")
 
 
 def report_error_end_of_switch(invalid_parameter: str, caller_function_name: str) -> None:
@@ -33,7 +33,7 @@ def report_error_end_of_switch(invalid_parameter: str, caller_function_name: str
 
     LOGGER.error(f"Unexpected parameter {invalid_parameter} received in function {caller_function_name}. "
                  f"Program aborted.")
-    raise ValueError(f"End of switch (if-else statements) without valid parameter!")
+    raise ValueError("End of switch (if-else statements) without valid parameter!")
 
 
 def report_error_io_read(desired_content: str, file_description: str, error: OSError) -> None:

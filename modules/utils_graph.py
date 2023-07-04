@@ -21,7 +21,7 @@ def load_all_graph_safely(ontology_file: str) -> Graph:
     try:
         ontology_graph.parse(ontology_file, encoding='utf-8')
     except OSError as error:
-        file_description = f"input ontology file"
+        file_description = "input ontology file"
         report_error_io_read(ontology_file, file_description, error)
 
     LOGGER.debug(f"Ontology file {ontology_file} successfully loaded to working memory.")

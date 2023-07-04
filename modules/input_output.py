@@ -42,7 +42,7 @@ def safe_load_json_file(json_path: str) -> dict:
         with open(json_path, "r") as read_file:
             json_data = json.load(read_file)
     except IOError as error:
-        file_description = f"input json file"
+        file_description = "input json file"
         report_error_io_read(json_path, file_description, error)
 
     LOGGER.debug(f"JSON file {json_path} successfully loaded to dictionary.")
@@ -94,5 +94,5 @@ def safe_write_graph_file(ontouml_graph: Graph, output_file_name: str, syntax: s
     try:
         ontouml_graph.serialize(destination=output_file_name, encoding='utf-8', format=syntax)
     except OSError as error:
-        file_description = f"output graph file"
+        file_description = "output graph file"
         report_error_io_write(output_file_name, file_description, error)

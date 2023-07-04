@@ -213,7 +213,7 @@ def set_class_defaults(class_dict: dict, ontouml_graph: Graph) -> None:
                            Literal(False)))
 
 
-def validate_class_constraints(class_dict: dict, ontouml_graph: Graph) -> None:
+def validate_class_constraints(class_dict: dict) -> None:
     """ Verifies all Class dictionaries and check if the constraints related to classes were correctly considered and
     fixes them when they are not.
 
@@ -226,8 +226,6 @@ def validate_class_constraints(class_dict: dict, ontouml_graph: Graph) -> None:
 
     :param class_dict: Class object loaded as a dictionary.
     :type class_dict: dict
-    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary
-    :type ontouml_graph: Graph
     """
 
     class_stereotype = get_stereotype(class_dict)
@@ -297,7 +295,7 @@ def create_class_properties(json_data: dict, ontouml_graph: Graph) -> None:
             continue
 
         # Validating default values
-        validate_class_constraints(class_dict, ontouml_graph)
+        validate_class_constraints(class_dict)
         set_class_order(class_dict, ontouml_graph)
         set_class_stereotypes(class_dict, ontouml_graph)
         set_class_restricted_to(class_dict, ontouml_graph)
