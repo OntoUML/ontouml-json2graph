@@ -39,11 +39,11 @@
     ontouml:project      :fJlIhJGGAqACNw3E ;
     ontouml:name         "int" ;
     ontouml:stereotype   ontouml:datatype ;
-    ontouml:restrictedTo ontouml:abstract ;
+    ontouml:restrictedTo ontouml:abstractNature ;
     ontouml:isAbstract   "false"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
     ontouml:isPowertype  "false"^^xsd:boolean ;
-    ontouml:order        "1"^^xsd:positiveInteger .
+    ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :II2khJGGAqACNwm0
     rdf:type                ontouml:Property ;

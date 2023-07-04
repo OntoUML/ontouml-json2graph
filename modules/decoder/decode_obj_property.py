@@ -13,9 +13,9 @@ from globals import URI_ONTOUML, URI_ONTOLOGY
 from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type
 
 
-def set_property_aggregationkind_aggregationkind(property_dict: dict, ontouml_graph: Graph):
-    """ Set the ontouml:aggregationKind property between an ontouml:Property and its corresponding
-    ontouml:AggregationKind instance.
+def set_property_relations(property_dict: dict, ontouml_graph: Graph) -> None:
+    """ Sets the ontouml:aggregationKind and ontouml:propertyType object properties between an ontouml:Property and
+    its related elements.
 
     :param property_dict: Diagram object loaded as a dictionary.
     :type property_dict: dict
@@ -24,9 +24,17 @@ def set_property_aggregationkind_aggregationkind(property_dict: dict, ontouml_gr
     """
 
     statement_subject = URIRef(URI_ONTOLOGY + property_dict["id"])
+
+    # Setting ontouml:aggregationKind
     statement_predicate = URIRef(URI_ONTOUML + "aggregationKind")
     statement_object = URIRef(URI_ONTOUML + property_dict["aggregationKind"].lower())
     ontouml_graph.add((statement_subject, statement_predicate, statement_object))
+
+    # Setting ontouml:propertyType
+    if "propertyType" in property_dict:
+        statement_predicate = URIRef(URI_ONTOUML + "propertyType")
+        statement_object = URIRef(URI_ONTOLOGY + property_dict["propertyType"]["id"])
+        ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
 
 def create_property_properties(json_data: dict, ontouml_graph: Graph) -> None:
@@ -36,7 +44,8 @@ def create_property_properties(json_data: dict, ontouml_graph: Graph) -> None:
     object's type is domain of.
 
     Created properties:
-        - ontouml:aggregationKind (domain ontouml:Property, range ontouml:AggregationKind)
+        - ontouml:aggregationKind (range ontouml:AggregationKind)
+        - ontouml:propertyType (range ontouml:Classifier)
 
     :param json_data: JSON's data to have its fields decoded loaded into a dictionary.
     :type json_data: dict
@@ -48,4 +57,4 @@ def create_property_properties(json_data: dict, ontouml_graph: Graph) -> None:
     property_dicts_list = get_list_subdictionaries_for_specific_type(json_data, "Property")
 
     for property_dict in property_dicts_list:
-        set_property_aggregationkind_aggregationkind(property_dict, ontouml_graph)
+        set_property_relations(property_dict, ontouml_graph)
