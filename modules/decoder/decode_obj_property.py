@@ -106,7 +106,6 @@ def set_cardinality_relations(property_dict: dict, ontouml_graph: Graph) -> None
         ontouml_graph.add((ontology_cardinality_individual, ontouml_lowerbound_property, Literal(lower_bound)))
         ontouml_graph.add((ontology_cardinality_individual, ontouml_upperbound_property, Literal(upper_bound)))
 
-        # TODO (@pedropaulofb): Verify upper and lower bound ranges (should they be strings or int or what?)
         # TODO (@pedropaulofb): Update vocabulary for all entities used in this module.
 
 
