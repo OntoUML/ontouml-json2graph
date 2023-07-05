@@ -17,11 +17,13 @@ LOGGER = initialize_logger()
 
 
 def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph) -> None:
-    """ Receives a dictionary and decode every known value to the OntoUML Graph.
-    Recursively evaluate the dictionary to create all possible instances, setting their types and attributes.
+    """ Receives the full dictionary with the loaded JSON data and decode known allowed values to the OntoUML Graph.
+    Recursively evaluates the dictionary to create all possible instances, setting their types and attributes.
 
     Properties that are directly decoded in the general decoder:
-        height, isAbstract, isDerived, isOrdered, isReadOnly, name, width
+        description, height, isAbstract, isDerived, isOrdered, isReadOnly, name, width
+
+    Restricted properties (the ones in the restricted_fields list) are not treated in this function.
 
     :param dictionary_data: Dictionary to have its fields decoded.
     :type dictionary_data: dict
@@ -79,6 +81,8 @@ def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph) -> None:
                 new_object = Literal(dictionary_data[key], datatype=XSD.positiveInteger)
         else:
             new_object = Literal(dictionary_data[key])
+
+        print(key)
 
         # Adding to graph
         ontouml_graph.add((new_instance, new_predicate, new_object))
