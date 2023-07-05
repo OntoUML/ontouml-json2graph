@@ -7,14 +7,14 @@ Function's nomenclatures:
     - Functions that set both object and data properties are named: set_<subject>_properties.
 """
 
-from rdflib import Graph, URIRef, RDF, Literal
+from rdflib import Graph, URIRef
 
 from globals import URI_ONTOLOGY, URI_ONTOUML
-from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type
+from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type, create_point
 
 
 def set_rectangularshape_coordinates(rectangularshape_dict: dict, ontouml_graph: Graph) -> None:
-    """ Creates ontouml:topLeftPosition, ontouml:xCoordinate, and ontouml:yCoordinate of an ontouml:RectangularShape.
+    """ Creates an ontouml:Point, their properties and the ontouml:topLeftPosition of an ontouml:RectangularShape.
 
     :param rectangularshape_dict: RectangularShape object loaded as a dictionary.
     :type rectangularshape_dict: dict
@@ -24,22 +24,12 @@ def set_rectangularshape_coordinates(rectangularshape_dict: dict, ontouml_graph:
 
     # Creating new Point instance
     point_name = rectangularshape_dict["id"] + "_point"
-    ontouml_graph.add((URIRef(URI_ONTOLOGY + point_name), RDF.type, URIRef(URI_ONTOUML + "Point")))
+    create_point(point_name, rectangularshape_dict["x"], rectangularshape_dict["y"], ontouml_graph)
 
     # Associating new Point with Rectangle
     ontouml_graph.add((URIRef(URI_ONTOLOGY + rectangularshape_dict["id"]),
                        URIRef(URI_ONTOUML + "topLeftPosition"),
                        URIRef(URI_ONTOLOGY + point_name)))
-
-    # Setting x coordinate
-    ontouml_graph.add((URIRef(URI_ONTOLOGY + point_name),
-                       URIRef(URI_ONTOUML + "xCoordinate"),
-                       Literal(rectangularshape_dict["x"])))
-
-    # Setting y coordinate
-    ontouml_graph.add((URIRef(URI_ONTOLOGY + point_name),
-                       URIRef(URI_ONTOUML + "yCoordinate"),
-                       Literal(rectangularshape_dict["y"])))
 
 
 def create_rectangularshape_properties(json_data: dict, ontouml_graph: Graph) -> None:
@@ -48,7 +38,7 @@ def create_rectangularshape_properties(json_data: dict, ontouml_graph: Graph) ->
     Receives the whole JSON loaded data as a dictionary and manipulates it to create all properties in which the
     object's type is domain of.
 
-    Created instances:
+    Created instances of:
         - ontouml:Point
 
     Created properties:
@@ -67,6 +57,7 @@ def create_rectangularshape_properties(json_data: dict, ontouml_graph: Graph) ->
 
     # Get all Rectangles' and Texts' dictionaries
     list_all_rectangle_dicts = get_list_subdictionaries_for_specific_type(json_data, "Rectangle")
+
     list_all_text_dicts = get_list_subdictionaries_for_specific_type(json_data, "Text")
     list_all_rectangularshape_dicts = list_all_rectangle_dicts + list_all_text_dicts
 

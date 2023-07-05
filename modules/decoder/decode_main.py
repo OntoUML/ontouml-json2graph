@@ -8,9 +8,11 @@ from modules.decoder.decode_obj_class import create_class_properties
 from modules.decoder.decode_obj_diagram import create_diagram_properties
 from modules.decoder.decode_obj_elementview import create_elementview_properties
 from modules.decoder.decode_obj_package import create_package_properties
+from modules.decoder.decode_obj_path import create_path_properties
 from modules.decoder.decode_obj_project import create_project_properties
 from modules.decoder.decode_obj_property import create_property_properties
 from modules.decoder.decode_obj_rectangularshape import create_rectangularshape_properties
+from modules.decoder.decoder_obj_generalization import create_generalization_properties
 from modules.logger import initialize_logger
 
 LOGGER = initialize_logger()
@@ -34,6 +36,10 @@ def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph) -> None:
     restricted_fields = ["x", "y", "stereotype", "order", "isExtensional", "isPowertype", "aggregationKind",
                          "cardinality"]
     positive_integer_fields = ["width", "height"]
+
+    # Treating Path sub dictionaries
+    if "id" not in dictionary_data:
+        return
 
     # Creating instance
     instance_uri = URI_ONTOLOGY + dictionary_data["id"]
@@ -82,8 +88,6 @@ def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph) -> None:
         else:
             new_object = Literal(dictionary_data[key])
 
-        print(key)
-
         # Adding to graph
         ontouml_graph.add((new_instance, new_predicate, new_object))
 
@@ -111,7 +115,6 @@ def decode_json_to_graph(json_data: dict) -> Graph:
 
     # Counting elements for performance enhancement
     element_counting = count_elements_graph(ontouml_graph)
-    LOGGER.debug(f"The following objects were identified in the inputted data: {element_counting} ")
 
     # SPECIFIC DECODING: create specific properties according to different object types
     if "Project" in element_counting:
@@ -124,9 +127,15 @@ def decode_json_to_graph(json_data: dict) -> Graph:
         create_class_properties(dictionary_data, ontouml_graph, element_counting)
     if ("Rectangle" in element_counting) or ("Text" in element_counting):
         create_rectangularshape_properties(dictionary_data, ontouml_graph)
+    if "Path" in element_counting:
+        create_path_properties(dictionary_data, ontouml_graph)
     if set(ELEMENT_VIEW_TYPES).intersection(element_counting.keys()):
         create_elementview_properties(dictionary_data, ontouml_graph)
     if "Property" in element_counting:
         create_property_properties(dictionary_data, ontouml_graph)
+    if "Generalization" in element_counting:
+        create_generalization_properties(dictionary_data, ontouml_graph)
 
     return ontouml_graph
+
+# TODO (@pedropaulofb): remove the CollectiveClass and return the attribute to 0..1 cardinality in the metamodel

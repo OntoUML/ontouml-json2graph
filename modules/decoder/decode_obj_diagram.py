@@ -35,17 +35,20 @@ def set_diagram_containsview_elementview(diagram_dict: dict, ontouml_graph: Grap
     :rtype: bool
     """
 
-    list_related_classviews = get_list_subdictionaries_for_specific_type(diagram_dict, "ClassView")
+    list_related_elementviews = []
 
-    for related_classview in list_related_classviews:
+    for view_type in ELEMENT_VIEW_TYPES:
+        list_related_elementviews += get_list_subdictionaries_for_specific_type(diagram_dict, view_type)
+
+    for related_elementview in list_related_elementviews:
         statement_subject = URIRef(URI_ONTOLOGY + diagram_dict["id"])
         statement_predicate = URIRef(URI_ONTOUML + "containsView")
-        statement_object = URIRef(URI_ONTOLOGY + related_classview["id"])
+        statement_object = URIRef(URI_ONTOLOGY + related_elementview["id"])
 
         ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
     # Informs if there are ClassViews still to be treated
-    if len(list_related_classviews):
+    if len(list_related_elementviews):
         return True
     else:
         return False

@@ -306,6 +306,33 @@ def set_class_attribute_property(class_dict: dict, ontouml_graph: Graph) -> bool
         return False
 
 
+def set_class_literal_literal(class_dict: dict, ontouml_graph: Graph) -> bool:
+    """ Sets ontouml:literal relation between an ontouml:Class and its related ontouml:Literal individuals.
+
+    :param class_dict: Class object loaded as a dictionary.
+    :type class_dict: dict
+    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
+    :type ontouml_graph: Graph
+    :return: Indication if there are entities of type ontouml:Property still to be treated.
+    :rtype: bool
+    """
+
+    list_related_literals = get_list_subdictionaries_for_specific_type(class_dict, "Literal")
+
+    for related_literal in list_related_literals:
+        statement_subject = URIRef(URI_ONTOLOGY + class_dict["id"])
+        statement_predicate = URIRef(URI_ONTOUML + "literal")
+        statement_object = URIRef(URI_ONTOLOGY + related_literal["id"])
+
+        ontouml_graph.add((statement_subject, statement_predicate, statement_object))
+
+    # Informs if there are ClassViews still to be treated
+    if len(list_related_literals):
+        return True
+    else:
+        return False
+
+
 def create_class_properties(json_data: dict, ontouml_graph: Graph, element_counting: dict) -> None:
     """ Main function for decoding an object of type 'Class'.
 
@@ -319,6 +346,7 @@ def create_class_properties(json_data: dict, ontouml_graph: Graph, element_count
         - ontouml:isPowertype (range xsd:boolean)
         - ontouml:isExtensional (range xsd:boolean)
         - ontouml:attribute (range ontouml:Property)
+        - ontouml:literal (range ontouml:Literal)
 
     Dictionaries containing classes IDs are used for reference. One of its characteristics is that they do not have the
     field 'name'. These are not Classes dictionaries and, hence, are not treated here.
@@ -333,6 +361,7 @@ def create_class_properties(json_data: dict, ontouml_graph: Graph, element_count
 
     # Used for performance improvement
     num_properties = count_elements_types(["Property"], element_counting)
+    num_literals = count_elements_types(["Literal"], element_counting)
 
     # Get all class' dictionaries
     list_all_class_dicts = get_list_subdictionaries_for_specific_type(json_data, "Class")
@@ -363,3 +392,9 @@ def create_class_properties(json_data: dict, ontouml_graph: Graph, element_count
             property_set = set_class_attribute_property(class_dict, ontouml_graph)
             if property_set:
                 num_properties -= 1
+
+        # Treats relations between Classes and Literals only while there are Literals still untreated
+        if num_literals > 0:
+            literal_set = set_class_literal_literal(class_dict, ontouml_graph)
+            if literal_set:
+                num_literals -= 1

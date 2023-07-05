@@ -337,21 +337,26 @@
 
 # MANUALLY ADDED
 
-@prefix : <https://example.org#> .
+@prefix :        <https://example.org#> .
 @prefix ontouml: <https://w3id.org/ontouml#> .
 
-:aeRzRJGGAqACNwnP_cardinality ontouml:lowerBound "5" ;
+:aeRzRJGGAqACNwnP_cardinality
+    ontouml:lowerBound "5" ;
     ontouml:upperBound "1" .
 
-:cMWtRJGGAqACNwm5_cardinality ontouml:lowerBound "0" ;
+:cMWtRJGGAqACNwm5_cardinality
+    ontouml:lowerBound "0" ;
     ontouml:upperBound "*" .
 
-:l1hzRJGGAqACNwnM_cardinality ontouml:lowerBound "0" ;
+:l1hzRJGGAqACNwnM_cardinality
+    ontouml:lowerBound "0" ;
     ontouml:upperBound "5" .
 
-:nyVzRJGGAqACNwn3_cardinality ontouml:lowerBound "created_invalid" ;
+:nyVzRJGGAqACNwn3_cardinality
+    ontouml:lowerBound "created_invalid" ;
     ontouml:upperBound "created_invalid" .
 
-:rPqtRJGGAqACNwmx_cardinality ontouml:lowerBound "0" ;
+:rPqtRJGGAqACNwmx_cardinality
+    ontouml:lowerBound "0" ;
     ontouml:upperBound "0" .
 

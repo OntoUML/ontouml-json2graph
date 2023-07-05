@@ -1,0 +1,122 @@
+@prefix :        <https://example.org#>.
+@prefix ontouml: <https://w3id.org/ontouml#>.
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl:     <http://www.w3.org/2002/07/owl#>.
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#>.
+
+:4NWbZJGFYGjgAQm6
+    rdf:type        ontouml:Project ;
+    ontouml:name    "newproject" ;
+    ontouml:model   :4NWbZJGFYGjgAQm6_root ;
+    ontouml:diagram :cD2bZJGFYGjgAQ2V .
+
+:4NWbZJGFYGjgAQm6_root
+    rdf:type                     ontouml:Package ;
+    ontouml:project              :4NWbZJGFYGjgAQm6 ;
+    ontouml:name                 "newproject" ;
+    ontouml:containsModelElement :olObZJGFYGjgAQ2v, :Q4hbZJGFYGjgAQ3M, :SSxbZJGFYGjgAQ3Y .
+
+:olObZJGFYGjgAQ2v
+    rdf:type             ontouml:Class ;
+    ontouml:project      :4NWbZJGFYGjgAQm6 ;
+    ontouml:name         "myenum" ;
+    ontouml:stereotype   ontouml:enumeration ;
+    ontouml:restrictedTo ontouml:abstractNature ;
+    ontouml:isAbstract   "false"^^xsd:boolean ;
+    ontouml:isDerived    "false"^^xsd:boolean ;
+    ontouml:isPowertype  "false"^^xsd:boolean ;
+    ontouml:order        "1"^^xsd:nonNegativeInteger .
+
+:Q4hbZJGFYGjgAQ3M
+    rdf:type             ontouml:Class ;
+    ontouml:project      :4NWbZJGFYGjgAQm6 ;
+    ontouml:name         "mydatatype" ;
+    ontouml:stereotype   ontouml:datatype ;
+    ontouml:restrictedTo ontouml:abstractNature ;
+    ontouml:isAbstract   "false"^^xsd:boolean ;
+    ontouml:isDerived    "false"^^xsd:boolean ;
+    ontouml:isPowertype  "false"^^xsd:boolean ;
+    ontouml:order        "1"^^xsd:nonNegativeInteger .
+
+:SSxbZJGFYGjgAQ3Y
+    rdf:type             ontouml:Class ;
+    ontouml:project      :4NWbZJGFYGjgAQm6 ;
+    ontouml:name         "myabstract" ;
+    ontouml:stereotype   ontouml:abstract ;
+    ontouml:restrictedTo ontouml:abstractNature ;
+    ontouml:isAbstract   "false"^^xsd:boolean ;
+    ontouml:isDerived    "false"^^xsd:boolean ;
+    ontouml:isPowertype  "false"^^xsd:boolean ;
+    ontouml:order        "1"^^xsd:nonNegativeInteger .
+
+:cD2bZJGFYGjgAQ2V
+    rdf:type             ontouml:Diagram ;
+    ontouml:project      :4NWbZJGFYGjgAQm6 ;
+    ontouml:name         "Class Diagram1" ;
+    ontouml:containsView :Q4hbZJGFYGjgAQ3L, :IlObZJGFYGjgAQ2u, :SSxbZJGFYGjgAQ3X .
+
+:Q4hbZJGFYGjgAQ3L
+    rdf:type         ontouml:ClassView ;
+    ontouml:project  :4NWbZJGFYGjgAQm6 ;
+    ontouml:isViewOf :Q4hbZJGFYGjgAQ3M ;
+    ontouml:shape    :Q4hbZJGFYGjgAQ3L_shape .
+
+:IlObZJGFYGjgAQ2u
+    rdf:type         ontouml:ClassView ;
+    ontouml:project  :4NWbZJGFYGjgAQm6 ;
+    ontouml:isViewOf :olObZJGFYGjgAQ2v ;
+    ontouml:shape    :IlObZJGFYGjgAQ2u_shape .
+
+:SSxbZJGFYGjgAQ3X
+    rdf:type         ontouml:ClassView ;
+    ontouml:project  :4NWbZJGFYGjgAQm6 ;
+    ontouml:isViewOf :SSxbZJGFYGjgAQ3Y ;
+    ontouml:shape    :SSxbZJGFYGjgAQ3X_shape .
+
+:Q4hbZJGFYGjgAQ3L_shape
+    rdf:type                ontouml:Rectangle ;
+    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:width           "80"^^xsd:positiveInteger ;
+    ontouml:topLeftPosition :Q4hbZJGFYGjgAQ3L_shape_point .
+
+:Q4hbZJGFYGjgAQ3L_shape_point
+    rdf:type            ontouml:Point ;
+    ontouml:xCoordinate 367 ;
+    ontouml:yCoordinate 87 .
+
+:IlObZJGFYGjgAQ2u_shape
+    rdf:type                ontouml:Rectangle ;
+    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:width           "97"^^xsd:positiveInteger ;
+    ontouml:topLeftPosition :IlObZJGFYGjgAQ2u_shape_point .
+
+:IlObZJGFYGjgAQ2u_shape_point
+    rdf:type            ontouml:Point ;
+    ontouml:xCoordinate 205 ;
+    ontouml:yCoordinate 227 .
+
+:SSxbZJGFYGjgAQ3X_shape
+    rdf:type                ontouml:Rectangle ;
+    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:width           "80"^^xsd:positiveInteger ;
+    ontouml:topLeftPosition :SSxbZJGFYGjgAQ3X_shape_point .
+
+:SSxbZJGFYGjgAQ3X_shape_point
+    rdf:type            ontouml:Point ;
+    ontouml:xCoordinate 643 ;
+    ontouml:yCoordinate 127 .
+
+# MANUALLY ADDED
+
+:IlObZJGFYGjgAQ2u_shape
+    ontouml:project :4NWbZJGFYGjgAQm6 .
+
+:Q4hbZJGFYGjgAQ3L_shape
+    ontouml:project :4NWbZJGFYGjgAQm6 .
+
+:SSxbZJGFYGjgAQ3X_shape
+    ontouml:project :4NWbZJGFYGjgAQm6 .
+
+:cD2bZJGFYGjgAQ2V
+    ontouml:owner :4NWbZJGFYGjgAQm6_root .

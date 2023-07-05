@@ -16,6 +16,27 @@ from modules.logger import initialize_logger
 LOGGER = initialize_logger()
 
 
+def validate_property_stereotype(property_dict: dict) -> None:
+    """ Performs syntactical and semantic validations on an ontouml:Property's stereotype.
+
+    Validations performed:
+        - Reports invalid stereotypes
+        - Reports invalid stereotype use for class stereotype
+
+    :param property_dict: Property object loaded as a dictionary.
+    :type property_dict: dict
+    """
+
+    # If declared but invalid, create and report error
+    if property_dict["stereotype"] not in ["begin", "end"]:
+        LOGGER.error(f"Invalid stereotype '{property_dict['stereotype']}' used for property with ID "
+                     f"'{property_dict['id']}'. The transformation output is not syntactically valid.")
+
+    # TODO (@pedropaulofb): Check if the type that has the property has stereotype different than EVENT.
+    # If positive, inform the user that this class was not supposed to have a stereotype for its property.
+    # If the class has no stereotype, set it as event and inform user.
+
+
 def set_property_relations(property_dict: dict, ontouml_graph: Graph) -> None:
     """ Sets the ontouml:aggregationKind and ontouml:propertyType object properties between an ontouml:Property and
     its related elements.
@@ -44,10 +65,7 @@ def set_property_relations(property_dict: dict, ontouml_graph: Graph) -> None:
         statement_object = URIRef(URI_ONTOUML + property_dict["stereotype"])
         ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
-        # If declared but invalid, create and report error
-        if property_dict["stereotype"] not in ["begin", "end"]:
-            LOGGER.error(f"Invalid stereotype '{property_dict['stereotype']}' used for property with ID '{property_dict['id']}'. "
-                         f"The transformation output is not syntactically valid.")
+        validate_property_stereotype(property_dict)
 
 
 def determine_cardinality_bounds(cardinalities: str, property_id: str) -> (str, str):
@@ -115,6 +133,7 @@ def set_cardinality_relations(property_dict: dict, ontouml_graph: Graph) -> None
         lower_bound, upper_bound = determine_cardinality_bounds(property_dict["cardinality"], property_dict["id"])
         ontouml_graph.add((ontology_cardinality_individual, ontouml_lowerbound_property, Literal(lower_bound)))
         ontouml_graph.add((ontology_cardinality_individual, ontouml_upperbound_property, Literal(upper_bound)))
+
 
 def create_property_properties(json_data: dict, ontouml_graph: Graph) -> None:
     """ Main function for decoding an object of type Property.

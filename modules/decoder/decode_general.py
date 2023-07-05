@@ -1,9 +1,36 @@
 """ General decoding functions. """
 
-from rdflib import Graph
+from rdflib import Graph, URIRef, Literal, RDF
 
+from globals import URI_ONTOLOGY, URI_ONTOUML
 from modules.sparql_queries import GET_ELEMENT_AND_TYPE
 from modules.utils_graph import load_all_graph_safely
+
+
+def create_point(point_id: str, x_coord: int, y_coord: int, ontouml_graph: Graph) -> None:
+    """ Creates a new instance of ontouml:Point with its ontouml:xCoordinate, and ontouml:yCoordinate properties.
+
+    :param point_id: ID of the new ontouml:Point instance to be created.
+    :type point_id: str
+    :param x_coord: Horizontal coordinate of the new ontouml:Point.
+    :type x_coord: int
+    :param y_coord: Vertical coordinate of the new ontouml:Point.
+    :type y_coord: int
+    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
+    :type ontouml_graph: Graph
+    """
+
+    ontouml_graph.add((URIRef(URI_ONTOLOGY + point_id), RDF.type, URIRef(URI_ONTOUML + "Point")))
+
+    # Setting x coordinate
+    ontouml_graph.add((URIRef(URI_ONTOLOGY + point_id),
+                       URIRef(URI_ONTOUML + "xCoordinate"),
+                       Literal(x_coord)))
+
+    # Setting y coordinate
+    ontouml_graph.add((URIRef(URI_ONTOLOGY + point_id),
+                       URIRef(URI_ONTOUML + "yCoordinate"),
+                       Literal(y_coord)))
 
 
 def count_elements_graph(ontouml_graph: Graph) -> dict:
@@ -34,8 +61,9 @@ def count_elements_graph(ontouml_graph: Graph) -> dict:
 
 def get_list_subdictionaries_for_specific_type(dictionary_data: dict, wanted_type: str,
                                                return_list: list[dict] = None) -> list[dict]:
-    """ Recursively access all objects in the dictionary until find an object of the desired type. When the id is found,
-    add to a copy of its dictionaries to a list to be returned (containing all its sub-dictionaries).
+    """ Recursively access all objects in the dictionary until find an object of the desired type.
+    When the type is found, adds a copy of its dictionaries to a list to be returned
+    (containing all its sub-dictionaries).
 
     :param dictionary_data: Dictionary to have its fields decoded.
     :type dictionary_data: dict
@@ -51,8 +79,9 @@ def get_list_subdictionaries_for_specific_type(dictionary_data: dict, wanted_typ
         return_list = []
 
     # When found, add a copy of the dictionary to the return_list
-    if dictionary_data["type"] == wanted_type:
-        return_list.append(dictionary_data.copy())
+    if "type" in dictionary_data:
+        if dictionary_data["type"] == wanted_type:
+            return_list.append(dictionary_data.copy())
 
     # If not found, recursively search for it
     for dict_field in dictionary_data.keys():
@@ -126,8 +155,9 @@ def get_all_ids_of_specific_type(dictionary_data: dict, wanted_type: str, list_i
         list_ids_for_type = []
 
     # If found, add
-    if dictionary_data["type"] == wanted_type:
-        list_ids_for_type.append(dictionary_data["id"])
+    if "type" in dictionary_data:
+        if dictionary_data["type"] == wanted_type:
+            list_ids_for_type.append(dictionary_data["id"])
 
     # Continue searching
     for dict_field in dictionary_data.keys():
