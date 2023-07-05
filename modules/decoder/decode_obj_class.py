@@ -78,7 +78,7 @@ def set_class_order_nonnegativeinteger(class_dict: dict, ontouml_graph: Graph) -
 
 
 def set_class_stereotypes_stereotype(class_dict: dict, ontouml_graph: Graph) -> None:
-    """ Sets ontouml:stereotype relation between a class and an instance representing an ontouml stereotype.
+    """ Sets ontouml:stereotype relation between an ontouml:Class and an instance representing an ontouml:ClassStereotype.
 
     :param class_dict: Class object loaded as a dictionary.
     :type class_dict: dict
@@ -314,7 +314,7 @@ def create_class_properties(json_data: dict, ontouml_graph: Graph, element_count
 
     Created properties:
         - ontouml:order (range xsd:nonNegativeInteger)
-        - ontouml:stereotype (range ontouml:Stereotype)
+        - ontouml:stereotype (range ontouml:ClassStereotype)
         - ontouml:restrictedTo (range ontouml:OntologicalNature)
         - ontouml:isPowertype (range xsd:boolean)
         - ontouml:isExtensional (range xsd:boolean)

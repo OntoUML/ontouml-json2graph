@@ -39,6 +39,16 @@ def set_property_relations(property_dict: dict, ontouml_graph: Graph) -> None:
         statement_object = URIRef(URI_ONTOLOGY + property_dict["propertyType"]["id"])
         ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
+    if "stereotype" in property_dict:
+        statement_predicate = URIRef(URI_ONTOUML + "stereotype")
+        statement_object = URIRef(URI_ONTOUML + property_dict["stereotype"])
+        ontouml_graph.add((statement_subject, statement_predicate, statement_object))
+
+        # If declared but invalid, create and report error
+        if property_dict["stereotype"] not in ["begin", "end"]:
+            LOGGER.error(f"Invalid stereotype '{property_dict['stereotype']}' used for property with ID '{property_dict['id']}'. "
+                         f"The transformation output is not syntactically valid.")
+
 
 def determine_cardinality_bounds(cardinalities: str, property_id: str) -> (str, str):
     """ Receives a string with an ontouml:Cardinality's ontoumL:cardinalityValues and decouple it into its
@@ -106,9 +116,6 @@ def set_cardinality_relations(property_dict: dict, ontouml_graph: Graph) -> None
         ontouml_graph.add((ontology_cardinality_individual, ontouml_lowerbound_property, Literal(lower_bound)))
         ontouml_graph.add((ontology_cardinality_individual, ontouml_upperbound_property, Literal(upper_bound)))
 
-        # TODO (@pedropaulofb): Update vocabulary for all entities used in this module.
-
-
 def create_property_properties(json_data: dict, ontouml_graph: Graph) -> None:
     """ Main function for decoding an object of type Property.
 
@@ -121,6 +128,7 @@ def create_property_properties(json_data: dict, ontouml_graph: Graph) -> None:
     Created properties:
         - ontouml:aggregationKind (domain ontouml:Property, range ontouml:AggregationKind)
         - ontouml:propertyType (domain ontouml:Property, range ontouml:Classifier)
+        - ontouml:stereotype (domain ontouml:Property, range ontouml:PropertyStereotype)
         - ontouml:cardinality (domain ontouml:Property, range ontouml:Cardinality)
         - ontouml:cardinalityValue (domain ontouml:Cardinality, range xsd:string)
         - ontouml:lowerBound (domain ontouml:Cardinality, range xsd:nonNegativeInteger)
