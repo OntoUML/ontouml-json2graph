@@ -40,7 +40,7 @@ def set_property_relations(property_dict: dict, ontouml_graph: Graph) -> None:
         ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
 
-def separate_cardinality_bounds(cardinalities: str, property_id: str) -> (str, str):
+def determine_cardinality_bounds(cardinalities: str, property_id: str) -> (str, str):
     """ Receives a string with an ontouml:Cardinality's ontoumL:cardinalityValues and decouple it into its
     ontouml:lowerBound and ontouml:upperBound. Checks if the obtained values are not valid and displays warning if so.
 
@@ -57,12 +57,15 @@ def separate_cardinality_bounds(cardinalities: str, property_id: str) -> (str, s
     # If separator '..' not found, exact cardinality, meaning that lower and upper bounds have the same value
     if upper_bound == "":
         upper_bound = lower_bound
+    # If lower bound is * it is converted to zero
+    if lower_bound == "*":
+        lower_bound = "0"
 
     # Validating discovered cardinality bounds
     if not (upper_bound.isnumeric() or upper_bound == "*"):
         LOGGER.warning(f"Invalid cardinality's upper bound (value '{upper_bound}') for Property individual with "
                        f"ID {property_id}. Transformation proceeded as is.")
-    if not (lower_bound.isnumeric() or lower_bound == "*"):
+    if not lower_bound.isnumeric():
         LOGGER.warning(f"Invalid cardinality's lower bound (value '{lower_bound}') for Property individual with "
                        f"ID {property_id}. Transformation proceeded as is.")
 
@@ -99,7 +102,7 @@ def set_cardinality_relations(property_dict: dict, ontouml_graph: Graph) -> None
                            Literal(property_dict["cardinality"])))
 
         # Setting cardinality's lower and upper bounds
-        lower_bound, upper_bound = separate_cardinality_bounds(property_dict["cardinality"], property_dict["id"])
+        lower_bound, upper_bound = determine_cardinality_bounds(property_dict["cardinality"], property_dict["id"])
         ontouml_graph.add((ontology_cardinality_individual, ontouml_lowerbound_property, Literal(lower_bound)))
         ontouml_graph.add((ontology_cardinality_individual, ontouml_upperbound_property, Literal(upper_bound)))
 
@@ -121,8 +124,8 @@ def create_property_properties(json_data: dict, ontouml_graph: Graph) -> None:
         - ontouml:propertyType (domain ontouml:Property, range ontouml:Classifier)
         - ontouml:cardinality (domain ontouml:Property, range ontouml:Cardinality)
         - ontouml:cardinalityValue (domain ontouml:Cardinality, range xsd:string)
-        - ontouml:lowerBound (domain ontouml:Cardinality, range xsd:string)
-        - ontouml:upperBound (domain ontouml:Cardinality, range xsd:string)
+        - ontouml:lowerBound (domain ontouml:Cardinality, range xsd:nonNegativeInteger)
+        - ontouml:upperBound (domain ontouml:Cardinality)
 
     :param json_data: JSON's data to have its fields decoded loaded into a dictionary.
     :type json_data: dict
