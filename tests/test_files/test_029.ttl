@@ -20,7 +20,7 @@
                                  :AOxHZJGFYGjgAQ77, :cxJHZJGFYGjgAQ8I, :X9pHZJGFYGjgAQ8T, :K8THZJGFYGjgAQ9q,
                                  :H9THZJGFYGjgAQ91, :XizHZJGFYGjgAQ.A, :eDfHZJGFYGjgAQ.9, :Ox_HZJGFYGjgAQ_I,
                                  :MDAnZJGFYGjgAQ_Z, :B0snZJGFYGjgARAG, :flsnZJGFYGjgARAR, :LYcnZJGFYGjgARAc,
-                                 :ryanZJGFYGjgARA_, :abanZJGFYGjgARBK, :2G6nZJGFYGjgARBV, :pJ77ZJGFYGjgAQ5q,
+                                 :ryanZJGFYGjgARA, :abanZJGFYGjgARBK, :2G6nZJGFYGjgARBV, :pJ77ZJGFYGjgAQ5q,
                                  :5Lv7ZJGFYGjgAQ6X, :_QIHZJGFYGjgAQ6z, :lboHZJGFYGjgAQ65, :iu5HZJGFYGjgAQ8i,
                                  :xIFHZJGFYGjgAQ8o, :47rHZJGFYGjgAQ.W, :llbHZJGFYGjgAQ.c, :haQnZJGFYGjgAQ_o,
                                  :wgwnZJGFYGjgAQ_u, :xw8nZJGFYGjgARAl, :f78nZJGFYGjgARAr, :daGnZJGFYGjgARBe,
@@ -222,7 +222,7 @@
     ontouml:isPowertype "false"^^xsd:boolean ;
     ontouml:order       "1"^^xsd:nonNegativeInteger .
 
-:ryanZJGFYGjgARA_
+:ryanZJGFYGjgARA
     rdf:type            ontouml:Class ;
     ontouml:project     :4NWbZJGFYGjgAQm6 ;
     ontouml:name        "Class11" ;
@@ -328,13 +328,13 @@
 :daGnZJGFYGjgARBe
     rdf:type         ontouml:Generalization ;
     ontouml:project  :4NWbZJGFYGjgAQm6 ;
-    ontouml:general  :ryanZJGFYGjgARA_ ;
+    ontouml:general  :ryanZJGFYGjgARA ;
     ontouml:specific :abanZJGFYGjgARBK .
 
 :owmnZJGFYGjgARBk
     rdf:type         ontouml:Generalization ;
     ontouml:project  :4NWbZJGFYGjgAQm6 ;
-    ontouml:general  :ryanZJGFYGjgARA_ ;
+    ontouml:general  :ryanZJGFYGjgARA ;
     ontouml:specific :2G6nZJGFYGjgARBV .
 
 :NePHZJGFYGjgAQ.u
@@ -553,8 +553,8 @@
 :ryanZJGFYGjgARA
     rdf:type         ontouml:ClassView ;
     ontouml:project  :4NWbZJGFYGjgAQm6 ;
-    ontouml:isViewOf :ryanZJGFYGjgARA_ ;
-    ontouml:shape    :ryanZJGFYGjgARA_shape .
+    ontouml:isViewOf :ryanZJGFYGjgARA ;
+    ontouml:shape    :ryanZJGFYGjgARAshape .
 
 :0DAnZJGFYGjgAQ_Y
     rdf:type         ontouml:ClassView ;
@@ -895,13 +895,13 @@
     ontouml:xCoordinate 839 ;
     ontouml:yCoordinate 362 .
 
-:ryanZJGFYGjgARA_shape
+:ryanZJGFYGjgARAshape
     rdf:type                ontouml:Rectangle ;
     ontouml:height          "40"^^xsd:positiveInteger ;
     ontouml:width           "80"^^xsd:positiveInteger ;
-    ontouml:topLeftPosition :ryanZJGFYGjgARA_shape_point .
+    ontouml:topLeftPosition :ryanZJGFYGjgARAshape_point .
 
-:ryanZJGFYGjgARA_shape_point
+:ryanZJGFYGjgARAshape_point
     rdf:type            ontouml:Point ;
     ontouml:xCoordinate 869 ;
     ontouml:yCoordinate 282 .
@@ -1330,3 +1330,50 @@
 
 :cD2bZJGFYGjgAQ2V
     ontouml:owner :4NWbZJGFYGjgAQm6_root .
+
+#MANUALLY ADDED
+
+:0DAnZJGFYGjgAQ_Y_shape ontouml:project :4NWbZJGFYGjgAQm6 .
+:1oZ7ZJGFYGjgAQ5K ontouml:stereotype ontouml:ClassStereotype .
+:1w8nZJGFYGjgARAm_path ontouml:project :4NWbZJGFYGjgAQm6 .
+:2G6nZJGFYGjgARBU_shape ontouml:project :4NWbZJGFYGjgAQm6 .
+:2G6nZJGFYGjgARBV ontouml:stereotype ontouml:ClassStereotype .
+:2x_HZJGFYGjgAQ_H_shape ontouml:project :4NWbZJGFYGjgAQm6 .
+:79THZJGFYGjgAQ90_shape ontouml:project :4NWbZJGFYGjgAQm6 .
+:7aGnZJGFYGjgARBf_path ontouml:project :4NWbZJGFYGjgAQm6 .
+:7lbHZJGFYGjgAQ.d_path ontouml:project :4NWbZJGFYGjgAQm6 .
+:B0snZJGFYGjgARAF_shape ontouml:project :4NWbZJGFYGjgAQm6 .
+:B0snZJGFYGjgARAG ontouml:stereotype ontouml:ClassStereotype .
+:CgwnZJGFYGjgAQ_v_path ontouml:project :4NWbZJGFYGjgAQm6 .
+:CwIHZJGFYGjgAQ60_path ontouml:project :4NWbZJGFYGjgAQm6 .
+:H9THZJGFYGjgAQ91 ontouml:stereotype ontouml:ClassStereotype .
+:K8THZJGFYGjgAQ9p_shape ontouml:project :4NWbZJGFYGjgAQm6 .
+:K8THZJGFYGjgAQ9q ontouml:stereotype ontouml:ClassStereotype .
+:LYcnZJGFYGjgARAb_shape ontouml:project :4NWbZJGFYGjgAQm6 .
+:LYcnZJGFYGjgARAc ontouml:stereotype ontouml:ClassStereotype .
+:MDAnZJGFYGjgAQ_Z ontouml:stereotype ontouml:ClassStereotype .
+:Ox_HZJGFYGjgAQ_I ontouml:stereotype ontouml:ClassStereotype .
+:Rd37ZJGFYGjgAQ6I ontouml:stereotype ontouml:ClassStereotype .
+:Ru5HZJGFYGjgAQ8j_path ontouml:project :4NWbZJGFYGjgAQm6 .
+:TIFHZJGFYGjgAQ8p_path ontouml:project :4NWbZJGFYGjgAQm6 .
+:VoZ7ZJGFYGjgAQ5J_shape ontouml:project :4NWbZJGFYGjgAQm6 .
+:X9pHZJGFYGjgAQ8S_shape ontouml:project :4NWbZJGFYGjgAQm6 .
+:XboHZJGFYGjgAQ66_path ontouml:project :4NWbZJGFYGjgAQm6 .
+:XizHZJGFYGjgAQ.A ontouml:stereotype ontouml:ClassStereotype .
+:XizHZJGFYGjgAQ9__shape ontouml:project :4NWbZJGFYGjgAQm6 .
+:_2xHZJGFYGjgAQ76_shape ontouml:project :4NWbZJGFYGjgAQm6 .
+:abanZJGFYGjgARBJ_shape ontouml:project :4NWbZJGFYGjgAQm6 .
+:abanZJGFYGjgARBK ontouml:stereotype ontouml:ClassStereotype .
+:bLv7ZJGFYGjgAQ6Y_path ontouml:project :4NWbZJGFYGjgAQm6 .
+:eDfHZJGFYGjgAQ.9 ontouml:stereotype ontouml:ClassStereotype .
+:flsnZJGFYGjgARAQ_shape ontouml:project :4NWbZJGFYGjgAQm6 .
+:flsnZJGFYGjgARAR ontouml:stereotype ontouml:ClassStereotype .
+:hd37ZJGFYGjgAQ6H_shape ontouml:project :4NWbZJGFYGjgAQm6 .
+:iqX7ZJGFYGjgAQ58_shape ontouml:project :4NWbZJGFYGjgAQm6 .
+:iqX7ZJGFYGjgAQ59 ontouml:stereotype ontouml:ClassStereotype .
+:kH8nZJGFYGjgARAs_path ontouml:project :4NWbZJGFYGjgAQm6 .
+:laQnZJGFYGjgAQ_p_path ontouml:project :4NWbZJGFYGjgAQm6 .
+:m7rHZJGFYGjgAQ.X_path ontouml:project :4NWbZJGFYGjgAQm6 .
+:nJ77ZJGFYGjgAQ5r_path ontouml:project :4NWbZJGFYGjgAQm6 .
+:qin7ZJGFYGjgAQ5x_shape ontouml:project :4NWbZJGFYGjgAQm6 .
+:qin7ZJGFYGjgAQ5y ontouml:stereotype ontouml:ClassStereotype .

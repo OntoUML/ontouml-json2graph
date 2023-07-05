@@ -27,7 +27,7 @@ def set_elementview_relations(elementview_dict: dict, ontouml_graph: Graph) -> N
     # An ElementView's shape is always named after it:
     shape_name = elementview_dict['id']
     # When its shape type is 'Rectangle', adding the suffix '_shape'.
-    if elementview_dict["shape"]["type"] == 'Rectangle':
+    if elementview_dict["shape"]["type"] in ['Rectangle', 'Text']:
         shape_name += "_shape"
     # When its shape type is 'Path', adding the suffix '_path'.
     elif elementview_dict["shape"]["type"] == 'Path':

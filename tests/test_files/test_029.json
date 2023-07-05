@@ -1125,7 +1125,7 @@
             ]
           },
           "source": {
-            "id": "ryanZJGFYGjgARA.",
+            "id": "ryanZJGFYGjgARA",
             "type": "ClassView"
           },
           "target": {
@@ -1442,14 +1442,14 @@
           }
         },
         {
-          "id": "ryanZJGFYGjgARA.",
+          "id": "ryanZJGFYGjgARA",
           "type": "ClassView",
           "modelElement": {
             "id": "ryanZJGFYGjgARA_",
             "type": "Class"
           },
           "shape": {
-            "id": "ryanZJGFYGjgARA._shape",
+            "id": "ryanZJGFYGjgARA_shape",
             "type": "Rectangle",
             "x": 869,
             "y": 282,
@@ -1499,7 +1499,7 @@
             ]
           },
           "source": {
-            "id": "ryanZJGFYGjgARA.",
+            "id": "ryanZJGFYGjgARA",
             "type": "ClassView"
           },
           "target": {
