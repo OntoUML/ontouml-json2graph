@@ -91,10 +91,27 @@ def set_property_relations(property_dict: dict, ontouml_graph: Graph) -> None:
         statement_object = URIRef(URI_ONTOLOGY + property_dict["propertyType"]["id"])
         ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
+    # Setting ontouml:stereotype. Its validation is performed later in function validate_property_stereotype
     if "stereotype" in property_dict:
         statement_predicate = URIRef(URI_ONTOUML + "stereotype")
         statement_object = URIRef(URI_ONTOUML + property_dict["stereotype"])
         ontouml_graph.add((statement_subject, statement_predicate, statement_object))
+
+    # Setting ontouml:subsetsProperty
+    if "subsettedProperties" in property_dict:
+        statement_predicate = URIRef(URI_ONTOUML + "subsetsProperty")
+
+        for subsetted_prop_dict in property_dict["subsettedProperties"]:
+            statement_object = URIRef(URI_ONTOLOGY + subsetted_prop_dict["id"])
+            ontouml_graph.add((statement_subject, statement_predicate, statement_object))
+
+    # Setting ontouml:redefinesProperty
+    if "redefinedProperties" in property_dict:
+        statement_predicate = URIRef(URI_ONTOUML + "redefinesProperty")
+
+        for redefined_prop_dict in property_dict["redefinedProperties"]:
+            statement_object = URIRef(URI_ONTOLOGY + redefined_prop_dict["id"])
+            ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
 
 def determine_cardinality_bounds(cardinalities: str, property_id: str) -> (str, str):
@@ -181,6 +198,8 @@ def create_property_properties(json_data: dict, ontouml_graph: Graph) -> None:
         - ontouml:cardinalityValue (domain ontouml:Cardinality, range xsd:string)
         - ontouml:lowerBound (domain ontouml:Cardinality, range xsd:nonNegativeInteger)
         - ontouml:upperBound (domain ontouml:Cardinality)
+        - ontouml:subsetsProperty (range ontouml:Property)
+        - ontouml:redefinesProperty (range ontouml:Property)
 
     Performs validation for ontouml:stereotype.
 
@@ -192,8 +211,13 @@ def create_property_properties(json_data: dict, ontouml_graph: Graph) -> None:
 
     # Getting Property dictionaries
     property_dicts_list = get_list_subdictionaries_for_specific_type(json_data, "Property")
-    count = 1
+
     for property_dict in property_dicts_list:
+
+        # Removing possible dictionaries that are only references
+        if "isDerived" not in property_dict:
+            continue
+
         set_property_relations(property_dict, ontouml_graph)
         set_cardinality_relations(property_dict, ontouml_graph)
 
