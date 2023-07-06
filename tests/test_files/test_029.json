@@ -1043,7 +1043,7 @@
         "type" : "Class"
       },
       "shape" : {
-        "id" : "2x_HZJGFYGjgAQ_H_shape",
+        "id" : "2xHZJGFYGjgAQH_shape",
         "type" : "Rectangle",
         "x" : 128,
         "y" : 199,
@@ -1318,7 +1318,7 @@
         "type" : "Class"
       },
       "shape" : {
-        "id" : "0DAnZJGFYGjgAQ_Y_shape",
+        "id" : "0DAnZJGFYGjgAQY_shape",
         "type" : "Rectangle",
         "x" : 13,
         "y" : 199,
@@ -1411,7 +1411,7 @@
         "type" : "ClassView"
       }
     }, {
-      "id" : "laQnZJGFYGjgAQ_p",
+      "id" : "laQnZJGFYGjgAQp",
       "type" : "GeneralizationView",
       "modelElement" : {
         "id" : "haQnZJGFYGjgAQo",
