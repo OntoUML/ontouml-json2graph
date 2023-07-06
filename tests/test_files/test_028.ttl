@@ -433,9 +433,7 @@
     rdf:type            ontouml:Point ;
     ontouml:xCoordinate 763 ;
     ontouml:yCoordinate 395 .
-
 # MANUALLY ADDED
-
 :IlObZJGFYGjgAQ2u_shape
     ontouml:project :4NWbZJGFYGjgAQm6 .
 
@@ -447,21 +445,6 @@
 
 :cD2bZJGFYGjgAQ2V
     ontouml:owner :4NWbZJGFYGjgAQm6_root .
-
-:1oZ7ZJGFYGjgAQ5K
-    ontouml:stereotype ontouml:ClassStereotype .
-
-:Rd37ZJGFYGjgAQ6I
-    ontouml:stereotype ontouml:ClassStereotype .
-
-:iqX7ZJGFYGjgAQ59
-    ontouml:stereotype ontouml:ClassStereotype .
-
-:qin7ZJGFYGjgAQ5y
-    ontouml:stereotype ontouml:ClassStereotype .
-
-:gl7zjgfygjgaq5e
-    ontouml:stereotype ontouml:ClassStereotype .
 
 :6L7ZJGFYGjgAQ5d_shape
     ontouml:project :4NWbZJGFYGjgAQm6 .

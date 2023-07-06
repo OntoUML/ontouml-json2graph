@@ -50,8 +50,7 @@
     ontouml:isAbstract  "false"^^xsd:boolean ;
     ontouml:isDerived   "false"^^xsd:boolean ;
     ontouml:isPowertype "false"^^xsd:boolean ;
-    ontouml:order       "1"^^xsd:nonNegativeInteger ;
-    ontouml:stereotype  ontouml:ClassStereotype .
+    ontouml:order       "1"^^xsd:nonNegativeInteger .
 
 :b5teFxGFS_j2pAm3
     rdf:type            ontouml:Class ;
@@ -60,8 +59,7 @@
     ontouml:isAbstract  "false"^^xsd:boolean ;
     ontouml:isDerived   "false"^^xsd:boolean ;
     ontouml:isPowertype "false"^^xsd:boolean ;
-    ontouml:order       "1"^^xsd:nonNegativeInteger ;
-    ontouml:stereotype  ontouml:ClassStereotype .
+    ontouml:order       "1"^^xsd:nonNegativeInteger .
 
 :Y2ADQJGGAqACNwmq
     rdf:type            ontouml:Class ;
@@ -91,8 +89,7 @@
     ontouml:isAbstract  "false"^^xsd:boolean ;
     ontouml:isDerived   "false"^^xsd:boolean ;
     ontouml:isPowertype "false"^^xsd:boolean ;
-    ontouml:order       "1"^^xsd:nonNegativeInteger ;
-    ontouml:stereotype  ontouml:ClassStereotype .
+    ontouml:order       "1"^^xsd:nonNegativeInteger .
 
 :kACDQJGGAqACNwnq
     rdf:type              ontouml:Class ;
@@ -180,8 +177,7 @@
     ontouml:isAbstract  "false"^^xsd:boolean ;
     ontouml:isDerived   "false"^^xsd:boolean ;
     ontouml:isPowertype "false"^^xsd:boolean ;
-    ontouml:order       "1"^^xsd:nonNegativeInteger ;
-    ontouml:stereotype  ontouml:ClassStereotype .
+    ontouml:order       "1"^^xsd:nonNegativeInteger .
 
 :k8p6WxGFS_j2pApt
     rdf:type             ontouml:Diagram ;
@@ -393,9 +389,7 @@
     rdf:type            ontouml:Point ;
     ontouml:xCoordinate 717 ;
     ontouml:yCoordinate 314 .
-
 # Manually added statements ----------------------------
-
 :XQ6WxGFS_j2pAor
     ontouml:project :dGSNHRGFS_j2pAvw .
 
@@ -416,9 +410,6 @@
 
 :BdFDQJGGAqACNwpt_shape
     ontouml:project :dGSNHRGFS_j2pAvw .
-
-:HI0DQJGGAqACNwnd
-    ontouml:stereotype ontouml:ClassStereotype .
 
 :IY2DQJGGAqACNwoV_shape
     ontouml:project :dGSNHRGFS_j2pAvw .
@@ -449,7 +440,6 @@
 
 :zqJDQJGGAqACNwo7_shape
     ontouml:project :dGSNHRGFS_j2pAvw .
-
 
 :4rUQwJGGAqACNwoS_shape_point
     a                   ontouml:Point ;

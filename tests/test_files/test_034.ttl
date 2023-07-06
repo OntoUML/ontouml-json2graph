@@ -2585,5 +2585,3 @@
     rdf:type            ontouml:Point ;
     ontouml:xCoordinate 1170 ;
     ontouml:yCoordinate 615 .
-
-# MANUALLY ADDED

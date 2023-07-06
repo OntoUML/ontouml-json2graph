@@ -101,7 +101,6 @@
     ontouml:lowerBound       "1" ;
     ontouml:upperBound       "*" .
 
-
 :onZkhJGGAqACNwnW
     rdf:type            ontouml:Property ;
     ontouml:project     :fJlIhJGGAqACNw3E ;
@@ -327,9 +326,7 @@
     rdf:type            ontouml:Point ;
     ontouml:xCoordinate 222 ;
     ontouml:yCoordinate 74 .
-
 # MANUALLY ADDED
-
 :FA1IhJGGAqACNxGf
     ontouml:owner :fJlIhJGGAqACNw3E_root .
 

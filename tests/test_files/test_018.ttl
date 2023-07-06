@@ -78,9 +78,7 @@
     rdf:type            ontouml:Point ;
     ontouml:xCoordinate 133 ;
     ontouml:yCoordinate 129 .
-
 # MANUALLY ADDED -- TEST 18
-
 :FA1IhJGGAqACNxGf
     ontouml:owner :fJlIhJGGAqACNw3E_root .
 

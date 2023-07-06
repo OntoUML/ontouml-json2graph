@@ -157,9 +157,7 @@
     rdf:type            ontouml:Point ;
     ontouml:xCoordinate 367 ;
     ontouml:yCoordinate 87 .
-
 # MANUALLY ADDED
-
 :IlObZJGFYGjgAQ2u_shape
     ontouml:project :4NWbZJGFYGjgAQm6 .
 

@@ -318,7 +318,6 @@
     rdf:type            ontouml:Point ;
     ontouml:xCoordinate 497 ;
     ontouml:yCoordinate 136 .
-
 # MANUALLY ADDED
 :V6jIhJGGAqACNxHR_shape
     ontouml:project :fJlIhJGGAqACNw3E .
@@ -334,9 +333,7 @@
 
 :jDdIhJGGAqACNxG5
     ontouml:owner :2EDIhJGGAqACNxHJ .
-
 # MANUALLY ADDED
-
 @prefix :        <https://example.org#> .
 @prefix ontouml: <https://w3id.org/ontouml#> .
 
@@ -359,4 +356,3 @@
 :rPqtRJGGAqACNwmx_cardinality
     ontouml:lowerBound "0" ;
     ontouml:upperBound "0" .
-

@@ -1369,9 +1369,7 @@
     ontouml:xCoordinate 1500 ;
     ontouml:yCoordinate 586 .
 
-
 # MANUALLY ADDED
-
 :0FWM1JGGAqACNxHS_shape
     ontouml:project :2Yx01JGGAqACNw2l .
 

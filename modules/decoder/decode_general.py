@@ -1,10 +1,8 @@
 """ General decoding functions. """
-import inspect
 
 from rdflib import Graph, URIRef, Literal, RDF
 
 from globals import URI_ONTOLOGY, URI_ONTOUML
-from modules.errors import report_error_end_of_switch
 from modules.logger import initialize_logger
 from modules.sparql_queries import GET_ELEMENT_AND_TYPE
 from modules.utils_graph import load_all_graph_safely
@@ -225,23 +223,9 @@ def set_object_stereotype(object_dict: dict, ontouml_graph: Graph) -> None:
     object_type = object_dict["type"]
     object_id = object_dict["id"]
 
-    # Verifying for non declared stereotypes. If not declared, point to ClassStereotype and report warning.
+    # If not declared stereotype, report warning.
     if object_stereotype == "null":
-
-        if object_type == "Class":
-            add_type = "ClassStereotype"
-        elif object_type == "Relation":
-            add_type = "RelationStereotype"
-        else:
-            current_function = inspect.stack()[0][3]
-            report_error_end_of_switch(object_type, current_function)
-
-        LOGGER.warning(f"Stereotype not defined for {object_type} '{object_id}'. Added stereotype '{add_type}'")
-
-        ontouml_graph.add((URIRef(URI_ONTOLOGY + object_dict['id']),
-                           URIRef(URI_ONTOUML + "stereotype"),
-                           URIRef(URI_ONTOUML + add_type)))
-
+        LOGGER.warning(f"Mandatory stereotype not defined for {object_type} with ID {object_id}.")
     else:
         ontouml_graph.add((URIRef(URI_ONTOLOGY + object_dict['id']),
                            URIRef(URI_ONTOUML + "stereotype"),

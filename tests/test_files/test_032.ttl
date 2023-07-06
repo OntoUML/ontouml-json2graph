@@ -1367,9 +1367,7 @@
     ontouml:xCoordinate 304 ;
     ontouml:yCoordinate 518 .
 
-
 # MANUALLY ADDED
-
 :0FWM1JGGAqACNxHS_shape
     ontouml:project :2Yx01JGGAqACNw2l .
 
@@ -1649,20 +1647,5 @@
 :dwnM1JGGAqACNxMF
     ontouml:isAbstract false .
 
-:1uOs1JGGAqACNxNw
-    ontouml:stereotype ontouml:RelationStereotype .
 
-:3oqs1JGGAqACNxNk
-    ontouml:stereotype ontouml:RelationStereotype .
 
-:FUes1JGGAqACNxOO
-    ontouml:stereotype ontouml:RelationStereotype .
-
-:c83M1JGGAqACNxMj
-    ontouml:stereotype ontouml:RelationStereotype .
-
-:jxnM1JGGAqACNxMP
-    ontouml:stereotype ontouml:RelationStereotype .
-
-:vnOs1JGGAqACNxN6
-    ontouml:stereotype ontouml:RelationStereotype .

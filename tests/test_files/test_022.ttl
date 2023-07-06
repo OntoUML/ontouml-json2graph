@@ -189,9 +189,7 @@
     rdf:type            ontouml:Point ;
     ontouml:xCoordinate 497 ;
     ontouml:yCoordinate 136 .
-
 # MANUALLY ADDED
-
 :FA1IhJGGAqACNxGf
     ontouml:owner :fJlIhJGGAqACNw3E_root .
 
