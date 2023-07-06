@@ -23,8 +23,11 @@ def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph) -> None:
     """ Receives the full dictionary with the loaded JSON data and decode known allowed values to the OntoUML Graph.
     Recursively evaluates the dictionary to create all possible instances, setting their types and attributes.
 
-    Properties that are directly decoded in the general decoder:
-        description, height, isAbstract, isDerived, isOrdered, isReadOnly, name, width
+    OntoUML-Vocabulary properties that are directly decoded in the general decoder:
+        - description, height, isAbstract, isDerived, isOrdered, isReadOnly, name, width
+
+    OntoUML-Vocabulary properties that are decoded in the general decoder via mapping:
+        - text
 
     Restricted properties (the ones in the restricted_fields list) are not treated in this function.
 

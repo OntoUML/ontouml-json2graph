@@ -1519,3 +1519,26 @@
 
 :yLRnZJGFYGjgARB5_shape
     ontouml:text "" .
+
+:Xt0nZJGFYGjgAQ_7_shape
+    ontouml:text "" .
+
+:DwKnZJGFYGjgARA0
+    a                ontouml:GeneralizationSetView ;
+    ontouml:isViewOf :AwKnZJGFYGjgARAy ;
+    ontouml:shape    :DwKnZJGFYGjgARA0_shape .
+
+:Xt0nZJGFYGjgAQ7
+    a                ontouml:GeneralizationSetView ;
+    ontouml:isViewOf :ht0nZJGFYGjgAQ5 ;
+    ontouml:shape    :Xt0nZJGFYGjgAQ7_shape .
+
+:uPHZJGFYGjgAQw
+    a                ontouml:GeneralizationSetView ;
+    ontouml:isViewOf :NePHZJGFYGjgAQu ;
+    ontouml:shape    :uPHZJGFYGjgAQw_shape .
+
+:yLRnZJGFYGjgARB5
+    a                ontouml:GeneralizationSetView ;
+    ontouml:isViewOf :XzRnZJGFYGjgARB3 ;
+    ontouml:shape    :yLRnZJGFYGjgARB5_shape .
