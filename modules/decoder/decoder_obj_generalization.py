@@ -48,7 +48,7 @@ def create_generalization_properties(json_data: dict, ontouml_graph: Graph) -> N
 
     list_generalization_dicts = get_list_subdictionaries_for_specific_type(json_data, "Generalization")
 
-    # Treat each ElementView
+    # Treat each object dictionary
     for generalization_dict in list_generalization_dicts:
 
         # Removing dictionaries that are only references

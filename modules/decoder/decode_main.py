@@ -14,6 +14,7 @@ from modules.decoder.decode_obj_property import create_property_properties
 from modules.decoder.decode_obj_rectangularshape import create_rectangularshape_properties
 from modules.decoder.decoder_obj_generalization import create_generalization_properties
 from modules.decoder.decoder_obj_generalizationset import create_generalizationset_properties
+from modules.decoder.decoder_obj_relation import create_relation_properties
 from modules.logger import initialize_logger
 
 LOGGER = initialize_logger()
@@ -146,5 +147,7 @@ def decode_json_to_graph(json_data: dict) -> Graph:
         create_generalization_properties(dictionary_data, ontouml_graph)
     if "GeneralizationSet" in element_counting:
         create_generalizationset_properties(dictionary_data, ontouml_graph)
+    if "Relation" in element_counting:
+        create_relation_properties(dictionary_data, ontouml_graph)
 
     return ontouml_graph

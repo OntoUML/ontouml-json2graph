@@ -58,6 +58,6 @@ def create_path_properties(json_data: dict, ontouml_graph: Graph) -> None:
 
     list_path_dicts = get_list_subdictionaries_for_specific_type(json_data, "Path")
 
-    # Treat each ElementView
+    # Treat each object dictionary
     for path_dict in list_path_dicts:
         set_path_path_point(path_dict, ontouml_graph)

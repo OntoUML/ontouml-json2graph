@@ -369,7 +369,7 @@ def create_class_properties(json_data: dict, ontouml_graph: Graph, element_count
     # Get all class' dictionaries
     list_all_class_dicts = get_list_subdictionaries_for_specific_type(json_data, "Class")
 
-    # Treat each Rectangle
+    # Treat each object dictionary
     for class_dict in list_all_class_dicts:
 
         # Skipping dictionaries that only make reference to classes (and not class dictionaries)

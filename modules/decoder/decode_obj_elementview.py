@@ -83,7 +83,7 @@ def create_elementview_properties(json_data: dict, ontouml_graph: Graph) -> None
     for element_view in ELEMENT_VIEW_TYPES:
         list_all_elementview_dicts += get_list_subdictionaries_for_specific_type(json_data, element_view)
 
-    # Treat each ElementView
+    # Treat each object dictionary
     for elementview_dict in list_all_elementview_dicts:
 
         # Removing dictionaries that are only references
