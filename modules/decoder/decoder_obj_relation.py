@@ -10,7 +10,7 @@ Function's nomenclatures:
 from rdflib import Graph, URIRef
 
 from globals import URI_ONTOLOGY, URI_ONTOUML
-from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type
+from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type, set_object_stereotype
 
 
 def set_relation_relations(relation_dict: dict, ontouml_graph: Graph) -> None:
@@ -56,6 +56,7 @@ def create_relation_properties(json_data: dict, ontouml_graph: Graph) -> None:
         - ontouml:relationEnd (range ontouml:Property)
         - ontouml:sourceEnd (range ontouml:Property)
         - ontouml:targetEnd (range ontouml:Property)
+        - ontouml:stereotype (range ontouml:RelationStereotype)
 
     :param json_data: JSON's data to have its fields decoded loaded into a dictionary.
     :type json_data: dict
@@ -73,3 +74,4 @@ def create_relation_properties(json_data: dict, ontouml_graph: Graph) -> None:
             continue
 
         set_relation_relations(relation_dict, ontouml_graph)
+        set_object_stereotype(relation_dict, ontouml_graph)

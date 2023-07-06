@@ -1,10 +1,15 @@
 """ General decoding functions. """
+import inspect
 
 from rdflib import Graph, URIRef, Literal, RDF
 
 from globals import URI_ONTOLOGY, URI_ONTOUML
+from modules.errors import report_error_end_of_switch
+from modules.logger import initialize_logger
 from modules.sparql_queries import GET_ELEMENT_AND_TYPE
 from modules.utils_graph import load_all_graph_safely
+
+LOGGER = initialize_logger()
 
 
 def create_point(point_id: str, x_coord: int, y_coord: int, ontouml_graph: Graph) -> None:
@@ -57,6 +62,24 @@ def count_elements_graph(ontouml_graph: Graph) -> dict:
             element_counting[element_type] = 1
 
     return element_counting
+
+
+def get_stereotype(object_dict: dict) -> str:
+    """ For coding reasons (dictionary index error), it is necessary to check if an object has its stereotype not set.
+    Returns the evaluated object's stereotype or 'null' when the stereotype is absent.
+
+    :param object_dict: Object loaded as a dictionary.
+    :type object_dict: dict
+    :return: Evaluated object's stereotype or 'null' when the stereotype is absent.
+    :rtype: str
+    """
+
+    if "stereotype" not in object_dict:
+        result_stereotype = "null"
+    else:
+        result_stereotype = object_dict["stereotype"]
+
+    return result_stereotype
 
 
 def get_list_subdictionaries_for_specific_type(dictionary_data: dict, wanted_type: str,
@@ -177,6 +200,64 @@ def get_all_ids_of_specific_type(dictionary_data: dict, wanted_type: str, list_i
     list_ids_for_type = list(dict.fromkeys(list_ids_for_type))
 
     return list_ids_for_type
+
+
+def set_object_stereotype(object_dict: dict, ontouml_graph: Graph) -> None:
+    """ Sets ontouml:stereotype relation between an instance of ontouml:Class or ontouml:Relation and an instance
+    representing an ontouml:ClassStereotype or ontouml:RelationStereotype, respectively.
+
+    :param object_dict: Class object loaded as a dictionary.
+    :type object_dict: dict
+    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
+    :type ontouml_graph: Graph
+    """
+
+    ENUM_CLASS_STEREOTYPE = ["type", "historicalRole", "historicalRoleMixin", "event", "situation", "category", "mixin",
+                             "roleMixin", "phaseMixin", "kind", "collective", "quantity", "relator", "quality", "mode",
+                             "subkind", "role", "phase", "enumeration", "datatype", "abstract"]
+
+    ENUM_RELATION_STEREOTYPE = ["bringsAbout", "characterization", "comparative", "componentOf", "creation",
+                                "derivation", "externalDependence", "historicalDependence", "instantiation",
+                                "manifestation", "material", "mediation", "memberOf", "participation",
+                                "participational", "subCollectionOf", "subQuantityOf", "termination", "triggers"]
+
+    object_stereotype = get_stereotype(object_dict)
+    object_type = object_dict["type"]
+    object_id = object_dict["id"]
+
+    # Verifying for non declared stereotypes. If not declared, point to ClassStereotype and report warning.
+    if object_stereotype == "null":
+
+        if object_type == "Class":
+            add_type = "ClassStereotype"
+        elif object_type == "Relation":
+            add_type = "RelationStereotype"
+        else:
+            current_function = inspect.stack()[0][3]
+            report_error_end_of_switch(object_type, current_function)
+
+        LOGGER.warning(f"Stereotype not defined for {object_type} '{object_id}'. Added stereotype '{add_type}'")
+
+        ontouml_graph.add((URIRef(URI_ONTOLOGY + object_dict['id']),
+                           URIRef(URI_ONTOUML + "stereotype"),
+                           URIRef(URI_ONTOUML + add_type)))
+
+    else:
+        ontouml_graph.add((URIRef(URI_ONTOLOGY + object_dict['id']),
+                           URIRef(URI_ONTOUML + "stereotype"),
+                           URIRef(URI_ONTOUML + object_dict['stereotype'])))
+
+        # Adding information that an ontouml:Class is an ontouml:CollectiveClass
+        if object_stereotype == "collective":
+            ontouml_graph.add((URIRef(URI_ONTOLOGY + object_dict['id']),
+                               URIRef(RDF.type),
+                               URIRef(URI_ONTOUML + "CollectiveClass")))
+
+        # If declared but invalid, create and report error
+        elif (object_type == "Class" and object_stereotype not in ENUM_CLASS_STEREOTYPE) or \
+                (object_type == "Relation" and object_stereotype not in ENUM_RELATION_STEREOTYPE):
+            LOGGER.error(f"Invalid stereotype '{object_dict['stereotype']}' defined for {object_type} '{object_id}'. "
+                         f"The transformation output is syntactically INVALID.")
 
 
 def clean_null_data(dictionary_data) -> dict:

@@ -1438,3 +1438,45 @@
 :ruOs1JGGAqACNxN1
     ontouml:sourceView :HM5M1JGGAqACNxKO ;
     ontouml:targetView :i22M1JGGAqACNxHz .
+
+:1uOs1JGGAqACNxNw
+    ontouml:stereotype ontouml:RelationStereotype .
+
+:3oqs1JGGAqACNxNk
+    ontouml:stereotype ontouml:RelationStereotype .
+
+:FUes1JGGAqACNxOO
+    ontouml:stereotype ontouml:RelationStereotype .
+
+:H7DM1JGGAqACNxLc
+    ontouml:stereotype ontouml:RelationStereotype .
+
+:LG7M1JGGAqACNxL3
+    ontouml:stereotype ontouml:RelationStereotype .
+
+:R89M1JGGAqACNxLM
+    ontouml:stereotype ontouml:RelationStereotype .
+
+:aFCs1JGGAqACNxNS
+    ontouml:stereotype ontouml:RelationStereotype .
+
+:c83M1JGGAqACNxMj
+    ontouml:stereotype ontouml:RelationStereotype .
+
+:dwnM1JGGAqACNxMF
+    ontouml:stereotype ontouml:RelationStereotype .
+
+:h2NM1JGGAqACNxK2
+    ontouml:stereotype ontouml:RelationStereotype .
+
+:jxnM1JGGAqACNxMP
+    ontouml:stereotype ontouml:RelationStereotype .
+
+:mOjM1JGGAqACNxLm
+    ontouml:stereotype ontouml:RelationStereotype .
+
+:vnOs1JGGAqACNxN6
+    ontouml:stereotype ontouml:RelationStereotype .
+
+:xwXM1JGGAqACNxMZ
+    ontouml:stereotype ontouml:RelationStereotype .

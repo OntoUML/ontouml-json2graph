@@ -9,33 +9,16 @@ Function's nomenclatures:
 
 import inspect
 
-from rdflib import Graph, URIRef, XSD, Literal, RDF
+from rdflib import Graph, URIRef, XSD, Literal
 
 from globals import URI_ONTOLOGY, URI_ONTOUML
-from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type
+from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type, get_stereotype, \
+    set_object_stereotype
 from modules.errors import report_error_end_of_switch
 from modules.logger import initialize_logger
 from modules.utils_general import count_elements_types
 
 LOGGER = initialize_logger()
-
-
-def get_stereotype(class_dict: dict) -> str:
-    """ For coding reasons (dictionary index error), it is necessary to check if a class has its stereotype not set.
-    Returns the evaluated class's stereotype or 'null' when the stereotype is absent.
-
-    :param class_dict: Class object loaded as a dictionary.
-    :type class_dict: dict
-    :return: Evaluated class's stereotype or 'null' when the stereotype is absent.
-    :rtype: str
-    """
-
-    if "stereotype" not in class_dict:
-        result_stereotype = "null"
-    else:
-        result_stereotype = class_dict["stereotype"]
-
-    return result_stereotype
 
 
 def set_class_order_nonnegativeinteger(class_dict: dict, ontouml_graph: Graph) -> None:
@@ -75,47 +58,6 @@ def set_class_order_nonnegativeinteger(class_dict: dict, ontouml_graph: Graph) -
     # Case A: remove invalid information so the field can be treated as null and then receive the default value.
     else:
         class_dict.pop("order")
-
-
-def set_class_stereotypes_stereotype(class_dict: dict, ontouml_graph: Graph) -> None:
-    """ Sets ontouml:stereotype relation between an ontouml:Class and an instance representing an ontouml:ClassStereotype.
-
-    :param class_dict: Class object loaded as a dictionary.
-    :type class_dict: dict
-    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
-    :type ontouml_graph: Graph
-    """
-
-    ENUM_CLASS_STEREOTYPE = ["type", "historicalRole", "historicalRoleMixin", "event", "situation", "category", "mixin",
-                             "roleMixin", "phaseMixin", "kind", "collective", "quantity", "relator", "quality", "mode",
-                             "subkind", "role", "phase", "enumeration", "datatype", "abstract"]
-
-    class_stereotype = get_stereotype(class_dict)
-
-    # Verifying for non declared stereotypes. If not declared, point to ClassStereotype and report warning.
-    if class_stereotype == "null":
-
-        LOGGER.warning(f"Stereotype not defined for class {class_dict['name']}. Added stereotype 'ClassStereotype'")
-
-        ontouml_graph.add((URIRef(URI_ONTOLOGY + class_dict['id']),
-                           URIRef(URI_ONTOUML + "stereotype"),
-                           URIRef(URI_ONTOUML + "ClassStereotype")))
-
-    else:
-        ontouml_graph.add((URIRef(URI_ONTOLOGY + class_dict['id']),
-                           URIRef(URI_ONTOUML + "stereotype"),
-                           URIRef(URI_ONTOUML + class_dict['stereotype'])))
-
-        # Adding information that an ontouml:Class is an ontouml:CollectiveClass
-        if class_stereotype == "collective":
-            ontouml_graph.add((URIRef(URI_ONTOLOGY + class_dict['id']),
-                               URIRef(RDF.type),
-                               URIRef(URI_ONTOUML + "CollectiveClass")))
-
-        # If declared but invalid, create and report error
-        elif class_stereotype not in ENUM_CLASS_STEREOTYPE:
-            LOGGER.error(f"Invalid stereotype '{class_dict['stereotype']}' defined for class '{class_dict['name']}'. "
-                         f"The transformation output is syntactically INVALID.")
 
 
 def set_class_restrictedto_ontologicalnature(class_dict: dict, ontouml_graph: Graph) -> None:
@@ -381,7 +323,7 @@ def create_class_properties(json_data: dict, ontouml_graph: Graph, element_count
 
         # Setting properties
         set_class_order_nonnegativeinteger(class_dict, ontouml_graph)
-        set_class_stereotypes_stereotype(class_dict, ontouml_graph)
+        set_object_stereotype(class_dict, ontouml_graph)
         set_class_restrictedto_ontologicalnature(class_dict, ontouml_graph)
 
         # Setting default values when the values were not provided
