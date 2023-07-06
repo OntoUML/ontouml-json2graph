@@ -1459,3 +1459,158 @@
 
 :TIWM1JGGAqACNxG8_shape
     ontouml:project :2Yx01JGGAqACNw2l .
+
+# MANUALLY ADDED
+
+:3DbC1JGGAqACNxSO a ontouml:RelationView ;
+    ontouml:isViewOf :mOjM1JGGAqACNxLm ;
+    ontouml:project :2Yx01JGGAqACNw2l ;
+    ontouml:shape :3DbC1JGGAqACNxSO_path ;
+    ontouml:sourceView :J32M1JGGAqACNxIJ ;
+    ontouml:targetView :1HWM1JGGAqACNxHd .
+
+:3mp01JGGAqACNxGA ontouml:owner :2Yx01JGGAqACNw2l_root .
+
+:469M1JGGAqACNxLR a ontouml:RelationView ;
+    ontouml:isViewOf :R89M1JGGAqACNxLM ;
+    ontouml:project :2Yx01JGGAqACNw2l ;
+    ontouml:shape :469M1JGGAqACNxLR_path ;
+    ontouml:sourceView :jk2M1JGGAqACNxHo ;
+    ontouml:targetView :jk2M1JGGAqACNxHo .
+
+:52NM1JGGAqACNxK4_cardinality ontouml:lowerBound "0" ;
+    ontouml:upperBound "*" .
+
+:683M1JGGAqACNxMo a ontouml:RelationView ;
+    ontouml:isViewOf :c83M1JGGAqACNxMj ;
+    ontouml:project :2Yx01JGGAqACNw2l ;
+    ontouml:shape :683M1JGGAqACNxMo_path ;
+    ontouml:sourceView :B2pM1JGGAqACNxJn ;
+    ontouml:targetView :kfZM1JGGAqACNxKD .
+
+:Ae7M1JGGAqACNxL8 a ontouml:RelationView ;
+    ontouml:isViewOf :LG7M1JGGAqACNxL3 ;
+    ontouml:project :2Yx01JGGAqACNw2l ;
+    ontouml:shape :Ae7M1JGGAqACNxL8_path ;
+    ontouml:sourceView :1HWM1JGGAqACNxHd ;
+    ontouml:targetView :0FWM1JGGAqACNxHS .
+
+:F2NM1JGGAqACNxK7_cardinality ontouml:lowerBound "0" ;
+    ontouml:upperBound "*" .
+
+:GXDM1JGGAqACNxLh a ontouml:RelationView ;
+    ontouml:isViewOf :H7DM1JGGAqACNxLc ;
+    ontouml:project :2Yx01JGGAqACNw2l ;
+    ontouml:shape :GXDM1JGGAqACNxLh_path ;
+    ontouml:sourceView :J32M1JGGAqACNxIJ ;
+    ontouml:targetView :jk2M1JGGAqACNxHo .
+
+:H7DM1JGGAqACNxLd_cardinality ontouml:lowerBound "0" ;
+    ontouml:upperBound "*" .
+
+:IYqs1JGGAqACNxNp a ontouml:RelationView ;
+    ontouml:isViewOf :3oqs1JGGAqACNxNk ;
+    ontouml:project :2Yx01JGGAqACNw2l ;
+    ontouml:shape :IYqs1JGGAqACNxNp_path ;
+    ontouml:sourceView :SN2M1JGGAqACNxH ;
+    ontouml:targetView :HM5M1JGGAqACNxKO .
+
+:JFCs1JGGAqACNxNX a ontouml:RelationView ;
+    ontouml:isViewOf :aFCs1JGGAqACNxNS ;
+    ontouml:project :2Yx01JGGAqACNw2l ;
+    ontouml:shape :JFCs1JGGAqACNxNX_path ;
+    ontouml:sourceView :B1pM1JGGAqACNxJy ;
+    ontouml:targetView :i22M1JGGAqACNxHz .
+
+:LG7M1JGGAqACNxL4_cardinality ontouml:lowerBound "0" ;
+    ontouml:upperBound "0" .
+
+:Llws1JGGAqACNxMz a ontouml:RelationView ;
+    ontouml:isViewOf :xwXM1JGGAqACNxMZ ;
+    ontouml:project :2Yx01JGGAqACNw2l ;
+    ontouml:shape :Llws1JGGAqACNxMz_path ;
+    ontouml:sourceView :SN2M1JGGAqACNxH ;
+    ontouml:targetView :B2pM1JGGAqACNxJn .
+
+:NfC1JGGAqACNxSq a ontouml:RelationView ;
+    ontouml:isViewOf :dwnM1JGGAqACNxMF ;
+    ontouml:project :2Yx01JGGAqACNw2l ;
+    ontouml:shape :NfC1JGGAqACNxSq_path ;
+    ontouml:sourceView :c6WM1JGGAqACNxHH ;
+    ontouml:targetView :c6WM1JGGAqACNxHH .
+
+:RpnM1JGGAqACNxMU a ontouml:RelationView ;
+    ontouml:isViewOf :jxnM1JGGAqACNxMP ;
+    ontouml:project :2Yx01JGGAqACNw2l ;
+    ontouml:shape :RpnM1JGGAqACNxMU_path ;
+    ontouml:sourceView :B2pM1JGGAqACNxJn ;
+    ontouml:targetView :0FWM1JGGAqACNxHS .
+
+:cONM1JGGAqACNxK9 a ontouml:RelationView ;
+    ontouml:isViewOf :h2NM1JGGAqACNxK2 ;
+    ontouml:project :2Yx01JGGAqACNw2l ;
+    ontouml:shape :cONM1JGGAqACNxK9_path ;
+    ontouml:sourceView :5TmM1JGGAqACNxGx ;
+    ontouml:targetView :1HWM1JGGAqACNxHd .
+
+:n7DM1JGGAqACNxLf_cardinality ontouml:lowerBound "0" ;
+    ontouml:upperBound "*" .
+
+:oXOs1JGGAqACNxN a ontouml:RelationView ;
+    ontouml:isViewOf :vnOs1JGGAqACNxN6 ;
+    ontouml:project :2Yx01JGGAqACNw2l ;
+    ontouml:shape :oXOs1JGGAqACNxN_path ;
+    ontouml:sourceView :i22M1JGGAqACNxHz ;
+    ontouml:targetView :HM5M1JGGAqACNxKO .
+
+:qtfC1JGGAqACNxSw a ontouml:RelationView ;
+    ontouml:isViewOf :dwnM1JGGAqACNxMF ;
+    ontouml:project :2Yx01JGGAqACNw2l ;
+    ontouml:shape :qtfC1JGGAqACNxSw_path ;
+    ontouml:sourceView :c6WM1JGGAqACNxHH ;
+    ontouml:targetView :c6WM1JGGAqACNxHH .
+
+:rUes1JGGAqACNxOT a ontouml:RelationView ;
+    ontouml:isViewOf :FUes1JGGAqACNxOO ;
+    ontouml:project :2Yx01JGGAqACNw2l ;
+    ontouml:shape :rUes1JGGAqACNxOT_path ;
+    ontouml:sourceView :i22M1JGGAqACNxHz ;
+    ontouml:targetView :HM5M1JGGAqACNxKO .
+
+:ruOs1JGGAqACNxN1 a ontouml:RelationView ;
+    ontouml:isViewOf :1uOs1JGGAqACNxNw ;
+    ontouml:project :2Yx01JGGAqACNw2l ;
+    ontouml:shape :ruOs1JGGAqACNxN1_path ;
+    ontouml:sourceView :HM5M1JGGAqACNxKO ;
+    ontouml:targetView :i22M1JGGAqACNxHz .
+
+:xwXM1JGGAqACNxMa_cardinality ontouml:lowerBound "0" ;
+    ontouml:upperBound "*" .
+
+:1uOs1JGGAqACNxNw ontouml:isAbstract false .
+
+:3oqs1JGGAqACNxNk ontouml:isAbstract false .
+
+:FUes1JGGAqACNxOO ontouml:isAbstract false .
+
+:H7DM1JGGAqACNxLc ontouml:isAbstract false .
+
+:LG7M1JGGAqACNxL3 ontouml:isAbstract false .
+
+:R89M1JGGAqACNxLM ontouml:isAbstract false .
+
+:aFCs1JGGAqACNxNS ontouml:isAbstract false .
+
+:c83M1JGGAqACNxMj ontouml:isAbstract false .
+
+:h2NM1JGGAqACNxK2 ontouml:isAbstract false .
+
+:jxnM1JGGAqACNxMP ontouml:isAbstract true .
+
+:mOjM1JGGAqACNxLm ontouml:isAbstract false .
+
+:vnOs1JGGAqACNxN6 ontouml:isAbstract false .
+
+:xwXM1JGGAqACNxMZ ontouml:isAbstract true .
+
+:dwnM1JGGAqACNxMF ontouml:isAbstract true .
