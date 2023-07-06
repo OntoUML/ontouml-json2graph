@@ -85,10 +85,15 @@
     ontouml:aggregationKind ontouml:shared .
 
 :vnOkhJGGAqACNwm6
-    rdf:type            ontouml:Property ;
-    ontouml:project     :fJlIhJGGAqACNw3E ;
-    ontouml:name        "attribute3Class1" ;
-    ontouml:cardinality :vnOkhJGGAqACNwm6_cardinality .
+    rdf:type                ontouml:Property ;
+    ontouml:project         :fJlIhJGGAqACNw3E ;
+    ontouml:name            "attribute3Class1" ;
+    ontouml:cardinality     :vnOkhJGGAqACNwm6_cardinality ;
+    ontouml:isDerived       "true"^^xsd:boolean ;
+    ontouml:isReadOnly      "false"^^xsd:boolean ;
+    ontouml:isOrdered       "false"^^xsd:boolean ;
+    ontouml:aggregationKind ontouml:none ;
+    ontouml:propertyType    :gplIhJGGAqACNw3K .
 
 :vnOkhJGGAqACNwm6_cardinality
     rdf:type                 ontouml:Cardinality ;
@@ -96,12 +101,6 @@
     ontouml:lowerBound       "1" ;
     ontouml:upperBound       "*" .
 
-:vnOkhJGGAqACNwm6
-    ontouml:isDerived       "true"^^xsd:boolean ;
-    ontouml:isReadOnly      "false"^^xsd:boolean ;
-    ontouml:isOrdered       "false"^^xsd:boolean ;
-    ontouml:aggregationKind ontouml:none ;
-    ontouml:propertyType    :gplIhJGGAqACNw3K .
 
 :onZkhJGGAqACNwnW
     rdf:type            ontouml:Property ;

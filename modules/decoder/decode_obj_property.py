@@ -12,29 +12,56 @@ from rdflib import Graph, URIRef, RDF, Literal
 from globals import URI_ONTOUML, URI_ONTOLOGY
 from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type
 from modules.logger import initialize_logger
+from modules.sparql_queries import GET_CLASS_STEREOTYPE_ATTRIBUTE_STEREOTYPE
+from modules.utils_graph import load_all_graph_safely
 
 LOGGER = initialize_logger()
 
 
-def validate_property_stereotype(property_dict: dict) -> None:
+def validate_property_stereotype(ontouml_graph: Graph) -> None:
     """ Performs syntactical and semantic validations on an ontouml:Property's stereotype.
 
     Validations performed:
-        - Reports invalid stereotypes
-        - Reports invalid stereotype use for class stereotype
+        a) Reports invalid property stereotypes (i.e., stereotypes different from ontouml:begin or ontouml:end.
+        b) Reports invalid stereotype use for class stereotype
 
-    :param property_dict: Property object loaded as a dictionary.
-    :type property_dict: dict
+    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
+    :type ontouml_graph: Graph
     """
 
-    # If declared but invalid, create and report error
-    if property_dict["stereotype"] not in ["begin", "end"]:
-        LOGGER.error(f"Invalid stereotype '{property_dict['stereotype']}' used for property with ID "
-                     f"'{property_dict['id']}'. The transformation output is not syntactically valid.")
+    ontouml_meta_graph = load_all_graph_safely("resources/ontouml.ttl")
+    aggregated_graph = ontouml_meta_graph + ontouml_graph
+    query_answer = aggregated_graph.query(GET_CLASS_STEREOTYPE_ATTRIBUTE_STEREOTYPE)
 
-    # TODO (@pedropaulofb): Check if the type that has the property has stereotype different than EVENT.
-    # If positive, inform the user that this class was not supposed to have a stereotype for its property.
-    # If the class has no stereotype, set it as event and inform user.
+    for row in query_answer:
+        class_id = (row.class_id).fragment
+        class_stereotype = (row.class_stereotype).fragment
+        property_id = (row.property_id).fragment
+        property_stereotype = (row.property_stereotype).fragment
+
+        # VALIDATION A: If declared but invalid, create and report error
+        if property_stereotype not in ["begin", "end"]:
+            LOGGER.error(f"Invalid stereotype '{property_stereotype}' used for property with ID "
+                         f"'{property_id}'. The transformation output is syntactically INVALID.")
+
+        # VALIDATION B1: If class has known stereotype and is not event, report sematic error.
+        elif class_stereotype not in ["event", "ClassStereotype"]:
+            LOGGER.warning(f"Semantic error. The class with ID '{class_id}' and stereotype '{class_stereotype}' "
+                           f"has an attribute with stereotype '{property_stereotype}'. The begin and end property "
+                           f"stereotypes are only applicable to 'event' classes. Transformation proceeded as is.")
+
+        # VALIDATION B2: If class has unknown stereotype and stereotyped attribute, set as event.
+        elif class_stereotype == "ClassStereotype":
+            LOGGER.warning(f"The class with ID '{class_id}' and unknown stereotype has an attribute stereotyped "
+                           f"'{property_stereotype}'. It was stereotyped as 'event' for a semantically valid output.")
+
+            ontouml_graph.remove((URIRef(URI_ONTOLOGY + class_id),
+                                  URIRef(URI_ONTOUML + "stereotype"),
+                                  URIRef(URI_ONTOUML + "ClassStereotype")))
+
+            ontouml_graph.add((URIRef(URI_ONTOLOGY + class_id),
+                               URIRef(URI_ONTOUML + "stereotype"),
+                               URIRef(URI_ONTOUML + "event")))
 
 
 def set_property_relations(property_dict: dict, ontouml_graph: Graph) -> None:
@@ -65,8 +92,6 @@ def set_property_relations(property_dict: dict, ontouml_graph: Graph) -> None:
         statement_object = URIRef(URI_ONTOUML + property_dict["stereotype"])
         ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
-        validate_property_stereotype(property_dict)
-
 
 def determine_cardinality_bounds(cardinalities: str, property_id: str) -> (str, str):
     """ Receives a string with an ontouml:Cardinality's ontoumL:cardinalityValues and decouple it into its
@@ -92,10 +117,10 @@ def determine_cardinality_bounds(cardinalities: str, property_id: str) -> (str, 
     # Validating discovered cardinality bounds
     if not (upper_bound.isnumeric() or upper_bound == "*"):
         LOGGER.warning(f"Invalid cardinality's upper bound (value '{upper_bound}') for Property individual with "
-                       f"ID {property_id}. Transformation proceeded as is.")
+                       f"ID '{property_id}'. Transformation proceeded as is.")
     if not lower_bound.isnumeric():
         LOGGER.warning(f"Invalid cardinality's lower bound (value '{lower_bound}') for Property individual with "
-                       f"ID {property_id}. Transformation proceeded as is.")
+                       f"ID '{property_id}'. Transformation proceeded as is.")
 
     return lower_bound, upper_bound
 
@@ -153,6 +178,8 @@ def create_property_properties(json_data: dict, ontouml_graph: Graph) -> None:
         - ontouml:lowerBound (domain ontouml:Cardinality, range xsd:nonNegativeInteger)
         - ontouml:upperBound (domain ontouml:Cardinality)
 
+    Performs validation for ontouml:stereotype.
+
     :param json_data: JSON's data to have its fields decoded loaded into a dictionary.
     :type json_data: dict
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
@@ -165,3 +192,5 @@ def create_property_properties(json_data: dict, ontouml_graph: Graph) -> None:
     for property_dict in property_dicts_list:
         set_property_relations(property_dict, ontouml_graph)
         set_cardinality_relations(property_dict, ontouml_graph)
+
+    validate_property_stereotype(ontouml_graph)

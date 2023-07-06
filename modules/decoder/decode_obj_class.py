@@ -114,8 +114,8 @@ def set_class_stereotypes_stereotype(class_dict: dict, ontouml_graph: Graph) -> 
 
         # If declared but invalid, create and report error
         elif class_stereotype not in ENUM_CLASS_STEREOTYPE:
-            LOGGER.error(f"Invalid stereotype {class_dict['stereotype']} defined for class {class_dict['name']}. "
-                         f"The transformation output is not syntactically valid.")
+            LOGGER.error(f"Invalid stereotype '{class_dict['stereotype']}' defined for class '{class_dict['name']}'. "
+                         f"The transformation output is syntactically INVALID.")
 
 
 def set_class_restrictedto_ontologicalnature(class_dict: dict, ontouml_graph: Graph) -> None:
