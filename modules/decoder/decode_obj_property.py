@@ -6,6 +6,7 @@ Function's nomenclatures:
     - Functions that set multiple data properties are named: set_<subject>_attributes.
     - Functions that set both object and data properties are named: set_<subject>_properties.
 """
+from pprint import pprint
 
 from rdflib import Graph, URIRef, RDF, Literal
 
@@ -77,8 +78,12 @@ def set_property_relations(property_dict: dict, ontouml_graph: Graph) -> None:
     statement_subject = URIRef(URI_ONTOLOGY + property_dict["id"])
 
     # Setting ontouml:aggregationKind
+    if "aggregationKind" not in property_dict:
+        statement_object = URIRef(URI_ONTOUML + "none")
+    else:
+        statement_object = URIRef(URI_ONTOUML + property_dict["aggregationKind"].lower())
+
     statement_predicate = URIRef(URI_ONTOUML + "aggregationKind")
-    statement_object = URIRef(URI_ONTOUML + property_dict["aggregationKind"].lower())
     ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
     # Setting ontouml:propertyType
@@ -188,8 +193,9 @@ def create_property_properties(json_data: dict, ontouml_graph: Graph) -> None:
 
     # Getting Property dictionaries
     property_dicts_list = get_list_subdictionaries_for_specific_type(json_data, "Property")
-
+    count = 1
     for property_dict in property_dicts_list:
+
         set_property_relations(property_dict, ontouml_graph)
         set_cardinality_relations(property_dict, ontouml_graph)
 
