@@ -6,7 +6,6 @@ from rdflib import Graph, URIRef
 
 from globals import URI_ONTOUML, URI_ONTOLOGY
 from modules.decoder.decode_general import get_all_ids_of_specific_type, get_list_subdictionaries_for_specific_type
-from modules.utils_general import count_elements_types
 
 
 def set_ontoumlelement_project_project(project_dict: dict, ontouml_graph: Graph, element_counting: dict) -> None:
@@ -53,15 +52,13 @@ def set_project_model_package(project_dict: dict, ontouml_graph: Graph) -> None:
         ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
 
-def set_project_diagram_diagram(project_dict: dict, ontouml_graph: Graph) -> bool:
+def set_project_diagram_diagram(project_dict: dict, ontouml_graph: Graph) -> None:
     """ Sets the ontouml:diagram object property between a ontouml:Project and its related ontouml:Diagram entities.
 
     :param project_dict: Project's data to have its fields decoded.
     :type project_dict: dict
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
-    :return: Indication of if there are Diagrams still to be treated.
-    :rtype: bool
     """
 
     # Getting all Diagrams for a specific Project
@@ -72,12 +69,6 @@ def set_project_diagram_diagram(project_dict: dict, ontouml_graph: Graph) -> boo
         statement_predicate = URIRef(URI_ONTOUML + "diagram")
         statement_object = URIRef(URI_ONTOLOGY + diagram_id)
         ontouml_graph.add((statement_subject, statement_predicate, statement_object))
-
-    # Informs if there are Diagrams still to be treated
-    if len(list_all_diagram_ids):
-        return True
-    else:
-        return False
 
 
 def create_project_properties(json_data: dict, ontouml_graph: Graph, element_counting: dict) -> None:
@@ -101,9 +92,6 @@ def create_project_properties(json_data: dict, ontouml_graph: Graph, element_cou
     :type element_counting: dict
     """
 
-    # Used for performance improvement
-    num_diagrams = count_elements_types(["Diagram"], element_counting)
-
     # Getting all Project dictionaries
     projects_dicts_list = get_list_subdictionaries_for_specific_type(json_data, "Project")
 
@@ -112,8 +100,6 @@ def create_project_properties(json_data: dict, ontouml_graph: Graph, element_cou
         set_ontoumlelement_project_project(project_dict, ontouml_graph, element_counting)
         set_project_model_package(project_dict, ontouml_graph)
 
-        # Treats relations between Projects and Diagrams only while there are Diagrams still untreated
-        if num_diagrams > 0:
-            property_set = set_project_diagram_diagram(project_dict, ontouml_graph)
-            if property_set:
-                num_diagrams -= 1
+        # Treats relations between instances of Project and Diagram only if the formers exist
+        if "Diagram" in element_counting:
+            set_project_diagram_diagram(project_dict, ontouml_graph)

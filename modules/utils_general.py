@@ -22,7 +22,7 @@ def count_elements_types(element_type_list: list[str], element_counting: dict) -
 
     for element_type in element_type_list:
         if element_type in element_counting:
-            num_element = element_counting[element_type]
+            num_element += element_counting[element_type]
 
     return num_element
 

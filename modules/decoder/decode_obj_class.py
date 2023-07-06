@@ -16,7 +16,6 @@ from modules.decoder.decode_general import get_list_subdictionaries_for_specific
     set_object_stereotype
 from modules.errors import report_error_end_of_switch
 from modules.logger import initialize_logger
-from modules.utils_general import count_elements_types
 
 LOGGER = initialize_logger()
 
@@ -224,15 +223,13 @@ def validate_class_constraints(class_dict: dict) -> None:
             class_dict['isPowertype'] = False
 
 
-def set_class_attribute_property(class_dict: dict, ontouml_graph: Graph) -> bool:
+def set_class_attribute_property(class_dict: dict, ontouml_graph: Graph) -> None:
     """ Sets ontouml:attribute relation between an ontouml:Class and an ontouml:Property.
 
     :param class_dict: Class object loaded as a dictionary.
     :type class_dict: dict
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
-    :return: Indication if there are entities of type ontouml:Property still to be treated.
-    :rtype: bool
     """
 
     list_related_properties = get_list_subdictionaries_for_specific_type(class_dict, "Property")
@@ -244,22 +241,14 @@ def set_class_attribute_property(class_dict: dict, ontouml_graph: Graph) -> bool
 
         ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
-    # Informs if there are ClassViews still to be treated
-    if len(list_related_properties):
-        return True
-    else:
-        return False
 
-
-def set_class_literal_literal(class_dict: dict, ontouml_graph: Graph) -> bool:
+def set_class_literal_literal(class_dict: dict, ontouml_graph: Graph) -> None:
     """ Sets ontouml:literal relation between an ontouml:Class and its related ontouml:Literal individuals.
 
     :param class_dict: Class object loaded as a dictionary.
     :type class_dict: dict
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
-    :return: Indication if there are entities of type ontouml:Property still to be treated.
-    :rtype: bool
     """
 
     list_related_literals = get_list_subdictionaries_for_specific_type(class_dict, "Literal")
@@ -270,12 +259,6 @@ def set_class_literal_literal(class_dict: dict, ontouml_graph: Graph) -> bool:
         statement_object = URIRef(URI_ONTOLOGY + related_literal["id"])
 
         ontouml_graph.add((statement_subject, statement_predicate, statement_object))
-
-    # Informs if there are ClassViews still to be treated
-    if len(list_related_literals):
-        return True
-    else:
-        return False
 
 
 def create_class_properties(json_data: dict, ontouml_graph: Graph, element_counting: dict) -> None:
@@ -304,10 +287,6 @@ def create_class_properties(json_data: dict, ontouml_graph: Graph, element_count
     :type element_counting: dict
     """
 
-    # Used for performance improvement
-    num_properties = count_elements_types(["Property"], element_counting)
-    num_literals = count_elements_types(["Literal"], element_counting)
-
     # Get all class' dictionaries
     list_all_class_dicts = get_list_subdictionaries_for_specific_type(json_data, "Class")
 
@@ -332,14 +311,10 @@ def create_class_properties(json_data: dict, ontouml_graph: Graph, element_count
         # Setting isPowertype and isExtensional
         set_class_attributes(class_dict, ontouml_graph)
 
-        # Treats relations between Classes and Properties only while there are Properties still untreated
-        if num_properties > 0:
-            property_set = set_class_attribute_property(class_dict, ontouml_graph)
-            if property_set:
-                num_properties -= 1
+        # Treats relations between instances of Class and Property only if the formers exist
+        if "Property" in element_counting:
+            set_class_attribute_property(class_dict, ontouml_graph)
 
-        # Treats relations between Classes and Literals only while there are Literals still untreated
-        if num_literals > 0:
-            literal_set = set_class_literal_literal(class_dict, ontouml_graph)
-            if literal_set:
-                num_literals -= 1
+        # Treats relations between instances of Class and Literal only if the formers exist
+        if "Literal" in element_counting:
+            set_class_literal_literal(class_dict, ontouml_graph)

@@ -2588,434 +2588,567 @@
 
 # MANUALLY ADDED
 
-:0FWM1JGGAqACNxHS_shape ontouml:project :2Yx01JGGAqACNw2l .
+:0FWM1JGGAqACNxHS_shape
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:1HWM1JGGAqACNxHd_shape ontouml:project :2Yx01JGGAqACNw2l .
+:1HWM1JGGAqACNxHd_shape
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:1pKS1JGGAqACNwsY_shape ontouml:project :2Yx01JGGAqACNw2l .
+:1pKS1JGGAqACNwsY_shape
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:2y2S1JGGAqACNws9 a ontouml:RelationView ;
-    ontouml:isViewOf :Cy2S1JGGAqACNws8 ;
-    ontouml:project :2Yx01JGGAqACNw2l ;
-    ontouml:shape :2y2S1JGGAqACNws9_path ;
+:2y2S1JGGAqACNws9
+    a                  ontouml:RelationView ;
+    ontouml:isViewOf   :Cy2S1JGGAqACNws8 ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:shape      :2y2S1JGGAqACNws9_path ;
     ontouml:sourceView :NBni1JGGAqACNwqi ;
     ontouml:targetView :q_Xi1JGGAqACNwqx .
 
-:3DbC1JGGAqACNxSO a ontouml:RelationView ;
-    ontouml:isViewOf :mOjM1JGGAqACNxLm ;
-    ontouml:project :2Yx01JGGAqACNw2l ;
-    ontouml:shape :3DbC1JGGAqACNxSO_path ;
+:3DbC1JGGAqACNxSO
+    a                  ontouml:RelationView ;
+    ontouml:isViewOf   :mOjM1JGGAqACNxLm ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:shape      :3DbC1JGGAqACNxSO_path ;
     ontouml:sourceView :J32M1JGGAqACNxIJ ;
     ontouml:targetView :1HWM1JGGAqACNxHd .
 
-:3mp01JGGAqACNxGA ontouml:owner :2Yx01JGGAqACNw2l_root .
+:3mp01JGGAqACNxGA
+    ontouml:owner :2Yx01JGGAqACNw2l_root .
 
-:469M1JGGAqACNxLR a ontouml:RelationView ;
-    ontouml:isViewOf :R89M1JGGAqACNxLM ;
-    ontouml:project :2Yx01JGGAqACNw2l ;
-    ontouml:shape :469M1JGGAqACNxLR_path ;
+:469M1JGGAqACNxLR
+    a                  ontouml:RelationView ;
+    ontouml:isViewOf   :R89M1JGGAqACNxLM ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:shape      :469M1JGGAqACNxLR_path ;
     ontouml:sourceView :jk2M1JGGAqACNxHo ;
     ontouml:targetView :jk2M1JGGAqACNxHo .
 
-:52NM1JGGAqACNxK4_cardinality ontouml:lowerBound "0" ;
+:52NM1JGGAqACNxK4_cardinality
+    ontouml:lowerBound "0" ;
     ontouml:upperBound "*" .
 
-:5EKS1JGGAqACNwsC_shape ontouml:project :2Yx01JGGAqACNw2l .
+:5EKS1JGGAqACNwsC_shape
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:5TmM1JGGAqACNxGx_shape ontouml:project :2Yx01JGGAqACNw2l .
+:5TmM1JGGAqACNxGx_shape
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:683M1JGGAqACNxMo a ontouml:RelationView ;
-    ontouml:isViewOf :c83M1JGGAqACNxMj ;
-    ontouml:project :2Yx01JGGAqACNw2l ;
-    ontouml:shape :683M1JGGAqACNxMo_path ;
+:683M1JGGAqACNxMo
+    a                  ontouml:RelationView ;
+    ontouml:isViewOf   :c83M1JGGAqACNxMj ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:shape      :683M1JGGAqACNxMo_path ;
     ontouml:sourceView :B2pM1JGGAqACNxJn ;
     ontouml:targetView :kfZM1JGGAqACNxKD .
 
-:6WKS1JGGAqACNwsN_shape ontouml:project :2Yx01JGGAqACNw2l .
+:6WKS1JGGAqACNwsN_shape
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:8F9S1JGGAqACNwv5_shape ontouml:project :2Yx01JGGAqACNw2l .
+:8F9S1JGGAqACNwv5_shape
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:AJAy1JGGAqACNwzM a ontouml:RelationView ;
-    ontouml:isViewOf :zxAy1JGGAqACNwzH ;
-    ontouml:project :2Yx01JGGAqACNw2l ;
-    ontouml:shape :AJAy1JGGAqACNwzM_path ;
+:AJAy1JGGAqACNwzM
+    a                  ontouml:RelationView ;
+    ontouml:isViewOf   :zxAy1JGGAqACNwzH ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:shape      :AJAy1JGGAqACNwzM_path ;
     ontouml:sourceView :KR_S1JGGAqACNwyo ;
     ontouml:targetView :Lt_S1JGGAqACNwyz .
 
-:Ae7M1JGGAqACNxL8 a ontouml:RelationView ;
-    ontouml:isViewOf :LG7M1JGGAqACNxL3 ;
-    ontouml:project :2Yx01JGGAqACNw2l ;
-    ontouml:shape :Ae7M1JGGAqACNxL8_path ;
+:Ae7M1JGGAqACNxL8
+    a                  ontouml:RelationView ;
+    ontouml:isViewOf   :LG7M1JGGAqACNxL3 ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:shape      :Ae7M1JGGAqACNxL8_path ;
     ontouml:sourceView :1HWM1JGGAqACNxHd ;
     ontouml:targetView :0FWM1JGGAqACNxHS .
 
-:B1pM1JGGAqACNxJy_shape ontouml:project :2Yx01JGGAqACNw2l .
+:B1pM1JGGAqACNxJy_shape
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:B2pM1JGGAqACNxJn_shape ontouml:project :2Yx01JGGAqACNw2l .
+:B2pM1JGGAqACNxJn_shape
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:E_ZS1JGGAqACNwu1 a ontouml:RelationView ;
-    ontouml:isViewOf :g_ZS1JGGAqACNwuw ;
-    ontouml:project :2Yx01JGGAqACNw2l ;
-    ontouml:shape :E_ZS1JGGAqACNwu1_path ;
+:E_ZS1JGGAqACNwu1
+    a                  ontouml:RelationView ;
+    ontouml:isViewOf   :g_ZS1JGGAqACNwuw ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:shape      :E_ZS1JGGAqACNwu1_path ;
     ontouml:sourceView :UyRS1JGGAqACNwuD ;
     ontouml:targetView :JRS1JGGAqACNwuO .
 
-:F2NM1JGGAqACNxK7_cardinality ontouml:lowerBound "0" ;
+:F2NM1JGGAqACNxK7_cardinality
+    ontouml:lowerBound "0" ;
     ontouml:upperBound "*" .
 
-:FbDS1JGGAqACNwwe a ontouml:RelationView ;
-    ontouml:isViewOf :WbDS1JGGAqACNwwZ ;
-    ontouml:project :2Yx01JGGAqACNw2l ;
-    ontouml:shape :FbDS1JGGAqACNwwe_path ;
+:FbDS1JGGAqACNwwe
+    a                  ontouml:RelationView ;
+    ontouml:isViewOf   :WbDS1JGGAqACNwwZ ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:shape      :FbDS1JGGAqACNwwe_path ;
     ontouml:sourceView :8F9S1JGGAqACNwv5 ;
     ontouml:targetView :O39S1JGGAqACNwwE .
 
-:GXDM1JGGAqACNxLh a ontouml:RelationView ;
-    ontouml:isViewOf :H7DM1JGGAqACNxLc ;
-    ontouml:project :2Yx01JGGAqACNw2l ;
-    ontouml:shape :GXDM1JGGAqACNxLh_path ;
+:GXDM1JGGAqACNxLh
+    a                  ontouml:RelationView ;
+    ontouml:isViewOf   :H7DM1JGGAqACNxLc ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:shape      :GXDM1JGGAqACNxLh_path ;
     ontouml:sourceView :J32M1JGGAqACNxIJ ;
     ontouml:targetView :jk2M1JGGAqACNxHo .
 
-:Gi_S1JGGAqACNwyd_shape ontouml:project :2Yx01JGGAqACNw2l .
+:Gi_S1JGGAqACNwyd_shape
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:Gz7i1JGGAqACNwpx ontouml:owner :2Yx01JGGAqACNw2l_root .
+:Gz7i1JGGAqACNwpx
+    ontouml:owner :2Yx01JGGAqACNw2l_root .
 
-:H7DM1JGGAqACNxLd_cardinality ontouml:lowerBound "0" ;
+:H7DM1JGGAqACNxLd_cardinality
+    ontouml:lowerBound "0" ;
     ontouml:upperBound "*" .
 
-:HM5M1JGGAqACNxKO_shape ontouml:project :2Yx01JGGAqACNw2l .
+:HM5M1JGGAqACNxKO_shape
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:IYqs1JGGAqACNxNp a ontouml:RelationView ;
-    ontouml:isViewOf :3oqs1JGGAqACNxNk ;
-    ontouml:project :2Yx01JGGAqACNw2l ;
-    ontouml:shape :IYqs1JGGAqACNxNp_path ;
+:IYqs1JGGAqACNxNp
+    a                  ontouml:RelationView ;
+    ontouml:isViewOf   :3oqs1JGGAqACNxNk ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:shape      :IYqs1JGGAqACNxNp_path ;
     ontouml:sourceView :SN2M1JGGAqACNxH ;
     ontouml:targetView :HM5M1JGGAqACNxKO .
 
-:J32M1JGGAqACNxIJ_shape ontouml:project :2Yx01JGGAqACNw2l .
+:J32M1JGGAqACNxIJ_shape
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:JFCs1JGGAqACNxNX a ontouml:RelationView ;
-    ontouml:isViewOf :aFCs1JGGAqACNxNS ;
-    ontouml:project :2Yx01JGGAqACNw2l ;
-    ontouml:shape :JFCs1JGGAqACNxNX_path ;
+:JFCs1JGGAqACNxNX
+    a                  ontouml:RelationView ;
+    ontouml:isViewOf   :aFCs1JGGAqACNxNS ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:shape      :JFCs1JGGAqACNxNX_path ;
     ontouml:sourceView :B1pM1JGGAqACNxJy ;
     ontouml:targetView :i22M1JGGAqACNxHz .
 
-:JRS1JGGAqACNwuO_shape ontouml:project :2Yx01JGGAqACNw2l .
+:JRS1JGGAqACNwuO_shape
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:KR_S1JGGAqACNwyo_shape ontouml:project :2Yx01JGGAqACNw2l .
+:KR_S1JGGAqACNwyo_shape
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:LG7M1JGGAqACNxL4_cardinality ontouml:lowerBound "0" ;
+:LG7M1JGGAqACNxL4_cardinality
+    ontouml:lowerBound "0" ;
     ontouml:upperBound "0" .
 
-:Llws1JGGAqACNxMz a ontouml:RelationView ;
-    ontouml:isViewOf :xwXM1JGGAqACNxMZ ;
-    ontouml:project :2Yx01JGGAqACNw2l ;
-    ontouml:shape :Llws1JGGAqACNxMz_path ;
+:Llws1JGGAqACNxMz
+    a                  ontouml:RelationView ;
+    ontouml:isViewOf   :xwXM1JGGAqACNxMZ ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:shape      :Llws1JGGAqACNxMz_path ;
     ontouml:sourceView :SN2M1JGGAqACNxH ;
     ontouml:targetView :B2pM1JGGAqACNxJn .
 
-:Lt_S1JGGAqACNwyz_shape ontouml:project :2Yx01JGGAqACNw2l .
+:Lt_S1JGGAqACNwyz_shape
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:NBni1JGGAqACNwqi_shape ontouml:project :2Yx01JGGAqACNw2l .
+:NBni1JGGAqACNwqi_shape
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:NHHi1JGGAqACNwqR_shape ontouml:project :2Yx01JGGAqACNw2l .
+:NHHi1JGGAqACNwqR_shape
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:NfC1JGGAqACNxSq a ontouml:RelationView ;
-    ontouml:isViewOf :dwnM1JGGAqACNxMF ;
-    ontouml:project :2Yx01JGGAqACNw2l ;
-    ontouml:shape :NfC1JGGAqACNxSq_path ;
+:NfC1JGGAqACNxSq
+    a                  ontouml:RelationView ;
+    ontouml:isViewOf   :dwnM1JGGAqACNxMF ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:shape      :NfC1JGGAqACNxSq_path ;
     ontouml:sourceView :c6WM1JGGAqACNxHH ;
     ontouml:targetView :c6WM1JGGAqACNxHH .
 
-:NyDS1JGGAqACNwwP_shape ontouml:project :2Yx01JGGAqACNw2l .
+:NyDS1JGGAqACNwwP_shape
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:O1VM1JGGAqACNxKr_path ontouml:project :2Yx01JGGAqACNw2l .
+:O1VM1JGGAqACNxKr_path
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:O39S1JGGAqACNwwE_shape ontouml:project :2Yx01JGGAqACNw2l .
+:O39S1JGGAqACNwwE_shape
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:QrRS1JGGAqACNwuZ_shape ontouml:project :2Yx01JGGAqACNw2l .
+:QrRS1JGGAqACNwuZ_shape
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:RpnM1JGGAqACNxMU a ontouml:RelationView ;
-    ontouml:isViewOf :jxnM1JGGAqACNxMP ;
-    ontouml:project :2Yx01JGGAqACNw2l ;
-    ontouml:shape :RpnM1JGGAqACNxMU_path ;
+:RpnM1JGGAqACNxMU
+    a                  ontouml:RelationView ;
+    ontouml:isViewOf   :jxnM1JGGAqACNxMP ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:shape      :RpnM1JGGAqACNxMU_path ;
     ontouml:sourceView :B2pM1JGGAqACNxJn ;
     ontouml:targetView :0FWM1JGGAqACNxHS .
 
-:SN2M1JGGAqACNxH_shape ontouml:project :2Yx01JGGAqACNw2l .
+:SN2M1JGGAqACNxH_shape
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:Sr3i1JGGAqACNwrF a ontouml:RelationView ;
-    ontouml:isViewOf :4r3i1JGGAqACNwrA ;
-    ontouml:project :2Yx01JGGAqACNw2l ;
-    ontouml:shape :Sr3i1JGGAqACNwrF_path ;
+:Sr3i1JGGAqACNwrF
+    a                  ontouml:RelationView ;
+    ontouml:isViewOf   :4r3i1JGGAqACNwrA ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:shape      :Sr3i1JGGAqACNwrF_path ;
     ontouml:sourceView :NBni1JGGAqACNwqi ;
     ontouml:targetView :NHHi1JGGAqACNwqR .
 
-:Su3i1JGGAqACNwq7 a ontouml:RelationView ;
-    ontouml:isViewOf :ou3i1JGGAqACNwq2 ;
-    ontouml:project :2Yx01JGGAqACNw2l ;
-    ontouml:shape :Su3i1JGGAqACNwq7_path ;
+:Su3i1JGGAqACNwq7
+    a                  ontouml:RelationView ;
+    ontouml:isViewOf   :ou3i1JGGAqACNwq2 ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:shape      :Su3i1JGGAqACNwq7_path ;
     ontouml:sourceView :XlHi1JGGAqACNwqG ;
     ontouml:targetView :NBni1JGGAqACNwqi .
 
-:TIWM1JGGAqACNxG8_shape ontouml:project :2Yx01JGGAqACNw2l .
+:TIWM1JGGAqACNxG8_shape
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:UMjS1JGGAqACNwwo a ontouml:RelationView ;
-    ontouml:isViewOf :f0jS1JGGAqACNwwj ;
-    ontouml:project :2Yx01JGGAqACNw2l ;
-    ontouml:shape :UMjS1JGGAqACNwwo_path ;
+:UMjS1JGGAqACNwwo
+    a                  ontouml:RelationView ;
+    ontouml:isViewOf   :f0jS1JGGAqACNwwj ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:shape      :UMjS1JGGAqACNwwo_path ;
     ontouml:sourceView :8F9S1JGGAqACNwv5 ;
     ontouml:targetView :NyDS1JGGAqACNwwP .
 
-:UyRS1JGGAqACNwuD_shape ontouml:project :2Yx01JGGAqACNw2l .
+:UyRS1JGGAqACNwuD_shape
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:VhBS1JGGAqACNwt3 a ontouml:RelationView ;
-    ontouml:isViewOf :hBS1JGGAqACNwt2 ;
-    ontouml:project :2Yx01JGGAqACNw2l ;
-    ontouml:shape :VhBS1JGGAqACNwt3_path ;
+:VhBS1JGGAqACNwt3
+    a                  ontouml:RelationView ;
+    ontouml:isViewOf   :hBS1JGGAqACNwt2 ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:shape      :VhBS1JGGAqACNwt3_path ;
     ontouml:sourceView :1pKS1JGGAqACNwsY ;
     ontouml:targetView :zQuS1JGGAqACNwtN .
 
-:XejS1JGGAqACNwwy a ontouml:RelationView ;
-    ontouml:isViewOf :dejS1JGGAqACNwwt ;
-    ontouml:project :2Yx01JGGAqACNw2l ;
-    ontouml:shape :XejS1JGGAqACNwwy_path ;
+:XejS1JGGAqACNwwy
+    a                  ontouml:RelationView ;
+    ontouml:isViewOf   :dejS1JGGAqACNwwt ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:shape      :XejS1JGGAqACNwwy_path ;
     ontouml:sourceView :O39S1JGGAqACNwwE ;
     ontouml:targetView :NyDS1JGGAqACNwwP .
 
-:XlHi1JGGAqACNwqG_shape ontouml:project :2Yx01JGGAqACNw2l .
+:XlHi1JGGAqACNwqG_shape
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:c6WM1JGGAqACNxHH_shape ontouml:project :2Yx01JGGAqACNw2l .
+:c6WM1JGGAqACNxHH_shape
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:cONM1JGGAqACNxK9 a ontouml:RelationView ;
-    ontouml:isViewOf :h2NM1JGGAqACNxK2 ;
-    ontouml:project :2Yx01JGGAqACNw2l ;
-    ontouml:shape :cONM1JGGAqACNxK9_path ;
+:cONM1JGGAqACNxK9
+    a                  ontouml:RelationView ;
+    ontouml:isViewOf   :h2NM1JGGAqACNxK2 ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:shape      :cONM1JGGAqACNxK9_path ;
     ontouml:sourceView :5TmM1JGGAqACNxGx ;
     ontouml:targetView :1HWM1JGGAqACNxHd .
 
-:cOmM1JGGAqACNxGm_shape ontouml:project :2Yx01JGGAqACNw2l .
+:cOmM1JGGAqACNxGm_shape
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:eK5S1JGGAqACNwu a ontouml:RelationView ;
-    ontouml:isViewOf :GK5S1JGGAqACNwu6 ;
-    ontouml:project :2Yx01JGGAqACNw2l ;
-    ontouml:shape :eK5S1JGGAqACNwu_path ;
+:eK5S1JGGAqACNwu
+    a                  ontouml:RelationView ;
+    ontouml:isViewOf   :GK5S1JGGAqACNwu6 ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:shape      :eK5S1JGGAqACNwu_path ;
     ontouml:sourceView :UyRS1JGGAqACNwuD ;
     ontouml:targetView :QrRS1JGGAqACNwuZ .
 
-:i22M1JGGAqACNxHz_shape ontouml:project :2Yx01JGGAqACNw2l .
+:i22M1JGGAqACNxHz_shape
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:jk2M1JGGAqACNxHo_shape ontouml:project :2Yx01JGGAqACNw2l .
+:jk2M1JGGAqACNxHo_shape
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:kfZM1JGGAqACNxKD_shape ontouml:project :2Yx01JGGAqACNw2l .
+:kfZM1JGGAqACNxKD_shape
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:n7DM1JGGAqACNxLf_cardinality ontouml:lowerBound "0" ;
+:n7DM1JGGAqACNxLf_cardinality
+    ontouml:lowerBound "0" ;
     ontouml:upperBound "*" .
 
-:oXOs1JGGAqACNxN a ontouml:RelationView ;
-    ontouml:isViewOf :vnOs1JGGAqACNxN6 ;
-    ontouml:project :2Yx01JGGAqACNw2l ;
-    ontouml:shape :oXOs1JGGAqACNxN_path ;
+:oXOs1JGGAqACNxN
+    a                  ontouml:RelationView ;
+    ontouml:isViewOf   :vnOs1JGGAqACNxN6 ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:shape      :oXOs1JGGAqACNxN_path ;
     ontouml:sourceView :i22M1JGGAqACNxHz ;
     ontouml:targetView :HM5M1JGGAqACNxKO .
 
-:qtfC1JGGAqACNxSw a ontouml:RelationView ;
-    ontouml:isViewOf :dwnM1JGGAqACNxMF ;
-    ontouml:project :2Yx01JGGAqACNw2l ;
-    ontouml:shape :qtfC1JGGAqACNxSw_path ;
+:qtfC1JGGAqACNxSw
+    a                  ontouml:RelationView ;
+    ontouml:isViewOf   :dwnM1JGGAqACNxMF ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:shape      :qtfC1JGGAqACNxSw_path ;
     ontouml:sourceView :c6WM1JGGAqACNxHH ;
     ontouml:targetView :c6WM1JGGAqACNxHH .
 
-:rUes1JGGAqACNxOT a ontouml:RelationView ;
-    ontouml:isViewOf :FUes1JGGAqACNxOO ;
-    ontouml:project :2Yx01JGGAqACNw2l ;
-    ontouml:shape :rUes1JGGAqACNxOT_path ;
+:rUes1JGGAqACNxOT
+    a                  ontouml:RelationView ;
+    ontouml:isViewOf   :FUes1JGGAqACNxOO ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:shape      :rUes1JGGAqACNxOT_path ;
     ontouml:sourceView :i22M1JGGAqACNxHz ;
     ontouml:targetView :HM5M1JGGAqACNxKO .
 
-:ruOs1JGGAqACNxN1 a ontouml:RelationView ;
-    ontouml:isViewOf :1uOs1JGGAqACNxNw ;
-    ontouml:project :2Yx01JGGAqACNw2l ;
-    ontouml:shape :ruOs1JGGAqACNxN1_path ;
+:ruOs1JGGAqACNxN1
+    a                  ontouml:RelationView ;
+    ontouml:isViewOf   :1uOs1JGGAqACNxNw ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:shape      :ruOs1JGGAqACNxN1_path ;
     ontouml:sourceView :HM5M1JGGAqACNxKO ;
     ontouml:targetView :i22M1JGGAqACNxHz .
 
-:tjuS1JGGAqACNwth a ontouml:RelationView ;
-    ontouml:isViewOf :hjuS1JGGAqACNwtc ;
-    ontouml:project :2Yx01JGGAqACNw2l ;
-    ontouml:shape :tjuS1JGGAqACNwth_path ;
+:tjuS1JGGAqACNwth
+    a                  ontouml:RelationView ;
+    ontouml:isViewOf   :hjuS1JGGAqACNwtc ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:shape      :tjuS1JGGAqACNwth_path ;
     ontouml:sourceView :1pKS1JGGAqACNwsY ;
     ontouml:targetView :6WKS1JGGAqACNwsN .
 
-:v8Ay1JGGAqACNwzC a ontouml:RelationView ;
-    ontouml:isViewOf :r8Ay1JGGAqACNwy9 ;
-    ontouml:project :2Yx01JGGAqACNw2l ;
-    ontouml:shape :v8Ay1JGGAqACNwzC_path ;
+:v8Ay1JGGAqACNwzC
+    a                  ontouml:RelationView ;
+    ontouml:isViewOf   :r8Ay1JGGAqACNwy9 ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:shape      :v8Ay1JGGAqACNwzC_path ;
     ontouml:sourceView :Gi_S1JGGAqACNwyd ;
     ontouml:targetView :Lt_S1JGGAqACNwyz .
 
-:xwXM1JGGAqACNxMa_cardinality ontouml:lowerBound "0" ;
+:xwXM1JGGAqACNxMa_cardinality
+    ontouml:lowerBound "0" ;
     ontouml:upperBound "*" .
 
-:yF5S1JGGAqACNwvJ a ontouml:RelationView ;
-    ontouml:isViewOf :YF5S1JGGAqACNwvE ;
-    ontouml:project :2Yx01JGGAqACNw2l ;
-    ontouml:shape :yF5S1JGGAqACNwvJ_path ;
+:yF5S1JGGAqACNwvJ
+    a                  ontouml:RelationView ;
+    ontouml:isViewOf   :YF5S1JGGAqACNwvE ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:shape      :yF5S1JGGAqACNwvJ_path ;
     ontouml:sourceView :QrRS1JGGAqACNwuZ ;
     ontouml:targetView :JRS1JGGAqACNwuO .
 
-:yPAy1JGGAqACNwzW a ontouml:RelationView ;
-    ontouml:isViewOf :4PAy1JGGAqACNwzR ;
-    ontouml:project :2Yx01JGGAqACNw2l ;
-    ontouml:shape :yPAy1JGGAqACNwzW_path ;
+:yPAy1JGGAqACNwzW
+    a                  ontouml:RelationView ;
+    ontouml:isViewOf   :4PAy1JGGAqACNwzR ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:shape      :yPAy1JGGAqACNwzW_path ;
     ontouml:sourceView :Gi_S1JGGAqACNwyd ;
     ontouml:targetView :KR_S1JGGAqACNwyo .
 
-:yWuS1JGGAqACNwtX a ontouml:RelationView ;
-    ontouml:isViewOf :0WuS1JGGAqACNwtS ;
-    ontouml:project :2Yx01JGGAqACNw2l ;
-    ontouml:shape :yWuS1JGGAqACNwtX_path ;
+:yWuS1JGGAqACNwtX
+    a                  ontouml:RelationView ;
+    ontouml:isViewOf   :0WuS1JGGAqACNwtS ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:shape      :yWuS1JGGAqACNwtX_path ;
     ontouml:sourceView :5EKS1JGGAqACNwsC ;
     ontouml:targetView :1pKS1JGGAqACNwsY .
 
-:0WuS1JGGAqACNwtS ontouml:isAbstract false .
+:0WuS1JGGAqACNwtS
+    ontouml:isAbstract false .
 
-:1QuS1JGGAqACNwtI ontouml:isAbstract false .
+:1QuS1JGGAqACNwtI
+    ontouml:isAbstract false .
 
-:1uOs1JGGAqACNxNw ontouml:isAbstract false .
+:1uOs1JGGAqACNxNw
+    ontouml:isAbstract false .
 
-:2y2S1JGGAqACNws9_path ontouml:project :2Yx01JGGAqACNw2l .
+:2y2S1JGGAqACNws9_path
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:3DbC1JGGAqACNxSO_path ontouml:project :2Yx01JGGAqACNw2l .
+:3DbC1JGGAqACNxSO_path
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:3oqs1JGGAqACNxNk ontouml:isAbstract false .
+:3oqs1JGGAqACNxNk
+    ontouml:isAbstract false .
 
-:469M1JGGAqACNxLR_path ontouml:project :2Yx01JGGAqACNw2l .
+:469M1JGGAqACNxLR_path
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:4PAy1JGGAqACNwzR ontouml:isAbstract false .
+:4PAy1JGGAqACNwzR
+    ontouml:isAbstract false .
 
-:4r3i1JGGAqACNwrA ontouml:isAbstract false .
+:4r3i1JGGAqACNwrA
+    ontouml:isAbstract false .
 
-:683M1JGGAqACNxMo_path ontouml:project :2Yx01JGGAqACNw2l .
+:683M1JGGAqACNxMo_path
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:AJAy1JGGAqACNwzM_path ontouml:project :2Yx01JGGAqACNw2l .
+:AJAy1JGGAqACNwzM_path
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:Ae7M1JGGAqACNxL8_path ontouml:project :2Yx01JGGAqACNw2l .
+:Ae7M1JGGAqACNxL8_path
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:Cy2S1JGGAqACNws8 ontouml:isAbstract false .
+:Cy2S1JGGAqACNws8
+    ontouml:isAbstract false .
 
-:E_ZS1JGGAqACNwu1_path ontouml:project :2Yx01JGGAqACNw2l .
+:E_ZS1JGGAqACNwu1_path
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:FUes1JGGAqACNxOO ontouml:isAbstract false .
+:FUes1JGGAqACNxOO
+    ontouml:isAbstract false .
 
-:FbDS1JGGAqACNwwe_path ontouml:project :2Yx01JGGAqACNw2l .
+:FbDS1JGGAqACNwwe_path
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:GK5S1JGGAqACNwu6 ontouml:isAbstract false .
+:GK5S1JGGAqACNwu6
+    ontouml:isAbstract false .
 
-:GXDM1JGGAqACNxLh_path ontouml:project :2Yx01JGGAqACNw2l .
+:GXDM1JGGAqACNxLh_path
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:H7DM1JGGAqACNxLc ontouml:isAbstract false .
+:H7DM1JGGAqACNxLc
+    ontouml:isAbstract false .
 
-:IYqs1JGGAqACNxNp_path ontouml:project :2Yx01JGGAqACNw2l .
+:IYqs1JGGAqACNxNp_path
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:JFCs1JGGAqACNxNX_path ontouml:project :2Yx01JGGAqACNw2l .
+:JFCs1JGGAqACNxNX_path
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:LG7M1JGGAqACNxL3 ontouml:isAbstract false .
+:LG7M1JGGAqACNxL3
+    ontouml:isAbstract false .
 
-:Llws1JGGAqACNxMz_path ontouml:project :2Yx01JGGAqACNw2l .
+:Llws1JGGAqACNxMz_path
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:NfC1JGGAqACNxSq_path ontouml:project :2Yx01JGGAqACNw2l .
+:NfC1JGGAqACNxSq_path
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:R89M1JGGAqACNxLM ontouml:isAbstract false .
+:R89M1JGGAqACNxLM
+    ontouml:isAbstract false .
 
-:RpnM1JGGAqACNxMU_path ontouml:project :2Yx01JGGAqACNw2l .
+:RpnM1JGGAqACNxMU_path
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:Sr3i1JGGAqACNwrF_path ontouml:project :2Yx01JGGAqACNw2l .
+:Sr3i1JGGAqACNwrF_path
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:Su3i1JGGAqACNwq7_path ontouml:project :2Yx01JGGAqACNw2l .
+:Su3i1JGGAqACNwq7_path
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:UMjS1JGGAqACNwwo_path ontouml:project :2Yx01JGGAqACNw2l .
+:UMjS1JGGAqACNwwo_path
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:VhBS1JGGAqACNwt3_path ontouml:project :2Yx01JGGAqACNw2l .
+:VhBS1JGGAqACNwt3_path
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:WbDS1JGGAqACNwwZ ontouml:isAbstract false .
+:WbDS1JGGAqACNwwZ
+    ontouml:isAbstract false .
 
-:XejS1JGGAqACNwwy_path ontouml:project :2Yx01JGGAqACNw2l .
+:XejS1JGGAqACNwwy_path
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:YF5S1JGGAqACNwvE ontouml:isAbstract false .
+:YF5S1JGGAqACNwvE
+    ontouml:isAbstract false .
 
-:aFCs1JGGAqACNxNS ontouml:isAbstract false .
+:aFCs1JGGAqACNxNS
+    ontouml:isAbstract false .
 
-:c83M1JGGAqACNxMj ontouml:isAbstract false .
+:c83M1JGGAqACNxMj
+    ontouml:isAbstract false .
 
-:cONM1JGGAqACNxK9_path ontouml:project :2Yx01JGGAqACNw2l .
+:cONM1JGGAqACNxK9_path
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:c_Xi1JGGAqACNwqs ontouml:isAbstract false .
+:c_Xi1JGGAqACNwqs
+    ontouml:isAbstract false .
 
-:dejS1JGGAqACNwwt ontouml:isAbstract false .
+:dejS1JGGAqACNwwt
+    ontouml:isAbstract false .
 
-:eK5S1JGGAqACNwu_path ontouml:project :2Yx01JGGAqACNw2l .
+:eK5S1JGGAqACNwu_path
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:f0jS1JGGAqACNwwj ontouml:isAbstract false .
+:f0jS1JGGAqACNwwj
+    ontouml:isAbstract false .
 
-:g_ZS1JGGAqACNwuw ontouml:isAbstract false .
+:g_ZS1JGGAqACNwuw
+    ontouml:isAbstract false .
 
-:h2NM1JGGAqACNxK2 ontouml:isAbstract false .
+:h2NM1JGGAqACNxK2
+    ontouml:isAbstract false .
 
-:hBS1JGGAqACNwt2 ontouml:isAbstract false .
+:hBS1JGGAqACNwt2
+    ontouml:isAbstract false .
 
-:hjuS1JGGAqACNwtc ontouml:isAbstract false .
+:hjuS1JGGAqACNwtc
+    ontouml:isAbstract false .
 
-:jxnM1JGGAqACNxMP ontouml:isAbstract true .
+:jxnM1JGGAqACNxMP
+    ontouml:isAbstract true .
 
-:mOjM1JGGAqACNxLm ontouml:isAbstract false .
+:mOjM1JGGAqACNxLm
+    ontouml:isAbstract false .
 
-:oXOs1JGGAqACNxN_path ontouml:project :2Yx01JGGAqACNw2l .
+:oXOs1JGGAqACNxN_path
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:ou3i1JGGAqACNwq2 ontouml:isAbstract false .
+:ou3i1JGGAqACNwq2
+    ontouml:isAbstract false .
 
-:q_Xi1JGGAqACNwqx a ontouml:RelationView ;
-    ontouml:isViewOf :c_Xi1JGGAqACNwqs ;
-    ontouml:project :2Yx01JGGAqACNw2l ;
-    ontouml:shape :q_Xi1JGGAqACNwqx_path ;
+:q_Xi1JGGAqACNwqx
+    a                  ontouml:RelationView ;
+    ontouml:isViewOf   :c_Xi1JGGAqACNwqs ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:shape      :q_Xi1JGGAqACNwqx_path ;
     ontouml:sourceView :XlHi1JGGAqACNwqG ;
     ontouml:targetView :NHHi1JGGAqACNwqR .
 
-:q_Xi1JGGAqACNwqx_path ontouml:project :2Yx01JGGAqACNw2l .
+:q_Xi1JGGAqACNwqx_path
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:qtfC1JGGAqACNxSw_path ontouml:project :2Yx01JGGAqACNw2l .
+:qtfC1JGGAqACNxSw_path
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:r8Ay1JGGAqACNwy9 ontouml:isAbstract false .
+:r8Ay1JGGAqACNwy9
+    ontouml:isAbstract false .
 
-:rUes1JGGAqACNxOT_path ontouml:project :2Yx01JGGAqACNw2l .
+:rUes1JGGAqACNxOT_path
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:ruOs1JGGAqACNxN1_path ontouml:project :2Yx01JGGAqACNw2l .
+:ruOs1JGGAqACNxN1_path
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:tjuS1JGGAqACNwth_path ontouml:project :2Yx01JGGAqACNw2l .
+:tjuS1JGGAqACNwth_path
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:v8Ay1JGGAqACNwzC_path ontouml:project :2Yx01JGGAqACNw2l .
+:v8Ay1JGGAqACNwzC_path
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:vnOs1JGGAqACNxN6 ontouml:isAbstract false .
+:vnOs1JGGAqACNxN6
+    ontouml:isAbstract false .
 
-:xwXM1JGGAqACNxMZ ontouml:isAbstract true .
+:xwXM1JGGAqACNxMZ
+    ontouml:isAbstract true .
 
-:yF5S1JGGAqACNwvJ_path ontouml:project :2Yx01JGGAqACNw2l .
+:yF5S1JGGAqACNwvJ_path
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:yPAy1JGGAqACNwzW_path ontouml:project :2Yx01JGGAqACNw2l .
+:yPAy1JGGAqACNwzW_path
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:yWuS1JGGAqACNwtX_path ontouml:project :2Yx01JGGAqACNw2l .
+:yWuS1JGGAqACNwtX_path
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:zQuS1JGGAqACNwtN a ontouml:RelationView ;
-    ontouml:isViewOf :1QuS1JGGAqACNwtI ;
-    ontouml:project :2Yx01JGGAqACNw2l ;
-    ontouml:shape :zQuS1JGGAqACNwtN_path ;
+:zQuS1JGGAqACNwtN
+    a                  ontouml:RelationView ;
+    ontouml:isViewOf   :1QuS1JGGAqACNwtI ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:shape      :zQuS1JGGAqACNwtN_path ;
     ontouml:sourceView :5EKS1JGGAqACNwsC ;
     ontouml:targetView :6WKS1JGGAqACNwsN .
 
-:zQuS1JGGAqACNwtN_path ontouml:project :2Yx01JGGAqACNw2l .
+:zQuS1JGGAqACNwtN_path
+    ontouml:project :2Yx01JGGAqACNw2l .
 
-:zxAy1JGGAqACNwzH ontouml:isAbstract false .
+:zxAy1JGGAqACNwzH
+    ontouml:isAbstract false .
 
-:dwnM1JGGAqACNxMF ontouml:isAbstract true .
+:dwnM1JGGAqACNxMF
+    ontouml:isAbstract true .

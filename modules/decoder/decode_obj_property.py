@@ -6,7 +6,6 @@ Function's nomenclatures:
     - Functions that set multiple data properties are named: set_<subject>_attributes.
     - Functions that set both object and data properties are named: set_<subject>_properties.
 """
-from pprint import pprint
 
 from rdflib import Graph, URIRef, RDF, Literal
 
@@ -195,7 +194,6 @@ def create_property_properties(json_data: dict, ontouml_graph: Graph) -> None:
     property_dicts_list = get_list_subdictionaries_for_specific_type(json_data, "Property")
     count = 1
     for property_dict in property_dicts_list:
-
         set_property_relations(property_dict, ontouml_graph)
         set_cardinality_relations(property_dict, ontouml_graph)
 
