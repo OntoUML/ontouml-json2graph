@@ -95,7 +95,7 @@ def set_class_stereotypes_stereotype(class_dict: dict, ontouml_graph: Graph) -> 
     # Verifying for non declared stereotypes. If not declared, point to ClassStereotype and report warning.
     if class_stereotype == "null":
 
-        LOGGER.warning(f"Stereotype not defined for class {class_dict['name']}.")
+        LOGGER.warning(f"Stereotype not defined for class {class_dict['name']}. Added stereotype 'ClassStereotype'")
 
         ontouml_graph.add((URIRef(URI_ONTOLOGY + class_dict['id']),
                            URIRef(URI_ONTOUML + "stereotype"),
@@ -151,6 +151,9 @@ def set_class_restrictedto_ontologicalnature(class_dict: dict, ontouml_graph: Gr
 
 def set_class_attributes(class_dict: dict, ontouml_graph: Graph) -> None:
     """ Defines the ontouml:isPowertype and ontouml:isExtensional data properties of an ontouml:Class in the graph.
+
+    This function must be called after the function set_class_defaults, as the received value may change because of
+    identified problems.
 
     :param class_dict: Class object loaded as a dictionary.
     :type class_dict: dict

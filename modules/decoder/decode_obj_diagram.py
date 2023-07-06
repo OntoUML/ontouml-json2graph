@@ -25,7 +25,7 @@ def set_diagram_owner_modelelement(diagram_dict: dict, ontouml_graph: Graph) -> 
 
 
 def set_diagram_containsview_elementview(diagram_dict: dict, ontouml_graph: Graph) -> bool:
-    """ Set the containsView property between a Diagram and its related ClassView.
+    """ Set the ontouml:containsView property between a ontouml:Diagram and its related ontouml:ElementView.
 
     :param diagram_dict: Diagram object loaded as a dictionary.
     :type diagram_dict: dict

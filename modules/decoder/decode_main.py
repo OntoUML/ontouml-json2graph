@@ -13,6 +13,7 @@ from modules.decoder.decode_obj_project import create_project_properties
 from modules.decoder.decode_obj_property import create_property_properties
 from modules.decoder.decode_obj_rectangularshape import create_rectangularshape_properties
 from modules.decoder.decoder_obj_generalization import create_generalization_properties
+from modules.decoder.decoder_obj_generalizationset import create_generalizationset_properties
 from modules.logger import initialize_logger
 
 LOGGER = initialize_logger()
@@ -36,6 +37,7 @@ def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph) -> None:
     restricted_fields = ["x", "y", "stereotype", "order", "isExtensional", "isPowertype", "aggregationKind",
                          "cardinality"]
     positive_integer_fields = ["width", "height"]
+    mapped_fields = {"value": "text"}
 
     # Treating Path sub dictionaries
     if "id" not in dictionary_data:
@@ -73,7 +75,11 @@ def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph) -> None:
             continue
 
         # Graph's PREDICATE definition
-        new_predicate = URIRef(URI_ONTOUML + key)
+        # May be direct or mapped
+        if key not in mapped_fields.keys():
+            new_predicate = URIRef(URI_ONTOUML + key)
+        else:
+            new_predicate = URIRef(URI_ONTOUML + mapped_fields[key])
 
         # Graph's OBJECT definition
         if key in positive_integer_fields:
@@ -135,7 +141,7 @@ def decode_json_to_graph(json_data: dict) -> Graph:
         create_property_properties(dictionary_data, ontouml_graph)
     if "Generalization" in element_counting:
         create_generalization_properties(dictionary_data, ontouml_graph)
+    if "GeneralizationSet" in element_counting:
+        create_generalizationset_properties(dictionary_data, ontouml_graph)
 
     return ontouml_graph
-
-# TODO (@pedropaulofb): remove the CollectiveClass and return the attribute to 0..1 cardinality in the metamodel
