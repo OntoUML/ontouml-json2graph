@@ -13,9 +13,8 @@ from globals import URI_ONTOLOGY, URI_ONTOUML
 from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type
 
 
-def set_generalizationset_generalization_generalization(generalizationset_dict: dict, ontouml_graph: Graph) -> None:
-    """ Sets  the ontouml:generalization property between an ontouml:generalizationSet instance and their composing
-    entities of type ontouml:Generalization to the resulting graph.
+def set_generalizationset_relations(generalizationset_dict: dict, ontouml_graph: Graph) -> None:
+    """ Sets the ontouml:generalization and ontouml:categorizer property to the resulting graph.
 
     :param generalizationset_dict: GeneralizationSet object loaded as a dictionary.
     :type generalizationset_dict: dict
@@ -25,10 +24,18 @@ def set_generalizationset_generalization_generalization(generalizationset_dict: 
 
     generalizationset_individual = URIRef(URI_ONTOLOGY + generalizationset_dict['id'])
     generalization_property = URIRef(URI_ONTOUML + "generalization")
+    categorizer_property = URIRef(URI_ONTOUML + "categorizer")
 
+    # Setting ontouml:generalization property
     for generalization_dict in generalizationset_dict["generalizations"]:
         generalization_individual = URIRef(URI_ONTOLOGY + generalization_dict["id"])
         ontouml_graph.add((generalizationset_individual, generalization_property, generalization_individual))
+
+    # Setting ontouml:categorizer property
+    if "categorizer" in generalizationset_dict:
+        categorizer_individual = URIRef(URI_ONTOLOGY + generalizationset_dict["categorizer"]["id"])
+        ontouml_graph.add((generalizationset_individual, categorizer_property, categorizer_individual))
+
 
 
 def create_generalizationset_properties(json_data: dict, ontouml_graph: Graph) -> None:
@@ -39,6 +46,7 @@ def create_generalizationset_properties(json_data: dict, ontouml_graph: Graph) -
 
     Created properties:
         - ontouml:generalization (range ontouml:Generalization)
+        - ontouml:categorizer (range ontouml:Class)
 
     :param json_data: JSON's data to have its fields decoded loaded into a dictionary.
     :type json_data: dict
@@ -55,4 +63,4 @@ def create_generalizationset_properties(json_data: dict, ontouml_graph: Graph) -
         if "generalizations" not in generalizationset_dict:
             continue
 
-        set_generalizationset_generalization_generalization(generalizationset_dict, ontouml_graph)
+        set_generalizationset_relations(generalizationset_dict, ontouml_graph)
