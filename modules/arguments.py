@@ -6,6 +6,7 @@ from globals import SOFTWARE_ACRONYM, SOFTWARE_VERSION, SOFTWARE_NAME, SOFTWARE_
 from modules.logger import initialize_logger
 
 LOGGER = initialize_logger()
+ARGUMENTS = {}
 
 
 def treat_user_arguments() -> dict:
@@ -34,8 +35,10 @@ def treat_user_arguments() -> dict:
     # OPTIONAL ARGUMENT
     arguments_parser.add_argument("-f", "--format", action="store", choices=ALLOWED_GRAPH_FORMATS, default="ttl",
                                   help="Format to save the decoded file. Default is 'ttl'.")
-    arguments_parser.add_argument("-l", "--language", action="store", default="",
-                                  help="Language of the ontology's concepts.")
+    arguments_parser.add_argument("-l", "--language", action="store", type=str, default="",
+                                  help="Language tag for the ontology's concepts.")
+    arguments_parser.add_argument("-c", "--correct", action="store_true",
+                                  help="Perform syntactical and semantic validations and corrections.")
 
     # AUTOMATIC ARGUMENTS
     arguments_parser.add_argument("-v", "--version", action="version", help="Print the software version and exit.")
@@ -46,6 +49,7 @@ def treat_user_arguments() -> dict:
     # Asserting dictionary keys
     arguments_dictionary = {"format": arguments.format,
                             "language": arguments.language,
+                            "correct": arguments.correct,
                             "json_path": arguments.json_file}
 
     # Checking if provided input file type is valid
@@ -55,3 +59,9 @@ def treat_user_arguments() -> dict:
     LOGGER.debug(f"Arguments parsed. Obtained values are: {arguments_dictionary}.")
 
     return arguments_dictionary
+
+def publish_user_arguments():
+
+    arguments_dictionary = treat_user_arguments()
+    global ARGUMENTS
+    ARGUMENTS = arguments_dictionary

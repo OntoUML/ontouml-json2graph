@@ -2,7 +2,7 @@
 
 import time
 
-from modules.arguments import treat_user_arguments
+from modules.arguments import publish_user_arguments, ARGUMENTS
 from modules.decoder.decode_main import decode_json_to_graph
 from modules.input_output import safe_load_json_file, write_graph_file
 from modules.logger import initialize_logger
@@ -61,10 +61,10 @@ def ontouml_json2graph(json_path: str, graph_format: str, language: str = "",
 
 if __name__ == '__main__':
     # Treat arguments
-    arguments_dictionary = treat_user_arguments()
-    json_path = arguments_dictionary["json_path"]
-    graph_format = arguments_dictionary["format"]
-    language = arguments_dictionary["language"]
+
+    publish_user_arguments()
+    print(ARGUMENTS)
+    exit(3)
 
     # Execute
     ontouml_json2graph(json_path, graph_format, language, "production")

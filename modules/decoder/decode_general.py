@@ -1,4 +1,5 @@
 """ General decoding functions. """
+from pprint import pprint
 
 from rdflib import Graph, URIRef, Literal, RDF
 
@@ -171,6 +172,8 @@ def get_all_ids_of_specific_type(dictionary_data: dict, wanted_type: str, list_i
     :return: List of ids from all objects for a given type.
     :rtype: list[str]
     """
+
+    print(ARGUMENTS)
 
     if list_ids_for_type is None:
         list_ids_for_type = []
