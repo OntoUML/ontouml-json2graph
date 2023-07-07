@@ -1,0 +1,151 @@
+{
+  "id" : "GuP9JGGAqACNwx0",
+  "name" : "newuntitled",
+  "description" : null,
+  "type" : "Project",
+  "model" : {
+    "id" : "GuP9JGGAqACNwx0_root",
+    "name" : "newuntitled",
+    "description" : null,
+    "type" : "Package",
+    "propertyAssignments" : null,
+    "contents" : [ {
+      "id" : "mFov9JGGAqACNxDV",
+      "name" : "MyPackage",
+      "description" : null,
+      "type" : "Package",
+      "propertyAssignments" : null,
+      "contents" : [ {
+        "id" : "6bAoDJGGAqACNxEf",
+        "name" : "Class2",
+        "description" : null,
+        "type" : "Class",
+        "propertyAssignments" : null,
+        "stereotype" : "datatype",
+        "isAbstract" : false,
+        "isDerived" : false,
+        "properties" : null,
+        "isExtensional" : null,
+        "isPowertype" : null,
+        "order" : null,
+        "literals" : null,
+        "restrictedTo" : [ "abstract" ]
+      } ]
+    }, {
+      "id" : "OC5P9JGGAqACNxBg",
+      "name" : "MyModel",
+      "description" : null,
+      "type" : "Package",
+      "propertyAssignments" : null,
+      "contents" : [ {
+        "id" : "lAvIDJGGAqACNxEE",
+        "name" : "Class",
+        "description" : null,
+        "type" : "Class",
+        "propertyAssignments" : null,
+        "stereotype" : "historicalRole",
+        "isAbstract" : false,
+        "isDerived" : false,
+        "properties" : null,
+        "isExtensional" : false,
+        "isPowertype" : null,
+        "order" : null,
+        "literals" : null,
+        "restrictedTo" : null
+      } ]
+    }, {
+      "id" : "FLvP9JGGAqACNxCx",
+      "name" : "Model22",
+      "description" : null,
+      "type" : "Package",
+      "propertyAssignments" : null,
+      "contents" : null
+    } ]
+  },
+  "diagrams" : [ {
+    "id" : "N2pP9JGGAqACNxBP",
+    "name" : "Class Diagram1",
+    "description" : null,
+    "type" : "Diagram",
+    "owner" : {
+      "id" : "GuP9JGGAqACNwx0_root",
+      "type" : "Package"
+    },
+    "contents" : [ {
+      "id" : "5AvIDJGGAqACNxED",
+      "type" : "ClassView",
+      "modelElement" : {
+        "id" : "lAvIDJGGAqACNxEE",
+        "type" : "Class"
+      },
+      "shape" : {
+        "id" : "5AvIDJGGAqACNxED_shape",
+        "type" : "Rectangle",
+        "x" : 137,
+        "y" : 111,
+        "width" : 102,
+        "height" : 40
+      }
+    }, {
+      "id" : "ow9P9JGGAqACNxCB",
+      "type" : "PackageView",
+      "modelElement" : {
+        "id" : "OC5P9JGGAqACNxBg",
+        "type" : "Package"
+      },
+      "shape" : {
+        "id" : "ow9P9JGGAqACNxCB_shape",
+        "type" : "Rectangle",
+        "x" : 117,
+        "y" : 63,
+        "width" : 499,
+        "height" : 318
+      }
+    }, {
+      "id" : "2D4v9JGGAqACNxDh",
+      "type" : "PackageView",
+      "modelElement" : {
+        "id" : "mFov9JGGAqACNxDV",
+        "type" : "Package"
+      },
+      "shape" : {
+        "id" : "2D4v9JGGAqACNxDh_shape",
+        "type" : "Rectangle",
+        "x" : 338,
+        "y" : 187,
+        "width" : 140,
+        "height" : 100
+      }
+    }, {
+      "id" : "uu_P9JGGAqACNxC8",
+      "type" : "PackageView",
+      "modelElement" : {
+        "id" : "FLvP9JGGAqACNxCx",
+        "type" : "Package"
+      },
+      "shape" : {
+        "id" : "uu_P9JGGAqACNxC8_shape",
+        "type" : "Rectangle",
+        "x" : 285,
+        "y" : 121,
+        "width" : 307,
+        "height" : 233
+      }
+    }, {
+      "id" : "6bAoDJGGAqACNxEe",
+      "type" : "ClassView",
+      "modelElement" : {
+        "id" : "6bAoDJGGAqACNxEf",
+        "type" : "Class"
+      },
+      "shape" : {
+        "id" : "6bAoDJGGAqACNxEe_shape",
+        "type" : "Rectangle",
+        "x" : 368,
+        "y" : 235,
+        "width" : 80,
+        "height" : 40
+      }
+    } ]
+  } ]
+}
