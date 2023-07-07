@@ -34,6 +34,8 @@ def treat_user_arguments() -> dict:
     # OPTIONAL ARGUMENT
     arguments_parser.add_argument("-f", "--format", action="store", choices=ALLOWED_GRAPH_FORMATS, default="ttl",
                                   help="Format to save the decoded file. Default is 'ttl'.")
+    arguments_parser.add_argument("-l", "--language", action="store", default="",
+                                  help="Language of the ontology's concepts.")
 
     # AUTOMATIC ARGUMENTS
     arguments_parser.add_argument("-v", "--version", action="version", help="Print the software version and exit.")
@@ -42,7 +44,9 @@ def treat_user_arguments() -> dict:
     arguments = arguments_parser.parse_args()
 
     # Asserting dictionary keys
-    arguments_dictionary = {"format": arguments.format, "json_path": arguments.json_file}
+    arguments_dictionary = {"format": arguments.format,
+                            "language": arguments.language,
+                            "json_path": arguments.json_file}
 
     # Checking if provided input file type is valid
     if ".json" not in arguments.json_file:

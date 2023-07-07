@@ -20,7 +20,7 @@ from modules.logger import initialize_logger
 LOGGER = initialize_logger()
 
 
-def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph) -> None:
+def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph, language: str) -> None:
     """ Receives the full dictionary with the loaded JSON data and decode known allowed values to the OntoUML Graph.
     Recursively evaluates the dictionary to create all possible instances, setting their types and attributes.
 
@@ -67,12 +67,12 @@ def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph) -> None:
         if type(dictionary_data[key]) is list:
             for item in dictionary_data[key]:
                 if type(item) is dict:
-                    decode_dictionary(item, ontouml_graph)
+                    decode_dictionary(item, ontouml_graph, language)
             continue
 
         # Recursively treats sub-dictionaries
         if type(dictionary_data[key]) is dict:
-            decode_dictionary(dictionary_data[key], ontouml_graph)
+            decode_dictionary(dictionary_data[key], ontouml_graph, language)
             continue
 
         # Graph's PREDICATE definition
@@ -83,7 +83,9 @@ def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph) -> None:
             new_predicate = URIRef(URI_ONTOUML + mapped_fields[key])
 
         # Graph's OBJECT definition
-        if key in positive_integer_fields:
+        if (key == "name") and language != "":
+            new_object = Literal(dictionary_data[key],lang=language)
+        elif key in positive_integer_fields:
             # Checking if is not integer (as int or as string)
             if type(dictionary_data[key]) is not int:
                 if not dictionary_data[key].isdigit():
@@ -99,7 +101,7 @@ def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph) -> None:
         ontouml_graph.add((new_instance, new_predicate, new_object))
 
 
-def decode_json_to_graph(json_data: dict) -> Graph:
+def decode_json_to_graph(json_data: dict, language: str) -> Graph:
     """ Receives the loaded JSON data and decodes it into a graph that complies to the OntoUML Vocabulary.
 
     :param json_data: Input JSON data loaded as a dictionary.
@@ -118,7 +120,7 @@ def decode_json_to_graph(json_data: dict) -> Graph:
     dictionary_data = clean_null_data(json_data)
 
     # GENERAL DECODING: creating all instances and setting their types.
-    decode_dictionary(dictionary_data, ontouml_graph)
+    decode_dictionary(dictionary_data, ontouml_graph, language)
 
     # Counting elements for performance enhancement
     element_counting = count_elements_graph(ontouml_graph)

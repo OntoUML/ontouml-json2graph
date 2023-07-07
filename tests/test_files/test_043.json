@@ -1,0 +1,351 @@
+{
+  "id": "fJlIhJGGAqACNw3E",
+  "name": "test_018",
+  "description": null,
+  "type": "Project",
+  "model": {
+    "id": "fJlIhJGGAqACNw3E_root",
+    "name": "test_018",
+    "description": null,
+    "type": "Package",
+    "propertyAssignments": null,
+    "contents": [
+      {
+        "id": "2EDIhJGGAqACNxHJ",
+        "name": "ClassDiagram2",
+        "description": null,
+        "type": "Package",
+        "propertyAssignments": null,
+        "contents": null
+      },
+      {
+        "id": "hz1IhJGGAqACNxGz",
+        "name": "Class1",
+        "description": "this is an example of a class description",
+        "type": "Class",
+        "propertyAssignments": null,
+        "stereotype": "quality",
+        "isAbstract": false,
+        "isDerived": false,
+        "properties": [
+          {
+            "id": "II2khJGGAqACNwm0",
+            "name": "attribute1Class1",
+            "description": null,
+            "type": "Property",
+            "propertyAssignments": null,
+            "stereotype": null,
+            "isDerived": false,
+            "isReadOnly": false,
+            "isOrdered": false,
+            "cardinality": "0..1",
+            "propertyType": null,
+            "subsettedProperties": null,
+            "redefinedProperties": null,
+            "aggregationKind": "NONE"
+          },
+          {
+            "id": "MCOkhJGGAqACNwm3",
+            "name": "attribute2Class1",
+            "description": null,
+            "type": "Property",
+            "propertyAssignments": null,
+            "stereotype": null,
+            "isDerived": false,
+            "isReadOnly": true,
+            "isOrdered": false,
+            "cardinality": "0..*",
+            "propertyType": null,
+            "subsettedProperties": null,
+            "redefinedProperties": null,
+            "aggregationKind": "SHARED"
+          },
+          {
+            "id": "vnOkhJGGAqACNwm6",
+            "name": "attribute3Class1",
+            "description": null,
+            "type": "Property",
+            "propertyAssignments": null,
+            "stereotype": null,
+            "isDerived": true,
+            "isReadOnly": false,
+            "isOrdered": false,
+            "cardinality": "1..*",
+            "propertyType": {
+              "id": "gplIhJGGAqACNw3K",
+              "type": "Class"
+            },
+            "subsettedProperties": null,
+            "redefinedProperties": null,
+            "aggregationKind": "NONE"
+          },
+          {
+            "id": "onZkhJGGAqACNwnW",
+            "name": "attribute4Class1",
+            "description": null,
+            "type": "Property",
+            "propertyAssignments": null,
+            "stereotype": "end",
+            "isDerived": false,
+            "isReadOnly": false,
+            "isOrdered": false,
+            "cardinality": "20..25",
+            "propertyType": null,
+            "subsettedProperties": null,
+            "redefinedProperties": null,
+            "aggregationKind": "NONE"
+          },
+          {
+            "id": "Xr5khJGGAqACNwnZ",
+            "name": "attribute5Class1",
+            "description": null,
+            "type": "Property",
+            "propertyAssignments": null,
+            "stereotype": null,
+            "isDerived": false,
+            "isReadOnly": false,
+            "isOrdered": true,
+            "cardinality": null,
+            "propertyType": null,
+            "subsettedProperties": null,
+            "redefinedProperties": null,
+            "aggregationKind": "NONE"
+          },
+          {
+            "id": "rPqtRJGGAqACNwmx",
+            "name": "att6",
+            "description": null,
+            "type": "Property",
+            "propertyAssignments": null,
+            "stereotype": null,
+            "isDerived": false,
+            "isReadOnly": true,
+            "isOrdered": false,
+            "cardinality": "0",
+            "propertyType": {
+              "id": "gplIhJGGAqACNw3K",
+              "type": "Class"
+            },
+            "subsettedProperties": null,
+            "redefinedProperties": null,
+            "aggregationKind": "NONE"
+          },
+          {
+            "id": "VN6tRJGGAqACNwm1",
+            "name": "att7",
+            "description": null,
+            "type": "Property",
+            "propertyAssignments": null,
+            "stereotype": "begin",
+            "isDerived": false,
+            "isReadOnly": false,
+            "isOrdered": true,
+            "cardinality": "5",
+            "propertyType": {
+              "id": "gplIhJGGAqACNw3K",
+              "type": "Class"
+            },
+            "subsettedProperties": null,
+            "redefinedProperties": null,
+            "aggregationKind": "NONE"
+          },
+          {
+            "id": "cMWtRJGGAqACNwm5",
+            "name": "att8",
+            "description": null,
+            "type": "Property",
+            "propertyAssignments": null,
+            "stereotype": null,
+            "isDerived": true,
+            "isReadOnly": false,
+            "isOrdered": false,
+            "cardinality": "*",
+            "propertyType": null,
+            "subsettedProperties": null,
+            "redefinedProperties": null,
+            "aggregationKind": "NONE"
+          },
+          {
+            "id": "OeOzRJGGAqACNwmr",
+            "name": "att9",
+            "description": "this is an example of an attribute description",
+            "type": "Property",
+            "propertyAssignments": null,
+            "stereotype": "begin",
+            "isDerived": false,
+            "isReadOnly": false,
+            "isOrdered": false,
+            "cardinality": "7..7",
+            "propertyType": null,
+            "subsettedProperties": null,
+            "redefinedProperties": null,
+            "aggregationKind": "NONE"
+          },
+          {
+            "id": "I3OzRJGGAqACNwmw",
+            "name": "attribute",
+            "description": null,
+            "type": "Property",
+            "propertyAssignments": null,
+            "stereotype": "begin",
+            "isDerived": false,
+            "isReadOnly": false,
+            "isOrdered": false,
+            "cardinality": null,
+            "propertyType": null,
+            "subsettedProperties": null,
+            "redefinedProperties": null,
+            "aggregationKind": "NONE"
+          },
+          {
+            "id": "l1hzRJGGAqACNwnM",
+            "name": "att11",
+            "description": null,
+            "type": "Property",
+            "propertyAssignments": null,
+            "stereotype": "end",
+            "isDerived": false,
+            "isReadOnly": false,
+            "isOrdered": false,
+            "cardinality": "*..5",
+            "propertyType": null,
+            "subsettedProperties": null,
+            "redefinedProperties": null,
+            "aggregationKind": "NONE"
+          },
+          {
+            "id": "aeRzRJGGAqACNwnP",
+            "name": "att12",
+            "description": null,
+            "type": "Property",
+            "propertyAssignments": null,
+            "stereotype": "Event",
+            "isDerived": false,
+            "isReadOnly": false,
+            "isOrdered": true,
+            "cardinality": "5..1",
+            "propertyType": null,
+            "subsettedProperties": null,
+            "redefinedProperties": null,
+            "aggregationKind": "NONE"
+          },
+          {
+            "id": "nyVzRJGGAqACNwn3",
+            "name": "att13",
+            "description": null,
+            "type": "Property",
+            "propertyAssignments": null,
+            "stereotype": "CMP",
+            "isDerived": true,
+            "isReadOnly": false,
+            "isOrdered": false,
+            "cardinality": "created_invalid",
+            "propertyType": null,
+            "subsettedProperties": null,
+            "redefinedProperties": null,
+            "aggregationKind": "NONE"
+          }
+        ],
+        "isExtensional": null,
+        "isPowertype": null,
+        "order": null,
+        "literals": null,
+        "restrictedTo": [
+          "quality"
+        ]
+      },
+      {
+        "id": "gplIhJGGAqACNw3K",
+        "name": "int",
+        "description": null,
+        "type": "Class",
+        "propertyAssignments": null,
+        "stereotype": "datatype",
+        "isAbstract": false,
+        "isDerived": false,
+        "properties": null,
+        "isExtensional": null,
+        "isPowertype": null,
+        "order": null,
+        "literals": null,
+        "restrictedTo": [
+          "abstract"
+        ]
+      }
+    ]
+  },
+  "diagrams": [
+    {
+      "id": "FA1IhJGGAqACNxGf",
+      "name": "Class Diagram1",
+      "description": null,
+      "type": "Diagram",
+      "owner": {
+        "id": "fJlIhJGGAqACNw3E_root",
+        "type": "Package"
+      },
+      "contents": [
+        {
+          "id": "oeYohJGGAqACNxH9",
+          "type": "ClassView",
+          "modelElement": {
+            "id": "hz1IhJGGAqACNxGz",
+            "type": "Class"
+          },
+          "shape": {
+            "id": "oeYohJGGAqACNxH9_shape",
+            "type": "Rectangle",
+            "x": 1421,
+            "y": 119,
+            "width": 80,
+            "height": 40
+          }
+        },
+        {
+          "id": "hz1IhJGGAqACNxGy",
+          "type": "ClassView",
+          "modelElement": {
+            "id": "hz1IhJGGAqACNxGz",
+            "type": "Class"
+          },
+          "shape": {
+            "id": "hz1IhJGGAqACNxGy_shape",
+            "type": "Rectangle",
+            "x": 440,
+            "y": 208,
+            "width": 80,
+            "height": 40
+          }
+        }
+      ]
+    },
+    {
+      "id": "jDdIhJGGAqACNxG5",
+      "name": "ClassDiagram2",
+      "description": "this is an example of a diagram description",
+      "type": "Diagram",
+      "owner": {
+        "id": "2EDIhJGGAqACNxHJ",
+        "type": "Package"
+      },
+      "contents": [
+        {
+          "id": "V6jIhJGGAqACNxHR",
+          "type": "ClassView",
+          "modelElement": {
+            "id": "hz1IhJGGAqACNxGz",
+            "type": "Class"
+          },
+          "shape": {
+            "id": "V6jIhJGGAqACNxHR_shape",
+            "type": "Rectangle",
+            "x": 222,
+            "y": 74,
+            "width": 396,
+            "height": 428
+          }
+        }
+      ]
+    }
+  ]
+}

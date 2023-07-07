@@ -8,13 +8,16 @@ from modules.logger import initialize_logger
 from modules.utils_general import get_date_time
 
 
-def ontouml_json2graph(json_path: str, graph_format: str, execution_mode: str = "production") -> str:
+def ontouml_json2graph(json_path: str, graph_format: str, language: str = "",
+                       execution_mode: str = "production") -> str:
     """ Main function for ontouml-json2graph.
 
     :param json_path: Path to the JSON file to be decoded provided by the user.
     :type json_path: str
     :param graph_format: Format for saving the resulting knowledge graph.
     :type graph_format: str
+    :param language: Language tag to be added to the ontology's concepts.
+    :type language: str
     :param execution_mode: Information about execution mode. Valid values are 'production' (default) and 'test'.
     :type execution_mode: str
     :return: Saved output file path. Used for testing.
@@ -35,7 +38,7 @@ def ontouml_json2graph(json_path: str, graph_format: str, execution_mode: str = 
     json_data = safe_load_json_file(json_path)
 
     # Decode JSON into Graph
-    ontouml_graph = decode_json_to_graph(json_data)
+    ontouml_graph = decode_json_to_graph(json_data, language)
 
     if execution_mode == "production":
         # Get software's execution conclusion time
@@ -60,6 +63,7 @@ if __name__ == '__main__':
     arguments_dictionary = treat_user_arguments()
     json_path = arguments_dictionary["json_path"]
     graph_format = arguments_dictionary["format"]
+    language = arguments_dictionary["language"]
 
     # Execute
-    ontouml_json2graph(json_path, graph_format, "production")
+    ontouml_json2graph(json_path, graph_format, language, "production")

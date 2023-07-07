@@ -22,8 +22,10 @@ def test_ontouml_json2graph(input_file: str) -> None:
 
     test_name = Path(input_file).stem
 
+    language = "en" if (int(test_name[-2:]) > 41) else ""
+
     # Create resulting Graph in ttl syntax
-    resulting_graph_file = ontouml_json2graph(input_file, "ttl", "test")
+    resulting_graph_file = ontouml_json2graph(input_file, "ttl", language, "test")
 
     # Getting expected result
     expected_graph_file = input_file.replace(".json", ".ttl")

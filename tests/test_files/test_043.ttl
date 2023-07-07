@@ -1,0 +1,363 @@
+@prefix :        <https://example.org#>.
+@prefix ontouml: <https://w3id.org/ontouml#>.
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl:     <http://www.w3.org/2002/07/owl#>.
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#>.
+
+:fJlIhJGGAqACNw3E
+    rdf:type        ontouml:Project ;
+    ontouml:name    "test_018"@en ;
+    ontouml:model   :fJlIhJGGAqACNw3E_root ;
+    ontouml:diagram :FA1IhJGGAqACNxGf, :jDdIhJGGAqACNxG5 .
+
+:fJlIhJGGAqACNw3E_root
+    rdf:type                     ontouml:Package ;
+    ontouml:project              :fJlIhJGGAqACNw3E ;
+    ontouml:name                 "test_018"@en ;
+    ontouml:containsModelElement :2EDIhJGGAqACNxHJ, :hz1IhJGGAqACNxGz, :gplIhJGGAqACNw3K .
+
+:2EDIhJGGAqACNxHJ
+    rdf:type        ontouml:Package ;
+    ontouml:project :fJlIhJGGAqACNw3E ;
+    ontouml:name    "ClassDiagram2"@en .
+
+:hz1IhJGGAqACNxGz
+    rdf:type             ontouml:Class ;
+    ontouml:project      :fJlIhJGGAqACNw3E ;
+    ontouml:name         "Class1"@en ;
+    ontouml:description  "this is an example of a class description" ;
+    ontouml:stereotype   ontouml:quality ;
+    ontouml:restrictedTo ontouml:qualityNature ;
+    ontouml:isAbstract   "false"^^xsd:boolean ;
+    ontouml:isDerived    "false"^^xsd:boolean ;
+    ontouml:isPowertype  "false"^^xsd:boolean ;
+    ontouml:order        "1"^^xsd:nonNegativeInteger ;
+    ontouml:attribute    :II2khJGGAqACNwm0, :MCOkhJGGAqACNwm3, :vnOkhJGGAqACNwm6, :onZkhJGGAqACNwnW, :Xr5khJGGAqACNwnZ,
+                         :rPqtRJGGAqACNwmx, :VN6tRJGGAqACNwm1, :cMWtRJGGAqACNwm5, :OeOzRJGGAqACNwmr, :I3OzRJGGAqACNwmw,
+                         :l1hzRJGGAqACNwnM, :aeRzRJGGAqACNwnP, :nyVzRJGGAqACNwn3 .
+
+:gplIhJGGAqACNw3K
+    rdf:type             ontouml:Class ;
+    ontouml:project      :fJlIhJGGAqACNw3E ;
+    ontouml:name         "int"@en ;
+    ontouml:stereotype   ontouml:datatype ;
+    ontouml:restrictedTo ontouml:abstractNature ;
+    ontouml:isAbstract   "false"^^xsd:boolean ;
+    ontouml:isDerived    "false"^^xsd:boolean ;
+    ontouml:isPowertype  "false"^^xsd:boolean ;
+    ontouml:order        "1"^^xsd:nonNegativeInteger .
+
+:II2khJGGAqACNwm0
+    rdf:type            ontouml:Property ;
+    ontouml:project     :fJlIhJGGAqACNw3E ;
+    ontouml:name        "attribute1Class1"@en ;
+    ontouml:cardinality :II2khJGGAqACNwm0_cardinality .
+
+:II2khJGGAqACNwm0_cardinality
+    rdf:type                 ontouml:Cardinality ;
+    ontouml:cardinalityValue "0..1" ;
+    ontouml:lowerBound       "0" ;
+    ontouml:upperBound       "1" .
+
+:II2khJGGAqACNwm0
+    ontouml:isDerived       "false"^^xsd:boolean ;
+    ontouml:isReadOnly      "false"^^xsd:boolean ;
+    ontouml:isOrdered       "false"^^xsd:boolean ;
+    ontouml:aggregationKind ontouml:none .
+
+:MCOkhJGGAqACNwm3
+    rdf:type            ontouml:Property ;
+    ontouml:project     :fJlIhJGGAqACNw3E ;
+    ontouml:name        "attribute2Class1"@en ;
+    ontouml:cardinality :MCOkhJGGAqACNwm3_cardinality .
+
+:MCOkhJGGAqACNwm3_cardinality
+    rdf:type                 ontouml:Cardinality ;
+    ontouml:cardinalityValue "0..*" ;
+    ontouml:lowerBound       "0" ;
+    ontouml:upperBound       "*" .
+
+:MCOkhJGGAqACNwm3
+    ontouml:isDerived       "false"^^xsd:boolean ;
+    ontouml:isReadOnly      "true"^^xsd:boolean ;
+    ontouml:isOrdered       "false"^^xsd:boolean ;
+    ontouml:aggregationKind ontouml:shared .
+
+:vnOkhJGGAqACNwm6
+    rdf:type                ontouml:Property ;
+    ontouml:project         :fJlIhJGGAqACNw3E ;
+    ontouml:name            "attribute3Class1"@en ;
+    ontouml:cardinality     :vnOkhJGGAqACNwm6_cardinality ;
+    ontouml:isDerived       "true"^^xsd:boolean ;
+    ontouml:isReadOnly      "false"^^xsd:boolean ;
+    ontouml:isOrdered       "false"^^xsd:boolean ;
+    ontouml:aggregationKind ontouml:none ;
+    ontouml:propertyType    :gplIhJGGAqACNw3K .
+
+:vnOkhJGGAqACNwm6_cardinality
+    rdf:type                 ontouml:Cardinality ;
+    ontouml:cardinalityValue "1..*" ;
+    ontouml:lowerBound       "1" ;
+    ontouml:upperBound       "*" .
+
+:onZkhJGGAqACNwnW
+    rdf:type            ontouml:Property ;
+    ontouml:project     :fJlIhJGGAqACNw3E ;
+    ontouml:name        "attribute4Class1"@en ;
+    ontouml:stereotype  ontouml:end ;
+    ontouml:cardinality :onZkhJGGAqACNwnW_cardinality .
+
+:onZkhJGGAqACNwnW_cardinality
+    rdf:type                 ontouml:Cardinality ;
+    ontouml:cardinalityValue "20..25" ;
+    ontouml:lowerBound       "20" ;
+    ontouml:upperBound       "25" .
+
+:onZkhJGGAqACNwnW
+    ontouml:isDerived       "false"^^xsd:boolean ;
+    ontouml:isReadOnly      "false"^^xsd:boolean ;
+    ontouml:isOrdered       "false"^^xsd:boolean ;
+    ontouml:aggregationKind ontouml:none .
+
+:Xr5khJGGAqACNwnZ
+    rdf:type                ontouml:Property ;
+    ontouml:project         :fJlIhJGGAqACNw3E ;
+    ontouml:name            "attribute5Class1"@en ;
+    ontouml:isDerived       "false"^^xsd:boolean ;
+    ontouml:isReadOnly      "false"^^xsd:boolean ;
+    ontouml:isOrdered       "true"^^xsd:boolean ;
+    ontouml:aggregationKind ontouml:none .
+
+:rPqtRJGGAqACNwmx
+    rdf:type            ontouml:Property ;
+    ontouml:project     :fJlIhJGGAqACNw3E ;
+    ontouml:name        "att6"@en ;
+    ontouml:cardinality :rPqtRJGGAqACNwmx_cardinality .
+
+:rPqtRJGGAqACNwmx_cardinality
+    rdf:type                 ontouml:Cardinality ;
+    ontouml:cardinalityValue "0" .
+
+:rPqtRJGGAqACNwmx
+    ontouml:isDerived       "false"^^xsd:boolean ;
+    ontouml:isReadOnly      "true"^^xsd:boolean ;
+    ontouml:isOrdered       "false"^^xsd:boolean ;
+    ontouml:aggregationKind ontouml:none ;
+    ontouml:propertyType    :gplIhJGGAqACNw3K .
+
+:VN6tRJGGAqACNwm1
+    rdf:type            ontouml:Property ;
+    ontouml:project     :fJlIhJGGAqACNw3E ;
+    ontouml:name        "att7"@en ;
+    ontouml:stereotype  ontouml:begin ;
+    ontouml:cardinality :VN6tRJGGAqACNwm1_cardinality .
+
+:VN6tRJGGAqACNwm1_cardinality
+    rdf:type                 ontouml:Cardinality ;
+    ontouml:cardinalityValue "5" ;
+    ontouml:lowerBound       "5" ;
+    ontouml:upperBound       "5" .
+
+:VN6tRJGGAqACNwm1
+    ontouml:isDerived       "false"^^xsd:boolean ;
+    ontouml:isReadOnly      "false"^^xsd:boolean ;
+    ontouml:isOrdered       "true"^^xsd:boolean ;
+    ontouml:aggregationKind ontouml:none ;
+    ontouml:propertyType    :gplIhJGGAqACNw3K .
+
+:cMWtRJGGAqACNwm5
+    rdf:type            ontouml:Property ;
+    ontouml:project     :fJlIhJGGAqACNw3E ;
+    ontouml:name        "att8"@en ;
+    ontouml:cardinality :cMWtRJGGAqACNwm5_cardinality .
+
+:cMWtRJGGAqACNwm5_cardinality
+    rdf:type                 ontouml:Cardinality ;
+    ontouml:cardinalityValue "*" .
+
+:cMWtRJGGAqACNwm5
+    ontouml:isDerived       "true"^^xsd:boolean ;
+    ontouml:isReadOnly      "false"^^xsd:boolean ;
+    ontouml:isOrdered       "false"^^xsd:boolean ;
+    ontouml:aggregationKind ontouml:none .
+
+:OeOzRJGGAqACNwmr
+    rdf:type            ontouml:Property ;
+    ontouml:project     :fJlIhJGGAqACNw3E ;
+    ontouml:name        "att9"@en ;
+    ontouml:description "this is an example of an attribute description" ;
+    ontouml:stereotype  ontouml:begin ;
+    ontouml:cardinality :OeOzRJGGAqACNwmr_cardinality .
+
+:OeOzRJGGAqACNwmr_cardinality
+    rdf:type                 ontouml:Cardinality ;
+    ontouml:cardinalityValue "7..7" ;
+    ontouml:lowerBound       "7" ;
+    ontouml:upperBound       "7" .
+
+:OeOzRJGGAqACNwmr
+    ontouml:isDerived       "false"^^xsd:boolean ;
+    ontouml:isReadOnly      "false"^^xsd:boolean ;
+    ontouml:isOrdered       "false"^^xsd:boolean ;
+    ontouml:aggregationKind ontouml:none .
+
+:I3OzRJGGAqACNwmw
+    rdf:type                ontouml:Property ;
+    ontouml:project         :fJlIhJGGAqACNw3E ;
+    ontouml:name            "attribute"@en ;
+    ontouml:stereotype      ontouml:begin ;
+    ontouml:isDerived       "false"^^xsd:boolean ;
+    ontouml:isReadOnly      "false"^^xsd:boolean ;
+    ontouml:isOrdered       "false"^^xsd:boolean ;
+    ontouml:aggregationKind ontouml:none .
+
+:l1hzRJGGAqACNwnM
+    rdf:type            ontouml:Property ;
+    ontouml:project     :fJlIhJGGAqACNw3E ;
+    ontouml:name        "att11"@en ;
+    ontouml:stereotype  ontouml:end ;
+    ontouml:cardinality :l1hzRJGGAqACNwnM_cardinality .
+
+:l1hzRJGGAqACNwnM_cardinality
+    rdf:type                 ontouml:Cardinality ;
+    ontouml:cardinalityValue "*..5" .
+
+:l1hzRJGGAqACNwnM
+    ontouml:isDerived       "false"^^xsd:boolean ;
+    ontouml:isReadOnly      "false"^^xsd:boolean ;
+    ontouml:isOrdered       "false"^^xsd:boolean ;
+    ontouml:aggregationKind ontouml:none .
+
+:aeRzRJGGAqACNwnP
+    rdf:type            ontouml:Property ;
+    ontouml:project     :fJlIhJGGAqACNw3E ;
+    ontouml:name        "att12"@en ;
+    ontouml:stereotype  ontouml:Event ;
+    ontouml:cardinality :aeRzRJGGAqACNwnP_cardinality .
+
+:aeRzRJGGAqACNwnP_cardinality
+    rdf:type                 ontouml:Cardinality ;
+    ontouml:cardinalityValue "5..1" .
+
+:aeRzRJGGAqACNwnP
+    ontouml:isDerived       "false"^^xsd:boolean ;
+    ontouml:isReadOnly      "false"^^xsd:boolean ;
+    ontouml:isOrdered       "true"^^xsd:boolean ;
+    ontouml:aggregationKind ontouml:none .
+
+:nyVzRJGGAqACNwn3
+    rdf:type            ontouml:Property ;
+    ontouml:project     :fJlIhJGGAqACNw3E ;
+    ontouml:name        "att13"@en ;
+    ontouml:stereotype  ontouml:CMP ;
+    ontouml:cardinality :nyVzRJGGAqACNwn3_cardinality .
+
+:nyVzRJGGAqACNwn3_cardinality
+    rdf:type                 ontouml:Cardinality ;
+    ontouml:cardinalityValue "created_invalid" .
+
+:nyVzRJGGAqACNwn3
+    ontouml:isDerived       "true"^^xsd:boolean ;
+    ontouml:isReadOnly      "false"^^xsd:boolean ;
+    ontouml:isOrdered       "false"^^xsd:boolean ;
+    ontouml:aggregationKind ontouml:none .
+
+:FA1IhJGGAqACNxGf
+    rdf:type             ontouml:Diagram ;
+    ontouml:project      :fJlIhJGGAqACNw3E ;
+    ontouml:name         "Class Diagram1"@en ;
+    ontouml:containsView :oeYohJGGAqACNxH9, :hz1IhJGGAqACNxGy .
+
+:jDdIhJGGAqACNxG5
+    rdf:type             ontouml:Diagram ;
+    ontouml:project      :fJlIhJGGAqACNw3E ;
+    ontouml:name         "ClassDiagram2"@en ;
+    ontouml:description  "this is an example of a diagram description" ;
+    ontouml:containsView :V6jIhJGGAqACNxHR .
+
+:oeYohJGGAqACNxH9
+    rdf:type         ontouml:ClassView ;
+    ontouml:project  :fJlIhJGGAqACNw3E ;
+    ontouml:isViewOf :hz1IhJGGAqACNxGz ;
+    ontouml:shape    :oeYohJGGAqACNxH9_shape .
+
+:hz1IhJGGAqACNxGy
+    rdf:type         ontouml:ClassView ;
+    ontouml:project  :fJlIhJGGAqACNw3E ;
+    ontouml:isViewOf :hz1IhJGGAqACNxGz ;
+    ontouml:shape    :hz1IhJGGAqACNxGy_shape .
+
+:V6jIhJGGAqACNxHR
+    rdf:type         ontouml:ClassView ;
+    ontouml:project  :fJlIhJGGAqACNw3E ;
+    ontouml:isViewOf :hz1IhJGGAqACNxGz ;
+    ontouml:shape    :V6jIhJGGAqACNxHR_shape .
+
+:oeYohJGGAqACNxH9_shape
+    rdf:type                ontouml:Rectangle ;
+    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:width           "80"^^xsd:positiveInteger ;
+    ontouml:topLeftPosition :oeYohJGGAqACNxH9_shape_point .
+
+:oeYohJGGAqACNxH9_shape_point
+    rdf:type            ontouml:Point ;
+    ontouml:xCoordinate 1421 ;
+    ontouml:yCoordinate 119 .
+
+:hz1IhJGGAqACNxGy_shape
+    rdf:type                ontouml:Rectangle ;
+    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:width           "80"^^xsd:positiveInteger ;
+    ontouml:topLeftPosition :hz1IhJGGAqACNxGy_shape_point .
+
+:hz1IhJGGAqACNxGy_shape_point
+    rdf:type            ontouml:Point ;
+    ontouml:xCoordinate 440 ;
+    ontouml:yCoordinate 208 .
+
+:V6jIhJGGAqACNxHR_shape
+    rdf:type                ontouml:Rectangle ;
+    ontouml:height          "428"^^xsd:positiveInteger ;
+    ontouml:width           "396"^^xsd:positiveInteger ;
+    ontouml:topLeftPosition :V6jIhJGGAqACNxHR_shape_point .
+
+:V6jIhJGGAqACNxHR_shape_point
+    rdf:type            ontouml:Point ;
+    ontouml:xCoordinate 222 ;
+    ontouml:yCoordinate 74 .
+# MANUALLY ADDED
+:FA1IhJGGAqACNxGf
+    ontouml:owner :fJlIhJGGAqACNw3E_root .
+
+:V6jIhJGGAqACNxHR_shape
+    ontouml:project :fJlIhJGGAqACNw3E .
+
+:aeRzRJGGAqACNwnP_cardinality
+    ontouml:lowerBound "5" ;
+    ontouml:upperBound "1" .
+
+:cMWtRJGGAqACNwm5_cardinality
+    ontouml:lowerBound "0" ;
+    ontouml:upperBound "*" .
+
+:hz1IhJGGAqACNxGy_shape
+    ontouml:project :fJlIhJGGAqACNw3E .
+
+:jDdIhJGGAqACNxG5
+    ontouml:owner :2EDIhJGGAqACNxHJ .
+
+:l1hzRJGGAqACNwnM_cardinality
+    ontouml:lowerBound "0" ;
+    ontouml:upperBound "5" .
+
+:nyVzRJGGAqACNwn3_cardinality
+    ontouml:lowerBound "created_invalid" ;
+    ontouml:upperBound "created_invalid" .
+
+:oeYohJGGAqACNxH9_shape
+    ontouml:project :fJlIhJGGAqACNw3E .
+
+:rPqtRJGGAqACNwmx_cardinality
+    ontouml:lowerBound "0" ;
+    ontouml:upperBound "0" .
