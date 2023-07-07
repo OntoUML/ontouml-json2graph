@@ -3,6 +3,7 @@
 import time
 
 import modules.arguments as args
+from globals import SOFTWARE_NAME, SOFTWARE_VERSION
 from modules.decoder.decode_main import decode_json_to_graph
 from modules.input_output import safe_load_json_file, write_graph_file
 from modules.logger import initialize_logger
@@ -37,7 +38,7 @@ def ontouml_json2graph(json_path: str, graph_format: str, language: str = "",
         start_date_time = get_date_time(time_screen_format)
         st = time.perf_counter()
 
-        logger.info(f"OntoUML JSON2Graph decoder started on {start_date_time}!\n")
+        logger.info(f"{SOFTWARE_NAME} v{SOFTWARE_VERSION} started on {start_date_time}!\n")
 
     # Load JSON
     json_data = safe_load_json_file(json_path)
@@ -52,7 +53,7 @@ def ontouml_json2graph(json_path: str, graph_format: str, language: str = "",
         elapsed_time = round((et - st), 3)
 
         # The sleep function is for the correct printing. The performance is not affected as it only runs in production
-        time.sleep(0.1)
+        time.sleep(0.5)
         print()
         logger.info(f"Decoding concluded on {end_date_time}. Total execution time: {elapsed_time} seconds.")
 
