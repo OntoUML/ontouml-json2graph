@@ -1,10 +1,6 @@
 """ Diverse util and auxiliary functions. """
 from datetime import datetime
 
-from modules.logger import initialize_logger
-
-LOGGER = initialize_logger()
-
 
 def count_elements_types(element_type_list: list[str], element_counting: dict) -> int:
     """ Returns the number of elements (in the already counted data) of the types given in a list.

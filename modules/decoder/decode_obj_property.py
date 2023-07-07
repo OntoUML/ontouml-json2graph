@@ -9,6 +9,7 @@ Function's nomenclatures:
 
 from rdflib import Graph, URIRef, RDF, Literal
 
+import modules.arguments as args
 from globals import URI_ONTOUML, URI_ONTOLOGY
 from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type
 from modules.logger import initialize_logger
@@ -40,20 +41,22 @@ def validate_property_stereotype(ontouml_graph: Graph) -> None:
         property_stereotype = (row.property_stereotype).fragment
 
         # VALIDATION A: If declared but invalid, create and report error
-        if property_stereotype not in ["begin", "end"]:
+        if property_stereotype not in ["begin", "end"] and not args.ARGUMENTS["silent"]:
             LOGGER.error(f"Invalid stereotype '{property_stereotype}' used for property with ID "
                          f"'{property_id}'. The transformation output is syntactically INVALID.")
 
         # VALIDATION B1: If class has known stereotype and is not event, report sematic error.
-        elif class_stereotype not in ["event", "ClassStereotype"]:
+        elif class_stereotype not in ["event", "ClassStereotype"] and not args.ARGUMENTS["silent"]:
             LOGGER.warning(f"Semantic error. The class with ID '{class_id}' and stereotype '{class_stereotype}' "
                            f"has an attribute with stereotype '{property_stereotype}'. The begin and end property "
                            f"stereotypes are only applicable to 'event' classes. Transformation proceeded as is.")
 
         # VALIDATION B2: If class has unknown stereotype and stereotyped attribute, set as event.
         elif class_stereotype == "ClassStereotype":
-            LOGGER.warning(f"The class with ID '{class_id}' and unknown stereotype has an attribute stereotyped "
-                           f"'{property_stereotype}'. It was stereotyped as 'event' for a semantically valid output.")
+
+            if not args.ARGUMENTS["silent"]:
+                LOGGER.warning(f"The class with ID '{class_id}' and unknown stereotype has an attribute stereotyped "
+                               f"'{property_stereotype}'. It was stereotyped as 'event' for a semantically valid output.")
 
             ontouml_graph.remove((URIRef(URI_ONTOLOGY + class_id),
                                   URIRef(URI_ONTOUML + "stereotype"),
@@ -136,10 +139,10 @@ def determine_cardinality_bounds(cardinalities: str, property_id: str) -> (str, 
         lower_bound = "0"
 
     # Validating discovered cardinality bounds
-    if not (upper_bound.isnumeric() or upper_bound == "*"):
+    if not (upper_bound.isnumeric() or upper_bound == "*") and not args.ARGUMENTS["silent"]:
         LOGGER.warning(f"Invalid cardinality's upper bound (value '{upper_bound}') for Property individual with "
                        f"ID '{property_id}'. Transformation proceeded as is.")
-    if not lower_bound.isnumeric():
+    if not lower_bound.isnumeric() and not args.ARGUMENTS["silent"]:
         LOGGER.warning(f"Invalid cardinality's lower bound (value '{lower_bound}') for Property individual with "
                        f"ID '{property_id}'. Transformation proceeded as is.")
 
@@ -221,4 +224,6 @@ def create_property_properties(json_data: dict, ontouml_graph: Graph) -> None:
         set_property_relations(property_dict, ontouml_graph)
         set_cardinality_relations(property_dict, ontouml_graph)
 
-    validate_property_stereotype(ontouml_graph)
+    # Performs validation if enabled by user
+    if args.ARGUMENTS["correct"]:
+        validate_property_stereotype(ontouml_graph)

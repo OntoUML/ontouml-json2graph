@@ -11,6 +11,7 @@ import inspect
 
 from rdflib import Graph, URIRef, XSD, Literal
 
+import modules.arguments as args
 from globals import URI_ONTOLOGY, URI_ONTOUML
 from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type, get_stereotype, \
     set_object_stereotype
@@ -130,24 +131,29 @@ def set_class_defaults(class_dict: dict, ontouml_graph: Graph) -> None:
 
     class_stereotype = get_stereotype(class_dict)
 
-    warning_not_type = f"The class '{class_dict['name']}' had its order attribute (originally 'null') set to 1 " \
-                       f"(default to classes with stereotype different than 'type')."
+    # Warning messages
+    warning_msg1 = f"The class '{class_dict['name']}' had its order attribute (originally 'null') set to 1 " \
+                   f"(default to classes with stereotype different than 'type')."
+    warning_msg2 = f"The class {class_dict['name']} had its 'order' attribute (originally null) set to 2 " \
+                   f"(default to classes with stereotype 'type')."
+    warning_msg3 = f"The class {class_dict['name']} had its 'isPowertype' attribute (originally null) " \
+                   f"set to False (default)."
 
     # DEFAULT: ORDER VALUE
     if "order" not in class_dict:
 
         # Default: order default value = 1 when stereotype is not 'type'
         if (class_stereotype == "null") or (class_stereotype != 'type'):
-            LOGGER.warning(warning_not_type)
+            if not args.ARGUMENTS["silent"]:
+                LOGGER.warning(warning_msg1)
             ontouml_graph.add((URIRef(URI_ONTOLOGY + class_dict['id']),
                                URIRef(URI_ONTOUML + "order"),
                                Literal(1, datatype=XSD.nonNegativeInteger)))
 
         # Default: order default value = 2 when stereotype is 'type'
         elif class_stereotype == 'type':
-            LOGGER.warning(
-                f"The class {class_dict['name']} had its 'order' attribute (originally null) set to 2 "
-                f"(default to classes with stereotype 'type').")
+            if not args.ARGUMENTS["silent"]:
+                LOGGER.warning(warning_msg2)
             ontouml_graph.add((URIRef(URI_ONTOLOGY + class_dict['id']),
                                URIRef(URI_ONTOUML + "order"),
                                Literal(2, datatype=XSD.nonNegativeInteger)))
@@ -159,8 +165,8 @@ def set_class_defaults(class_dict: dict, ontouml_graph: Graph) -> None:
 
     # DEFAULT: ISPOWERTYPE DEFAULT VALUE = FALSE
     if "isPowertype" not in class_dict:
-        LOGGER.warning(
-            f"The class {class_dict['name']} had its 'isPowertype' attribute (originally null) set to False (default).")
+        if not args.ARGUMENTS["silent"]:
+            LOGGER.warning(warning_msg3)
         ontouml_graph.add((URIRef(URI_ONTOLOGY + class_dict['id']),
                            URIRef(URI_ONTOUML + "isPowertype"),
                            Literal(False)))
@@ -183,11 +189,27 @@ def validate_class_constraints(class_dict: dict) -> None:
 
     class_stereotype = get_stereotype(class_dict)
 
+    class_dict_order = ""
+    class_dict_is_pt = ""
+    class_dict_is_ext = ""
+
+    # Warning messages
+    warning_msg1 = f"Class '{class_dict['name']}' of stereotype '{class_stereotype}' had its isExtensional attribute " \
+                   f"(originally '{class_dict_is_ext}') removed as it is not of stereotype collective."
+    warning_msg2 = f"Class '{class_dict['name']}' of stereotype '{class_stereotype}' had its order attribute " \
+                   f"(originally '{class_dict_order}') set to '2' (default for 'type')."
+    warning_msg3 = f"Class '{class_dict['name']}' of stereotype '{class_stereotype}' had its order attribute " \
+                   f"(originally '{class_dict_order}') set to '1' as it is not a 'type')."
+    warning_msg4 = f"Class '{class_dict['name']}' had its stereotype (originally unknown) set 'type' as its " \
+                   f"isPowertype attribute is 'True'."
+    warning_msg5 = f"Class '{class_dict['name']}' of stereotype '{class_stereotype}' had its isPowertype " \
+                   f"attribute (originally '{class_dict_is_pt}') set to 1 as it is not of stereotype type."
+
     # Constraint A: isExtensional must be null when the class's stereotype is not 'collective'
     if ("isExtensional" in class_dict) and class_stereotype != "collective":
-        LOGGER.warning(
-            f"Class '{class_dict['name']}' of stereotype '{class_stereotype}' had its isExtensional "
-            f"attribute (originally '{class_dict['isExtensional']}') removed as it is not of stereotype collective.")
+        if not args.ARGUMENTS["silent"]:
+            class_dict_is_ext = class_dict['isExtensional']
+            LOGGER.warning(warning_msg1)
         class_dict.pop('isExtensional')
 
     # Constraints B and C depend on the existence of the order attribute
@@ -195,31 +217,31 @@ def validate_class_constraints(class_dict: dict) -> None:
 
         # Constraint B: order must be greater than 1 when the class's stereotype is 'type'
         if class_stereotype == "type" and ((class_dict["order"] == 1) or (class_dict["order"] == "1")):
-            LOGGER.warning(f"Class '{class_dict['name']}' of stereotype '{class_stereotype}' had its order attribute "
-                           f"(originally '{class_dict['order']}') set to '2' (default for 'type').")
+            if not args.ARGUMENTS["silent"]:
+                class_dict_order = class_dict['order']
+                LOGGER.warning(warning_msg2)
             class_dict.pop('order')
 
         # Constraint C: class's order must be 1 when class's stereotype is not 'type'
         if class_stereotype != "type" and class_dict["order"] != 1:
-            LOGGER.warning(
-                f"Class '{class_dict['name']}' of stereotype '{class_stereotype}' had its order attribute "
-                f"(originally '{class_dict['order']}') set to '1' as it is not a 'type').")
+            if not args.ARGUMENTS["silent"]:
+                class_dict_order = class_dict['order']
+                LOGGER.warning(warning_msg3)
             class_dict.pop('order')
 
     # Constraint D: class must have stereotype 'type' when no stereotype and when its isPowertype attribute is true
     if "isPowertype" in class_dict:
         if class_dict["isPowertype"] and class_stereotype == "null":
-            LOGGER.warning(
-                f"Class '{class_dict['name']}' had its stereotype (originally unknown) set 'type' as its isPowertype "
-                f"attribute is 'True'.")
+            if not args.ARGUMENTS["silent"]:
+                LOGGER.warning(warning_msg4)
             class_dict['stereotype'] = "type"
 
     # Constraint E: class's isPowertype must be false when class's stereotype is not ('type' or undefined)
     if "isPowertype" in class_dict:
         if class_dict["isPowertype"] and not (class_stereotype == "type" or class_stereotype == "null"):
-            LOGGER.warning(
-                f"Class '{class_dict['name']}' of stereotype '{class_stereotype}' had its isPowertype "
-                f"attribute (originally '{class_dict['isPowertype']}') set to 1 as it is not of stereotype type.")
+            if not args.ARGUMENTS["silent"]:
+                class_dict_is_pt = class_dict['isPowertype']
+                LOGGER.warning(warning_msg5)
             class_dict['isPowertype'] = False
 
 
@@ -297,8 +319,9 @@ def create_class_properties(json_data: dict, ontouml_graph: Graph, element_count
         if "name" not in class_dict:
             continue
 
-        # Validating default values
-        validate_class_constraints(class_dict)
+        # Performs validation if enabled by user
+        if args.ARGUMENTS["correct"]:
+            validate_class_constraints(class_dict)
 
         # Setting properties
         set_class_order_nonnegativeinteger(class_dict, ontouml_graph)

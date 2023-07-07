@@ -91,9 +91,9 @@ def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph, language: str
             # Checking if is not integer (as int or as string)
             if type(dictionary_data[key]) is not int:
                 if not dictionary_data[key].isdigit():
-                    LOGGER.warning(f"The object with ID {dictionary_data['id']} has an invalid type for its "
-                                   f"field '{key}' and was not transformed (expected type 'int', "
-                                   f"received '{type(dictionary_data[key]).__name__}').")
+                    LOGGER.error(f"The object with ID {dictionary_data['id']} has an invalid type for its "
+                                 f"field '{key}' and was not transformed (expected type 'int', "
+                                 f"received '{type(dictionary_data[key]).__name__}').")
             else:
                 new_object = Literal(dictionary_data[key], datatype=XSD.positiveInteger)
         else:

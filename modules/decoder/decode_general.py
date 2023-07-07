@@ -2,6 +2,7 @@
 
 from rdflib import Graph, URIRef, Literal, RDF
 
+import modules.arguments as args
 from globals import URI_ONTOLOGY, URI_ONTOUML
 from modules.logger import initialize_logger
 from modules.sparql_queries import GET_ELEMENT_AND_TYPE
@@ -224,9 +225,9 @@ def set_object_stereotype(object_dict: dict, ontouml_graph: Graph) -> None:
     object_id = object_dict["id"]
 
     # If not declared stereotype, report warning.
-    if object_stereotype == "null":
+    if object_stereotype == "null" and not args.ARGUMENTS["silent"]:
         LOGGER.warning(f"Mandatory stereotype not defined for {object_type} with ID {object_id}.")
-    else:
+    elif object_stereotype != "null":
         ontouml_graph.add((URIRef(URI_ONTOLOGY + object_dict['id']),
                            URIRef(URI_ONTOUML + "stereotype"),
                            URIRef(URI_ONTOUML + object_dict['stereotype'])))
@@ -239,7 +240,8 @@ def set_object_stereotype(object_dict: dict, ontouml_graph: Graph) -> None:
 
         # If declared but invalid, create and report error
         elif (object_type == "Class" and object_stereotype not in ENUM_CLASS_STEREOTYPE) or \
-                (object_type == "Relation" and object_stereotype not in ENUM_RELATION_STEREOTYPE):
+                (object_type == "Relation" and object_stereotype not in ENUM_RELATION_STEREOTYPE) and \
+                not args.ARGUMENTS["silent"]:
             LOGGER.error(f"Invalid stereotype '{object_dict['stereotype']}' defined for {object_type} '{object_id}'. "
                          f"The transformation output is syntactically INVALID.")
 

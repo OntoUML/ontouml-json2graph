@@ -4,7 +4,9 @@ from rdflib import Graph, URIRef, RDF
 
 from globals import URI_ONTOUML
 from modules.errors import report_error_io_read
-from modules.utils_general import LOGGER
+from modules.logger import initialize_logger
+
+LOGGER = initialize_logger()
 
 
 def load_all_graph_safely(ontology_file: str) -> Graph:

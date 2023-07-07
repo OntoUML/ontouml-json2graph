@@ -27,7 +27,11 @@ def ontouml_json2graph(json_path: str, graph_format: str, language: str = "",
 
     logger = initialize_logger(execution_mode)
 
-    if execution_mode == "production":
+    if execution_mode == "test":
+        args.ARGUMENTS["correct"] = True
+        args.ARGUMENTS["silent"] = True
+
+    if execution_mode == "production" and not args.ARGUMENTS["silent"]:
         # Initial time information
         time_screen_format = "%d-%m-%Y %H:%M:%S"
         start_date_time = get_date_time(time_screen_format)
@@ -41,7 +45,7 @@ def ontouml_json2graph(json_path: str, graph_format: str, language: str = "",
     # Decode JSON into Graph
     ontouml_graph = decode_json_to_graph(json_data, language)
 
-    if execution_mode == "production":
+    if execution_mode == "production" and not args.ARGUMENTS["silent"]:
         # Get software's execution conclusion time
         end_date_time = get_date_time(time_screen_format)
         et = time.perf_counter()
