@@ -25,10 +25,7 @@ def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph) -> None:
     Recursively evaluates the dictionary to create all possible instances, setting their types and attributes.
 
     OntoUML-Vocabulary properties that are directly decoded in the general decoder:
-        - description, height, isAbstract, isDerived, isOrdered, isReadOnly, name, width
-
-    OntoUML-Vocabulary properties that are decoded in the general decoder via mapping:
-        - text
+        - description, height, isAbstract, isComplete, isDerived, isDisjoint, isOrdered, isReadOnly, name, text, width
 
     Restricted properties (the ones in the restricted_fields list) are not treated in this function.
 

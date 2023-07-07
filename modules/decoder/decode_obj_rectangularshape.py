@@ -57,7 +57,6 @@ def create_rectangularshape_properties(json_data: dict, ontouml_graph: Graph) ->
 
     # Get all Rectangles' and Texts' dictionaries
     list_all_rectangle_dicts = get_list_subdictionaries_for_specific_type(json_data, "Rectangle")
-
     list_all_text_dicts = get_list_subdictionaries_for_specific_type(json_data, "Text")
     list_all_rectangularshape_dicts = list_all_rectangle_dicts + list_all_text_dicts
 

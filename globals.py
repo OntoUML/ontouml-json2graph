@@ -29,4 +29,5 @@ ENUM_ONTOLOGICAL_NATURE = ["abstract", "collective", "event", "extrinsic-mode", 
 
 # ABSTRACT CLASSES TYPES
 
-ELEMENT_VIEW_TYPES = ["ClassView", "PackageView", "GeneralizationSetView", "RelationView", "GeneralizationView"]
+ELEMENT_VIEW_TYPES = ["ClassView", "PackageView", "GeneralizationSetView", "RelationView", "GeneralizationView",
+                      "NoteView"]
