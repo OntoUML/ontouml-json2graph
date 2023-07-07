@@ -1,116 +1,167 @@
-@prefix : <https://example.org#> .
+@prefix :        <https://example.org#> .
 @prefix ontouml: <https://w3id.org/ontouml#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
 
-:GuP9JGGAqACNwx0 rdf:type ontouml:Project ;
-    ontouml:name "newuntitled" ;
-    ontouml:model :GuP9JGGAqACNwx0_root ;
+:GuP9JGGAqACNwx0
+    rdf:type        ontouml:Project ;
+    ontouml:name    "newuntitled" ;
+    ontouml:model   :GuP9JGGAqACNwx0_root ;
     ontouml:diagram :N2pP9JGGAqACNxBP .
-:GuP9JGGAqACNwx0_root rdf:type ontouml:Package ;
-    ontouml:project :GuP9JGGAqACNwx0 ;
-    ontouml:name "newuntitled" ;
+
+:GuP9JGGAqACNwx0_root
+    rdf:type                     ontouml:Package ;
+    ontouml:project              :GuP9JGGAqACNwx0 ;
+    ontouml:name                 "newuntitled" ;
     ontouml:containsModelElement :mFov9JGGAqACNxDV, :OC5P9JGGAqACNxBg, :FLvP9JGGAqACNxCx .
-:mFov9JGGAqACNxDV rdf:type ontouml:Package ;
-    ontouml:project :GuP9JGGAqACNwx0 ;
-    ontouml:name "MyPackage" ;
+
+:mFov9JGGAqACNxDV
+    rdf:type                     ontouml:Package ;
+    ontouml:project              :GuP9JGGAqACNwx0 ;
+    ontouml:name                 "MyPackage" ;
     ontouml:containsModelElement :6bAoDJGGAqACNxEf .
-:OC5P9JGGAqACNxBg rdf:type ontouml:Package ;
-    ontouml:project :GuP9JGGAqACNwx0 ;
-    ontouml:name "MyModel" ;
+
+:OC5P9JGGAqACNxBg
+    rdf:type                     ontouml:Package ;
+    ontouml:project              :GuP9JGGAqACNwx0 ;
+    ontouml:name                 "MyModel" ;
     ontouml:containsModelElement :lAvIDJGGAqACNxEE .
-:FLvP9JGGAqACNxCx rdf:type ontouml:Package ;
+
+:FLvP9JGGAqACNxCx
+    rdf:type        ontouml:Package ;
     ontouml:project :GuP9JGGAqACNwx0 ;
-    ontouml:name "Model22" .
-:6bAoDJGGAqACNxEf rdf:type ontouml:Class ;
-    ontouml:project :GuP9JGGAqACNwx0 ;
-    ontouml:name "Class2" ;
-    ontouml:stereotype ontouml:datatype ;
+    ontouml:name    "Model22" .
+
+:6bAoDJGGAqACNxEf
+    rdf:type             ontouml:Class ;
+    ontouml:project      :GuP9JGGAqACNwx0 ;
+    ontouml:name         "Class2" ;
+    ontouml:stereotype   ontouml:datatype ;
     ontouml:restrictedTo ontouml:abstractNature ;
-    ontouml:isAbstract "false"^^xsd:boolean ;
-    ontouml:isDerived "false"^^xsd:boolean ;
- ontouml:isPowertype "false"^^xsd:boolean ;
-    ontouml:order "1"^^xsd:nonNegativeInteger .
-:lAvIDJGGAqACNxEE rdf:type ontouml:Class ;
-    ontouml:project :GuP9JGGAqACNwx0 ;
-    ontouml:name "Class" ;
-    ontouml:stereotype ontouml:historicalRole ;
-    ontouml:isAbstract "false"^^xsd:boolean ;
-    ontouml:isDerived "false"^^xsd:boolean ;
- ontouml:isPowertype "false"^^xsd:boolean ;
-    ontouml:order "1"^^xsd:nonNegativeInteger .
-:N2pP9JGGAqACNxBP rdf:type ontouml:Diagram ;
-    ontouml:project :GuP9JGGAqACNwx0 ;
-    ontouml:name "Class Diagram1" ;
+    ontouml:isAbstract   "false"^^xsd:boolean ;
+    ontouml:isDerived    "false"^^xsd:boolean ;
+    ontouml:isPowertype  "false"^^xsd:boolean ;
+    ontouml:order        "1"^^xsd:nonNegativeInteger .
+
+:lAvIDJGGAqACNxEE
+    rdf:type            ontouml:Class ;
+    ontouml:project     :GuP9JGGAqACNwx0 ;
+    ontouml:name        "Class" ;
+    ontouml:stereotype  ontouml:historicalRole ;
+    ontouml:isAbstract  "false"^^xsd:boolean ;
+    ontouml:isDerived   "false"^^xsd:boolean ;
+    ontouml:isPowertype "false"^^xsd:boolean ;
+    ontouml:order       "1"^^xsd:nonNegativeInteger .
+
+:N2pP9JGGAqACNxBP
+    rdf:type             ontouml:Diagram ;
+    ontouml:project      :GuP9JGGAqACNwx0 ;
+    ontouml:name         "Class Diagram1" ;
     ontouml:containsView :5AvIDJGGAqACNxED, :ow9P9JGGAqACNxCB, :2D4v9JGGAqACNxDh, :uu_P9JGGAqACNxC8, :6bAoDJGGAqACNxEe .
-:ow9P9JGGAqACNxCB rdf:type ontouml:PackageView ;
-    ontouml:project :GuP9JGGAqACNwx0 ;
+
+:ow9P9JGGAqACNxCB
+    rdf:type         ontouml:PackageView ;
+    ontouml:project  :GuP9JGGAqACNwx0 ;
     ontouml:isViewOf :OC5P9JGGAqACNxBg ;
-    ontouml:shape :ow9P9JGGAqACNxCB_shape .
-:2D4v9JGGAqACNxDh rdf:type ontouml:PackageView ;
-    ontouml:project :GuP9JGGAqACNwx0 ;
+    ontouml:shape    :ow9P9JGGAqACNxCB_shape .
+
+:2D4v9JGGAqACNxDh
+    rdf:type         ontouml:PackageView ;
+    ontouml:project  :GuP9JGGAqACNwx0 ;
     ontouml:isViewOf :mFov9JGGAqACNxDV ;
-    ontouml:shape :2D4v9JGGAqACNxDh_shape .
-:uu_P9JGGAqACNxC8 rdf:type ontouml:PackageView ;
-    ontouml:project :GuP9JGGAqACNwx0 ;
+    ontouml:shape    :2D4v9JGGAqACNxDh_shape .
+
+:uu_P9JGGAqACNxC8
+    rdf:type         ontouml:PackageView ;
+    ontouml:project  :GuP9JGGAqACNwx0 ;
     ontouml:isViewOf :FLvP9JGGAqACNxCx ;
-    ontouml:shape :uu_P9JGGAqACNxC8_shape .
-:5AvIDJGGAqACNxED rdf:type ontouml:ClassView ;
-    ontouml:project :GuP9JGGAqACNwx0 ;
+    ontouml:shape    :uu_P9JGGAqACNxC8_shape .
+
+:5AvIDJGGAqACNxED
+    rdf:type         ontouml:ClassView ;
+    ontouml:project  :GuP9JGGAqACNwx0 ;
     ontouml:isViewOf :lAvIDJGGAqACNxEE ;
-    ontouml:shape :5AvIDJGGAqACNxED_shape .
-:6bAoDJGGAqACNxEe rdf:type ontouml:ClassView ;
-    ontouml:project :GuP9JGGAqACNwx0 ;
+    ontouml:shape    :5AvIDJGGAqACNxED_shape .
+
+:6bAoDJGGAqACNxEe
+    rdf:type         ontouml:ClassView ;
+    ontouml:project  :GuP9JGGAqACNwx0 ;
     ontouml:isViewOf :6bAoDJGGAqACNxEf ;
-    ontouml:shape :6bAoDJGGAqACNxEe_shape .
-:5AvIDJGGAqACNxED_shape rdf:type ontouml:Rectangle ;
-    ontouml:height "40"^^xsd:positiveInteger ;
-    ontouml:width "102"^^xsd:positiveInteger ;
+    ontouml:shape    :6bAoDJGGAqACNxEe_shape .
+
+:5AvIDJGGAqACNxED_shape
+    rdf:type                ontouml:Rectangle ;
+    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:width           "102"^^xsd:positiveInteger ;
     ontouml:topLeftPosition :5AvIDJGGAqACNxED_shape_point .
-:5AvIDJGGAqACNxED_shape_point rdf:type ontouml:Point ;
+
+:5AvIDJGGAqACNxED_shape_point
+    rdf:type            ontouml:Point ;
     ontouml:xCoordinate 137 ;
     ontouml:yCoordinate 111 .
-:ow9P9JGGAqACNxCB_shape rdf:type ontouml:Rectangle ;
-    ontouml:height "318"^^xsd:positiveInteger ;
-    ontouml:width "499"^^xsd:positiveInteger ;
+
+:ow9P9JGGAqACNxCB_shape
+    rdf:type                ontouml:Rectangle ;
+    ontouml:height          "318"^^xsd:positiveInteger ;
+    ontouml:width           "499"^^xsd:positiveInteger ;
     ontouml:topLeftPosition :ow9P9JGGAqACNxCB_shape_point .
-:ow9P9JGGAqACNxCB_shape_point rdf:type ontouml:Point ;
+
+:ow9P9JGGAqACNxCB_shape_point
+    rdf:type            ontouml:Point ;
     ontouml:xCoordinate 117 ;
     ontouml:yCoordinate 63 .
-:2D4v9JGGAqACNxDh_shape rdf:type ontouml:Rectangle ;
-    ontouml:height "100"^^xsd:positiveInteger ;
-    ontouml:width "140"^^xsd:positiveInteger ;
+
+:2D4v9JGGAqACNxDh_shape
+    rdf:type                ontouml:Rectangle ;
+    ontouml:height          "100"^^xsd:positiveInteger ;
+    ontouml:width           "140"^^xsd:positiveInteger ;
     ontouml:topLeftPosition :2D4v9JGGAqACNxDh_shape_point .
-:2D4v9JGGAqACNxDh_shape_point rdf:type ontouml:Point ;
+
+:2D4v9JGGAqACNxDh_shape_point
+    rdf:type            ontouml:Point ;
     ontouml:xCoordinate 338 ;
     ontouml:yCoordinate 187 .
-:uu_P9JGGAqACNxC8_shape rdf:type ontouml:Rectangle ;
-    ontouml:height "233"^^xsd:positiveInteger ;
-    ontouml:width "307"^^xsd:positiveInteger ;
+
+:uu_P9JGGAqACNxC8_shape
+    rdf:type                ontouml:Rectangle ;
+    ontouml:height          "233"^^xsd:positiveInteger ;
+    ontouml:width           "307"^^xsd:positiveInteger ;
     ontouml:topLeftPosition :uu_P9JGGAqACNxC8_shape_point .
-:uu_P9JGGAqACNxC8_shape_point rdf:type ontouml:Point ;
+
+:uu_P9JGGAqACNxC8_shape_point
+    rdf:type            ontouml:Point ;
     ontouml:xCoordinate 285 ;
     ontouml:yCoordinate 121 .
-:6bAoDJGGAqACNxEe_shape rdf:type ontouml:Rectangle ;
-    ontouml:height "40"^^xsd:positiveInteger ;
-    ontouml:width "80"^^xsd:positiveInteger ;
+
+:6bAoDJGGAqACNxEe_shape
+    rdf:type                ontouml:Rectangle ;
+    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:width           "80"^^xsd:positiveInteger ;
     ontouml:topLeftPosition :6bAoDJGGAqACNxEe_shape_point .
-:6bAoDJGGAqACNxEe_shape_point rdf:type ontouml:Point ;
+
+:6bAoDJGGAqACNxEe_shape_point
+    rdf:type            ontouml:Point ;
     ontouml:xCoordinate 368 ;
     ontouml:yCoordinate 235 .
 
 # MANUALLY ADDED
 
-:2D4v9JGGAqACNxDh_shape ontouml:project :GuP9JGGAqACNwx0 .
+:2D4v9JGGAqACNxDh_shape
+    ontouml:project :GuP9JGGAqACNwx0 .
 
-:5AvIDJGGAqACNxED_shape ontouml:project :GuP9JGGAqACNwx0 .
+:5AvIDJGGAqACNxED_shape
+    ontouml:project :GuP9JGGAqACNwx0 .
 
-:6bAoDJGGAqACNxEe_shape ontouml:project :GuP9JGGAqACNwx0 .
+:6bAoDJGGAqACNxEe_shape
+    ontouml:project :GuP9JGGAqACNwx0 .
 
-:N2pP9JGGAqACNxBP ontouml:owner :GuP9JGGAqACNwx0_root .
+:N2pP9JGGAqACNxBP
+    ontouml:owner :GuP9JGGAqACNwx0_root .
 
-:ow9P9JGGAqACNxCB_shape ontouml:project :GuP9JGGAqACNwx0 .
+:ow9P9JGGAqACNxCB_shape
+    ontouml:project :GuP9JGGAqACNwx0 .
 
-:uu_P9JGGAqACNxC8_shape ontouml:project :GuP9JGGAqACNwx0 .
+:uu_P9JGGAqACNxC8_shape
+    ontouml:project :GuP9JGGAqACNwx0 .

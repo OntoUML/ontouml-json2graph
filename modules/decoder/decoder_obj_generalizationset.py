@@ -37,7 +37,6 @@ def set_generalizationset_relations(generalizationset_dict: dict, ontouml_graph:
         ontouml_graph.add((generalizationset_individual, categorizer_property, categorizer_individual))
 
 
-
 def create_generalizationset_properties(json_data: dict, ontouml_graph: Graph) -> None:
     """ Main function for decoding an object of type GeneralizationSet.
 

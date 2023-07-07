@@ -33,6 +33,8 @@ def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph, language: str
     :type dictionary_data: dict
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
+    :param language: Language tag to be added to the ontology's concepts.
+    :type language: str
     """
 
     restricted_fields = ["x", "y", "stereotype", "order", "isExtensional", "isPowertype", "aggregationKind",
@@ -84,7 +86,7 @@ def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph, language: str
 
         # Graph's OBJECT definition
         if (key == "name") and language != "":
-            new_object = Literal(dictionary_data[key],lang=language)
+            new_object = Literal(dictionary_data[key], lang=language)
         elif key in positive_integer_fields:
             # Checking if is not integer (as int or as string)
             if type(dictionary_data[key]) is not int:
@@ -106,6 +108,8 @@ def decode_json_to_graph(json_data: dict, language: str) -> Graph:
 
     :param json_data: Input JSON data loaded as a dictionary.
     :type json_data: dict
+    :param language: Language tag to be added to the ontology's concepts.
+    :type language: str
     :return: Knowledge graph that complies with the OntoUML Vocabulary
     :rtype: Graph
     """

@@ -1,4 +1,5 @@
 """ Main file for ontouml-json2graph. """
+
 import time
 
 from modules.arguments import treat_user_arguments
