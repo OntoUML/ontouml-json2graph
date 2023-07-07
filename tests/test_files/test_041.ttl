@@ -169,3 +169,34 @@
 :gqboDJGGAqACNxIz_path_point_1 rdf:type ontouml:Point ;
     ontouml:xCoordinate 545 ;
     ontouml:yCoordinate 374 .
+
+# MANUALLY ADDED
+
+:2D4v9JGGAqACNxDh_shape ontouml:project :GuP9JGGAqACNwx0 .
+
+:5AvIDJGGAqACNxED_shape ontouml:project :GuP9JGGAqACNwx0 .
+
+:5TpoDJGGAqACNxH7 ontouml:owner :6bAoDJGGAqACNxEf .
+
+:6NZoDJGGAqACNxIQ_shape ontouml:project :GuP9JGGAqACNwx0 .
+
+:6bAoDJGGAqACNxEe_shape ontouml:project :GuP9JGGAqACNwx0 .
+
+:N2pP9JGGAqACNxBP ontouml:owner :GuP9JGGAqACNwx0_root .
+
+:ZI5oDJGGAqACNxId_shape ontouml:project :GuP9JGGAqACNwx0 .
+
+:gqboDJGGAqACNxIz a ontouml:RelationView ;
+    ontouml:isViewOf :DKboDJGGAqACNxIu ;
+    ontouml:project :GuP9JGGAqACNwx0 ;
+    ontouml:shape :gqboDJGGAqACNxIz_path ;
+    ontouml:sourceView :6NZoDJGGAqACNxIQ ;
+    ontouml:targetView :ZI5oDJGGAqACNxId .
+
+:ow9P9JGGAqACNxCB_shape ontouml:project :GuP9JGGAqACNwx0 .
+
+:uu_P9JGGAqACNxC8_shape ontouml:project :GuP9JGGAqACNwx0 .
+
+:DKboDJGGAqACNxIu ontouml:isAbstract false .
+
+:gqboDJGGAqACNxIz_path ontouml:project :GuP9JGGAqACNwx0 .

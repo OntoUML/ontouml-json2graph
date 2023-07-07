@@ -100,3 +100,17 @@
 :ow9P9JGGAqACNxCB_shape_point rdf:type ontouml:Point ;
     ontouml:xCoordinate 117 ;
     ontouml:yCoordinate 63 .
+
+# MANUALLY ADDED
+
+:2D4v9JGGAqACNxDh_shape ontouml:project :GuP9JGGAqACNwx0 .
+
+:5AvIDJGGAqACNxED_shape ontouml:project :GuP9JGGAqACNwx0 .
+
+:6bAoDJGGAqACNxEe_shape ontouml:project :GuP9JGGAqACNwx0 .
+
+:N2pP9JGGAqACNxBP ontouml:owner :GuP9JGGAqACNwx0_root .
+
+:ow9P9JGGAqACNxCB_shape ontouml:project :GuP9JGGAqACNwx0 .
+
+:uu_P9JGGAqACNxC8_shape ontouml:project :GuP9JGGAqACNwx0 .
