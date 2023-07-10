@@ -7,14 +7,14 @@ from modules.decoder.decode_general import clean_null_data, count_elements_graph
 from modules.decoder.decode_obj_class import create_class_properties
 from modules.decoder.decode_obj_diagram import create_diagram_properties
 from modules.decoder.decode_obj_elementview import create_elementview_properties
+from modules.decoder.decode_obj_generalization import create_generalization_properties
+from modules.decoder.decode_obj_generalizationset import create_generalizationset_properties
 from modules.decoder.decode_obj_package import create_package_properties
 from modules.decoder.decode_obj_path import create_path_properties
 from modules.decoder.decode_obj_project import create_project_properties
 from modules.decoder.decode_obj_property import create_property_properties
 from modules.decoder.decode_obj_rectangularshape import create_rectangularshape_properties
-from modules.decoder.decoder_obj_generalization import create_generalization_properties
-from modules.decoder.decoder_obj_generalizationset import create_generalizationset_properties
-from modules.decoder.decoder_obj_relation import create_relation_properties
+from modules.decoder.decode_obj_relation import create_relation_properties
 from modules.logger import initialize_logger
 
 LOGGER = initialize_logger()
