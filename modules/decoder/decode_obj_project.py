@@ -53,7 +53,7 @@ def set_project_model_package(project_dict: dict, ontouml_graph: Graph) -> None:
 
 
 def set_project_diagram_diagram(project_dict: dict, ontouml_graph: Graph) -> None:
-    """ Sets the ontouml:diagram object property between a ontouml:Project and its related ontouml:Diagram entities.
+    """ Sets the ontouml:diagram object property between an ontouml:Project and its related ontouml:Diagram entities.
 
     :param project_dict: Project's data to have its fields decoded.
     :type project_dict: dict
