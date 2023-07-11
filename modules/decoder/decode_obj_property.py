@@ -117,16 +117,16 @@ def set_property_relations(property_dict: dict, ontouml_graph: Graph) -> None:
             ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
 
-def determine_cardinality_bounds(cardinalities: str, property_id: str) -> (str, str):
-    """ Receives a string with an ontouml:Cardinality's ontoumL:cardinalityValues and decouple it into its
-    ontouml:lowerBound and ontouml:upperBound. Checks if the obtained values are not valid and displays warning if so.
+def determine_cardinality_bounds(cardinalities: str, property_id: str) -> (str, str, str):
+    """ Receives a string with an ontouml:Cardinality's ontouml:cardinalityValue, fix its format and decouple it into
+    its ontouml:lowerBound and ontouml:upperBound. Checks and displays warning if the obtained values are not valid.
 
     :param cardinalities: String containing the value of the cardinality to be decoupled into lower and upper bounds.
     :type cardinalities: str
     :param property_id: ID of the Property that owns the cardinality being treated. Used in case of invalid cardinality.
     :type property_id: str
-    :return: Tuple with lower and upper bounds, in this specific position, as strings.
-    :rtype: (str, str)
+    :return: Tuple of three elements: full cardinality, cardinality's lower bound, and cardinality's upper bound.
+    :rtype: (str, str, str)
     """
 
     lower_bound, _, upper_bound = cardinalities.partition("..")
@@ -138,6 +138,8 @@ def determine_cardinality_bounds(cardinalities: str, property_id: str) -> (str, 
     if lower_bound == "*":
         lower_bound = "0"
 
+    full_cardinality = lower_bound + ".." + upper_bound
+
     # Validating discovered cardinality bounds
     if not (upper_bound.isnumeric() or upper_bound == "*") and not args.ARGUMENTS["silent"]:
         LOGGER.warning(f"Invalid cardinality's upper bound (value '{upper_bound}') for Property individual with "
@@ -146,7 +148,7 @@ def determine_cardinality_bounds(cardinalities: str, property_id: str) -> (str, 
         LOGGER.warning(f"Invalid cardinality's lower bound (value '{lower_bound}') for Property individual with "
                        f"ID '{property_id}'. Transformation proceeded as is.")
 
-    return lower_bound, upper_bound
+    return full_cardinality, lower_bound, upper_bound
 
 
 def set_cardinality_relations(property_dict: dict, ontouml_graph: Graph) -> None:
@@ -164,6 +166,7 @@ def set_cardinality_relations(property_dict: dict, ontouml_graph: Graph) -> None
 
         ontouml_cardinality_class = URIRef(URI_ONTOUML + "Cardinality")
         ontouml_cardinality_property = URIRef(URI_ONTOUML + "cardinality")
+
         ontouml_cardinalityvalue_property = URIRef(URI_ONTOUML + "cardinalityValue")
         ontouml_lowerbound_property = URIRef(URI_ONTOUML + "lowerBound")
         ontouml_upperbound_property = URIRef(URI_ONTOUML + "upperBound")
@@ -174,12 +177,11 @@ def set_cardinality_relations(property_dict: dict, ontouml_graph: Graph) -> None
         # Setting the ontouml:cardinality between an ontouml:Property and its ontouml:Cardinality
         ontouml_graph.add((ontology_property_individual, ontouml_cardinality_property, ontology_cardinality_individual))
 
-        # Setting the ontouml:cardinalityValue between an ontouml:Cardinality and its cardinality field
-        ontouml_graph.add((ontology_cardinality_individual, ontouml_cardinalityvalue_property,
-                           Literal(property_dict["cardinality"])))
-
-        # Setting cardinality's lower and upper bounds
-        lower_bound, upper_bound = determine_cardinality_bounds(property_dict["cardinality"], property_dict["id"])
+        # Setting the full cardinality value and the lower and upper bounds
+        full_cardinality, lower_bound, upper_bound = determine_cardinality_bounds(property_dict["cardinality"],
+                                                                                  property_dict["id"])
+        ontouml_graph.add(
+            (ontology_cardinality_individual, ontouml_cardinalityvalue_property, Literal(full_cardinality)))
         ontouml_graph.add((ontology_cardinality_individual, ontouml_lowerbound_property, Literal(lower_bound)))
         ontouml_graph.add((ontology_cardinality_individual, ontouml_upperbound_property, Literal(upper_bound)))
 
