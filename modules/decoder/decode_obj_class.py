@@ -194,15 +194,15 @@ def validate_class_constraints(class_dict: dict) -> None:
     class_dict_is_ext = ""
 
     # Warning messages
-    warning_msg1 = f"Class '{class_dict['name']}' of stereotype '{class_stereotype}' had its isExtensional attribute " \
-                   f"(originally '{class_dict_is_ext}') removed as it is not of stereotype collective."
-    warning_msg2 = f"Class '{class_dict['name']}' of stereotype '{class_stereotype}' had its order attribute " \
+    warning_msg1 = f"The class '{class_dict['name']}' of stereotype '{class_stereotype}' had its isExtensional " \
+                   f"attribute (originally '{class_dict_is_ext}') removed as it is not of stereotype collective."
+    warning_msg2 = f"The class '{class_dict['name']}' of stereotype '{class_stereotype}' had its order attribute " \
                    f"(originally '{class_dict_order}') set to '2' (default for 'type')."
-    warning_msg3 = f"Class '{class_dict['name']}' of stereotype '{class_stereotype}' had its order attribute " \
+    warning_msg3 = f"The class '{class_dict['name']}' of stereotype '{class_stereotype}' had its order attribute " \
                    f"(originally '{class_dict_order}') set to '1' as it is not a 'type')."
-    warning_msg4 = f"Class '{class_dict['name']}' had its stereotype (originally unknown) set 'type' as its " \
+    warning_msg4 = f"The class '{class_dict['name']}' had its stereotype (originally unknown) set 'type' as its " \
                    f"isPowertype attribute is 'True'."
-    warning_msg5 = f"Class '{class_dict['name']}' of stereotype '{class_stereotype}' had its isPowertype " \
+    warning_msg5 = f"The class '{class_dict['name']}' of stereotype '{class_stereotype}' had its isPowertype " \
                    f"attribute (originally '{class_dict_is_pt}') set to 1 as it is not of stereotype type."
 
     # Constraint A: isExtensional must be null when the class's stereotype is not 'collective'

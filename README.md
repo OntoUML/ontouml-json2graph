@@ -69,4 +69,5 @@ Properties' validations:
 
 - [Pedro Paulo Favato Barcelos](https://orcid.org/0000-0003-2736-7817) [[GitHub](https://github.com/pedropaulofb)] [[LinkedIn](https://www.linkedin.com/in/pedropaulofavatobarcelos/)]
 
-Please get in touch with this software's contributors using the provided links or **preferably [open an issue](https://github.com/OntoUML/ontouml-json2graph/issues)** in case of doubts or problems found.
+Please get in touch with this software's contributors using the provided links or *
+*preferably [open an issue](https://github.com/OntoUML/ontouml-json2graph/issues)** in case of doubts or problems found.
