@@ -44,15 +44,16 @@ def ontouml_json2graph(json_path: str, graph_format: str, language: str = "",
 
         if not args.ARGUMENTS['language']:
             logger.warning("Ontology's language not informed by the user. "
-                        "Transformation will not generate language tag.")
+                           "Transformation will not generate language tag.")
         if not args.ARGUMENTS['correct']:
             logger.warning("Basic correction feature not enabled by the user. "
-                        "The transformation may generate an invalid result.")
+                           "The transformation may generate an invalid result.")
 
     # Load JSON
     json_data = safe_load_json_file(json_path)
 
     # Decode JSON into Graph
+    # TODO (@pedropaulofb): Add execution_mode as parameter to the decoder and only add metadata if not test
     ontouml_graph = decode_json_to_graph(json_data, language)
 
     if execution_mode == "production" and not args.ARGUMENTS["silent"]:
