@@ -2,7 +2,7 @@
 from pathlib import Path
 
 import pytest
-from tests.test_aux import compare_graphs, get_test_list
+from test_aux import get_test_list, compare_graphs
 
 from main import ontouml_json2graph
 

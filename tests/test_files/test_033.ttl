@@ -313,7 +313,7 @@
 
 :52NM1JGGAqACNxK4_cardinality
     rdf:type                 ontouml:Cardinality ;
-    ontouml:cardinalityValue "*" .
+    ontouml:cardinalityValue "0..*" .
 
 :52NM1JGGAqACNxK4
     ontouml:isDerived       "false"^^xsd:boolean ;
@@ -329,7 +329,7 @@
 
 :F2NM1JGGAqACNxK7_cardinality
     rdf:type                 ontouml:Cardinality ;
-    ontouml:cardinalityValue "*" .
+    ontouml:cardinalityValue "0..*" .
 
 :F2NM1JGGAqACNxK7
     ontouml:isDerived       "false"^^xsd:boolean ;
@@ -345,7 +345,7 @@
 
 :R89M1JGGAqACNxLN_cardinality
     rdf:type                 ontouml:Cardinality ;
-    ontouml:cardinalityValue "1" ;
+    ontouml:cardinalityValue "1..1" ;
     ontouml:lowerBound       "1" ;
     ontouml:upperBound       "1" .
 
@@ -363,7 +363,7 @@
 
 :R89M1JGGAqACNxLP_cardinality
     rdf:type                 ontouml:Cardinality ;
-    ontouml:cardinalityValue "1" ;
+    ontouml:cardinalityValue "1..1" ;
     ontouml:lowerBound       "1" ;
     ontouml:upperBound       "1" .
 
@@ -382,7 +382,7 @@
 
 :H7DM1JGGAqACNxLd_cardinality
     rdf:type                 ontouml:Cardinality ;
-    ontouml:cardinalityValue "*" .
+    ontouml:cardinalityValue "0..*" .
 
 :H7DM1JGGAqACNxLd
     ontouml:isDerived       "true"^^xsd:boolean ;
@@ -399,7 +399,7 @@
 
 :n7DM1JGGAqACNxLf_cardinality
     rdf:type                 ontouml:Cardinality ;
-    ontouml:cardinalityValue "*" .
+    ontouml:cardinalityValue "0..*" .
 
 :n7DM1JGGAqACNxLf
     ontouml:isDerived       "false"^^xsd:boolean ;
@@ -453,7 +453,7 @@
 
 :LG7M1JGGAqACNxL4_cardinality
     rdf:type                 ontouml:Cardinality ;
-    ontouml:cardinalityValue "0" .
+    ontouml:cardinalityValue "0..0" .
 
 :LG7M1JGGAqACNxL4
     ontouml:isDerived       "false"^^xsd:boolean ;
@@ -536,7 +536,7 @@
 
 :xwXM1JGGAqACNxMa_cardinality
     rdf:type                 ontouml:Cardinality ;
-    ontouml:cardinalityValue "*" .
+    ontouml:cardinalityValue "0..*" .
 
 :xwXM1JGGAqACNxMa
     ontouml:isDerived       "false"^^xsd:boolean ;
@@ -591,7 +591,7 @@
 
 :aFCs1JGGAqACNxNT_cardinality
     rdf:type                 ontouml:Cardinality ;
-    ontouml:cardinalityValue "1" ;
+    ontouml:cardinalityValue "1..1" ;
     ontouml:lowerBound       "1" ;
     ontouml:upperBound       "1" .
 
@@ -609,7 +609,7 @@
 
 :aFCs1JGGAqACNxNV_cardinality
     rdf:type                 ontouml:Cardinality ;
-    ontouml:cardinalityValue "1" ;
+    ontouml:cardinalityValue "1..1" ;
     ontouml:lowerBound       "1" ;
     ontouml:upperBound       "1" .
 
@@ -701,7 +701,7 @@
 
 :lUes1JGGAqACNxOR_cardinality
     rdf:type                 ontouml:Cardinality ;
-    ontouml:cardinalityValue "1" ;
+    ontouml:cardinalityValue "1..1" ;
     ontouml:lowerBound       "1" ;
     ontouml:upperBound       "1" .
 

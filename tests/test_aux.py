@@ -1,6 +1,4 @@
 """ Auxiliary test functions. """
-import glob
-
 from rdflib import Graph
 from rdflib.compare import graph_diff, to_isomorphic
 
@@ -8,6 +6,7 @@ from globals import URI_ONTOUML, URI_ONTOLOGY
 from modules.input_output import safe_write_graph_file
 from modules.utils_graph import load_all_graph_safely
 
+import glob
 
 def get_test_list() -> list[str]:
     """ Returns a list with all JSON files in the test_files folder.

@@ -137,7 +137,7 @@
 
 :rPqtRJGGAqACNwmx_cardinality
     rdf:type                 ontouml:Cardinality ;
-    ontouml:cardinalityValue "0" .
+    ontouml:cardinalityValue "0..0" .
 
 :rPqtRJGGAqACNwmx
     ontouml:isDerived       "false"^^xsd:boolean ;
@@ -155,7 +155,7 @@
 
 :VN6tRJGGAqACNwm1_cardinality
     rdf:type                 ontouml:Cardinality ;
-    ontouml:cardinalityValue "5" ;
+    ontouml:cardinalityValue "5..5" ;
     ontouml:lowerBound       "5" ;
     ontouml:upperBound       "5" .
 
@@ -174,7 +174,7 @@
 
 :cMWtRJGGAqACNwm5_cardinality
     rdf:type                 ontouml:Cardinality ;
-    ontouml:cardinalityValue "*" .
+    ontouml:cardinalityValue "0..*" .
 
 :cMWtRJGGAqACNwm5
     ontouml:isDerived       "true"^^xsd:boolean ;
@@ -221,7 +221,7 @@
 
 :l1hzRJGGAqACNwnM_cardinality
     rdf:type                 ontouml:Cardinality ;
-    ontouml:cardinalityValue "*..5" .
+    ontouml:cardinalityValue "0..5" .
 
 :l1hzRJGGAqACNwnM
     ontouml:isDerived       "false"^^xsd:boolean ;
@@ -255,7 +255,7 @@
 
 :nyVzRJGGAqACNwn3_cardinality
     rdf:type                 ontouml:Cardinality ;
-    ontouml:cardinalityValue "created_invalid" .
+    ontouml:cardinalityValue "created_invalid..created_invalid" .
 
 :nyVzRJGGAqACNwn3
     ontouml:isDerived       "true"^^xsd:boolean ;
