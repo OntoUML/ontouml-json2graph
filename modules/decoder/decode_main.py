@@ -22,8 +22,17 @@ from modules.utils_general import get_date_time
 LOGGER = initialize_logger()
 
 
-def add_metadata(ontouml_graph: Graph):
-    # TODO (@pedropaulofb): Add documentation
+def add_metadata(ontouml_graph: Graph) -> None:
+    """ Adds basic metadata to the generated graph when not in test mode. The metadata added are:
+        - dct:conformsTo URI_ONTOUML
+        - dct:created (creation date)
+        - dct:language (when user argument available)
+        - type owl:Ontology
+        - Decoder information as rdfs:comment and rdfs:seeAlso
+
+    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
+    :type ontouml_graph: Graph
+    """
 
     uri_dct = "http://purl.org/dc/terms/"
     ontouml_graph.bind("dct", uri_dct)
@@ -137,13 +146,15 @@ def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph, language: str
         ontouml_graph.add((new_instance, new_predicate, new_object))
 
 
-def decode_json_to_graph(json_data: dict, language: str) -> Graph:
+def decode_json_to_graph(json_data: dict, language: str, execution_mode: str) -> Graph:
     """ Receives the loaded JSON data and decodes it into a graph that complies to the OntoUML Vocabulary.
 
     :param json_data: Input JSON data loaded as a dictionary.
     :type json_data: dict
     :param language: Language tag to be added to the ontology's concepts.
     :type language: str
+    :param execution_mode: Information about execution mode. Valid values are 'production' and 'test'.
+    :type execution_mode: str
     :return: Knowledge graph that complies with the OntoUML Vocabulary
     :rtype: Graph
     """
@@ -163,7 +174,9 @@ def decode_json_to_graph(json_data: dict, language: str) -> Graph:
     # Counting elements for performance enhancement
     element_counting = count_elements_graph(ontouml_graph)
 
-    add_metadata(ontouml_graph)
+    # Adding metadata only if not test
+    if execution_mode == "production":
+        add_metadata(ontouml_graph)
 
     # SPECIFIC DECODING: create specific properties according to different object types
     if "Project" in element_counting:
