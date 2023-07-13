@@ -213,7 +213,7 @@ def validate_class_constraints(class_dict: dict) -> None:
         class_dict.pop('isExtensional')
 
     # Constraints B and C depend on the existence of the order attribute
-    if "order" in class_dict:
+    if "order" in class_dict and args.ARGUMENTS["correct"]:
 
         # Constraint B: order must be greater than 1 when the class's stereotype is 'type'
         if class_stereotype == "type" and ((class_dict["order"] == 1) or (class_dict["order"] == "1")):
@@ -230,14 +230,14 @@ def validate_class_constraints(class_dict: dict) -> None:
             class_dict.pop('order')
 
     # Constraint D: class must have stereotype 'type' when no stereotype and when its isPowertype attribute is true
-    if "isPowertype" in class_dict:
+    if "isPowertype" in class_dict and args.ARGUMENTS["correct"]:
         if class_dict["isPowertype"] and class_stereotype == "null":
             if not args.ARGUMENTS["silent"]:
                 LOGGER.warning(warning_msg4)
             class_dict['stereotype'] = "type"
 
     # Constraint E: class's isPowertype must be false when class's stereotype is not ('type' or undefined)
-    if "isPowertype" in class_dict:
+    if "isPowertype" in class_dict and args.ARGUMENTS["correct"]:
         if class_dict["isPowertype"] and not (class_stereotype == "type" or class_stereotype == "null"):
             if not args.ARGUMENTS["silent"]:
                 class_dict_is_pt = class_dict['isPowertype']
@@ -319,9 +319,8 @@ def create_class_properties(json_data: dict, ontouml_graph: Graph, element_count
         if "name" not in class_dict:
             continue
 
-        # Performs validation if enabled by user
-        if args.ARGUMENTS["correct"]:
-            validate_class_constraints(class_dict)
+        # Performs validation (only cases enabled by the user)
+        validate_class_constraints(class_dict)
 
         # Setting properties
         set_class_order_nonnegativeinteger(class_dict, ontouml_graph)
