@@ -30,7 +30,6 @@
     ontouml:restrictedTo ontouml:qualityNature ;
     ontouml:isAbstract   "false"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
-    ontouml:isPowertype  "false"^^xsd:boolean ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:attribute    :II2khJGGAqACNwm0, :MCOkhJGGAqACNwm3, :vnOkhJGGAqACNwm6 .
 
