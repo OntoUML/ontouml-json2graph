@@ -25,7 +25,6 @@
     ontouml:restrictedTo ontouml:abstractNature ;
     ontouml:isAbstract   "false"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
-    ontouml:isPowertype  "false"^^xsd:boolean ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:literal      :ymXbZJGFYGjgAQ31, :lB3bZJGFYGjgAQ34, :zv3bZJGFYGjgAQ37, :gSPbZJGFYGjgAQ3 .
 
@@ -37,7 +36,6 @@
     ontouml:restrictedTo ontouml:abstractNature ;
     ontouml:isAbstract   "false"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
-    ontouml:isPowertype  "false"^^xsd:boolean ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:attribute    :F_o7ZJGFYGjgAQ4f .
 
@@ -49,7 +47,6 @@
     ontouml:restrictedTo ontouml:abstractNature ;
     ontouml:isAbstract   "false"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
-    ontouml:isPowertype  "false"^^xsd:boolean ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:attribute    :TFw7ZJGFYGjgAQ4R, :LhI7ZJGFYGjgAQ4U .
 
