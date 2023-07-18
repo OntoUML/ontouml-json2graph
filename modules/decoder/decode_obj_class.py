@@ -137,7 +137,7 @@ def set_class_defaults(class_dict: dict, ontouml_graph: Graph) -> None:
     if "order" not in class_dict:
 
         # CASE 0: Do nothing if the stereotype is unknown
-        if class_stereotype != 'null':
+        if class_stereotype == 'null':
             pass
 
         # CASE A: 'order' default value = 1 when stereotype is not 'type'

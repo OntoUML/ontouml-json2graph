@@ -48,16 +48,14 @@
     ontouml:project     :dGSNHRGFS_j2pAvw ;
     ontouml:name        "MyClass2" ;
     ontouml:isAbstract  "false"^^xsd:boolean ;
-    ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:order       "1"^^xsd:nonNegativeInteger .
+    ontouml:isDerived   "false"^^xsd:boolean .
 
 :b5teFxGFS_j2pAm3
     rdf:type            ontouml:Class ;
     ontouml:project     :dGSNHRGFS_j2pAvw ;
     ontouml:name        "ClassOutDiagram" ;
     ontouml:isAbstract  "false"^^xsd:boolean ;
-    ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:order       "1"^^xsd:nonNegativeInteger .
+    ontouml:isDerived   "false"^^xsd:boolean .
 
 :Y2ADQJGGAqACNwmq
     rdf:type            ontouml:Class ;
@@ -83,8 +81,7 @@
     ontouml:project     :dGSNHRGFS_j2pAvw ;
     ontouml:name        "Class" ;
     ontouml:isAbstract  "false"^^xsd:boolean ;
-    ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:order       "1"^^xsd:nonNegativeInteger .
+    ontouml:isDerived   "false"^^xsd:boolean .
 
 :kACDQJGGAqACNwnq
     rdf:type              ontouml:Class ;
@@ -198,8 +195,7 @@
     ontouml:project     :dGSNHRGFS_j2pAvw ;
     ontouml:name        "MyClass1" ;
     ontouml:isAbstract  "false"^^xsd:boolean ;
-    ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:order       "1"^^xsd:nonNegativeInteger .
+    ontouml:isDerived   "false"^^xsd:boolean .
 
 :k8p6WxGFS_j2pApt
     rdf:type             ontouml:Diagram ;
@@ -557,11 +553,10 @@
     a                   ontouml:Class ;
     ontouml:isAbstract  false ;
     ontouml:isDerived   false ;
+    ontouml:isExtensional true ;
     ontouml:isPowertype true ;
     ontouml:name        "MyClassX3" ;
-    ontouml:order       "2"^^xsd:nonNegativeInteger ;
-    ontouml:project     :dGSNHRGFS_j2pAvw ;
-    ontouml:stereotype  ontouml:type .
+    ontouml:project     :dGSNHRGFS_j2pAvw .
 
 :gGhuFxGFS_j2pAmkX4
     a                   ontouml:Class ;

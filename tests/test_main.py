@@ -14,7 +14,7 @@ def test_ontouml_json2graph(input_file: str) -> None:
     """ Main function for testing the OntoUML JSON2Graph software.
 
     The test is based on the comparison of the generated graph (from a JSON file provided in the test folder)
-    with a expected resulting graph (also provided in the test folder).
+    with an expected resulting graph (also provided in the test folder).
 
     :param input_file: Path to the JSON file to be tested.
     :type input_file: str
