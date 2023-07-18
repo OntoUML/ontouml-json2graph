@@ -28,9 +28,11 @@ def ontouml_json2graph(json_path: str, graph_format: str, language: str = "",
 
     logger = initialize_logger(execution_mode)
 
+    # Setting tests' arguments
     if execution_mode == "test":
         args.ARGUMENTS["correct"] = True
         args.ARGUMENTS["silent"] = True
+        args.ARGUMENTS["base_uri"] = 'https://example.org#'
 
     if execution_mode == "production" and not args.ARGUMENTS["silent"]:
         # Initial time information
