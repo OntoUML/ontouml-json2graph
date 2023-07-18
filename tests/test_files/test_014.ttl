@@ -49,7 +49,6 @@
     ontouml:name        "MyClass2" ;
     ontouml:isAbstract  "false"^^xsd:boolean ;
     ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:isPowertype "false"^^xsd:boolean ;
     ontouml:order       "1"^^xsd:nonNegativeInteger .
 
 :b5teFxGFS_j2pAm3
@@ -58,7 +57,6 @@
     ontouml:name        "ClassOutDiagram" ;
     ontouml:isAbstract  "false"^^xsd:boolean ;
     ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:isPowertype "false"^^xsd:boolean ;
     ontouml:order       "1"^^xsd:nonNegativeInteger .
 
 :Y2ADQJGGAqACNwmq
@@ -68,7 +66,6 @@
     ontouml:stereotype  ontouml:Agent ;
     ontouml:isAbstract  "false"^^xsd:boolean ;
     ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:isPowertype "false"^^xsd:boolean ;
     ontouml:order       "1"^^xsd:nonNegativeInteger .
 
 :CYYDQJGGAqACNwnH
@@ -79,7 +76,6 @@
     ontouml:restrictedTo ontouml:functionalComplexNature ;
     ontouml:isAbstract   "false"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
-    ontouml:isPowertype  "false"^^xsd:boolean ;
     ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :HI0DQJGGAqACNwnd
@@ -88,7 +84,6 @@
     ontouml:name        "Class" ;
     ontouml:isAbstract  "false"^^xsd:boolean ;
     ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:isPowertype "false"^^xsd:boolean ;
     ontouml:order       "1"^^xsd:nonNegativeInteger .
 
 :kACDQJGGAqACNwnq
@@ -100,7 +95,6 @@
     ontouml:isAbstract    "false"^^xsd:boolean ;
     ontouml:isDerived     "false"^^xsd:boolean ;
     ontouml:isExtensional "true"^^xsd:boolean ;
-    ontouml:isPowertype   "false"^^xsd:boolean ;
     ontouml:order         "1"^^xsd:nonNegativeInteger .
 
 :lT6DQJGGAqACNwoB
@@ -112,7 +106,6 @@
     ontouml:isAbstract    "false"^^xsd:boolean ;
     ontouml:isDerived     "false"^^xsd:boolean ;
     ontouml:isExtensional "false"^^xsd:boolean ;
-    ontouml:isPowertype   "false"^^xsd:boolean ;
     ontouml:order         "1"^^xsd:nonNegativeInteger .
 
 :IY2DQJGGAqACNwoW
@@ -188,7 +181,6 @@
     ontouml:stereotype  ontouml:Consumer ;
     ontouml:isAbstract  "false"^^xsd:boolean ;
     ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:isPowertype "false"^^xsd:boolean ;
     ontouml:order       "1"^^xsd:nonNegativeInteger .
 
 :PDUZwJGGAqACNwn8
@@ -199,7 +191,6 @@
     ontouml:restrictedTo ontouml:functionalComplexNature ;
     ontouml:isAbstract   "false"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
-    ontouml:isPowertype  "false"^^xsd:boolean ;
     ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :gGhuFxGFS_j2pAmk
@@ -208,7 +199,6 @@
     ontouml:name        "MyClass1" ;
     ontouml:isAbstract  "false"^^xsd:boolean ;
     ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:isPowertype "false"^^xsd:boolean ;
     ontouml:order       "1"^^xsd:nonNegativeInteger .
 
 :k8p6WxGFS_j2pApt
@@ -501,14 +491,8 @@
 :kACDQJGGAqACNwnp_shape
     ontouml:project :dGSNHRGFS_j2pAvw .
 
-:kACDQJGGAqACNwnq
-    a ontouml:CollectiveClass .
-
 :lT6DQJGGAqACNwoA_shape
     ontouml:project :dGSNHRGFS_j2pAvw .
-
-:lT6DQJGGAqACNwoB
-    a ontouml:CollectiveClass .
 
 :MrUQwJGGAqACNwoT
     ontouml:project :dGSNHRGFS_j2pAvw .

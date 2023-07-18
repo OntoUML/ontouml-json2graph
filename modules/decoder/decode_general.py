@@ -211,6 +211,8 @@ def set_object_stereotype(object_dict: dict, ontouml_graph: Graph) -> None:
     :type ontouml_graph: Graph
     """
 
+    # TODO (@pedropaulofb): It is still under discussion if relation's stereotypes are mandatory. Modify as necessary.
+
     ENUM_CLASS_STEREOTYPE = ["type", "historicalRole", "historicalRoleMixin", "event", "situation", "category", "mixin",
                              "roleMixin", "phaseMixin", "kind", "collective", "quantity", "relator", "quality", "mode",
                              "subkind", "role", "phase", "enumeration", "datatype", "abstract"]
@@ -232,14 +234,8 @@ def set_object_stereotype(object_dict: dict, ontouml_graph: Graph) -> None:
                            URIRef(URI_ONTOUML + "stereotype"),
                            URIRef(URI_ONTOUML + object_dict['stereotype'])))
 
-        # Adding information that an ontouml:Class is an ontouml:CollectiveClass
-        if object_stereotype == "collective":
-            ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + object_dict['id']),
-                               URIRef(RDF.type),
-                               URIRef(URI_ONTOUML + "CollectiveClass")))
-
         # If declared but invalid, create and report error
-        elif (object_type == "Class" and object_stereotype not in ENUM_CLASS_STEREOTYPE) or \
+        if (object_type == "Class" and object_stereotype not in ENUM_CLASS_STEREOTYPE) or \
                 (object_type == "Relation" and object_stereotype not in ENUM_RELATION_STEREOTYPE) and \
                 not args.ARGUMENTS["silent"]:
             LOGGER.error(f"Invalid stereotype '{object_dict['stereotype']}' defined for {object_type} '{object_id}'. "

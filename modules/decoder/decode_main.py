@@ -1,4 +1,5 @@
 """ JSON decode functions."""
+from pprint import pprint
 
 from rdflib import Graph, URIRef, Literal, RDF, XSD, OWL, RDFS
 
@@ -80,8 +81,8 @@ def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph, language: str
     :type language: str
     """
 
-    restricted_fields = ["x", "y", "stereotype", "order", "isExtensional", "isPowertype", "aggregationKind",
-                         "cardinality"]
+    restricted_fields = ["aggregationKind", "cardinality", "isExtensional", "isPowertype", "order", "stereotype",
+                         "x", "y"]
     positive_integer_fields = ["width", "height"]
     mapped_fields = {"value": "text"}
 

@@ -3343,9 +3343,7 @@
     rdf:type            ontouml:Point ;
     ontouml:xCoordinate 583 ;
     ontouml:yCoordinate 326 .
-
 # MANUALLY ADDED
-
 @prefix :        <https://example.org#> .
 @prefix ontouml: <https://w3id.org/ontouml#> .
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
