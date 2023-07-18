@@ -3,7 +3,7 @@
 from rdflib import Graph, URIRef, Literal, RDF
 
 import modules.arguments as args
-from globals import URI_ONTOLOGY, URI_ONTOUML
+from globals import URI_ONTOUML
 from modules.logger import initialize_logger
 from modules.sparql_queries import GET_ELEMENT_AND_TYPE
 from modules.utils_graph import load_all_graph_safely
@@ -24,15 +24,15 @@ def create_point(point_id: str, x_coord: int, y_coord: int, ontouml_graph: Graph
     :type ontouml_graph: Graph
     """
 
-    ontouml_graph.add((URIRef(URI_ONTOLOGY + point_id), RDF.type, URIRef(URI_ONTOUML + "Point")))
+    ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + point_id), RDF.type, URIRef(URI_ONTOUML + "Point")))
 
     # Setting x coordinate
-    ontouml_graph.add((URIRef(URI_ONTOLOGY + point_id),
+    ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + point_id),
                        URIRef(URI_ONTOUML + "xCoordinate"),
                        Literal(x_coord)))
 
     # Setting y coordinate
-    ontouml_graph.add((URIRef(URI_ONTOLOGY + point_id),
+    ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + point_id),
                        URIRef(URI_ONTOUML + "yCoordinate"),
                        Literal(y_coord)))
 
@@ -228,13 +228,13 @@ def set_object_stereotype(object_dict: dict, ontouml_graph: Graph) -> None:
     if object_stereotype == "null" and not args.ARGUMENTS["silent"]:
         LOGGER.warning(f"Mandatory stereotype not defined for {object_type} with ID {object_id}.")
     elif object_stereotype != "null":
-        ontouml_graph.add((URIRef(URI_ONTOLOGY + object_dict['id']),
+        ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + object_dict['id']),
                            URIRef(URI_ONTOUML + "stereotype"),
                            URIRef(URI_ONTOUML + object_dict['stereotype'])))
 
         # Adding information that an ontouml:Class is an ontouml:CollectiveClass
         if object_stereotype == "collective":
-            ontouml_graph.add((URIRef(URI_ONTOLOGY + object_dict['id']),
+            ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + object_dict['id']),
                                URIRef(RDF.type),
                                URIRef(URI_ONTOUML + "CollectiveClass")))
 

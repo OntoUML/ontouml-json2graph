@@ -9,7 +9,8 @@ Function's nomenclatures:
 
 from rdflib import Graph, URIRef
 
-from globals import URI_ONTOLOGY, URI_ONTOUML
+import modules.arguments as args
+from globals import URI_ONTOUML
 from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type
 
 
@@ -22,9 +23,9 @@ def set_generalization_relations(generalization_dict: dict, ontouml_graph: Graph
     :type ontouml_graph: Graph
     """
 
-    generalization_individual = URIRef(URI_ONTOLOGY + generalization_dict['id'])
-    general_individual = URIRef(URI_ONTOLOGY + generalization_dict["general"]['id'])
-    specific_individual = URIRef(URI_ONTOLOGY + generalization_dict["specific"]['id'])
+    generalization_individual = URIRef(args.ARGUMENTS["base_uri"] + generalization_dict['id'])
+    general_individual = URIRef(args.ARGUMENTS["base_uri"] + generalization_dict["general"]['id'])
+    specific_individual = URIRef(args.ARGUMENTS["base_uri"] + generalization_dict["specific"]['id'])
 
     ontouml_graph.add((generalization_individual, URIRef(URI_ONTOUML + "general"), general_individual))
     ontouml_graph.add((generalization_individual, URIRef(URI_ONTOUML + "specific"), specific_individual))

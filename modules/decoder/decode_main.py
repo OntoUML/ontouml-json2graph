@@ -3,7 +3,7 @@
 from rdflib import Graph, URIRef, Literal, RDF, XSD, OWL, RDFS
 
 import modules.arguments as args
-from globals import URI_ONTOUML, URI_ONTOLOGY, ELEMENT_VIEW_TYPES, SOFTWARE_NAME, SOFTWARE_VERSION, SOFTWARE_URL
+from globals import URI_ONTOUML, ELEMENT_VIEW_TYPES, SOFTWARE_NAME, SOFTWARE_VERSION, SOFTWARE_URL
 from modules.decoder.decode_general import clean_null_data, count_elements_graph
 from modules.decoder.decode_obj_class import create_class_properties
 from modules.decoder.decode_obj_diagram import create_diagram_properties
@@ -36,7 +36,7 @@ def add_metadata(ontouml_graph: Graph) -> None:
 
     uri_dct = "http://purl.org/dc/terms/"
     ontouml_graph.bind("dct", uri_dct)
-    uriref_ontology = URIRef(URI_ONTOLOGY[:-1])
+    uriref_ontology = URIRef(args.ARGUMENTS["base_uri"][:-1])
 
     # Adding conforms to
     dct_conforms_to = URIRef(uri_dct + "conformsTo")
@@ -90,7 +90,7 @@ def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph, language: str
         return
 
     # Creating instance
-    instance_uri = URI_ONTOLOGY + dictionary_data["id"]
+    instance_uri = args.ARGUMENTS["base_uri"] + dictionary_data["id"]
     new_instance = URIRef(instance_uri)
 
     # Setting instance type
@@ -162,7 +162,7 @@ def decode_json_to_graph(json_data: dict, language: str, execution_mode: str) ->
     # Creating OntoUML Graph
     ontouml_graph = Graph()
     ontouml_graph.bind("ontouml", URI_ONTOUML)
-    ontouml_graph.bind("", URI_ONTOLOGY)
+    ontouml_graph.bind("", args.ARGUMENTS["base_uri"])
 
     # Get clean data
     # Dictionary data is all the JSON data loaded as a dictionary to be manipulated

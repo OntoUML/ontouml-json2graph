@@ -9,7 +9,8 @@ Function's nomenclatures:
 
 from rdflib import Graph, URIRef
 
-from globals import URI_ONTOLOGY, URI_ONTOUML
+import modules.arguments as args
+from globals import URI_ONTOUML
 from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type, create_point
 
 
@@ -31,9 +32,9 @@ def set_path_path_point(path_dict: dict, ontouml_graph: Graph) -> None:
         create_point(point_name, point_dict["x"], point_dict["y"], ontouml_graph)
 
         # Associating new Point with the Path
-        ontouml_graph.add((URIRef(URI_ONTOLOGY + path_dict["id"]),
+        ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + path_dict["id"]),
                            URIRef(URI_ONTOUML + "point"),
-                           URIRef(URI_ONTOLOGY + point_name)))
+                           URIRef(args.ARGUMENTS["base_uri"] + point_name)))
 
         point_counter += 1
 

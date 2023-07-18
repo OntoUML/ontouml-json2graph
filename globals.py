@@ -12,7 +12,6 @@ ALLOWED_GRAPH_FORMATS = ["turtle", "ttl", "turtle2", "xml", "pretty-xml", "json-
                          "trig", "trix", "nquads"]
 
 # URIs
-URI_ONTOLOGY = "https://example.org#"
 URI_ONTOUML = "https://w3id.org/ontouml#"
 
 # ONTOUML ENUMERATIONS

@@ -4,7 +4,8 @@ Functions to set object properties are named according to the nomenclature: set_
 
 from rdflib import Graph, URIRef
 
-from globals import URI_ONTOUML, URI_ONTOLOGY
+import modules.arguments as args
+from globals import URI_ONTOUML
 from modules.decoder.decode_general import get_all_ids_of_specific_type, get_list_subdictionaries_for_specific_type
 
 
@@ -30,9 +31,9 @@ def set_ontoumlelement_project_project(project_dict: dict, ontouml_graph: Graph,
         list_objects_ids = get_all_ids_of_specific_type(project_dict, available_type)
 
         for json_object_id in list_objects_ids:
-            statement_subject = URIRef(URI_ONTOLOGY + json_object_id)
+            statement_subject = URIRef(args.ARGUMENTS["base_uri"] + json_object_id)
             statement_predicate = URIRef(URI_ONTOUML + "project")
-            statement_object = URIRef(URI_ONTOLOGY + project_dict["id"])
+            statement_object = URIRef(args.ARGUMENTS["base_uri"] + project_dict["id"])
             ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
 
@@ -46,9 +47,9 @@ def set_project_model_package(project_dict: dict, ontouml_graph: Graph) -> None:
     """
 
     if "model" in project_dict:
-        statement_subject = URIRef(URI_ONTOLOGY + project_dict["id"])
+        statement_subject = URIRef(args.ARGUMENTS["base_uri"] + project_dict["id"])
         statement_predicate = URIRef(URI_ONTOUML + "model")
-        statement_object = URIRef(URI_ONTOLOGY + project_dict["model"]["id"])
+        statement_object = URIRef(args.ARGUMENTS["base_uri"] + project_dict["model"]["id"])
         ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
 
@@ -65,9 +66,9 @@ def set_project_diagram_diagram(project_dict: dict, ontouml_graph: Graph) -> Non
     list_all_diagram_ids = get_all_ids_of_specific_type(project_dict, "Diagram")
 
     for diagram_id in list_all_diagram_ids:
-        statement_subject = URIRef(URI_ONTOLOGY + project_dict["id"])
+        statement_subject = URIRef(args.ARGUMENTS["base_uri"] + project_dict["id"])
         statement_predicate = URIRef(URI_ONTOUML + "diagram")
-        statement_object = URIRef(URI_ONTOLOGY + diagram_id)
+        statement_object = URIRef(args.ARGUMENTS["base_uri"] + diagram_id)
         ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
 

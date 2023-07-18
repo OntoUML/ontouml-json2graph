@@ -12,7 +12,7 @@ import inspect
 from rdflib import Graph, URIRef, XSD, Literal
 
 import modules.arguments as args
-from globals import URI_ONTOLOGY, URI_ONTOUML
+from globals import URI_ONTOUML
 from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type, get_stereotype, \
     set_object_stereotype
 from modules.errors import report_error_end_of_switch
@@ -41,7 +41,7 @@ def set_class_order_nonnegativeinteger(class_dict: dict, ontouml_graph: Graph) -
 
     # Case C: receives 0, representing an orderless class.
     elif class_dict["order"] == "*":
-        ontouml_graph.add((URIRef(URI_ONTOLOGY + class_dict['id']),
+        ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
                            URIRef(URI_ONTOUML + "order"),
                            Literal(0, datatype=XSD.nonNegativeInteger)))
 
@@ -51,7 +51,7 @@ def set_class_order_nonnegativeinteger(class_dict: dict, ontouml_graph: Graph) -
 
     # Case B
     elif type(class_dict["order"]):
-        ontouml_graph.add((URIRef(URI_ONTOLOGY + class_dict['id']),
+        ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
                            URIRef(URI_ONTOUML + "order"),
                            Literal(class_dict['order'], datatype=XSD.nonNegativeInteger)))
 
@@ -86,7 +86,7 @@ def set_class_restrictedto_ontologicalnature(class_dict: dict, ontouml_graph: Gr
     if "restrictedTo" in class_dict:
 
         for restriction in class_dict["restrictedTo"]:
-            ontouml_graph.add((URIRef(URI_ONTOLOGY + class_dict['id']),
+            ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
                                URIRef(URI_ONTOUML + "restrictedTo"),
                                URIRef(URI_ONTOUML + restriction_nature_mapping[restriction])))
 
@@ -104,12 +104,12 @@ def set_class_attributes(class_dict: dict, ontouml_graph: Graph) -> None:
     """
 
     if "isExtensional" in class_dict:
-        ontouml_graph.add((URIRef(URI_ONTOLOGY + class_dict['id']),
+        ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
                            URIRef(URI_ONTOUML + "isExtensional"),
                            Literal(class_dict["isExtensional"])))
 
     if "isPowertype" in class_dict:
-        ontouml_graph.add((URIRef(URI_ONTOLOGY + class_dict['id']),
+        ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
                            URIRef(URI_ONTOUML + "isPowertype"),
                            Literal(class_dict["isPowertype"])))
 
@@ -146,7 +146,7 @@ def set_class_defaults(class_dict: dict, ontouml_graph: Graph) -> None:
         if (class_stereotype == "null") or (class_stereotype != 'type'):
             if not args.ARGUMENTS["silent"]:
                 LOGGER.warning(warning_msg1)
-            ontouml_graph.add((URIRef(URI_ONTOLOGY + class_dict['id']),
+            ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
                                URIRef(URI_ONTOUML + "order"),
                                Literal(1, datatype=XSD.nonNegativeInteger)))
 
@@ -154,7 +154,7 @@ def set_class_defaults(class_dict: dict, ontouml_graph: Graph) -> None:
         elif class_stereotype == 'type':
             if not args.ARGUMENTS["silent"]:
                 LOGGER.warning(warning_msg2)
-            ontouml_graph.add((URIRef(URI_ONTOLOGY + class_dict['id']),
+            ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
                                URIRef(URI_ONTOUML + "order"),
                                Literal(2, datatype=XSD.nonNegativeInteger)))
 
@@ -167,7 +167,7 @@ def set_class_defaults(class_dict: dict, ontouml_graph: Graph) -> None:
     if "isPowertype" not in class_dict:
         if not args.ARGUMENTS["silent"]:
             LOGGER.warning(warning_msg3)
-        ontouml_graph.add((URIRef(URI_ONTOLOGY + class_dict['id']),
+        ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
                            URIRef(URI_ONTOUML + "isPowertype"),
                            Literal(False)))
 
@@ -257,9 +257,9 @@ def set_class_attribute_property(class_dict: dict, ontouml_graph: Graph) -> None
     list_related_properties = get_list_subdictionaries_for_specific_type(class_dict, "Property")
 
     for related_property in list_related_properties:
-        statement_subject = URIRef(URI_ONTOLOGY + class_dict["id"])
+        statement_subject = URIRef(args.ARGUMENTS["base_uri"] + class_dict["id"])
         statement_predicate = URIRef(URI_ONTOUML + "attribute")
-        statement_object = URIRef(URI_ONTOLOGY + related_property["id"])
+        statement_object = URIRef(args.ARGUMENTS["base_uri"] + related_property["id"])
 
         ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
@@ -276,9 +276,9 @@ def set_class_literal_literal(class_dict: dict, ontouml_graph: Graph) -> None:
     list_related_literals = get_list_subdictionaries_for_specific_type(class_dict, "Literal")
 
     for related_literal in list_related_literals:
-        statement_subject = URIRef(URI_ONTOLOGY + class_dict["id"])
+        statement_subject = URIRef(args.ARGUMENTS["base_uri"] + class_dict["id"])
         statement_predicate = URIRef(URI_ONTOUML + "literal")
-        statement_object = URIRef(URI_ONTOLOGY + related_literal["id"])
+        statement_object = URIRef(args.ARGUMENTS["base_uri"] + related_literal["id"])
 
         ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 

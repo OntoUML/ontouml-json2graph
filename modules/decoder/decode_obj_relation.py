@@ -9,7 +9,8 @@ Function's nomenclatures:
 
 from rdflib import Graph, URIRef
 
-from globals import URI_ONTOLOGY, URI_ONTOUML
+import modules.arguments as args
+from globals import URI_ONTOUML
 from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type, set_object_stereotype
 
 
@@ -25,7 +26,7 @@ def set_relation_relations(relation_dict: dict, ontouml_graph: Graph) -> None:
     :type ontouml_graph: Graph
     """
 
-    relation_individual = URIRef(URI_ONTOLOGY + relation_dict['id'])
+    relation_individual = URIRef(args.ARGUMENTS["base_uri"] + relation_dict['id'])
     uri_relation_end = URIRef(URI_ONTOUML + "relationEnd")
     uri_relation_sourceend = URIRef(URI_ONTOUML + "sourceEnd")
     uri_relation_targetend = URIRef(URI_ONTOUML + "targetEnd")
@@ -34,8 +35,8 @@ def set_relation_relations(relation_dict: dict, ontouml_graph: Graph) -> None:
     for property_dict in relation_dict["properties"]:
         ends_list.append(property_dict["id"])
 
-    source_id = URIRef(URI_ONTOLOGY + ends_list[0])
-    target_id = URIRef(URI_ONTOLOGY + ends_list[1])
+    source_id = URIRef(args.ARGUMENTS["base_uri"] + ends_list[0])
+    target_id = URIRef(args.ARGUMENTS["base_uri"] + ends_list[1])
 
     # Setting ontouml:relationEnd
     ontouml_graph.add((relation_individual, uri_relation_end, source_id))

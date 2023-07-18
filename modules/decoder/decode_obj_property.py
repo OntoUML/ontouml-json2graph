@@ -10,7 +10,7 @@ Function's nomenclatures:
 from rdflib import Graph, URIRef, RDF, Literal
 
 import modules.arguments as args
-from globals import URI_ONTOUML, URI_ONTOLOGY
+from globals import URI_ONTOUML
 from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type
 from modules.logger import initialize_logger
 from modules.sparql_queries import GET_CLASS_STEREOTYPE_ATTRIBUTE_STEREOTYPE
@@ -58,11 +58,11 @@ def validate_property_stereotype(ontouml_graph: Graph) -> None:
                 LOGGER.warning(f"The class with ID '{class_id}' and unknown stereotype has an attribute stereotyped "
                                f"'{property_stereotype}'. It was stereotyped as 'event' for a semantically valid output.")
 
-            ontouml_graph.remove((URIRef(URI_ONTOLOGY + class_id),
+            ontouml_graph.remove((URIRef(args.ARGUMENTS["base_uri"] + class_id),
                                   URIRef(URI_ONTOUML + "stereotype"),
                                   URIRef(URI_ONTOUML + "ClassStereotype")))
 
-            ontouml_graph.add((URIRef(URI_ONTOLOGY + class_id),
+            ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_id),
                                URIRef(URI_ONTOUML + "stereotype"),
                                URIRef(URI_ONTOUML + "event")))
 
@@ -77,7 +77,7 @@ def set_property_relations(property_dict: dict, ontouml_graph: Graph) -> None:
     :type ontouml_graph: Graph
     """
 
-    statement_subject = URIRef(URI_ONTOLOGY + property_dict["id"])
+    statement_subject = URIRef(args.ARGUMENTS["base_uri"] + property_dict["id"])
 
     # Setting ontouml:aggregationKind
     if "aggregationKind" not in property_dict:
@@ -91,7 +91,7 @@ def set_property_relations(property_dict: dict, ontouml_graph: Graph) -> None:
     # Setting ontouml:propertyType
     if "propertyType" in property_dict:
         statement_predicate = URIRef(URI_ONTOUML + "propertyType")
-        statement_object = URIRef(URI_ONTOLOGY + property_dict["propertyType"]["id"])
+        statement_object = URIRef(args.ARGUMENTS["base_uri"] + property_dict["propertyType"]["id"])
         ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
     # Setting ontouml:stereotype. Its validation is performed later in function validate_property_stereotype
@@ -105,7 +105,7 @@ def set_property_relations(property_dict: dict, ontouml_graph: Graph) -> None:
         statement_predicate = URIRef(URI_ONTOUML + "subsetsProperty")
 
         for subsetted_prop_dict in property_dict["subsettedProperties"]:
-            statement_object = URIRef(URI_ONTOLOGY + subsetted_prop_dict["id"])
+            statement_object = URIRef(args.ARGUMENTS["base_uri"] + subsetted_prop_dict["id"])
             ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
     # Setting ontouml:redefinesProperty
@@ -113,7 +113,7 @@ def set_property_relations(property_dict: dict, ontouml_graph: Graph) -> None:
         statement_predicate = URIRef(URI_ONTOUML + "redefinesProperty")
 
         for redefined_prop_dict in property_dict["redefinedProperties"]:
-            statement_object = URIRef(URI_ONTOLOGY + redefined_prop_dict["id"])
+            statement_object = URIRef(args.ARGUMENTS["base_uri"] + redefined_prop_dict["id"])
             ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
 
@@ -161,8 +161,8 @@ def set_cardinality_relations(property_dict: dict, ontouml_graph: Graph) -> None
     """
 
     if "cardinality" in property_dict:
-        ontology_property_individual = URIRef(URI_ONTOLOGY + property_dict["id"])
-        ontology_cardinality_individual = URIRef(URI_ONTOLOGY + property_dict["id"] + '_cardinality')
+        ontology_property_individual = URIRef(args.ARGUMENTS["base_uri"] + property_dict["id"])
+        ontology_cardinality_individual = URIRef(args.ARGUMENTS["base_uri"] + property_dict["id"] + '_cardinality')
 
         ontouml_cardinality_class = URIRef(URI_ONTOUML + "Cardinality")
         ontouml_cardinality_property = URIRef(URI_ONTOUML + "cardinality")

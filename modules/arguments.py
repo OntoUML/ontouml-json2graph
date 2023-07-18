@@ -2,6 +2,8 @@
 
 import argparse
 
+import validators as validators
+
 from globals import SOFTWARE_ACRONYM, SOFTWARE_VERSION, SOFTWARE_NAME, SOFTWARE_URL, ALLOWED_GRAPH_FORMATS
 from modules.logger import initialize_logger
 
@@ -41,6 +43,8 @@ def treat_user_arguments() -> dict:
                                   help="Enables syntactical and semantic validations and corrections.")
     arguments_parser.add_argument("-s", "--silent", action="store_true",
                                   help="Silent mode. Does not present validation warnings and errors.")
+    arguments_parser.add_argument("-u", "--base_uri", action="store", type=str, default="https://example.org#",
+                                  help="Base URI of the resulting graph. Default is 'https://example.org#'.")
 
     # AUTOMATIC ARGUMENTS
     arguments_parser.add_argument("-v", "--version", action="version", help="Print the software version and exit.")
@@ -53,11 +57,18 @@ def treat_user_arguments() -> dict:
                             "language": arguments.language,
                             "correct": arguments.correct,
                             "silent": arguments.silent,
-                            "json_path": arguments.json_file}
+                            "json_path": arguments.json_file,
+                            "base_uri": arguments.base_uri}
 
     # Checking if provided input file type is valid
     if ".json" not in arguments.json_file:
-        raise OSError("Provided input file must be of JSON type.")
+        raise ValueError("Provided input file must be of JSON type. Execution finished.")
+
+    # Checking if provided URI is valid and if it has '/' or '#' at the end
+    if not validators.url(arguments.base_uri):
+        raise ValueError("Provided base URI is invalid. Execution finished.")
+    elif (arguments.base_uri[-1] != '#') and (arguments.base_uri[-1] != '/'):
+        arguments_dictionary["base_uri"] += '#'
 
     LOGGER.debug(f"Arguments parsed. Obtained values are: {arguments_dictionary}.")
 

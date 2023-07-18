@@ -9,7 +9,8 @@ Function's nomenclatures:
 
 from rdflib import Graph, URIRef
 
-from globals import URI_ONTOLOGY, URI_ONTOUML
+import modules.arguments as args
+from globals import URI_ONTOUML
 from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type, create_point
 
 
@@ -27,9 +28,9 @@ def set_rectangularshape_coordinates(rectangularshape_dict: dict, ontouml_graph:
     create_point(point_name, rectangularshape_dict["x"], rectangularshape_dict["y"], ontouml_graph)
 
     # Associating new Point with Rectangle
-    ontouml_graph.add((URIRef(URI_ONTOLOGY + rectangularshape_dict["id"]),
+    ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + rectangularshape_dict["id"]),
                        URIRef(URI_ONTOUML + "topLeftPosition"),
-                       URIRef(URI_ONTOLOGY + point_name)))
+                       URIRef(args.ARGUMENTS["base_uri"] + point_name)))
 
 
 def create_rectangularshape_properties(json_data: dict, ontouml_graph: Graph) -> None:

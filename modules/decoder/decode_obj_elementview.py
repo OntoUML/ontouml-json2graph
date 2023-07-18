@@ -10,7 +10,8 @@ import inspect
 
 from rdflib import Graph, URIRef
 
-from globals import URI_ONTOLOGY, URI_ONTOUML, ELEMENT_VIEW_TYPES
+import modules.arguments as args
+from globals import URI_ONTOUML, ELEMENT_VIEW_TYPES
 from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type
 from modules.errors import report_error_end_of_switch
 
@@ -37,26 +38,26 @@ def set_elementview_relations(elementview_dict: dict, ontouml_graph: Graph) -> N
         report_error_end_of_switch("classview_dict['shape']['type']", current_function)
 
     # Setting shape property
-    ontouml_graph.add((URIRef(URI_ONTOLOGY + elementview_dict['id']),
+    ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + elementview_dict['id']),
                        URIRef(URI_ONTOUML + "shape"),
-                       URIRef(URI_ONTOLOGY + shape_name)))
+                       URIRef(args.ARGUMENTS["base_uri"] + shape_name)))
 
     # Setting isViewOf property
     if "modelElement" in elementview_dict:
-        ontouml_graph.add((URIRef(URI_ONTOLOGY + elementview_dict['id']),
+        ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + elementview_dict['id']),
                            URIRef(URI_ONTOUML + "isViewOf"),
-                           URIRef(URI_ONTOLOGY + elementview_dict['modelElement']['id'])))
+                           URIRef(args.ARGUMENTS["base_uri"] + elementview_dict['modelElement']['id'])))
 
     # Setting sourceView and targetView properties
     if "source" in elementview_dict:
-        ontouml_graph.add((URIRef(URI_ONTOLOGY + elementview_dict['id']),
+        ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + elementview_dict['id']),
                            URIRef(URI_ONTOUML + "sourceView"),
-                           URIRef(URI_ONTOLOGY + elementview_dict['source']['id'])))
+                           URIRef(args.ARGUMENTS["base_uri"] + elementview_dict['source']['id'])))
 
     if "target" in elementview_dict:
-        ontouml_graph.add((URIRef(URI_ONTOLOGY + elementview_dict['id']),
+        ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + elementview_dict['id']),
                            URIRef(URI_ONTOUML + "targetView"),
-                           URIRef(URI_ONTOLOGY + elementview_dict['target']['id'])))
+                           URIRef(args.ARGUMENTS["base_uri"] + elementview_dict['target']['id'])))
 
 
 def create_elementview_properties(json_data: dict, ontouml_graph: Graph) -> None:

@@ -4,7 +4,8 @@ import glob
 from rdflib import Graph
 from rdflib.compare import graph_diff, to_isomorphic
 
-from globals import URI_ONTOUML, URI_ONTOLOGY
+import modules.arguments as args
+from globals import URI_ONTOUML
 from modules.input_output import safe_write_graph_file
 from modules.utils_graph import load_all_graph_safely
 
@@ -40,13 +41,13 @@ def print_graphs_differences(iso_result_graph: Graph, iso_expected_graph: Graph,
     in_both, in_resulting, in_expected = graph_diff(iso_result_graph, iso_expected_graph)
 
     in_both.bind("ontouml", URI_ONTOUML)
-    in_both.bind("", URI_ONTOLOGY)
+    in_both.bind("", args.ARGUMENTS["base_uri"])
 
     in_resulting.bind("ontouml", URI_ONTOUML)
-    in_resulting.bind("", URI_ONTOLOGY)
+    in_resulting.bind("", args.ARGUMENTS["base_uri"])
 
     in_expected.bind("ontouml", URI_ONTOUML)
-    in_expected.bind("", URI_ONTOLOGY)
+    in_expected.bind("", args.ARGUMENTS["base_uri"])
 
     base_path = "results/"
 

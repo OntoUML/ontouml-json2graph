@@ -4,7 +4,8 @@ Functions to set object properties are named according to the nomenclature: set_
 
 from rdflib import Graph, URIRef
 
-from globals import URI_ONTOUML, URI_ONTOLOGY, ELEMENT_VIEW_TYPES
+import modules.arguments as args
+from globals import URI_ONTOUML, ELEMENT_VIEW_TYPES
 from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type
 
 
@@ -17,9 +18,9 @@ def set_diagram_owner_modelelement(diagram_dict: dict, ontouml_graph: Graph) -> 
     :type ontouml_graph: Graph
     """
 
-    statement_subject = URIRef(URI_ONTOLOGY + diagram_dict["id"])
+    statement_subject = URIRef(args.ARGUMENTS["base_uri"] + diagram_dict["id"])
     statement_predicate = URIRef(URI_ONTOUML + "owner")
-    statement_object = URIRef(URI_ONTOLOGY + diagram_dict["owner"]["id"])
+    statement_object = URIRef(args.ARGUMENTS["base_uri"] + diagram_dict["owner"]["id"])
     ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
 
@@ -38,9 +39,9 @@ def set_diagram_containsview_elementview(diagram_dict: dict, ontouml_graph: Grap
         list_related_elementviews += get_list_subdictionaries_for_specific_type(diagram_dict, view_type)
 
     for related_elementview in list_related_elementviews:
-        statement_subject = URIRef(URI_ONTOLOGY + diagram_dict["id"])
+        statement_subject = URIRef(args.ARGUMENTS["base_uri"] + diagram_dict["id"])
         statement_predicate = URIRef(URI_ONTOUML + "containsView")
-        statement_object = URIRef(URI_ONTOLOGY + related_elementview["id"])
+        statement_object = URIRef(args.ARGUMENTS["base_uri"] + related_elementview["id"])
 
         ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 

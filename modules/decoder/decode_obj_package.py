@@ -4,7 +4,8 @@ Functions to set object properties are named according to the nomenclature: set_
 
 from rdflib import Graph, URIRef
 
-from globals import URI_ONTOLOGY, URI_ONTOUML
+import modules.arguments as args
+from globals import URI_ONTOUML
 from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type
 
 
@@ -76,9 +77,9 @@ def set_package_containsmodelelement_modelelement(package_dict: dict, ontouml_gr
 
         # Include found related elements in graph using ontouml:containsModelElement
         for related_id in list_related_ids:
-            ontouml_graph.add((URIRef(URI_ONTOLOGY + package_dict["id"]),
+            ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + package_dict["id"]),
                                URIRef(URI_ONTOUML + "containsModelElement"),
-                               URIRef(URI_ONTOLOGY + related_id)))
+                               URIRef(args.ARGUMENTS["base_uri"] + related_id)))
 
 
 def create_package_properties(json_data: dict, ontouml_graph: Graph) -> None:
