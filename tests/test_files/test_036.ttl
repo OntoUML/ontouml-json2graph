@@ -55,7 +55,6 @@
     ontouml:restrictedTo ontouml:functionalComplexNature ;
     ontouml:isAbstract   "false"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
-    ontouml:isPowertype  "false"^^xsd:boolean ;
     ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :5TmM1JGGAqACNxGy
@@ -66,7 +65,6 @@
     ontouml:restrictedTo ontouml:functionalComplexNature ;
     ontouml:isAbstract   "false"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
-    ontouml:isPowertype  "false"^^xsd:boolean ;
     ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :TIWM1JGGAqACNxG9
@@ -77,7 +75,6 @@
     ontouml:restrictedTo ontouml:qualityNature ;
     ontouml:isAbstract   "false"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
-    ontouml:isPowertype  "false"^^xsd:boolean ;
     ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :c6WM1JGGAqACNxHI
@@ -99,7 +96,6 @@
     ontouml:restrictedTo ontouml:eventNature ;
     ontouml:isAbstract   "false"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
-    ontouml:isPowertype  "false"^^xsd:boolean ;
     ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :NHWM1JGGAqACNxHe
@@ -110,7 +106,6 @@
     ontouml:restrictedTo ontouml:qualityNature ;
     ontouml:isAbstract   "false"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
-    ontouml:isPowertype  "false"^^xsd:boolean ;
     ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :jk2M1JGGAqACNxHp
@@ -120,7 +115,6 @@
     ontouml:stereotype  ontouml:subkind ;
     ontouml:isAbstract  "false"^^xsd:boolean ;
     ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:isPowertype "false"^^xsd:boolean ;
     ontouml:order       "1"^^xsd:nonNegativeInteger .
 
 :S22M1JGGAqACNxH0
@@ -131,7 +125,6 @@
     ontouml:restrictedTo ontouml:situationNature ;
     ontouml:isAbstract   "false"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
-    ontouml:isPowertype  "false"^^xsd:boolean ;
     ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :SN2M1JGGAqACNxH_
@@ -142,7 +135,6 @@
     ontouml:restrictedTo ontouml:eventNature ;
     ontouml:isAbstract   "false"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
-    ontouml:isPowertype  "false"^^xsd:boolean ;
     ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :J32M1JGGAqACNxIK
@@ -152,7 +144,6 @@
     ontouml:stereotype  ontouml:subkind ;
     ontouml:isAbstract  "false"^^xsd:boolean ;
     ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:isPowertype "false"^^xsd:boolean ;
     ontouml:order       "1"^^xsd:nonNegativeInteger .
 
 :B2pM1JGGAqACNxJo
@@ -162,7 +153,6 @@
     ontouml:stereotype  ontouml:role ;
     ontouml:isAbstract  "false"^^xsd:boolean ;
     ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:isPowertype "false"^^xsd:boolean ;
     ontouml:order       "1"^^xsd:nonNegativeInteger .
 
 :h1pM1JGGAqACNxJz
@@ -172,7 +162,6 @@
     ontouml:stereotype  ontouml:role ;
     ontouml:isAbstract  "false"^^xsd:boolean ;
     ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:isPowertype "false"^^xsd:boolean ;
     ontouml:order       "1"^^xsd:nonNegativeInteger .
 
 :kfZM1JGGAqACNxKE
@@ -183,7 +172,6 @@
     ontouml:restrictedTo ontouml:functionalComplexNature ;
     ontouml:isAbstract   "false"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
-    ontouml:isPowertype  "false"^^xsd:boolean ;
     ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :HM5M1JGGAqACNxKP
@@ -194,7 +182,6 @@
     ontouml:restrictedTo ontouml:functionalComplexNature ;
     ontouml:isAbstract   "false"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
-    ontouml:isPowertype  "false"^^xsd:boolean ;
     ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :XlHi1JGGAqACNwqH
@@ -204,7 +191,6 @@
     ontouml:stereotype  ontouml:role ;
     ontouml:isAbstract  "false"^^xsd:boolean ;
     ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:isPowertype "false"^^xsd:boolean ;
     ontouml:order       "1"^^xsd:nonNegativeInteger .
 
 :tHHi1JGGAqACNwqS
@@ -214,7 +200,6 @@
     ontouml:stereotype  ontouml:role ;
     ontouml:isAbstract  "false"^^xsd:boolean ;
     ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:isPowertype "false"^^xsd:boolean ;
     ontouml:order       "1"^^xsd:nonNegativeInteger .
 
 :NBni1JGGAqACNwqj
@@ -225,7 +210,6 @@
     ontouml:restrictedTo ontouml:relatorNature ;
     ontouml:isAbstract   "false"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
-    ontouml:isPowertype  "false"^^xsd:boolean ;
     ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :FEKS1JGGAqACNwsD
@@ -235,7 +219,6 @@
     ontouml:stereotype  ontouml:phase ;
     ontouml:isAbstract  "false"^^xsd:boolean ;
     ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:isPowertype "false"^^xsd:boolean ;
     ontouml:order       "1"^^xsd:nonNegativeInteger .
 
 :6WKS1JGGAqACNwsO
@@ -245,7 +228,6 @@
     ontouml:stereotype  ontouml:phase ;
     ontouml:isAbstract  "false"^^xsd:boolean ;
     ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:isPowertype "false"^^xsd:boolean ;
     ontouml:order       "1"^^xsd:nonNegativeInteger .
 
 :1pKS1JGGAqACNwsZ
@@ -256,7 +238,6 @@
     ontouml:restrictedTo ontouml:relatorNature ;
     ontouml:isAbstract   "true"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
-    ontouml:isPowertype  "false"^^xsd:boolean ;
     ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :0yRS1JGGAqACNwuE
@@ -267,7 +248,6 @@
     ontouml:restrictedTo ontouml:functionalComplexNature ;
     ontouml:isAbstract   "false"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
-    ontouml:isPowertype  "false"^^xsd:boolean ;
     ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :BJRS1JGGAqACNwuP
@@ -278,7 +258,6 @@
     ontouml:restrictedTo ontouml:functionalComplexNature ;
     ontouml:isAbstract   "false"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
-    ontouml:isPowertype  "false"^^xsd:boolean ;
     ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :QrRS1JGGAqACNwua
@@ -289,7 +268,6 @@
     ontouml:restrictedTo ontouml:relatorNature ;
     ontouml:isAbstract   "true"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
-    ontouml:isPowertype  "false"^^xsd:boolean ;
     ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :8F9S1JGGAqACNwv6
@@ -300,7 +278,6 @@
     ontouml:restrictedTo ontouml:functionalComplexNature ;
     ontouml:isAbstract   "false"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
-    ontouml:isPowertype  "false"^^xsd:boolean ;
     ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :O39S1JGGAqACNwwF
@@ -311,7 +288,6 @@
     ontouml:restrictedTo ontouml:functionalComplexNature ;
     ontouml:isAbstract   "false"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
-    ontouml:isPowertype  "false"^^xsd:boolean ;
     ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :tyDS1JGGAqACNwwQ
@@ -322,7 +298,6 @@
     ontouml:restrictedTo ontouml:functionalComplexNature ;
     ontouml:isAbstract   "false"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
-    ontouml:isPowertype  "false"^^xsd:boolean ;
     ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :Gi_S1JGGAqACNwye
@@ -331,7 +306,6 @@
     ontouml:name        "Class27" ;
     ontouml:isAbstract  "false"^^xsd:boolean ;
     ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:isPowertype "false"^^xsd:boolean ;
     ontouml:order       "1"^^xsd:nonNegativeInteger .
 
 :KR_S1JGGAqACNwyp
@@ -340,7 +314,6 @@
     ontouml:name        "Class28" ;
     ontouml:isAbstract  "false"^^xsd:boolean ;
     ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:isPowertype "false"^^xsd:boolean ;
     ontouml:order       "1"^^xsd:nonNegativeInteger .
 
 :Lt_S1JGGAqACNwy0
@@ -349,7 +322,6 @@
     ontouml:name        "Class29" ;
     ontouml:isAbstract  "false"^^xsd:boolean ;
     ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:isPowertype "false"^^xsd:boolean ;
     ontouml:order       "1"^^xsd:nonNegativeInteger .
 
 :OaKy1JGGAqACNw0M
@@ -360,7 +332,6 @@
     ontouml:restrictedTo ontouml:functionalComplexNature ;
     ontouml:isAbstract   "false"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
-    ontouml:isPowertype  "false"^^xsd:boolean ;
     ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :P5Ky1JGGAqACNw0X
@@ -370,7 +341,6 @@
     ontouml:stereotype  ontouml:role ;
     ontouml:isAbstract  "false"^^xsd:boolean ;
     ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:isPowertype "false"^^xsd:boolean ;
     ontouml:order       "1"^^xsd:nonNegativeInteger .
 
 :j7Ky1JGGAqACNw0i
@@ -381,7 +351,6 @@
     ontouml:restrictedTo ontouml:functionalComplexNature ;
     ontouml:isAbstract   "false"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
-    ontouml:isPowertype  "false"^^xsd:boolean ;
     ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :i4qy1JGGAqACNw0t
@@ -391,7 +360,6 @@
     ontouml:stereotype  ontouml:role ;
     ontouml:isAbstract  "false"^^xsd:boolean ;
     ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:isPowertype "false"^^xsd:boolean ;
     ontouml:order       "1"^^xsd:nonNegativeInteger .
 
 :EzHK1JGGAqACNw5h
@@ -402,7 +370,6 @@
     ontouml:restrictedTo ontouml:situationNature ;
     ontouml:isAbstract   "false"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
-    ontouml:isPowertype  "false"^^xsd:boolean ;
     ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :YInK1JGGAqACNw5s
@@ -413,7 +380,6 @@
     ontouml:restrictedTo ontouml:situationNature ;
     ontouml:isAbstract   "false"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
-    ontouml:isPowertype  "false"^^xsd:boolean ;
     ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :gRoz9JGGAqACNwtM
@@ -425,7 +391,6 @@
     ontouml:restrictedTo ontouml:qualityNature ;
     ontouml:isAbstract   "false"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
-    ontouml:isPowertype  "false"^^xsd:boolean ;
     ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :uyYz9JGGAqACNwti
@@ -436,7 +401,6 @@
     ontouml:restrictedTo ontouml:qualityNature ;
     ontouml:isAbstract   "false"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
-    ontouml:isPowertype  "false"^^xsd:boolean ;
     ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :Z2wz9JGGAqACNwsv
@@ -447,7 +411,6 @@
     ontouml:restrictedTo ontouml:functionalComplexNature ;
     ontouml:isAbstract   "false"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
-    ontouml:isPowertype  "false"^^xsd:boolean ;
     ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :inoz9JGGAqACNwtX
@@ -458,7 +421,6 @@
     ontouml:restrictedTo ontouml:functionalComplexNature ;
     ontouml:isAbstract   "false"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
-    ontouml:isPowertype  "false"^^xsd:boolean ;
     ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :E1VM1JGGAqACNxKq
