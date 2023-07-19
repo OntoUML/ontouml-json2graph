@@ -122,6 +122,7 @@
     ontouml:stereotype   ontouml:event ;
     ontouml:restrictedTo ontouml:eventNature ;
     ontouml:isAbstract   "false"^^xsd:boolean ;
+    ontouml:isDerived    "false"^^xsd:boolean ;
     ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :J32M1JGGAqACNxIK
@@ -1855,13 +1856,13 @@
     ontouml:xCoordinate 513 ;
     ontouml:yCoordinate 664 .
 
-:SN2M1JGGAqACNxH2_shape 
+:SN2M1JGGAqACNxH_shape
     rdf:type                ontouml:Rectangle ;
     ontouml:height          "40"^^xsd:positiveInteger ;
     ontouml:width           "80"^^xsd:positiveInteger ;
-    ontouml:topLeftPosition :SN2M1JGGAqACNxH2_shape _point .
+    ontouml:topLeftPosition :SN2M1JGGAqACNxH_shape_point .
 
-:SN2M1JGGAqACNxH2_shape _point
+:SN2M1JGGAqACNxH_shape_point
     rdf:type            ontouml:Point ;
     ontouml:xCoordinate 918 ;
     ontouml:yCoordinate 591 .
@@ -3285,7 +3286,7 @@
     ontouml:sourceView :EzHK1JGGAqACNw5g ;
     ontouml:targetView :YInK1JGGAqACNw5r .
 
-:SN2M1JGGAqACNxH2_shape 
+:SN2M1JGGAqACNxH_shape
     ontouml:project :2Yx01JGGAqACNw2l .
 
 :Sr3i1JGGAqACNwrF

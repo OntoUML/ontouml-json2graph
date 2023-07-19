@@ -2481,7 +2481,7 @@
           }
         },
         {
-          "id": "SN2M1JGGAqACNxH2_shape",
+          "id": "SN2M1JGGAqACNxH2",
           "type": "ClassView",
           "modelElement": {
             "id": "SN2M1JGGAqACNxH",
@@ -2518,7 +2518,7 @@
             ]
           },
           "source": {
-            "id": "SN2M1JGGAqACNxH2_shape",
+            "id": "SN2M1JGGAqACNxH2",
             "type": "ClassView"
           },
           "target": {
@@ -2782,7 +2782,7 @@
             ]
           },
           "source": {
-            "id": "SN2M1JGGAqACNxH2_shape",
+            "id": "SN2M1JGGAqACNxH2",
             "type": "ClassView"
           },
           "target": {
