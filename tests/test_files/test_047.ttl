@@ -1954,7 +1954,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "UFO:Agent"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Rol55G6GAqACBAnR ;
@@ -2001,7 +2000,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "UFO: Quality Region"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Rol55G6GAqACBAnR ;
@@ -2030,7 +2028,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "UFOC:Goal"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Rol55G6GAqACBAnR ;
@@ -2047,7 +2044,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Beneficence Requirement"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Rol55G6GAqACBAnR ;
@@ -2058,7 +2054,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Justice Requirement"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Rol55G6GAqACBAnR ;
@@ -2069,7 +2064,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "UFOC:Goal"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Rol55G6GAqACBAnR ;
@@ -2080,7 +2074,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Beneficence Requirement"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Rol55G6GAqACBAnR ;
@@ -2091,7 +2084,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "NFR:Requirement"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Rol55G6GAqACBAnR ;
@@ -2102,7 +2094,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Autonomy Requirement"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Rol55G6GAqACBAnR ;
@@ -2113,7 +2104,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "UFO:Quality Value"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Rol55G6GAqACBAnR ;
@@ -2124,7 +2114,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   false ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "COVER:Gain Event"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Rol55G6GAqACBAnR ;
@@ -2135,7 +2124,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Explicability Requirement"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Rol55G6GAqACBAnR ;
@@ -2146,7 +2134,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Nonmaleficense Requirement"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Rol55G6GAqACBAnR ;
@@ -2157,7 +2144,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   false ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "COVER:Loss Event"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Rol55G6GAqACBAnR ;
@@ -2168,7 +2154,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "NFR:Requirement"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Rol55G6GAqACBAnR ;
@@ -2196,7 +2181,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   false ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "UFO:Quality"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Rol55G6GAqACBAnR ;
@@ -2219,7 +2203,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Nonmaleficence Requirement"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Rol55G6GAqACBAnR ;
@@ -2230,7 +2213,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "NFR:Quality Requirement"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Rol55G6GAqACBAnR ;
@@ -2241,7 +2223,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   false ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Nonmaleficence Intention"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Rol55G6GAqACBAnR ;
@@ -2252,7 +2233,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   false ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Beneficence Intention"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Rol55G6GAqACBAnR ;
@@ -2275,7 +2255,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   false ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Intention"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Rol55G6GAqACBAnR ;
@@ -2286,7 +2265,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Ethical Requirement"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Rol55G6GAqACBAnR ;
@@ -2303,7 +2281,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "NFR:Quality Requirement"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Rol55G6GAqACBAnR ;

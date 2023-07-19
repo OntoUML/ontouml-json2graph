@@ -40,18 +40,14 @@
     ontouml:project     :GuP9JGGAqACNwx0 ;
     ontouml:name        "q"@en ;
     ontouml:isAbstract  "false"^^xsd:boolean ;
-    ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:isPowertype "false"^^xsd:boolean ;
-    ontouml:order       "1"^^xsd:nonNegativeInteger .
+    ontouml:isDerived   "false"^^xsd:boolean .
 
 :5I5oDJGGAqACNxIe
     rdf:type            ontouml:Class ;
     ontouml:project     :GuP9JGGAqACNwx0 ;
     ontouml:name        "Class3"@en ;
     ontouml:isAbstract  "false"^^xsd:boolean ;
-    ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:isPowertype "false"^^xsd:boolean ;
-    ontouml:order       "1"^^xsd:nonNegativeInteger .
+    ontouml:isDerived   "false"^^xsd:boolean .
 
 :6bAoDJGGAqACNxEf
     rdf:type             ontouml:Class ;
@@ -61,7 +57,6 @@
     ontouml:restrictedTo ontouml:abstractNature ;
     ontouml:isAbstract   "false"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
-    ontouml:isPowertype  "false"^^xsd:boolean ;
     ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :lAvIDJGGAqACNxEE
@@ -71,7 +66,6 @@
     ontouml:stereotype  ontouml:historicalRole ;
     ontouml:isAbstract  "false"^^xsd:boolean ;
     ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:isPowertype "false"^^xsd:boolean ;
     ontouml:order       "1"^^xsd:nonNegativeInteger .
 
 :DKboDJGGAqACNxIu
