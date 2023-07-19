@@ -1,6 +1,6 @@
 # The OntoUML JSON2Graph Transformation
 
-![ontouml-json2graph-logo](resources/Logo JSON2Graph Decoder.png)
+![ontouml-json2graph-logo](https://raw.githubusercontent.com/OntoUML/ontouml-json2graph/main/resources/Logo%20JSON2Graph%20Decoder.png)
 
 The OntoUML JSON2Graph (ontouml-json2graph) decodes a JSON file that complies with the [ontouml-schema](https://github.com/OntoUML/ontouml-schema) (e.g., the ones exported by the [ontouml-vp-plugin](https://github.com/OntoUML/ontouml-vp-plugin)) to a graph file that complies with the [ontouml-vocabulary](https://github.com/OntoUML/ontouml-vocabulary). Optionally, the user can enable basic semantic and syntactical verifications to improve the transformation results.
 
