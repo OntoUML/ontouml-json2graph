@@ -40,7 +40,6 @@
     ontouml:restrictedTo ontouml:functionalComplexNature ;
     ontouml:isAbstract   "false"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
-    ontouml:isPowertype  "false"^^xsd:boolean ;
     ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :5TmM1JGGAqACNxGy
@@ -291,24 +290,21 @@
     ontouml:project     :2Yx01JGGAqACNw2l ;
     ontouml:name        "Class27" ;
     ontouml:isAbstract  "false"^^xsd:boolean ;
-    ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:order       "1"^^xsd:nonNegativeInteger .
+    ontouml:isDerived   "false"^^xsd:boolean .
 
 :KR_S1JGGAqACNwyp
     rdf:type            ontouml:Class ;
     ontouml:project     :2Yx01JGGAqACNw2l ;
     ontouml:name        "Class28" ;
     ontouml:isAbstract  "false"^^xsd:boolean ;
-    ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:order       "1"^^xsd:nonNegativeInteger .
+    ontouml:isDerived   "false"^^xsd:boolean .
 
 :Lt_S1JGGAqACNwy0
     rdf:type            ontouml:Class ;
     ontouml:project     :2Yx01JGGAqACNw2l ;
     ontouml:name        "Class29" ;
     ontouml:isAbstract  "false"^^xsd:boolean ;
-    ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:order       "1"^^xsd:nonNegativeInteger .
+    ontouml:isDerived   "false"^^xsd:boolean .
 
 :E1VM1JGGAqACNxKq
     rdf:type         ontouml:Generalization ;
