@@ -114,16 +114,44 @@ def set_class_attributes(class_dict: dict, ontouml_graph: Graph) -> None:
                            Literal(class_dict["isPowertype"])))
 
 
-def set_class_defaults(class_dict: dict, ontouml_graph: Graph) -> None:
-    """ Verifies a class dictionary and check if their non-nullable attributes were set or not.
+def set_class_attribute_defaults(class_dict: dict, ontouml_graph: Graph) -> None:
+    """ Verifies a class dictionary and check if their non-nullable attributes isExtensional and isPowertype were set
+    or not. If not, creates default values.
+
+    Default values checked are:
+
+    CASE C) isPowertype default value = False when class's stereotype 'type'
+    CASE D) isExtensional default value = False when class's stereotype 'collective'
+
+    :param class_dict: Class object loaded as a dictionary.
+    :type class_dict: dict
+    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
+    :type ontouml_graph: Graph
+    """
+
+    class_stereotype = get_stereotype(class_dict)
+
+    # CASE C: Setting IS_POWERTYPE attribute default value
+    if "isPowertype" not in class_dict and class_stereotype == "type":
+        print_class_log_message(class_dict, 5, attribute='isPowertype', attribute_valid_stereotype='type')
+        ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
+                           URIRef(URI_ONTOUML + "isPowertype"), Literal(False)))
+
+    # CASE D: Setting IS_EXTENSIONAL default value to False when it is not set in a class with stereotype collective
+    if "isExtensional" not in class_dict and class_stereotype == "collective":
+        print_class_log_message(class_dict, 5, attribute='isExtensional', attribute_valid_stereotype='collective')
+        ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
+                           URIRef(URI_ONTOUML + "isExtensional"), Literal(False)))
+
+
+def set_class_order_defaults(class_dict: dict, ontouml_graph: Graph) -> None:
+    """ Verifies a class dictionary and check if their non-nullable attribute order was set or not.
     If not, creates default values.
 
     Default values checked are:
 
     CASE A) order default value = 1 when class's stereotype is not 'type'
     CASE B) order default value = 2 when class's stereotype 'type'
-    CASE C) isPowertype default value = False when class's stereotype 'type'
-    CASE D) isExtensional default value = False when class's stereotype 'collective'
 
     :param class_dict: Class object loaded as a dictionary.
     :type class_dict: dict
@@ -156,18 +184,6 @@ def set_class_defaults(class_dict: dict, ontouml_graph: Graph) -> None:
         else:
             current_function = inspect.stack()[0][3]
             report_error_end_of_switch("class_stereotype", current_function)
-
-    # CASE C: Setting IS_POWERTYPE attribute default value
-    if "isPowertype" not in class_dict and class_stereotype == "type":
-        print_class_log_message(class_dict, 5, attribute='isPowertype', attribute_valid_stereotype='type')
-        ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
-                           URIRef(URI_ONTOUML + "isPowertype"), Literal(False)))
-
-    # CASE D: Setting IS_EXTENSIONAL default value to False when it is not set in a class with stereotype collective
-    if "isExtensional" not in class_dict and class_stereotype == "collective":
-        print_class_log_message(class_dict, 5, attribute='isExtensional', attribute_valid_stereotype='collective')
-        ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
-                           URIRef(URI_ONTOUML + "isExtensional"), Literal(False)))
 
 
 def get_class_log_message(class_dict: dict, warning_code: int,
@@ -426,7 +442,8 @@ def create_class_properties(json_data: dict, ontouml_graph: Graph, element_count
         set_class_restrictedto_ontologicalnature(class_dict, ontouml_graph)
 
         # Setting default values when the values were not provided
-        set_class_defaults(class_dict, ontouml_graph)
+        set_class_order_defaults(class_dict, ontouml_graph)
+        set_class_attribute_defaults(class_dict, ontouml_graph)
 
         if "gGhuFxGFS_j2pAmkX3" in class_dict['id']:
             print(f"2: {class_dict = }")
