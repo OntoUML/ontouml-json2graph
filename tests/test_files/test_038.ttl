@@ -42,7 +42,6 @@
     ontouml:restrictedTo ontouml:abstractNature ;
     ontouml:isAbstract   "false"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
-    ontouml:isPowertype  "false"^^xsd:boolean ;
     ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :lAvIDJGGAqACNxEE
@@ -52,7 +51,6 @@
     ontouml:stereotype  ontouml:historicalRole ;
     ontouml:isAbstract  "false"^^xsd:boolean ;
     ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:isPowertype "false"^^xsd:boolean ;
     ontouml:order       "1"^^xsd:nonNegativeInteger .
 
 :N2pP9JGGAqACNxBP
