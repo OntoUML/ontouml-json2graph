@@ -62,6 +62,7 @@
     ontouml:restrictedTo ontouml:typeNature ;
     ontouml:isAbstract   "false"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
+    ontouml:isPowertype  "false"^^xsd:boolean ;
     ontouml:order        "2"^^xsd:nonNegativeInteger .
 
 :0FWM1JGGAqACNxHT
@@ -111,7 +112,6 @@
     ontouml:restrictedTo ontouml:eventNature ;
     ontouml:isAbstract   "false"^^xsd:boolean ;
     ontouml:isDerived    "false"^^xsd:boolean ;
-    ontouml:isPowertype  "false"^^xsd:boolean ;
     ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :J32M1JGGAqACNxIK
@@ -703,7 +703,7 @@
     ontouml:name         "Class Diagram1" ;
     ontouml:containsView :1HWM1JGGAqACNxHd, :B2pM1JGGAqACNxJn, :kfZM1JGGAqACNxKD, :IYqs1JGGAqACNxNp, :ruOs1JGGAqACNxN1,
                          :NfC1JGGAqACNxSq, :JFCs1JGGAqACNxNX, :Llws1JGGAqACNxMz, :GXDM1JGGAqACNxLh, :rUes1JGGAqACNxOT,
-                         :RpnM1JGGAqACNxMU, :O1VM1JGGAqACNxKr, :5TmM1JGGAqACNxGx, :c6WM1JGGAqACNxHH, :SN2M1JGGAqACNxH,
+                         :RpnM1JGGAqACNxMU, :O1VM1JGGAqACNxKr, :5TmM1JGGAqACNxGx, :c6WM1JGGAqACNxHH, :SN2M1JGGAqACNxH2,
                          :J32M1JGGAqACNxIJ, :qtfC1JGGAqACNxSw, :TIWM1JGGAqACNxG8, :683M1JGGAqACNxMo, :cOmM1JGGAqACNxGm,
                          :0FWM1JGGAqACNxHS, :Ae7M1JGGAqACNxL8, :B1pM1JGGAqACNxJy, :cONM1JGGAqACNxK9, :3DbC1JGGAqACNxSO,
                          :i22M1JGGAqACNxHz, :oXOs1JGGAqACNxN, :jk2M1JGGAqACNxHo, :469M1JGGAqACNxLR, :HM5M1JGGAqACNxKO .
@@ -738,11 +738,11 @@
     ontouml:isViewOf :c6WM1JGGAqACNxHI ;
     ontouml:shape    :c6WM1JGGAqACNxHH_shape .
 
-:SN2M1JGGAqACNxH
+:SN2M1JGGAqACNxH2
     rdf:type         ontouml:ClassView ;
     ontouml:project  :2Yx01JGGAqACNw2l ;
     ontouml:isViewOf :SN2M1JGGAqACNxH ;
-    ontouml:shape    :SN2M1JGGAqACNxH_shape .
+    ontouml:shape    :SN2M1JGGAqACNxH2_shape .
 
 :J32M1JGGAqACNxIJ
     rdf:type         ontouml:ClassView ;
@@ -855,13 +855,13 @@
     ontouml:xCoordinate 704 ;
     ontouml:yCoordinate 86 .
 
-:SN2M1JGGAqACNxH_shape
+:SN2M1JGGAqACNxH2_shape
     rdf:type                ontouml:Rectangle ;
     ontouml:height          "40"^^xsd:positiveInteger ;
     ontouml:width           "80"^^xsd:positiveInteger ;
-    ontouml:topLeftPosition :SN2M1JGGAqACNxH_shape_point .
+    ontouml:topLeftPosition :SN2M1JGGAqACNxH2_shape_point .
 
-:SN2M1JGGAqACNxH_shape_point
+:SN2M1JGGAqACNxH2_shape_point
     rdf:type            ontouml:Point ;
     ontouml:xCoordinate 918 ;
     ontouml:yCoordinate 591 .
@@ -1439,7 +1439,7 @@
 :ruOs1JGGAqACNxN1_path
     ontouml:project :2Yx01JGGAqACNw2l .
 
-:SN2M1JGGAqACNxH_shape
+:SN2M1JGGAqACNxH2_shape
     ontouml:project :2Yx01JGGAqACNw2l .
 
 :TIWM1JGGAqACNxG8_shape
@@ -1505,7 +1505,7 @@
     ontouml:isViewOf   :3oqs1JGGAqACNxNk ;
     ontouml:project    :2Yx01JGGAqACNw2l ;
     ontouml:shape      :IYqs1JGGAqACNxNp_path ;
-    ontouml:sourceView :SN2M1JGGAqACNxH ;
+    ontouml:sourceView :SN2M1JGGAqACNxH2 ;
     ontouml:targetView :HM5M1JGGAqACNxKO .
 
 :JFCs1JGGAqACNxNX
@@ -1525,7 +1525,7 @@
     ontouml:isViewOf   :xwXM1JGGAqACNxMZ ;
     ontouml:project    :2Yx01JGGAqACNw2l ;
     ontouml:shape      :Llws1JGGAqACNxMz_path ;
-    ontouml:sourceView :SN2M1JGGAqACNxH ;
+    ontouml:sourceView :SN2M1JGGAqACNxH2 ;
     ontouml:targetView :B2pM1JGGAqACNxJn .
 
 :NfC1JGGAqACNxSq

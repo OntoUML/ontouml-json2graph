@@ -1036,7 +1036,7 @@
             ]
           },
           "source": {
-            "id": "SN2M1JGGAqACNxH",
+            "id": "SN2M1JGGAqACNxH2",
             "type": "ClassView"
           },
           "target": {
@@ -1335,14 +1335,14 @@
           }
         },
         {
-          "id": "SN2M1JGGAqACNxH",
+          "id": "SN2M1JGGAqACNxH2",
           "type": "ClassView",
           "modelElement": {
             "id": "SN2M1JGGAqACNxH",
             "type": "Class"
           },
           "shape": {
-            "id": "SN2M1JGGAqACNxH_shape",
+            "id": "SN2M1JGGAqACNxH2_shape",
             "type": "Rectangle",
             "x": 918,
             "y": 591,
@@ -1694,7 +1694,7 @@
             ]
           },
           "source": {
-            "id": "SN2M1JGGAqACNxH",
+            "id": "SN2M1JGGAqACNxH2",
             "type": "ClassView"
           },
           "target": {

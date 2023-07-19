@@ -122,7 +122,6 @@
     ontouml:stereotype   ontouml:event ;
     ontouml:restrictedTo ontouml:eventNature ;
     ontouml:isAbstract   "false"^^xsd:boolean ;
-    ontouml:isDerived    "false"^^xsd:boolean ;
     ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :J32M1JGGAqACNxIK
@@ -1571,7 +1570,7 @@
     rdf:type             ontouml:Diagram ;
     ontouml:project      :2Yx01JGGAqACNw2l ;
     ontouml:name         "Class Diagram1" ;
-    ontouml:containsView :J32M1JGGAqACNxIJ, :NfC1JGGAqACNxSq, :SN2M1JGGAqACNxH, :Llws1JGGAqACNxMz, :RpnM1JGGAqACNxMU,
+    ontouml:containsView :J32M1JGGAqACNxIJ, :NfC1JGGAqACNxSq, :SN2M1JGGAqACNxH2, :Llws1JGGAqACNxMz, :RpnM1JGGAqACNxMU,
                          :B1pM1JGGAqACNxJy, :JFCs1JGGAqACNxNX, :kfZM1JGGAqACNxKD, :B2pM1JGGAqACNxJn, :jk2M1JGGAqACNxHo,
                          :cOmM1JGGAqACNxGm, :3DbC1JGGAqACNxSO, :ruOs1JGGAqACNxN1, :683M1JGGAqACNxMo, :IYqs1JGGAqACNxNp,
                          :rUes1JGGAqACNxOT, :5TmM1JGGAqACNxGx, :i22M1JGGAqACNxHz, :HM5M1JGGAqACNxKO, :0FWM1JGGAqACNxHS,
@@ -1604,11 +1603,11 @@
     ontouml:isViewOf :J32M1JGGAqACNxIK ;
     ontouml:shape    :J32M1JGGAqACNxIJ_shape .
 
-:SN2M1JGGAqACNxH
+:SN2M1JGGAqACNxH2
     rdf:type         ontouml:ClassView ;
     ontouml:project  :2Yx01JGGAqACNw2l ;
     ontouml:isViewOf :SN2M1JGGAqACNxH ;
-    ontouml:shape    :SN2M1JGGAqACNxH_shape .
+    ontouml:shape    :SN2M1JGGAqACNxH2_shape  .
 
 :B1pM1JGGAqACNxJy
     rdf:type         ontouml:ClassView ;
@@ -1859,13 +1858,13 @@
     ontouml:xCoordinate 513 ;
     ontouml:yCoordinate 664 .
 
-:SN2M1JGGAqACNxH_shape
+:SN2M1JGGAqACNxH2_shape 
     rdf:type                ontouml:Rectangle ;
     ontouml:height          "40"^^xsd:positiveInteger ;
     ontouml:width           "80"^^xsd:positiveInteger ;
-    ontouml:topLeftPosition :SN2M1JGGAqACNxH_shape_point .
+    ontouml:topLeftPosition :SN2M1JGGAqACNxH2_shape _point .
 
-:SN2M1JGGAqACNxH_shape_point
+:SN2M1JGGAqACNxH2_shape _point
     rdf:type            ontouml:Point ;
     ontouml:xCoordinate 918 ;
     ontouml:yCoordinate 591 .
@@ -3198,7 +3197,7 @@
     ontouml:isViewOf   :3oqs1JGGAqACNxNk ;
     ontouml:project    :2Yx01JGGAqACNw2l ;
     ontouml:shape      :IYqs1JGGAqACNxNp_path ;
-    ontouml:sourceView :SN2M1JGGAqACNxH ;
+    ontouml:sourceView :SN2M1JGGAqACNxH2 ;
     ontouml:targetView :HM5M1JGGAqACNxKO .
 
 :J32M1JGGAqACNxIJ_shape
@@ -3235,7 +3234,7 @@
     ontouml:isViewOf   :xwXM1JGGAqACNxMZ ;
     ontouml:project    :2Yx01JGGAqACNw2l ;
     ontouml:shape      :Llws1JGGAqACNxMz_path ;
-    ontouml:sourceView :SN2M1JGGAqACNxH ;
+    ontouml:sourceView :SN2M1JGGAqACNxH2 ;
     ontouml:targetView :B2pM1JGGAqACNxJn .
 
 :Lt_S1JGGAqACNwyz_shape
@@ -3289,7 +3288,7 @@
     ontouml:sourceView :EzHK1JGGAqACNw5g ;
     ontouml:targetView :YInK1JGGAqACNw5r .
 
-:SN2M1JGGAqACNxH_shape
+:SN2M1JGGAqACNxH2_shape 
     ontouml:project :2Yx01JGGAqACNw2l .
 
 :Sr3i1JGGAqACNwrF
