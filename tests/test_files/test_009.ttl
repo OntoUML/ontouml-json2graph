@@ -40,12 +40,12 @@
     ontouml:name    "MyPackage2" .
 
 :gGhuFxGFS_j2pAmk
-    rdf:type            ontouml:Class ;
-    ontouml:project     :dGSNHRGFS_j2pAvw ;
-    ontouml:name        "MyClass1" ;
-    ontouml:isAbstract  "false"^^xsd:boolean ;
-    ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:order       "2"^^xsd:nonNegativeInteger .
+    rdf:type           ontouml:Class ;
+    ontouml:project    :dGSNHRGFS_j2pAvw ;
+    ontouml:name       "MyClass1" ;
+    ontouml:isAbstract "false"^^xsd:boolean ;
+    ontouml:isDerived  "false"^^xsd:boolean ;
+    ontouml:order      "2"^^xsd:nonNegativeInteger .
 
 :k8p6WxGFS_j2pApt
     rdf:type             ontouml:Diagram ;
@@ -86,5 +86,6 @@
 
 # MANUALLY ADDED
 
-:gGhuFxGFS_j2pAmk ontouml:isPowertype false ;
-    ontouml:stereotype ontouml:type .
+:gGhuFxGFS_j2pAmk
+    ontouml:isPowertype false ;
+    ontouml:stereotype  ontouml:type .

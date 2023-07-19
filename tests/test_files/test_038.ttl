@@ -45,13 +45,13 @@
     ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :lAvIDJGGAqACNxEE
-    rdf:type            ontouml:Class ;
-    ontouml:project     :GuP9JGGAqACNwx0 ;
-    ontouml:name        "Class" ;
-    ontouml:stereotype  ontouml:historicalRole ;
-    ontouml:isAbstract  "false"^^xsd:boolean ;
-    ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:order       "1"^^xsd:nonNegativeInteger .
+    rdf:type           ontouml:Class ;
+    ontouml:project    :GuP9JGGAqACNwx0 ;
+    ontouml:name       "Class" ;
+    ontouml:stereotype ontouml:historicalRole ;
+    ontouml:isAbstract "false"^^xsd:boolean ;
+    ontouml:isDerived  "false"^^xsd:boolean ;
+    ontouml:order      "1"^^xsd:nonNegativeInteger .
 
 :N2pP9JGGAqACNxBP
     rdf:type             ontouml:Diagram ;

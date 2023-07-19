@@ -8924,7 +8924,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Object"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -8969,7 +8968,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   false ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Opportunity Event"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -8997,7 +8995,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   false ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Gain Event"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -9008,7 +9005,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   false ;
     ontouml:isDerived    true ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Value Asc. Ex Post"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -9037,7 +9033,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   false ;
     ontouml:isDerived    true ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Value Perception"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -9056,7 +9051,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   false ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Root Cause Event"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -9067,7 +9061,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   false ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Hazardous Situation"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -9208,7 +9201,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   false ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Loss Ascription"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -9219,7 +9211,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   false ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Gain Ascription"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -9230,7 +9221,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   false ;
     ontouml:isDerived    true ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Value Assertion"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -9259,7 +9249,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   false ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Valuation"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -9365,7 +9354,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Trope"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -9400,7 +9388,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Capability"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -9423,7 +9410,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   false ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Impactful Outcome"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -9440,7 +9426,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   false ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Loss Situation"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -9457,7 +9442,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   false ;
     ontouml:isDerived    true ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Value Asc. Ex Ante"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -9509,7 +9493,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Threat Agent"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -9520,7 +9503,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   false ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Attack"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -9585,7 +9567,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Relator"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -9638,7 +9619,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Mental Aspect"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -9649,7 +9629,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Likelihood"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -9666,7 +9645,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Risk Assessor"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -9677,7 +9655,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   false ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Situation"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -9712,7 +9689,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Endurant"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -9731,7 +9707,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Quality"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -9742,7 +9717,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Substantial"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -9753,7 +9727,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Action"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -9770,7 +9743,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Mode"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -9781,7 +9753,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   false ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Risk"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -9798,7 +9769,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   false ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Value Asc. Component"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -9809,7 +9779,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Value Assessor"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -9837,7 +9806,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   false ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Triggering Likelihood"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -9866,7 +9834,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   false ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Causal Likelihood"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -9883,7 +9850,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   false ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Value"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -9900,7 +9866,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Risk Subject"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -9911,7 +9876,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   false ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Object Risk Assess."@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -9922,7 +9886,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Agent"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -9933,7 +9896,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   false ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Trigger Event"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -9944,7 +9906,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   false ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Object Value Asc."@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -9955,7 +9916,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Value Subject"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -9966,7 +9926,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   false ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Risk Assessment"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -9995,7 +9954,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Risk Enabler"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -10006,7 +9964,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Threat Capability"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -10017,7 +9974,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   false ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Impact Event"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -10028,7 +9984,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Vulnerability"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -10039,7 +9994,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Object at Risk"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -10050,7 +10004,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   false ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Loss Event"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -10061,7 +10014,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Value Enabler"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -10072,7 +10024,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Threat Object"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -10083,7 +10034,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   false ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Experience Value Asc."@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -10136,7 +10086,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   false ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Experience Risk Assessment"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -10147,7 +10096,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Value Object"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -10158,7 +10106,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Value Experience"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -10169,7 +10116,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   false ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Risk Experience"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -10180,7 +10126,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   false ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Threat Event"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -10191,7 +10136,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   false ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Risk Event"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -10202,7 +10146,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Event"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -10213,7 +10156,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Disposition"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -10224,7 +10166,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   false ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Value Ascription"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -10235,7 +10176,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   false ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Value Event"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;
@@ -10246,7 +10186,6 @@
     a                    ontouml:Class ;
     ontouml:isAbstract   true ;
     ontouml:isDerived    false ;
-    ontouml:isPowertype  false ;
     ontouml:name         "Intention"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
     ontouml:project      :Nlnret6GAqACCgBO ;

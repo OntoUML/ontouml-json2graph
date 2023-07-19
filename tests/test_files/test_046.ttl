@@ -36,18 +36,18 @@
     ontouml:name    "Model22"@en .
 
 :6NZoDJGGAqACNxIR
-    rdf:type            ontouml:Class ;
-    ontouml:project     :GuP9JGGAqACNwx0 ;
-    ontouml:name        "q"@en ;
-    ontouml:isAbstract  "false"^^xsd:boolean ;
-    ontouml:isDerived   "false"^^xsd:boolean .
+    rdf:type           ontouml:Class ;
+    ontouml:project    :GuP9JGGAqACNwx0 ;
+    ontouml:name       "q"@en ;
+    ontouml:isAbstract "false"^^xsd:boolean ;
+    ontouml:isDerived  "false"^^xsd:boolean .
 
 :5I5oDJGGAqACNxIe
-    rdf:type            ontouml:Class ;
-    ontouml:project     :GuP9JGGAqACNwx0 ;
-    ontouml:name        "Class3"@en ;
-    ontouml:isAbstract  "false"^^xsd:boolean ;
-    ontouml:isDerived   "false"^^xsd:boolean .
+    rdf:type           ontouml:Class ;
+    ontouml:project    :GuP9JGGAqACNwx0 ;
+    ontouml:name       "Class3"@en ;
+    ontouml:isAbstract "false"^^xsd:boolean ;
+    ontouml:isDerived  "false"^^xsd:boolean .
 
 :6bAoDJGGAqACNxEf
     rdf:type             ontouml:Class ;
@@ -60,13 +60,13 @@
     ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :lAvIDJGGAqACNxEE
-    rdf:type            ontouml:Class ;
-    ontouml:project     :GuP9JGGAqACNwx0 ;
-    ontouml:name        "Class"@en ;
-    ontouml:stereotype  ontouml:historicalRole ;
-    ontouml:isAbstract  "false"^^xsd:boolean ;
-    ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:order       "1"^^xsd:nonNegativeInteger .
+    rdf:type           ontouml:Class ;
+    ontouml:project    :GuP9JGGAqACNwx0 ;
+    ontouml:name       "Class"@en ;
+    ontouml:stereotype ontouml:historicalRole ;
+    ontouml:isAbstract "false"^^xsd:boolean ;
+    ontouml:isDerived  "false"^^xsd:boolean ;
+    ontouml:order      "1"^^xsd:nonNegativeInteger .
 
 :DKboDJGGAqACNxIu
     rdf:type            ontouml:Relation ;

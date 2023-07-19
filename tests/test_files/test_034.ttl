@@ -94,13 +94,13 @@
     ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :jk2M1JGGAqACNxHp
-    rdf:type            ontouml:Class ;
-    ontouml:project     :2Yx01JGGAqACNw2l ;
-    ontouml:name        "Class7" ;
-    ontouml:stereotype  ontouml:subkind ;
-    ontouml:isAbstract  "false"^^xsd:boolean ;
-    ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:order       "1"^^xsd:nonNegativeInteger .
+    rdf:type           ontouml:Class ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:name       "Class7" ;
+    ontouml:stereotype ontouml:subkind ;
+    ontouml:isAbstract "false"^^xsd:boolean ;
+    ontouml:isDerived  "false"^^xsd:boolean ;
+    ontouml:order      "1"^^xsd:nonNegativeInteger .
 
 :S22M1JGGAqACNxH0
     rdf:type             ontouml:Class ;
@@ -123,31 +123,31 @@
     ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :J32M1JGGAqACNxIK
-    rdf:type            ontouml:Class ;
-    ontouml:project     :2Yx01JGGAqACNw2l ;
-    ontouml:name        "Class10" ;
-    ontouml:stereotype  ontouml:subkind ;
-    ontouml:isAbstract  "false"^^xsd:boolean ;
-    ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:order       "1"^^xsd:nonNegativeInteger .
+    rdf:type           ontouml:Class ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:name       "Class10" ;
+    ontouml:stereotype ontouml:subkind ;
+    ontouml:isAbstract "false"^^xsd:boolean ;
+    ontouml:isDerived  "false"^^xsd:boolean ;
+    ontouml:order      "1"^^xsd:nonNegativeInteger .
 
 :B2pM1JGGAqACNxJo
-    rdf:type            ontouml:Class ;
-    ontouml:project     :2Yx01JGGAqACNw2l ;
-    ontouml:name        "Class11" ;
-    ontouml:stereotype  ontouml:role ;
-    ontouml:isAbstract  "false"^^xsd:boolean ;
-    ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:order       "1"^^xsd:nonNegativeInteger .
+    rdf:type           ontouml:Class ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:name       "Class11" ;
+    ontouml:stereotype ontouml:role ;
+    ontouml:isAbstract "false"^^xsd:boolean ;
+    ontouml:isDerived  "false"^^xsd:boolean ;
+    ontouml:order      "1"^^xsd:nonNegativeInteger .
 
 :h1pM1JGGAqACNxJz
-    rdf:type            ontouml:Class ;
-    ontouml:project     :2Yx01JGGAqACNw2l ;
-    ontouml:name        "Class12" ;
-    ontouml:stereotype  ontouml:role ;
-    ontouml:isAbstract  "false"^^xsd:boolean ;
-    ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:order       "1"^^xsd:nonNegativeInteger .
+    rdf:type           ontouml:Class ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:name       "Class12" ;
+    ontouml:stereotype ontouml:role ;
+    ontouml:isAbstract "false"^^xsd:boolean ;
+    ontouml:isDerived  "false"^^xsd:boolean ;
+    ontouml:order      "1"^^xsd:nonNegativeInteger .
 
 :kfZM1JGGAqACNxKE
     rdf:type             ontouml:Class ;
@@ -170,22 +170,22 @@
     ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :XlHi1JGGAqACNwqH
-    rdf:type            ontouml:Class ;
-    ontouml:project     :2Yx01JGGAqACNw2l ;
-    ontouml:name        "Class15" ;
-    ontouml:stereotype  ontouml:role ;
-    ontouml:isAbstract  "false"^^xsd:boolean ;
-    ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:order       "1"^^xsd:nonNegativeInteger .
+    rdf:type           ontouml:Class ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:name       "Class15" ;
+    ontouml:stereotype ontouml:role ;
+    ontouml:isAbstract "false"^^xsd:boolean ;
+    ontouml:isDerived  "false"^^xsd:boolean ;
+    ontouml:order      "1"^^xsd:nonNegativeInteger .
 
 :tHHi1JGGAqACNwqS
-    rdf:type            ontouml:Class ;
-    ontouml:project     :2Yx01JGGAqACNw2l ;
-    ontouml:name        "Class16" ;
-    ontouml:stereotype  ontouml:role ;
-    ontouml:isAbstract  "false"^^xsd:boolean ;
-    ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:order       "1"^^xsd:nonNegativeInteger .
+    rdf:type           ontouml:Class ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:name       "Class16" ;
+    ontouml:stereotype ontouml:role ;
+    ontouml:isAbstract "false"^^xsd:boolean ;
+    ontouml:isDerived  "false"^^xsd:boolean ;
+    ontouml:order      "1"^^xsd:nonNegativeInteger .
 
 :NBni1JGGAqACNwqj
     rdf:type             ontouml:Class ;
@@ -198,22 +198,22 @@
     ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :FEKS1JGGAqACNwsD
-    rdf:type            ontouml:Class ;
-    ontouml:project     :2Yx01JGGAqACNw2l ;
-    ontouml:name        "Class18" ;
-    ontouml:stereotype  ontouml:phase ;
-    ontouml:isAbstract  "false"^^xsd:boolean ;
-    ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:order       "1"^^xsd:nonNegativeInteger .
+    rdf:type           ontouml:Class ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:name       "Class18" ;
+    ontouml:stereotype ontouml:phase ;
+    ontouml:isAbstract "false"^^xsd:boolean ;
+    ontouml:isDerived  "false"^^xsd:boolean ;
+    ontouml:order      "1"^^xsd:nonNegativeInteger .
 
 :6WKS1JGGAqACNwsO
-    rdf:type            ontouml:Class ;
-    ontouml:project     :2Yx01JGGAqACNw2l ;
-    ontouml:name        "Class19" ;
-    ontouml:stereotype  ontouml:phase ;
-    ontouml:isAbstract  "false"^^xsd:boolean ;
-    ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:order       "1"^^xsd:nonNegativeInteger .
+    rdf:type           ontouml:Class ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:name       "Class19" ;
+    ontouml:stereotype ontouml:phase ;
+    ontouml:isAbstract "false"^^xsd:boolean ;
+    ontouml:isDerived  "false"^^xsd:boolean ;
+    ontouml:order      "1"^^xsd:nonNegativeInteger .
 
 :1pKS1JGGAqACNwsZ
     rdf:type             ontouml:Class ;
@@ -286,25 +286,25 @@
     ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :Gi_S1JGGAqACNwye
-    rdf:type            ontouml:Class ;
-    ontouml:project     :2Yx01JGGAqACNw2l ;
-    ontouml:name        "Class27" ;
-    ontouml:isAbstract  "false"^^xsd:boolean ;
-    ontouml:isDerived   "false"^^xsd:boolean .
+    rdf:type           ontouml:Class ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:name       "Class27" ;
+    ontouml:isAbstract "false"^^xsd:boolean ;
+    ontouml:isDerived  "false"^^xsd:boolean .
 
 :KR_S1JGGAqACNwyp
-    rdf:type            ontouml:Class ;
-    ontouml:project     :2Yx01JGGAqACNw2l ;
-    ontouml:name        "Class28" ;
-    ontouml:isAbstract  "false"^^xsd:boolean ;
-    ontouml:isDerived   "false"^^xsd:boolean .
+    rdf:type           ontouml:Class ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:name       "Class28" ;
+    ontouml:isAbstract "false"^^xsd:boolean ;
+    ontouml:isDerived  "false"^^xsd:boolean .
 
 :Lt_S1JGGAqACNwy0
-    rdf:type            ontouml:Class ;
-    ontouml:project     :2Yx01JGGAqACNw2l ;
-    ontouml:name        "Class29" ;
-    ontouml:isAbstract  "false"^^xsd:boolean ;
-    ontouml:isDerived   "false"^^xsd:boolean .
+    rdf:type           ontouml:Class ;
+    ontouml:project    :2Yx01JGGAqACNw2l ;
+    ontouml:name       "Class29" ;
+    ontouml:isAbstract "false"^^xsd:boolean ;
+    ontouml:isDerived  "false"^^xsd:boolean .
 
 :E1VM1JGGAqACNxKq
     rdf:type         ontouml:Generalization ;

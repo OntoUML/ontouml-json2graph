@@ -44,27 +44,27 @@
     ontouml:name    "MyPackage2" .
 
 :YxbuFxGFS_j2pAnb
-    rdf:type            ontouml:Class ;
-    ontouml:project     :dGSNHRGFS_j2pAvw ;
-    ontouml:name        "MyClass2" ;
-    ontouml:isAbstract  "false"^^xsd:boolean ;
-    ontouml:isDerived   "false"^^xsd:boolean .
+    rdf:type           ontouml:Class ;
+    ontouml:project    :dGSNHRGFS_j2pAvw ;
+    ontouml:name       "MyClass2" ;
+    ontouml:isAbstract "false"^^xsd:boolean ;
+    ontouml:isDerived  "false"^^xsd:boolean .
 
 :b5teFxGFS_j2pAm3
-    rdf:type            ontouml:Class ;
-    ontouml:project     :dGSNHRGFS_j2pAvw ;
-    ontouml:name        "ClassOutDiagram" ;
-    ontouml:isAbstract  "false"^^xsd:boolean ;
-    ontouml:isDerived   "false"^^xsd:boolean .
+    rdf:type           ontouml:Class ;
+    ontouml:project    :dGSNHRGFS_j2pAvw ;
+    ontouml:name       "ClassOutDiagram" ;
+    ontouml:isAbstract "false"^^xsd:boolean ;
+    ontouml:isDerived  "false"^^xsd:boolean .
 
 :Y2ADQJGGAqACNwmq
-    rdf:type            ontouml:Class ;
-    ontouml:project     :dGSNHRGFS_j2pAvw ;
-    ontouml:name        "ClassStereotypeOut" ;
-    ontouml:stereotype  ontouml:Agent ;
-    ontouml:isAbstract  "false"^^xsd:boolean ;
-    ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:order       "1"^^xsd:nonNegativeInteger .
+    rdf:type           ontouml:Class ;
+    ontouml:project    :dGSNHRGFS_j2pAvw ;
+    ontouml:name       "ClassStereotypeOut" ;
+    ontouml:stereotype ontouml:Agent ;
+    ontouml:isAbstract "false"^^xsd:boolean ;
+    ontouml:isDerived  "false"^^xsd:boolean ;
+    ontouml:order      "1"^^xsd:nonNegativeInteger .
 
 :CYYDQJGGAqACNwnH
     rdf:type             ontouml:Class ;
@@ -77,11 +77,11 @@
     ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :HI0DQJGGAqACNwnd
-    rdf:type            ontouml:Class ;
-    ontouml:project     :dGSNHRGFS_j2pAvw ;
-    ontouml:name        "Class" ;
-    ontouml:isAbstract  "false"^^xsd:boolean ;
-    ontouml:isDerived   "false"^^xsd:boolean .
+    rdf:type           ontouml:Class ;
+    ontouml:project    :dGSNHRGFS_j2pAvw ;
+    ontouml:name       "Class" ;
+    ontouml:isAbstract "false"^^xsd:boolean ;
+    ontouml:isDerived  "false"^^xsd:boolean .
 
 :kACDQJGGAqACNwnq
     rdf:type              ontouml:Class ;
@@ -172,13 +172,13 @@
     ontouml:order        "2"^^xsd:nonNegativeInteger .
 
 :DkgZwJGGAqACNwnm
-    rdf:type            ontouml:Class ;
-    ontouml:project     :dGSNHRGFS_j2pAvw ;
-    ontouml:name        "MultipleSterNonOU" ;
-    ontouml:stereotype  ontouml:Consumer ;
-    ontouml:isAbstract  "false"^^xsd:boolean ;
-    ontouml:isDerived   "false"^^xsd:boolean ;
-    ontouml:order       "1"^^xsd:nonNegativeInteger .
+    rdf:type           ontouml:Class ;
+    ontouml:project    :dGSNHRGFS_j2pAvw ;
+    ontouml:name       "MultipleSterNonOU" ;
+    ontouml:stereotype ontouml:Consumer ;
+    ontouml:isAbstract "false"^^xsd:boolean ;
+    ontouml:isDerived  "false"^^xsd:boolean ;
+    ontouml:order      "1"^^xsd:nonNegativeInteger .
 
 :PDUZwJGGAqACNwn8
     rdf:type             ontouml:Class ;
@@ -191,11 +191,11 @@
     ontouml:order        "1"^^xsd:nonNegativeInteger .
 
 :gGhuFxGFS_j2pAmk
-    rdf:type            ontouml:Class ;
-    ontouml:project     :dGSNHRGFS_j2pAvw ;
-    ontouml:name        "MyClass1" ;
-    ontouml:isAbstract  "false"^^xsd:boolean ;
-    ontouml:isDerived   "false"^^xsd:boolean .
+    rdf:type           ontouml:Class ;
+    ontouml:project    :dGSNHRGFS_j2pAvw ;
+    ontouml:name       "MyClass1" ;
+    ontouml:isAbstract "false"^^xsd:boolean ;
+    ontouml:isDerived  "false"^^xsd:boolean .
 
 :k8p6WxGFS_j2pApt
     rdf:type             ontouml:Diagram ;
@@ -530,21 +530,22 @@
     ontouml:containsModelElement :gGhuFxGFS_j2pAmkX1, :gGhuFxGFS_j2pAmkX2 .
 
 :gGhuFxGFS_j2pAmkX1
-    a                   ontouml:Class ;
-    ontouml:isAbstract  false ;
-    ontouml:isDerived   false ;
-    ontouml:name        "MyClassX1" ;
-    ontouml:order       "1"^^xsd:nonNegativeInteger ;
-    ontouml:project     :dGSNHRGFS_j2pAvw ;
-    ontouml:stereotype  ontouml:kind .
+    a                  ontouml:Class ;
+    ontouml:isAbstract false ;
+    ontouml:isDerived  false ;
+    ontouml:name       "MyClassX1" ;
+    ontouml:order      "1"^^xsd:nonNegativeInteger ;
+    ontouml:project    :dGSNHRGFS_j2pAvw ;
+    ontouml:stereotype ontouml:kind .
 
 :gGhuFxGFS_j2pAmkX2
-    a                   ontouml:Class ;
-    ontouml:isAbstract  false ;
-    ontouml:isDerived   false ;
-    ontouml:name        "MyClassX2" ;
-    ontouml:order       "1"^^xsd:nonNegativeInteger ;
-    ontouml:project     :dGSNHRGFS_j2pAvw .
+    a                  ontouml:Class ;
+    ontouml:isAbstract false ;
+    ontouml:isDerived  false ;
+    ontouml:name       "MyClassX2" ;
+    ontouml:order      "1"^^xsd:nonNegativeInteger ;
+    ontouml:project    :dGSNHRGFS_j2pAvw .
 
-:gGhuFxGFS_j2pAmkX2 ontouml:isExtensional true ;
-    ontouml:stereotype ontouml:collective .
+:gGhuFxGFS_j2pAmkX2
+    ontouml:isExtensional true ;
+    ontouml:stereotype    ontouml:collective .

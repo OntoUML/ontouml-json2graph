@@ -50,39 +50,39 @@
     ontouml:attribute    :TFw7ZJGFYGjgAQ4R, :LhI7ZJGFYGjgAQ4U .
 
 :1oZ7ZJGFYGjgAQ5K
-    rdf:type            ontouml:Class ;
-    ontouml:project     :4NWbZJGFYGjgAQm6 ;
-    ontouml:name        "supertype" ;
-    ontouml:isAbstract  "false"^^xsd:boolean ;
-    ontouml:isDerived   "false"^^xsd:boolean .
+    rdf:type           ontouml:Class ;
+    ontouml:project    :4NWbZJGFYGjgAQm6 ;
+    ontouml:name       "supertype" ;
+    ontouml:isAbstract "false"^^xsd:boolean ;
+    ontouml:isDerived  "false"^^xsd:boolean .
 
 :gl7zjgfygjgaq5e
-    rdf:type            ontouml:Class ;
-    ontouml:project     :4NWbZJGFYGjgAQm6 ;
-    ontouml:name        "subtype" ;
-    ontouml:isAbstract  "false"^^xsd:boolean ;
-    ontouml:isDerived   "false"^^xsd:boolean .
+    rdf:type           ontouml:Class ;
+    ontouml:project    :4NWbZJGFYGjgAQm6 ;
+    ontouml:name       "subtype" ;
+    ontouml:isAbstract "false"^^xsd:boolean ;
+    ontouml:isDerived  "false"^^xsd:boolean .
 
 :qin7ZJGFYGjgAQ5y
-    rdf:type            ontouml:Class ;
-    ontouml:project     :4NWbZJGFYGjgAQm6 ;
-    ontouml:name        "Class1" ;
-    ontouml:isAbstract  "false"^^xsd:boolean ;
-    ontouml:isDerived   "false"^^xsd:boolean .
+    rdf:type           ontouml:Class ;
+    ontouml:project    :4NWbZJGFYGjgAQm6 ;
+    ontouml:name       "Class1" ;
+    ontouml:isAbstract "false"^^xsd:boolean ;
+    ontouml:isDerived  "false"^^xsd:boolean .
 
 :iqX7ZJGFYGjgAQ59
-    rdf:type            ontouml:Class ;
-    ontouml:project     :4NWbZJGFYGjgAQm6 ;
-    ontouml:name        "Class2" ;
-    ontouml:isAbstract  "false"^^xsd:boolean ;
-    ontouml:isDerived   "false"^^xsd:boolean .
+    rdf:type           ontouml:Class ;
+    ontouml:project    :4NWbZJGFYGjgAQm6 ;
+    ontouml:name       "Class2" ;
+    ontouml:isAbstract "false"^^xsd:boolean ;
+    ontouml:isDerived  "false"^^xsd:boolean .
 
 :Rd37ZJGFYGjgAQ6I
-    rdf:type            ontouml:Class ;
-    ontouml:project     :4NWbZJGFYGjgAQm6 ;
-    ontouml:name        "Class3z" ;
-    ontouml:isAbstract  "false"^^xsd:boolean ;
-    ontouml:isDerived   "false"^^xsd:boolean .
+    rdf:type           ontouml:Class ;
+    ontouml:project    :4NWbZJGFYGjgAQm6 ;
+    ontouml:name       "Class3z" ;
+    ontouml:isAbstract "false"^^xsd:boolean ;
+    ontouml:isDerived  "false"^^xsd:boolean .
 
 :pJ77ZJGFYGjgAQ5q
     rdf:type            ontouml:Generalization ;
@@ -457,8 +457,11 @@
 :qin7ZJGFYGjgAQ5x_shape
     ontouml:project :4NWbZJGFYGjgAQm6 .
 
-:Q4hbZJGFYGjgAQ3M ontouml:order "1"^^xsd:nonNegativeInteger .
+:Q4hbZJGFYGjgAQ3M
+    ontouml:order "1"^^xsd:nonNegativeInteger .
 
-:SSxbZJGFYGjgAQ3Y ontouml:order "1"^^xsd:nonNegativeInteger .
+:SSxbZJGFYGjgAQ3Y
+    ontouml:order "1"^^xsd:nonNegativeInteger .
 
-:olObZJGFYGjgAQ2v ontouml:order "1"^^xsd:nonNegativeInteger .
+:olObZJGFYGjgAQ2v
+    ontouml:order "1"^^xsd:nonNegativeInteger .

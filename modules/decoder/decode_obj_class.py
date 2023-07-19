@@ -106,12 +106,12 @@ def set_class_attributes(class_dict: dict, ontouml_graph: Graph) -> None:
     if "isExtensional" in class_dict:
         ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
                            URIRef(URI_ONTOUML + "isExtensional"),
-                           Literal(class_dict["isExtensional"])))
+                           Literal(class_dict["isExtensional"], datatype=XSD.boolean)))
 
     if "isPowertype" in class_dict:
         ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
                            URIRef(URI_ONTOUML + "isPowertype"),
-                           Literal(class_dict["isPowertype"])))
+                           Literal(class_dict["isPowertype"], datatype=XSD.boolean)))
 
 
 def set_class_attribute_defaults(class_dict: dict, ontouml_graph: Graph) -> None:
