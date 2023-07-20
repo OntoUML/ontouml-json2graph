@@ -25,22 +25,31 @@ python main.py path_to_json
 All available ontouml-models-tools arguments can be observed below.
 
 ```text
-usage: ontouml-json2graph [-h] [-f {turtle,ttl,turtle2,xml,pretty-xml,json-ld,ntriples,nt,nt11,n3,trig,trix,nquads}] [-l LANGUAGE] [-c] [-s] [-v] json_file                     
-                                                                                                                                                                                
-OntoUML JSON2Graph Decoder. Version: 2023.07.07                                                                                                                                 
-                                                                                                                                                                                
-positional arguments:                                                                                                                                                           
-  json_file             The path of the JSON file to be encoded.                                                                                                                
-                                                                                                                                                                                
-options:                                                                                                                                                                        
-  -h, --help            show this help message and exit                                                                                                                         
+usage: ontouml-json2graph [-h]
+                          [-f {turtle,ttl,turtle2,xml,pretty-xml,json-ld,ntriples,nt,nt11,n3,trig,trix,nquads}]
+                          [-l LANGUAGE] [-c] [-s] [-u BASE_URI] [-v]
+                          json_file
+
+OntoUML JSON2Graph Decoder. Version: 2023.07.19
+
+positional arguments:
+  json_file             The path of the JSON file to be encoded.
+
+options:
+  -h, --help            show this help message and exit
   -f {turtle,ttl,turtle2,xml,pretty-xml,json-ld,ntriples,nt,nt11,n3,trig,trix,nquads}, --format {turtle,ttl,turtle2,xml,pretty-xml,json-ld,ntriples,nt,nt11,n3,trig,trix,nquads}
-                        Format to save the decoded file. Default is 'ttl'.                                                                                                      
-  -l LANGUAGE, --language LANGUAGE                                                                                                                                              
-                        Language tag for the ontology's concepts. Default is None.                                                                                              
-  -c, --correct         Enables syntactical and semantic validations and corrections.                                                                                           
-  -s, --silent          Silent mode. Does not present validation warnings and errors.                                                                                           
-  -v, --version         Print the software version and exit.   
+                        Format to save the decoded file. Default is 'ttl'.
+  -l LANGUAGE, --language LANGUAGE
+                        Language tag for the ontology's concepts. Default is
+                        None.
+  -c, --correct         Enables syntactical and semantic validations and
+                        corrections.
+  -s, --silent          Silent mode. Does not present validation warnings and
+                        errors.
+  -u BASE_URI, --base_uri BASE_URI
+                        Base URI of the resulting graph. Default is
+                        'https://example.org#'.
+  -v, --version         Print the software version and exit.
 ```
 
 ## Basic Syntactical and Sematic Validation
