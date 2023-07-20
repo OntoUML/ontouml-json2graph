@@ -40,15 +40,11 @@ options:
   -f {turtle,ttl,turtle2,xml,pretty-xml,json-ld,ntriples,nt,nt11,n3,trig,trix,nquads}, --format {turtle,ttl,turtle2,xml,pretty-xml,json-ld,ntriples,nt,nt11,n3,trig,trix,nquads}
                         Format to save the decoded file. Default is 'ttl'.
   -l LANGUAGE, --language LANGUAGE
-                        Language tag for the ontology's concepts. Default is
-                        None.
-  -c, --correct         Enables syntactical and semantic validations and
-                        corrections.
-  -s, --silent          Silent mode. Does not present validation warnings and
-                        errors.
+                        Language tag for the ontology's concepts. Default is None.
+  -c, --correct         Enables syntactical and semantic validations and corrections.
+  -s, --silent          Silent mode. Does not present validation warnings and errors.
   -u BASE_URI, --base_uri BASE_URI
-                        Base URI of the resulting graph. Default is
-                        'https://example.org#'.
+                        Base URI of the resulting graph. Default is 'https://example.org#'.
   -v, --version         Print the software version and exit.
 ```
 
