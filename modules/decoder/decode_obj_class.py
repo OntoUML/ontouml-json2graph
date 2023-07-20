@@ -21,169 +21,6 @@ from modules.logger import initialize_logger
 LOGGER = initialize_logger()
 
 
-def set_class_order_nonnegativeinteger(class_dict: dict, ontouml_graph: Graph) -> None:
-    """ Sets an ontouml:Class's ontouml:order property based on the received value of the object's field 'order'.
-
-    The treated possibilities are:
-    A) invalid value (null, non integers, integers <= 0) ---> is converted to the default value of the class
-    B) positive integers ---> directly converted
-    C) * (representing an orderless type) ---> converted to 0 (representation of orderless in the OntoUML Vocabulary).
-
-    :param class_dict: Class object loaded as a dictionary.
-    :type class_dict: dict
-    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
-    :type ontouml_graph: Graph
-    """
-
-    # Case A: if 'order' field is null, it will receive the default value (see function set_class_defaults)
-    if "order" not in class_dict:
-        return
-
-    # Case C: receives 0, representing an orderless class.
-    elif class_dict["order"] == "*":
-        ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
-                           URIRef(URI_ONTOUML + "order"),
-                           Literal(0, datatype=XSD.nonNegativeInteger)))
-
-    # Case A: remove invalid information so the field can be treated as null and then receive the default value.
-    elif (type(class_dict["order"]) is int) and (class_dict["order"] <= 0):
-        class_dict.pop("order")
-
-    # Case B
-    elif type(class_dict["order"]):
-        ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
-                           URIRef(URI_ONTOUML + "order"),
-                           Literal(class_dict['order'], datatype=XSD.nonNegativeInteger)))
-
-    # Case A: remove invalid information so the field can be treated as null and then receive the default value.
-    else:
-        class_dict.pop("order")
-
-
-def set_class_restrictedto_ontologicalnature(class_dict: dict, ontouml_graph: Graph) -> None:
-    """ Sets the ontouml:restrictedTo relation between a class and its related ontouml:OntologicalNature instance.
-
-    :param class_dict: Class object loaded as a dictionary.
-    :type class_dict: dict
-    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
-    :type ontouml_graph: Graph
-    """
-
-    restriction_nature_mapping = {
-        "abstract": "abstractNature",
-        "collective": "collectiveNature",
-        "event": "eventNature",
-        "extrinsic-mode": "extrinsicModeNature",
-        "functional-complex": "functionalComplexNature",
-        "intrinsic-mode": "intrinsicModeNature",
-        "quality": "qualityNature",
-        "quantity": "quantityNature",
-        "relator": "relatorNature",
-        "situation": "situationNature",
-        "type": "typeNature"
-    }
-
-    if "restrictedTo" in class_dict:
-
-        for restriction in class_dict["restrictedTo"]:
-            ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
-                               URIRef(URI_ONTOUML + "restrictedTo"),
-                               URIRef(URI_ONTOUML + restriction_nature_mapping[restriction])))
-
-
-def set_class_attributes(class_dict: dict, ontouml_graph: Graph) -> None:
-    """ Defines the ontouml:isPowertype and ontouml:isExtensional data properties of an ontouml:Class in the graph.
-
-    This function must be called after the function set_class_defaults, as the received value may change because of
-    identified problems.
-
-    :param class_dict: Class object loaded as a dictionary.
-    :type class_dict: dict
-    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
-    :type ontouml_graph: Graph
-    """
-
-    if "isExtensional" in class_dict:
-        ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
-                           URIRef(URI_ONTOUML + "isExtensional"),
-                           Literal(class_dict["isExtensional"], datatype=XSD.boolean)))
-
-    if "isPowertype" in class_dict:
-        ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
-                           URIRef(URI_ONTOUML + "isPowertype"),
-                           Literal(class_dict["isPowertype"], datatype=XSD.boolean)))
-
-
-def set_class_attribute_defaults(class_dict: dict, ontouml_graph: Graph) -> None:
-    """ Verifies a class dictionary and check if their non-nullable attributes isExtensional and isPowertype were set
-    or not. If not, creates default values. Default values checked are:
-
-    DCA1) isPowertype default value = False when class's stereotype 'type'
-    DCA2) isExtensional default value = False when class's stereotype 'collective'
-
-    DCA is the general code used to display warning/error messages when necessary.
-
-    :param class_dict: Class object loaded as a dictionary.
-    :type class_dict: dict
-    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
-    :type ontouml_graph: Graph
-    """
-
-    class_stereotype = get_stereotype(class_dict)
-
-    # CASE C: Setting IS_POWERTYPE attribute default value
-    if "isPowertype" not in class_dict and class_stereotype == "type":
-        print_class_log_message(class_dict, "DCA", attribute='isPowertype', attribute_valid_stereotype='type')
-        ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
-                           URIRef(URI_ONTOUML + "isPowertype"), Literal(False)))
-
-    # CASE D: Setting IS_EXTENSIONAL default value to False when it is not set in a class with stereotype collective
-    if "isExtensional" not in class_dict and class_stereotype == "collective":
-        print_class_log_message(class_dict, "DCA", attribute='isExtensional', attribute_valid_stereotype='collective')
-        ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
-                           URIRef(URI_ONTOUML + "isExtensional"), Literal(False)))
-
-
-def set_class_order_defaults(class_dict: dict, ontouml_graph: Graph) -> None:
-    """ Verifies a class dictionary and check if their non-nullable attribute order was set or not.
-    If not, creates default values.
-
-    Default values checked are:
-
-    DCO1) order default value = 1 when class's stereotype is not 'type'
-    DCO2) order default value = 2 when class's stereotype 'type'
-
-    The above codes are used to display warning/error messages when necessary.
-
-    :param class_dict: Class object loaded as a dictionary.
-    :type class_dict: dict
-    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
-    :type ontouml_graph: Graph
-    """
-
-    class_stereotype = get_stereotype(class_dict)
-
-    # Setting ORDER attribute default value. Do nothing if the stereotype is unknown.
-    if ("order" not in class_dict) and (class_stereotype != 'null'):
-
-        # DCO1: 'order' default value = 1 when stereotype is not 'type'
-        if class_stereotype != 'type':
-            print_class_log_message(class_dict, "DCO1", attribute='order')
-            ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
-                               URIRef(URI_ONTOUML + "order"), Literal(1, datatype=XSD.nonNegativeInteger)))
-
-        # DCO2: 'order' default value = 2 when stereotype is 'type'
-        elif class_stereotype == 'type':
-            print_class_log_message(class_dict, "DCO2", attribute='order')
-            ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
-                               URIRef(URI_ONTOUML + "order"), Literal(2, datatype=XSD.nonNegativeInteger)))
-
-        # Unexpected value received for class_stereotype
-        else:
-            current_function = inspect.stack()[0][3]
-            report_error_end_of_switch("class_stereotype", current_function)
-
-
 def get_class_log_message(class_dict: dict, warning_code: str,
                           attribute: str, att_valid_stereotype: str = "") -> str:
     """ Mounts and returns a warning message according to the information received as parameter.
@@ -351,6 +188,169 @@ def validate_class_order_constraints(class_dict: dict) -> None:
             class_dict.pop('order')
 
 
+def set_defaults_class_attribute(class_dict: dict, ontouml_graph: Graph) -> None:
+    """ Verifies a class dictionary and check if their non-nullable attributes isExtensional and isPowertype were set
+    or not. If not, creates default values. Default values checked are:
+
+    DCA1) isPowertype default value = False when class's stereotype 'type'
+    DCA2) isExtensional default value = False when class's stereotype 'collective'
+
+    DCA is the general code used to display warning/error messages when necessary.
+
+    :param class_dict: Class object loaded as a dictionary.
+    :type class_dict: dict
+    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
+    :type ontouml_graph: Graph
+    """
+
+    class_stereotype = get_stereotype(class_dict)
+
+    # CASE C: Setting IS_POWERTYPE attribute default value
+    if "isPowertype" not in class_dict and class_stereotype == "type":
+        print_class_log_message(class_dict, "DCA", attribute='isPowertype', attribute_valid_stereotype='type')
+        ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
+                           URIRef(URI_ONTOUML + "isPowertype"), Literal(False)))
+
+    # CASE D: Setting IS_EXTENSIONAL default value to False when it is not set in a class with stereotype collective
+    if "isExtensional" not in class_dict and class_stereotype == "collective":
+        print_class_log_message(class_dict, "DCA", attribute='isExtensional', attribute_valid_stereotype='collective')
+        ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
+                           URIRef(URI_ONTOUML + "isExtensional"), Literal(False)))
+
+
+def set_defaults_class_order(class_dict: dict, ontouml_graph: Graph) -> None:
+    """ Verifies a class dictionary and check if their non-nullable attribute order was set or not.
+    If not, creates default values.
+
+    Default values checked are:
+
+    DCO1) order default value = 1 when class's stereotype is not 'type'
+    DCO2) order default value = 2 when class's stereotype 'type'
+
+    The above codes are used to display warning/error messages when necessary.
+
+    :param class_dict: Class object loaded as a dictionary.
+    :type class_dict: dict
+    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
+    :type ontouml_graph: Graph
+    """
+
+    class_stereotype = get_stereotype(class_dict)
+
+    # Setting ORDER attribute default value. Do nothing if the stereotype is unknown.
+    if ("order" not in class_dict) and (class_stereotype != 'null'):
+
+        # DCO1: 'order' default value = 1 when stereotype is not 'type'
+        if class_stereotype != 'type':
+            print_class_log_message(class_dict, "DCO1", attribute='order')
+            ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
+                               URIRef(URI_ONTOUML + "order"), Literal(1, datatype=XSD.nonNegativeInteger)))
+
+        # DCO2: 'order' default value = 2 when stereotype is 'type'
+        elif class_stereotype == 'type':
+            print_class_log_message(class_dict, "DCO2", attribute='order')
+            ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
+                               URIRef(URI_ONTOUML + "order"), Literal(2, datatype=XSD.nonNegativeInteger)))
+
+        # Unexpected value received for class_stereotype
+        else:
+            current_function = inspect.stack()[0][3]
+            report_error_end_of_switch("class_stereotype", current_function)
+
+
+def set_class_order_nonnegativeinteger(class_dict: dict, ontouml_graph: Graph) -> None:
+    """ Sets an ontouml:Class's ontouml:order property based on the received value of the object's field 'order'.
+
+    The treated possibilities are:
+    A) invalid value (null, non integers, integers <= 0) ---> is converted to the default value of the class
+    B) positive integers ---> directly converted
+    C) * (representing an orderless type) ---> converted to 0 (representation of orderless in the OntoUML Vocabulary).
+
+    :param class_dict: Class object loaded as a dictionary.
+    :type class_dict: dict
+    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
+    :type ontouml_graph: Graph
+    """
+
+    # Case A: if 'order' field is null, it will receive the default value (see function set_class_defaults)
+    if "order" not in class_dict:
+        return
+
+    # Case C: receives 0, representing an orderless class.
+    elif class_dict["order"] == "*":
+        ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
+                           URIRef(URI_ONTOUML + "order"),
+                           Literal(0, datatype=XSD.nonNegativeInteger)))
+
+    # Case A: remove invalid information so the field can be treated as null and then receive the default value.
+    elif (type(class_dict["order"]) is int) and (class_dict["order"] <= 0):
+        class_dict.pop("order")
+
+    # Case B
+    elif type(class_dict["order"]):
+        ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
+                           URIRef(URI_ONTOUML + "order"),
+                           Literal(class_dict['order'], datatype=XSD.nonNegativeInteger)))
+
+    # Case A: remove invalid information so the field can be treated as null and then receive the default value.
+    else:
+        class_dict.pop("order")
+
+
+def set_class_restrictedto_ontologicalnature(class_dict: dict, ontouml_graph: Graph) -> None:
+    """ Sets the ontouml:restrictedTo relation between a class and its related ontouml:OntologicalNature instance.
+
+    :param class_dict: Class object loaded as a dictionary.
+    :type class_dict: dict
+    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
+    :type ontouml_graph: Graph
+    """
+
+    restriction_nature_mapping = {
+        "abstract": "abstractNature",
+        "collective": "collectiveNature",
+        "event": "eventNature",
+        "extrinsic-mode": "extrinsicModeNature",
+        "functional-complex": "functionalComplexNature",
+        "intrinsic-mode": "intrinsicModeNature",
+        "quality": "qualityNature",
+        "quantity": "quantityNature",
+        "relator": "relatorNature",
+        "situation": "situationNature",
+        "type": "typeNature"
+    }
+
+    if "restrictedTo" in class_dict:
+
+        for restriction in class_dict["restrictedTo"]:
+            ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
+                               URIRef(URI_ONTOUML + "restrictedTo"),
+                               URIRef(URI_ONTOUML + restriction_nature_mapping[restriction])))
+
+
+def set_class_attributes(class_dict: dict, ontouml_graph: Graph) -> None:
+    """ Defines the ontouml:isPowertype and ontouml:isExtensional data properties of an ontouml:Class in the graph.
+
+    This function must be called after the function set_class_defaults, as the received value may change because of
+    identified problems.
+
+    :param class_dict: Class object loaded as a dictionary.
+    :type class_dict: dict
+    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
+    :type ontouml_graph: Graph
+    """
+
+    if "isExtensional" in class_dict:
+        ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
+                           URIRef(URI_ONTOUML + "isExtensional"),
+                           Literal(class_dict["isExtensional"], datatype=XSD.boolean)))
+
+    if "isPowertype" in class_dict:
+        ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
+                           URIRef(URI_ONTOUML + "isPowertype"),
+                           Literal(class_dict["isPowertype"], datatype=XSD.boolean)))
+
+
 def set_class_attribute_property(class_dict: dict, ontouml_graph: Graph) -> None:
     """ Sets ontouml:attribute relation between an ontouml:Class and an ontouml:Property.
 
@@ -442,8 +442,8 @@ def create_class_properties(json_data: dict, ontouml_graph: Graph, element_count
         set_class_restrictedto_ontologicalnature(class_dict, ontouml_graph)
 
         # Setting default values when the values were not provided
-        set_class_order_defaults(class_dict, ontouml_graph)
-        set_class_attribute_defaults(class_dict, ontouml_graph)
+        set_defaults_class_order(class_dict, ontouml_graph)
+        set_defaults_class_attribute(class_dict, ontouml_graph)
 
         if "gGhuFxGFS_j2pAmkX3" in class_dict['id']:
             print(f"2: {class_dict = }")

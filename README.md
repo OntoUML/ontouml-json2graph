@@ -45,13 +45,14 @@ options:
 
 ## Basic Syntactical and Sematic Validation
 
-Classes' constraints validations:
+Classes' constraints validations include:
 
+- error report when a class has the incompatible attributes isExtensional and isPowertype.
 - isExtensional must be null when the class's stereotype is not 'collective'
+- isPowertype must be null when the class's stereotype is not 'collective'
+- related stereotype set when attribute is known but stereotype is not. 
 - order must be greater than one when the class's stereotype is 'type'
-- class's order must be one when the class's stereotype is not 'type'
-- class must have stereotype 'type' when no stereotype is informed and when its isPowertype attribute is true
-- class's isPowertype must be false when class's stereotype is not 'type'
+- class's order must be one when the class's stereotype is known to be not 'type'
 
 Properties' validations:
 
