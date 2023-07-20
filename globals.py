@@ -3,7 +3,7 @@
 # Software information
 SOFTWARE_ACRONYM = "ontouml-json2graph"
 SOFTWARE_NAME = "OntoUML JSON2Graph Decoder"
-SOFTWARE_VERSION = "2023.07.19"
+SOFTWARE_VERSION = "2023.07.20"
 SOFTWARE_URL = "https://w3id.org/ontouml/json2graph"
 
 # Formats for saving graphs supported by RDFLib
@@ -26,7 +26,9 @@ ENUM_PROPERTY_STEREOTYPE = ["begin", "end"]
 ENUM_ONTOLOGICAL_NATURE = ["abstract", "collective", "event", "extrinsic-mode", "functional-complex", "intrinsic-mode",
                            "quality", "quantity", "relator", "situation", "type"]
 
-# ABSTRACT CLASSES TYPES
+# GROUPS OF CONCEPTS
 
 ELEMENT_VIEW_TYPES = ["ClassView", "PackageView", "GeneralizationSetView", "RelationView", "GeneralizationView",
                       "NoteView"]
+
+MODEL_ELEMENTS = ["Class", "Property", "Generalization", "GeneralizationSet", "Relation", "Cardinality"]

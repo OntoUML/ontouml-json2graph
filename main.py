@@ -2,8 +2,10 @@
 
 import time
 
+from rdflib import RDF
+
 import modules.arguments as args
-from globals import SOFTWARE_NAME, SOFTWARE_VERSION
+from globals import SOFTWARE_NAME, SOFTWARE_VERSION, MODEL_ELEMENTS
 from modules.decoder.decode_main import decode_json_to_graph
 from modules.input_output import safe_load_json_file, write_graph_file
 from modules.logger import initialize_logger
@@ -33,6 +35,7 @@ def ontouml_json2graph(json_path: str, graph_format: str, language: str = "",
         args.ARGUMENTS["correct"] = True
         args.ARGUMENTS["silent"] = True
         args.ARGUMENTS["base_uri"] = 'https://example.org#'
+        args.ARGUMENTS["model_only"] = False
 
     if execution_mode == "production" and not args.ARGUMENTS["silent"]:
         # Initial time information
@@ -56,6 +59,18 @@ def ontouml_json2graph(json_path: str, graph_format: str, language: str = "",
 
     # Decode JSON into Graph
     ontouml_graph = decode_json_to_graph(json_data, language, execution_mode)
+
+    # If set by user, remove all diagrammatic elements
+    if args.ARGUMENTS["model_only"]:
+        for s, p, o in ontouml_graph.triples((None, RDF.type, None)):
+            s_type = s.toPython()
+            o_type = o.fragment
+            # Remove if not a model element and if it is defined by of the ontology being handled
+            if (args.ARGUMENTS["base_uri"] in s_type) and (o_type not in MODEL_ELEMENTS):
+                ontouml_graph.remove((s, None, None))
+                ontouml_graph.remove((None, None, s))
+        if not args.ARGUMENTS["silent"]:
+            logger.info("All diagrammatic data removed from the output. The output contains only model elements.")
 
     if execution_mode == "production" and not args.ARGUMENTS["silent"]:
         # Get software's execution conclusion time

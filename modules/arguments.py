@@ -38,13 +38,15 @@ def treat_user_arguments() -> dict:
     arguments_parser.add_argument("-f", "--format", action="store", choices=ALLOWED_GRAPH_FORMATS, default="ttl",
                                   help="Format to save the decoded file. Default is 'ttl'.")
     arguments_parser.add_argument("-l", "--language", action="store", type=str, default="",
-                                  help="Language tag for the ontology's concepts. Default is None.")
+                                  help="Language tag for the ontology's concepts. Default is 'None'.")
     arguments_parser.add_argument("-c", "--correct", action="store_true",
                                   help="Enables syntactical and semantic validations and corrections.")
     arguments_parser.add_argument("-s", "--silent", action="store_true",
                                   help="Silent mode. Does not present validation warnings and errors.")
     arguments_parser.add_argument("-u", "--base_uri", action="store", type=str, default="https://example.org#",
                                   help="Base URI of the resulting graph. Default is 'https://example.org#'.")
+    arguments_parser.add_argument("-m", "--model_only", action="store_true",
+                                  help="Keep only model elements, eliminating all diagrammatic data from output.")
 
     # AUTOMATIC ARGUMENTS
     arguments_parser.add_argument("-v", "--version", action="version", help="Print the software version and exit.")
@@ -58,7 +60,8 @@ def treat_user_arguments() -> dict:
                             "correct": arguments.correct,
                             "silent": arguments.silent,
                             "json_path": arguments.json_file,
-                            "base_uri": arguments.base_uri}
+                            "base_uri": arguments.base_uri,
+                            "model_only": arguments.model_only}
 
     # Checking if provided input file type is valid
     if ".json" not in arguments.json_file:

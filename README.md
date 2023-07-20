@@ -27,10 +27,10 @@ All available ontouml-models-tools arguments can be observed below.
 ```text
 usage: ontouml-json2graph [-h]
                           [-f {turtle,ttl,turtle2,xml,pretty-xml,json-ld,ntriples,nt,nt11,n3,trig,trix,nquads}]
-                          [-l LANGUAGE] [-c] [-s] [-u BASE_URI] [-v]
+                          [-l LANGUAGE] [-c] [-s] [-u BASE_URI] [-m] [-v]
                           json_file
 
-OntoUML JSON2Graph Decoder. Version: 2023.07.19
+OntoUML JSON2Graph Decoder. Version: 2023.07.20
 
 positional arguments:
   json_file             The path of the JSON file to be encoded.
@@ -40,11 +40,12 @@ options:
   -f {turtle,ttl,turtle2,xml,pretty-xml,json-ld,ntriples,nt,nt11,n3,trig,trix,nquads}, --format {turtle,ttl,turtle2,xml,pretty-xml,json-ld,ntriples,nt,nt11,n3,trig,trix,nquads}
                         Format to save the decoded file. Default is 'ttl'.
   -l LANGUAGE, --language LANGUAGE
-                        Language tag for the ontology's concepts. Default is None.
+                        Language tag for the ontology's concepts. Default is 'None'.
   -c, --correct         Enables syntactical and semantic validations and corrections.
   -s, --silent          Silent mode. Does not present validation warnings and errors.
   -u BASE_URI, --base_uri BASE_URI
                         Base URI of the resulting graph. Default is 'https://example.org#'.
+  -m, --model_only      Keep only model elements, eliminating all diagrammatic data from output.
   -v, --version         Print the software version and exit.
 ```
 
@@ -55,7 +56,7 @@ Classes' constraints validations include:
 - error report when a class has the incompatible attributes isExtensional and isPowertype.
 - isExtensional must be null when the class's stereotype is not 'collective'
 - isPowertype must be null when the class's stereotype is not 'collective'
-- related stereotype set when attribute is known but stereotype is not. 
+- related stereotype set when attribute is known but stereotype is not.
 - order must be greater than one when the class's stereotype is 'type'
 - class's order must be one when the class's stereotype is known to be not 'type'
 
