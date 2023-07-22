@@ -40,6 +40,7 @@ def add_metadata(ontouml_graph: Graph) -> None:
 
     # Adding conforms to
     dct_conforms_to = URIRef(uri_dct + "conformsTo")
+    # TODO (@pedropaulofb): Add verstion to which it conformsTo.
     ontouml_graph.add((uriref_ontology, dct_conforms_to, URIRef(URI_ONTOUML[:-1])))
 
     # Adding creation date
