@@ -64,9 +64,12 @@ def get_class_log_message(class_dict: dict, warning_code: str,
         message = f"attribute '{attribute}' (originally '{att_value}') set to '2', " \
                   f"the default value to classes with stereotype 'type'."
 
-    elif warning_code == "DCA":
+    elif warning_code == "DCA1":
         message = f"attribute '{attribute}' (originally {att_value}) set to 'False', " \
                   f"the default value to classes with stereotype '{att_valid_stereotype}'."
+
+    elif warning_code == "DCA2":
+        message = f"attribute '{attribute}' (originally {att_value}) set to its default value: 'False'."
 
     else:
         current_function = inspect.stack()[0][3]
@@ -115,7 +118,9 @@ def validate_class_attribute_constraints(class_dict: dict) -> None:
 
     VCA1) If class without stereotype but with isExtensional and with isPowertype, then do nothing and report error.
     VCA2) If class has no stereotype, but the attribute is set, then set correct stereotype.
-    VCA3) If class a different stereotype than the one related to the attribute and the attribute is set,
+        - If isExtensional, set as ontouml:collective
+        - If isPowertype, set as ontouml-type
+    VCA3) If class has a different stereotype than the one related to the attribute and the attribute is set,
         then remove the attribute value.
 
     The above codes are used to display warning/error messages when necessary.
@@ -192,7 +197,7 @@ def set_defaults_class_attribute(class_dict: dict, ontouml_graph: Graph) -> None
     """ Verifies a class dictionary and check if their non-nullable attributes isExtensional and isPowertype were set
     or not. If not, creates default values. Default values checked are:
 
-    DCA1) isPowertype default value = False when class's stereotype 'type'
+    DCA1) isPowertype default value = False
     DCA2) isExtensional default value = False when class's stereotype 'collective'
 
     DCA is the general code used to display warning/error messages when necessary.
@@ -206,14 +211,14 @@ def set_defaults_class_attribute(class_dict: dict, ontouml_graph: Graph) -> None
     class_stereotype = get_stereotype(class_dict)
 
     # CASE C: Setting IS_POWERTYPE attribute default value
-    if "isPowertype" not in class_dict and class_stereotype == "type":
-        print_class_log_message(class_dict, "DCA", attribute='isPowertype', attribute_valid_stereotype='type')
+    if "isPowertype" not in class_dict:
+        print_class_log_message(class_dict, "DCA1", attribute='isPowertype', attribute_valid_stereotype='type')
         ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
                            URIRef(URI_ONTOUML + "isPowertype"), Literal(False)))
 
     # CASE D: Setting IS_EXTENSIONAL default value to False when it is not set in a class with stereotype collective
     if "isExtensional" not in class_dict and class_stereotype == "collective":
-        print_class_log_message(class_dict, "DCA", attribute='isExtensional', attribute_valid_stereotype='collective')
+        print_class_log_message(class_dict, "DCA2", attribute='isExtensional', attribute_valid_stereotype='collective')
         ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
                            URIRef(URI_ONTOUML + "isExtensional"), Literal(False)))
 
@@ -425,16 +430,10 @@ def create_class_properties(json_data: dict, ontouml_graph: Graph, element_count
         if "name" not in class_dict:
             continue
 
-        if "gGhuFxGFS_j2pAmkX3" in class_dict['id']:
-            print(f"0: {class_dict = }")
-
         # Performs validation (only cases enabled by the user)
         # Priority order is: (1) stereotype, (2) isExtensional and isPowertype attributes, (3) order attribute
         validate_class_attribute_constraints(class_dict)
         validate_class_order_constraints(class_dict)
-
-        if "gGhuFxGFS_j2pAmkX3" in class_dict['id']:
-            print(f"1: {class_dict = }")
 
         # Setting properties
         set_class_order_nonnegativeinteger(class_dict, ontouml_graph)
@@ -445,14 +444,8 @@ def create_class_properties(json_data: dict, ontouml_graph: Graph, element_count
         set_defaults_class_order(class_dict, ontouml_graph)
         set_defaults_class_attribute(class_dict, ontouml_graph)
 
-        if "gGhuFxGFS_j2pAmkX3" in class_dict['id']:
-            print(f"2: {class_dict = }")
-
         # Setting isPowertype and isExtensional
         set_class_attributes(class_dict, ontouml_graph)
-
-        if "gGhuFxGFS_j2pAmkX3" in class_dict['id']:
-            print(f"3: {class_dict = }")
 
         # Treats relations between instances of Class and Property only if the formers exist
         if "Property" in element_counting:
@@ -461,6 +454,3 @@ def create_class_properties(json_data: dict, ontouml_graph: Graph, element_count
         # Treats relations between instances of Class and Literal only if the formers exist
         if "Literal" in element_counting:
             set_class_literal_literal(class_dict, ontouml_graph)
-
-        if "gGhuFxGFS_j2pAmkX3" in class_dict['id']:
-            print(f"4: {class_dict = }")
