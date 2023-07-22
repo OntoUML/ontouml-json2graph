@@ -535,3 +535,42 @@
     ontouml:model   :1i.ZlpGGAqACNwt0_root ;
     ontouml:name    "test_isextensional_ispowertype"@en .
 
+:05FZlpGGAqACNxAd
+    ontouml:isPowertype false .
+
+:11pZlpGGAqACNw.4
+    ontouml:isPowertype false .
+
+:2XRZlpGGAqACNw.G
+    ontouml:isPowertype false .
+
+:2bFZlpGGAqACNxAo
+    ontouml:isPowertype false .
+
+:3BRZlpGGAqACNw97
+    ontouml:isPowertype false .
+
+:9PpZlpGGAqACNw_D
+    ontouml:isPowertype false .
+
+:BvhZlpGGAqACNw9l
+    ontouml:isPowertype false .
+
+:colZlpGGAqACNxAz
+    ontouml:isPowertype false .
+
+:m0pZlpGGAqACNw.t
+    ontouml:isPowertype false .
+
+:nKJZlpGGAqACNw.c
+    ontouml:isPowertype false .
+
+:pb5ZlpGGAqACNw_8
+    ontouml:isPowertype false .
+
+:s0ZZlpGGAqACNw_O
+    ontouml:isPowertype false .
+
+:sCRZlpGGAqACNw9w
+    ontouml:isPowertype false .
+

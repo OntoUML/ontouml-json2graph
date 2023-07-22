@@ -4023,3 +4023,118 @@
 
 :dwnM1JGGAqACNxMF
     ontouml:isAbstract true .
+
+:0FWM1JGGAqACNxHT
+    ontouml:isPowertype false .
+
+:0yRS1JGGAqACNwuE
+    ontouml:isPowertype false .
+
+:1pKS1JGGAqACNwsZ
+    ontouml:isPowertype false .
+
+:5TmM1JGGAqACNxGy
+    ontouml:isPowertype false .
+
+:6WKS1JGGAqACNwsO
+    ontouml:isPowertype false .
+
+:8F9S1JGGAqACNwv6
+    ontouml:isPowertype false .
+
+:B2pM1JGGAqACNxJo
+    ontouml:isPowertype false .
+
+:BJRS1JGGAqACNwuP
+    ontouml:isPowertype false .
+
+:EzHK1JGGAqACNw5h
+    ontouml:isPowertype false .
+
+:FEKS1JGGAqACNwsD
+    ontouml:isPowertype false .
+
+:Gi_S1JGGAqACNwye
+    ontouml:isPowertype false .
+
+:HM5M1JGGAqACNxKP
+    ontouml:isPowertype false .
+
+:J32M1JGGAqACNxIK
+    ontouml:isPowertype false .
+
+:KR_S1JGGAqACNwyp
+    ontouml:isPowertype false .
+
+:Lt_S1JGGAqACNwy0
+    ontouml:isPowertype false .
+
+:NBni1JGGAqACNwqj
+    ontouml:isPowertype false .
+
+:NHWM1JGGAqACNxHe
+    ontouml:isPowertype false .
+
+:O39S1JGGAqACNwwF
+    ontouml:isPowertype false .
+
+:OaKy1JGGAqACNw0M
+    ontouml:isPowertype false .
+
+:P5Ky1JGGAqACNw0X
+    ontouml:isPowertype false .
+
+:QrRS1JGGAqACNwua
+    ontouml:isPowertype false .
+
+:S22M1JGGAqACNxH0
+    ontouml:isPowertype false .
+
+:SN2M1JGGAqACNxH_
+    ontouml:isPowertype false .
+
+:TIWM1JGGAqACNxG9
+    ontouml:isPowertype false .
+
+:XlHi1JGGAqACNwqH
+    ontouml:isPowertype false .
+
+:YInK1JGGAqACNw5s
+    ontouml:isPowertype false .
+
+:Z2wz9JGGAqACNwsv
+    ontouml:isPowertype false .
+
+:cOmM1JGGAqACNxGn
+    ontouml:isPowertype false .
+
+:gRoz9JGGAqACNwtM
+    ontouml:isPowertype false .
+
+:h1pM1JGGAqACNxJz
+    ontouml:isPowertype false .
+
+:i4qy1JGGAqACNw0t
+    ontouml:isPowertype false .
+
+:inoz9JGGAqACNwtX
+    ontouml:isPowertype false .
+
+:j7Ky1JGGAqACNw0i
+    ontouml:isPowertype false .
+
+:jk2M1JGGAqACNxHp
+    ontouml:isPowertype false .
+
+:kfZM1JGGAqACNxKE
+    ontouml:isPowertype false .
+
+:tHHi1JGGAqACNwqS
+    ontouml:isPowertype false .
+
+:tyDS1JGGAqACNwwQ
+    ontouml:isPowertype false .
+
+:uyYz9JGGAqACNwti
+    ontouml:isPowertype false .
+

@@ -115,3 +115,13 @@
 
 :cD2bZJGFYGjgAQ2V
     ontouml:owner :4NWbZJGFYGjgAQm6_root .
+
+:Q4hbZJGFYGjgAQ3M
+    ontouml:isPowertype false .
+
+:SSxbZJGFYGjgAQ3Y
+    ontouml:isPowertype false .
+
+:olObZJGFYGjgAQ2v
+    ontouml:isPowertype false .
+

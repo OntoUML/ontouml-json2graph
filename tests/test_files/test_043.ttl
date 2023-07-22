@@ -359,3 +359,10 @@
 :rPqtRJGGAqACNwmx_cardinality
     ontouml:lowerBound "0" ;
     ontouml:upperBound "0" .
+
+:gplIhJGGAqACNw3K
+    ontouml:isPowertype false .
+
+:hz1IhJGGAqACNxGz
+    ontouml:isPowertype false .
+

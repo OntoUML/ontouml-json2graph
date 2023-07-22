@@ -89,3 +89,6 @@
 
 :jDdIhJGGAqACNxG5
     ontouml:owner :2EDIhJGGAqACNxHJ .
+
+:hz1IhJGGAqACNxGz
+    ontouml:isPowertype false .

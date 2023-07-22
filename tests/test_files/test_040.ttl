@@ -161,3 +161,10 @@
 
 :uu_P9JGGAqACNxC8_shape
     ontouml:project :GuP9JGGAqACNwx0 .
+
+:6bAoDJGGAqACNxEf
+    ontouml:isPowertype false .
+
+:lAvIDJGGAqACNxEE
+    ontouml:isPowertype false .
+

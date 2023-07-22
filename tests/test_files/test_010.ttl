@@ -88,3 +88,6 @@
     rdf:type            ontouml:Point ;
     ontouml:xCoordinate 312 ;
     ontouml:yCoordinate 185 .
+
+:gGhuFxGFS_j2pAmk
+    ontouml:isPowertype false .

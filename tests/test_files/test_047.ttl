@@ -2292,3 +2292,73 @@
     ontouml:diagram :8jVBlG6GAqACBAli, :YQHz5G6GAqACBBeg ;
     ontouml:model   :Rol55G6GAqACBAnR_root ;
     ontouml:name    "EMMSAD2022"@en .
+
+:2GPBlG6GAqACBArO
+    ontouml:isPowertype false .
+
+:4l7BlG6GAqACBAmc
+    ontouml:isPowertype false .
+
+:6Y4n5G6GAqACBCb7
+    ontouml:isPowertype false .
+
+:BK6P5G6GAqACBCng
+    ontouml:isPowertype false .
+
+:CV7BlG6GAqACBAnE
+    ontouml:isPowertype false .
+
+:DV7BlG6GAqACBAnc
+    ontouml:isPowertype false .
+
+:Ew4hlG6GAqACBArh
+    ontouml:isPowertype false .
+
+:FF7BlG6GAqACBAmU
+    ontouml:isPowertype false .
+
+:HI1H5G6GAqACBCa_
+    ontouml:isPowertype false .
+
+:LwXz5G6GAqACBBft
+    ontouml:isPowertype false .
+
+:P0pRlG6GAqACBAtA
+    ontouml:isPowertype false .
+
+:PwXz5G6GAqACBBfy
+    ontouml:isPowertype false .
+
+:Rg.H5G6GAqACBCaZ
+    ontouml:isPowertype false .
+
+:TQXz5G6GAqACBBfN
+    ontouml:isPowertype false .
+
+:WD6X5G6GAqACBCex
+    ontouml:isPowertype false .
+
+:WcZn5G6GAqACBCcX
+    ontouml:isPowertype false .
+
+:YedRlG6GAqACBAtX
+    ontouml:isPowertype false .
+
+:ZQXz5G6GAqACBBfI
+    ontouml:isPowertype false .
+
+:f81xlG6GAqACBAxo
+    ontouml:isPowertype false .
+
+:lwXz5G6GAqACBBfm
+    ontouml:isPowertype false .
+
+:nSJxlG6GAqACBAxC
+    ontouml:isPowertype false .
+
+:oIXz5G6GAqACBBf3
+    ontouml:isPowertype false .
+
+:vV7BlG6GAqACBAnk
+    ontouml:isPowertype false .
+

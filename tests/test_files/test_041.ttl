@@ -284,3 +284,16 @@
 
 :gqboDJGGAqACNxIz_path
     ontouml:project :GuP9JGGAqACNwx0 .
+
+:5I5oDJGGAqACNxIe
+    ontouml:isPowertype false .
+
+:6NZoDJGGAqACNxIR
+    ontouml:isPowertype false .
+
+:6bAoDJGGAqACNxEf
+    ontouml:isPowertype false .
+
+:lAvIDJGGAqACNxEE
+    ontouml:isPowertype false .
+

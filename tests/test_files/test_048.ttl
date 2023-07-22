@@ -10198,3 +10198,187 @@
                     :nJ4EVt6GAqACCiRf, :obaGlt6GAqACChhm, :svsqVt6GAqACCie3, :tXcSlt6GAqACChPP ;
     ontouml:model   :Nlnret6GAqACCgBO_root ;
     ontouml:name    "Common Ontology of Value and Risk"@en .
+
+:0Y1Slt6GAqACChQO
+    ontouml:isPowertype false .
+
+:45Iqlt6GAqACChWP
+    ontouml:isPowertype false .
+
+:6cH_Jt6GAqACCieo
+    ontouml:isPowertype false .
+
+:8K_Glt6GAqACChij
+    ontouml:isPowertype false .
+
+:8blClt6GAqACChKV
+    ontouml:isPowertype false .
+
+:9GsApt6GAqACCif7
+    ontouml:isPowertype false .
+
+:9xNClt6GAqACChKk
+    ontouml:isPowertype false .
+
+:CQBwVt6GAqACCh64
+    ontouml:isPowertype false .
+
+:DU2Glt6GAqACChh2
+    ontouml:isPowertype false .
+
+:EVpwVt6GAqACCh7W
+    ontouml:isPowertype false .
+
+:FEwilt6GAqACChMX
+    ontouml:isPowertype false .
+
+:GAXAVt6GAqACChul
+    ontouml:isPowertype false .
+
+:Hy_NJt6GAqACCiU_
+    ontouml:isPowertype false .
+
+:IDHet6GAqACCgdc
+    ontouml:isPowertype false .
+
+:J8zWlt6GAqACChqO
+    ontouml:isPowertype false .
+
+:JXzApt6GAqACCihK
+    ontouml:isPowertype false .
+
+:LNYEt6GAqACCgzy
+    ontouml:isPowertype false .
+
+:LsVwVt6GAqACCh7l
+    ontouml:isPowertype false .
+
+:N68Slt6GAqACChPe
+    ontouml:isPowertype false .
+
+:NpVQpt6GAqACCim9
+    ontouml:isPowertype false .
+
+:QukuVt6GAqACCjC6
+    ontouml:isPowertype false .
+
+:RASEVt6GAqACCiSc
+    ontouml:isPowertype false .
+
+:RO9Het6GAqACCgdR
+    ontouml:isPowertype false .
+
+:RXMtJt6GAqACCiV_
+    ontouml:isPowertype false .
+
+:T2Aalt6GAqACChbE
+    ontouml:isPowertype false .
+
+:VtCmlt6GAqACChji
+    ontouml:isPowertype false .
+
+:XXNqlt6GAqACChZT
+    ontouml:isPowertype false .
+
+:YRcgVt6GAqACChvu
+    ontouml:isPowertype false .
+
+:ZQbet6GAqACCgXC
+    ontouml:isPowertype false .
+
+:Z_sgVt6GAqACChvl
+    ontouml:isPowertype false .
+
+:Zd4tJt6GAqACCiVo
+    ontouml:isPowertype false .
+
+:ayGgVt6GAqACChw1
+    ontouml:isPowertype false .
+
+:bWv8lt6GAqACChFY
+    ontouml:isPowertype false .
+
+:bcCqlt6GAqACChXi
+    ontouml:isPowertype false .
+
+:cjOGlt6GAqACChiB
+    ontouml:isPowertype false .
+
+:eayalt6GAqACChcL
+    ontouml:isPowertype false .
+
+:fGHNJt6GAqACCiUs
+    ontouml:isPowertype false .
+
+:fx5bet6GAqACCgZ1
+    ontouml:isPowertype false .
+
+:gpClt6GAqACChJ9
+    ontouml:isPowertype false .
+
+:hz2alt6GAqACChcc
+    ontouml:isPowertype false .
+
+:ir6Klt6GAqACChUU
+    ontouml:isPowertype false .
+
+:lj__Jt6GAqACCifQ
+    ontouml:isPowertype false .
+
+:lqrnet6GAqACCghS
+    ontouml:isPowertype false .
+
+:ofqmlt6GAqACChj2
+    ontouml:isPowertype false .
+
+:q8eGlt6GAqACChiM
+    ontouml:isPowertype false .
+
+:qqagpt6GAqACCiit
+    ontouml:isPowertype false .
+
+:sPCgVt6GAqACChwM
+    ontouml:isPowertype false .
+
+:sSlAVt6GAqACChuC
+    ontouml:isPowertype false .
+
+:s_2gVt6GAqACChxg
+    ontouml:isPowertype false .
+
+:sdWgVt6GAqACChxR
+    ontouml:isPowertype false .
+
+:tYkmlt6GAqACChjH
+    ontouml:isPowertype false .
+
+:tjGgVt6GAqACChw
+    ontouml:isPowertype false .
+
+:u0O4t6GAqACCgyY
+    ontouml:isPowertype false .
+
+:vBKlt6GAqACChU3
+    ontouml:isPowertype false .
+
+:vR38lt6GAqACChFN
+    ontouml:isPowertype false .
+
+:vT8gVt6GAqACChv9
+    ontouml:isPowertype false .
+
+:wtgmlt6GAqACChiy
+    ontouml:isPowertype false .
+
+:y0CKlt6GAqACChT3
+    ontouml:isPowertype false .
+
+:zBfAVt6GAqACChu4
+    ontouml:isPowertype false .
+
+:zJYIpt6GAqACCir4
+    ontouml:isPowertype false .
+
+:zwCWlt6GAqACChnT
+    ontouml:isPowertype false .
+

@@ -525,3 +525,34 @@
 
 :rmX6WxGFS_j2pAqf
     ontouml:owner :XQ6WxGFS_j2pAor .
+
+:CYYDQJGGAqACNwnH
+    ontouml:isPowertype false .
+
+:DkgZwJGGAqACNwnm
+    ontouml:isPowertype false .
+
+:HI0DQJGGAqACNwnd
+    ontouml:isPowertype false .
+
+:PDUZwJGGAqACNwn8
+    ontouml:isPowertype false .
+
+:Y2ADQJGGAqACNwmq
+    ontouml:isPowertype false .
+
+:YxbuFxGFS_j2pAnb
+    ontouml:isPowertype false .
+
+:b5teFxGFS_j2pAm3
+    ontouml:isPowertype false .
+
+:gGhuFxGFS_j2pAmk
+    ontouml:isPowertype false .
+
+:kACDQJGGAqACNwnq
+    ontouml:isPowertype false .
+
+:lT6DQJGGAqACNwoB
+    ontouml:isPowertype false .
+

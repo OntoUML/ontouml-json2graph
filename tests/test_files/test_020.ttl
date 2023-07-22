@@ -137,3 +137,6 @@
 
 :hz1IhJGGAqACNxGy_shape
     ontouml:project :fJlIhJGGAqACNw3E .
+
+:hz1IhJGGAqACNxGz
+    ontouml:isPowertype false .

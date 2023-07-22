@@ -109,3 +109,6 @@
 
 :oeYohJGGAqACNxH9_shape
     ontouml:project :fJlIhJGGAqACNw3E .
+
+:hz1IhJGGAqACNxGz
+    ontouml:isPowertype false .

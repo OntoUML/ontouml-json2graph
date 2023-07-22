@@ -1634,5 +1634,42 @@
 :dwnM1JGGAqACNxMF
     ontouml:isAbstract false .
 
+:0FWM1JGGAqACNxHT
+    ontouml:isPowertype false .
 
+:5TmM1JGGAqACNxGy
+    ontouml:isPowertype false .
+
+:B2pM1JGGAqACNxJo
+    ontouml:isPowertype false .
+
+:HM5M1JGGAqACNxKP
+    ontouml:isPowertype false .
+
+:J32M1JGGAqACNxIK
+    ontouml:isPowertype false .
+
+:NHWM1JGGAqACNxHe
+    ontouml:isPowertype false .
+
+:S22M1JGGAqACNxH0
+    ontouml:isPowertype false .
+
+:SN2M1JGGAqACNxH
+    ontouml:isPowertype false .
+
+:TIWM1JGGAqACNxG9
+    ontouml:isPowertype false .
+
+:cOmM1JGGAqACNxGn
+    ontouml:isPowertype false .
+
+:h1pM1JGGAqACNxJz
+    ontouml:isPowertype false .
+
+:jk2M1JGGAqACNxHp
+    ontouml:isPowertype false .
+
+:kfZM1JGGAqACNxKE
+    ontouml:isPowertype false .
 

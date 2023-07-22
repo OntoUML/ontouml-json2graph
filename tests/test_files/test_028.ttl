@@ -465,3 +465,28 @@
 
 :olObZJGFYGjgAQ2v
     ontouml:order "1"^^xsd:nonNegativeInteger .
+
+:1oZ7ZJGFYGjgAQ5K
+    ontouml:isPowertype false .
+
+:Q4hbZJGFYGjgAQ3M
+    ontouml:isPowertype false .
+
+:Rd37ZJGFYGjgAQ6I
+    ontouml:isPowertype false .
+
+:SSxbZJGFYGjgAQ3Y
+    ontouml:isPowertype false .
+
+:gl7zjgfygjgaq5e
+    ontouml:isPowertype false .
+
+:iqX7ZJGFYGjgAQ59
+    ontouml:isPowertype false .
+
+:olObZJGFYGjgAQ2v
+    ontouml:isPowertype false .
+
+:qin7ZJGFYGjgAQ5y
+    ontouml:isPowertype false .
+

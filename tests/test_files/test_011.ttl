@@ -114,3 +114,9 @@
     rdf:type            ontouml:Point ;
     ontouml:xCoordinate 358 ;
     ontouml:yCoordinate 310 .
+
+:YxbuFxGFS_j2pAnb
+    ontouml:isPowertype false .
+
+:gGhuFxGFS_j2pAmk
+    ontouml:isPowertype false .

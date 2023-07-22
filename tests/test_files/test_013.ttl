@@ -467,3 +467,28 @@
 
 :dGSNHRGFS_j2pAvw_root
     ontouml:containsModelElement :MrUQwJGGAqACNwoT .
+
+:CYYDQJGGAqACNwnH
+    ontouml:isPowertype false .
+
+:HI0DQJGGAqACNwnd
+    ontouml:isPowertype false .
+
+:Y2ADQJGGAqACNwmq
+    ontouml:isPowertype false .
+
+:YxbuFxGFS_j2pAnb
+    ontouml:isPowertype false .
+
+:b5teFxGFS_j2pAm3
+    ontouml:isPowertype false .
+
+:gGhuFxGFS_j2pAmk
+    ontouml:isPowertype false .
+
+:kACDQJGGAqACNwnq
+    ontouml:isPowertype false .
+
+:lT6DQJGGAqACNwoB
+    ontouml:isPowertype false .
+

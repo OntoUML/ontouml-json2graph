@@ -1449,3 +1449,73 @@
     a                ontouml:GeneralizationSetView ;
     ontouml:isViewOf :XzRnZJGFYGjgARB3 ;
     ontouml:shape    :yLRnZJGFYGjgARB5_shape .
+
+:1oZ7ZJGFYGjgAQ5K
+    ontouml:isPowertype false .
+
+:2G6nZJGFYGjgARBV
+    ontouml:isPowertype false .
+
+:AOxHZJGFYGjgAQ77
+    ontouml:isPowertype false .
+
+:B0snZJGFYGjgARAG
+    ontouml:isPowertype false .
+
+:GL7ZJGFYGjgAQ5e
+    ontouml:isPowertype false .
+
+:H9THZJGFYGjgAQ91
+    ontouml:isPowertype false .
+
+:K8THZJGFYGjgAQ9q
+    ontouml:isPowertype false .
+
+:LYcnZJGFYGjgARAc
+    ontouml:isPowertype false .
+
+:MDAnZJGFYGjgAQZ
+    ontouml:isPowertype false .
+
+:OxHZJGFYGjgAQI
+    ontouml:isPowertype false .
+
+:Q4hbZJGFYGjgAQ3M
+    ontouml:isPowertype false .
+
+:Rd37ZJGFYGjgAQ6I
+    ontouml:isPowertype false .
+
+:SSxbZJGFYGjgAQ3Y
+    ontouml:isPowertype false .
+
+:X9pHZJGFYGjgAQ8T
+    ontouml:isPowertype false .
+
+:XizHZJGFYGjgAQA
+    ontouml:isPowertype false .
+
+:abanZJGFYGjgARBK
+    ontouml:isPowertype false .
+
+:cxJHZJGFYGjgAQ8I
+    ontouml:isPowertype false .
+
+:eDfHZJGFYGjgAQ9
+    ontouml:isPowertype false .
+
+:flsnZJGFYGjgARAR
+    ontouml:isPowertype false .
+
+:iqX7ZJGFYGjgAQ59
+    ontouml:isPowertype false .
+
+:olObZJGFYGjgAQ2v
+    ontouml:isPowertype false .
+
+:qin7ZJGFYGjgAQ5y
+    ontouml:isPowertype false .
+
+:ryanZJGFYGjgARA_
+    ontouml:isPowertype false .
+

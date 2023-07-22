@@ -202,3 +202,9 @@
 
 :hz1IhJGGAqACNxGy_shape
     ontouml:project :fJlIhJGGAqACNw3E .
+
+:gplIhJGGAqACNw3K
+    ontouml:isPowertype false .
+
+:hz1IhJGGAqACNxGz
+    ontouml:isPowertype false .
