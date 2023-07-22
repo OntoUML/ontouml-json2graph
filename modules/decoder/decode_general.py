@@ -211,8 +211,6 @@ def set_object_stereotype(object_dict: dict, ontouml_graph: Graph) -> None:
     :type ontouml_graph: Graph
     """
 
-    # TODO (@pedropaulofb): It is still under discussion if relation's stereotypes are mandatory. Modify as necessary.
-
     ENUM_CLASS_STEREOTYPE = ["type", "historicalRole", "historicalRoleMixin", "event", "situation", "category", "mixin",
                              "roleMixin", "phaseMixin", "kind", "collective", "quantity", "relator", "quality", "mode",
                              "subkind", "role", "phase", "enumeration", "datatype", "abstract"]

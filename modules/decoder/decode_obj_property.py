@@ -7,12 +7,13 @@ Function's nomenclatures:
     - Functions that set both object and data properties are named: set_<subject>_properties.
 """
 
-from rdflib import Graph, URIRef, RDF, Literal
+from rdflib import Graph, URIRef, RDF, Literal, XSD
 
 import modules.arguments as args
 from globals import URI_ONTOUML
 from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type
 from modules.logger import initialize_logger
+from modules.messages import print_decode_log_message
 from modules.sparql_queries import GET_CLASS_STEREOTYPE_ATTRIBUTE_STEREOTYPE
 from modules.utils_graph import load_all_graph_safely
 
@@ -24,7 +25,7 @@ def validate_property_stereotype(ontouml_graph: Graph) -> None:
 
     Validations performed:
         a) Reports invalid property stereotypes (i.e., stereotypes different from ontouml:begin or ontouml:end.
-        b) Reports invalid stereotype use for class stereotype
+        b) Reports invalid stereotype use for the class associated to a property
 
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
@@ -56,7 +57,8 @@ def validate_property_stereotype(ontouml_graph: Graph) -> None:
 
             if not args.ARGUMENTS["silent"]:
                 LOGGER.warning(f"The class with ID '{class_id}' and unknown stereotype has an attribute stereotyped "
-                               f"'{property_stereotype}'. It was stereotyped as 'event' for a semantically valid output.")
+                               f"'{property_stereotype}'. "
+                               f"It was stereotyped as 'event' for a semantically valid output.")
 
             ontouml_graph.remove((URIRef(args.ARGUMENTS["base_uri"] + class_id),
                                   URIRef(URI_ONTOUML + "stereotype"),
@@ -65,6 +67,40 @@ def validate_property_stereotype(ontouml_graph: Graph) -> None:
             ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_id),
                                URIRef(URI_ONTOUML + "stereotype"),
                                URIRef(URI_ONTOUML + "event")))
+
+
+def set_property_defaults(property_dict: dict, ontouml_graph: Graph) -> None:
+    """ Sets default values for ontouml:Property elements that do not present them. The defaults are:
+    
+    DPA1) ontouml:isDerived default value = False
+    DPA2) ontouml:isOrdered default value = False
+    DPA3) ontouml:isReadOnly default value = False
+
+    :param property_dict: Property object loaded as a dictionary.
+    :type property_dict: dict
+    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
+    :type ontouml_graph: Graph
+    """
+
+    # DPA1, DPA2, and DPA3 use the same message DGA1, as they are not associated to their holder's stereotype.
+
+    # DPA1: Setting ontouml:isDerived attribute default value
+    if "isDerived" not in property_dict:
+        print_decode_log_message(property_dict, "DGA1", attribute='isDerived')
+        ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + property_dict['id']),
+                           URIRef(URI_ONTOUML + "isDerived"), Literal(False, datatype=XSD.boolean)))
+
+    # DPA2: Setting ontouml:isOrdered attribute default value
+    if "isOrdered" not in property_dict:
+        print_decode_log_message(property_dict, "DGA1", attribute='isOrdered')
+        ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + property_dict['id']),
+                           URIRef(URI_ONTOUML + "isOrdered"), Literal(False, datatype=XSD.boolean)))
+
+    # DPA3: Setting ontouml:isReadOnly attribute default value
+    if "isReadOnly" not in property_dict:
+        print_decode_log_message(property_dict, "DGA1", attribute='isReadOnly')
+        ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + property_dict['id']),
+                           URIRef(URI_ONTOUML + "isReadOnly"), Literal(False, datatype=XSD.boolean)))
 
 
 def set_property_relations(property_dict: dict, ontouml_graph: Graph) -> None:
@@ -205,6 +241,9 @@ def create_property_properties(json_data: dict, ontouml_graph: Graph) -> None:
         - ontouml:upperBound (domain ontouml:Cardinality)
         - ontouml:subsetsProperty (range ontouml:Property)
         - ontouml:redefinesProperty (range ontouml:Property)
+        - ontouml:isDerived (range xsd:boolean)
+        - ontouml:isOrdered (range xsd:boolean)
+        - ontouml:isReadOnly (range xsd:boolean)
 
     Performs validation for ontouml:stereotype.
 
@@ -223,6 +262,7 @@ def create_property_properties(json_data: dict, ontouml_graph: Graph) -> None:
         if "isDerived" not in property_dict:
             continue
 
+        set_property_defaults(property_dict, ontouml_graph)
         set_property_relations(property_dict, ontouml_graph)
         set_cardinality_relations(property_dict, ontouml_graph)
 
