@@ -1,0 +1,1305 @@
+@prefix : <https://example.org#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ontouml: <https://w3id.org/ontouml#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+
+:00gI_pGGAqACNxEh a ontouml:Property ;
+    ontouml:aggregationKind ontouml:none ;
+    ontouml:isDerived true ;
+    ontouml:isOrdered true ;
+    ontouml:isReadOnly false ;
+    ontouml:name "attribute6"@en ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:0R.I_pGGAqACNxIo_shape a ontouml:Rectangle ;
+    ontouml:height "40"^^xsd:positiveInteger ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:topLeftPosition :0R.I_pGGAqACNxIo_shape_point ;
+    ontouml:width "80"^^xsd:positiveInteger .
+
+:0R.I_pGGAqACNxIo_shape_point a ontouml:Point ;
+    ontouml:xCoordinate 1090 ;
+    ontouml:yCoordinate 130 .
+
+:1EgI_pGGAqACNxEe a ontouml:Property ;
+    ontouml:aggregationKind ontouml:none ;
+    ontouml:isDerived true ;
+    ontouml:isOrdered true ;
+    ontouml:isReadOnly false ;
+    ontouml:name "attribute5"@en ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+<https://example.org#1itI_pGGAqACNxL.> a ontouml:GeneralizationView ;
+    ontouml:isViewOf :5itI_pGGAqACNxL9 ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :1itI_pGGAqACNxL._path ;
+    ontouml:sourceView :mE.I_pGGAqACNxId ;
+    ontouml:targetView :ED.I_pGGAqACNxIz .
+
+:1itI_pGGAqACNxL._path a ontouml:Path ;
+    ontouml:point :1itI_pGGAqACNxL._path_point_0,
+        :1itI_pGGAqACNxL._path_point_1,
+        :1itI_pGGAqACNxL._path_point_2 ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:1itI_pGGAqACNxL._path_point_0 a ontouml:Point ;
+    ontouml:xCoordinate 1282 ;
+    ontouml:yCoordinate 170 .
+
+:1itI_pGGAqACNxL._path_point_1 a ontouml:Point ;
+    ontouml:xCoordinate 1232 ;
+    ontouml:yCoordinate 170 .
+
+:1itI_pGGAqACNxL._path_point_2 a ontouml:Point ;
+    ontouml:xCoordinate 1171 ;
+    ontouml:yCoordinate 194 .
+
+:2EUI_pGGAqACNxFP_shape a ontouml:Rectangle ;
+    ontouml:height "40"^^xsd:positiveInteger ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:topLeftPosition :2EUI_pGGAqACNxFP_shape_point ;
+    ontouml:width "80"^^xsd:positiveInteger .
+
+:2EUI_pGGAqACNxFP_shape_point a ontouml:Point ;
+    ontouml:xCoordinate 602 ;
+    ontouml:yCoordinate 57 .
+
+:5_fI_pGGAqACNxNO a ontouml:GeneralizationSetView ;
+    ontouml:isViewOf :K_fI_pGGAqACNxNM ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :5_fI_pGGAqACNxNO_shape .
+
+:5_fI_pGGAqACNxNO_shape a ontouml:Text ;
+    ontouml:height "15"^^xsd:positiveInteger ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:text "" ;
+    ontouml:topLeftPosition :5_fI_pGGAqACNxNO_shape_point ;
+    ontouml:width "27"^^xsd:positiveInteger .
+
+:5_fI_pGGAqACNxNO_shape_point a ontouml:Point ;
+    ontouml:xCoordinate 1290 ;
+    ontouml:yCoordinate 257 .
+
+:6ltI_pGGAqACNxMI a ontouml:GeneralizationView ;
+    ontouml:isViewOf :qltI_pGGAqACNxMH ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :6ltI_pGGAqACNxMI_path ;
+    ontouml:sourceView :mE.I_pGGAqACNxId ;
+    ontouml:targetView :0R.I_pGGAqACNxIo .
+
+:6ltI_pGGAqACNxMI_path a ontouml:Path ;
+    ontouml:point :6ltI_pGGAqACNxMI_path_point_0,
+        :6ltI_pGGAqACNxMI_path_point_1 ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:6ltI_pGGAqACNxMI_path_point_0 a ontouml:Point ;
+    ontouml:xCoordinate 1282 ;
+    ontouml:yCoordinate 170 .
+
+:6ltI_pGGAqACNxMI_path_point_1 a ontouml:Point ;
+    ontouml:xCoordinate 1171 ;
+    ontouml:yCoordinate 170 .
+
+:78Tw_pGGAqACNxCH a ontouml:ClassView ;
+    ontouml:isViewOf :78Tw_pGGAqACNxCI ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :78Tw_pGGAqACNxCH_shape .
+
+:78Tw_pGGAqACNxCH_shape a ontouml:Rectangle ;
+    ontouml:height "40"^^xsd:positiveInteger ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:topLeftPosition :78Tw_pGGAqACNxCH_shape_point ;
+    ontouml:width "80"^^xsd:positiveInteger .
+
+:78Tw_pGGAqACNxCH_shape_point a ontouml:Point ;
+    ontouml:xCoordinate 220 ;
+    ontouml:yCoordinate 204 .
+
+:7FOI_pGGAqACNxID_shape a ontouml:Rectangle ;
+    ontouml:height "40"^^xsd:positiveInteger ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:topLeftPosition :7FOI_pGGAqACNxID_shape_point ;
+    ontouml:width "80"^^xsd:positiveInteger .
+
+:7FOI_pGGAqACNxID_shape_point a ontouml:Point ;
+    ontouml:xCoordinate 892 ;
+    ontouml:yCoordinate 354 .
+
+:9Ujw_pGGAqACNxBm a ontouml:ClassView ;
+    ontouml:isViewOf :9Ujw_pGGAqACNxBn ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :9Ujw_pGGAqACNxBm_shape .
+
+:9Ujw_pGGAqACNxBm_shape a ontouml:Rectangle ;
+    ontouml:height "40"^^xsd:positiveInteger ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:topLeftPosition :9Ujw_pGGAqACNxBm_shape_point ;
+    ontouml:width "80"^^xsd:positiveInteger .
+
+:9Ujw_pGGAqACNxBm_shape_point a ontouml:Point ;
+    ontouml:xCoordinate 79 ;
+    ontouml:yCoordinate 123 .
+
+:BI5I_pGGAqACNxKf_shape a ontouml:Rectangle ;
+    ontouml:height "40"^^xsd:positiveInteger ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:topLeftPosition :BI5I_pGGAqACNxKf_shape_point ;
+    ontouml:width "80"^^xsd:positiveInteger .
+
+:BI5I_pGGAqACNxKf_shape_point a ontouml:Point ;
+    ontouml:xCoordinate 1476 ;
+    ontouml:yCoordinate 123 .
+
+:C0aI_pGGAqACNxHH_shape a ontouml:Rectangle ;
+    ontouml:height "40"^^xsd:positiveInteger ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:topLeftPosition :C0aI_pGGAqACNxHH_shape_point ;
+    ontouml:width "80"^^xsd:positiveInteger .
+
+:C0aI_pGGAqACNxHH_shape_point a ontouml:Point ;
+    ontouml:xCoordinate 602 ;
+    ontouml:yCoordinate 247 .
+
+:DKBI_pGGAqACNxJJ_shape a ontouml:Rectangle ;
+    ontouml:height "40"^^xsd:positiveInteger ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:topLeftPosition :DKBI_pGGAqACNxJJ_shape_point ;
+    ontouml:width "80"^^xsd:positiveInteger .
+
+:DKBI_pGGAqACNxJJ_shape_point a ontouml:Point ;
+    ontouml:xCoordinate 1225 ;
+    ontouml:yCoordinate 326 .
+
+:ED.I_pGGAqACNxIz_shape a ontouml:Rectangle ;
+    ontouml:height "40"^^xsd:positiveInteger ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:topLeftPosition :ED.I_pGGAqACNxIz_shape_point ;
+    ontouml:width "80"^^xsd:positiveInteger .
+
+:ED.I_pGGAqACNxIz_shape_point a ontouml:Point ;
+    ontouml:xCoordinate 1090 ;
+    ontouml:yCoordinate 194 .
+
+:EbNI_pGGAqACNxL0 a ontouml:GeneralizationView ;
+    ontouml:isViewOf :wbNI_pGGAqACNxLz ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :EbNI_pGGAqACNxL0_path ;
+    ontouml:sourceView :mE.I_pGGAqACNxId ;
+    ontouml:targetView :DKBI_pGGAqACNxJJ .
+
+:EbNI_pGGAqACNxL0_path a ontouml:Path ;
+    ontouml:point :EbNI_pGGAqACNxL0_path_point_0,
+        :EbNI_pGGAqACNxL0_path_point_1 ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:EbNI_pGGAqACNxL0_path_point_0 a ontouml:Point ;
+    ontouml:xCoordinate 1303 ;
+    ontouml:yCoordinate 203 .
+
+:EbNI_pGGAqACNxL0_path_point_1 a ontouml:Point ;
+    ontouml:xCoordinate 1303 ;
+    ontouml:yCoordinate 325 .
+
+:FBNI_pGGAqACNxLq a ontouml:GeneralizationView ;
+    ontouml:isViewOf :xBNI_pGGAqACNxLp ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :FBNI_pGGAqACNxLq_path ;
+    ontouml:sourceView :mE.I_pGGAqACNxId ;
+    ontouml:targetView :ipBI_pGGAqACNxJU .
+
+:FBNI_pGGAqACNxLq_path a ontouml:Path ;
+    ontouml:point :FBNI_pGGAqACNxLq_path_point_0,
+        :FBNI_pGGAqACNxLq_path_point_1,
+        :FBNI_pGGAqACNxLq_path_point_2 ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:FBNI_pGGAqACNxLq_path_point_0 a ontouml:Point ;
+    ontouml:xCoordinate 1303 ;
+    ontouml:yCoordinate 203 .
+
+:FBNI_pGGAqACNxLq_path_point_1 a ontouml:Point ;
+    ontouml:xCoordinate 1303 ;
+    ontouml:yCoordinate 253 .
+
+:FBNI_pGGAqACNxLq_path_point_2 a ontouml:Point ;
+    ontouml:xCoordinate 1331 ;
+    ontouml:yCoordinate 325 .
+
+:FHbw_pGGAqACNxDC a ontouml:ClassView ;
+    ontouml:isViewOf :lHbw_pGGAqACNxDD ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :FHbw_pGGAqACNxDC_shape .
+
+:FHbw_pGGAqACNxDC_shape a ontouml:Rectangle ;
+    ontouml:height "40"^^xsd:positiveInteger ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:topLeftPosition :FHbw_pGGAqACNxDC_shape_point ;
+    ontouml:width "80"^^xsd:positiveInteger .
+
+:FHbw_pGGAqACNxDC_shape_point a ontouml:Point ;
+    ontouml:xCoordinate 78 ;
+    ontouml:yCoordinate 394 .
+
+:JRcI_pGGAqACNxGJ a ontouml:RelationView ;
+    ontouml:isViewOf <https://example.org#.RcI_pGGAqACNxGE> ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :JRcI_pGGAqACNxGJ_path ;
+    ontouml:sourceView :2EUI_pGGAqACNxFP ;
+    ontouml:targetView :V2UI_pGGAqACNxFa .
+
+:JRcI_pGGAqACNxGJ_path a ontouml:Path ;
+    ontouml:point :JRcI_pGGAqACNxGJ_path_point_0,
+        :JRcI_pGGAqACNxGJ_path_point_1 ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:JRcI_pGGAqACNxGJ_path_point_0 a ontouml:Point ;
+    ontouml:xCoordinate 683 ;
+    ontouml:yCoordinate 74 .
+
+:JRcI_pGGAqACNxGJ_path_point_1 a ontouml:Point ;
+    ontouml:xCoordinate 873 ;
+    ontouml:yCoordinate 74 .
+
+:JnAI_pGGAqACNxEY a ontouml:Property ;
+    ontouml:aggregationKind ontouml:none ;
+    ontouml:isDerived true ;
+    ontouml:isOrdered false ;
+    ontouml:isReadOnly false ;
+    ontouml:name "attribute3"@en ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:JsgI_pGGAqACNxEk a ontouml:Property ;
+    ontouml:aggregationKind ontouml:none ;
+    ontouml:isDerived false ;
+    ontouml:isOrdered false ;
+    ontouml:isReadOnly false ;
+    ontouml:name "attribute7"@en ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:L2aI_pGGAqACNxHS_shape a ontouml:Rectangle ;
+    ontouml:height "40"^^xsd:positiveInteger ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:topLeftPosition :L2aI_pGGAqACNxHS_shape_point ;
+    ontouml:width "80"^^xsd:positiveInteger .
+
+:L2aI_pGGAqACNxHS_shape_point a ontouml:Point ;
+    ontouml:xCoordinate 874 ;
+    ontouml:yCoordinate 247 .
+
+:PwgI_pGGAqACNxEb a ontouml:Property ;
+    ontouml:aggregationKind ontouml:none ;
+    ontouml:isDerived true ;
+    ontouml:isOrdered false ;
+    ontouml:isReadOnly true ;
+    ontouml:name "attribute4"@en ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:Us7w_pGGAqACNxDN a ontouml:ClassView ;
+    ontouml:isViewOf :0s7w_pGGAqACNxDO ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :Us7w_pGGAqACNxDN_shape .
+
+:Us7w_pGGAqACNxDN_shape a ontouml:Rectangle ;
+    ontouml:height "40"^^xsd:positiveInteger ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:topLeftPosition :Us7w_pGGAqACNxDN_shape_point ;
+    ontouml:width "80"^^xsd:positiveInteger .
+
+:Us7w_pGGAqACNxDN_shape_point a ontouml:Point ;
+    ontouml:xCoordinate 230 ;
+    ontouml:yCoordinate 394 .
+
+:V2UI_pGGAqACNxFa_shape a ontouml:Rectangle ;
+    ontouml:height "40"^^xsd:positiveInteger ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:topLeftPosition :V2UI_pGGAqACNxFa_shape_point ;
+    ontouml:width "80"^^xsd:positiveInteger .
+
+:V2UI_pGGAqACNxFa_shape_point a ontouml:Point ;
+    ontouml:xCoordinate 874 ;
+    ontouml:yCoordinate 57 .
+
+:VQRI_pGGAqACNxJt_shape a ontouml:Rectangle ;
+    ontouml:height "40"^^xsd:positiveInteger ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:topLeftPosition :VQRI_pGGAqACNxJt_shape_point ;
+    ontouml:width "80"^^xsd:positiveInteger .
+
+:VQRI_pGGAqACNxJt_shape_point a ontouml:Point ;
+    ontouml:xCoordinate 1331 ;
+    ontouml:yCoordinate 4 .
+
+:Xwxw_pGGAqACNw_x a ontouml:ClassView ;
+    ontouml:isViewOf :Xwxw_pGGAqACNw_y ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :Xwxw_pGGAqACNw_x_shape .
+
+:Xwxw_pGGAqACNw_x_shape a ontouml:Rectangle ;
+    ontouml:height "40"^^xsd:positiveInteger ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:topLeftPosition :Xwxw_pGGAqACNw_x_shape_point ;
+    ontouml:width "80"^^xsd:positiveInteger .
+
+:Xwxw_pGGAqACNw_x_shape_point a ontouml:Point ;
+    ontouml:xCoordinate 79 ;
+    ontouml:yCoordinate 44 .
+
+:a33I_pGGAqACNxNC a ontouml:GeneralizationSetView ;
+    ontouml:isViewOf :3X3I_pGGAqACNxNA ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :a33I_pGGAqACNxNC_shape .
+
+:a33I_pGGAqACNxNC_shape a ontouml:Text ;
+    ontouml:height "15"^^xsd:positiveInteger ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:text "" ;
+    ontouml:topLeftPosition :a33I_pGGAqACNxNC_shape_point ;
+    ontouml:width "33"^^xsd:positiveInteger .
+
+:a33I_pGGAqACNxNC_shape_point a ontouml:Point ;
+    ontouml:xCoordinate 1403 ;
+    ontouml:yCoordinate 156 .
+
+:e4uI_pGGAqACNxIS a ontouml:RelationView ;
+    ontouml:isViewOf :G4uI_pGGAqACNxIN ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :e4uI_pGGAqACNxIS_path ;
+    ontouml:sourceView :n6OI_pGGAqACNxH4 ;
+    ontouml:targetView :7FOI_pGGAqACNxID .
+
+:e4uI_pGGAqACNxIS_path a ontouml:Path ;
+    ontouml:point :e4uI_pGGAqACNxIS_path_point_0,
+        :e4uI_pGGAqACNxIS_path_point_1 ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:e4uI_pGGAqACNxIS_path_point_0 a ontouml:Point ;
+    ontouml:xCoordinate 695 ;
+    ontouml:yCoordinate 377 .
+
+:e4uI_pGGAqACNxIS_path_point_1 a ontouml:Point ;
+    ontouml:xCoordinate 891 ;
+    ontouml:yCoordinate 377 .
+
+:eW1I_pGGAqACNxLM a ontouml:GeneralizationView ;
+    ontouml:isViewOf :2W1I_pGGAqACNxLL ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :eW1I_pGGAqACNxLM_path ;
+    ontouml:sourceView :mE.I_pGGAqACNxId ;
+    ontouml:targetView :VQRI_pGGAqACNxJt .
+
+:eW1I_pGGAqACNxLM_path a ontouml:Path ;
+    ontouml:point :eW1I_pGGAqACNxLM_path_point_0,
+        :eW1I_pGGAqACNxLM_path_point_1,
+        :eW1I_pGGAqACNxLM_path_point_2 ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:eW1I_pGGAqACNxLM_path_point_0 a ontouml:Point ;
+    ontouml:xCoordinate 1305 ;
+    ontouml:yCoordinate 161 .
+
+:eW1I_pGGAqACNxLM_path_point_1 a ontouml:Point ;
+    ontouml:xCoordinate 1305 ;
+    ontouml:yCoordinate 111 .
+
+:eW1I_pGGAqACNxLM_path_point_2 a ontouml:Point ;
+    ontouml:xCoordinate 1331 ;
+    ontouml:yCoordinate 45 .
+
+:f_VI_pGGAqACNxLC a ontouml:GeneralizationView ;
+    ontouml:isViewOf :3_VI_pGGAqACNxLB ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :f_VI_pGGAqACNxLC_path ;
+    ontouml:sourceView :mE.I_pGGAqACNxId ;
+    ontouml:targetView <https://example.org#mIBI_pGGAqACNxI.> .
+
+:f_VI_pGGAqACNxLC_path a ontouml:Path ;
+    ontouml:point :f_VI_pGGAqACNxLC_path_point_0,
+        :f_VI_pGGAqACNxLC_path_point_1 ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:f_VI_pGGAqACNxLC_path_point_0 a ontouml:Point ;
+    ontouml:xCoordinate 1305 ;
+    ontouml:yCoordinate 161 .
+
+:f_VI_pGGAqACNxLC_path_point_1 a ontouml:Point ;
+    ontouml:xCoordinate 1305 ;
+    ontouml:yCoordinate 45 .
+
+:gWhw_pGGAqACNw_c a ontouml:Diagram ;
+    ontouml:containsView :0R.I_pGGAqACNxIo,
+        <https://example.org#1itI_pGGAqACNxL.>,
+        :2EUI_pGGAqACNxFP,
+        :5_fI_pGGAqACNxNO,
+        :6ltI_pGGAqACNxMI,
+        :78Tw_pGGAqACNxCH,
+        :7FOI_pGGAqACNxID,
+        :9Ujw_pGGAqACNxBm,
+        :BI5I_pGGAqACNxKf,
+        :C0aI_pGGAqACNxHH,
+        :DKBI_pGGAqACNxJJ,
+        :ED.I_pGGAqACNxIz,
+        :EbNI_pGGAqACNxL0,
+        :FBNI_pGGAqACNxLq,
+        :FHbw_pGGAqACNxDC,
+        :JRcI_pGGAqACNxGJ,
+        :L2aI_pGGAqACNxHS,
+        :Us7w_pGGAqACNxDN,
+        :V2UI_pGGAqACNxFa,
+        :VQRI_pGGAqACNxJt,
+        :Xwxw_pGGAqACNw_x,
+        :a33I_pGGAqACNxNC,
+        :e4uI_pGGAqACNxIS,
+        :eW1I_pGGAqACNxLM,
+        :f_VI_pGGAqACNxLC,
+        :iAyI_pGGAqACNxG7,
+        :ipBI_pGGAqACNxJU,
+        :jsiI_pGGAqACNxGX,
+        :l87I_pGGAqACNxMq,
+        :lR5I_pGGAqACNxKo,
+        :lR6I_pGGAqACNxHr,
+        :mE.I_pGGAqACNxId,
+        <https://example.org#mIBI_pGGAqACNxI.>,
+        :n6OI_pGGAqACNxH4,
+        :nFbw_pGGAqACNxC3,
+        :rnpw_pGGAqACNxAT,
+        :w9jw_pGGAqACNxB8,
+        :wabw_pGGAqACNxCs,
+        :wujw_pGGAqACNxBx,
+        :wz1I_pGGAqACNxLW,
+        :y9nI_pGGAqACNxM5,
+        :yENI_pGGAqACNxLg,
+        :yeiI_pGGAqACNxGi,
+        :z3Pw_pGGAqACNxEB ;
+    ontouml:name "q"@en ;
+    ontouml:owner :DGuw_pGGAqACNwwB_root ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:hsAI_pGGAqACNxES a ontouml:Property ;
+    ontouml:aggregationKind ontouml:none ;
+    ontouml:isDerived false ;
+    ontouml:isOrdered false ;
+    ontouml:isReadOnly true ;
+    ontouml:name "attribute"@en ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:iAyI_pGGAqACNxG7 a ontouml:RelationView ;
+    ontouml:isViewOf :0AyI_pGGAqACNxG2 ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :iAyI_pGGAqACNxG7_path ;
+    ontouml:sourceView :jsiI_pGGAqACNxGX ;
+    ontouml:targetView :yeiI_pGGAqACNxGi .
+
+:iAyI_pGGAqACNxG7_path a ontouml:Path ;
+    ontouml:point :iAyI_pGGAqACNxG7_path_point_0,
+        :iAyI_pGGAqACNxG7_path_point_1 ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:iAyI_pGGAqACNxG7_path_point_0 a ontouml:Point ;
+    ontouml:xCoordinate 683 ;
+    ontouml:yCoordinate 174 .
+
+:iAyI_pGGAqACNxG7_path_point_1 a ontouml:Point ;
+    ontouml:xCoordinate 873 ;
+    ontouml:yCoordinate 174 .
+
+:iFAI_pGGAqACNxEV a ontouml:Property ;
+    ontouml:aggregationKind ontouml:none ;
+    ontouml:isDerived false ;
+    ontouml:isOrdered true ;
+    ontouml:isReadOnly false ;
+    ontouml:name "attribute2"@en ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:ipBI_pGGAqACNxJU_shape a ontouml:Rectangle ;
+    ontouml:height "40"^^xsd:positiveInteger ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:topLeftPosition :ipBI_pGGAqACNxJU_shape_point ;
+    ontouml:width "80"^^xsd:positiveInteger .
+
+:ipBI_pGGAqACNxJU_shape_point a ontouml:Point ;
+    ontouml:xCoordinate 1331 ;
+    ontouml:yCoordinate 326 .
+
+:jsiI_pGGAqACNxGX_shape a ontouml:Rectangle ;
+    ontouml:height "40"^^xsd:positiveInteger ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:topLeftPosition :jsiI_pGGAqACNxGX_shape_point ;
+    ontouml:width "80"^^xsd:positiveInteger .
+
+:jsiI_pGGAqACNxGX_shape_point a ontouml:Point ;
+    ontouml:xCoordinate 602 ;
+    ontouml:yCoordinate 152 .
+
+:l87I_pGGAqACNxMq a ontouml:GeneralizationSetView ;
+    ontouml:isViewOf :s87I_pGGAqACNxMo ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :l87I_pGGAqACNxMq_shape .
+
+:l87I_pGGAqACNxMq_shape a ontouml:Text ;
+    ontouml:height "15"^^xsd:positiveInteger ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:text "" ;
+    ontouml:topLeftPosition :l87I_pGGAqACNxMq_shape_point ;
+    ontouml:width "33"^^xsd:positiveInteger .
+
+:l87I_pGGAqACNxMq_shape_point a ontouml:Point ;
+    ontouml:xCoordinate 1211 ;
+    ontouml:yCoordinate 163 .
+
+:lR5I_pGGAqACNxKo_shape a ontouml:Rectangle ;
+    ontouml:height "40"^^xsd:positiveInteger ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:topLeftPosition :lR5I_pGGAqACNxKo_shape_point ;
+    ontouml:width "80"^^xsd:positiveInteger .
+
+:lR5I_pGGAqACNxKo_shape_point a ontouml:Point ;
+    ontouml:xCoordinate 1476 ;
+    ontouml:yCoordinate 194 .
+
+:lR6I_pGGAqACNxHr a ontouml:RelationView ;
+    ontouml:isViewOf :xR6I_pGGAqACNxHm ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :lR6I_pGGAqACNxHr_path ;
+    ontouml:sourceView :C0aI_pGGAqACNxHH ;
+    ontouml:targetView :L2aI_pGGAqACNxHS .
+
+:lR6I_pGGAqACNxHr_path a ontouml:Path ;
+    ontouml:point :lR6I_pGGAqACNxHr_path_point_0,
+        :lR6I_pGGAqACNxHr_path_point_1 ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:lR6I_pGGAqACNxHr_path_point_0 a ontouml:Point ;
+    ontouml:xCoordinate 683 ;
+    ontouml:yCoordinate 269 .
+
+:lR6I_pGGAqACNxHr_path_point_1 a ontouml:Point ;
+    ontouml:xCoordinate 873 ;
+    ontouml:yCoordinate 269 .
+
+:mE.I_pGGAqACNxId_shape a ontouml:Rectangle ;
+    ontouml:height "40"^^xsd:positiveInteger ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:topLeftPosition :mE.I_pGGAqACNxId_shape_point ;
+    ontouml:width "80"^^xsd:positiveInteger .
+
+:mE.I_pGGAqACNxId_shape_point a ontouml:Point ;
+    ontouml:xCoordinate 1283 ;
+    ontouml:yCoordinate 162 .
+
+:mIBI_pGGAqACNxI._shape a ontouml:Rectangle ;
+    ontouml:height "40"^^xsd:positiveInteger ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:topLeftPosition :mIBI_pGGAqACNxI._shape_point ;
+    ontouml:width "80"^^xsd:positiveInteger .
+
+:mIBI_pGGAqACNxI._shape_point a ontouml:Point ;
+    ontouml:xCoordinate 1225 ;
+    ontouml:yCoordinate 4 .
+
+:n6OI_pGGAqACNxH4_shape a ontouml:Rectangle ;
+    ontouml:height "40"^^xsd:positiveInteger ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:topLeftPosition :n6OI_pGGAqACNxH4_shape_point ;
+    ontouml:width "80"^^xsd:positiveInteger .
+
+:n6OI_pGGAqACNxH4_shape_point a ontouml:Point ;
+    ontouml:xCoordinate 614 ;
+    ontouml:yCoordinate 359 .
+
+:nFbw_pGGAqACNxC3 a ontouml:ClassView ;
+    ontouml:isViewOf :nFbw_pGGAqACNxC4 ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :nFbw_pGGAqACNxC3_shape .
+
+:nFbw_pGGAqACNxC3_shape a ontouml:Rectangle ;
+    ontouml:height "40"^^xsd:positiveInteger ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:topLeftPosition :nFbw_pGGAqACNxC3_shape_point ;
+    ontouml:width "80"^^xsd:positiveInteger .
+
+:nFbw_pGGAqACNxC3_shape_point a ontouml:Point ;
+    ontouml:xCoordinate 230 ;
+    ontouml:yCoordinate 299 .
+
+:rnpw_pGGAqACNxAT a ontouml:ClassView ;
+    ontouml:isViewOf :rnpw_pGGAqACNxAU ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :rnpw_pGGAqACNxAT_shape .
+
+:rnpw_pGGAqACNxAT_shape a ontouml:Rectangle ;
+    ontouml:height "40"^^xsd:positiveInteger ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:topLeftPosition :rnpw_pGGAqACNxAT_shape_point ;
+    ontouml:width "80"^^xsd:positiveInteger .
+
+:rnpw_pGGAqACNxAT_shape_point a ontouml:Point ;
+    ontouml:xCoordinate 220 ;
+    ontouml:yCoordinate 44 .
+
+:w9jw_pGGAqACNxB8 a ontouml:ClassView ;
+    ontouml:isViewOf :w9jw_pGGAqACNxB9 ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :w9jw_pGGAqACNxB8_shape .
+
+:w9jw_pGGAqACNxB8_shape a ontouml:Rectangle ;
+    ontouml:height "40"^^xsd:positiveInteger ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:topLeftPosition :w9jw_pGGAqACNxB8_shape_point ;
+    ontouml:width "80"^^xsd:positiveInteger .
+
+:w9jw_pGGAqACNxB8_shape_point a ontouml:Point ;
+    ontouml:xCoordinate 220 ;
+    ontouml:yCoordinate 123 .
+
+:wabw_pGGAqACNxCs a ontouml:ClassView ;
+    ontouml:isViewOf :wabw_pGGAqACNxCt ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :wabw_pGGAqACNxCs_shape .
+
+:wabw_pGGAqACNxCs_shape a ontouml:Rectangle ;
+    ontouml:height "40"^^xsd:positiveInteger ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:topLeftPosition :wabw_pGGAqACNxCs_shape_point ;
+    ontouml:width "80"^^xsd:positiveInteger .
+
+:wabw_pGGAqACNxCs_shape_point a ontouml:Point ;
+    ontouml:xCoordinate 78 ;
+    ontouml:yCoordinate 299 .
+
+:wujw_pGGAqACNxBx a ontouml:ClassView ;
+    ontouml:isViewOf :wujw_pGGAqACNxBy ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :wujw_pGGAqACNxBx_shape .
+
+:wujw_pGGAqACNxBx_shape a ontouml:Rectangle ;
+    ontouml:height "40"^^xsd:positiveInteger ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:topLeftPosition :wujw_pGGAqACNxBx_shape_point ;
+    ontouml:width "80"^^xsd:positiveInteger .
+
+:wujw_pGGAqACNxBx_shape_point a ontouml:Point ;
+    ontouml:xCoordinate 79 ;
+    ontouml:yCoordinate 204 .
+
+:wz1I_pGGAqACNxLW a ontouml:GeneralizationView ;
+    ontouml:isViewOf :Az1I_pGGAqACNxLV ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :wz1I_pGGAqACNxLW_path ;
+    ontouml:sourceView :mE.I_pGGAqACNxId ;
+    ontouml:targetView :BI5I_pGGAqACNxKf .
+
+:wz1I_pGGAqACNxLW_path a ontouml:Path ;
+    ontouml:point :wz1I_pGGAqACNxLW_path_point_0,
+        :wz1I_pGGAqACNxLW_path_point_1 ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:wz1I_pGGAqACNxLW_path_point_0 a ontouml:Point ;
+    ontouml:xCoordinate 1364 ;
+    ontouml:yCoordinate 163 .
+
+:wz1I_pGGAqACNxLW_path_point_1 a ontouml:Point ;
+    ontouml:xCoordinate 1475 ;
+    ontouml:yCoordinate 163 .
+
+:y9nI_pGGAqACNxM5 a ontouml:GeneralizationSetView ;
+    ontouml:isViewOf :7dnI_pGGAqACNxM3 ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :y9nI_pGGAqACNxM5_shape .
+
+:y9nI_pGGAqACNxM5_shape a ontouml:Text ;
+    ontouml:height "15"^^xsd:positiveInteger ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:text "" ;
+    ontouml:topLeftPosition :y9nI_pGGAqACNxM5_shape_point ;
+    ontouml:width "33"^^xsd:positiveInteger .
+
+:y9nI_pGGAqACNxM5_shape_point a ontouml:Point ;
+    ontouml:xCoordinate 1289 ;
+    ontouml:yCoordinate 96 .
+
+:yENI_pGGAqACNxLg a ontouml:GeneralizationView ;
+    ontouml:isViewOf :8ENI_pGGAqACNxLf ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :yENI_pGGAqACNxLg_path ;
+    ontouml:sourceView :mE.I_pGGAqACNxId ;
+    ontouml:targetView :lR5I_pGGAqACNxKo .
+
+:yENI_pGGAqACNxLg_path a ontouml:Path ;
+    ontouml:point :yENI_pGGAqACNxLg_path_point_0,
+        :yENI_pGGAqACNxLg_path_point_1,
+        :yENI_pGGAqACNxLg_path_point_2 ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:yENI_pGGAqACNxLg_path_point_0 a ontouml:Point ;
+    ontouml:xCoordinate 1364 ;
+    ontouml:yCoordinate 163 .
+
+:yENI_pGGAqACNxLg_path_point_1 a ontouml:Point ;
+    ontouml:xCoordinate 1414 ;
+    ontouml:yCoordinate 163 .
+
+:yENI_pGGAqACNxLg_path_point_2 a ontouml:Point ;
+    ontouml:xCoordinate 1475 ;
+    ontouml:yCoordinate 194 .
+
+:yeiI_pGGAqACNxGi_shape a ontouml:Rectangle ;
+    ontouml:height "40"^^xsd:positiveInteger ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:topLeftPosition :yeiI_pGGAqACNxGi_shape_point ;
+    ontouml:width "80"^^xsd:positiveInteger .
+
+:yeiI_pGGAqACNxGi_shape_point a ontouml:Point ;
+    ontouml:xCoordinate 874 ;
+    ontouml:yCoordinate 152 .
+
+:z3Pw_pGGAqACNxEB a ontouml:ClassView ;
+    ontouml:isViewOf :L3Pw_pGGAqACNxEC ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :z3Pw_pGGAqACNxEB_shape .
+
+:z3Pw_pGGAqACNxEB_shape a ontouml:Rectangle ;
+    ontouml:height "128"^^xsd:positiveInteger ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:topLeftPosition :z3Pw_pGGAqACNxEB_shape_point ;
+    ontouml:width "80"^^xsd:positiveInteger .
+
+:z3Pw_pGGAqACNxEB_shape_point a ontouml:Point ;
+    ontouml:xCoordinate 385 ;
+    ontouml:yCoordinate 44 .
+
+<https://example.org#.RcI_pGGAqACNxGE> a ontouml:Relation ;
+    ontouml:isAbstract true ;
+    ontouml:isDerived false ;
+    ontouml:name "xyz"@en ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:relationEnd <https://example.org#.RcI_pGGAqACNxGF>,
+        <https://example.org#.RcI_pGGAqACNxGH> ;
+    ontouml:sourceEnd <https://example.org#.RcI_pGGAqACNxGF> ;
+    ontouml:targetEnd <https://example.org#.RcI_pGGAqACNxGH> .
+
+<https://example.org#.RcI_pGGAqACNxGF> a ontouml:Property ;
+    ontouml:aggregationKind ontouml:none ;
+    ontouml:isDerived false ;
+    ontouml:isOrdered false ;
+    ontouml:isReadOnly false ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:propertyType :2EUI_pGGAqACNxFQ .
+
+<https://example.org#.RcI_pGGAqACNxGH> a ontouml:Property ;
+    ontouml:aggregationKind ontouml:none ;
+    ontouml:isDerived false ;
+    ontouml:isOrdered false ;
+    ontouml:isReadOnly false ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:propertyType :12UI_pGGAqACNxFb .
+
+:0AyI_pGGAqACNxG2 a ontouml:Relation ;
+    ontouml:isAbstract false ;
+    ontouml:isDerived true ;
+    ontouml:name "xyz2"@en ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:relationEnd :0AyI_pGGAqACNxG3,
+        :0AyI_pGGAqACNxG5 ;
+    ontouml:sourceEnd :0AyI_pGGAqACNxG3 ;
+    ontouml:targetEnd :0AyI_pGGAqACNxG5 .
+
+:0AyI_pGGAqACNxG3 a ontouml:Property ;
+    ontouml:aggregationKind ontouml:none ;
+    ontouml:isDerived false ;
+    ontouml:isOrdered false ;
+    ontouml:isReadOnly false ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:propertyType :jsiI_pGGAqACNxGY .
+
+:0AyI_pGGAqACNxG5 a ontouml:Property ;
+    ontouml:aggregationKind ontouml:none ;
+    ontouml:isDerived false ;
+    ontouml:isOrdered false ;
+    ontouml:isReadOnly false ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:propertyType :yeiI_pGGAqACNxGj .
+
+:0R.I_pGGAqACNxIo a ontouml:ClassView ;
+    ontouml:isViewOf :0R.I_pGGAqACNxIp ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :0R.I_pGGAqACNxIo_shape .
+
+:0s7w_pGGAqACNxDO a ontouml:Class ;
+    ontouml:isAbstract true ;
+    ontouml:isDerived false ;
+    ontouml:isPowertype false ;
+    ontouml:name "Class7"@en ;
+    ontouml:order "1"^^xsd:nonNegativeInteger ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:restrictedTo ontouml:functionalComplexNature ;
+    ontouml:stereotype ontouml:kind .
+
+:2EUI_pGGAqACNxFP a ontouml:ClassView ;
+    ontouml:isViewOf :2EUI_pGGAqACNxFQ ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :2EUI_pGGAqACNxFP_shape .
+
+:3X3I_pGGAqACNxNA a ontouml:GeneralizationSet ;
+    ontouml:generalization :8ENI_pGGAqACNxLf,
+        :Az1I_pGGAqACNxLV ;
+    ontouml:isComplete false ;
+    ontouml:isDisjoint true ;
+    ontouml:name "Set3"@en ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:78Tw_pGGAqACNxCI a ontouml:Class ;
+    ontouml:isAbstract false ;
+    ontouml:isDerived true ;
+    ontouml:isPowertype false ;
+    ontouml:name "Class4"@en ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:7FOI_pGGAqACNxID a ontouml:ClassView ;
+    ontouml:isViewOf :7FOI_pGGAqACNxIE ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :7FOI_pGGAqACNxID_shape .
+
+:7dnI_pGGAqACNxM3 a ontouml:GeneralizationSet ;
+    ontouml:generalization :2W1I_pGGAqACNxLL,
+        :3_VI_pGGAqACNxLB ;
+    ontouml:isComplete true ;
+    ontouml:isDisjoint false ;
+    ontouml:name "Set2"@en ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:9Ujw_pGGAqACNxBn a ontouml:Class ;
+    ontouml:isAbstract true ;
+    ontouml:isDerived false ;
+    ontouml:isPowertype false ;
+    ontouml:name "Class"@en ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:BI5I_pGGAqACNxKf a ontouml:ClassView ;
+    ontouml:isViewOf :BI5I_pGGAqACNxKg ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :BI5I_pGGAqACNxKf_shape .
+
+:C0aI_pGGAqACNxHH a ontouml:ClassView ;
+    ontouml:isViewOf :C0aI_pGGAqACNxHI ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :C0aI_pGGAqACNxHH_shape .
+
+:DGuw_pGGAqACNwwB_root a ontouml:Package ;
+    ontouml:containsModelElement <https://example.org#.RcI_pGGAqACNxGE>,
+        :0AyI_pGGAqACNxG2,
+        :0R.I_pGGAqACNxIp,
+        :0s7w_pGGAqACNxDO,
+        :12UI_pGGAqACNxFb,
+        :2EUI_pGGAqACNxFQ,
+        :2W1I_pGGAqACNxLL,
+        :3X3I_pGGAqACNxNA,
+        :3_VI_pGGAqACNxLB,
+        :5itI_pGGAqACNxL9,
+        :78Tw_pGGAqACNxCI,
+        :7FOI_pGGAqACNxIE,
+        :7dnI_pGGAqACNxM3,
+        :8ENI_pGGAqACNxLf,
+        :9Ujw_pGGAqACNxBn,
+        :Az1I_pGGAqACNxLV,
+        :BI5I_pGGAqACNxKg,
+        :C0aI_pGGAqACNxHI,
+        :DKBI_pGGAqACNxJK,
+        :ED.I_pGGAqACNxI0,
+        :G4uI_pGGAqACNxIN,
+        :K_fI_pGGAqACNxNM,
+        :L3Pw_pGGAqACNxEC,
+        :VQRI_pGGAqACNxJu,
+        :Xwxw_pGGAqACNw_y,
+        :ipBI_pGGAqACNxJV,
+        :jsiI_pGGAqACNxGY,
+        :lHbw_pGGAqACNxDD,
+        :lR5I_pGGAqACNxKp,
+        :mE.I_pGGAqACNxIe,
+        :mIBI_pGGAqACNxI_,
+        :n6OI_pGGAqACNxH5,
+        :nFbw_pGGAqACNxC4,
+        :qltI_pGGAqACNxMH,
+        :r2aI_pGGAqACNxHT,
+        :rnpw_pGGAqACNxAU,
+        :s87I_pGGAqACNxMo,
+        :w9jw_pGGAqACNxB9,
+        :wabw_pGGAqACNxCt,
+        :wbNI_pGGAqACNxLz,
+        :wujw_pGGAqACNxBy,
+        :xBNI_pGGAqACNxLp,
+        :xR6I_pGGAqACNxHm,
+        :yeiI_pGGAqACNxGj ;
+    ontouml:name "test_050"@en ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:DKBI_pGGAqACNxJJ a ontouml:ClassView ;
+    ontouml:isViewOf :DKBI_pGGAqACNxJK ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :DKBI_pGGAqACNxJJ_shape .
+
+:ED.I_pGGAqACNxIz a ontouml:ClassView ;
+    ontouml:isViewOf :ED.I_pGGAqACNxI0 ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :ED.I_pGGAqACNxIz_shape .
+
+:G4uI_pGGAqACNxIN a ontouml:Relation ;
+    ontouml:isAbstract false ;
+    ontouml:isDerived false ;
+    ontouml:name "xyz4"@en ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:relationEnd :G4uI_pGGAqACNxIO,
+        :G4uI_pGGAqACNxIQ ;
+    ontouml:sourceEnd :G4uI_pGGAqACNxIO ;
+    ontouml:targetEnd :G4uI_pGGAqACNxIQ .
+
+:G4uI_pGGAqACNxIO a ontouml:Property ;
+    ontouml:aggregationKind ontouml:none ;
+    ontouml:isDerived false ;
+    ontouml:isOrdered false ;
+    ontouml:isReadOnly false ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:propertyType :n6OI_pGGAqACNxH5 .
+
+:G4uI_pGGAqACNxIQ a ontouml:Property ;
+    ontouml:aggregationKind ontouml:none ;
+    ontouml:isDerived false ;
+    ontouml:isOrdered false ;
+    ontouml:isReadOnly false ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:propertyType :7FOI_pGGAqACNxIE .
+
+:K_fI_pGGAqACNxNM a ontouml:GeneralizationSet ;
+    ontouml:generalization :wbNI_pGGAqACNxLz,
+        :xBNI_pGGAqACNxLp ;
+    ontouml:isComplete true ;
+    ontouml:isDisjoint true ;
+    ontouml:name "Set"@en ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:L2aI_pGGAqACNxHS a ontouml:ClassView ;
+    ontouml:isViewOf :r2aI_pGGAqACNxHT ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :L2aI_pGGAqACNxHS_shape .
+
+:L3Pw_pGGAqACNxEC a ontouml:Class ;
+    ontouml:attribute :00gI_pGGAqACNxEh,
+        :1EgI_pGGAqACNxEe,
+        :JnAI_pGGAqACNxEY,
+        :JsgI_pGGAqACNxEk,
+        :PwgI_pGGAqACNxEb,
+        :hsAI_pGGAqACNxES,
+        :iFAI_pGGAqACNxEV ;
+    ontouml:isAbstract false ;
+    ontouml:isDerived false ;
+    ontouml:isPowertype false ;
+    ontouml:name "Class5"@en ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:V2UI_pGGAqACNxFa a ontouml:ClassView ;
+    ontouml:isViewOf :12UI_pGGAqACNxFb ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :V2UI_pGGAqACNxFa_shape .
+
+:VQRI_pGGAqACNxJt a ontouml:ClassView ;
+    ontouml:isViewOf :VQRI_pGGAqACNxJu ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :VQRI_pGGAqACNxJt_shape .
+
+:Xwxw_pGGAqACNw_y a ontouml:Class ;
+    ontouml:isAbstract true ;
+    ontouml:isDerived true ;
+    ontouml:isPowertype false ;
+    ontouml:name "Class"@en ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:ipBI_pGGAqACNxJU a ontouml:ClassView ;
+    ontouml:isViewOf :ipBI_pGGAqACNxJV ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :ipBI_pGGAqACNxJU_shape .
+
+:jsiI_pGGAqACNxGX a ontouml:ClassView ;
+    ontouml:isViewOf :jsiI_pGGAqACNxGY ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :jsiI_pGGAqACNxGX_shape .
+
+:lHbw_pGGAqACNxDD a ontouml:Class ;
+    ontouml:isAbstract false ;
+    ontouml:isDerived false ;
+    ontouml:isPowertype false ;
+    ontouml:name "Class6"@en ;
+    ontouml:order "1"^^xsd:nonNegativeInteger ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:restrictedTo ontouml:functionalComplexNature ;
+    ontouml:stereotype ontouml:category .
+
+:lR5I_pGGAqACNxKo a ontouml:ClassView ;
+    ontouml:isViewOf :lR5I_pGGAqACNxKp ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :lR5I_pGGAqACNxKo_shape .
+
+<https://example.org#mIBI_pGGAqACNxI.> a ontouml:ClassView ;
+    ontouml:isViewOf :mIBI_pGGAqACNxI_ ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :mIBI_pGGAqACNxI._shape .
+
+:n6OI_pGGAqACNxH4 a ontouml:ClassView ;
+    ontouml:isViewOf :n6OI_pGGAqACNxH5 ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :n6OI_pGGAqACNxH4_shape .
+
+:nFbw_pGGAqACNxC4 a ontouml:Class ;
+    ontouml:isAbstract false ;
+    ontouml:isDerived true ;
+    ontouml:isPowertype false ;
+    ontouml:name "Class5"@en ;
+    ontouml:order "1"^^xsd:nonNegativeInteger ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:restrictedTo ontouml:functionalComplexNature ;
+    ontouml:stereotype ontouml:category .
+
+:rnpw_pGGAqACNxAU a ontouml:Class ;
+    ontouml:isAbstract true ;
+    ontouml:isDerived true ;
+    ontouml:isPowertype false ;
+    ontouml:name "Class2"@en ;
+    ontouml:order "1"^^xsd:nonNegativeInteger ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:restrictedTo ontouml:functionalComplexNature ;
+    ontouml:stereotype ontouml:category .
+
+:s87I_pGGAqACNxMo a ontouml:GeneralizationSet ;
+    ontouml:generalization :5itI_pGGAqACNxL9,
+        :qltI_pGGAqACNxMH ;
+    ontouml:isComplete false ;
+    ontouml:isDisjoint false ;
+    ontouml:name "Set1"@en ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:w9jw_pGGAqACNxB9 a ontouml:Class ;
+    ontouml:isAbstract true ;
+    ontouml:isDerived false ;
+    ontouml:isPowertype false ;
+    ontouml:name "Class3"@en ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:wabw_pGGAqACNxCt a ontouml:Class ;
+    ontouml:isAbstract false ;
+    ontouml:isDerived false ;
+    ontouml:isPowertype false ;
+    ontouml:name "Class4"@en ;
+    ontouml:order "1"^^xsd:nonNegativeInteger ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:restrictedTo ontouml:functionalComplexNature ;
+    ontouml:stereotype ontouml:category .
+
+:wujw_pGGAqACNxBy a ontouml:Class ;
+    ontouml:isAbstract false ;
+    ontouml:isDerived false ;
+    ontouml:isPowertype false ;
+    ontouml:name "Class2"@en ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:xR6I_pGGAqACNxHm a ontouml:Relation ;
+    ontouml:isAbstract true ;
+    ontouml:isDerived true ;
+    ontouml:name "xyz3"@en ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:relationEnd :xR6I_pGGAqACNxHn,
+        :xR6I_pGGAqACNxHp ;
+    ontouml:sourceEnd :xR6I_pGGAqACNxHn ;
+    ontouml:targetEnd :xR6I_pGGAqACNxHp .
+
+:xR6I_pGGAqACNxHn a ontouml:Property ;
+    ontouml:aggregationKind ontouml:none ;
+    ontouml:isDerived false ;
+    ontouml:isOrdered false ;
+    ontouml:isReadOnly false ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:propertyType :C0aI_pGGAqACNxHI .
+
+:xR6I_pGGAqACNxHp a ontouml:Property ;
+    ontouml:aggregationKind ontouml:none ;
+    ontouml:isDerived false ;
+    ontouml:isOrdered false ;
+    ontouml:isReadOnly false ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:propertyType :r2aI_pGGAqACNxHT .
+
+:yeiI_pGGAqACNxGi a ontouml:ClassView ;
+    ontouml:isViewOf :yeiI_pGGAqACNxGj ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :yeiI_pGGAqACNxGi_shape .
+
+:0R.I_pGGAqACNxIp a ontouml:Class ;
+    ontouml:isAbstract false ;
+    ontouml:isDerived false ;
+    ontouml:isPowertype false ;
+    ontouml:name "Class17"@en ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:12UI_pGGAqACNxFb a ontouml:Class ;
+    ontouml:isAbstract false ;
+    ontouml:isDerived false ;
+    ontouml:isPowertype false ;
+    ontouml:name "Class9"@en ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:2EUI_pGGAqACNxFQ a ontouml:Class ;
+    ontouml:isAbstract false ;
+    ontouml:isDerived false ;
+    ontouml:isPowertype false ;
+    ontouml:name "Class8"@en ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:2W1I_pGGAqACNxLL a ontouml:Generalization ;
+    ontouml:general :mE.I_pGGAqACNxIe ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:specific :VQRI_pGGAqACNxJu .
+
+:3_VI_pGGAqACNxLB a ontouml:Generalization ;
+    ontouml:general :mE.I_pGGAqACNxIe ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:specific :mIBI_pGGAqACNxI_ .
+
+:5itI_pGGAqACNxL9 a ontouml:Generalization ;
+    ontouml:general :mE.I_pGGAqACNxIe ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:specific :ED.I_pGGAqACNxI0 .
+
+:7FOI_pGGAqACNxIE a ontouml:Class ;
+    ontouml:isAbstract false ;
+    ontouml:isDerived false ;
+    ontouml:isPowertype false ;
+    ontouml:name "Class15"@en ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:8ENI_pGGAqACNxLf a ontouml:Generalization ;
+    ontouml:general :mE.I_pGGAqACNxIe ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:specific :lR5I_pGGAqACNxKp .
+
+:Az1I_pGGAqACNxLV a ontouml:Generalization ;
+    ontouml:general :mE.I_pGGAqACNxIe ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:specific :BI5I_pGGAqACNxKg .
+
+:BI5I_pGGAqACNxKg a ontouml:Class ;
+    ontouml:isAbstract false ;
+    ontouml:isDerived false ;
+    ontouml:isPowertype false ;
+    ontouml:name "Class23"@en ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:C0aI_pGGAqACNxHI a ontouml:Class ;
+    ontouml:isAbstract false ;
+    ontouml:isDerived false ;
+    ontouml:isPowertype false ;
+    ontouml:name "Class12"@en ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:DKBI_pGGAqACNxJK a ontouml:Class ;
+    ontouml:isAbstract false ;
+    ontouml:isDerived false ;
+    ontouml:isPowertype false ;
+    ontouml:name "Class20"@en ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:ED.I_pGGAqACNxI0 a ontouml:Class ;
+    ontouml:isAbstract false ;
+    ontouml:isDerived false ;
+    ontouml:isPowertype false ;
+    ontouml:name "Class18"@en ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:VQRI_pGGAqACNxJu a ontouml:Class ;
+    ontouml:isAbstract false ;
+    ontouml:isDerived false ;
+    ontouml:isPowertype false ;
+    ontouml:name "Class22"@en ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:ipBI_pGGAqACNxJV a ontouml:Class ;
+    ontouml:isAbstract false ;
+    ontouml:isDerived false ;
+    ontouml:isPowertype false ;
+    ontouml:name "Class21"@en ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:jsiI_pGGAqACNxGY a ontouml:Class ;
+    ontouml:isAbstract false ;
+    ontouml:isDerived false ;
+    ontouml:isPowertype false ;
+    ontouml:name "Class10"@en ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:lR5I_pGGAqACNxKp a ontouml:Class ;
+    ontouml:isAbstract false ;
+    ontouml:isDerived false ;
+    ontouml:isPowertype false ;
+    ontouml:name "Class24"@en ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:mIBI_pGGAqACNxI_ a ontouml:Class ;
+    ontouml:isAbstract false ;
+    ontouml:isDerived false ;
+    ontouml:isPowertype false ;
+    ontouml:name "Class19"@en ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:n6OI_pGGAqACNxH5 a ontouml:Class ;
+    ontouml:isAbstract false ;
+    ontouml:isDerived false ;
+    ontouml:isPowertype false ;
+    ontouml:name "Class14"@en ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:qltI_pGGAqACNxMH a ontouml:Generalization ;
+    ontouml:general :mE.I_pGGAqACNxIe ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:specific :0R.I_pGGAqACNxIp .
+
+:r2aI_pGGAqACNxHT a ontouml:Class ;
+    ontouml:isAbstract false ;
+    ontouml:isDerived false ;
+    ontouml:isPowertype false ;
+    ontouml:name "Class13"@en ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:wbNI_pGGAqACNxLz a ontouml:Generalization ;
+    ontouml:general :mE.I_pGGAqACNxIe ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:specific :DKBI_pGGAqACNxJK .
+
+:xBNI_pGGAqACNxLp a ontouml:Generalization ;
+    ontouml:general :mE.I_pGGAqACNxIe ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:specific :ipBI_pGGAqACNxJV .
+
+:yeiI_pGGAqACNxGj a ontouml:Class ;
+    ontouml:isAbstract false ;
+    ontouml:isDerived false ;
+    ontouml:isPowertype false ;
+    ontouml:name "Class11"@en ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:mE.I_pGGAqACNxId a ontouml:ClassView ;
+    ontouml:isViewOf :mE.I_pGGAqACNxIe ;
+    ontouml:project :DGuw_pGGAqACNwwB ;
+    ontouml:shape :mE.I_pGGAqACNxId_shape .
+
+:mE.I_pGGAqACNxIe a ontouml:Class ;
+    ontouml:isAbstract false ;
+    ontouml:isDerived false ;
+    ontouml:isPowertype false ;
+    ontouml:name "Class16"@en ;
+    ontouml:project :DGuw_pGGAqACNwwB .
+
+:DGuw_pGGAqACNwwB a ontouml:Project ;
+    ontouml:diagram :gWhw_pGGAqACNw_c ;
+    ontouml:model :DGuw_pGGAqACNwwB_root ;
+    ontouml:name "test_050"@en .
+
