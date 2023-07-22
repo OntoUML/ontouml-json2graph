@@ -202,7 +202,7 @@ def get_all_ids_of_specific_type(dictionary_data: dict, wanted_type: str, list_i
 
 
 def set_object_stereotype(object_dict: dict, ontouml_graph: Graph) -> None:
-    """ Sets ontouml:stereotype relation between an instance of ontouml:Class or ontouml:Relation and an instance
+    """ Sets ontouml:stereotype property between an instance of ontouml:Class or ontouml:Relation and an instance
     representing an ontouml:ClassStereotype or ontouml:RelationStereotype, respectively.
 
     :param object_dict: Class object loaded as a dictionary.
@@ -210,6 +210,8 @@ def set_object_stereotype(object_dict: dict, ontouml_graph: Graph) -> None:
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
+
+    # TODO (@pedropaulofb): Fix. 1) Relation's stereotypes are not mandatory. 2) Use centralized message module.
 
     ENUM_CLASS_STEREOTYPE = ["type", "historicalRole", "historicalRoleMixin", "event", "situation", "category", "mixin",
                              "roleMixin", "phaseMixin", "kind", "collective", "quantity", "relator", "quality", "mode",
