@@ -10,6 +10,13 @@ LOGGER = initialize_logger()
 
 
 def load_ontouml_vocabulary() -> Graph:
+    """ Loads the OntoUML Vocabulary to the working memory. First tries to load from web resource, if fails, it tries to
+    load form the local resource. If both options fail, calls error reporting function.
+
+    :return: RDFLib graph loaded as object.
+    :rtype: Graph
+    """
+
     ontology_graph = Graph()
 
     remote_option = "https://w3id.org/ontouml"
