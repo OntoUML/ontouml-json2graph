@@ -3,7 +3,7 @@
 # Software information
 SOFTWARE_ACRONYM = "ontouml-json2graph"
 SOFTWARE_NAME = "OntoUML JSON2Graph Decoder"
-SOFTWARE_VERSION = "2023.07.20"
+SOFTWARE_VERSION = "2023.07.23"
 SOFTWARE_URL = "https://w3id.org/ontouml/json2graph"
 
 # METADATA
