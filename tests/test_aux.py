@@ -7,7 +7,7 @@ from rdflib.compare import graph_diff, to_isomorphic
 import modules.arguments as args
 from modules.globals import URI_ONTOUML
 from modules.input_output import safe_write_graph_file
-from modules.utils_graph import load_all_graph_safely
+from modules.utils_graph import load_graph_safely
 
 
 def get_test_list() -> list[str]:
@@ -69,8 +69,8 @@ def compare_graphs(resulting_graph_path: str, expected_graph_path: str, test_nam
     :rtype: bool
     """
 
-    result_graph = load_all_graph_safely(resulting_graph_path)
-    expected_graph = load_all_graph_safely(expected_graph_path)
+    result_graph = load_graph_safely(resulting_graph_path)
+    expected_graph = load_graph_safely(expected_graph_path)
 
     iso_result_graph = to_isomorphic(result_graph)
     iso_expected_graph = to_isomorphic(expected_graph)

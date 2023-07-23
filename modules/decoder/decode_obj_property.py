@@ -15,7 +15,7 @@ from modules.globals import URI_ONTOUML
 from modules.logger import initialize_logger
 from modules.messages import print_decode_log_message
 from modules.sparql_queries import GET_CLASS_STEREOTYPE_ATTRIBUTE_STEREOTYPE
-from modules.utils_graph import load_all_graph_safely
+from modules.utils_graph import load_graph_safely, load_ontouml_vocabulary
 
 LOGGER = initialize_logger()
 
@@ -31,7 +31,7 @@ def validate_property_stereotype(ontouml_graph: Graph) -> None:
     :type ontouml_graph: Graph
     """
 
-    ontouml_meta_graph = load_all_graph_safely("resources/ontouml.ttl")
+    ontouml_meta_graph = load_ontouml_vocabulary()
     aggregated_graph = ontouml_meta_graph + ontouml_graph
     query_answer = aggregated_graph.query(GET_CLASS_STEREOTYPE_ATTRIBUTE_STEREOTYPE)
 

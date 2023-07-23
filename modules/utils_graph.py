@@ -9,7 +9,26 @@ from modules.logger import initialize_logger
 LOGGER = initialize_logger()
 
 
-def load_all_graph_safely(ontology_file: str) -> Graph:
+def load_ontouml_vocabulary() -> Graph:
+    ontology_graph = Graph()
+
+    remote_option = "https://w3id.org/ontouml"
+    local_option = "resources/ontouml.ttl"
+
+    try:
+        ontology_graph.parse(remote_option, encoding='utf-8', format="ttl")
+        LOGGER.debug(f"OntoUML Vocabulary successfully loaded to working memory from remote option.")
+    except:
+        try:
+            ontology_graph.parse(local_option, encoding='utf-8', format="ttl")
+            LOGGER.debug(f"OntoUML Vocabulary successfully loaded to working memory from local option.")
+        except OSError as error:
+            report_error_io_read("OntoUML Vocabulary", "from remote or local sources the", error)
+
+    return ontology_graph
+
+
+def load_graph_safely(ontology_file: str) -> Graph:
     """ Safely load graph from file to working memory.
 
     :param ontology_file: Path to the ontology file to be loaded into the working memory.
