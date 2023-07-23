@@ -12,10 +12,10 @@ import inspect
 from rdflib import Graph, URIRef, XSD, Literal
 
 import modules.arguments as args
-from globals import URI_ONTOUML
 from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type, get_stereotype, \
     set_object_stereotype
 from modules.errors import report_error_end_of_switch
+from modules.globals import URI_ONTOUML
 from modules.messages import print_decode_log_message
 
 

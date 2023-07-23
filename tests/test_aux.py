@@ -5,7 +5,7 @@ from rdflib import Graph
 from rdflib.compare import graph_diff, to_isomorphic
 
 import modules.arguments as args
-from globals import URI_ONTOUML
+from modules.globals import URI_ONTOUML
 from modules.input_output import safe_write_graph_file
 from modules.utils_graph import load_all_graph_safely
 

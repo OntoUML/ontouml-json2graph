@@ -5,8 +5,8 @@ import time
 from rdflib import RDF
 
 import modules.arguments as args
-from globals import SOFTWARE_NAME, SOFTWARE_VERSION, MODEL_ELEMENTS
 from modules.decoder.decode_main import decode_json_to_graph
+from modules.globals import SOFTWARE_NAME, SOFTWARE_VERSION, MODEL_ELEMENTS
 from modules.input_output import safe_load_json_file, write_graph_file
 from modules.logger import initialize_logger
 from modules.utils_general import get_date_time

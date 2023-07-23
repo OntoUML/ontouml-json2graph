@@ -5,8 +5,8 @@ Functions to set object properties are named according to the nomenclature: set_
 from rdflib import Graph, URIRef
 
 import modules.arguments as args
-from globals import URI_ONTOUML
 from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type
+from modules.globals import URI_ONTOUML
 
 
 def get_package_contents(package_dict: dict, package_id: str, list_contents: list = []) -> list[dict]:

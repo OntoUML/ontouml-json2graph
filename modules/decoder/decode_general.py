@@ -3,7 +3,7 @@
 from rdflib import Graph, URIRef, Literal, RDF
 
 import modules.arguments as args
-from globals import URI_ONTOUML
+from modules.globals import URI_ONTOUML
 from modules.logger import initialize_logger
 from modules.sparql_queries import GET_ELEMENT_AND_TYPE
 from modules.utils_graph import load_all_graph_safely

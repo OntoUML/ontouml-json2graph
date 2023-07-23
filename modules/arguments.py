@@ -4,7 +4,7 @@ import argparse
 
 import validators as validators
 
-from globals import SOFTWARE_ACRONYM, SOFTWARE_VERSION, SOFTWARE_NAME, SOFTWARE_URL, ALLOWED_GRAPH_FORMATS
+from modules.globals import SOFTWARE_ACRONYM, SOFTWARE_VERSION, SOFTWARE_NAME, SOFTWARE_URL, ALLOWED_GRAPH_FORMATS
 from modules.logger import initialize_logger
 
 LOGGER = initialize_logger()

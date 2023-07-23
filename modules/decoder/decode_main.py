@@ -3,7 +3,6 @@
 from rdflib import Graph, URIRef, Literal, RDF, XSD, OWL, RDFS
 
 import modules.arguments as args
-from globals import URI_ONTOUML, ELEMENT_VIEW_TYPES, SOFTWARE_NAME, SOFTWARE_VERSION, SOFTWARE_URL
 from modules.decoder.decode_general import clean_null_data, count_elements_graph
 from modules.decoder.decode_obj_class import create_class_properties
 from modules.decoder.decode_obj_diagram import create_diagram_properties
@@ -16,6 +15,8 @@ from modules.decoder.decode_obj_project import create_project_properties
 from modules.decoder.decode_obj_property import create_property_properties
 from modules.decoder.decode_obj_rectangularshape import create_rectangularshape_properties
 from modules.decoder.decode_obj_relation import create_relation_properties
+from modules.globals import URI_ONTOUML, ELEMENT_VIEW_TYPES, SOFTWARE_NAME, SOFTWARE_VERSION, SOFTWARE_URL, \
+    CONFORMS_TO_VOCAB_VERSION
 from modules.logger import initialize_logger
 from modules.utils_general import get_date_time
 
@@ -40,8 +41,9 @@ def add_metadata(ontouml_graph: Graph) -> None:
 
     # Adding conforms to
     dct_conforms_to = URIRef(uri_dct + "conformsTo")
-    # TODO (@pedropaulofb): Add verstion to which it conformsTo.
-    ontouml_graph.add((uriref_ontology, dct_conforms_to, URIRef(URI_ONTOUML[:-1])))
+    vocab_uri = URIRef(URI_ONTOUML[:-1])
+    ontouml_graph.add((uriref_ontology, dct_conforms_to, vocab_uri))
+    ontouml_graph.add((uriref_ontology, dct_conforms_to, vocab_uri + "/vocabulary/v" + CONFORMS_TO_VOCAB_VERSION))
 
     # Adding creation date
     date_format = "%Y-%m-%d"

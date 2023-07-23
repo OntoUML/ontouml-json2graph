@@ -10,8 +10,8 @@ Function's nomenclatures:
 from rdflib import Graph, URIRef, Literal
 
 import modules.arguments as args
-from globals import URI_ONTOUML
 from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type, set_object_stereotype
+from modules.globals import URI_ONTOUML
 from modules.messages import print_decode_log_message
 
 

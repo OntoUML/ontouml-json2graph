@@ -6,6 +6,9 @@ SOFTWARE_NAME = "OntoUML JSON2Graph Decoder"
 SOFTWARE_VERSION = "2023.07.20"
 SOFTWARE_URL = "https://w3id.org/ontouml/json2graph"
 
+# METADATA
+CONFORMS_TO_VOCAB_VERSION = "1.1.0"
+
 # Formats for saving graphs supported by RDFLib
 # https://rdflib.readthedocs.io/en/stable/intro_to_parsing.html#saving-rdf
 ALLOWED_GRAPH_FORMATS = ["turtle", "ttl", "turtle2", "xml", "pretty-xml", "json-ld", "ntriples", "nt", "nt11", "n3",

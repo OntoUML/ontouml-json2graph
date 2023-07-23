@@ -10,8 +10,8 @@ Function's nomenclatures:
 from rdflib import Graph, URIRef, Literal, XSD
 
 import modules.arguments as args
-from globals import URI_ONTOUML
 from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type
+from modules.globals import URI_ONTOUML
 
 
 def set_generalizationset_defaults(generalizationset_dict: dict, ontouml_graph: Graph) -> None:

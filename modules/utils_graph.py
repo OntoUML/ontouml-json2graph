@@ -2,8 +2,8 @@
 
 from rdflib import Graph, URIRef, RDF
 
-from globals import URI_ONTOUML
 from modules.errors import report_error_io_read
+from modules.globals import URI_ONTOUML
 from modules.logger import initialize_logger
 
 LOGGER = initialize_logger()

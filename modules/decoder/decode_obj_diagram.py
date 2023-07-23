@@ -5,8 +5,8 @@ Functions to set object properties are named according to the nomenclature: set_
 from rdflib import Graph, URIRef
 
 import modules.arguments as args
-from globals import URI_ONTOUML, ELEMENT_VIEW_TYPES
 from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type
+from modules.globals import URI_ONTOUML, ELEMENT_VIEW_TYPES
 
 
 def set_diagram_owner_modelelement(diagram_dict: dict, ontouml_graph: Graph) -> None:

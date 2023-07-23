@@ -10,8 +10,8 @@ Function's nomenclatures:
 from rdflib import Graph, URIRef
 
 import modules.arguments as args
-from globals import URI_ONTOUML
 from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type, create_point
+from modules.globals import URI_ONTOUML
 
 
 def set_rectangularshape_coordinates(rectangularshape_dict: dict, ontouml_graph: Graph) -> None:
