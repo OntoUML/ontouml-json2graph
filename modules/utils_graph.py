@@ -35,11 +35,14 @@ def load_ontouml_vocabulary() -> Graph:
     return ontology_graph
 
 
-def load_graph_safely(ontology_file: str) -> Graph:
-    """ Safely load graph from file to working memory.
+def load_graph_safely(ontology_file: str, format: str = "not_provided") -> Graph:
+    """ Safely load graph from file to working memory using arguments provided by the user, which are the file path
+    and (optionally) the file type.
 
     :param ontology_file: Path to the ontology file to be loaded into the working memory.
     :type ontology_file: str
+    :param format: Optional argument. Format of the file to be loaded.
+    :type format: str
     :return: RDFLib graph loaded as object.
     :rtype: Graph
     """
@@ -47,7 +50,10 @@ def load_graph_safely(ontology_file: str) -> Graph:
     ontology_graph = Graph()
 
     try:
-        ontology_graph.parse(ontology_file, encoding='utf-8')
+        if format == "not_provided":
+            ontology_graph.parse(ontology_file, encoding='utf-8')
+        else:
+            ontology_graph.parse(ontology_file, encoding='utf-8', format=format)
     except OSError as error:
         file_description = "input ontology file"
         report_error_io_read(ontology_file, file_description, error)
