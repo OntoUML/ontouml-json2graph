@@ -309,7 +309,7 @@
 :JnAI_pGGAqACNxEY
     a                       ontouml:Property ;
     ontouml:aggregationKind ontouml:none ;
-    ontouml:isDerived       true ;
+    ontouml:isDerived       false ;
     ontouml:isOrdered       false ;
     ontouml:isReadOnly      false ;
     ontouml:name            "attribute3"@en ;
@@ -339,9 +339,9 @@
 :PwgI_pGGAqACNxEb
     a                       ontouml:Property ;
     ontouml:aggregationKind ontouml:none ;
-    ontouml:isDerived       true ;
+    ontouml:isDerived       false ;
     ontouml:isOrdered       false ;
-    ontouml:isReadOnly      true ;
+    ontouml:isReadOnly      false ;
     ontouml:name            "attribute4"@en ;
     ontouml:project         :DGuw_pGGAqACNwwB .
 
@@ -1048,8 +1048,8 @@
 :K_fI_pGGAqACNxNM
     a                      ontouml:GeneralizationSet ;
     ontouml:generalization :wbNI_pGGAqACNxLz, :xBNI_pGGAqACNxLp ;
-    ontouml:isComplete     true ;
-    ontouml:isDisjoint     true ;
+    ontouml:isComplete     false ;
+    ontouml:isDisjoint     false ;
     ontouml:name           "Set"@en ;
     ontouml:project        :DGuw_pGGAqACNwwB .
 
