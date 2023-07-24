@@ -1083,8 +1083,8 @@
 
 :Xwxw_pGGAqACNw_y
     a                   ontouml:Class ;
-    ontouml:isAbstract  true ;
-    ontouml:isDerived   true ;
+    ontouml:isAbstract  false ;
+    ontouml:isDerived   false ;
     ontouml:isPowertype false ;
     ontouml:name        "Class"@en ;
     ontouml:project     :DGuw_pGGAqACNwwB .
@@ -1143,8 +1143,8 @@
 
 :rnpw_pGGAqACNxAU
     a                    ontouml:Class ;
-    ontouml:isAbstract   true ;
-    ontouml:isDerived    true ;
+    ontouml:isAbstract   false ;
+    ontouml:isDerived    false ;
     ontouml:isPowertype  false ;
     ontouml:name         "Class2"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
@@ -1189,8 +1189,8 @@
 
 :xR6I_pGGAqACNxHm
     a                   ontouml:Relation ;
-    ontouml:isAbstract  true ;
-    ontouml:isDerived   true ;
+    ontouml:isAbstract  false ;
+    ontouml:isDerived   false ;
     ontouml:name        "xyz3"@en ;
     ontouml:project     :DGuw_pGGAqACNwwB ;
     ontouml:relationEnd :xR6I_pGGAqACNxHn, :xR6I_pGGAqACNxHp ;
