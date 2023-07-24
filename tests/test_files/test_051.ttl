@@ -9,8 +9,8 @@
 :00gI_pGGAqACNxEh
     a                       ontouml:Property ;
     ontouml:aggregationKind ontouml:none ;
-    ontouml:isDerived       true ;
-    ontouml:isOrdered       true ;
+    ontouml:isDerived       false ;
+    ontouml:isOrdered       false ;
     ontouml:isReadOnly      false ;
     ontouml:name            "attribute6"@en ;
     ontouml:project         :DGuw_pGGAqACNwwB .
@@ -30,8 +30,8 @@
 :1EgI_pGGAqACNxEe
     a                       ontouml:Property ;
     ontouml:aggregationKind ontouml:none ;
-    ontouml:isDerived       true ;
-    ontouml:isOrdered       true ;
+    ontouml:isDerived       false ;
+    ontouml:isOrdered       false ;
     ontouml:isReadOnly      false ;
     ontouml:name            "attribute5"@en ;
     ontouml:project         :DGuw_pGGAqACNwwB .
@@ -519,7 +519,7 @@
     ontouml:aggregationKind ontouml:none ;
     ontouml:isDerived       false ;
     ontouml:isOrdered       false ;
-    ontouml:isReadOnly      true ;
+    ontouml:isReadOnly      false ;
     ontouml:name            "attribute"@en ;
     ontouml:project         :DGuw_pGGAqACNwwB .
 
@@ -550,7 +550,7 @@
     a                       ontouml:Property ;
     ontouml:aggregationKind ontouml:none ;
     ontouml:isDerived       false ;
-    ontouml:isOrdered       true ;
+    ontouml:isOrdered       false ;
     ontouml:isReadOnly      false ;
     ontouml:name            "attribute2"@en ;
     ontouml:project         :DGuw_pGGAqACNwwB .
@@ -861,7 +861,7 @@
 
 <https://example.org#.RcI_pGGAqACNxGE>
     a                   ontouml:Relation ;
-    ontouml:isAbstract  true ;
+    ontouml:isAbstract  false ;
     ontouml:isDerived   false ;
     ontouml:name        "xyz"@en ;
     ontouml:project     :DGuw_pGGAqACNwwB ;
@@ -890,7 +890,7 @@
 :0AyI_pGGAqACNxG2
     a                   ontouml:Relation ;
     ontouml:isAbstract  false ;
-    ontouml:isDerived   true ;
+    ontouml:isDerived   false ;
     ontouml:name        "xyz2"@en ;
     ontouml:project     :DGuw_pGGAqACNwwB ;
     ontouml:relationEnd :0AyI_pGGAqACNxG3, :0AyI_pGGAqACNxG5 ;
@@ -923,7 +923,7 @@
 
 :0s7w_pGGAqACNxDO
     a                    ontouml:Class ;
-    ontouml:isAbstract   true ;
+    ontouml:isAbstract   false ;
     ontouml:isDerived    false ;
     ontouml:isPowertype  false ;
     ontouml:name         "Class7"@en ;
@@ -942,14 +942,14 @@
     a                      ontouml:GeneralizationSet ;
     ontouml:generalization :8ENI_pGGAqACNxLf, :Az1I_pGGAqACNxLV ;
     ontouml:isComplete     false ;
-    ontouml:isDisjoint     true ;
+    ontouml:isDisjoint     false ;
     ontouml:name           "Set3"@en ;
     ontouml:project        :DGuw_pGGAqACNwwB .
 
 :78Tw_pGGAqACNxCI
     a                   ontouml:Class ;
     ontouml:isAbstract  false ;
-    ontouml:isDerived   true ;
+    ontouml:isDerived   false ;
     ontouml:isPowertype false ;
     ontouml:name        "Class4"@en ;
     ontouml:project     :DGuw_pGGAqACNwwB .
@@ -963,14 +963,14 @@
 :7dnI_pGGAqACNxM3
     a                      ontouml:GeneralizationSet ;
     ontouml:generalization :2W1I_pGGAqACNxLL, :3_VI_pGGAqACNxLB ;
-    ontouml:isComplete     true ;
+    ontouml:isComplete     false ;
     ontouml:isDisjoint     false ;
     ontouml:name           "Set2"@en ;
     ontouml:project        :DGuw_pGGAqACNwwB .
 
 :9Ujw_pGGAqACNxBn
     a                   ontouml:Class ;
-    ontouml:isAbstract  true ;
+    ontouml:isAbstract  false ;
     ontouml:isDerived   false ;
     ontouml:isPowertype false ;
     ontouml:name        "Class"@en ;
@@ -1133,7 +1133,7 @@
 :nFbw_pGGAqACNxC4
     a                    ontouml:Class ;
     ontouml:isAbstract   false ;
-    ontouml:isDerived    true ;
+    ontouml:isDerived    false ;
     ontouml:isPowertype  false ;
     ontouml:name         "Class5"@en ;
     ontouml:order        "1"^^xsd:nonNegativeInteger ;
@@ -1162,7 +1162,7 @@
 
 :w9jw_pGGAqACNxB9
     a                   ontouml:Class ;
-    ontouml:isAbstract  true ;
+    ontouml:isAbstract  false ;
     ontouml:isDerived   false ;
     ontouml:isPowertype false ;
     ontouml:name        "Class3"@en ;

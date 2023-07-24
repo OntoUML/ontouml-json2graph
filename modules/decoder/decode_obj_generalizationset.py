@@ -29,8 +29,10 @@ def set_generalizationset_defaults(generalizationset_dict: dict, ontouml_graph: 
     generalizationset_individual = URIRef(args.ARGUMENTS["base_uri"] + generalizationset_dict['id'])
     set_false = Literal(False, datatype=XSD.boolean)
 
+    # TODO (@pedropaulofb): ADD MESSAGE TO GENERATION SET ABOUT DEFAULTS
+
     if "isDisjoint" not in generalizationset_dict:
-        is_disjoint_property = URIRef(URI_ONTOUML + "generalization")
+        is_disjoint_property = URIRef(URI_ONTOUML + "isDisjoint")
         ontouml_graph.add((generalizationset_individual, is_disjoint_property, set_false))
 
     if "isComplete" not in generalizationset_dict:
