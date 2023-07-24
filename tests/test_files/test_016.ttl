@@ -559,14 +559,14 @@
     ontouml:project       :dGSNHRGFS_j2pAvw .
 
 :gGhuFxGFS_j2pAmkX4
-    a                  ontouml:Class ;
-    ontouml:isAbstract false ;
-    ontouml:isDerived  false ;
-    ontouml:name       "MyClassX4" ;
-    ontouml:order      "1"^^xsd:nonNegativeInteger ;
-    ontouml:project    :dGSNHRGFS_j2pAvw ;
-    ontouml:stereotype ontouml:kind ;
-    ontouml:isPowertype true ;
+    a                     ontouml:Class ;
+    ontouml:isAbstract    false ;
+    ontouml:isDerived     false ;
+    ontouml:name          "MyClassX4" ;
+    ontouml:order         "1"^^xsd:nonNegativeInteger ;
+    ontouml:project       :dGSNHRGFS_j2pAvw ;
+    ontouml:stereotype    ontouml:kind ;
+    ontouml:isPowertype   true ;
     ontouml:isExtensional true .
 
 :gGhuFxGFS_j2pAmkX2

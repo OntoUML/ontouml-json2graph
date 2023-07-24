@@ -35,12 +35,11 @@ def get_decode_log_message(object_dict: dict, warning_code: str, property_name: 
     if warning_code != "VPS1":
         object_stereotype = get_stereotype(object_dict)
         object_name = object_dict['name']
-        object_identification = f"{object_type} '{object_name}' (type: {object_stereotype}, ID: {object_id}): "
+        object_identification = f"{object_type} '{object_name}' (stereotype: {object_stereotype}, ID: {object_id}): "
 
     # Not for VPS1, VPS2, and VPS3
     if "VPS" not in warning_code:
         att_value = object_dict[property_name] if property_name in object_dict else "null"
-
 
     # Warnings generated in function decode_obj_class.validate_class_attribute_constraints
 
@@ -78,7 +77,8 @@ def get_decode_log_message(object_dict: dict, warning_code: str, property_name: 
         message = f"attribute '{property_name}' (originally '{att_value}') set to 'False', " \
                   f"the default value to classes with stereotype '{att_valid_stereotype}'."
 
-    # Warnings for CLASS.set_defaults_class_attribute, RELATION.set_relation_defaults, PROPERTY.set_property_defaults
+    # Warnings for  CLASS.set_defaults_class_attribute, RELATION.set_relation_defaults,
+    #               PROPERTY.set_property_defaults, and GENERALIZATION_SET.set_generalizationset_defaults
 
     elif warning_code == "DGA1":
         message = f"attribute '{property_name}' (originally '{att_value}') set to its default value: 'False'."

@@ -1,5 +1,11 @@
-""" Functions to decode objects of type Diagram.
-Functions to set object properties are named according to the nomenclature: set_<subject>_<predicate>_<object>.
+""" Functions to decode specificities of the object Diagram.
+
+Function's nomenclatures:
+    - Functions that set one property are named: set_<subject>_<predicate>_<object>.
+    - Functions that set multiple object properties are named: set_<subject>_relations.
+    - Functions that set multiple data properties are named: set_<subject>_attributes.
+    - Functions that set both object and data properties are named: set_<subject>_properties.
+    - Functions that set default values: set_<subject>_defaults.
 """
 
 from rdflib import Graph, URIRef
