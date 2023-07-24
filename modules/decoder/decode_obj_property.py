@@ -270,4 +270,4 @@ def create_property_properties(json_data: dict, ontouml_graph: Graph) -> None:
         set_property_relations(property_dict, ontouml_graph)
         set_cardinality_relations(property_dict, ontouml_graph)
 
-        validate_property_stereotype(ontouml_graph)
+    validate_property_stereotype(ontouml_graph)
