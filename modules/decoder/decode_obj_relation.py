@@ -10,7 +10,7 @@ Function's nomenclatures:
 from rdflib import Graph, URIRef, Literal
 
 import modules.arguments as args
-from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type, set_object_stereotype
+from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type, get_stereotype
 from modules.globals import URI_ONTOUML
 from modules.messages import print_decode_log_message
 
@@ -31,15 +31,45 @@ def set_relation_defaults(relation_dict: dict, ontouml_graph: Graph) -> None:
 
     # DCA3: Setting ontouml:isDerived attribute default value
     if "isDerived" not in relation_dict:
-        print_decode_log_message(relation_dict, "DGA1", attribute='isDerived')
+        print_decode_log_message(relation_dict, "DGA1", property_name='isDerived')
         ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + relation_dict['id']),
                            URIRef(URI_ONTOUML + "isDerived"), Literal(False, datatype=XSD.boolean)))
 
     # DCA4: Setting ontouml:isAbstract attribute default value
     if "isAbstract" not in relation_dict:
-        print_decode_log_message(relation_dict, "DGA1", attribute='isAbstract')
+        print_decode_log_message(relation_dict, "DGA1", property_name='isAbstract')
         ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + relation_dict['id']),
                            URIRef(URI_ONTOUML + "isAbstract"), Literal(False, datatype=XSD.boolean)))
+
+
+def set_relation_stereotype(relation_dict: dict, ontouml_graph: Graph) -> None:
+    """ Sets ontouml:stereotype property between an instance of ontouml:Relation and an instance representing an
+    ontouml:RelationStereotype.
+
+    Warning messages:
+        - VRS1: Relation has invalid stereotype associated to it. Result is invalid.
+
+    :param relation_dict: Relation object loaded as a dictionary.
+    :type relation_dict: dict
+    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
+    :type ontouml_graph: Graph
+    """
+
+    ENUM_RELATION_STEREOTYPE = ["bringsAbout", "characterization", "comparative", "componentOf", "creation",
+                                "derivation", "externalDependence", "historicalDependence", "instantiation",
+                                "manifestation", "material", "mediation", "memberOf", "participation",
+                                "participational", "subCollectionOf", "subQuantityOf", "termination", "triggers"]
+
+    relation_stereotype = get_stereotype(relation_dict)
+
+    if relation_stereotype != "null":
+        ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + relation_dict['id']),
+                           URIRef(URI_ONTOUML + "stereotype"),
+                           URIRef(URI_ONTOUML + relation_dict['stereotype'])))
+
+        # If declared but invalid, create and report error. Uses generic message with code 'VCSG'.
+        if relation_stereotype not in ENUM_RELATION_STEREOTYPE:
+            print_decode_log_message(relation_dict, "VCSG", property_name="stereotype")
 
 
 def set_relation_relations(relation_dict: dict, ontouml_graph: Graph) -> None:
@@ -107,4 +137,4 @@ def create_relation_properties(json_data: dict, ontouml_graph: Graph) -> None:
 
         set_relation_defaults(relation_dict, ontouml_graph)
         set_relation_relations(relation_dict, ontouml_graph)
-        set_object_stereotype(relation_dict, ontouml_graph)
+        set_relation_stereotype(relation_dict, ontouml_graph)

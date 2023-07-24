@@ -11,10 +11,11 @@ WHERE {
 # Returns only when property_stereotype equals begin or end
 GET_CLASS_STEREOTYPE_ATTRIBUTE_STEREOTYPE = """
 PREFIX ontouml: <https://w3id.org/ontouml#>
-SELECT DISTINCT ?class_id ?class_stereotype ?property_id ?property_stereotype
+SELECT DISTINCT ?class_id ?class_stereotype ?class_name ?property_id ?property_stereotype
 WHERE {
     ?class_id rdf:type ontouml:Class .
     ?class_id ontouml:stereotype ?class_stereotype  .
+    ?class_id ontouml:name ?class_name  .
     ?property_id rdf:type ontouml:Property .
     ?property_id ontouml:stereotype ?property_stereotype .
     ?property_id ontouml:propertyType ?class_id .

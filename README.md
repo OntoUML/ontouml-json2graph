@@ -51,23 +51,25 @@ options:
 
 ## Basic Syntactical and Sematic Validation
 
-Classes' constraints validations include:
-
-- error report when a class has the incompatible attributes isExtensional and isPowertype.
-- isExtensional must be null when the class's stereotype is not 'collective'
-- isPowertype must be null when the class's stereotype is not 'collective'
-- related stereotype set when attribute is known but stereotype is not.
-- order must be greater than one when the class's stereotype is 'type'
-- class's order must be one when the class's stereotype is known to be not 'type'
-
-Properties' validations:
-
-- Reports invalid property stereotypes (i.e., stereotypes different from ontouml:begin or ontouml:end.
-- Reports invalid stereotype use for class stereotype
+- Class validations:
+  - Reports Class with incompatible attributes isExtensional (not 'null') and isPowertype (set as 'True').
+  - Sets Class stereotype as 'collective' when the Class's stereotype is 'null' and its isExtensional attribute is 'True'.
+  - Sets Class stereotype as 'type' when the Class's stereotype is 'null' and its isPowertype attribute is 'True'.
+  - Removes the Class's isExtensional attribute if the Class's stereotype is not 'collective'.
+  - Sets the Class's isPowertype attribute as 'False' if the Class's stereotype is not 'type'.
+  - Sets the Class's order attribute to '1' if the Class's stereotype is not 'type' and its order different than '1'.
+  - Sets the Class's order attribute to '2' if the Class's stereotype is 'type' and its order is '1'. 
+  - Reports mandatory Class stereotype missing.
+- Stereotype validations:
+  - Reports invalid Class stereotype assigned (i.e., assigned stereotype is not in enumeration class ClassStereotype).
+  - Reports invalid Relation stereotype assigned (i.e., assigned stereotype is not in enumeration class RelationStereotype).
+  - Reports invalid Property stereotype assigned (i.e., assigned stereotype is not in enumeration class PropertyStereotype).
+- Property validations:
+  - Reports invalid assertion when a Property stereotype is related to a Class that is known not to be of stereotype 'event'.
+  - Sets Class stereotype as 'event' when it is originally 'null' and the class is related to a Property with stereotype.
 
 ## Authorship
 
 - [Pedro Paulo Favato Barcelos](https://orcid.org/0000-0003-2736-7817) [[GitHub](https://github.com/pedropaulofb)] [[LinkedIn](https://www.linkedin.com/in/pedropaulofavatobarcelos/)]
 
-Please get in touch with this software's contributors using the provided links or *
-*preferably [open an issue](https://github.com/OntoUML/ontouml-json2graph/issues)** in case of doubts or problems found.
+Feel free to get in contact using the links provided. For questions, contributions, or to report any problem, you can **[open an issue](https://github.com/OntoUML/ontouml-json2graph/issues)** at this repository.

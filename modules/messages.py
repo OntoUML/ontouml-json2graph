@@ -9,60 +9,108 @@ from modules.logger import initialize_logger
 LOGGER = initialize_logger()
 
 
-def get_decode_log_message(object_dict: dict, warning_code: str, attribute: str, att_valid_stereotype: str = "") -> str:
+def get_decode_log_message(object_dict: dict, warning_code: str, property_name: str,
+                           att_valid_stereotype: str = "") -> str:
     """ Mounts and returns a warning message according to the information received as parameter.
 
     :param object_dict: Object's JSON data loaded as a dictionary.
     :type object_dict: dict
     :param warning_code: Code used to select the correct message to be displayed to the user if not in silent mode.
     :type warning_code: str
-    :param attribute: Information about an attribute type to be displayed in a warning message. Optional.
-    :type attribute: str
+    :param property_name: Information about a property or attribute type to be displayed in a warning message. Optional.
+    :type property_name: str
     :param att_valid_stereotype: Stereotype associated to an attribute to be displayed in a warning message. Optional.
     :type att_valid_stereotype: str
     :return: Warning message containing information about the modification made to be printed to user.
     :rtype: str
     """
 
-    if "stereotype" in object_dict:
-        object_stereotype = get_stereotype(object_dict)
-        msg_stereotype = f"<<{object_stereotype}>> "
-    else:
-        msg_stereotype = ""
-
-    object_identification = f"{object_dict['type']} '{object_dict['name']}' " + msg_stereotype + f"(ID: {object_dict['id']}): "
-
     message = "NOT DEFINED MESSAGE"
-    att_value = object_dict[attribute] if attribute in object_dict else "null"
+
+    # All cases require
+    object_type = object_dict['type']
+    object_id = object_dict['id']
+
+    # Not for VPS1
+    if warning_code != "VPS1":
+        object_stereotype = get_stereotype(object_dict)
+        object_name = object_dict['name']
+        object_identification = f"{object_type} '{object_name}' (type: {object_stereotype}, ID: {object_id}): "
+
+    # Not for VPS1, VPS2, and VPS3
+    if "VPS" not in warning_code:
+        att_value = object_dict[property_name] if property_name in object_dict else "null"
+
+
+    # Warnings generated in function decode_obj_class.validate_class_attribute_constraints
 
     if warning_code == "VCA1":
-        message = "This class must not have values for both 'isExtensional' (allowed only for classes with " \
-                  "stereotype 'collective') and 'isPowertype' (allowed only for 'type'). " \
+        message = "a class cannot have at the same time value 'True' for 'isPowertype' (allowed only for 'type' " \
+                  "stereotype) and value different than 'null' for 'isExtensional' (allowed only for 'collective'). " \
                   "The transformation output is semantically INVALID."
 
     elif warning_code == "VCA2":
-        message = f"stereotype (originally {object_stereotype}) set to '{att_valid_stereotype}' as it contains the " \
-                  f"related attribute '{attribute}' (with value '{object_dict[attribute]}') that is only allowed in " \
-                  f"classes with this stereotype."
+        message = f"stereotype (originally 'null') set to '{att_valid_stereotype}' as it contains the " \
+                  f"related attribute '{property_name}' (with value '{object_dict[property_name]}') " \
+                  f"that is only allowed in classes with this stereotype."
 
-    elif warning_code == "VCA3":
-        message = f"attribute '{attribute}' (originally '{att_value}') removed " \
-                  f"as this attribute is only allowed in classes with stereotype '{att_valid_stereotype}'."
+    elif warning_code == "VCA3a":
+        message = f"attribute '{property_name}' (originally '{att_value}') removed as 'isExtensional' is only " \
+                  f"allowed to be not 'null' in classes with stereotype '{att_valid_stereotype}'."
+
+    elif warning_code == "VCA3b":
+        message = f"attribute '{property_name}' (originally '{att_value}') set to 'False' " \
+                  f"as 'isPowertype' can only have value 'True' in classes with stereotype '{att_valid_stereotype}'."
+
+    # Warnings generated in function decode_obj_class.set_defaults_class_order
 
     elif warning_code == "DCO1":
-        message = f"attribute '{attribute}' (originally '{att_value}') set to '1', " \
+        message = f"attribute '{property_name}' (originally '{att_value}') set to '1', " \
                   f"the default value to classes with stereotype different than 'type'."
 
     elif warning_code == "DCO2":
-        message = f"attribute '{attribute}' (originally '{att_value}') set to '2', " \
+        message = f"attribute '{property_name}' (originally '{att_value}') set to '2', " \
                   f"the default value to classes with stereotype 'type'."
 
+    # Warnings generated in function decode_obj_class.set_defaults_class_attribute
+
     elif warning_code == "DCA1":
-        message = f"attribute '{attribute}' (originally {att_value}) set to 'False', " \
+        message = f"attribute '{property_name}' (originally '{att_value}') set to 'False', " \
                   f"the default value to classes with stereotype '{att_valid_stereotype}'."
 
+    # Warnings for CLASS.set_defaults_class_attribute, RELATION.set_relation_defaults, PROPERTY.set_property_defaults
+
     elif warning_code == "DGA1":
-        message = f"attribute '{attribute}' (originally {att_value}) set to its default value: 'False'."
+        message = f"attribute '{property_name}' (originally '{att_value}') set to its default value: 'False'."
+
+    # Warnings generated in function decode_obj_class.set_class_stereotype
+
+    elif warning_code == "VCS1":
+        message = f"mandatory '{property_name}' is missing. To be syntactically valid, every Class in an " \
+                  f"ontology must have an stereotype relation with a ClassStereotype."
+
+    # Warnings for CLASS.set_class_stereotype, and RELATION.set_relation_stereotype
+
+    elif warning_code == "VCSG":
+        message = f"invalid stereotype assigned. A valid {object_type} stereotype must be an instance of the " \
+                  f"enumeration class {object_type}Stereotype. The transformation output is syntactically INVALID."
+
+    # Warnings for PROPERTY.validate_property_stereotype
+    # This is a specific case, as the validation of properties are performed using the Graph's information
+
+    elif warning_code == "VPS1":
+        object_identification = f"{object_type} (ID: {object_id}): "
+        message = "invalid stereotype assigned. A valid Property stereotype must be an instance of the " \
+                  "enumeration class PropertyStereotype. The transformation output is syntactically INVALID."
+
+    elif warning_code == "VPS2":
+        message = f"contains a property (ID: '{object_dict['propID']}') with stereotype '{object_dict['propID']}'. " \
+                  f"Only classes of type 'event' can be associated to stereotyped properties."
+
+    elif warning_code == "VPS3":
+        message = f"stereotype (originally 'null') set to 'event', as this class contains a property " \
+                  f"(ID: '{object_dict['propID']}') with stereotype (value '{object_dict['propID']}') that can only " \
+                  f"happen associated to 'event' classes."
 
     else:
         current_function = inspect.stack()[0][3]
@@ -71,32 +119,23 @@ def get_decode_log_message(object_dict: dict, warning_code: str, attribute: str,
     return object_identification + message
 
 
-def print_decode_log_message(class_dict: dict, warning_code: str, attribute: str = "",
-                             attribute_valid_stereotype: str = "", message_type: str = "warning") -> None:
+def print_decode_log_message(object_dict: dict, warning_code: str, property_name: str = "",
+                             att_valid_stereotype: str = "") -> None:
     """ Gets warning message and prints it to the user as a log if not in silent mode.
 
-    :param class_dict: Object's JSON data loaded as a dictionary.
-    :type class_dict: dict
+    :param object_dict: Object's JSON data loaded as a dictionary.
+    :type object_dict: dict
     :param warning_code: Predefined warning number to be displayed to the user if not in silent mode.
     :type warning_code: str
-    :param attribute: Information about an attribute type to be displayed in a warning message. Optional.
-    :type attribute: str
-    :param attribute_valid_stereotype: Optional attribute's stereotype to be displayed in a warning message.
-    :type attribute_valid_stereotype: str
-    :param message_type: Logger's level. Default value is 'warning'. Accepted values are: 'warning', 'error'.
-    :type message_type: str
+    :param property_name: Information about a property or attribute type to be displayed in a warning message. Optional.
+    :type property_name: str
+    :param att_valid_stereotype: Optional attribute's stereotype to be displayed in a warning message.
+    :type att_valid_stereotype: str
     """
 
     # If in silent mode, exit function and do not print anything
     if args.ARGUMENTS["silent"]:
         return
 
-    log_message = get_decode_log_message(class_dict, warning_code, attribute, attribute_valid_stereotype)
-
-    if message_type == "warning":
-        LOGGER.warning(log_message)
-    elif message_type == "error":
-        LOGGER.error(log_message)
-    else:
-        current_function = inspect.stack()[0][3]
-        report_error_end_of_switch("message_type", current_function)
+    log_message = get_decode_log_message(object_dict, warning_code, property_name, att_valid_stereotype)
+    LOGGER.warning(log_message)

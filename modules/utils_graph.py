@@ -3,7 +3,7 @@
 from rdflib import Graph, URIRef, RDF
 
 from modules.errors import report_error_io_read
-from modules.globals import URI_ONTOUML
+from modules.globals import URI_ONTOUML, CONFORMS_TO_VOCAB_VERSION
 from modules.logger import initialize_logger
 
 LOGGER = initialize_logger()
@@ -19,8 +19,9 @@ def load_ontouml_vocabulary() -> Graph:
 
     ontology_graph = Graph()
 
-    remote_option = "https://w3id.org/ontouml"
-    local_option = "resources/ontouml.ttl"
+    remote_option = "https://github.com/OntoUML/ontouml-vocabulary/releases/download/v" + \
+                    CONFORMS_TO_VOCAB_VERSION + "/ontouml.ttl"
+    local_option = "resources/ontouml_v110.ttl"
 
     try:
         ontology_graph.parse(remote_option, encoding='utf-8', format="ttl")

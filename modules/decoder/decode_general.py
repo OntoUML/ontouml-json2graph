@@ -6,7 +6,7 @@ import modules.arguments as args
 from modules.globals import URI_ONTOUML
 from modules.logger import initialize_logger
 from modules.sparql_queries import GET_ELEMENT_AND_TYPE
-from modules.utils_graph import load_graph_safely, load_ontouml_vocabulary
+from modules.utils_graph import load_ontouml_vocabulary
 
 LOGGER = initialize_logger()
 
@@ -199,47 +199,6 @@ def get_all_ids_of_specific_type(dictionary_data: dict, wanted_type: str, list_i
     list_ids_for_type = list(dict.fromkeys(list_ids_for_type))
 
     return list_ids_for_type
-
-
-def set_object_stereotype(object_dict: dict, ontouml_graph: Graph) -> None:
-    """ Sets ontouml:stereotype property between an instance of ontouml:Class or ontouml:Relation and an instance
-    representing an ontouml:ClassStereotype or ontouml:RelationStereotype, respectively.
-
-    :param object_dict: Class object loaded as a dictionary.
-    :type object_dict: dict
-    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
-    :type ontouml_graph: Graph
-    """
-
-    # TODO (@pedropaulofb): Fix. 1) Relation's stereotypes are not mandatory. 2) Use centralized message module.
-
-    ENUM_CLASS_STEREOTYPE = ["type", "historicalRole", "historicalRoleMixin", "event", "situation", "category", "mixin",
-                             "roleMixin", "phaseMixin", "kind", "collective", "quantity", "relator", "quality", "mode",
-                             "subkind", "role", "phase", "enumeration", "datatype", "abstract"]
-
-    ENUM_RELATION_STEREOTYPE = ["bringsAbout", "characterization", "comparative", "componentOf", "creation",
-                                "derivation", "externalDependence", "historicalDependence", "instantiation",
-                                "manifestation", "material", "mediation", "memberOf", "participation",
-                                "participational", "subCollectionOf", "subQuantityOf", "termination", "triggers"]
-
-    object_stereotype = get_stereotype(object_dict)
-    object_type = object_dict["type"]
-    object_id = object_dict["id"]
-
-    # If not declared stereotype, report warning.
-    if object_stereotype == "null" and not args.ARGUMENTS["silent"]:
-        LOGGER.warning(f"Mandatory stereotype not defined for {object_type} with ID {object_id}.")
-    elif object_stereotype != "null":
-        ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + object_dict['id']),
-                           URIRef(URI_ONTOUML + "stereotype"),
-                           URIRef(URI_ONTOUML + object_dict['stereotype'])))
-
-        # If declared but invalid, create and report error
-        if (object_type == "Class" and object_stereotype not in ENUM_CLASS_STEREOTYPE) or \
-                (object_type == "Relation" and object_stereotype not in ENUM_RELATION_STEREOTYPE) and \
-                not args.ARGUMENTS["silent"]:
-            LOGGER.error(f"Invalid stereotype '{object_dict['stereotype']}' defined for {object_type} '{object_id}'. "
-                         f"The transformation output is syntactically INVALID.")
 
 
 def clean_null_data(dictionary_data) -> dict:

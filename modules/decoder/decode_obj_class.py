@@ -12,8 +12,7 @@ import inspect
 from rdflib import Graph, URIRef, XSD, Literal
 
 import modules.arguments as args
-from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type, get_stereotype, \
-    set_object_stereotype
+from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type, get_stereotype
 from modules.errors import report_error_end_of_switch
 from modules.globals import URI_ONTOUML
 from modules.messages import print_decode_log_message
@@ -25,14 +24,11 @@ def validate_class_attribute_constraints(class_dict: dict) -> None:
 
     The pair of attribute/stereotype: isExtensional/collective and isPowertype/type checked constraints are:
 
-    VCA1) If class without stereotype but with isExtensional and with isPowertype, then do nothing and report error.
-    VCA2) If class has no stereotype, but the attribute is set, then set correct stereotype.
-        - If isExtensional, set as ontouml:collective
-        - If isPowertype, set as ontouml-type
-    VCA3) If class has a different stereotype than the one related to the attribute and the attribute is set,
-        then remove the attribute value.
-
-    The above codes are used to display warning/error messages when necessary.
+    VCA1) If class has isExtensional True and isPowertype True, then do nothing and report error.
+    VCA2a) If class has no stereotype and isExtensional is not null, set as ontouml:collective.
+    VCA2b) If class has no stereotype and isPowertype is True, set as ontouml: type.
+    VCA3a) If class has stereotype different from 'collective' and isExtensional is not null, remove isExtensional.
+    VCA3b) If class has stereotype different from 'type' and isPowertype is True, set isPowertype as False.
 
     :param class_dict: Class object loaded as a dictionary.
     :type class_dict: dict
@@ -43,29 +39,32 @@ def validate_class_attribute_constraints(class_dict: dict) -> None:
 
     class_stereotype = get_stereotype(class_dict)
 
-    att_valid = {"isExtensional": "collective",
-                 "isPowertype": "type"}
+    # VCA1: Reports Class without stereotype but with isExtensional value not null and isPowertype value True.
+    if ("isExtensional" in class_dict) and ("isPowertype" in class_dict):
+        if class_dict["isPowertype"]:
+            print_decode_log_message(class_dict, "VCA1")
 
-    # CASE VCA1: Treating a bizzare case where the class has no stereotype but has both attributes
-    if ("isExtensional" in class_dict) and ("isPowertype" in class_dict) and ("stereotype" not in class_dict):
-        print_decode_log_message(class_dict, "VCA1", message_type="error")
-    else:
-        for attribute in att_valid.keys():
+    # VCA2a: Class has no stereotype, but has isExtensional not null. Set stereotype as 'collective'.
+    elif (class_stereotype == "null") and ("isExtensional" in class_dict):
+        print_decode_log_message(class_dict, "VCA2", "isExtensional", "collective")
+        class_dict["stereotype"] = "collective"
 
-            att_stereotype = att_valid[attribute]
+    # VCA2b: Class has no stereotype, but has isPowertype equal True. Set stereotype as 'type'.
+    elif (class_stereotype == "null") and ("isPowertype" in class_dict):
+        if class_dict["isPowertype"]:
+            print_decode_log_message(class_dict, "VCA2", "isPowertype", "type")
+            class_dict["stereotype"] = "type"
 
-            if attribute not in class_dict:
-                continue
+    # VCA3a: Class has stereotype different than 'collective' and isExtensional not null. Remove isExtensional.
+    elif (class_stereotype != "collective") and ("isExtensional" in class_dict):
+        print_decode_log_message(class_dict, "VCA3a", "isExtensional", "collective")
+        class_dict.pop("isExtensional")
 
-            # CASE VCA2: Case class has attribute but no stereotype, set the stereotype
-            elif class_stereotype == "null":
-                print_decode_log_message(class_dict, "VCA2", attribute, att_stereotype)
-                class_dict["stereotype"] = att_stereotype
-
-            # CASE VCA3: Case the attribute was set to an invalid stereotype, remove it
-            elif class_stereotype != att_stereotype:
-                print_decode_log_message(class_dict, "VCA3", attribute, att_stereotype)
-                class_dict.pop(attribute)
+    # VCA3b: Class has stereotype different than 'type' and isPowertype 'True'. Set isPowertype as 'False'.
+    elif (class_stereotype != "type") and ("isPowertype" in class_dict):
+        if class_dict["isPowertype"]:
+            print_decode_log_message(class_dict, "VCA3b", "isPowertype", "type")
+            class_dict["isPowertype"] = False
 
 
 def validate_class_order_constraints(class_dict: dict) -> None:
@@ -91,12 +90,12 @@ def validate_class_order_constraints(class_dict: dict) -> None:
     # Constraints VCO1 and VCO2 depend on the existence of the order attribute
     if "order" in class_dict:
 
-        # Constraint VCO1: order must be greater than 1 when the class's stereotype is 'type'
+        # VCO1: order must be greater than 1 when the class's stereotype is 'type'. Remove order to set default.
         if class_stereotype == "type" and ((class_dict["order"] == 1) or (class_dict["order"] == "1")):
             # The 'order' value is removed, so it can receive a new value in the set_class_defaults function
             class_dict.pop('order')
 
-        # Constraint VCO2: class's order must be 1 when class's stereotype is not 'type'
+        # VCO2: class's order must be 1 when class's stereotype is not 'type'. Remove order to set default.
         if class_stereotype != "type" and class_dict["order"] != 1:
             # The 'order' value is removed, so it can receive a new value in the set_class_defaults function
             class_dict.pop('order')
@@ -121,7 +120,7 @@ def set_defaults_class_attribute(class_dict: dict, ontouml_graph: Graph) -> None
 
     # DCA1: Setting ontouml:isExtensional default value to False when it's not set in a class with stereotype collective
     if "isExtensional" not in class_dict and class_stereotype == "collective":
-        print_decode_log_message(class_dict, "DCA1", attribute='isExtensional', attribute_valid_stereotype='collective')
+        print_decode_log_message(class_dict, "DCA1", property_name='isExtensional', att_valid_stereotype='collective')
         ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
                            URIRef(URI_ONTOUML + "isExtensional"), Literal(False, datatype=XSD.boolean)))
 
@@ -129,19 +128,19 @@ def set_defaults_class_attribute(class_dict: dict, ontouml_graph: Graph) -> None
 
     # DCA2: Setting ontouml:isPowertype attribute default value
     if "isPowertype" not in class_dict:
-        print_decode_log_message(class_dict, "DGA1", attribute='isPowertype')
+        print_decode_log_message(class_dict, "DGA1", property_name='isPowertype')
         ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
                            URIRef(URI_ONTOUML + "isPowertype"), Literal(False, datatype=XSD.boolean)))
 
     # DCA3: Setting ontouml:isDerived attribute default value
     if "isDerived" not in class_dict:
-        print_decode_log_message(class_dict, "DGA1", attribute='isDerived')
+        print_decode_log_message(class_dict, "DGA1", property_name='isDerived')
         ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
                            URIRef(URI_ONTOUML + "isDerived"), Literal(False, datatype=XSD.boolean)))
 
     # DCA4: Setting ontouml:isAbstract attribute default value
     if "isAbstract" not in class_dict:
-        print_decode_log_message(class_dict, "DGA1", attribute='isAbstract')
+        print_decode_log_message(class_dict, "DGA1", property_name='isAbstract')
         ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
                            URIRef(URI_ONTOUML + "isAbstract"), Literal(False, datatype=XSD.boolean)))
 
@@ -170,13 +169,13 @@ def set_defaults_class_order(class_dict: dict, ontouml_graph: Graph) -> None:
 
         # DCO1: 'order' default value = 1 when stereotype is not 'type'
         if class_stereotype != 'type':
-            print_decode_log_message(class_dict, "DCO1", attribute='order')
+            print_decode_log_message(class_dict, "DCO1", property_name='order')
             ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
                                URIRef(URI_ONTOUML + "order"), Literal(1, datatype=XSD.nonNegativeInteger)))
 
         # DCO2: 'order' default value = 2 when stereotype is 'type'
         elif class_stereotype == 'type':
-            print_decode_log_message(class_dict, "DCO2", attribute='order')
+            print_decode_log_message(class_dict, "DCO2", property_name='order')
             ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
                                URIRef(URI_ONTOUML + "order"), Literal(2, datatype=XSD.nonNegativeInteger)))
 
@@ -184,6 +183,40 @@ def set_defaults_class_order(class_dict: dict, ontouml_graph: Graph) -> None:
         else:
             current_function = inspect.stack()[0][3]
             report_error_end_of_switch("class_stereotype", current_function)
+
+
+def set_class_stereotype(class_dict: dict, ontouml_graph: Graph) -> None:
+    """ Sets ontouml:stereotype property between an instance of ontouml:Class and an instance representing an
+    ontouml:ClassStereotype.
+
+    Warning messages:
+        - VCS1: Mandatory stereotype not assigned to a class. Result is invalid.
+        - VCS2: Class has invalid stereotype associated to it. Result is invalid.
+
+    :param class_dict: Class object loaded as a dictionary.
+    :type class_dict: dict
+    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
+    :type ontouml_graph: Graph
+    """
+
+    ENUM_CLASS_STEREOTYPE = ["type", "historicalRole", "historicalRoleMixin", "event", "situation", "category", "mixin",
+                             "roleMixin", "phaseMixin", "kind", "collective", "quantity", "relator", "quality", "mode",
+                             "subkind", "role", "phase", "enumeration", "datatype", "abstract"]
+
+    class_stereotype = get_stereotype(class_dict)
+    class_type = class_dict["type"]
+
+    # If stereotype not declared, report warning.
+    if class_stereotype == "null":
+        print_decode_log_message(class_dict, "VCS1", "stereotype")
+    else:
+        ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
+                           URIRef(URI_ONTOUML + "stereotype"),
+                           URIRef(URI_ONTOUML + class_dict['stereotype'])))
+
+        # If declared but invalid, create and report error. Uses generic message with code 'VCSG'.
+        if class_stereotype not in ENUM_CLASS_STEREOTYPE:
+            print_decode_log_message(class_dict, "VCSG", property_name="stereotype")
 
 
 def set_class_order_nonnegativeinteger(class_dict: dict, ontouml_graph: Graph) -> None:
@@ -362,7 +395,7 @@ def create_class_properties(json_data: dict, ontouml_graph: Graph, element_count
 
         # Setting properties
         set_class_order_nonnegativeinteger(class_dict, ontouml_graph)
-        set_object_stereotype(class_dict, ontouml_graph)
+        set_class_stereotype(class_dict, ontouml_graph)
         set_class_restrictedto_ontologicalnature(class_dict, ontouml_graph)
 
         # Setting default values when the values were not provided

@@ -15,7 +15,7 @@ from modules.globals import URI_ONTOUML
 from modules.logger import initialize_logger
 from modules.messages import print_decode_log_message
 from modules.sparql_queries import GET_CLASS_STEREOTYPE_ATTRIBUTE_STEREOTYPE
-from modules.utils_graph import load_graph_safely, load_ontouml_vocabulary
+from modules.utils_graph import load_ontouml_vocabulary
 
 LOGGER = initialize_logger()
 
@@ -23,13 +23,21 @@ LOGGER = initialize_logger()
 def validate_property_stereotype(ontouml_graph: Graph) -> None:
     """ Performs syntactical and semantic validations on an ontouml:Property's stereotype.
 
+    Differently from what is used in the validation of other JSON objects, this function manipulates the graph itself,
+    not the JSON object. This is because it is much straightforward to access all the necessary property elements.
+
     Validations performed:
-        a) Reports invalid property stereotypes (i.e., stereotypes different from ontouml:begin or ontouml:end.
-        b) Reports invalid stereotype use for the class associated to a property
+    VPS1) Reports invalid property stereotypes (i.e., stereotypes different from ontouml:begin or ontouml:end).
+    VPS2) Reports if a property stereotype is used in association with an invalid class stereotype.
+        I.e., a class stereotype that is known and different from 'event'.
+    VPS3) Sets class stereotype as 'event' when it is associated to a property that has an assigned valid stereotype.
 
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
+
+    if not args.ARGUMENTS["correct"]:
+        return
 
     ontouml_meta_graph = load_ontouml_vocabulary()
     aggregated_graph = ontouml_meta_graph + ontouml_graph
@@ -38,31 +46,27 @@ def validate_property_stereotype(ontouml_graph: Graph) -> None:
     for row in query_answer:
         class_id = (row.class_id).fragment
         class_stereotype = (row.class_stereotype).fragment
+        class_name = (row.class_name).fragment
         property_id = (row.property_id).fragment
         property_stereotype = (row.property_stereotype).fragment
 
-        # VALIDATION A: If declared but invalid, create and report error
-        if property_stereotype not in ["begin", "end"] and not args.ARGUMENTS["silent"]:
-            LOGGER.error(f"Invalid stereotype '{property_stereotype}' used for property with ID "
-                         f"'{property_id}'. The transformation output is syntactically INVALID.")
+        # VPS1: If the asserted stereotype is invalid, create the statement and report error.
+        if property_stereotype not in ["begin", "end"]:
+            dict_argument = {"type": "Property", "id": property_id}
+            print_decode_log_message(dict_argument, "VPS1")
 
-        # VALIDATION B1: If class has known stereotype and is not event, report sematic error.
-        elif class_stereotype not in ["event", "ClassStereotype"] and not args.ARGUMENTS["silent"]:
-            LOGGER.warning(f"Semantic error. The class with ID '{class_id}' and stereotype '{class_stereotype}' "
-                           f"has an attribute with stereotype '{property_stereotype}'. The begin and end property "
-                           f"stereotypes are only applicable to 'event' classes. Transformation proceeded as is.")
+        # VPS2: If class has known stereotype and is not event, report sematic error.
+        elif class_stereotype not in ["event", "null"]:
+            dict_argument = {"type": "Class", "name": class_name, "id": class_id, "stereotype":class_stereotype,
+                             "propID" : property_id, "propST": property_stereotype}
+            print_decode_log_message(dict_argument, "VPS2")
 
-        # VALIDATION B2: If class has unknown stereotype and stereotyped attribute, set as event.
-        elif class_stereotype == "ClassStereotype":
+        # VPS3: If class has unknown stereotype and stereotyped property, set its stereotype as 'event'.
+        elif class_stereotype == "null":
 
-            if not args.ARGUMENTS["silent"]:
-                LOGGER.warning(f"The class with ID '{class_id}' and unknown stereotype has an attribute stereotyped "
-                               f"'{property_stereotype}'. "
-                               f"It was stereotyped as 'event' for a semantically valid output.")
-
-            ontouml_graph.remove((URIRef(args.ARGUMENTS["base_uri"] + class_id),
-                                  URIRef(URI_ONTOUML + "stereotype"),
-                                  URIRef(URI_ONTOUML + "ClassStereotype")))
+            dict_argument = {"type": "Class", "name": class_name, "id": class_id, "stereotype": class_stereotype,
+                             "propID": property_id, "propST": property_stereotype}
+            print_decode_log_message(dict_argument, "VPS3")
 
             ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_id),
                                URIRef(URI_ONTOUML + "stereotype"),
@@ -86,19 +90,19 @@ def set_property_defaults(property_dict: dict, ontouml_graph: Graph) -> None:
 
     # DPA1: Setting ontouml:isDerived attribute default value
     if "isDerived" not in property_dict:
-        print_decode_log_message(property_dict, "DGA1", attribute='isDerived')
+        print_decode_log_message(property_dict, "DGA1", property_name='isDerived')
         ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + property_dict['id']),
                            URIRef(URI_ONTOUML + "isDerived"), Literal(False, datatype=XSD.boolean)))
 
     # DPA2: Setting ontouml:isOrdered attribute default value
     if "isOrdered" not in property_dict:
-        print_decode_log_message(property_dict, "DGA1", attribute='isOrdered')
+        print_decode_log_message(property_dict, "DGA1", property_name='isOrdered')
         ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + property_dict['id']),
                            URIRef(URI_ONTOUML + "isOrdered"), Literal(False, datatype=XSD.boolean)))
 
     # DPA3: Setting ontouml:isReadOnly attribute default value
     if "isReadOnly" not in property_dict:
-        print_decode_log_message(property_dict, "DGA1", attribute='isReadOnly')
+        print_decode_log_message(property_dict, "DGA1", property_name='isReadOnly')
         ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + property_dict['id']),
                            URIRef(URI_ONTOUML + "isReadOnly"), Literal(False, datatype=XSD.boolean)))
 
@@ -266,6 +270,4 @@ def create_property_properties(json_data: dict, ontouml_graph: Graph) -> None:
         set_property_relations(property_dict, ontouml_graph)
         set_cardinality_relations(property_dict, ontouml_graph)
 
-    # Performs validation if enabled by user
-    if args.ARGUMENTS["correct"]:
         validate_property_stereotype(ontouml_graph)
