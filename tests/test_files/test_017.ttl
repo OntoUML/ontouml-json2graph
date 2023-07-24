@@ -565,7 +565,9 @@
     ontouml:name       "MyClassX4" ;
     ontouml:order      "1"^^xsd:nonNegativeInteger ;
     ontouml:project    :dGSNHRGFS_j2pAvw ;
-    ontouml:stereotype ontouml:kind .
+    ontouml:stereotype ontouml:kind ;
+    ontouml:isPowertype true ;
+    ontouml:isExtensional true .
 
 # MANUALLY ADDED FOR TEST 17 --------------
 :n4ZaWxGFS_j2pAoS
@@ -588,7 +590,9 @@
     ontouml:name       "MyClassX6" ;
     ontouml:order      "1"^^xsd:nonNegativeInteger ;
     ontouml:project    :dGSNHRGFS_j2pAvw ;
-    ontouml:stereotype ontouml:kind .
+    ontouml:stereotype ontouml:kind ;
+    ontouml:isPowertype true ;
+    ontouml:isExtensional true .
 
 :gGhuFxGFS_j2pAmkX7
     a                  ontouml:Class ;
@@ -597,7 +601,9 @@
     ontouml:name       "MyClassX7" ;
     ontouml:order      "1"^^xsd:nonNegativeInteger ;
     ontouml:project    :dGSNHRGFS_j2pAvw ;
-    ontouml:stereotype ontouml:kind .
+    ontouml:stereotype ontouml:kind ;
+    ontouml:isPowertype true ;
+    ontouml:isExtensional true .
 
 :gGhuFxGFS_j2pAmkX8
     a                  ontouml:Class ;
@@ -606,7 +612,9 @@
     ontouml:name       "MyClassX8" ;
     ontouml:order      "1"^^xsd:nonNegativeInteger ;
     ontouml:project    :dGSNHRGFS_j2pAvw ;
-    ontouml:stereotype ontouml:kind .
+    ontouml:stereotype ontouml:kind ;
+    ontouml:isPowertype true ;
+    ontouml:isExtensional true .
 
 :n4ZaWxGFS_j2pAoS
     ontouml:containsModelElement :gGhuFxGFS_j2pAmkX7, :gGhuFxGFS_j2pAmkX8 .
@@ -643,18 +651,6 @@
     ontouml:isPowertype false .
 
 :gGhuFxGFS_j2pAmkX2
-    ontouml:isPowertype false .
-
-:gGhuFxGFS_j2pAmkX4
-    ontouml:isPowertype false .
-
-:gGhuFxGFS_j2pAmkX6
-    ontouml:isPowertype false .
-
-:gGhuFxGFS_j2pAmkX7
-    ontouml:isPowertype false .
-
-:gGhuFxGFS_j2pAmkX8
     ontouml:isPowertype false .
 
 :kACDQJGGAqACNwnq

@@ -24,7 +24,7 @@ def validate_class_attribute_constraints(class_dict: dict) -> None:
 
     The pair of attribute/stereotype: isExtensional/collective and isPowertype/type checked constraints are:
 
-    VCA1) If class has isExtensional True and isPowertype True, then do nothing and report error.
+    VCA1) If class is not type and has isExtensional True and isPowertype True, then do nothing and report error.
     VCA2a) If class has no stereotype and isExtensional is not null, set as ontouml:collective.
     VCA2b) If class has no stereotype and isPowertype is True, set as ontouml: type.
     VCA3a) If class has stereotype different from 'collective' and isExtensional is not null, remove isExtensional.
@@ -39,8 +39,8 @@ def validate_class_attribute_constraints(class_dict: dict) -> None:
 
     class_stereotype = get_stereotype(class_dict)
 
-    # VCA1: Reports Class without stereotype but with isExtensional value not null and isPowertype value True.
-    if ("isExtensional" in class_dict) and ("isPowertype" in class_dict):
+    # VCA1: Reports Class different from 'type' with isExtensional value not null and isPowertype value True.
+    if (class_stereotype != 'type') and ("isExtensional" in class_dict) and ("isPowertype" in class_dict):
         if class_dict["isPowertype"]:
             print_decode_log_message(class_dict, "VCA1")
 

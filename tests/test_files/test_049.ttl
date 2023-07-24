@@ -466,9 +466,7 @@
     ontouml:isDerived   false ;
     ontouml:isPowertype false ;
     ontouml:name        "Class15"@en ;
-    ontouml:order       "2"^^xsd:nonNegativeInteger ;
-    ontouml:project     :1i.ZlpGGAqACNwt0 ;
-    ontouml:stereotype  ontouml:type .
+    ontouml:project     :1i.ZlpGGAqACNwt0 .
 
 :m0pZlpGGAqACNw.t
     a                     ontouml:Class ;

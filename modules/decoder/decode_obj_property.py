@@ -46,7 +46,7 @@ def validate_property_stereotype(ontouml_graph: Graph) -> None:
     for row in query_answer:
         class_id = (row.class_id).fragment
         class_stereotype = (row.class_stereotype).fragment
-        class_name = (row.class_name).fragment
+        class_name = row.class_name.toPython()
         property_id = (row.property_id).fragment
         property_stereotype = (row.property_stereotype).fragment
 

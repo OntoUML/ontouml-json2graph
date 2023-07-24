@@ -565,7 +565,9 @@
     ontouml:name       "MyClassX4" ;
     ontouml:order      "1"^^xsd:nonNegativeInteger ;
     ontouml:project    :dGSNHRGFS_j2pAvw ;
-    ontouml:stereotype ontouml:kind .
+    ontouml:stereotype ontouml:kind ;
+    ontouml:isPowertype true ;
+    ontouml:isExtensional true .
 
 :gGhuFxGFS_j2pAmkX2
     ontouml:isExtensional true ;
@@ -599,9 +601,6 @@
     ontouml:isPowertype false .
 
 :gGhuFxGFS_j2pAmkX2
-    ontouml:isPowertype false .
-
-:gGhuFxGFS_j2pAmkX4
     ontouml:isPowertype false .
 
 :kACDQJGGAqACNwnq
