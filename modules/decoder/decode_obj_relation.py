@@ -7,7 +7,7 @@ Function's nomenclatures:
     - Functions that set both object and data properties are named: set_<subject>_properties.
 """
 
-from rdflib import Graph, URIRef, Literal
+from rdflib import Graph, URIRef, Literal, XSD
 
 import modules.arguments as args
 from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type, get_stereotype

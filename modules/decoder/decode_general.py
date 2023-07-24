@@ -6,7 +6,7 @@ import modules.arguments as args
 from modules.globals import URI_ONTOUML
 from modules.logger import initialize_logger
 from modules.sparql_queries import GET_ELEMENT_AND_TYPE
-from modules.utils_graph import load_ontouml_vocabulary, load_graph_safely
+from modules.utils_graph import load_ontouml_vocabulary
 
 LOGGER = initialize_logger()
 
@@ -48,7 +48,7 @@ def count_elements_graph(ontouml_graph: Graph) -> dict:
 
     element_counting = {}
 
-    ontouml_meta_graph = load_graph_safely("resources/ontouml_v110.ttl")
+    ontouml_meta_graph = load_ontouml_vocabulary()
     aggregated_graph = ontouml_meta_graph + ontouml_graph
     query_answer = aggregated_graph.query(GET_ELEMENT_AND_TYPE)
 
