@@ -15,7 +15,7 @@ from modules.globals import URI_ONTOUML
 from modules.logger import initialize_logger
 from modules.messages import print_decode_log_message
 from modules.sparql_queries import GET_CLASS_STEREOTYPE_ATTRIBUTE_STEREOTYPE
-from modules.utils_graph import load_ontouml_vocabulary
+from modules.utils_graph import load_graph_safely
 
 LOGGER = initialize_logger()
 
@@ -39,7 +39,7 @@ def validate_property_stereotype(ontouml_graph: Graph) -> None:
     if not args.ARGUMENTS["correct"]:
         return
 
-    ontouml_meta_graph = load_ontouml_vocabulary()
+    ontouml_meta_graph = load_graph_safely("resources/ontouml_v110.ttl")
     aggregated_graph = ontouml_meta_graph + ontouml_graph
     query_answer = aggregated_graph.query(GET_CLASS_STEREOTYPE_ATTRIBUTE_STEREOTYPE)
 
@@ -57,8 +57,8 @@ def validate_property_stereotype(ontouml_graph: Graph) -> None:
 
         # VPS2: If class has known stereotype and is not event, report sematic error.
         elif class_stereotype not in ["event", "null"]:
-            dict_argument = {"type": "Class", "name": class_name, "id": class_id, "stereotype":class_stereotype,
-                             "propID" : property_id, "propST": property_stereotype}
+            dict_argument = {"type": "Class", "name": class_name, "id": class_id, "stereotype": class_stereotype,
+                             "propID": property_id, "propST": property_stereotype}
             print_decode_log_message(dict_argument, "VPS2")
 
         # VPS3: If class has unknown stereotype and stereotyped property, set its stereotype as 'event'.
