@@ -86,7 +86,7 @@ def create_generalizationset_properties(json_data: dict, ontouml_graph: Graph) -
     for generalizationset_dict in list_generalizationset_dicts:
 
         # Removing dictionaries that are only references
-        if "generalizations" not in generalizationset_dict:
+        if len(generalizationset_dict) < 3:
             continue
 
         set_generalizationset_defaults(generalizationset_dict, ontouml_graph)

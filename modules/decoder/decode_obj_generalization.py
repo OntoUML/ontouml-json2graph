@@ -53,7 +53,7 @@ def create_generalization_properties(json_data: dict, ontouml_graph: Graph) -> N
     for generalization_dict in list_generalization_dicts:
 
         # Removing dictionaries that are only references
-        if "general" not in generalization_dict:
+        if len(generalization_dict) < 3:
             continue
 
         set_generalization_relations(generalization_dict, ontouml_graph)

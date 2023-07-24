@@ -263,7 +263,7 @@ def create_property_properties(json_data: dict, ontouml_graph: Graph) -> None:
     for property_dict in property_dicts_list:
 
         # Removing possible dictionaries that are only references
-        if ("isDerived" not in property_dict) and ("name" not in property_dict):
+        if len(property_dict) < 3:
             continue
 
         set_property_defaults(property_dict, ontouml_graph)

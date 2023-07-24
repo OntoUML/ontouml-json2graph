@@ -88,7 +88,7 @@ def create_elementview_properties(json_data: dict, ontouml_graph: Graph) -> None
     for elementview_dict in list_all_elementview_dicts:
 
         # Removing dictionaries that are only references
-        if "shape" not in elementview_dict:
+        if len(elementview_dict) < 3:
             continue
 
         set_elementview_relations(elementview_dict, ontouml_graph)

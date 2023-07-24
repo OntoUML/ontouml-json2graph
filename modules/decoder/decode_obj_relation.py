@@ -132,7 +132,7 @@ def create_relation_properties(json_data: dict, ontouml_graph: Graph) -> None:
     for relation_dict in list_relation_dicts:
 
         # Removing possible dictionaries that are only references
-        if "properties" not in relation_dict:
+        if len(relation_dict) < 3:
             continue
 
         set_relation_defaults(relation_dict, ontouml_graph)
