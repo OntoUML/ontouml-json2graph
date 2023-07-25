@@ -30,7 +30,7 @@ def validate_property_stereotype(ontouml_graph: Graph) -> None:
     Validations performed:
     VPS1) Reports invalid property stereotypes (i.e., stereotypes different from ontouml:begin or ontouml:end).
     VPS2) Reports if a property stereotype is used in association with an invalid class stereotype.
-        I.e., a class stereotype that is known and different from 'event'.
+    I.e., a class stereotype that is known and different from 'event'.
     VPS3) Sets class stereotype as 'event' when it is associated to a property that has an assigned valid stereotype.
 
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.

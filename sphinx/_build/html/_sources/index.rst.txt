@@ -12,7 +12,6 @@ OntoUML JSON2Graph Decoder's Documentation!
 
    main
    modules
-   modules.decoder
 
 Indices and tables
 ==================
