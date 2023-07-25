@@ -33,5 +33,3 @@ goto end
 
 :end
 popd
-
-xcopy .\_build\html ..\docs\ /E/H

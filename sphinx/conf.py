@@ -12,7 +12,7 @@ sys.path.insert(0, os.path.abspath(".."))
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'ontouml-json2graph'
-copyright = '2023, Pedro Paulo F. Barcelos'
+copyright = 'Barcelos, P.P.F. (2023)'
 author = 'Pedro Paulo F. Barcelos'
 release = '2023.07.25'
 
@@ -20,7 +20,7 @@ release = '2023.07.25'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = ["sphinx.ext.autodoc", "sphinx.ext.autosectionlabel", "sphinx.ext.autosummary", "sphinx.ext.coverage",
-              "sphinx.ext.doctest", "sphinx.ext.githubpages"]
+              "sphinx.ext.doctest", "sphinx.ext.githubpages", 'myst_parser']
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']

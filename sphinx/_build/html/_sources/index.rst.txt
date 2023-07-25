@@ -10,6 +10,7 @@ OntoUML JSON2Graph Decoder's Documentation
    :maxdepth: 2
    :caption: Contents:
 
+   README
    main
    modules
 
