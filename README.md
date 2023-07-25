@@ -8,11 +8,18 @@ This application was constructed with [RDFLib](https://rdflib.readthedocs.io/en/
 
 This project [complete docstring-generated documentation](https://w3id.org/ontouml/json2graph/docs) is available for inquiries.
 
+## Contents
+
+<!-- TOC -->
 * [The OntoUML JSON2Graph Transformation](#the-ontouml-json2graph-transformation)
+  * [Contents](#contents)
   * [Installing and Executing](#installing-and-executing)
   * [Arguments](#arguments)
   * [Basic Syntactical and Sematic Validation](#basic-syntactical-and-sematic-validation)
-  * [Authorship](#authorship)
+  * [Permanent URLs and Identifiers](#permanent-urls-and-identifiers)
+  * [Related Projects](#related-projects)
+  * [Author](#author)
+<!-- TOC -->
 
 ## Installing and Executing
 
