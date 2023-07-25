@@ -12,8 +12,8 @@ from modules.logger import initialize_logger
 from modules.utils_general import get_date_time
 
 
-def ontouml_json2graph(json_path: str, graph_format: str, language: str = "",
-                       execution_mode: str = "production") -> str:
+def decode_ontouml_json2graph(json_path: str, graph_format: str, language: str = "",
+                              execution_mode: str = "production") -> str:
     """ Main function for ontouml-json2graph.
 
     :param json_path: Path to the JSON file to be decoded provided by the user.
@@ -95,4 +95,4 @@ if __name__ == '__main__':
     language = args.ARGUMENTS["language"]
 
     # Execute the transformation
-    ontouml_json2graph(json_path, graph_format, language, "production")
+    decode_ontouml_json2graph(json_path, graph_format, language, "production")

@@ -20,7 +20,7 @@ release = '2023.07.25'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = ["sphinx.ext.autodoc", "sphinx.ext.autosectionlabel", "sphinx.ext.autosummary", "sphinx.ext.coverage",
-    "sphinx.ext.doctest", "sphinx.ext.githubpages"]
+              "sphinx.ext.doctest", "sphinx.ext.githubpages"]
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
@@ -30,3 +30,4 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
+html_logo = "../resources/Logo JSON2Graph Decoder.png"

@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pytest
 
-from main import ontouml_json2graph
+from main import decode_ontouml_json2graph
 from test_aux import get_test_list, compare_graphs
 
 LIST_OF_TESTS = get_test_list()
@@ -25,7 +25,7 @@ def test_ontouml_json2graph(input_file: str) -> None:
     language = "en" if (int(test_name[-2:]) > 41) else ""
 
     # Create resulting Graph in ttl syntax
-    resulting_graph_file = ontouml_json2graph(input_file, "ttl", language, "test")
+    resulting_graph_file = decode_ontouml_json2graph(input_file, "ttl", language, "test")
 
     # Getting expected result
     expected_graph_file = input_file.replace(".json", ".ttl")
