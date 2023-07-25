@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-OntoUML JSON2Graph Decoder's Documentation!
+OntoUML JSON2Graph Decoder's Documentation
 ==============================================
 
 .. toctree::
