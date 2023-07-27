@@ -1,4 +1,8 @@
-""" Main file for ontouml-json2graph. """
+""" Main file for ontouml-json2graph.
+
+It provides a convenient interface for converting OntoUML JSON files into knowledge graphs,
+with the flexibility to customize the output and control the execution mode for different use cases.
+"""
 
 import time
 

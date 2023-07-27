@@ -1,0 +1,16 @@
+[project]
+name = "ontouml-json2graph"
+description = "OntoUML JSON2Graph Decoder"
+version = "2023.07.27"
+authors = ["Pedro Paulo F. Barcelos <pedropaulofb@gmail.com>"]
+license = { text = "Apache-2.0" }
+keywords = ["semantic-web", "knowledge-graph", "ontouml", "ontology-driven-development", "ontouml-schema",
+    "ontouml-vocabulary", "ontouml-metamodel"]
+
+homepage = "https://w3id.org/ontouml/json2graph"
+repository = "https://w3id.org/ontouml/json2graph"
+documentation = "https://w3id.org/ontouml/json2graph/docs"
+
+[project.readme]
+file = "README.md"
+content-type = "text/markdown"
