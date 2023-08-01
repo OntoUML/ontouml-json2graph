@@ -4,7 +4,7 @@ import argparse
 
 import validators as validators
 
-from modules.globals import SOFTWARE_ACRONYM, SOFTWARE_VERSION, SOFTWARE_NAME, SOFTWARE_URL, ALLOWED_GRAPH_FORMATS
+from modules.globals import METADATA
 from modules.logger import initialize_logger
 
 LOGGER = initialize_logger()
@@ -19,40 +19,45 @@ def treat_user_arguments() -> dict:
     :raises OSError: If provided input is not of JSON type.
     """
 
+    # Formats for saving graphs supported by RDFLib
+    # https://rdflib.readthedocs.io/en/stable/intro_to_parsing.html#saving-rdf
+    allowed_graph_formats = ["turtle", "ttl", "turtle2", "xml", "pretty-xml", "json-ld", "ntriples", "nt", "nt11", "n3",
+                             "trig", "trix", "nquads"]
+
     LOGGER.debug("Parsing user's arguments...")
 
-    about_message = SOFTWARE_ACRONYM + " - version " + SOFTWARE_VERSION
+    about_message = METADATA["name"] + " - version " + METADATA["version"]
 
     # PARSING ARGUMENTS
-    arguments_parser = argparse.ArgumentParser(prog=SOFTWARE_ACRONYM,
-                                               description=SOFTWARE_NAME + ". Version: " + SOFTWARE_VERSION,
-                                               allow_abbrev=False, epilog="More information at: " + SOFTWARE_URL)
+    args_parser = argparse.ArgumentParser(prog=METADATA["name"],
+                                          description=METADATA["description"] + ". Version: " + METADATA["version"],
+                                          allow_abbrev=False, epilog="More information at: " + METADATA["repository"])
 
-    arguments_parser.version = about_message
+    args_parser.version = about_message
 
     # POSITIONAL ARGUMENT
-    arguments_parser.add_argument("json_file", type=str, action="store",
-                                  help="The path of the JSON file to be encoded.")
+    args_parser.add_argument("json_file", type=str, action="store",
+                             help="The path of the JSON file to be encoded.")
 
     # OPTIONAL ARGUMENT
-    arguments_parser.add_argument("-f", "--format", action="store", choices=ALLOWED_GRAPH_FORMATS, default="ttl",
-                                  help="Format to save the decoded file. Default is 'ttl'.")
-    arguments_parser.add_argument("-l", "--language", action="store", type=str, default="",
-                                  help="Language tag for the ontology's concepts. Default is 'None'.")
-    arguments_parser.add_argument("-c", "--correct", action="store_true",
-                                  help="Enables syntactical and semantic validations and corrections.")
-    arguments_parser.add_argument("-s", "--silent", action="store_true",
-                                  help="Silent mode. Does not present validation warnings and errors.")
-    arguments_parser.add_argument("-u", "--base_uri", action="store", type=str, default="https://example.org#",
-                                  help="Base URI of the resulting graph. Default is 'https://example.org#'.")
-    arguments_parser.add_argument("-m", "--model_only", action="store_true",
-                                  help="Keep only model elements, eliminating all diagrammatic data from output.")
+    args_parser.add_argument("-f", "--format", action="store", choices=allowed_graph_formats, default="ttl",
+                             help="Format to save the decoded file. Default is 'ttl'.")
+    args_parser.add_argument("-l", "--language", action="store", type=str, default="",
+                             help="Language tag for the ontology's concepts. Default is 'None'.")
+    args_parser.add_argument("-c", "--correct", action="store_true",
+                             help="Enables syntactical and semantic validations and corrections.")
+    args_parser.add_argument("-s", "--silent", action="store_true",
+                             help="Silent mode. Does not present validation warnings and errors.")
+    args_parser.add_argument("-u", "--base_uri", action="store", type=str, default="https://example.org#",
+                             help="Base URI of the resulting graph. Default is 'https://example.org#'.")
+    args_parser.add_argument("-m", "--model_only", action="store_true",
+                             help="Keep only model elements, eliminating all diagrammatic data from output.")
 
     # AUTOMATIC ARGUMENTS
-    arguments_parser.add_argument("-v", "--version", action="version", help="Print the software version and exit.")
+    args_parser.add_argument("-v", "--version", action="version", help="Print the software version and exit.")
 
     # Execute arguments parser
-    arguments = arguments_parser.parse_args()
+    arguments = args_parser.parse_args()
 
     # Asserting dictionary keys
     arguments_dictionary = {"format": arguments.format,

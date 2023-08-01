@@ -11,14 +11,16 @@ This project [complete docstring-generated documentation](https://w3id.org/ontou
 ## Contents
 
 <!-- TOC -->
+
 * [The OntoUML JSON2Graph Transformation](#the-ontouml-json2graph-transformation)
-  * [Contents](#contents)
-  * [Installing and Executing](#installing-and-executing)
-  * [Arguments](#arguments)
-  * [Basic Syntactical and Sematic Validation](#basic-syntactical-and-sematic-validation)
-  * [Permanent URLs and Identifiers](#permanent-urls-and-identifiers)
-  * [Related Projects](#related-projects)
-  * [Author](#author)
+    * [Contents](#contents)
+    * [Installing and Executing](#installing-and-executing)
+    * [Arguments](#arguments)
+    * [Basic Syntactical and Sematic Validation](#basic-syntactical-and-sematic-validation)
+    * [Permanent URLs and Identifiers](#permanent-urls-and-identifiers)
+    * [Related Projects](#related-projects)
+    * [Author](#author)
+
 <!-- TOC -->
 
 ## Installing and Executing
@@ -86,20 +88,23 @@ options:
 ## Permanent URLs and Identifiers
 
 - Repository: https://w3id.org/ontouml/json2graph
-- Documentation: https://w3id.org/ontouml/json2graph/docs 
-- Releases: 
-  - Latest: https://w3id.org/ontouml/json2graph/latest
-  - Version: https://w3id.org/ontouml/json2graph/v<n>, where \<n\> is a version number (e.g., '1.0.0')
+- Documentation: https://w3id.org/ontouml/json2graph/docs
+- Releases:
+    - Latest: https://w3id.org/ontouml/json2graph/latest
+    - Version: https://w3id.org/ontouml/json2graph/v<n>, where \<n\> is a version number (e.g., '1.0.0')
 
 ## Related Projects
 
-- **[OntoUML Metamodel](https://w3id.org/ontouml/metamodel)**: Implementation-independent OntoUML Metamodel. Unlike the UML profile, this version is independent of UML and presents only the concepts officially supported in the language. This metamodel covers the abstract and concrete syntaxes of the language and serves as the reference for all projects in the [OntoUML as a Service (OaaS)](https://ceur-ws.org/Vol-2969/paper29-FOMI.pdf) ecosystem, including its different model serializations.
+- **[OntoUML Metamodel](https://w3id.org/ontouml/metamodel)
+  **: Implementation-independent OntoUML Metamodel. Unlike the UML profile, this version is independent of UML and presents only the concepts officially supported in the language. This metamodel covers the abstract and concrete syntaxes of the language and serves as the reference for all projects in the [OntoUML as a Service (OaaS)](https://ceur-ws.org/Vol-2969/paper29-FOMI.pdf) ecosystem, including its different model serializations.
 
 
-- **[OntoUML Vocabulary](https://w3id.org/ontouml/vocabulary)**: An OntoUML Metamodel's serialization in Turtle (ttl) format. This vocabulary supports the serialization, exchange, and publishing of OntoUML models as graphs that can be used for Semantic Web and Linked Data applications.
+- **[OntoUML Vocabulary](https://w3id.org/ontouml/vocabulary)
+  **: An OntoUML Metamodel's serialization in Turtle (ttl) format. This vocabulary supports the serialization, exchange, and publishing of OntoUML models as graphs that can be used for Semantic Web and Linked Data applications.
 
 
-- **[OntoUML Schema](https://w3id.org/ontouml/schema)**: An OntoUML Metamodel's serialization in JSON format. The JSON is a format better suited for manipulation within software code. It supports the exchange of models between modeling tools and the OntoUML server, providing model intelligent services.
+- **[OntoUML Schema](https://w3id.org/ontouml/schema)
+  **: An OntoUML Metamodel's serialization in JSON format. The JSON is a format better suited for manipulation within software code. It supports the exchange of models between modeling tools and the OntoUML server, providing model intelligent services.
 
 ## Author
 
@@ -107,4 +112,5 @@ This project is maintained by the [Semantics, Cybersecurity & Services (SCS) Gro
 
 - [Pedro Paulo Favato Barcelos](https://orcid.org/0000-0003-2736-7817) [[GitHub](https://github.com/pedropaulofb)] [[LinkedIn](https://www.linkedin.com/in/pedropaulofavatobarcelos/)]
 
-Feel free to get in contact using the links provided. For questions, contributions, or to report any problem, you can **[open an issue](https://github.com/OntoUML/ontouml-json2graph/issues)** at this repository.
+Feel free to get in contact using the links provided. For questions, contributions, or to report any problem, you can *
+*[open an issue](https://github.com/OntoUML/ontouml-json2graph/issues)** at this repository.

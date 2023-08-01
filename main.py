@@ -10,7 +10,7 @@ from rdflib import RDF
 
 import modules.arguments as args
 from modules.decoder.decode_main import decode_json_to_graph
-from modules.globals import SOFTWARE_NAME, SOFTWARE_VERSION, MODEL_ELEMENTS
+from modules.globals import METADATA
 from modules.input_output import safe_load_json_file, write_graph_file
 from modules.logger import initialize_logger
 from modules.utils_general import get_date_time
@@ -34,6 +34,8 @@ def decode_ontouml_json2graph(json_path: str, graph_format: str, language: str =
 
     logger = initialize_logger(execution_mode)
 
+    model_elements = ["Class", "Property", "Generalization", "GeneralizationSet", "Relation", "Cardinality"]
+
     # Setting tests' arguments
     if execution_mode == "test":
         args.ARGUMENTS["correct"] = True
@@ -47,7 +49,7 @@ def decode_ontouml_json2graph(json_path: str, graph_format: str, language: str =
         start_date_time = get_date_time(time_screen_format)
         st = time.perf_counter()
 
-        logger.info(f"{SOFTWARE_NAME} v{SOFTWARE_VERSION} started on {start_date_time}!")
+        logger.info(f"{METADATA['name']} v{METADATA['version']} started on {start_date_time}!")
         logger.debug(f"Selected arguments are: {args.ARGUMENTS}")
         logger.info(f"Decoding JSON file {json_path} to {(args.ARGUMENTS['format']).upper()} graph format.\n")
 
@@ -70,7 +72,7 @@ def decode_ontouml_json2graph(json_path: str, graph_format: str, language: str =
             s_type = s.toPython()
             o_type = o.fragment
             # Remove if not a model element and if it is defined by of the ontology being handled
-            if (args.ARGUMENTS["base_uri"] in s_type) and (o_type not in MODEL_ELEMENTS):
+            if (args.ARGUMENTS["base_uri"] in s_type) and (o_type not in model_elements):
                 ontouml_graph.remove((s, None, None))
                 ontouml_graph.remove((None, None, s))
         if not args.ARGUMENTS["silent"]:
