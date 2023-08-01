@@ -3,10 +3,9 @@
 from rdflib import Graph, URIRef, Literal, RDF
 
 import modules.arguments as args
-from modules.globals import URI_ONTOUML
 from modules.logger import initialize_logger
 from modules.sparql_queries import GET_ELEMENT_AND_TYPE
-from modules.utils_graph import load_ontouml_vocabulary
+from modules.utils_graph import load_ontouml_vocabulary, ontouml_ref
 
 LOGGER = initialize_logger()
 
@@ -24,16 +23,16 @@ def create_point(point_id: str, x_coord: int, y_coord: int, ontouml_graph: Graph
     :type ontouml_graph: Graph
     """
 
-    ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + point_id), RDF.type, URIRef(URI_ONTOUML + "Point")))
+    ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + point_id), RDF.type, ontouml_ref("Point")))
 
     # Setting x coordinate
     ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + point_id),
-                       URIRef(URI_ONTOUML + "xCoordinate"),
+                       ontouml_ref("xCoordinate"),
                        Literal(x_coord)))
 
     # Setting y coordinate
     ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + point_id),
-                       URIRef(URI_ONTOUML + "yCoordinate"),
+                       ontouml_ref("yCoordinate"),
                        Literal(y_coord)))
 
 

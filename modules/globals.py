@@ -1,9 +1,17 @@
 """ Global variables definitions. """
+from os.path import exists
+
 import toml as toml
 
-# Software's metadata
+# Software's metadata got from pyproject.toml config file
 global METADATA
-metadata_project = toml.load("../pyproject.toml")
+
+pyproject_file = "pyproject.toml"
+pyproject_path_prod = "./" + pyproject_file
+pyproject_path_test = "../" + pyproject_file
+pyproject_path = pyproject_path_prod if exists(pyproject_file) else pyproject_path_test
+
+metadata_project = toml.load(pyproject_path)
 METADATA = metadata_project["project"]
 
 # URIs

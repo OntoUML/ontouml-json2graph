@@ -3,10 +3,26 @@
 from rdflib import Graph, URIRef, RDF
 
 from modules.errors import report_error_io_read
-from modules.globals import URI_ONTOUML, CONFORMS_TO_VOCAB_VERSION
+from modules.globals import URI_ONTOUML, METADATA
 from modules.logger import initialize_logger
 
 LOGGER = initialize_logger()
+
+
+def ontouml_ref(entity: str) -> URIRef:
+    """ Receives the name of the OntoUML Vocabulary's entity as a string and returns the corresponding URIRef.
+
+    :param entity: OntoUML Vocabulary entity (class, property, or individual) to have its URIRef returned.
+    :type entity: str
+    :return: URIRef of the informed OntoUML Vocabulary's entity.
+    :rtype: URIRef
+    """
+
+    entity_uri = METADATA["conformsTo"] + "#" + entity
+
+    entity_uriref = URIRef(entity_uri)
+
+    return entity_uriref
 
 
 def load_ontouml_vocabulary() -> Graph:
@@ -19,17 +35,17 @@ def load_ontouml_vocabulary() -> Graph:
 
     ontology_graph = Graph()
 
-    remote_option = "https://github.com/OntoUML/ontouml-vocabulary/releases/download/v" + \
-                    CONFORMS_TO_VOCAB_VERSION + "/ontouml.ttl"
+    remote_option = "https://github.com/OntoUML/ontouml-vocabulary/releases/download/" + \
+                    METADATA['conformsToVersion'] + "/ontouml.ttl"
     local_option = "resources/ontouml_v110.ttl"
 
     try:
         ontology_graph.parse(remote_option, encoding='utf-8', format="ttl")
-        LOGGER.debug(f"OntoUML Vocabulary successfully loaded to working memory from remote option.")
+        LOGGER.debug("OntoUML Vocabulary successfully loaded to working memory from remote option.")
     except:
         try:
             ontology_graph.parse(local_option, encoding='utf-8', format="ttl")
-            LOGGER.debug(f"OntoUML Vocabulary successfully loaded to working memory from local option.")
+            LOGGER.debug("OntoUML Vocabulary successfully loaded to working memory from local option.")
         except OSError as error:
             report_error_io_read("OntoUML Vocabulary", "from remote or local sources the", error)
 
@@ -76,7 +92,7 @@ def get_all_ids_for_type(ontology_graph: Graph, element_type: str) -> list[str]:
     list_of_ids_of_type = []
 
     # Getting the ID of all OntoUML Elements that are of element_type
-    for element in ontology_graph.subjects(RDF.type, URIRef(URI_ONTOUML + element_type)):
+    for element in ontology_graph.subjects(RDF.type, ontouml_ref(element_type)):
         element = element.fragment
         list_of_ids_of_type.append(element)
 

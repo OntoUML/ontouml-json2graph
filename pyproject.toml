@@ -11,10 +11,9 @@ homepage = "https://w3id.org/ontouml/json2graph"
 repository = "https://w3id.org/ontouml/json2graph"
 documentation = "https://w3id.org/ontouml/json2graph/docs"
 
+conformsTo = "https://w3id.org/ontouml"
+conformsToVersion = "v1.1.0"
+
 [project.readme]
 file = "README.md"
 content-type = "text/markdown"
-
-[extra]
-conformsTo = "https://w3id.org/ontouml"
-conformsToVersion = "v1.1.0"

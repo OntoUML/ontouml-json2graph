@@ -12,7 +12,7 @@ from rdflib import Graph, URIRef
 
 import modules.arguments as args
 from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type, create_point
-from modules.globals import URI_ONTOUML
+from modules.utils_graph import ontouml_ref
 
 
 def set_path_path_point(path_dict: dict, ontouml_graph: Graph) -> None:
@@ -34,7 +34,7 @@ def set_path_path_point(path_dict: dict, ontouml_graph: Graph) -> None:
 
         # Associating new Point with the Path
         ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + path_dict["id"]),
-                           URIRef(URI_ONTOUML + "point"),
+                           ontouml_ref("point"),
                            URIRef(args.ARGUMENTS["base_uri"] + point_name)))
 
         point_counter += 1

@@ -18,6 +18,7 @@ from modules.decoder.decode_obj_relation import create_relation_properties
 from modules.globals import URI_ONTOUML, ELEMENT_VIEW_TYPES, METADATA
 from modules.logger import initialize_logger
 from modules.utils_general import get_date_time
+from modules.utils_graph import ontouml_ref
 
 LOGGER = initialize_logger()
 
@@ -96,7 +97,7 @@ def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph, language: str
     new_instance = URIRef(instance_uri)
 
     # Setting instance type
-    instance_type = URIRef(URI_ONTOUML + dictionary_data["type"])
+    instance_type = ontouml_ref(dictionary_data["type"])
     ontouml_graph.add((new_instance, RDF.type, instance_type))
 
     # Adding other attributes
@@ -125,9 +126,9 @@ def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph, language: str
         # Graph's PREDICATE definition
         # May be direct or mapped
         if key not in mapped_fields.keys():
-            new_predicate = URIRef(URI_ONTOUML + key)
+            new_predicate = ontouml_ref(key)
         else:
-            new_predicate = URIRef(URI_ONTOUML + mapped_fields[key])
+            new_predicate = ontouml_ref(mapped_fields[key])
 
         # Graph's OBJECT definition
         if (key == "name") and language != "":

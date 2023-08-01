@@ -12,7 +12,7 @@ from rdflib import Graph, URIRef
 
 import modules.arguments as args
 from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type
-from modules.globals import URI_ONTOUML
+from modules.utils_graph import ontouml_ref
 
 
 def get_package_contents(package_dict: dict, package_id: str, list_contents: list = []) -> list[dict]:
@@ -84,7 +84,7 @@ def set_package_containsmodelelement_modelelement(package_dict: dict, ontouml_gr
         # Include found related elements in graph using ontouml:containsModelElement
         for related_id in list_related_ids:
             ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + package_dict["id"]),
-                               URIRef(URI_ONTOUML + "containsModelElement"),
+                               ontouml_ref("containsModelElement"),
                                URIRef(args.ARGUMENTS["base_uri"] + related_id)))
 
 

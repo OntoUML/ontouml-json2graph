@@ -12,7 +12,7 @@ from rdflib import Graph, URIRef
 
 import modules.arguments as args
 from modules.decoder.decode_general import get_all_ids_of_specific_type, get_list_subdictionaries_for_specific_type
-from modules.globals import URI_ONTOUML
+from modules.utils_graph import ontouml_ref
 
 
 def set_ontoumlelement_project_project(project_dict: dict, ontouml_graph: Graph, element_counting: dict) -> None:
@@ -38,7 +38,7 @@ def set_ontoumlelement_project_project(project_dict: dict, ontouml_graph: Graph,
 
         for json_object_id in list_objects_ids:
             statement_subject = URIRef(args.ARGUMENTS["base_uri"] + json_object_id)
-            statement_predicate = URIRef(URI_ONTOUML + "project")
+            statement_predicate = ontouml_ref("project")
             statement_object = URIRef(args.ARGUMENTS["base_uri"] + project_dict["id"])
             ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
@@ -54,7 +54,7 @@ def set_project_model_package(project_dict: dict, ontouml_graph: Graph) -> None:
 
     if "model" in project_dict:
         statement_subject = URIRef(args.ARGUMENTS["base_uri"] + project_dict["id"])
-        statement_predicate = URIRef(URI_ONTOUML + "model")
+        statement_predicate = ontouml_ref("model")
         statement_object = URIRef(args.ARGUMENTS["base_uri"] + project_dict["model"]["id"])
         ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
@@ -73,7 +73,7 @@ def set_project_diagram_diagram(project_dict: dict, ontouml_graph: Graph) -> Non
 
     for diagram_id in list_all_diagram_ids:
         statement_subject = URIRef(args.ARGUMENTS["base_uri"] + project_dict["id"])
-        statement_predicate = URIRef(URI_ONTOUML + "diagram")
+        statement_predicate = ontouml_ref("diagram")
         statement_object = URIRef(args.ARGUMENTS["base_uri"] + diagram_id)
         ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 

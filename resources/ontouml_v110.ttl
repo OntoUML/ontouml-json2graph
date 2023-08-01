@@ -1,4 +1,3 @@
-@prefix :        <https://w3id.org/ontouml#> .
 @prefix dcat:    <http://www.w3.org/ns/dcat#> .
 @prefix dct:     <http://purl.org/dc/terms/> .
 @prefix foaf:    <http://xmlns.com/foaf/0.1/> .
@@ -6,85 +5,79 @@
 @prefix owl:     <http://www.w3.org/2002/07/owl#> .
 @prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix sdo:     <https://schema.org/> .
 @prefix vann:    <http://purl.org/vocab/vann/> .
 @prefix xml:     <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
 @base <https://w3id.org/ontouml> .
+
 
 #################################################################
 #    Metadata
 #################################################################
 
 <https://w3id.org/ontouml>
-    rdf:type                                                                                    owl:Ontology,
-                                                                                                dct:Standard ;
+    rdf:type                      owl:Ontology, dct:Standard ;
 
 ################################################################# VERSIONING
 
-    owl:versionIRI                                                                              <https://w3id.org/ontouml/1.1.0> ;
-    owl:versionInfo                                                                             "General review for compliance with the OntoUML Metamodel 1.1.0."@en ;
-    owl:priorVersion                                                                            <https://w3id.org/ontouml/1.0.0> ;
-    dct:issued                                                                                  "2022-04-03"^^xsd:date ;
-    dct:modified                                                                                "2023-07-23"^^xsd:date ;
+    owl:versionIRI                <https://w3id.org/ontouml/vocabulary/v1.1.0> ;
+    owl:versionInfo               "General review for compliance with the OntoUML Metamodel 1.1.1."@en ;
+    owl:priorVersion              <https://w3id.org/ontouml/vocabulary/v1.0.0> ;
+    dct:issued                    "2022-04-03"^^xsd:date ;
+    dct:modified                  "2023-07-27"^^xsd:date ;
 
 ################################################################# IDENTIFICATION
 
-    dct:title                                                                                   "OntoUML Metamodel Vocabulary"@en ;
-    dct:description                                                                             "A reference implementation of the OntoUML Metamodel in OWL."@en ;
-    dct:identifier                                                                              "https://w3id.org/ontouml"^^xsd:anyURI ;
-    dct:license                                                                                 <https://creativecommons.org/licenses/by-sa/4.0> ;
-    dct:conformsTo                                                                              <https://w3id.org/ontouml/metamodel/v1.1.0> ;
-    dcat:landingPage                                                                            <https://w3id.org/ontouml/vocabulary> ;
-    vann:preferredNamespacePrefix                                                               "ontouml" ;
-    vann:preferredNamespaceUri                                                                  "https://w3id.org/ontouml#"^^xsd:anyURI ;
-    foaf:homepage                                                                               <https://purl.org/> ;
-    dct:language                                                                                <http://id.loc.gov/vocabulary/iso639-1/en> ;
-    dct:isReferencedBy                                                                          <https://dblp.org/rec/conf/jowo/FonsecaSVFGA21.html>,
-                                                                                                <https://doi.org/10.1007/978-3-031-17995-2_1> ;
-    dcat:keyword                                                                                "OntoUML"@en,
-                                                                                                "OntoUML-Metamodel"@en,
-                                                                                                "OntoUML-Vocabulary"@en,
-                                                                                                "Ontology-Driven Conceptual Modeling"@en ;
+    dct:title                     "OntoUML Vocabulary"@en ;
+    dct:description               "An OWL vocabulary to allow the serialization and exchanging of OntoUML models in conformance with the Ontouml Metamodel."@en ;
+    dct:identifier                "https://w3id.org/ontouml"^^xsd:anyURI ;
+    dct:license                   <https://creativecommons.org/licenses/by-sa/4.0> ;
+    dct:conformsTo                <https://w3id.org/ontouml/metamodel/v1.1.1> ;
+    dcat:landingPage              <https://w3id.org/ontouml/vocabulary> ;
+    foaf:homepage                 <https://w3id.org/ontouml/vocabulary/docs> ;
+    vann:preferredNamespacePrefix "ontouml" ;
+    vann:preferredNamespaceUri    "https://w3id.org/ontouml#"^^xsd:anyURI ;
+    dct:language                  <http://id.loc.gov/vocabulary/iso639-1/en> ;
+    dct:isReferencedBy            <https://dblp.org/rec/conf/jowo/FonsecaSVFGA21.html>,
+                                  <https://doi.org/10.1007/978-3-031-17995-2_1> ;
+    dcat:keyword                  "OntoUML"@en, "OntoUML-Metamodel"@en, "Ontology-Driven Conceptual Modeling"@en ;
 
 ################################################################# AUTHORSHIP
 
-    dct:publisher                                                                               <https://www.utwente.nl/en/eemcs/scs/> ;
-    dct:creator                                                                                 [ sdo:name
-                                                                                                          "Tiago Prince Sales"@en ;
-                                                                                                  sdo:identifier
-                                                                                                          <https://orcid.org/0000-0002-5385-5761> ;
-                                                                                                  sdo:affiliation
-                                                                                                          <https://www.utwente.nl/en/eemcs/scs/> ; ],
-                                                                                                [ sdo:name
-                                                                                                          "Claudenir M. Fonseca"@en ;
-                                                                                                  sdo:identifier
-                                                                                                          <https://orcid.org/0000-0003-2528-3118> ;
-                                                                                                  sdo:affiliation
-                                                                                                          <https://www.utwente.nl/en/eemcs/scs/> ; ],
-                                                                                                [ sdo:name
-                                                                                                          "Pedro Paulo Favato Barcelos"@en ;
-                                                                                                  sdo:identifier
-                                                                                                          <https://orcid.org/0000-0003-2736-7817> ;
-                                                                                                  sdo:affiliation
-                                                                                                          <https://www.utwente.nl/en/eemcs/scs/> ; ] ;
-    dct:contributor                                                                             [ sdo:name
-                                                                                                          "Mattia Fumagalli"@en ;
-                                                                                                  sdo:identifier
-                                                                                                          <https://orcid.org/0000-0003-3385-4769> ;
-                                                                                                  sdo:affiliation
-                                                                                                          <https://www.inf.unibz.it/krdb/> ; ] .
-
+    dct:publisher                 <https://www.utwente.nl/en/eemcs/scs/> ;
+    dct:creator                   <https://orcid.org/0000-0002-5385-5761>, <https://orcid.org/0000-0003-2528-3118>,
+                                  <https://orcid.org/0000-0003-2736-7817> ;
+    dct:contributor               <https://orcid.org/0000-0003-3385-4769> .
 
 <https://www.inf.unibz.it/krdb/>
-    rdf:type sdo:Organization ;
-    sdo:name "KRDB Research Centre for Knowledge and Data, Free University of Bozen-Bolzano, Italy" ;
-    sdo:url  "https://www.inf.unibz.it/krdb/"^^xsd:anyURI .
+    rdf:type      foaf:Organization ;
+    foaf:name     "KRDB Research Centre for Knowledge and Data, Free University of Bozen-Bolzano, Italy" ;
+    foaf:homepage "https://www.inf.unibz.it/krdb/"^^xsd:anyURI ;
+    foaf:member   <https://orcid.org/0000-0003-3385-4769> .
 
 <https://www.utwente.nl/en/eemcs/scs/>
-    rdf:type sdo:Organization ;
-    sdo:name "Semantics, Cybersecurity & Services (SCS), University of Twente, the Netherlands" ;
-    sdo:url  "https://www.utwente.nl/en/eemcs/scs/"^^xsd:anyURI .
+    rdf:type      foaf:Organization ;
+    foaf:name     "Semantics, Cybersecurity & Services (SCS), University of Twente, the Netherlands" ;
+    foaf:homepage "https://www.utwente.nl/en/eemcs/scs/"^^xsd:anyURI ;
+    foaf:member   <https://orcid.org/0000-0002-5385-5761>, <https://orcid.org/0000-0003-2528-3118>,
+                  <https://orcid.org/0000-0003-2736-7817> .
+
+<https://orcid.org/0000-0003-3385-4769>
+    foaf:name "Mattia Fumagalli" ;
+    foaf:mbox "mattia.fumagalli@unibz.it" .
+
+<https://orcid.org/0000-0002-5385-5761>
+    foaf:name "Tiago Prince Sales" ;
+    foaf:mbox "t.princesales@utwente.nl" .
+
+<https://orcid.org/0000-0003-2528-3118>
+    foaf:name "Claudenir M. Fonseca" ;
+    foaf:mbox "c.moraisfonseca@utwente.nl" .
+
+<https://orcid.org/0000-0003-2736-7817>
+    foaf:name "Pedro Paulo Favato Barcelos" ;
+    foaf:mbox "p.p.favatobarcelos@uwente.nl" .
+
 
 #################################################################
 #    Object Properties
@@ -128,8 +121,8 @@ ontouml:categorizer
     rdfs:range       ontouml:Class ;
     rdfs:label       "categorizer"@en ;
     rdfs:isDefinedBy <https://w3id.org/ontouml> ;
-    rdfs:comment     "Identifies individuals of an ontouml:GeneralizationSet that are instances of a higher order ontouml:Class."@en ;
-    rdfs:seeAlso     <https://doi.org/10.1007/978-3-319-39696-5_19> .
+    rdfs:comment     " Identifies the ontouml:Class that is instantiated by the specific classes of the ontouml:Generalization type composing the ontouml:GeneralizationSet"@en ;
+    rdfs:seeAlso     <https://doi.org/10.1016/j.datak.2022.102012>, <https://doi.org/10.1007/978-3-031-17995-2_2> .
 
 
 ###  https://w3id.org/ontouml#containsModelElement
@@ -348,7 +341,7 @@ ontouml:stereotype
     rdfs:range       ontouml:Stereotype ;
     rdfs:label       "stereotype"@en ;
     rdfs:isDefinedBy <https://w3id.org/ontouml> ;
-    rdfs:comment     "Identifies an ontouml:Stereotype applied to an ontouml:DecoratableElement."@en .
+    rdfs:comment     "Identifies the ontouml:Stereotype applied to the ontouml:DecoratableElement."@en .
 
 
 ###  https://w3id.org/ontouml#subsetsProperty
@@ -379,7 +372,7 @@ ontouml:targetView
     rdfs:range       ontouml:ElementView ;
     rdfs:label       "targetView"@en ;
     rdfs:isDefinedBy <https://w3id.org/ontouml> ;
-    rdfs:comment     "Identifies an ontouml:ElementView that participates as target of an ontouml:RelationView or ontouml:GeneralizationView."@en .
+    rdfs:comment     "Identifies an ontouml:ElementView that participates as target of an ontouml:ConnectorView."@en .
 
 
 ###  https://w3id.org/ontouml#topLeftPosition

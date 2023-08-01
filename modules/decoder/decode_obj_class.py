@@ -16,6 +16,7 @@ from modules.decoder.decode_general import get_list_subdictionaries_for_specific
 from modules.errors import report_error_end_of_switch
 from modules.globals import URI_ONTOUML
 from modules.messages import print_decode_log_message
+from modules.utils_graph import ontouml_ref
 
 
 def validate_class_attribute_constraints(class_dict: dict) -> None:
@@ -122,7 +123,7 @@ def set_defaults_class_attribute(class_dict: dict, ontouml_graph: Graph) -> None
     if "isExtensional" not in class_dict and class_stereotype == "collective":
         print_decode_log_message(class_dict, "DCA1", property_name='isExtensional', att_valid_stereotype='collective')
         ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
-                           URIRef(URI_ONTOUML + "isExtensional"), Literal(False, datatype=XSD.boolean)))
+                           ontouml_ref("isExtensional"), Literal(False, datatype=XSD.boolean)))
 
     # DCA2, DCA3, and DCA4 use the same message DGA1, as they are not associated to their holder's stereotype
 
@@ -130,19 +131,19 @@ def set_defaults_class_attribute(class_dict: dict, ontouml_graph: Graph) -> None
     if "isPowertype" not in class_dict:
         print_decode_log_message(class_dict, "DGA1", property_name='isPowertype')
         ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
-                           URIRef(URI_ONTOUML + "isPowertype"), Literal(False, datatype=XSD.boolean)))
+                           ontouml_ref("isPowertype"), Literal(False, datatype=XSD.boolean)))
 
     # DCA3: Setting ontouml:isDerived attribute default value
     if "isDerived" not in class_dict:
         print_decode_log_message(class_dict, "DGA1", property_name='isDerived')
         ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
-                           URIRef(URI_ONTOUML + "isDerived"), Literal(False, datatype=XSD.boolean)))
+                           ontouml_ref("isDerived"), Literal(False, datatype=XSD.boolean)))
 
     # DCA4: Setting ontouml:isAbstract attribute default value
     if "isAbstract" not in class_dict:
         print_decode_log_message(class_dict, "DGA1", property_name='isAbstract')
         ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
-                           URIRef(URI_ONTOUML + "isAbstract"), Literal(False, datatype=XSD.boolean)))
+                           ontouml_ref("isAbstract"), Literal(False, datatype=XSD.boolean)))
 
 
 def set_defaults_class_order(class_dict: dict, ontouml_graph: Graph) -> None:
@@ -171,13 +172,13 @@ def set_defaults_class_order(class_dict: dict, ontouml_graph: Graph) -> None:
         if class_stereotype != 'type':
             print_decode_log_message(class_dict, "DCO1", property_name='order')
             ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
-                               URIRef(URI_ONTOUML + "order"), Literal(1, datatype=XSD.nonNegativeInteger)))
+                               ontouml_ref("order"), Literal(1, datatype=XSD.nonNegativeInteger)))
 
         # DCO2: 'order' default value = 2 when stereotype is 'type'
         elif class_stereotype == 'type':
             print_decode_log_message(class_dict, "DCO2", property_name='order')
             ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
-                               URIRef(URI_ONTOUML + "order"), Literal(2, datatype=XSD.nonNegativeInteger)))
+                               ontouml_ref("order"), Literal(2, datatype=XSD.nonNegativeInteger)))
 
         # Unexpected value received for class_stereotype
         else:
@@ -211,8 +212,8 @@ def set_class_stereotype(class_dict: dict, ontouml_graph: Graph) -> None:
         print_decode_log_message(class_dict, "VCS1", "stereotype")
     else:
         ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
-                           URIRef(URI_ONTOUML + "stereotype"),
-                           URIRef(URI_ONTOUML + class_dict['stereotype'])))
+                           ontouml_ref("stereotype"),
+                           ontouml_ref(class_dict['stereotype'])))
 
         # If declared but invalid, create and report error. Uses generic message with code 'VCSG'.
         if class_stereotype not in ENUM_CLASS_STEREOTYPE:
@@ -240,7 +241,7 @@ def set_class_order_nonnegativeinteger(class_dict: dict, ontouml_graph: Graph) -
     # Case C: receives 0, representing an orderless class.
     elif class_dict["order"] == "*":
         ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
-                           URIRef(URI_ONTOUML + "order"),
+                           ontouml_ref("order"),
                            Literal(0, datatype=XSD.nonNegativeInteger)))
 
     # Case A: remove invalid information so the field can be treated as null and then receive the default value.
@@ -250,7 +251,7 @@ def set_class_order_nonnegativeinteger(class_dict: dict, ontouml_graph: Graph) -
     # Case B
     elif type(class_dict["order"]):
         ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
-                           URIRef(URI_ONTOUML + "order"),
+                           ontouml_ref("order"),
                            Literal(class_dict['order'], datatype=XSD.nonNegativeInteger)))
 
     # Case A: remove invalid information so the field can be treated as null and then receive the default value.
@@ -285,8 +286,8 @@ def set_class_restrictedto_ontologicalnature(class_dict: dict, ontouml_graph: Gr
 
         for restriction in class_dict["restrictedTo"]:
             ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
-                               URIRef(URI_ONTOUML + "restrictedTo"),
-                               URIRef(URI_ONTOUML + restriction_nature_mapping[restriction])))
+                               ontouml_ref("restrictedTo"),
+                               ontouml_ref(restriction_nature_mapping[restriction])))
 
 
 def set_class_attributes(class_dict: dict, ontouml_graph: Graph) -> None:
@@ -303,12 +304,12 @@ def set_class_attributes(class_dict: dict, ontouml_graph: Graph) -> None:
 
     if "isExtensional" in class_dict:
         ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
-                           URIRef(URI_ONTOUML + "isExtensional"),
+                           ontouml_ref("isExtensional"),
                            Literal(class_dict["isExtensional"], datatype=XSD.boolean)))
 
     if "isPowertype" in class_dict:
         ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_dict['id']),
-                           URIRef(URI_ONTOUML + "isPowertype"),
+                           ontouml_ref("isPowertype"),
                            Literal(class_dict["isPowertype"], datatype=XSD.boolean)))
 
 
@@ -325,7 +326,7 @@ def set_class_attribute_property(class_dict: dict, ontouml_graph: Graph) -> None
 
     for related_property in list_related_properties:
         statement_subject = URIRef(args.ARGUMENTS["base_uri"] + class_dict["id"])
-        statement_predicate = URIRef(URI_ONTOUML + "attribute")
+        statement_predicate = ontouml_ref("attribute")
         statement_object = URIRef(args.ARGUMENTS["base_uri"] + related_property["id"])
 
         ontouml_graph.add((statement_subject, statement_predicate, statement_object))
@@ -344,7 +345,7 @@ def set_class_literal_literal(class_dict: dict, ontouml_graph: Graph) -> None:
 
     for related_literal in list_related_literals:
         statement_subject = URIRef(args.ARGUMENTS["base_uri"] + class_dict["id"])
-        statement_predicate = URIRef(URI_ONTOUML + "literal")
+        statement_predicate = ontouml_ref("literal")
         statement_object = URIRef(args.ARGUMENTS["base_uri"] + related_literal["id"])
 
         ontouml_graph.add((statement_subject, statement_predicate, statement_object))

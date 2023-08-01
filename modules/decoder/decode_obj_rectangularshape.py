@@ -12,7 +12,7 @@ from rdflib import Graph, URIRef
 
 import modules.arguments as args
 from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type, create_point
-from modules.globals import URI_ONTOUML
+from modules.utils_graph import ontouml_ref
 
 
 def set_rectangularshape_coordinates(rectangularshape_dict: dict, ontouml_graph: Graph) -> None:
@@ -30,7 +30,7 @@ def set_rectangularshape_coordinates(rectangularshape_dict: dict, ontouml_graph:
 
     # Associating new Point with Rectangle
     ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + rectangularshape_dict["id"]),
-                       URIRef(URI_ONTOUML + "topLeftPosition"),
+                       ontouml_ref("topLeftPosition"),
                        URIRef(args.ARGUMENTS["base_uri"] + point_name)))
 
 

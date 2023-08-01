@@ -14,6 +14,7 @@ import modules.arguments as args
 from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type, get_stereotype
 from modules.globals import URI_ONTOUML
 from modules.messages import print_decode_log_message
+from modules.utils_graph import ontouml_ref
 
 
 def set_relation_defaults(relation_dict: dict, ontouml_graph: Graph) -> None:
@@ -34,13 +35,13 @@ def set_relation_defaults(relation_dict: dict, ontouml_graph: Graph) -> None:
     if "isDerived" not in relation_dict:
         print_decode_log_message(relation_dict, "DGA1", property_name='isDerived')
         ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + relation_dict['id']),
-                           URIRef(URI_ONTOUML + "isDerived"), Literal(False, datatype=XSD.boolean)))
+                           ontouml_ref("isDerived"), Literal(False, datatype=XSD.boolean)))
 
     # DCA4: Setting ontouml:isAbstract attribute default value
     if "isAbstract" not in relation_dict:
         print_decode_log_message(relation_dict, "DGA1", property_name='isAbstract')
         ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + relation_dict['id']),
-                           URIRef(URI_ONTOUML + "isAbstract"), Literal(False, datatype=XSD.boolean)))
+                           ontouml_ref("isAbstract"), Literal(False, datatype=XSD.boolean)))
 
 
 def set_relation_stereotype(relation_dict: dict, ontouml_graph: Graph) -> None:
@@ -65,8 +66,8 @@ def set_relation_stereotype(relation_dict: dict, ontouml_graph: Graph) -> None:
 
     if relation_stereotype != "null":
         ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + relation_dict['id']),
-                           URIRef(URI_ONTOUML + "stereotype"),
-                           URIRef(URI_ONTOUML + relation_dict['stereotype'])))
+                           ontouml_ref("stereotype"),
+                           ontouml_ref(relation_dict['stereotype'])))
 
         # If declared but invalid, create and report error. Uses generic message with code 'VCSG'.
         if relation_stereotype not in ENUM_RELATION_STEREOTYPE:
@@ -86,9 +87,9 @@ def set_relation_relations(relation_dict: dict, ontouml_graph: Graph) -> None:
     """
 
     relation_individual = URIRef(args.ARGUMENTS["base_uri"] + relation_dict['id'])
-    uri_relation_end = URIRef(URI_ONTOUML + "relationEnd")
-    uri_relation_sourceend = URIRef(URI_ONTOUML + "sourceEnd")
-    uri_relation_targetend = URIRef(URI_ONTOUML + "targetEnd")
+    uri_relation_end = ontouml_ref("relationEnd")
+    uri_relation_sourceend = ontouml_ref("sourceEnd")
+    uri_relation_targetend = ontouml_ref("targetEnd")
 
     ends_list = []
     for property_dict in relation_dict["properties"]:

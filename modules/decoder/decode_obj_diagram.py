@@ -12,7 +12,8 @@ from rdflib import Graph, URIRef
 
 import modules.arguments as args
 from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type
-from modules.globals import URI_ONTOUML, ELEMENT_VIEW_TYPES
+from modules.globals import ELEMENT_VIEW_TYPES
+from modules.utils_graph import ontouml_ref
 
 
 def set_diagram_owner_modelelement(diagram_dict: dict, ontouml_graph: Graph) -> None:
@@ -25,7 +26,7 @@ def set_diagram_owner_modelelement(diagram_dict: dict, ontouml_graph: Graph) -> 
     """
 
     statement_subject = URIRef(args.ARGUMENTS["base_uri"] + diagram_dict["id"])
-    statement_predicate = URIRef(URI_ONTOUML + "owner")
+    statement_predicate = ontouml_ref("owner")
     statement_object = URIRef(args.ARGUMENTS["base_uri"] + diagram_dict["owner"]["id"])
     ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
@@ -46,7 +47,7 @@ def set_diagram_containsview_elementview(diagram_dict: dict, ontouml_graph: Grap
 
     for related_elementview in list_related_elementviews:
         statement_subject = URIRef(args.ARGUMENTS["base_uri"] + diagram_dict["id"])
-        statement_predicate = URIRef(URI_ONTOUML + "containsView")
+        statement_predicate = ontouml_ref("containsView")
         statement_object = URIRef(args.ARGUMENTS["base_uri"] + related_elementview["id"])
 
         ontouml_graph.add((statement_subject, statement_predicate, statement_object))

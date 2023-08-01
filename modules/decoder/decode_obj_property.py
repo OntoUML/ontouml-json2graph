@@ -16,7 +16,7 @@ from modules.globals import URI_ONTOUML
 from modules.logger import initialize_logger
 from modules.messages import print_decode_log_message
 from modules.sparql_queries import GET_CLASS_STEREOTYPE_ATTRIBUTE_STEREOTYPE
-from modules.utils_graph import load_ontouml_vocabulary
+from modules.utils_graph import load_ontouml_vocabulary, ontouml_ref
 
 LOGGER = initialize_logger()
 
@@ -70,8 +70,8 @@ def validate_property_stereotype(ontouml_graph: Graph) -> None:
             print_decode_log_message(dict_argument, "VPS3")
 
             ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + class_id),
-                               URIRef(URI_ONTOUML + "stereotype"),
-                               URIRef(URI_ONTOUML + "event")))
+                               ontouml_ref("stereotype"),
+                               ontouml_ref("event")))
 
 
 def set_property_defaults(property_dict: dict, ontouml_graph: Graph) -> None:
@@ -93,19 +93,19 @@ def set_property_defaults(property_dict: dict, ontouml_graph: Graph) -> None:
     if "isDerived" not in property_dict:
         print_decode_log_message(property_dict, "DGA1", property_name='isDerived')
         ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + property_dict['id']),
-                           URIRef(URI_ONTOUML + "isDerived"), Literal(False, datatype=XSD.boolean)))
+                           ontouml_ref("isDerived"), Literal(False, datatype=XSD.boolean)))
 
     # DPA2: Setting ontouml:isOrdered attribute default value
     if "isOrdered" not in property_dict:
         print_decode_log_message(property_dict, "DGA1", property_name='isOrdered')
         ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + property_dict['id']),
-                           URIRef(URI_ONTOUML + "isOrdered"), Literal(False, datatype=XSD.boolean)))
+                           ontouml_ref("isOrdered"), Literal(False, datatype=XSD.boolean)))
 
     # DPA3: Setting ontouml:isReadOnly attribute default value
     if "isReadOnly" not in property_dict:
         print_decode_log_message(property_dict, "DGA1", property_name='isReadOnly')
         ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + property_dict['id']),
-                           URIRef(URI_ONTOUML + "isReadOnly"), Literal(False, datatype=XSD.boolean)))
+                           ontouml_ref("isReadOnly"), Literal(False, datatype=XSD.boolean)))
 
 
 def set_property_relations(property_dict: dict, ontouml_graph: Graph) -> None:
@@ -122,28 +122,28 @@ def set_property_relations(property_dict: dict, ontouml_graph: Graph) -> None:
 
     # Setting ontouml:aggregationKind
     if "aggregationKind" not in property_dict:
-        statement_object = URIRef(URI_ONTOUML + "none")
+        statement_object = ontouml_ref("none")
     else:
-        statement_object = URIRef(URI_ONTOUML + property_dict["aggregationKind"].lower())
+        statement_object = ontouml_ref(property_dict["aggregationKind"].lower())
 
-    statement_predicate = URIRef(URI_ONTOUML + "aggregationKind")
+    statement_predicate = ontouml_ref("aggregationKind")
     ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
     # Setting ontouml:propertyType
     if "propertyType" in property_dict:
-        statement_predicate = URIRef(URI_ONTOUML + "propertyType")
+        statement_predicate = ontouml_ref("propertyType")
         statement_object = URIRef(args.ARGUMENTS["base_uri"] + property_dict["propertyType"]["id"])
         ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
     # Setting ontouml:stereotype. Its validation is performed later in function validate_property_stereotype
     if "stereotype" in property_dict:
-        statement_predicate = URIRef(URI_ONTOUML + "stereotype")
-        statement_object = URIRef(URI_ONTOUML + property_dict["stereotype"])
+        statement_predicate = ontouml_ref("stereotype")
+        statement_object = ontouml_ref(property_dict["stereotype"])
         ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
     # Setting ontouml:subsetsProperty
     if "subsettedProperties" in property_dict:
-        statement_predicate = URIRef(URI_ONTOUML + "subsetsProperty")
+        statement_predicate = ontouml_ref("subsetsProperty")
 
         for subsetted_prop_dict in property_dict["subsettedProperties"]:
             statement_object = URIRef(args.ARGUMENTS["base_uri"] + subsetted_prop_dict["id"])
@@ -151,7 +151,7 @@ def set_property_relations(property_dict: dict, ontouml_graph: Graph) -> None:
 
     # Setting ontouml:redefinesProperty
     if "redefinedProperties" in property_dict:
-        statement_predicate = URIRef(URI_ONTOUML + "redefinesProperty")
+        statement_predicate = ontouml_ref("redefinesProperty")
 
         for redefined_prop_dict in property_dict["redefinedProperties"]:
             statement_object = URIRef(args.ARGUMENTS["base_uri"] + redefined_prop_dict["id"])
@@ -205,12 +205,12 @@ def set_cardinality_relations(property_dict: dict, ontouml_graph: Graph) -> None
         ontology_property_individual = URIRef(args.ARGUMENTS["base_uri"] + property_dict["id"])
         ontology_cardinality_individual = URIRef(args.ARGUMENTS["base_uri"] + property_dict["id"] + '_cardinality')
 
-        ontouml_cardinality_class = URIRef(URI_ONTOUML + "Cardinality")
-        ontouml_cardinality_property = URIRef(URI_ONTOUML + "cardinality")
+        ontouml_cardinality_class = ontouml_ref("Cardinality")
+        ontouml_cardinality_property = ontouml_ref("cardinality")
 
-        ontouml_cardinalityvalue_property = URIRef(URI_ONTOUML + "cardinalityValue")
-        ontouml_lowerbound_property = URIRef(URI_ONTOUML + "lowerBound")
-        ontouml_upperbound_property = URIRef(URI_ONTOUML + "upperBound")
+        ontouml_cardinalityvalue_property = ontouml_ref("cardinalityValue")
+        ontouml_lowerbound_property = ontouml_ref("lowerBound")
+        ontouml_upperbound_property = ontouml_ref("upperBound")
 
         # Creating ontouml:Cardinality individuals (named after its related Property's name + '_cardinality' string)
         ontouml_graph.add((ontology_cardinality_individual, RDF.type, ontouml_cardinality_class))

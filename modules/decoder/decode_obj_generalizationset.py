@@ -12,8 +12,8 @@ from rdflib import Graph, URIRef, Literal, XSD
 
 import modules.arguments as args
 from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type
-from modules.globals import URI_ONTOUML
 from modules.messages import print_decode_log_message
+from modules.utils_graph import ontouml_ref
 
 
 def set_generalizationset_defaults(generalizationset_dict: dict, ontouml_graph: Graph) -> None:
@@ -33,12 +33,12 @@ def set_generalizationset_defaults(generalizationset_dict: dict, ontouml_graph: 
 
     if "isDisjoint" not in generalizationset_dict:
         print_decode_log_message(generalizationset_dict, "DGA1", property_name="isDisjoint")
-        is_disjoint_property = URIRef(URI_ONTOUML + "isDisjoint")
+        is_disjoint_property = ontouml_ref("isDisjoint")
         ontouml_graph.add((generalizationset_individual, is_disjoint_property, set_false))
 
     if "isComplete" not in generalizationset_dict:
         print_decode_log_message(generalizationset_dict, "DGA1", property_name="isComplete")
-        is_complete_property = URIRef(URI_ONTOUML + "isComplete")
+        is_complete_property = ontouml_ref("isComplete")
         ontouml_graph.add((generalizationset_individual, is_complete_property, set_false))
 
 
@@ -52,8 +52,8 @@ def set_generalizationset_relations(generalizationset_dict: dict, ontouml_graph:
     """
 
     generalizationset_individual = URIRef(args.ARGUMENTS["base_uri"] + generalizationset_dict['id'])
-    generalization_property = URIRef(URI_ONTOUML + "generalization")
-    categorizer_property = URIRef(URI_ONTOUML + "categorizer")
+    generalization_property = ontouml_ref("generalization")
+    categorizer_property = ontouml_ref("categorizer")
 
     # Setting ontouml:generalization property
     for generalization_dict in generalizationset_dict["generalizations"]:

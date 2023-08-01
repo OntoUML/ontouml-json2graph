@@ -12,7 +12,7 @@ from rdflib import Graph, URIRef
 
 import modules.arguments as args
 from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type
-from modules.globals import URI_ONTOUML
+from modules.utils_graph import ontouml_ref
 
 
 def set_generalization_relations(generalization_dict: dict, ontouml_graph: Graph) -> None:
@@ -28,8 +28,8 @@ def set_generalization_relations(generalization_dict: dict, ontouml_graph: Graph
     general_individual = URIRef(args.ARGUMENTS["base_uri"] + generalization_dict["general"]['id'])
     specific_individual = URIRef(args.ARGUMENTS["base_uri"] + generalization_dict["specific"]['id'])
 
-    ontouml_graph.add((generalization_individual, URIRef(URI_ONTOUML + "general"), general_individual))
-    ontouml_graph.add((generalization_individual, URIRef(URI_ONTOUML + "specific"), specific_individual))
+    ontouml_graph.add((generalization_individual, ontouml_ref("general"), general_individual))
+    ontouml_graph.add((generalization_individual, ontouml_ref("specific"), specific_individual))
 
 
 def create_generalization_properties(json_data: dict, ontouml_graph: Graph) -> None:

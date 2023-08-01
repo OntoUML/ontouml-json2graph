@@ -14,7 +14,8 @@ from rdflib import Graph, URIRef
 import modules.arguments as args
 from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type
 from modules.errors import report_error_end_of_switch
-from modules.globals import URI_ONTOUML, ELEMENT_VIEW_TYPES
+from modules.globals import ELEMENT_VIEW_TYPES
+from modules.utils_graph import ontouml_ref
 
 
 def set_elementview_relations(elementview_dict: dict, ontouml_graph: Graph) -> None:
@@ -40,24 +41,24 @@ def set_elementview_relations(elementview_dict: dict, ontouml_graph: Graph) -> N
 
     # Setting shape property
     ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + elementview_dict['id']),
-                       URIRef(URI_ONTOUML + "shape"),
+                       ontouml_ref("shape"),
                        URIRef(args.ARGUMENTS["base_uri"] + shape_name)))
 
     # Setting isViewOf property
     if "modelElement" in elementview_dict:
         ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + elementview_dict['id']),
-                           URIRef(URI_ONTOUML + "isViewOf"),
+                           ontouml_ref("isViewOf"),
                            URIRef(args.ARGUMENTS["base_uri"] + elementview_dict['modelElement']['id'])))
 
     # Setting sourceView and targetView properties
     if "source" in elementview_dict:
         ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + elementview_dict['id']),
-                           URIRef(URI_ONTOUML + "sourceView"),
+                           ontouml_ref("sourceView"),
                            URIRef(args.ARGUMENTS["base_uri"] + elementview_dict['source']['id'])))
 
     if "target" in elementview_dict:
         ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + elementview_dict['id']),
-                           URIRef(URI_ONTOUML + "targetView"),
+                           ontouml_ref("targetView"),
                            URIRef(args.ARGUMENTS["base_uri"] + elementview_dict['target']['id'])))
 
 
