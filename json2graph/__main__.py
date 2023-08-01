@@ -15,6 +15,8 @@ from modules.input_output import safe_load_json_file, write_graph_file
 from modules.logger import initialize_logger
 from modules.utils_general import get_date_time
 
+def args_test():
+    global ARGUMENTS
 
 def decode_ontouml_json2graph(json_path: str, graph_format: str, language: str = "",
                               execution_mode: str = "production") -> str:
@@ -94,7 +96,7 @@ def decode_ontouml_json2graph(json_path: str, graph_format: str, language: str =
 
 if __name__ == '__main__':
     # Treat and publish user's arguments
-    args.publish_user_arguments()
+    args.initialize_arguments()
 
     json_path = args.ARGUMENTS["json_path"]
     graph_format = args.ARGUMENTS["format"]

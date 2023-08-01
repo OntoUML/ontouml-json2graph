@@ -6,9 +6,9 @@ import validators as validators
 
 from modules.globals import METADATA
 from modules.logger import initialize_logger
+ARGUMENTS = {}
 
 LOGGER = initialize_logger()
-ARGUMENTS = {}
 
 
 def treat_user_arguments() -> dict:
@@ -82,8 +82,6 @@ def treat_user_arguments() -> dict:
 
     return arguments_dictionary
 
-
-def publish_user_arguments():
-    arguments_dictionary = treat_user_arguments()
+def initialize_arguments():
     global ARGUMENTS
-    ARGUMENTS = arguments_dictionary
+    ARGUMENTS = treat_user_arguments()
