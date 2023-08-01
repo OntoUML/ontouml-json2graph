@@ -1,177 +1,127 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" >
 <head>
-    <meta charset="utf-8"/>
-    <meta content="Docutils 0.18.1: http://docutils.sourceforge.net/" name="generator"/>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>The OntoUML JSON2Graph Transformation &mdash; ontouml-json2graph 2023.07.25 documentation</title>
-    <link href="_static/pygments.css" rel="stylesheet" type="text/css"/>
-    <link href="_static/css/theme.css" rel="stylesheet" type="text/css"/>
-    <!--[if lt IE 9]>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The OntoUML JSON2Graph Transformation &mdash; ontouml-json2graph 2023.07.25 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
-    <![endif]-->
-
-    <script src="_static/jquery.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
-    <link href="genindex.html" rel="index" title="Index"/>
-    <link href="search.html" rel="search" title="Search"/>
-    <link href="main.html" rel="next" title="main module"/>
-    <link href="index.html" rel="prev" title="OntoUML JSON2Graph Decoder’s Documentation"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="main module" href="main.html" />
+    <link rel="prev" title="OntoUML JSON2Graph Decoder’s Documentation" href="index.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-<div class="wy-grid-for-nav">
-    <nav class="wy-nav-side" data-toggle="wy-nav-shift">
-        <div class="wy-side-scroll">
-            <div class="wy-side-nav-search">
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
 
+          
+          
+          <a href="index.html" class="icon icon-home">
+            ontouml-json2graph
+              <img src="_static/logo-json2graph.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">The OntoUML JSON2Graph Transformation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#contents">Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-and-executing">Installing and Executing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#arguments">Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-syntactical-and-sematic-validation">Basic Syntactical and Sematic Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#permanent-urls-and-identifiers">Permanent URLs and Identifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#related-projects">Related Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#author">Author</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="main.html">main module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">modules package</a></li>
+</ul>
 
-                <a class="icon icon-home" href="index.html">
-                    ontouml-json2graph
-                    <img alt="Logo" class="logo" src="_static/Logo JSON2Graph Decoder.png"/>
-                </a>
-                <div role="search">
-                    <form action="search.html" class="wy-form" id="rtd-search-form" method="get">
-                        <input aria-label="Search docs" name="q" placeholder="Search docs" type="text"/>
-                        <input name="check_keywords" type="hidden" value="yes"/>
-                        <input name="area" type="hidden" value="default"/>
-                    </form>
-                </div>
-            </div>
-            <div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
-                <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="current reference internal" href="#">The OntoUML JSON2Graph
-                        Transformation</a>
-                        <ul>
-                            <li class="toctree-l2"><a class="reference internal" href="#contents">Contents</a></li>
-                            <li class="toctree-l2"><a class="reference internal" href="#installing-and-executing">Installing
-                                and Executing</a></li>
-                            <li class="toctree-l2"><a class="reference internal" href="#arguments">Arguments</a></li>
-                            <li class="toctree-l2"><a class="reference internal"
-                                                      href="#basic-syntactical-and-sematic-validation">Basic Syntactical
-                                and Sematic Validation</a></li>
-                            <li class="toctree-l2"><a class="reference internal" href="#permanent-urls-and-identifiers">Permanent
-                                URLs and Identifiers</a></li>
-                            <li class="toctree-l2"><a class="reference internal" href="#related-projects">Related
-                                Projects</a></li>
-                            <li class="toctree-l2"><a class="reference internal" href="#author">Author</a></li>
-                        </ul>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="main.html">main module</a></li>
-                    <li class="toctree-l1"><a class="reference internal" href="modules.html">modules package</a></li>
-                </ul>
-
-            </div>
         </div>
+      </div>
     </nav>
 
-    <section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
-        <nav aria-label="Mobile navigation menu" class="wy-nav-top">
-            <i class="fa fa-bars" data-toggle="wy-nav-top"></i>
-            <a href="index.html">ontouml-json2graph</a>
-        </nav>
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ontouml-json2graph</a>
+      </nav>
 
-        <div class="wy-nav-content">
-            <div class="rst-content">
-                <div aria-label="Page navigation" role="navigation">
-                    <ul class="wy-breadcrumbs">
-                        <li><a aria-label="Home" class="icon icon-home" href="index.html"></a></li>
-                        <li class="breadcrumb-item active">The OntoUML JSON2Graph Transformation</li>
-                        <li class="wy-breadcrumbs-aside">
-                            <a href="_sources/README.md.txt" rel="nofollow"> View page source</a>
-                        </li>
-                    </ul>
-                    <hr/>
-                </div>
-                <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
-                    <div itemprop="articleBody">
-
-                        <section id="the-ontouml-json2graph-transformation">
-                            <h1>The OntoUML JSON2Graph Transformation<a class="headerlink"
-                                                                        href="#the-ontouml-json2graph-transformation"
-                                                                        title="Permalink to this heading"></a></h1>
-                            <p align="center"><img
-                                    src="https://raw.githubusercontent.com/OntoUML/ontouml-json2graph/main/resources/Logo%20JSON2Graph%20Decoder.png"
-                                    width="512"></p>
-                            <p>The OntoUML JSON2Graph (ontouml-json2graph) decodes a JSON file that complies with the <a
-                                    class="reference external" href="https://w3id.org/ontouml/schema">ontouml-schema</a>
-                                (e.g., the ones exported by the <a class="reference external"
-                                                                   href="https://github.com/OntoUML/ontouml-vp-plugin">ontouml-vp-plugin</a>)
-                                to a graph file that complies with the <a class="reference external"
-                                                                          href="https://github.com/OntoUML/ontouml-vocabulary">ontouml-vocabulary</a>.
-                                Optionally, the user can enable basic semantic and syntactical verifications to improve
-                                the transformation results.</p>
-                            <p>This application was constructed with <a class="reference external"
-                                                                        href="https://rdflib.readthedocs.io/en/stable/">RDFLib</a>
-                                using Python 3.11.4. The generated graph file can be serialized in the diverse formats
-                                supported by the RDFLib, which are Turtle, RDF/XML, JSON-LD, N-Triples, Notation-3,
-                                Trig, Trix, and N-Quads.</p>
-                            <p>This project <a class="reference external"
-                                               href="https://w3id.org/ontouml/json2graph/docs">complete
-                                docstring-generated documentation</a> is available for inquiries.</p>
-                            <section id="contents">
-                                <h2>Contents<a class="headerlink" href="#contents"
-                                               title="Permalink to this heading"></a></h2>
-                                <!-- TOC -->
-                                <ul class="simple">
-                                    <li><p><a class="reference internal"
-                                              href="#the-ontouml-json2graph-transformation"><span class="xref myst">The OntoUML JSON2Graph Transformation</span></a>
-                                    </p>
-                                        <ul>
-                                            <li><p><a class="reference internal" href="#contents"><span
-                                                    class="std std-ref">Contents</span></a></p></li>
-                                            <li><p><a class="reference internal" href="#installing-and-executing"><span
-                                                    class="xref myst">Installing and Executing</span></a></p></li>
-                                            <li><p><a class="reference internal" href="#arguments"><span
-                                                    class="std std-ref">Arguments</span></a></p></li>
-                                            <li><p><a class="reference internal"
-                                                      href="#basic-syntactical-and-sematic-validation"><span
-                                                    class="xref myst">Basic Syntactical and Sematic Validation</span></a>
-                                            </p></li>
-                                            <li><p><a class="reference internal" href="#permanent-urls-and-identifiers"><span
-                                                    class="xref myst">Permanent URLs and Identifiers</span></a></p></li>
-                                            <li><p><a class="reference internal" href="#related-projects"><span
-                                                    class="xref myst">Related Projects</span></a></p></li>
-                                            <li><p><a class="reference internal" href="#author"><span
-                                                    class="std std-ref">Author</span></a></p></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                                <!-- TOC -->
-                            </section>
-                            <section id="installing-and-executing">
-                                <h2>Installing and Executing<a class="headerlink" href="#installing-and-executing"
-                                                               title="Permalink to this heading"></a></h2>
-                                <p>You need to <a class="reference external" href="https://www.python.org/downloads/">download
-                                    and install Python</a> to execute the ontouml-json2graph transformation tool. To
-                                    install all necessary dependencies, run the following command on the terminal inside
-                                    the project’s folder:</p>
-                                <div class="highlight-text notranslate">
-                                    <div class="highlight"><pre><span></span>pip install -r requirements.txt
-</pre>
-                                    </div>
-                                </div>
-                                <p>For executing the software, run the following command on the terminal inside the
-                                    project’s folder, where path_to_json must be substituted for the location of the
-                                    catalog’s directory on your computer:</p>
-                                <div class="highlight-text notranslate">
-                                    <div class="highlight"><pre><span></span>python main.py path_to_json
-</pre>
-                                    </div>
-                                </div>
-                            </section>
-                            <section id="arguments">
-                                <h2>Arguments<a class="headerlink" href="#arguments"
-                                                title="Permalink to this heading"></a></h2>
-                                <p>All available ontouml-models-tools arguments can be observed below.</p>
-                                <div class="highlight-text notranslate">
-                                    <div class="highlight"><pre><span></span>usage: ontouml-json2graph [-h]
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">The OntoUML JSON2Graph Transformation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/README.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="the-ontouml-json2graph-transformation">
+<h1>The OntoUML JSON2Graph Transformation<a class="headerlink" href="#the-ontouml-json2graph-transformation" title="Permalink to this heading"></a></h1>
+<p align="center"><img src="https://raw.githubusercontent.com/OntoUML/ontouml-json2graph/main/resources/logo-json2graph.png" width="512"></p>
+<p>The OntoUML JSON2Graph (ontouml-json2graph) decodes a JSON file that complies with the <a class="reference external" href="https://w3id.org/ontouml/schema">ontouml-schema</a> (e.g., the ones exported by the <a class="reference external" href="https://github.com/OntoUML/ontouml-vp-plugin">ontouml-vp-plugin</a>) to a graph file that complies with the <a class="reference external" href="https://github.com/OntoUML/ontouml-vocabulary">ontouml-vocabulary</a>. Optionally, the user can enable basic semantic and syntactical verifications to improve the transformation results.</p>
+<p>This application was constructed with <a class="reference external" href="https://rdflib.readthedocs.io/en/stable/">RDFLib</a> using Python 3.11.4. The generated graph file can be serialized in the diverse formats supported by the RDFLib, which are Turtle, RDF/XML, JSON-LD, N-Triples, Notation-3, Trig, Trix, and N-Quads.</p>
+<p>This project <a class="reference external" href="https://w3id.org/ontouml/json2graph/docs">complete docstring-generated documentation</a> is available for inquiries.</p>
+<section id="contents">
+<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this heading"></a></h2>
+<!-- TOC -->
+<ul class="simple">
+<li><p><a class="reference internal" href="#the-ontouml-json2graph-transformation"><span class="xref myst">The OntoUML JSON2Graph Transformation</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#contents"><span class="std std-ref">Contents</span></a></p></li>
+<li><p><a class="reference internal" href="#installing-and-executing"><span class="xref myst">Installing and Executing</span></a></p></li>
+<li><p><a class="reference internal" href="#arguments"><span class="std std-ref">Arguments</span></a></p></li>
+<li><p><a class="reference internal" href="#basic-syntactical-and-sematic-validation"><span class="xref myst">Basic Syntactical and Sematic Validation</span></a></p></li>
+<li><p><a class="reference internal" href="#permanent-urls-and-identifiers"><span class="xref myst">Permanent URLs and Identifiers</span></a></p></li>
+<li><p><a class="reference internal" href="#related-projects"><span class="xref myst">Related Projects</span></a></p></li>
+<li><p><a class="reference internal" href="#author"><span class="std std-ref">Author</span></a></p></li>
+</ul>
+</li>
+</ul>
+<!-- TOC -->
+</section>
+<section id="installing-and-executing">
+<h2>Installing and Executing<a class="headerlink" href="#installing-and-executing" title="Permalink to this heading"></a></h2>
+<p>You need to <a class="reference external" href="https://www.python.org/downloads/">download and install Python</a> to execute the ontouml-json2graph transformation tool. To install all necessary dependencies, run the following command on the terminal inside the project’s folder:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pip install -r requirements.txt
+</pre></div>
+</div>
+<p>For executing the software, run the following command on the terminal inside the project’s folder, where path_to_json must be substituted for the location of the catalog’s directory on your computer:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>python main.py path_to_json [ARGUMENTS]
+</pre></div>
+</div>
+</section>
+<section id="arguments">
+<h2>Arguments<a class="headerlink" href="#arguments" title="Permalink to this heading"></a></h2>
+<p>All available ontouml-models-tools arguments can be observed below.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: ontouml-json2graph [-h]
                           [-f {turtle,ttl,turtle2,xml,pretty-xml,json-ld,ntriples,nt,nt11,n3,trig,trix,nquads}]
                           [-l LANGUAGE] [-c] [-s] [-u BASE_URI] [-m] [-v]
                           json_file
@@ -193,159 +143,103 @@ options:
                         Base URI of the resulting graph. Default is &#39;https://example.org#&#39;.
   -m, --model_only      Keep only model elements, eliminating all diagrammatic data from output.
   -v, --version         Print the software version and exit.
-</pre>
-                                    </div>
-                                </div>
-                            </section>
-                            <section id="basic-syntactical-and-sematic-validation">
-                                <h2>Basic Syntactical and Sematic Validation<a class="headerlink"
-                                                                               href="#basic-syntactical-and-sematic-validation"
-                                                                               title="Permalink to this heading"></a>
-                                </h2>
-                                <ul class="simple">
-                                    <li><p>Class validations:</p>
-                                        <ul>
-                                            <li><p>Reports Class with incompatible attributes isExtensional (not ‘null’)
-                                                and isPowertype (set as ‘True’).</p></li>
-                                            <li><p>Sets Class stereotype as ‘collective’ when the Class’s stereotype is
-                                                ‘null’ and its isExtensional attribute is ‘True’.</p></li>
-                                            <li><p>Sets Class stereotype as ‘type’ when the Class’s stereotype is ‘null’
-                                                and its isPowertype attribute is ‘True’.</p></li>
-                                            <li><p>Removes the Class’s isExtensional attribute if the Class’s stereotype
-                                                is not ‘collective’.</p></li>
-                                            <li><p>Sets the Class’s isPowertype attribute as ‘False’ if the Class’s
-                                                stereotype is not ‘type’.</p></li>
-                                            <li><p>Sets the Class’s order attribute to ‘1’ if the Class’s stereotype is
-                                                not ‘type’ and its order different than ‘1’.</p></li>
-                                            <li><p>Sets the Class’s order attribute to ‘2’ if the Class’s stereotype is
-                                                ‘type’ and its order is ‘1’.</p></li>
-                                            <li><p>Reports mandatory Class stereotype missing.</p></li>
-                                        </ul>
-                                    </li>
-                                    <li><p>Stereotype validations:</p>
-                                        <ul>
-                                            <li><p>Reports invalid Class stereotype assigned (i.e., assigned stereotype
-                                                is not in enumeration class ClassStereotype).</p></li>
-                                            <li><p>Reports invalid Relation stereotype assigned (i.e., assigned
-                                                stereotype is not in enumeration class RelationStereotype).</p></li>
-                                            <li><p>Reports invalid Property stereotype assigned (i.e., assigned
-                                                stereotype is not in enumeration class PropertyStereotype).</p></li>
-                                        </ul>
-                                    </li>
-                                    <li><p>Property validations:</p>
-                                        <ul>
-                                            <li><p>Reports invalid assertion when a Property stereotype is related to a
-                                                Class that is known not to be of stereotype ‘event’.</p></li>
-                                            <li><p>Sets Class stereotype as ‘event’ when it is originally ‘null’ and the
-                                                class is related to a Property with stereotype.</p></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </section>
-                            <section id="permanent-urls-and-identifiers">
-                                <h2>Permanent URLs and Identifiers<a class="headerlink"
-                                                                     href="#permanent-urls-and-identifiers"
-                                                                     title="Permalink to this heading"></a></h2>
-                                <ul class="simple">
-                                    <li><p>Repository: https://w3id.org/ontouml/json2graph</p></li>
-                                    <li><p>Documentation: https://w3id.org/ontouml/json2graph/docs</p></li>
-                                    <li><p>Releases:</p>
-                                        <ul>
-                                            <li><p>Latest: https://w3id.org/ontouml/json2graph/latest</p></li>
-                                            <li>
-                                                <p>Version: https://w3id.org/ontouml/json2graph/v
-                                                    <n>, where &lt;n&gt; is a version number (e.g., ‘1.0.0’)
-                                                </p>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </section>
-                            <section id="related-projects">
-                                <h2>Related Projects<a class="headerlink" href="#related-projects"
-                                                       title="Permalink to this heading"></a></h2>
-                                <ul class="simple">
-                                    <li><p><strong><a class="reference external"
-                                                      href="https://w3id.org/ontouml/metamodel">OntoUML
-                                        Metamodel</a></strong>: Implementation-independent OntoUML Metamodel. Unlike the
-                                        UML profile, this version is independent of UML and presents only the concepts
-                                        officially supported in the language. This metamodel covers the abstract and
-                                        concrete syntaxes of the language and serves as the reference for all projects
-                                        in the <a class="reference external"
-                                                  href="https://ceur-ws.org/Vol-2969/paper29-FOMI.pdf">OntoUML as a
-                                            Service (OaaS)</a> ecosystem, including its different model serializations.
-                                    </p></li>
-                                    <li><p><strong><a class="reference external"
-                                                      href="https://w3id.org/ontouml/vocabulary">OntoUML Vocabulary</a></strong>:
-                                        An OntoUML Metamodel’s serialization in Turtle (ttl) format. This vocabulary
-                                        supports the serialization, exchange, and publishing of OntoUML models as graphs
-                                        that can be used for Semantic Web and Linked Data applications.</p></li>
-                                    <li><p><strong><a class="reference external" href="https://w3id.org/ontouml/schema">OntoUML
-                                        Schema</a></strong>: An OntoUML Metamodel’s serialization in JSON format. The
-                                        JSON is a format better suited for manipulation within software code. It
-                                        supports the exchange of models between modeling tools and the OntoUML server,
-                                        providing model intelligent services.</p></li>
-                                </ul>
-                            </section>
-                            <section id="author">
-                                <h2>Author<a class="headerlink" href="#author" title="Permalink to this heading"></a>
-                                </h2>
-                                <p>This project is maintained by the <a class="reference external"
-                                                                        href="https://www.utwente.nl/en/eemcs/scs/">Semantics,
-                                    Cybersecurity &amp; Services (SCS) Group</a> of the <a class="reference external"
-                                                                                           href="https://www.utwente.nl/">University
-                                    of Twente</a>, The Netherlands. Its developer is:</p>
-                                <ul class="simple">
-                                    <li><p><a class="reference external" href="https://orcid.org/0000-0003-2736-7817">Pedro
-                                        Paulo Favato Barcelos</a> [<a class="reference external"
-                                                                      href="https://github.com/pedropaulofb">GitHub</a>]
-                                        [<a class="reference external"
-                                            href="https://www.linkedin.com/in/pedropaulofavatobarcelos/">LinkedIn</a>]
-                                    </p></li>
-                                </ul>
-                                <p>Feel free to get in contact using the links provided. For questions, contributions,
-                                    or to report any problem, you can <strong><a class="reference external"
-                                                                                 href="https://github.com/OntoUML/ontouml-json2graph/issues">open
-                                        an issue</a></strong> at this repository.</p>
-                            </section>
-                        </section>
-
-
-                    </div>
-                </div>
-                <footer>
-                    <div aria-label="Footer" class="rst-footer-buttons" role="navigation">
-                        <a accesskey="p" class="btn btn-neutral float-left"
-                           href="index.html" rel="prev" title="OntoUML JSON2Graph Decoder’s Documentation"><span
-                                aria-hidden="true" class="fa fa-arrow-circle-left"></span> Previous</a>
-                        <a accesskey="n" class="btn btn-neutral float-right" href="main.html" rel="next"
-                           title="main module">Next <span aria-hidden="true"
-                                                          class="fa fa-arrow-circle-right"></span></a>
-                    </div>
-
-                    <hr/>
-
-                    <div role="contentinfo">
-                        <p>&#169; Copyright Barcelos, P.P.F. (2023).</p>
-                    </div>
-
-                    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-                    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-                    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-
-
-                </footer>
-            </div>
-        </div>
-    </section>
+</pre></div>
 </div>
-<script>
+</section>
+<section id="basic-syntactical-and-sematic-validation">
+<h2>Basic Syntactical and Sematic Validation<a class="headerlink" href="#basic-syntactical-and-sematic-validation" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Class validations:</p>
+<ul>
+<li><p>Reports Class with incompatible attributes isExtensional (not ‘null’) and isPowertype (set as ‘True’).</p></li>
+<li><p>Sets Class stereotype as ‘collective’ when the Class’s stereotype is ‘null’ and its isExtensional attribute is ‘True’.</p></li>
+<li><p>Sets Class stereotype as ‘type’ when the Class’s stereotype is ‘null’ and its isPowertype attribute is ‘True’.</p></li>
+<li><p>Removes the Class’s isExtensional attribute if the Class’s stereotype is not ‘collective’.</p></li>
+<li><p>Sets the Class’s isPowertype attribute as ‘False’ if the Class’s stereotype is not ‘type’.</p></li>
+<li><p>Sets the Class’s order attribute to ‘1’ if the Class’s stereotype is not ‘type’ and its order different than ‘1’.</p></li>
+<li><p>Sets the Class’s order attribute to ‘2’ if the Class’s stereotype is ‘type’ and its order is ‘1’.</p></li>
+<li><p>Reports mandatory Class stereotype missing.</p></li>
+</ul>
+</li>
+<li><p>Stereotype validations:</p>
+<ul>
+<li><p>Reports invalid Class stereotype assigned (i.e., assigned stereotype is not in enumeration class ClassStereotype).</p></li>
+<li><p>Reports invalid Relation stereotype assigned (i.e., assigned stereotype is not in enumeration class RelationStereotype).</p></li>
+<li><p>Reports invalid Property stereotype assigned (i.e., assigned stereotype is not in enumeration class PropertyStereotype).</p></li>
+</ul>
+</li>
+<li><p>Property validations:</p>
+<ul>
+<li><p>Reports invalid assertion when a Property stereotype is related to a Class that is known not to be of stereotype ‘event’.</p></li>
+<li><p>Sets Class stereotype as ‘event’ when it is originally ‘null’ and the class is related to a Property with stereotype.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="permanent-urls-and-identifiers">
+<h2>Permanent URLs and Identifiers<a class="headerlink" href="#permanent-urls-and-identifiers" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Repository: https://w3id.org/ontouml/json2graph</p></li>
+<li><p>Documentation: https://w3id.org/ontouml/json2graph/docs</p></li>
+<li><p>Releases:</p>
+<ul>
+<li><p>Latest: https://w3id.org/ontouml/json2graph/latest</p></li>
+<li><p>Version: https://w3id.org/ontouml/json2graph/v<n>, where &lt;n&gt; is a version number (e.g., ‘1.0.0’)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="related-projects">
+<h2>Related Projects<a class="headerlink" href="#related-projects" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>**<a class="reference external" href="https://w3id.org/ontouml/metamodel">OntoUML Metamodel</a>
+**: Implementation-independent OntoUML Metamodel. Unlike the UML profile, this version is independent of UML and presents only the concepts officially supported in the language. This metamodel covers the abstract and concrete syntaxes of the language and serves as the reference for all projects in the <a class="reference external" href="https://ceur-ws.org/Vol-2969/paper29-FOMI.pdf">OntoUML as a Service (OaaS)</a> ecosystem, including its different model serializations.</p></li>
+<li><p>**<a class="reference external" href="https://w3id.org/ontouml/vocabulary">OntoUML Vocabulary</a>
+**: An OntoUML Metamodel’s serialization in Turtle (ttl) format. This vocabulary supports the serialization, exchange, and publishing of OntoUML models as graphs that can be used for Semantic Web and Linked Data applications.</p></li>
+<li><p>**<a class="reference external" href="https://w3id.org/ontouml/schema">OntoUML Schema</a>
+**: An OntoUML Metamodel’s serialization in JSON format. The JSON is a format better suited for manipulation within software code. It supports the exchange of models between modeling tools and the OntoUML server, providing model intelligent services.</p></li>
+</ul>
+</section>
+<section id="author">
+<h2>Author<a class="headerlink" href="#author" title="Permalink to this heading"></a></h2>
+<p>This project is maintained by the <a class="reference external" href="https://www.utwente.nl/en/eemcs/scs/">Semantics, Cybersecurity &amp; Services (SCS) Group</a> of the <a class="reference external" href="https://www.utwente.nl/">University of Twente</a>, The Netherlands. Its developer is:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://orcid.org/0000-0003-2736-7817">Pedro Paulo Favato Barcelos</a> [<a class="reference external" href="https://github.com/pedropaulofb">GitHub</a>] [<a class="reference external" href="https://www.linkedin.com/in/pedropaulofavatobarcelos/">LinkedIn</a>]</p></li>
+</ul>
+<p>Feel free to get in contact using the links provided. For questions, contributions, or to report any problem, you can *
+<em><a class="reference external" href="https://github.com/OntoUML/ontouml-json2graph/issues">open an issue</a></em>* at this repository.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="OntoUML JSON2Graph Decoder’s Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="main.html" class="btn btn-neutral float-right" title="main module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Barcelos, P.P.F. (2023).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-
-
-</script>
+  </script> 
 
 </body>
 </html>

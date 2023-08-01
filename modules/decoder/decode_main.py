@@ -41,7 +41,7 @@ def add_metadata(ontouml_graph: Graph) -> None:
 
     # Adding conforms to
     dct_conforms_to = URIRef(uri_dct + "conformsTo")
-    vocab_uri = URIRef(URI_ONTOUML[:-1])
+    vocab_uri = URIRef(METADATA['conformsTo'])
     ontouml_graph.add((uriref_ontology, dct_conforms_to, vocab_uri))
     ontouml_graph.add((uriref_ontology, dct_conforms_to, vocab_uri + "/vocabulary/" + METADATA['conformsToVersion']))
 

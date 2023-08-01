@@ -1,6 +1,6 @@
 # The OntoUML JSON2Graph Transformation
 
-<p align="center"><img src="https://raw.githubusercontent.com/OntoUML/ontouml-json2graph/main/resources/Logo%20JSON2Graph%20Decoder.png" width="512"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/OntoUML/ontouml-json2graph/main/resources/logo-json2graph.png" width="512"></p>
 
 The OntoUML JSON2Graph (ontouml-json2graph) decodes a JSON file that complies with the [ontouml-schema](https://w3id.org/ontouml/schema) (e.g., the ones exported by the [ontouml-vp-plugin](https://github.com/OntoUML/ontouml-vp-plugin)) to a graph file that complies with the [ontouml-vocabulary](https://github.com/OntoUML/ontouml-vocabulary). Optionally, the user can enable basic semantic and syntactical verifications to improve the transformation results.
 
@@ -34,7 +34,7 @@ pip install -r requirements.txt
 For executing the software, run the following command on the terminal inside the project's folder, where path_to_json must be substituted for the location of the catalog's directory on your computer:
 
 ```text
-python main.py path_to_json
+python main.py path_to_json [ARGUMENTS]
 ```
 
 ## Arguments

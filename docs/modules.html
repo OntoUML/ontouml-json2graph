@@ -1,1306 +1,643 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" >
 <head>
-    <meta charset="utf-8"/>
-    <meta content="Docutils 0.18.1: http://docutils.sourceforge.net/" name="generator"/>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>modules package &mdash; ontouml-json2graph 2023.07.25 documentation</title>
-    <link href="_static/pygments.css" rel="stylesheet" type="text/css"/>
-    <link href="_static/css/theme.css" rel="stylesheet" type="text/css"/>
-    <!--[if lt IE 9]>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>modules package &mdash; ontouml-json2graph 2023.07.25 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
-    <![endif]-->
-
-    <script src="_static/jquery.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
-    <link href="genindex.html" rel="index" title="Index"/>
-    <link href="search.html" rel="search" title="Search"/>
-    <link href="modules.decoder.html" rel="next" title="modules.decoder package"/>
-    <link href="main.html" rel="prev" title="main module"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="modules.decoder package" href="modules.decoder.html" />
+    <link rel="prev" title="main module" href="main.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-<div class="wy-grid-for-nav">
-    <nav class="wy-nav-side" data-toggle="wy-nav-shift">
-        <div class="wy-side-scroll">
-            <div class="wy-side-nav-search">
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
 
+          
+          
+          <a href="index.html" class="icon icon-home">
+            ontouml-json2graph
+              <img src="_static/logo-json2graph.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="README.html">The OntoUML JSON2Graph Transformation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="main.html">main module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">modules package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html">modules.decoder package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-modules.arguments">modules.arguments module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modules.arguments.publish_user_arguments"><code class="docutils literal notranslate"><span class="pre">publish_user_arguments()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modules.arguments.treat_user_arguments"><code class="docutils literal notranslate"><span class="pre">treat_user_arguments()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-modules.errors">modules.errors module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modules.errors.report_error_end_of_switch"><code class="docutils literal notranslate"><span class="pre">report_error_end_of_switch()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modules.errors.report_error_io_read"><code class="docutils literal notranslate"><span class="pre">report_error_io_read()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modules.errors.report_error_io_write"><code class="docutils literal notranslate"><span class="pre">report_error_io_write()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modules.errors.report_error_requirement_not_met"><code class="docutils literal notranslate"><span class="pre">report_error_requirement_not_met()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-modules.globals">modules.globals module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-modules.input_output">modules.input_output module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modules.input_output.create_directory_if_not_exists"><code class="docutils literal notranslate"><span class="pre">create_directory_if_not_exists()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modules.input_output.safe_load_json_file"><code class="docutils literal notranslate"><span class="pre">safe_load_json_file()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modules.input_output.safe_write_graph_file"><code class="docutils literal notranslate"><span class="pre">safe_write_graph_file()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modules.input_output.write_graph_file"><code class="docutils literal notranslate"><span class="pre">write_graph_file()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-modules.logger">modules.logger module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modules.logger.initialize_logger"><code class="docutils literal notranslate"><span class="pre">initialize_logger()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modules.logger.logger_get_date_time"><code class="docutils literal notranslate"><span class="pre">logger_get_date_time()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-modules.messages">modules.messages module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modules.messages.get_decode_log_message"><code class="docutils literal notranslate"><span class="pre">get_decode_log_message()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modules.messages.print_decode_log_message"><code class="docutils literal notranslate"><span class="pre">print_decode_log_message()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-modules.sparql_queries">modules.sparql_queries module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-modules.utils_general">modules.utils_general module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modules.utils_general.count_elements_types"><code class="docutils literal notranslate"><span class="pre">count_elements_types()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modules.utils_general.get_date_time"><code class="docutils literal notranslate"><span class="pre">get_date_time()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-modules.utils_graph">modules.utils_graph module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modules.utils_graph.get_all_ids_for_type"><code class="docutils literal notranslate"><span class="pre">get_all_ids_for_type()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modules.utils_graph.load_graph_safely"><code class="docutils literal notranslate"><span class="pre">load_graph_safely()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modules.utils_graph.load_ontouml_vocabulary"><code class="docutils literal notranslate"><span class="pre">load_ontouml_vocabulary()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modules.utils_graph.ontouml_ref"><code class="docutils literal notranslate"><span class="pre">ontouml_ref()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
-                <a class="icon icon-home" href="index.html">
-                    ontouml-json2graph
-                    <img alt="Logo" class="logo" src="_static/Logo JSON2Graph Decoder.png"/>
-                </a>
-                <div role="search">
-                    <form action="search.html" class="wy-form" id="rtd-search-form" method="get">
-                        <input aria-label="Search docs" name="q" placeholder="Search docs" type="text"/>
-                        <input name="check_keywords" type="hidden" value="yes"/>
-                        <input name="area" type="hidden" value="default"/>
-                    </form>
-                </div>
-            </div>
-            <div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
-                <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-                <ul class="current">
-                    <li class="toctree-l1"><a class="reference internal" href="README.html">The OntoUML JSON2Graph
-                        Transformation</a></li>
-                    <li class="toctree-l1"><a class="reference internal" href="main.html">main module</a></li>
-                    <li class="toctree-l1 current"><a class="current reference internal" href="#">modules package</a>
-                        <ul>
-                            <li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a>
-                                <ul>
-                                    <li class="toctree-l3"><a class="reference internal" href="modules.decoder.html">modules.decoder
-                                        package</a></li>
-                                </ul>
-                            </li>
-                            <li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
-                            <li class="toctree-l2"><a class="reference internal" href="#module-modules.arguments">modules.arguments
-                                module</a>
-                                <ul>
-                                    <li class="toctree-l3"><a class="reference internal"
-                                                              href="#modules.arguments.publish_user_arguments"><code
-                                            class="docutils literal notranslate"><span class="pre">publish_user_arguments()</span></code></a>
-                                    </li>
-                                    <li class="toctree-l3"><a class="reference internal"
-                                                              href="#modules.arguments.treat_user_arguments"><code
-                                            class="docutils literal notranslate"><span class="pre">treat_user_arguments()</span></code></a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="toctree-l2"><a class="reference internal" href="#module-modules.errors">modules.errors
-                                module</a>
-                                <ul>
-                                    <li class="toctree-l3"><a class="reference internal"
-                                                              href="#modules.errors.report_error_end_of_switch"><code
-                                            class="docutils literal notranslate"><span class="pre">report_error_end_of_switch()</span></code></a>
-                                    </li>
-                                    <li class="toctree-l3"><a class="reference internal"
-                                                              href="#modules.errors.report_error_io_read"><code
-                                            class="docutils literal notranslate"><span class="pre">report_error_io_read()</span></code></a>
-                                    </li>
-                                    <li class="toctree-l3"><a class="reference internal"
-                                                              href="#modules.errors.report_error_io_write"><code
-                                            class="docutils literal notranslate"><span class="pre">report_error_io_write()</span></code></a>
-                                    </li>
-                                    <li class="toctree-l3"><a class="reference internal"
-                                                              href="#modules.errors.report_error_requirement_not_met"><code
-                                            class="docutils literal notranslate"><span class="pre">report_error_requirement_not_met()</span></code></a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="toctree-l2"><a class="reference internal" href="#module-modules.globals">modules.globals
-                                module</a></li>
-                            <li class="toctree-l2"><a class="reference internal" href="#module-modules.input_output">modules.input_output
-                                module</a>
-                                <ul>
-                                    <li class="toctree-l3"><a class="reference internal"
-                                                              href="#modules.input_output.create_directory_if_not_exists"><code
-                                            class="docutils literal notranslate"><span class="pre">create_directory_if_not_exists()</span></code></a>
-                                    </li>
-                                    <li class="toctree-l3"><a class="reference internal"
-                                                              href="#modules.input_output.safe_load_json_file"><code
-                                            class="docutils literal notranslate"><span
-                                            class="pre">safe_load_json_file()</span></code></a></li>
-                                    <li class="toctree-l3"><a class="reference internal"
-                                                              href="#modules.input_output.safe_write_graph_file"><code
-                                            class="docutils literal notranslate"><span class="pre">safe_write_graph_file()</span></code></a>
-                                    </li>
-                                    <li class="toctree-l3"><a class="reference internal"
-                                                              href="#modules.input_output.write_graph_file"><code
-                                            class="docutils literal notranslate"><span
-                                            class="pre">write_graph_file()</span></code></a></li>
-                                </ul>
-                            </li>
-                            <li class="toctree-l2"><a class="reference internal" href="#module-modules.logger">modules.logger
-                                module</a>
-                                <ul>
-                                    <li class="toctree-l3"><a class="reference internal"
-                                                              href="#modules.logger.initialize_logger"><code
-                                            class="docutils literal notranslate"><span
-                                            class="pre">initialize_logger()</span></code></a></li>
-                                    <li class="toctree-l3"><a class="reference internal"
-                                                              href="#modules.logger.logger_get_date_time"><code
-                                            class="docutils literal notranslate"><span class="pre">logger_get_date_time()</span></code></a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="toctree-l2"><a class="reference internal" href="#module-modules.messages">modules.messages
-                                module</a>
-                                <ul>
-                                    <li class="toctree-l3"><a class="reference internal"
-                                                              href="#modules.messages.get_decode_log_message"><code
-                                            class="docutils literal notranslate"><span class="pre">get_decode_log_message()</span></code></a>
-                                    </li>
-                                    <li class="toctree-l3"><a class="reference internal"
-                                                              href="#modules.messages.print_decode_log_message"><code
-                                            class="docutils literal notranslate"><span class="pre">print_decode_log_message()</span></code></a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="toctree-l2"><a class="reference internal" href="#module-modules.sparql_queries">modules.sparql_queries
-                                module</a></li>
-                            <li class="toctree-l2"><a class="reference internal" href="#module-modules.utils_general">modules.utils_general
-                                module</a>
-                                <ul>
-                                    <li class="toctree-l3"><a class="reference internal"
-                                                              href="#modules.utils_general.count_elements_types"><code
-                                            class="docutils literal notranslate"><span class="pre">count_elements_types()</span></code></a>
-                                    </li>
-                                    <li class="toctree-l3"><a class="reference internal"
-                                                              href="#modules.utils_general.get_date_time"><code
-                                            class="docutils literal notranslate"><span
-                                            class="pre">get_date_time()</span></code></a></li>
-                                </ul>
-                            </li>
-                            <li class="toctree-l2"><a class="reference internal" href="#module-modules.utils_graph">modules.utils_graph
-                                module</a>
-                                <ul>
-                                    <li class="toctree-l3"><a class="reference internal"
-                                                              href="#modules.utils_graph.get_all_ids_for_type"><code
-                                            class="docutils literal notranslate"><span class="pre">get_all_ids_for_type()</span></code></a>
-                                    </li>
-                                    <li class="toctree-l3"><a class="reference internal"
-                                                              href="#modules.utils_graph.load_graph_safely"><code
-                                            class="docutils literal notranslate"><span
-                                            class="pre">load_graph_safely()</span></code></a></li>
-                                    <li class="toctree-l3"><a class="reference internal"
-                                                              href="#modules.utils_graph.load_ontouml_vocabulary"><code
-                                            class="docutils literal notranslate"><span class="pre">load_ontouml_vocabulary()</span></code></a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-
-            </div>
         </div>
+      </div>
     </nav>
 
-    <section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
-        <nav aria-label="Mobile navigation menu" class="wy-nav-top">
-            <i class="fa fa-bars" data-toggle="wy-nav-top"></i>
-            <a href="index.html">ontouml-json2graph</a>
-        </nav>
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ontouml-json2graph</a>
+      </nav>
 
-        <div class="wy-nav-content">
-            <div class="rst-content">
-                <div aria-label="Page navigation" role="navigation">
-                    <ul class="wy-breadcrumbs">
-                        <li><a aria-label="Home" class="icon icon-home" href="index.html"></a></li>
-                        <li class="breadcrumb-item active">modules package</li>
-                        <li class="wy-breadcrumbs-aside">
-                            <a href="_sources/modules.rst.txt" rel="nofollow"> View page source</a>
-                        </li>
-                    </ul>
-                    <hr/>
-                </div>
-                <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
-                    <div itemprop="articleBody">
-
-                        <section id="modules-package">
-                            <h1>modules package<a class="headerlink" href="#modules-package"
-                                                  title="Permalink to this heading"></a></h1>
-                            <section id="subpackages">
-                                <h2>Subpackages<a class="headerlink" href="#subpackages"
-                                                  title="Permalink to this heading"></a></h2>
-                                <div class="toctree-wrapper compound">
-                                    <ul>
-                                        <li class="toctree-l1"><a class="reference internal"
-                                                                  href="modules.decoder.html">modules.decoder
-                                            package</a>
-                                            <ul>
-                                                <li class="toctree-l2"><a class="reference internal"
-                                                                          href="modules.decoder.html#submodules">Submodules</a>
-                                                </li>
-                                                <li class="toctree-l2"><a class="reference internal"
-                                                                          href="modules.decoder.html#module-modules.decoder.decode_general">modules.decoder.decode_general
-                                                    module</a>
-                                                    <ul>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_general.clean_null_data"><code
-                                                                class="docutils literal notranslate"><span class="pre">clean_null_data()</span></code></a>
-                                                        </li>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_general.count_elements_graph"><code
-                                                                class="docutils literal notranslate"><span class="pre">count_elements_graph()</span></code></a>
-                                                        </li>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_general.create_point"><code
-                                                                class="docutils literal notranslate"><span class="pre">create_point()</span></code></a>
-                                                        </li>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_general.get_all_ids_of_specific_type"><code
-                                                                class="docutils literal notranslate"><span class="pre">get_all_ids_of_specific_type()</span></code></a>
-                                                        </li>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_general.get_list_subdictionaries_for_specific_type"><code
-                                                                class="docutils literal notranslate"><span class="pre">get_list_subdictionaries_for_specific_type()</span></code></a>
-                                                        </li>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_general.get_stereotype"><code
-                                                                class="docutils literal notranslate"><span class="pre">get_stereotype()</span></code></a>
-                                                        </li>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_general.get_subdictionary_for_specific_id"><code
-                                                                class="docutils literal notranslate"><span class="pre">get_subdictionary_for_specific_id()</span></code></a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="toctree-l2"><a class="reference internal"
-                                                                          href="modules.decoder.html#module-modules.decoder.decode_main">modules.decoder.decode_main
-                                                    module</a>
-                                                    <ul>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_main.add_metadata"><code
-                                                                class="docutils literal notranslate"><span class="pre">add_metadata()</span></code></a>
-                                                        </li>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_main.decode_dictionary"><code
-                                                                class="docutils literal notranslate"><span class="pre">decode_dictionary()</span></code></a>
-                                                        </li>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_main.decode_json_to_graph"><code
-                                                                class="docutils literal notranslate"><span class="pre">decode_json_to_graph()</span></code></a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="toctree-l2"><a class="reference internal"
-                                                                          href="modules.decoder.html#module-modules.decoder.decode_obj_class">modules.decoder.decode_obj_class
-                                                    module</a>
-                                                    <ul>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_obj_class.create_class_properties"><code
-                                                                class="docutils literal notranslate"><span class="pre">create_class_properties()</span></code></a>
-                                                        </li>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_obj_class.set_class_attribute_property"><code
-                                                                class="docutils literal notranslate"><span class="pre">set_class_attribute_property()</span></code></a>
-                                                        </li>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_obj_class.set_class_attributes"><code
-                                                                class="docutils literal notranslate"><span class="pre">set_class_attributes()</span></code></a>
-                                                        </li>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_obj_class.set_class_literal_literal"><code
-                                                                class="docutils literal notranslate"><span class="pre">set_class_literal_literal()</span></code></a>
-                                                        </li>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_obj_class.set_class_order_nonnegativeinteger"><code
-                                                                class="docutils literal notranslate"><span class="pre">set_class_order_nonnegativeinteger()</span></code></a>
-                                                        </li>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_obj_class.set_class_restrictedto_ontologicalnature"><code
-                                                                class="docutils literal notranslate"><span class="pre">set_class_restrictedto_ontologicalnature()</span></code></a>
-                                                        </li>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_obj_class.set_class_stereotype"><code
-                                                                class="docutils literal notranslate"><span class="pre">set_class_stereotype()</span></code></a>
-                                                        </li>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_obj_class.set_defaults_class_attribute"><code
-                                                                class="docutils literal notranslate"><span class="pre">set_defaults_class_attribute()</span></code></a>
-                                                        </li>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_obj_class.set_defaults_class_order"><code
-                                                                class="docutils literal notranslate"><span class="pre">set_defaults_class_order()</span></code></a>
-                                                        </li>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_obj_class.validate_class_attribute_constraints"><code
-                                                                class="docutils literal notranslate"><span class="pre">validate_class_attribute_constraints()</span></code></a>
-                                                        </li>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_obj_class.validate_class_order_constraints"><code
-                                                                class="docutils literal notranslate"><span class="pre">validate_class_order_constraints()</span></code></a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="toctree-l2"><a class="reference internal"
-                                                                          href="modules.decoder.html#module-modules.decoder.decode_obj_diagram">modules.decoder.decode_obj_diagram
-                                                    module</a>
-                                                    <ul>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_obj_diagram.create_diagram_properties"><code
-                                                                class="docutils literal notranslate"><span class="pre">create_diagram_properties()</span></code></a>
-                                                        </li>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_obj_diagram.set_diagram_containsview_elementview"><code
-                                                                class="docutils literal notranslate"><span class="pre">set_diagram_containsview_elementview()</span></code></a>
-                                                        </li>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_obj_diagram.set_diagram_owner_modelelement"><code
-                                                                class="docutils literal notranslate"><span class="pre">set_diagram_owner_modelelement()</span></code></a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="toctree-l2"><a class="reference internal"
-                                                                          href="modules.decoder.html#module-modules.decoder.decode_obj_elementview">modules.decoder.decode_obj_elementview
-                                                    module</a>
-                                                    <ul>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_obj_elementview.create_elementview_properties"><code
-                                                                class="docutils literal notranslate"><span class="pre">create_elementview_properties()</span></code></a>
-                                                        </li>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_obj_elementview.set_elementview_relations"><code
-                                                                class="docutils literal notranslate"><span class="pre">set_elementview_relations()</span></code></a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="toctree-l2"><a class="reference internal"
-                                                                          href="modules.decoder.html#module-modules.decoder.decode_obj_generalization">modules.decoder.decode_obj_generalization
-                                                    module</a>
-                                                    <ul>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_obj_generalization.create_generalization_properties"><code
-                                                                class="docutils literal notranslate"><span class="pre">create_generalization_properties()</span></code></a>
-                                                        </li>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_obj_generalization.set_generalization_relations"><code
-                                                                class="docutils literal notranslate"><span class="pre">set_generalization_relations()</span></code></a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="toctree-l2"><a class="reference internal"
-                                                                          href="modules.decoder.html#module-modules.decoder.decode_obj_generalizationset">modules.decoder.decode_obj_generalizationset
-                                                    module</a>
-                                                    <ul>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_obj_generalizationset.create_generalizationset_properties"><code
-                                                                class="docutils literal notranslate"><span class="pre">create_generalizationset_properties()</span></code></a>
-                                                        </li>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_obj_generalizationset.set_generalizationset_defaults"><code
-                                                                class="docutils literal notranslate"><span class="pre">set_generalizationset_defaults()</span></code></a>
-                                                        </li>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_obj_generalizationset.set_generalizationset_relations"><code
-                                                                class="docutils literal notranslate"><span class="pre">set_generalizationset_relations()</span></code></a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="toctree-l2"><a class="reference internal"
-                                                                          href="modules.decoder.html#module-modules.decoder.decode_obj_package">modules.decoder.decode_obj_package
-                                                    module</a>
-                                                    <ul>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_obj_package.create_package_properties"><code
-                                                                class="docutils literal notranslate"><span class="pre">create_package_properties()</span></code></a>
-                                                        </li>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_obj_package.get_package_contents"><code
-                                                                class="docutils literal notranslate"><span class="pre">get_package_contents()</span></code></a>
-                                                        </li>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_obj_package.set_package_containsmodelelement_modelelement"><code
-                                                                class="docutils literal notranslate"><span class="pre">set_package_containsmodelelement_modelelement()</span></code></a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="toctree-l2"><a class="reference internal"
-                                                                          href="modules.decoder.html#module-modules.decoder.decode_obj_path">modules.decoder.decode_obj_path
-                                                    module</a>
-                                                    <ul>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_obj_path.create_path_properties"><code
-                                                                class="docutils literal notranslate"><span class="pre">create_path_properties()</span></code></a>
-                                                        </li>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_obj_path.set_path_path_point"><code
-                                                                class="docutils literal notranslate"><span class="pre">set_path_path_point()</span></code></a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="toctree-l2"><a class="reference internal"
-                                                                          href="modules.decoder.html#module-modules.decoder.decode_obj_project">modules.decoder.decode_obj_project
-                                                    module</a>
-                                                    <ul>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_obj_project.create_project_properties"><code
-                                                                class="docutils literal notranslate"><span class="pre">create_project_properties()</span></code></a>
-                                                        </li>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_obj_project.set_ontoumlelement_project_project"><code
-                                                                class="docutils literal notranslate"><span class="pre">set_ontoumlelement_project_project()</span></code></a>
-                                                        </li>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_obj_project.set_project_diagram_diagram"><code
-                                                                class="docutils literal notranslate"><span class="pre">set_project_diagram_diagram()</span></code></a>
-                                                        </li>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_obj_project.set_project_model_package"><code
-                                                                class="docutils literal notranslate"><span class="pre">set_project_model_package()</span></code></a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="toctree-l2"><a class="reference internal"
-                                                                          href="modules.decoder.html#module-modules.decoder.decode_obj_property">modules.decoder.decode_obj_property
-                                                    module</a>
-                                                    <ul>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_obj_property.create_property_properties"><code
-                                                                class="docutils literal notranslate"><span class="pre">create_property_properties()</span></code></a>
-                                                        </li>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_obj_property.determine_cardinality_bounds"><code
-                                                                class="docutils literal notranslate"><span class="pre">determine_cardinality_bounds()</span></code></a>
-                                                        </li>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_obj_property.set_cardinality_relations"><code
-                                                                class="docutils literal notranslate"><span class="pre">set_cardinality_relations()</span></code></a>
-                                                        </li>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_obj_property.set_property_defaults"><code
-                                                                class="docutils literal notranslate"><span class="pre">set_property_defaults()</span></code></a>
-                                                        </li>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_obj_property.set_property_relations"><code
-                                                                class="docutils literal notranslate"><span class="pre">set_property_relations()</span></code></a>
-                                                        </li>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_obj_property.validate_property_stereotype"><code
-                                                                class="docutils literal notranslate"><span class="pre">validate_property_stereotype()</span></code></a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="toctree-l2"><a class="reference internal"
-                                                                          href="modules.decoder.html#module-modules.decoder.decode_obj_rectangularshape">modules.decoder.decode_obj_rectangularshape
-                                                    module</a>
-                                                    <ul>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_obj_rectangularshape.create_rectangularshape_properties"><code
-                                                                class="docutils literal notranslate"><span class="pre">create_rectangularshape_properties()</span></code></a>
-                                                        </li>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_obj_rectangularshape.set_rectangularshape_coordinates"><code
-                                                                class="docutils literal notranslate"><span class="pre">set_rectangularshape_coordinates()</span></code></a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="toctree-l2"><a class="reference internal"
-                                                                          href="modules.decoder.html#module-modules.decoder.decode_obj_relation">modules.decoder.decode_obj_relation
-                                                    module</a>
-                                                    <ul>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_obj_relation.create_relation_properties"><code
-                                                                class="docutils literal notranslate"><span class="pre">create_relation_properties()</span></code></a>
-                                                        </li>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_obj_relation.set_relation_defaults"><code
-                                                                class="docutils literal notranslate"><span class="pre">set_relation_defaults()</span></code></a>
-                                                        </li>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_obj_relation.set_relation_relations"><code
-                                                                class="docutils literal notranslate"><span class="pre">set_relation_relations()</span></code></a>
-                                                        </li>
-                                                        <li class="toctree-l3"><a class="reference internal"
-                                                                                  href="modules.decoder.html#modules.decoder.decode_obj_relation.set_relation_stereotype"><code
-                                                                class="docutils literal notranslate"><span class="pre">set_relation_stereotype()</span></code></a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="toctree-l2"><a class="reference internal"
-                                                                          href="modules.decoder.html#module-modules.decoder">Module
-                                                    contents</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </section>
-                            <section id="submodules">
-                                <h2>Submodules<a class="headerlink" href="#submodules"
-                                                 title="Permalink to this heading"></a></h2>
-                            </section>
-                            <section id="module-modules.arguments">
-                                <span id="modules-arguments-module"></span>
-                                <h2>modules.arguments module<a class="headerlink" href="#module-modules.arguments"
-                                                               title="Permalink to this heading"></a></h2>
-                                <p>Argument Treatments</p>
-                                <dl class="py function">
-                                    <dt class="sig sig-object py" id="modules.arguments.publish_user_arguments">
-                                        <span class="sig-prename descclassname"><span
-                                                class="pre">modules.arguments.</span></span><span
-                                            class="sig-name descname"><span
-                                            class="pre">publish_user_arguments</span></span><span
-                                            class="sig-paren">(</span><span class="sig-paren">)</span><a
-                                            class="headerlink" href="#modules.arguments.publish_user_arguments"
-                                            title="Permalink to this definition"></a></dt>
-                                    <dd></dd>
-                                </dl>
-
-                                <dl class="py function">
-                                    <dt class="sig sig-object py" id="modules.arguments.treat_user_arguments">
-                                        <span class="sig-prename descclassname"><span
-                                                class="pre">modules.arguments.</span></span><span
-                                            class="sig-name descname"><span
-                                            class="pre">treat_user_arguments</span></span><span
-                                            class="sig-paren">(</span><span class="sig-paren">)</span> <span
-                                            class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span
-                                            class="sig-return-typehint"><span class="pre">dict</span></span></span><a
-                                            class="headerlink" href="#modules.arguments.treat_user_arguments"
-                                            title="Permalink to this definition"></a></dt>
-                                    <dd><p>Treat arguments provided by the user when starting software execution.</p>
-                                        <dl class="field-list simple">
-                                            <dt class="field-odd">Returns<span class="colon">:</span></dt>
-                                            <dd class="field-odd"><p>Dictionary with json path (key ‘json_path’) and
-                                                final file format (key ‘format’).</p>
-                                            </dd>
-                                            <dt class="field-even">Return type<span class="colon">:</span></dt>
-                                            <dd class="field-even"><p>dict</p>
-                                            </dd>
-                                            <dt class="field-odd">Raises<span class="colon">:</span></dt>
-                                            <dd class="field-odd"><p><strong>OSError</strong> – If provided input is not
-                                                of JSON type.</p>
-                                            </dd>
-                                        </dl>
-                                    </dd>
-                                </dl>
-
-                            </section>
-                            <section id="module-modules.errors">
-                                <span id="modules-errors-module"></span>
-                                <h2>modules.errors module<a class="headerlink" href="#module-modules.errors"
-                                                            title="Permalink to this heading"></a></h2>
-                                <p>Functions related to the verification and treatment of identified ERROR cases.</p>
-                                <dl class="py function">
-                                    <dt class="sig sig-object py" id="modules.errors.report_error_end_of_switch">
-                                        <span class="sig-prename descclassname"><span class="pre">modules.errors.</span></span><span
-                                            class="sig-name descname"><span
-                                            class="pre">report_error_end_of_switch</span></span><span class="sig-paren">(</span><em
-                                            class="sig-param"><span class="n"><span class="pre">invalid_parameter</span></span><span
-                                            class="p"><span class="pre">:</span></span><span class="w"> </span><span
-                                            class="n"><span class="pre">str</span></span></em>, <em
-                                            class="sig-param"><span class="n"><span
-                                            class="pre">caller_function_name</span></span><span class="p"><span
-                                            class="pre">:</span></span><span class="w"> </span><span class="n"><span
-                                            class="pre">str</span></span></em><span class="sig-paren">)</span> <span
-                                            class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span
-                                            class="sig-return-typehint"><span class="pre">None</span></span></span><a
-                                            class="headerlink" href="#modules.errors.report_error_end_of_switch"
-                                            title="Permalink to this definition"></a></dt>
-                                    <dd><p>Reports the error caused when an invalid parameter is provided to a switch
-                                        case (if-else statements).
-                                        Used to validate parameters.</p>
-                                        <p>NOTE: caller_function_name can be obtained from ‘current_function =
-                                            inspect.stack()[0][3]’</p>
-                                        <dl class="field-list simple">
-                                            <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-                                            <dd class="field-odd">
-                                                <ul class="simple">
-                                                    <li><p><strong>invalid_parameter</strong> (<em>str</em>) – Invalid
-                                                        function parameter that caused the error.</p></li>
-                                                    <li><p><strong>caller_function_name</strong> (<em>str</em>) – Name
-                                                        of the function in which the invalid parameter was used.</p>
-                                                    </li>
-                                                </ul>
-                                            </dd>
-                                            <dt class="field-even">Raises<span class="colon">:</span></dt>
-                                            <dd class="field-even"><p><strong>ValueError</strong> – Always.</p>
-                                            </dd>
-                                        </dl>
-                                    </dd>
-                                </dl>
-
-                                <dl class="py function">
-                                    <dt class="sig sig-object py" id="modules.errors.report_error_io_read">
-                                        <span class="sig-prename descclassname"><span class="pre">modules.errors.</span></span><span
-                                            class="sig-name descname"><span
-                                            class="pre">report_error_io_read</span></span><span
-                                            class="sig-paren">(</span><em class="sig-param"><span class="n"><span
-                                            class="pre">desired_content</span></span><span class="p"><span
-                                            class="pre">:</span></span><span class="w"> </span><span class="n"><span
-                                            class="pre">str</span></span></em>, <em class="sig-param"><span
-                                            class="n"><span class="pre">file_description</span></span><span
-                                            class="p"><span class="pre">:</span></span><span class="w"> </span><span
-                                            class="n"><span class="pre">str</span></span></em>, <em
-                                            class="sig-param"><span class="n"><span class="pre">error</span></span><span
-                                            class="p"><span class="pre">:</span></span><span class="w"> </span><span
-                                            class="n"><span class="pre">OSError</span></span></em><span
-                                            class="sig-paren">)</span> <span class="sig-return"><span
-                                            class="sig-return-icon">&#x2192;</span> <span
-                                            class="sig-return-typehint"><span class="pre">None</span></span></span><a
-                                            class="headerlink" href="#modules.errors.report_error_io_read"
-                                            title="Permalink to this definition"></a></dt>
-                                    <dd><p>Reports the error caused program cannot read or load the desired content
-                                        (test_files or directories).</p>
-                                        <dl class="field-list simple">
-                                            <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-                                            <dd class="field-odd">
-                                                <ul class="simple">
-                                                    <li><p><strong>desired_content</strong> (<em>str</em>) – Name of the
-                                                        file used by the IO operation caused the error.</p></li>
-                                                    <li><p><strong>file_description</strong> (<em>str</em>) –
-                                                        Description of the file in desired_content.</p></li>
-                                                    <li><p><strong>error</strong> (<em>OSError</em>) – Error raised by
-                                                        the IO operation.</p></li>
-                                                </ul>
-                                            </dd>
-                                            <dt class="field-even">Raises<span class="colon">:</span></dt>
-                                            <dd class="field-even"><p><strong>OSError</strong> – Always.</p>
-                                            </dd>
-                                        </dl>
-                                    </dd>
-                                </dl>
-
-                                <dl class="py function">
-                                    <dt class="sig sig-object py" id="modules.errors.report_error_io_write">
-                                        <span class="sig-prename descclassname"><span class="pre">modules.errors.</span></span><span
-                                            class="sig-name descname"><span
-                                            class="pre">report_error_io_write</span></span><span
-                                            class="sig-paren">(</span><em class="sig-param"><span class="n"><span
-                                            class="pre">desired_content</span></span><span class="p"><span
-                                            class="pre">:</span></span><span class="w"> </span><span class="n"><span
-                                            class="pre">str</span></span></em>, <em class="sig-param"><span
-                                            class="n"><span class="pre">file_description</span></span><span
-                                            class="p"><span class="pre">:</span></span><span class="w"> </span><span
-                                            class="n"><span class="pre">str</span></span></em>, <em
-                                            class="sig-param"><span class="n"><span class="pre">error</span></span><span
-                                            class="p"><span class="pre">:</span></span><span class="w"> </span><span
-                                            class="n"><span class="pre">OSError</span></span></em><span
-                                            class="sig-paren">)</span> <span class="sig-return"><span
-                                            class="sig-return-icon">&#x2192;</span> <span
-                                            class="sig-return-typehint"><span class="pre">None</span></span></span><a
-                                            class="headerlink" href="#modules.errors.report_error_io_write"
-                                            title="Permalink to this definition"></a></dt>
-                                    <dd><p>Reports the error caused program cannot save or write the desired content
-                                        (test_files or directories).</p>
-                                        <dl class="field-list simple">
-                                            <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-                                            <dd class="field-odd">
-                                                <ul class="simple">
-                                                    <li><p><strong>desired_content</strong> (<em>str</em>) – Name of the
-                                                        file used by the IO operation caused the error.</p></li>
-                                                    <li><p><strong>file_description</strong> (<em>str</em>) –
-                                                        Description of the file in desired_content.</p></li>
-                                                    <li><p><strong>error</strong> (<em>OSError</em>) – Error raised by
-                                                        the IO operation.</p></li>
-                                                </ul>
-                                            </dd>
-                                            <dt class="field-even">Raises<span class="colon">:</span></dt>
-                                            <dd class="field-even"><p><strong>OSError</strong> – Always.</p>
-                                            </dd>
-                                        </dl>
-                                    </dd>
-                                </dl>
-
-                                <dl class="py function">
-                                    <dt class="sig sig-object py" id="modules.errors.report_error_requirement_not_met">
-                                        <span class="sig-prename descclassname"><span class="pre">modules.errors.</span></span><span
-                                            class="sig-name descname"><span
-                                            class="pre">report_error_requirement_not_met</span></span><span
-                                            class="sig-paren">(</span><em class="sig-param"><span class="n"><span
-                                            class="pre">error_message</span></span><span class="p"><span
-                                            class="pre">:</span></span><span class="w"> </span><span class="n"><span
-                                            class="pre">str</span></span></em><span class="sig-paren">)</span> <span
-                                            class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span
-                                            class="sig-return-typehint"><span class="pre">None</span></span></span><a
-                                            class="headerlink" href="#modules.errors.report_error_requirement_not_met"
-                                            title="Permalink to this definition"></a></dt>
-                                    <dd><p>Reports the error caused when a requirement is not met. As this is a generic
-                                        function, the error message
-                                        parameter must be used to identify the error to the user.</p>
-                                        <dl class="field-list simple">
-                                            <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-                                            <dd class="field-odd"><p><strong>error_message</strong> (<em>str</em>) –
-                                                Message to be printed to the user indicating the detected error.</p>
-                                            </dd>
-                                            <dt class="field-even">Raises<span class="colon">:</span></dt>
-                                            <dd class="field-even"><p><strong>ValueError</strong> – Always.</p>
-                                            </dd>
-                                        </dl>
-                                    </dd>
-                                </dl>
-
-                            </section>
-                            <section id="module-modules.globals">
-                                <span id="modules-globals-module"></span>
-                                <h2>modules.globals module<a class="headerlink" href="#module-modules.globals"
-                                                             title="Permalink to this heading"></a></h2>
-                                <p>Global variables.</p>
-                            </section>
-                            <section id="module-modules.input_output">
-                                <span id="modules-input-output-module"></span>
-                                <h2>modules.input_output module<a class="headerlink" href="#module-modules.input_output"
-                                                                  title="Permalink to this heading"></a></h2>
-                                <p>IO functions used in diverse occasions.</p>
-                                <dl class="py function">
-                                    <dt class="sig sig-object py"
-                                        id="modules.input_output.create_directory_if_not_exists">
-                                        <span class="sig-prename descclassname"><span
-                                                class="pre">modules.input_output.</span></span><span
-                                            class="sig-name descname"><span
-                                            class="pre">create_directory_if_not_exists</span></span><span
-                                            class="sig-paren">(</span><em class="sig-param"><span class="n"><span
-                                            class="pre">directory_path</span></span><span class="p"><span
-                                            class="pre">:</span></span><span class="w"> </span><span class="n"><span
-                                            class="pre">str</span></span></em>, <em class="sig-param"><span
-                                            class="n"><span class="pre">file_description</span></span><span
-                                            class="p"><span class="pre">:</span></span><span class="w"> </span><span
-                                            class="n"><span class="pre">str</span></span></em><span
-                                            class="sig-paren">)</span> <span class="sig-return"><span
-                                            class="sig-return-icon">&#x2192;</span> <span
-                                            class="sig-return-typehint"><span class="pre">None</span></span></span><a
-                                            class="headerlink"
-                                            href="#modules.input_output.create_directory_if_not_exists"
-                                            title="Permalink to this definition"></a></dt>
-                                    <dd><p>Checks if the directory that has the path received as argument exists.
-                                        If it does, do nothing. If it does not, create it.</p>
-                                        <dl class="field-list simple">
-                                            <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-                                            <dd class="field-odd"><p><strong>directory_path</strong> (<em>str</em>) –
-                                                Path to the directory to be created (if it does not exist).</p>
-                                            </dd>
-                                        </dl>
-                                    </dd>
-                                </dl>
-
-                                <dl class="py function">
-                                    <dt class="sig sig-object py" id="modules.input_output.safe_load_json_file">
-                                        <span class="sig-prename descclassname"><span
-                                                class="pre">modules.input_output.</span></span><span
-                                            class="sig-name descname"><span
-                                            class="pre">safe_load_json_file</span></span><span
-                                            class="sig-paren">(</span><em class="sig-param"><span class="n"><span
-                                            class="pre">json_path</span></span><span class="p"><span
-                                            class="pre">:</span></span><span class="w"> </span><span class="n"><span
-                                            class="pre">str</span></span></em><span class="sig-paren">)</span> <span
-                                            class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span
-                                            class="sig-return-typehint"><span class="pre">dict</span></span></span><a
-                                            class="headerlink" href="#modules.input_output.safe_load_json_file"
-                                            title="Permalink to this definition"></a></dt>
-                                    <dd><p>Safely loads the JSON file inputted by the user as an argument into a
-                                        dictionary.</p>
-                                        <dl class="field-list simple">
-                                            <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-                                            <dd class="field-odd"><p><strong>json_path</strong> (<em>str</em>) – Path to
-                                                the JSON file to be loaded.</p>
-                                            </dd>
-                                            <dt class="field-even">Returns<span class="colon">:</span></dt>
-                                            <dd class="field-even"><p>Dictionary with loaded JSON’s data.</p>
-                                            </dd>
-                                            <dt class="field-odd">Return type<span class="colon">:</span></dt>
-                                            <dd class="field-odd"><p>dict</p>
-                                            </dd>
-                                        </dl>
-                                    </dd>
-                                </dl>
-
-                                <dl class="py function">
-                                    <dt class="sig sig-object py" id="modules.input_output.safe_write_graph_file">
-                                        <span class="sig-prename descclassname"><span
-                                                class="pre">modules.input_output.</span></span><span
-                                            class="sig-name descname"><span
-                                            class="pre">safe_write_graph_file</span></span><span
-                                            class="sig-paren">(</span><em class="sig-param"><span class="n"><span
-                                            class="pre">ontouml_graph</span></span><span class="p"><span
-                                            class="pre">:</span></span><span class="w"> </span><span class="n"><span
-                                            class="pre">Graph</span></span></em>, <em class="sig-param"><span class="n"><span
-                                            class="pre">output_file_name</span></span><span class="p"><span class="pre">:</span></span><span
-                                            class="w"> </span><span class="n"><span class="pre">str</span></span></em>,
-                                        <em class="sig-param"><span class="n"><span
-                                                class="pre">syntax</span></span><span class="p"><span
-                                                class="pre">:</span></span><span class="w"> </span><span class="n"><span
-                                                class="pre">str</span></span></em><span class="sig-paren">)</span> <span
-                                            class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span
-                                            class="sig-return-typehint"><span class="pre">None</span></span></span><a
-                                            class="headerlink" href="#modules.input_output.safe_write_graph_file"
-                                            title="Permalink to this definition"></a></dt>
-                                    <dd><p>Safely saves the graph into a file in the informed destination with the
-                                        desired syntax.</p>
-                                        <dl class="field-list simple">
-                                            <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-                                            <dd class="field-odd">
-                                                <ul class="simple">
-                                                    <li><p><strong>ontouml_graph</strong> (<em>Graph</em>) – Graph
-                                                        compliant with the OntoUML Vocabulary.</p></li>
-                                                    <li><p><strong>output_file_name</strong> (<em>str</em>) – Created
-                                                        output file name.</p></li>
-                                                    <li><p><strong>syntax</strong> (<em>str</em>) – Syntax to be used
-                                                        for saving the ontology file.</p></li>
-                                                </ul>
-                                            </dd>
-                                        </dl>
-                                    </dd>
-                                </dl>
-
-                                <dl class="py function">
-                                    <dt class="sig sig-object py" id="modules.input_output.write_graph_file">
-                                        <span class="sig-prename descclassname"><span
-                                                class="pre">modules.input_output.</span></span><span
-                                            class="sig-name descname"><span
-                                            class="pre">write_graph_file</span></span><span
-                                            class="sig-paren">(</span><em class="sig-param"><span class="n"><span
-                                            class="pre">ontouml_graph</span></span><span class="p"><span
-                                            class="pre">:</span></span><span class="w"> </span><span class="n"><span
-                                            class="pre">Graph</span></span></em>, <em class="sig-param"><span class="n"><span
-                                            class="pre">json_path</span></span><span class="p"><span
-                                            class="pre">:</span></span><span class="w"> </span><span class="n"><span
-                                            class="pre">str</span></span></em>, <em class="sig-param"><span
-                                            class="n"><span class="pre">graph_format</span></span><span class="p"><span
-                                            class="pre">:</span></span><span class="w"> </span><span class="n"><span
-                                            class="pre">str</span></span></em><span class="sig-paren">)</span> <span
-                                            class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span
-                                            class="sig-return-typehint"><span class="pre">str</span></span></span><a
-                                            class="headerlink" href="#modules.input_output.write_graph_file"
-                                            title="Permalink to this definition"></a></dt>
-                                    <dd><p>Saves the ontology graph into a file with syntax defined by the user.</p>
-                                        <dl class="field-list simple">
-                                            <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-                                            <dd class="field-odd">
-                                                <ul class="simple">
-                                                    <li><p><strong>ontouml_graph</strong> (<em>Graph</em>) – Graph
-                                                        compliant with the OntoUML Vocabulary.</p></li>
-                                                    <li><p><strong>json_path</strong> (<em>str</em>) – Path to the input
-                                                        json file.</p></li>
-                                                    <li><p><strong>graph_format</strong> (<em>str</em>) – Syntax
-                                                        selected by the user to save the graph.</p></li>
-                                                </ul>
-                                            </dd>
-                                            <dt class="field-even">Returns<span class="colon">:</span></dt>
-                                            <dd class="field-even"><p>Saved output file path.</p>
-                                            </dd>
-                                            <dt class="field-odd">Return type<span class="colon">:</span></dt>
-                                            <dd class="field-odd"><p>str</p>
-                                            </dd>
-                                        </dl>
-                                    </dd>
-                                </dl>
-
-                            </section>
-                            <section id="module-modules.logger">
-                                <span id="modules-logger-module"></span>
-                                <h2>modules.logger module<a class="headerlink" href="#module-modules.logger"
-                                                            title="Permalink to this heading"></a></h2>
-                                <p>Logging configurations.</p>
-                                <dl class="py function">
-                                    <dt class="sig sig-object py" id="modules.logger.initialize_logger">
-                                        <span class="sig-prename descclassname"><span class="pre">modules.logger.</span></span><span
-                                            class="sig-name descname"><span
-                                            class="pre">initialize_logger</span></span><span
-                                            class="sig-paren">(</span><em class="sig-param"><span class="n"><span
-                                            class="pre">execution_mode</span></span><span class="p"><span
-                                            class="pre">:</span></span><span class="w"> </span><span class="n"><span
-                                            class="pre">str</span></span><span class="w"> </span><span class="o"><span
-                                            class="pre">=</span></span><span class="w"> </span><span
-                                            class="default_value"><span class="pre">'production'</span></span></em><span
-                                            class="sig-paren">)</span> <span class="sig-return"><span
-                                            class="sig-return-icon">&#x2192;</span> <span
-                                            class="sig-return-typehint"><span class="pre">Logger</span></span></span><a
-                                            class="headerlink" href="#modules.logger.initialize_logger"
-                                            title="Permalink to this definition"></a></dt>
-                                    <dd><p>Create and initialize logger. The created logger is called
-                                        ‘execution-logger’.
-                                        Different triggers are defined for each execution mode:</p>
-                                        <blockquote>
-                                            <div>
-                                                <ul class="simple">
-                                                    <li><p>production: INFO</p></li>
-                                                    <li><p>test: ERROR</p></li>
-                                                </ul>
-                                            </div>
-                                        </blockquote>
-                                        <dl class="field-list simple">
-                                            <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-                                            <dd class="field-odd"><p><strong>execution_mode</strong> (<em>str</em>) –
-                                                Information about execution mode. Valid values are ‘production’ and
-                                                ‘test’.</p>
-                                            </dd>
-                                            <dt class="field-even">Returns<span class="colon">:</span></dt>
-                                            <dd class="field-even"><p>Created logger called ‘execution-logger’.</p>
-                                            </dd>
-                                            <dt class="field-odd">Return type<span class="colon">:</span></dt>
-                                            <dd class="field-odd"><p>logging.Logger</p>
-                                            </dd>
-                                        </dl>
-                                    </dd>
-                                </dl>
-
-                                <dl class="py function">
-                                    <dt class="sig sig-object py" id="modules.logger.logger_get_date_time">
-                                        <span class="sig-prename descclassname"><span class="pre">modules.logger.</span></span><span
-                                            class="sig-name descname"><span
-                                            class="pre">logger_get_date_time</span></span><span
-                                            class="sig-paren">(</span><span class="sig-paren">)</span> <span
-                                            class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span
-                                            class="sig-return-typehint"><span class="pre">str</span></span></span><a
-                                            class="headerlink" href="#modules.logger.logger_get_date_time"
-                                            title="Permalink to this definition"></a></dt>
-                                    <dd><p>Return a string in a specified format with date and time. Format example:
-                                        2022.10.23-14.43</p>
-                                        <dl class="field-list simple">
-                                            <dt class="field-odd">Returns<span class="colon">:</span></dt>
-                                            <dd class="field-odd"><p>Formatted date and time.</p>
-                                            </dd>
-                                            <dt class="field-even">Return type<span class="colon">:</span></dt>
-                                            <dd class="field-even"><p>str</p>
-                                            </dd>
-                                        </dl>
-                                    </dd>
-                                </dl>
-
-                            </section>
-                            <section id="module-modules.messages">
-                                <span id="modules-messages-module"></span>
-                                <h2>modules.messages module<a class="headerlink" href="#module-modules.messages"
-                                                              title="Permalink to this heading"></a></h2>
-                                <p>Decoding messages to be displayed to users must be concentrated in this module
-                                    whenever possibile.</p>
-                                <dl class="py function">
-                                    <dt class="sig sig-object py" id="modules.messages.get_decode_log_message">
-                                        <span class="sig-prename descclassname"><span
-                                                class="pre">modules.messages.</span></span><span
-                                            class="sig-name descname"><span
-                                            class="pre">get_decode_log_message</span></span><span
-                                            class="sig-paren">(</span><em class="sig-param"><span class="n"><span
-                                            class="pre">object_dict</span></span><span class="p"><span
-                                            class="pre">:</span></span><span class="w"> </span><span class="n"><span
-                                            class="pre">dict</span></span></em>, <em class="sig-param"><span
-                                            class="n"><span class="pre">warning_code</span></span><span class="p"><span
-                                            class="pre">:</span></span><span class="w"> </span><span class="n"><span
-                                            class="pre">str</span></span></em>, <em class="sig-param"><span
-                                            class="n"><span class="pre">property_name</span></span><span class="p"><span
-                                            class="pre">:</span></span><span class="w"> </span><span class="n"><span
-                                            class="pre">str</span></span></em>, <em class="sig-param"><span
-                                            class="n"><span class="pre">att_valid_stereotype</span></span><span
-                                            class="p"><span class="pre">:</span></span><span class="w"> </span><span
-                                            class="n"><span class="pre">str</span></span><span class="w"> </span><span
-                                            class="o"><span class="pre">=</span></span><span class="w"> </span><span
-                                            class="default_value"><span class="pre">''</span></span></em><span
-                                            class="sig-paren">)</span> <span class="sig-return"><span
-                                            class="sig-return-icon">&#x2192;</span> <span
-                                            class="sig-return-typehint"><span class="pre">str</span></span></span><a
-                                            class="headerlink" href="#modules.messages.get_decode_log_message"
-                                            title="Permalink to this definition"></a></dt>
-                                    <dd><p>Mounts and returns a warning message according to the information received as
-                                        parameter.</p>
-                                        <dl class="field-list simple">
-                                            <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-                                            <dd class="field-odd">
-                                                <ul class="simple">
-                                                    <li><p><strong>object_dict</strong> (<em>dict</em>) – Object’s JSON
-                                                        data loaded as a dictionary.</p></li>
-                                                    <li><p><strong>warning_code</strong> (<em>str</em>) – Code used to
-                                                        select the correct message to be displayed to the user if not in
-                                                        silent mode.</p></li>
-                                                    <li><p><strong>property_name</strong> (<em>str</em>) – Information
-                                                        about a property or attribute type to be displayed in a warning
-                                                        message. Optional.</p></li>
-                                                    <li><p><strong>att_valid_stereotype</strong> (<em>str</em>) –
-                                                        Stereotype associated to an attribute to be displayed in a
-                                                        warning message. Optional.</p></li>
-                                                </ul>
-                                            </dd>
-                                            <dt class="field-even">Returns<span class="colon">:</span></dt>
-                                            <dd class="field-even"><p>Warning message containing information about the
-                                                modification made to be printed to user.</p>
-                                            </dd>
-                                            <dt class="field-odd">Return type<span class="colon">:</span></dt>
-                                            <dd class="field-odd"><p>str</p>
-                                            </dd>
-                                        </dl>
-                                    </dd>
-                                </dl>
-
-                                <dl class="py function">
-                                    <dt class="sig sig-object py" id="modules.messages.print_decode_log_message">
-                                        <span class="sig-prename descclassname"><span
-                                                class="pre">modules.messages.</span></span><span
-                                            class="sig-name descname"><span class="pre">print_decode_log_message</span></span><span
-                                            class="sig-paren">(</span><em class="sig-param"><span class="n"><span
-                                            class="pre">object_dict</span></span><span class="p"><span
-                                            class="pre">:</span></span><span class="w"> </span><span class="n"><span
-                                            class="pre">dict</span></span></em>, <em class="sig-param"><span
-                                            class="n"><span class="pre">warning_code</span></span><span class="p"><span
-                                            class="pre">:</span></span><span class="w"> </span><span class="n"><span
-                                            class="pre">str</span></span></em>, <em class="sig-param"><span
-                                            class="n"><span class="pre">property_name</span></span><span class="p"><span
-                                            class="pre">:</span></span><span class="w"> </span><span class="n"><span
-                                            class="pre">str</span></span><span class="w"> </span><span class="o"><span
-                                            class="pre">=</span></span><span class="w"> </span><span
-                                            class="default_value"><span class="pre">''</span></span></em>, <em
-                                            class="sig-param"><span class="n"><span
-                                            class="pre">att_valid_stereotype</span></span><span class="p"><span
-                                            class="pre">:</span></span><span class="w"> </span><span class="n"><span
-                                            class="pre">str</span></span><span class="w"> </span><span class="o"><span
-                                            class="pre">=</span></span><span class="w"> </span><span
-                                            class="default_value"><span class="pre">''</span></span></em><span
-                                            class="sig-paren">)</span> <span class="sig-return"><span
-                                            class="sig-return-icon">&#x2192;</span> <span
-                                            class="sig-return-typehint"><span class="pre">None</span></span></span><a
-                                            class="headerlink" href="#modules.messages.print_decode_log_message"
-                                            title="Permalink to this definition"></a></dt>
-                                    <dd><p>Gets warning message and prints it to the user as a log if not in silent
-                                        mode.</p>
-                                        <dl class="field-list simple">
-                                            <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-                                            <dd class="field-odd">
-                                                <ul class="simple">
-                                                    <li><p><strong>object_dict</strong> (<em>dict</em>) – Object’s JSON
-                                                        data loaded as a dictionary.</p></li>
-                                                    <li><p><strong>warning_code</strong> (<em>str</em>) – Predefined
-                                                        warning number to be displayed to the user if not in silent
-                                                        mode.</p></li>
-                                                    <li><p><strong>property_name</strong> (<em>str</em>) – Information
-                                                        about a property or attribute type to be displayed in a warning
-                                                        message. Optional.</p></li>
-                                                    <li><p><strong>att_valid_stereotype</strong> (<em>str</em>) –
-                                                        Optional attribute’s stereotype to be displayed in a warning
-                                                        message.</p></li>
-                                                </ul>
-                                            </dd>
-                                        </dl>
-                                    </dd>
-                                </dl>
-
-                            </section>
-                            <section id="module-modules.sparql_queries">
-                                <span id="modules-sparql-queries-module"></span>
-                                <h2>modules.sparql_queries module<a class="headerlink"
-                                                                    href="#module-modules.sparql_queries"
-                                                                    title="Permalink to this heading"></a></h2>
-                                <p>All SPARQL queries used for decoding the JSON.</p>
-                            </section>
-                            <section id="module-modules.utils_general">
-                                <span id="modules-utils-general-module"></span>
-                                <h2>modules.utils_general module<a class="headerlink"
-                                                                   href="#module-modules.utils_general"
-                                                                   title="Permalink to this heading"></a></h2>
-                                <p>Diverse util and auxiliary functions.</p>
-                                <dl class="py function">
-                                    <dt class="sig sig-object py" id="modules.utils_general.count_elements_types">
-                                        <span class="sig-prename descclassname"><span
-                                                class="pre">modules.utils_general.</span></span><span
-                                            class="sig-name descname"><span
-                                            class="pre">count_elements_types</span></span><span
-                                            class="sig-paren">(</span><em class="sig-param"><span class="n"><span
-                                            class="pre">element_type_list</span></span><span class="p"><span
-                                            class="pre">:</span></span><span class="w"> </span><span class="n"><span
-                                            class="pre">list</span><span class="p"><span
-                                            class="pre">[</span></span><span class="pre">str</span><span class="p"><span
-                                            class="pre">]</span></span></span></em>, <em class="sig-param"><span
-                                            class="n"><span class="pre">element_counting</span></span><span
-                                            class="p"><span class="pre">:</span></span><span class="w"> </span><span
-                                            class="n"><span class="pre">dict</span></span></em><span
-                                            class="sig-paren">)</span> <span class="sig-return"><span
-                                            class="sig-return-icon">&#x2192;</span> <span
-                                            class="sig-return-typehint"><span class="pre">int</span></span></span><a
-                                            class="headerlink" href="#modules.utils_general.count_elements_types"
-                                            title="Permalink to this definition"></a></dt>
-                                    <dd><p>Returns the number of elements (in the already counted data) of the types
-                                        given in a list.
-                                        Receives a dictionary of number of items and returns the value corresponding to
-                                        the provided argument.</p>
-                                        <dl class="field-list simple">
-                                            <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-                                            <dd class="field-odd">
-                                                <ul class="simple">
-                                                    <li><p><strong>element_type_list</strong>
-                                                        (<em>list</em><em>[</em><em>str</em><em>]</em>) – List of types
-                                                        of elements to have their count value returned.</p></li>
-                                                    <li><p><strong>element_counting</strong> (<em>dict</em>) –
-                                                        Dictionary with types and corresponding number of occurrences.
-                                                    </p></li>
-                                                </ul>
-                                            </dd>
-                                            <dt class="field-even">Returns<span class="colon">:</span></dt>
-                                            <dd class="field-even"><p>Number of occurrences of the element of the given
-                                                type.</p>
-                                            </dd>
-                                            <dt class="field-odd">Return type<span class="colon">:</span></dt>
-                                            <dd class="field-odd"><p>int</p>
-                                            </dd>
-                                        </dl>
-                                    </dd>
-                                </dl>
-
-                                <dl class="py function">
-                                    <dt class="sig sig-object py" id="modules.utils_general.get_date_time">
-                                        <span class="sig-prename descclassname"><span
-                                                class="pre">modules.utils_general.</span></span><span
-                                            class="sig-name descname"><span class="pre">get_date_time</span></span><span
-                                            class="sig-paren">(</span><em class="sig-param"><span class="n"><span
-                                            class="pre">date_time_format</span></span><span class="p"><span class="pre">:</span></span><span
-                                            class="w"> </span><span class="n"><span
-                                            class="pre">str</span></span></em><span class="sig-paren">)</span> <span
-                                            class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span
-                                            class="sig-return-typehint"><span class="pre">str</span></span></span><a
-                                            class="headerlink" href="#modules.utils_general.get_date_time"
-                                            title="Permalink to this definition"></a></dt>
-                                    <dd><p>Return a string with date and time according to the specified format received
-                                        as argument.
-                                        For valid formats: <a class="reference external"
-                                                              href="https://docs.python.org/3.11/library/datetime.html#strftime-and-strptime-format-codes">https://docs.python.org/3.11/library/datetime.html#strftime-and-strptime-format-codes</a>
-                                    </p>
-                                        <dl class="field-list simple">
-                                            <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-                                            <dd class="field-odd"><p><strong>date_time_format</strong> (<em>str</em>) –
-                                                Valid format accepted by the datetime function.</p>
-                                            </dd>
-                                            <dt class="field-even">Returns<span class="colon">:</span></dt>
-                                            <dd class="field-even"><p>Formatted current date and time.</p>
-                                            </dd>
-                                            <dt class="field-odd">Return type<span class="colon">:</span></dt>
-                                            <dd class="field-odd"><p>str</p>
-                                            </dd>
-                                        </dl>
-                                    </dd>
-                                </dl>
-
-                            </section>
-                            <section id="module-modules.utils_graph">
-                                <span id="modules-utils-graph-module"></span>
-                                <h2>modules.utils_graph module<a class="headerlink" href="#module-modules.utils_graph"
-                                                                 title="Permalink to this heading"></a></h2>
-                                <p>Util functions related to graphs.</p>
-                                <dl class="py function">
-                                    <dt class="sig sig-object py" id="modules.utils_graph.get_all_ids_for_type">
-                                        <span class="sig-prename descclassname"><span
-                                                class="pre">modules.utils_graph.</span></span><span
-                                            class="sig-name descname"><span
-                                            class="pre">get_all_ids_for_type</span></span><span
-                                            class="sig-paren">(</span><em class="sig-param"><span class="n"><span
-                                            class="pre">ontology_graph</span></span><span class="p"><span
-                                            class="pre">:</span></span><span class="w"> </span><span class="n"><span
-                                            class="pre">Graph</span></span></em>, <em class="sig-param"><span class="n"><span
-                                            class="pre">element_type</span></span><span class="p"><span
-                                            class="pre">:</span></span><span class="w"> </span><span class="n"><span
-                                            class="pre">str</span></span></em><span class="sig-paren">)</span> <span
-                                            class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span
-                                            class="sig-return-typehint"><span class="pre">list</span><span
-                                            class="p"><span class="pre">[</span></span><span class="pre">str</span><span
-                                            class="p"><span class="pre">]</span></span></span></span><a
-                                            class="headerlink" href="#modules.utils_graph.get_all_ids_for_type"
-                                            title="Permalink to this definition"></a></dt>
-                                    <dd><p>Queries the graph for all elements of the given element_type and returns a
-                                        list of their ids.</p>
-                                        <dl class="field-list simple">
-                                            <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-                                            <dd class="field-odd">
-                                                <ul class="simple">
-                                                    <li><p><strong>ontology_file</strong> (<em>Graph</em>) – Loaded
-                                                        ontology graph.</p></li>
-                                                    <li><p><strong>element_type</strong>
-                                                        (<em>list</em><em>[</em><em>str</em><em>]</em>) – Type of the
-                                                        element (originally a JSON object) to be queried to have their
-                                                        ids returned .</p></li>
-                                                </ul>
-                                            </dd>
-                                        </dl>
-                                    </dd>
-                                </dl>
-
-                                <dl class="py function">
-                                    <dt class="sig sig-object py" id="modules.utils_graph.load_graph_safely">
-                                        <span class="sig-prename descclassname"><span
-                                                class="pre">modules.utils_graph.</span></span><span
-                                            class="sig-name descname"><span
-                                            class="pre">load_graph_safely</span></span><span
-                                            class="sig-paren">(</span><em class="sig-param"><span class="n"><span
-                                            class="pre">ontology_file</span></span><span class="p"><span
-                                            class="pre">:</span></span><span class="w"> </span><span class="n"><span
-                                            class="pre">str</span></span></em>, <em class="sig-param"><span
-                                            class="n"><span class="pre">format</span></span><span class="p"><span
-                                            class="pre">:</span></span><span class="w"> </span><span class="n"><span
-                                            class="pre">str</span></span><span class="w"> </span><span class="o"><span
-                                            class="pre">=</span></span><span class="w"> </span><span
-                                            class="default_value"><span
-                                            class="pre">'not_provided'</span></span></em><span
-                                            class="sig-paren">)</span> <span class="sig-return"><span
-                                            class="sig-return-icon">&#x2192;</span> <span
-                                            class="sig-return-typehint"><span class="pre">Graph</span></span></span><a
-                                            class="headerlink" href="#modules.utils_graph.load_graph_safely"
-                                            title="Permalink to this definition"></a></dt>
-                                    <dd><p>Safely load graph from file to working memory using arguments provided by the
-                                        user, which are the file path
-                                        and (optionally) the file type.</p>
-                                        <dl class="field-list simple">
-                                            <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-                                            <dd class="field-odd">
-                                                <ul class="simple">
-                                                    <li><p><strong>ontology_file</strong> (<em>str</em>) – Path to the
-                                                        ontology file to be loaded into the working memory.</p></li>
-                                                    <li><p><strong>format</strong> (<em>str</em>) – Optional argument.
-                                                        Format of the file to be loaded.</p></li>
-                                                </ul>
-                                            </dd>
-                                            <dt class="field-even">Returns<span class="colon">:</span></dt>
-                                            <dd class="field-even"><p>RDFLib graph loaded as object.</p>
-                                            </dd>
-                                            <dt class="field-odd">Return type<span class="colon">:</span></dt>
-                                            <dd class="field-odd"><p>Graph</p>
-                                            </dd>
-                                        </dl>
-                                    </dd>
-                                </dl>
-
-                                <dl class="py function">
-                                    <dt class="sig sig-object py" id="modules.utils_graph.load_ontouml_vocabulary">
-                                        <span class="sig-prename descclassname"><span
-                                                class="pre">modules.utils_graph.</span></span><span
-                                            class="sig-name descname"><span
-                                            class="pre">load_ontouml_vocabulary</span></span><span
-                                            class="sig-paren">(</span><span class="sig-paren">)</span> <span
-                                            class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span
-                                            class="sig-return-typehint"><span class="pre">Graph</span></span></span><a
-                                            class="headerlink" href="#modules.utils_graph.load_ontouml_vocabulary"
-                                            title="Permalink to this definition"></a></dt>
-                                    <dd><p>Loads the OntoUML Vocabulary to the working memory. First tries to load from
-                                        web resource, if fails, it tries to
-                                        load form the local resource. If both options fail, calls error reporting
-                                        function.</p>
-                                        <dl class="field-list simple">
-                                            <dt class="field-odd">Returns<span class="colon">:</span></dt>
-                                            <dd class="field-odd"><p>RDFLib graph loaded as object.</p>
-                                            </dd>
-                                            <dt class="field-even">Return type<span class="colon">:</span></dt>
-                                            <dd class="field-even"><p>Graph</p>
-                                            </dd>
-                                        </dl>
-                                    </dd>
-                                </dl>
-
-                            </section>
-                        </section>
-
-
-                    </div>
-                </div>
-                <footer>
-                    <div aria-label="Footer" class="rst-footer-buttons" role="navigation">
-                        <a accesskey="p" class="btn btn-neutral float-left" href="main.html" rel="prev"
-                           title="main module"><span aria-hidden="true" class="fa fa-arrow-circle-left"></span> Previous</a>
-                        <a accesskey="n" class="btn btn-neutral float-right"
-                           href="modules.decoder.html" rel="next" title="modules.decoder package">Next <span
-                                aria-hidden="true" class="fa fa-arrow-circle-right"></span></a>
-                    </div>
-
-                    <hr/>
-
-                    <div role="contentinfo">
-                        <p>&#169; Copyright Barcelos, P.P.F. (2023).</p>
-                    </div>
-
-                    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-                    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-                    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-
-
-                </footer>
-            </div>
-        </div>
-    </section>
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">modules package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/modules.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
 </div>
-<script>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="modules-package">
+<h1>modules package<a class="headerlink" href="#modules-package" title="Permalink to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.decoder.html">modules.decoder package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modules.decoder.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.decoder.html#module-modules.decoder.decode_general">modules.decoder.decode_general module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_general.clean_null_data"><code class="docutils literal notranslate"><span class="pre">clean_null_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_general.count_elements_graph"><code class="docutils literal notranslate"><span class="pre">count_elements_graph()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_general.create_point"><code class="docutils literal notranslate"><span class="pre">create_point()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_general.get_all_ids_of_specific_type"><code class="docutils literal notranslate"><span class="pre">get_all_ids_of_specific_type()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_general.get_list_subdictionaries_for_specific_type"><code class="docutils literal notranslate"><span class="pre">get_list_subdictionaries_for_specific_type()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_general.get_stereotype"><code class="docutils literal notranslate"><span class="pre">get_stereotype()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_general.get_subdictionary_for_specific_id"><code class="docutils literal notranslate"><span class="pre">get_subdictionary_for_specific_id()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules.decoder.html#module-modules.decoder.decode_main">modules.decoder.decode_main module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_main.add_metadata"><code class="docutils literal notranslate"><span class="pre">add_metadata()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_main.decode_dictionary"><code class="docutils literal notranslate"><span class="pre">decode_dictionary()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_main.decode_json_to_graph"><code class="docutils literal notranslate"><span class="pre">decode_json_to_graph()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules.decoder.html#module-modules.decoder.decode_obj_class">modules.decoder.decode_obj_class module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_obj_class.create_class_properties"><code class="docutils literal notranslate"><span class="pre">create_class_properties()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_obj_class.set_class_attribute_property"><code class="docutils literal notranslate"><span class="pre">set_class_attribute_property()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_obj_class.set_class_attributes"><code class="docutils literal notranslate"><span class="pre">set_class_attributes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_obj_class.set_class_literal_literal"><code class="docutils literal notranslate"><span class="pre">set_class_literal_literal()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_obj_class.set_class_order_nonnegativeinteger"><code class="docutils literal notranslate"><span class="pre">set_class_order_nonnegativeinteger()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_obj_class.set_class_restrictedto_ontologicalnature"><code class="docutils literal notranslate"><span class="pre">set_class_restrictedto_ontologicalnature()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_obj_class.set_class_stereotype"><code class="docutils literal notranslate"><span class="pre">set_class_stereotype()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_obj_class.set_defaults_class_attribute"><code class="docutils literal notranslate"><span class="pre">set_defaults_class_attribute()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_obj_class.set_defaults_class_order"><code class="docutils literal notranslate"><span class="pre">set_defaults_class_order()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_obj_class.validate_class_attribute_constraints"><code class="docutils literal notranslate"><span class="pre">validate_class_attribute_constraints()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_obj_class.validate_class_order_constraints"><code class="docutils literal notranslate"><span class="pre">validate_class_order_constraints()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules.decoder.html#module-modules.decoder.decode_obj_diagram">modules.decoder.decode_obj_diagram module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_obj_diagram.create_diagram_properties"><code class="docutils literal notranslate"><span class="pre">create_diagram_properties()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_obj_diagram.set_diagram_containsview_elementview"><code class="docutils literal notranslate"><span class="pre">set_diagram_containsview_elementview()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_obj_diagram.set_diagram_owner_modelelement"><code class="docutils literal notranslate"><span class="pre">set_diagram_owner_modelelement()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules.decoder.html#module-modules.decoder.decode_obj_elementview">modules.decoder.decode_obj_elementview module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_obj_elementview.create_elementview_properties"><code class="docutils literal notranslate"><span class="pre">create_elementview_properties()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_obj_elementview.set_elementview_relations"><code class="docutils literal notranslate"><span class="pre">set_elementview_relations()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules.decoder.html#module-modules.decoder.decode_obj_generalization">modules.decoder.decode_obj_generalization module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_obj_generalization.create_generalization_properties"><code class="docutils literal notranslate"><span class="pre">create_generalization_properties()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_obj_generalization.set_generalization_relations"><code class="docutils literal notranslate"><span class="pre">set_generalization_relations()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules.decoder.html#module-modules.decoder.decode_obj_generalizationset">modules.decoder.decode_obj_generalizationset module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_obj_generalizationset.create_generalizationset_properties"><code class="docutils literal notranslate"><span class="pre">create_generalizationset_properties()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_obj_generalizationset.set_generalizationset_defaults"><code class="docutils literal notranslate"><span class="pre">set_generalizationset_defaults()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_obj_generalizationset.set_generalizationset_relations"><code class="docutils literal notranslate"><span class="pre">set_generalizationset_relations()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules.decoder.html#module-modules.decoder.decode_obj_package">modules.decoder.decode_obj_package module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_obj_package.create_package_properties"><code class="docutils literal notranslate"><span class="pre">create_package_properties()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_obj_package.get_package_contents"><code class="docutils literal notranslate"><span class="pre">get_package_contents()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_obj_package.set_package_containsmodelelement_modelelement"><code class="docutils literal notranslate"><span class="pre">set_package_containsmodelelement_modelelement()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules.decoder.html#module-modules.decoder.decode_obj_path">modules.decoder.decode_obj_path module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_obj_path.create_path_properties"><code class="docutils literal notranslate"><span class="pre">create_path_properties()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_obj_path.set_path_path_point"><code class="docutils literal notranslate"><span class="pre">set_path_path_point()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules.decoder.html#module-modules.decoder.decode_obj_project">modules.decoder.decode_obj_project module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_obj_project.create_project_properties"><code class="docutils literal notranslate"><span class="pre">create_project_properties()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_obj_project.set_ontoumlelement_project_project"><code class="docutils literal notranslate"><span class="pre">set_ontoumlelement_project_project()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_obj_project.set_project_diagram_diagram"><code class="docutils literal notranslate"><span class="pre">set_project_diagram_diagram()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_obj_project.set_project_model_package"><code class="docutils literal notranslate"><span class="pre">set_project_model_package()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules.decoder.html#module-modules.decoder.decode_obj_property">modules.decoder.decode_obj_property module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_obj_property.create_property_properties"><code class="docutils literal notranslate"><span class="pre">create_property_properties()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_obj_property.determine_cardinality_bounds"><code class="docutils literal notranslate"><span class="pre">determine_cardinality_bounds()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_obj_property.set_cardinality_relations"><code class="docutils literal notranslate"><span class="pre">set_cardinality_relations()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_obj_property.set_property_defaults"><code class="docutils literal notranslate"><span class="pre">set_property_defaults()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_obj_property.set_property_relations"><code class="docutils literal notranslate"><span class="pre">set_property_relations()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_obj_property.validate_property_stereotype"><code class="docutils literal notranslate"><span class="pre">validate_property_stereotype()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules.decoder.html#module-modules.decoder.decode_obj_rectangularshape">modules.decoder.decode_obj_rectangularshape module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_obj_rectangularshape.create_rectangularshape_properties"><code class="docutils literal notranslate"><span class="pre">create_rectangularshape_properties()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_obj_rectangularshape.set_rectangularshape_coordinates"><code class="docutils literal notranslate"><span class="pre">set_rectangularshape_coordinates()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules.decoder.html#module-modules.decoder.decode_obj_relation">modules.decoder.decode_obj_relation module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_obj_relation.create_relation_properties"><code class="docutils literal notranslate"><span class="pre">create_relation_properties()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_obj_relation.set_relation_defaults"><code class="docutils literal notranslate"><span class="pre">set_relation_defaults()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_obj_relation.set_relation_relations"><code class="docutils literal notranslate"><span class="pre">set_relation_relations()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.decoder.html#modules.decoder.decode_obj_relation.set_relation_stereotype"><code class="docutils literal notranslate"><span class="pre">set_relation_stereotype()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules.decoder.html#module-modules.decoder">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-modules.arguments">
+<span id="modules-arguments-module"></span><h2>modules.arguments module<a class="headerlink" href="#module-modules.arguments" title="Permalink to this heading"></a></h2>
+<p>Argument Treatments</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="modules.arguments.publish_user_arguments">
+<span class="sig-prename descclassname"><span class="pre">modules.arguments.</span></span><span class="sig-name descname"><span class="pre">publish_user_arguments</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.arguments.publish_user_arguments" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="modules.arguments.treat_user_arguments">
+<span class="sig-prename descclassname"><span class="pre">modules.arguments.</span></span><span class="sig-name descname"><span class="pre">treat_user_arguments</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#modules.arguments.treat_user_arguments" title="Permalink to this definition"></a></dt>
+<dd><p>Treat arguments provided by the user when starting software execution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dictionary with json path (key ‘json_path’) and final file format (key ‘format’).</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>OSError</strong> – If provided input is not of JSON type.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-modules.errors">
+<span id="modules-errors-module"></span><h2>modules.errors module<a class="headerlink" href="#module-modules.errors" title="Permalink to this heading"></a></h2>
+<p>Functions related to the verification and treatment of identified ERROR cases.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="modules.errors.report_error_end_of_switch">
+<span class="sig-prename descclassname"><span class="pre">modules.errors.</span></span><span class="sig-name descname"><span class="pre">report_error_end_of_switch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">invalid_parameter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">caller_function_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#modules.errors.report_error_end_of_switch" title="Permalink to this definition"></a></dt>
+<dd><p>Reports the error caused when an invalid parameter is provided to a switch case (if-else statements).
+Used to validate parameters.</p>
+<p>NOTE: caller_function_name can be obtained from ‘current_function = inspect.stack()[0][3]’</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>invalid_parameter</strong> (<em>str</em>) – Invalid function parameter that caused the error.</p></li>
+<li><p><strong>caller_function_name</strong> (<em>str</em>) – Name of the function in which the invalid parameter was used.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Always.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="modules.errors.report_error_io_read">
+<span class="sig-prename descclassname"><span class="pre">modules.errors.</span></span><span class="sig-name descname"><span class="pre">report_error_io_read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">desired_content</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">OSError</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#modules.errors.report_error_io_read" title="Permalink to this definition"></a></dt>
+<dd><p>Reports the error caused program cannot read or load the desired content (test_files or directories).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>desired_content</strong> (<em>str</em>) – Name of the file used by the IO operation caused the error.</p></li>
+<li><p><strong>file_description</strong> (<em>str</em>) – Description of the file in desired_content.</p></li>
+<li><p><strong>error</strong> (<em>OSError</em>) – Error raised by the IO operation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>OSError</strong> – Always.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="modules.errors.report_error_io_write">
+<span class="sig-prename descclassname"><span class="pre">modules.errors.</span></span><span class="sig-name descname"><span class="pre">report_error_io_write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">desired_content</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">OSError</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#modules.errors.report_error_io_write" title="Permalink to this definition"></a></dt>
+<dd><p>Reports the error caused program cannot save or write the desired content (test_files or directories).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>desired_content</strong> (<em>str</em>) – Name of the file used by the IO operation caused the error.</p></li>
+<li><p><strong>file_description</strong> (<em>str</em>) – Description of the file in desired_content.</p></li>
+<li><p><strong>error</strong> (<em>OSError</em>) – Error raised by the IO operation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>OSError</strong> – Always.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="modules.errors.report_error_requirement_not_met">
+<span class="sig-prename descclassname"><span class="pre">modules.errors.</span></span><span class="sig-name descname"><span class="pre">report_error_requirement_not_met</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error_message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#modules.errors.report_error_requirement_not_met" title="Permalink to this definition"></a></dt>
+<dd><p>Reports the error caused when a requirement is not met. As this is a generic function, the error message
+parameter must be used to identify the error to the user.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>error_message</strong> (<em>str</em>) – Message to be printed to the user indicating the detected error.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Always.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-modules.globals">
+<span id="modules-globals-module"></span><h2>modules.globals module<a class="headerlink" href="#module-modules.globals" title="Permalink to this heading"></a></h2>
+<p>Global variables definitions.</p>
+</section>
+<section id="module-modules.input_output">
+<span id="modules-input-output-module"></span><h2>modules.input_output module<a class="headerlink" href="#module-modules.input_output" title="Permalink to this heading"></a></h2>
+<p>IO functions used in diverse occasions.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="modules.input_output.create_directory_if_not_exists">
+<span class="sig-prename descclassname"><span class="pre">modules.input_output.</span></span><span class="sig-name descname"><span class="pre">create_directory_if_not_exists</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#modules.input_output.create_directory_if_not_exists" title="Permalink to this definition"></a></dt>
+<dd><p>Checks if the directory that has the path received as argument exists.
+If it does, do nothing. If it does not, create it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>directory_path</strong> (<em>str</em>) – Path to the directory to be created (if it does not exist).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="modules.input_output.safe_load_json_file">
+<span class="sig-prename descclassname"><span class="pre">modules.input_output.</span></span><span class="sig-name descname"><span class="pre">safe_load_json_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#modules.input_output.safe_load_json_file" title="Permalink to this definition"></a></dt>
+<dd><p>Safely loads the JSON file inputted by the user as an argument into a dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>json_path</strong> (<em>str</em>) – Path to the JSON file to be loaded.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary with loaded JSON’s data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="modules.input_output.safe_write_graph_file">
+<span class="sig-prename descclassname"><span class="pre">modules.input_output.</span></span><span class="sig-name descname"><span class="pre">safe_write_graph_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ontouml_graph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_file_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">syntax</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#modules.input_output.safe_write_graph_file" title="Permalink to this definition"></a></dt>
+<dd><p>Safely saves the graph into a file in the informed destination with the desired syntax.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ontouml_graph</strong> (<em>Graph</em>) – Graph compliant with the OntoUML Vocabulary.</p></li>
+<li><p><strong>output_file_name</strong> (<em>str</em>) – Created output file name.</p></li>
+<li><p><strong>syntax</strong> (<em>str</em>) – Syntax to be used for saving the ontology file.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="modules.input_output.write_graph_file">
+<span class="sig-prename descclassname"><span class="pre">modules.input_output.</span></span><span class="sig-name descname"><span class="pre">write_graph_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ontouml_graph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">json_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">graph_format</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#modules.input_output.write_graph_file" title="Permalink to this definition"></a></dt>
+<dd><p>Saves the ontology graph into a file with syntax defined by the user.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ontouml_graph</strong> (<em>Graph</em>) – Graph compliant with the OntoUML Vocabulary.</p></li>
+<li><p><strong>json_path</strong> (<em>str</em>) – Path to the input json file.</p></li>
+<li><p><strong>graph_format</strong> (<em>str</em>) – Syntax selected by the user to save the graph.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Saved output file path.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-modules.logger">
+<span id="modules-logger-module"></span><h2>modules.logger module<a class="headerlink" href="#module-modules.logger" title="Permalink to this heading"></a></h2>
+<p>Logging configurations.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="modules.logger.initialize_logger">
+<span class="sig-prename descclassname"><span class="pre">modules.logger.</span></span><span class="sig-name descname"><span class="pre">initialize_logger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">execution_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'production'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Logger</span></span></span><a class="headerlink" href="#modules.logger.initialize_logger" title="Permalink to this definition"></a></dt>
+<dd><p>Create and initialize logger. The created logger is called ‘execution-logger’.
+Different triggers are defined for each execution mode:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>production: INFO</p></li>
+<li><p>test: ERROR</p></li>
+</ul>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>execution_mode</strong> (<em>str</em>) – Information about execution mode. Valid values are ‘production’ and ‘test’.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Created logger called ‘execution-logger’.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>logging.Logger</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="modules.logger.logger_get_date_time">
+<span class="sig-prename descclassname"><span class="pre">modules.logger.</span></span><span class="sig-name descname"><span class="pre">logger_get_date_time</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#modules.logger.logger_get_date_time" title="Permalink to this definition"></a></dt>
+<dd><p>Return a string in a specified format with date and time. Format example: 2022.10.23-14.43</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Formatted date and time.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-modules.messages">
+<span id="modules-messages-module"></span><h2>modules.messages module<a class="headerlink" href="#module-modules.messages" title="Permalink to this heading"></a></h2>
+<p>Decoding messages to be displayed to users must be concentrated in this module whenever possibile.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="modules.messages.get_decode_log_message">
+<span class="sig-prename descclassname"><span class="pre">modules.messages.</span></span><span class="sig-name descname"><span class="pre">get_decode_log_message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">object_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warning_code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">property_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">att_valid_stereotype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#modules.messages.get_decode_log_message" title="Permalink to this definition"></a></dt>
+<dd><p>Mounts and returns a warning message according to the information received as parameter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>object_dict</strong> (<em>dict</em>) – Object’s JSON data loaded as a dictionary.</p></li>
+<li><p><strong>warning_code</strong> (<em>str</em>) – Code used to select the correct message to be displayed to the user if not in silent mode.</p></li>
+<li><p><strong>property_name</strong> (<em>str</em>) – Information about a property or attribute type to be displayed in a warning message. Optional.</p></li>
+<li><p><strong>att_valid_stereotype</strong> (<em>str</em>) – Stereotype associated to an attribute to be displayed in a warning message. Optional.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Warning message containing information about the modification made to be printed to user.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="modules.messages.print_decode_log_message">
+<span class="sig-prename descclassname"><span class="pre">modules.messages.</span></span><span class="sig-name descname"><span class="pre">print_decode_log_message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">object_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warning_code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">property_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">att_valid_stereotype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#modules.messages.print_decode_log_message" title="Permalink to this definition"></a></dt>
+<dd><p>Gets warning message and prints it to the user as a log if not in silent mode.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>object_dict</strong> (<em>dict</em>) – Object’s JSON data loaded as a dictionary.</p></li>
+<li><p><strong>warning_code</strong> (<em>str</em>) – Predefined warning number to be displayed to the user if not in silent mode.</p></li>
+<li><p><strong>property_name</strong> (<em>str</em>) – Information about a property or attribute type to be displayed in a warning message. Optional.</p></li>
+<li><p><strong>att_valid_stereotype</strong> (<em>str</em>) – Optional attribute’s stereotype to be displayed in a warning message.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-modules.sparql_queries">
+<span id="modules-sparql-queries-module"></span><h2>modules.sparql_queries module<a class="headerlink" href="#module-modules.sparql_queries" title="Permalink to this heading"></a></h2>
+<p>All SPARQL queries used for decoding the JSON.</p>
+</section>
+<section id="module-modules.utils_general">
+<span id="modules-utils-general-module"></span><h2>modules.utils_general module<a class="headerlink" href="#module-modules.utils_general" title="Permalink to this heading"></a></h2>
+<p>Diverse util and auxiliary functions.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="modules.utils_general.count_elements_types">
+<span class="sig-prename descclassname"><span class="pre">modules.utils_general.</span></span><span class="sig-name descname"><span class="pre">count_elements_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element_type_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element_counting</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#modules.utils_general.count_elements_types" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the number of elements (in the already counted data) of the types given in a list.
+Receives a dictionary of number of items and returns the value corresponding to the provided argument.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>element_type_list</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – List of types of elements to have their count value returned.</p></li>
+<li><p><strong>element_counting</strong> (<em>dict</em>) – Dictionary with types and corresponding number of occurrences.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Number of occurrences of the element of the given type.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="modules.utils_general.get_date_time">
+<span class="sig-prename descclassname"><span class="pre">modules.utils_general.</span></span><span class="sig-name descname"><span class="pre">get_date_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date_time_format</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#modules.utils_general.get_date_time" title="Permalink to this definition"></a></dt>
+<dd><p>Return a string with date and time according to the specified format received as argument.
+For valid formats: <a class="reference external" href="https://docs.python.org/3.11/library/datetime.html#strftime-and-strptime-format-codes">https://docs.python.org/3.11/library/datetime.html#strftime-and-strptime-format-codes</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>date_time_format</strong> (<em>str</em>) – Valid format accepted by the datetime function.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Formatted current date and time.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-modules.utils_graph">
+<span id="modules-utils-graph-module"></span><h2>modules.utils_graph module<a class="headerlink" href="#module-modules.utils_graph" title="Permalink to this heading"></a></h2>
+<p>Util functions related to graphs.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="modules.utils_graph.get_all_ids_for_type">
+<span class="sig-prename descclassname"><span class="pre">modules.utils_graph.</span></span><span class="sig-name descname"><span class="pre">get_all_ids_for_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ontology_graph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#modules.utils_graph.get_all_ids_for_type" title="Permalink to this definition"></a></dt>
+<dd><p>Queries the graph for all elements of the given element_type and returns a list of their ids.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ontology_file</strong> (<em>Graph</em>) – Loaded ontology graph.</p></li>
+<li><p><strong>element_type</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – Type of the element (originally a JSON object) to be queried to have their ids returned .</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="modules.utils_graph.load_graph_safely">
+<span class="sig-prename descclassname"><span class="pre">modules.utils_graph.</span></span><span class="sig-name descname"><span class="pre">load_graph_safely</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ontology_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'not_provided'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Graph</span></span></span><a class="headerlink" href="#modules.utils_graph.load_graph_safely" title="Permalink to this definition"></a></dt>
+<dd><p>Safely load graph from file to working memory using arguments provided by the user, which are the file path
+and (optionally) the file type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ontology_file</strong> (<em>str</em>) – Path to the ontology file to be loaded into the working memory.</p></li>
+<li><p><strong>format</strong> (<em>str</em>) – Optional argument. Format of the file to be loaded.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>RDFLib graph loaded as object.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Graph</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="modules.utils_graph.load_ontouml_vocabulary">
+<span class="sig-prename descclassname"><span class="pre">modules.utils_graph.</span></span><span class="sig-name descname"><span class="pre">load_ontouml_vocabulary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Graph</span></span></span><a class="headerlink" href="#modules.utils_graph.load_ontouml_vocabulary" title="Permalink to this definition"></a></dt>
+<dd><p>Loads the OntoUML Vocabulary to the working memory. First tries to load from web resource, if fails, it tries to
+load form the local resource. If both options fail, calls error reporting function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>RDFLib graph loaded as object.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Graph</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="modules.utils_graph.ontouml_ref">
+<span class="sig-prename descclassname"><span class="pre">modules.utils_graph.</span></span><span class="sig-name descname"><span class="pre">ontouml_ref</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">URIRef</span></span></span><a class="headerlink" href="#modules.utils_graph.ontouml_ref" title="Permalink to this definition"></a></dt>
+<dd><p>Receives the name of the OntoUML Vocabulary’s entity as a string and returns the corresponding URIRef.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>entity</strong> (<em>str</em>) – OntoUML Vocabulary entity (class, property, or individual) to have its URIRef returned.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>URIRef of the informed OntoUML Vocabulary’s entity.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>URIRef</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="main.html" class="btn btn-neutral float-left" title="main module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="modules.decoder.html" class="btn btn-neutral float-right" title="modules.decoder package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Barcelos, P.P.F. (2023).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-
-
-</script>
+  </script> 
 
 </body>
 </html>
