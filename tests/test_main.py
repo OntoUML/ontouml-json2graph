@@ -1,9 +1,11 @@
 """ Main test function. """
+import sys
 from pathlib import Path
 
 import pytest
 
-from main import decode_ontouml_json2graph
+sys.path.append('../json2graph')
+from json2graph.main import decode_ontouml_json2graph
 from test_aux import get_test_list, compare_graphs
 
 LIST_OF_TESTS = get_test_list()
