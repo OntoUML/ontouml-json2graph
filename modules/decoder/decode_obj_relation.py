@@ -12,7 +12,6 @@ from rdflib import Graph, URIRef, Literal, XSD
 
 import modules.arguments as args
 from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type, get_stereotype
-from modules.globals import URI_ONTOUML
 from modules.messages import print_decode_log_message
 from modules.utils_graph import ontouml_ref
 

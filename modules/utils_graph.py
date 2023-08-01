@@ -3,7 +3,7 @@
 from rdflib import Graph, URIRef, RDF
 
 from modules.errors import report_error_io_read
-from modules.globals import URI_ONTOUML, METADATA
+from modules.globals import METADATA
 from modules.logger import initialize_logger
 
 LOGGER = initialize_logger()
