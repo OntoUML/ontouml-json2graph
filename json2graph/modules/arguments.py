@@ -3,9 +3,9 @@
 import argparse
 
 import validators as validators
+from .globals import METADATA
+from .logger import initialize_logger
 
-from modules.globals import METADATA
-from modules.logger import initialize_logger
 ARGUMENTS = {}
 
 LOGGER = initialize_logger()
@@ -82,6 +82,15 @@ def treat_user_arguments() -> dict:
 
     return arguments_dictionary
 
-def initialize_arguments():
+
+def initialize_arguments(execution_mode: str = "production"):
+    """
+
+    :param execution_mode: Information about execution mode. Valid values are 'production' (default) and 'test'.
+    :type execution_mode: str
+    """
+
     global ARGUMENTS
-    ARGUMENTS = treat_user_arguments()
+
+    if execution_mode == "production":
+        ARGUMENTS = treat_user_arguments()

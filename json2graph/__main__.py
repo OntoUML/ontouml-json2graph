@@ -15,8 +15,6 @@ from modules.input_output import safe_load_json_file, write_graph_file
 from modules.logger import initialize_logger
 from modules.utils_general import get_date_time
 
-def args_test():
-    global ARGUMENTS
 
 def decode_ontouml_json2graph(json_path: str, graph_format: str, language: str = "",
                               execution_mode: str = "production") -> str:
@@ -35,6 +33,7 @@ def decode_ontouml_json2graph(json_path: str, graph_format: str, language: str =
     """
 
     logger = initialize_logger(execution_mode)
+    args.initialize_arguments(execution_mode)
 
     model_elements = ["Class", "Property", "Generalization", "GeneralizationSet", "Relation", "Cardinality"]
 
