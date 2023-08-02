@@ -22,6 +22,13 @@ Welcome to ontouml-json2graph's documentation!
     * - Badges
       - |maintained| |commits-latest| |codefactor| |license|
 
+.. |maintained| image:: https://img.shields.io/maintenance/yes/2023
+	:alt: Maintenance
+
+.. |commits-latest| image:: https://img.shields.io/github/last-commit/sphinx-toolbox/sphinx-toolbox
+	:target: https://github.com/OntoUML/ontouml-json2graph/commit/main
+	:alt: GitHub last commit
+
 .. |codefactor| image:: https://img.shields.io/codefactor/grade/github/sphinx-toolbox/sphinx-toolbox?logo=codefactor
 	:target: https://www.codefactor.io/repository/github/ontouml/ontouml-json2graph
 	:alt: CodeFactor Grade
@@ -29,16 +36,6 @@ Welcome to ontouml-json2graph's documentation!
 .. |license| image:: https://img.shields.io/github/license/sphinx-toolbox/sphinx-toolbox
 	:target: https://img.shields.io/github/license/OntoUML/ontouml-json2graph
 	:alt: License
-
-.. |language| image:: https://img.shields.io/sourceforge/languages/https%3A%2F%2Fgithub.com%2FOntoUML%2Fontouml-json2graph%2Fblob%2Fmain%2FLICENSE
-	:alt: GitHub top language
-
-.. |commits-latest| image:: https://img.shields.io/github/last-commit/sphinx-toolbox/sphinx-toolbox
-	:target: https://github.com/OntoUML/ontouml-json2graph/commit/main
-	:alt: GitHub last commit
-
-.. |maintained| image:: https://img.shields.io/maintenance/yes/2023
-	:alt: Maintenance
 
 .. end shields
 
