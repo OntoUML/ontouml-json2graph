@@ -1,0 +1,49 @@
+:py:mod:`json2graph.modules.globals`
+====================================
+
+.. py:module:: json2graph.modules.globals
+
+.. autoapi-nested-parse::
+
+   Global variables definitions. 
+
+
+
+Module Contents
+---------------
+
+.. py:data:: pyproject_file
+   :value: 'pyproject.toml'
+
+   
+
+.. py:data:: pyproject_path_prod
+
+   
+
+.. py:data:: pyproject_path_test
+
+   
+
+.. py:data:: pyproject_path
+
+   
+
+.. py:data:: metadata_project
+
+   
+
+.. py:data:: METADATA
+
+   
+
+.. py:data:: URI_ONTOUML
+   :value: 'https://w3id.org/ontouml#'
+
+   
+
+.. py:data:: ELEMENT_VIEW_TYPES
+   :value: ['ClassView', 'PackageView', 'GeneralizationSetView', 'RelationView', 'GeneralizationView', 'NoteView']
+
+   
+

@@ -1,0 +1,41 @@
+:py:mod:`json2graph.main_decode`
+================================
+
+.. py:module:: json2graph.main_decode
+
+.. autoapi-nested-parse::
+
+   It provides a convenient interface for converting OntoUML JSON files into knowledge graphs,
+   with the flexibility to customize the output and control the execution mode for different use cases.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   json2graph.main_decode.decode_ontouml_json2graph
+
+
+
+.. py:function:: decode_ontouml_json2graph(json_path, graph_format, language = '', execution_mode = 'production')
+
+   Main function for ontouml-json2graph.
+
+   :param json_path: Path to the JSON file to be decoded provided by the user.
+   :type json_path: str
+   :param graph_format: Format for saving the resulting knowledge graph.
+   :type graph_format: str
+   :param language: Language tag to be added to the ontology's concepts.
+   :type language: str
+   :param execution_mode: Information about execution mode. Valid values are 'production' (default) and 'test'.
+   :type execution_mode: str
+   :return: Saved output file path. Used for testing.
+   :rtype: str
+
+

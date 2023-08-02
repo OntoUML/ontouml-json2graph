@@ -8,14 +8,13 @@ Function's nomenclatures:
     - Functions that set default values: set_<subject>_defaults.
 """
 
-from rdflib import Graph, URIRef, RDF, Literal, XSD
-
 import modules.arguments as args
 from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type
 from modules.logger import initialize_logger
 from modules.messages import print_decode_log_message
 from modules.sparql_queries import GET_CLASS_STEREOTYPE_ATTRIBUTE_STEREOTYPE
 from modules.utils_graph import load_ontouml_vocabulary, ontouml_ref
+from rdflib import Graph, URIRef, RDF, Literal, XSD
 
 LOGGER = initialize_logger()
 

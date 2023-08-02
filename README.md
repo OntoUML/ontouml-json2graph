@@ -31,15 +31,18 @@ You need to [download and install Python](https://www.python.org/downloads/) to 
 pip install -r requirements.txt
 ```
 
-For executing the software, run the following command on the terminal inside the project's folder, where path_to_json must be substituted for the location of the catalog's directory on your computer:
+For executing the software, run the following command on the terminal inside the project's folder: 
 
 ```text
-python main.py path_to_json [ARGUMENTS]
+python json2graph [path_to_json] [OTHER ARGUMENTS]
 ```
+
+The only mandatory argument is `path_to_json`, which must be substituted for the input file's location on your computer. 
+Other arguments provide additional features and are presented in the next section.
 
 ## Arguments
 
-All available ontouml-models-tools arguments can be observed below.
+All available ontouml-json2graph arguments can be observed below.
 
 ```text
 usage: ontouml-json2graph [-h]
@@ -90,8 +93,8 @@ options:
 - Repository: https://w3id.org/ontouml/json2graph
 - Documentation: https://w3id.org/ontouml/json2graph/docs
 - Releases:
-    - Latest: https://w3id.org/ontouml/json2graph/latest
-    - Version: https://w3id.org/ontouml/json2graph/v<n>, where \<n\> is a version number (e.g., '1.0.0')
+    - Latest version: https://w3id.org/ontouml/json2graph/latest
+    - Specific version: https://w3id.org/ontouml/json2graph/v<n>, where \<n\> is a version number (e.g., '1.0.0')
 
 ## Related Projects
 

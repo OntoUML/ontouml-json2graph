@@ -1,0 +1,49 @@
+:py:mod:`json2graph.modules.utils_general`
+==========================================
+
+.. py:module:: json2graph.modules.utils_general
+
+.. autoapi-nested-parse::
+
+   Diverse util and auxiliary functions. 
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   json2graph.modules.utils_general.count_elements_types
+   json2graph.modules.utils_general.get_date_time
+
+
+
+.. py:function:: count_elements_types(element_type_list, element_counting)
+
+   Returns the number of elements (in the already counted data) of the types given in a list.
+   Receives a dictionary of number of items and returns the value corresponding to the provided argument.
+
+   :param element_type_list: List of types of elements to have their count value returned.
+   :type element_type_list: list[str]
+   :param element_counting: Dictionary with types and corresponding number of occurrences.
+   :type element_counting: dict
+   :return: Number of occurrences of the element of the given type.
+   :rtype: int
+
+
+.. py:function:: get_date_time(date_time_format)
+
+   Return a string with date and time according to the specified format received as argument.
+   For valid formats: https://docs.python.org/3.11/library/datetime.html#strftime-and-strptime-format-codes
+
+   :param date_time_format: Valid format accepted by the datetime function.
+   :type date_time_format: str
+   :return: Formatted current date and time.
+   :rtype: str
+
+

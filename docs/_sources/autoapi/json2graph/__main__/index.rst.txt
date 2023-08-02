@@ -1,0 +1,22 @@
+:py:mod:`json2graph.__main__`
+=============================
+
+.. py:module:: json2graph.__main__
+
+.. autoapi-nested-parse::
+
+   Main file for ontouml-json2graph.
+
+
+
+Module Contents
+---------------
+
+.. py:data:: SCRIPT_DIR
+
+   
+
+.. py:data:: json_path
+
+   
+

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>json2graph.modules.decoder.decode_obj_property &mdash; ontouml-json2graph 2023.08.02 documentation</title>
+      <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/css/sphinx-toolbox.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js?v=6d688098"></script>
+        <script src="../../../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <link rel="next" title="json2graph.modules.decoder.decode_obj_rectangularshape" href="../decode_obj_rectangularshape/index.html" />
+    <link rel="prev" title="json2graph.modules.decoder.decode_obj_project" href="../decode_obj_project/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../../index.html" class="icon icon-home">
+            ontouml-json2graph
+              <img src="../../../../../_static/logo-json2graph.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../README.html">The OntoUML JSON2Graph Transformation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph</span></code></a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../../index.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.modules</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">ontouml-json2graph</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph</span></code></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.modules</span></code></a></li>
+          <li class="breadcrumb-item"><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.modules.decoder</span></code></a></li>
+      <li class="breadcrumb-item active"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.modules.decoder.decode_obj_property</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../../_sources/autoapi/json2graph/modules/decoder/decode_obj_property/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-json2graph.modules.decoder.decode_obj_property">
+<span id="json2graph-modules-decoder-decode-obj-property"></span><h1><a class="reference internal" href="#module-json2graph.modules.decoder.decode_obj_property" title="json2graph.modules.decoder.decode_obj_property"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.modules.decoder.decode_obj_property</span></code></a><a class="headerlink" href="#module-json2graph.modules.decoder.decode_obj_property" title="Permalink to this heading"></a></h1>
+<p>Functions to decode specificities of the object Property.</p>
+<dl class="simple">
+<dt>Function’s nomenclatures:</dt><dd><ul class="simple">
+<li><p>Functions that set one property are named: set_&lt;subject&gt;_&lt;predicate&gt;_&lt;object&gt;.</p></li>
+<li><p>Functions that set multiple object properties are named: set_&lt;subject&gt;_relations.</p></li>
+<li><p>Functions that set multiple data properties are named: set_&lt;subject&gt;_attributes.</p></li>
+<li><p>Functions that set both object and data properties are named: set_&lt;subject&gt;_properties.</p></li>
+<li><p>Functions that set default values: set_&lt;subject&gt;_defaults.</p></li>
+</ul>
+</dd>
+</dl>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading"></a></h2>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#json2graph.modules.decoder.decode_obj_property.validate_property_stereotype" title="json2graph.modules.decoder.decode_obj_property.validate_property_stereotype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_property_stereotype</span></code></a>(ontouml_graph)</p></td>
+<td><p>Performs syntactical and semantic validations on an ontouml:Property's stereotype.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#json2graph.modules.decoder.decode_obj_property.set_property_defaults" title="json2graph.modules.decoder.decode_obj_property.set_property_defaults"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_property_defaults</span></code></a>(property_dict, ontouml_graph)</p></td>
+<td><p>Sets default values for ontouml:Property elements that do not present them. The defaults are:</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#json2graph.modules.decoder.decode_obj_property.set_property_relations" title="json2graph.modules.decoder.decode_obj_property.set_property_relations"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_property_relations</span></code></a>(property_dict, ontouml_graph)</p></td>
+<td><p>Sets the ontouml:aggregationKind and ontouml:propertyType object properties between an ontouml:Property and</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#json2graph.modules.decoder.decode_obj_property.determine_cardinality_bounds" title="json2graph.modules.decoder.decode_obj_property.determine_cardinality_bounds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">determine_cardinality_bounds</span></code></a>(cardinalities, property_id)</p></td>
+<td><p>Receives a string with an ontouml:Cardinality's ontouml:cardinalityValue, fix its format and decouple it into</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#json2graph.modules.decoder.decode_obj_property.set_cardinality_relations" title="json2graph.modules.decoder.decode_obj_property.set_cardinality_relations"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_cardinality_relations</span></code></a>(property_dict, ontouml_graph)</p></td>
+<td><p>Creates the ontouml:Cardinality instance and sets its properties.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#json2graph.modules.decoder.decode_obj_property.create_property_properties" title="json2graph.modules.decoder.decode_obj_property.create_property_properties"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_property_properties</span></code></a>(json_data, ontouml_graph)</p></td>
+<td><p>Main function for decoding an object of type Property.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#json2graph.modules.decoder.decode_obj_property.LOGGER" title="json2graph.modules.decoder.decode_obj_property.LOGGER"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LOGGER</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py data">
+<dt class="sig sig-object py" id="json2graph.modules.decoder.decode_obj_property.LOGGER">
+<span class="sig-prename descclassname"><span class="pre">json2graph.modules.decoder.decode_obj_property.</span></span><span class="sig-name descname"><span class="pre">LOGGER</span></span><a class="headerlink" href="#json2graph.modules.decoder.decode_obj_property.LOGGER" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="json2graph.modules.decoder.decode_obj_property.validate_property_stereotype">
+<span class="sig-prename descclassname"><span class="pre">json2graph.modules.decoder.decode_obj_property.</span></span><span class="sig-name descname"><span class="pre">validate_property_stereotype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ontouml_graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.modules.decoder.decode_obj_property.validate_property_stereotype" title="Permalink to this definition"></a></dt>
+<dd><p>Performs syntactical and semantic validations on an ontouml:Property’s stereotype.</p>
+<p>Differently from what is used in the validation of other JSON objects, this function manipulates the graph itself,
+not the JSON object. This is because it is much straightforward to access all the necessary property elements.</p>
+<p>Validations performed:
+VPS1) Reports invalid property stereotypes (i.e., stereotypes different from ontouml:begin or ontouml:end).
+VPS2) Reports if a property stereotype is used in association with an invalid class stereotype.
+I.e., a class stereotype that is known and different from ‘event’.
+VPS3) Sets class stereotype as ‘event’ when it is associated to a property that has an assigned valid stereotype.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ontouml_graph</strong> (<em>Graph</em>) – Knowledge graph that complies with the OntoUML Vocabulary.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="json2graph.modules.decoder.decode_obj_property.set_property_defaults">
+<span class="sig-prename descclassname"><span class="pre">json2graph.modules.decoder.decode_obj_property.</span></span><span class="sig-name descname"><span class="pre">set_property_defaults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">property_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ontouml_graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.modules.decoder.decode_obj_property.set_property_defaults" title="Permalink to this definition"></a></dt>
+<dd><p>Sets default values for ontouml:Property elements that do not present them. The defaults are:</p>
+<p>DPA1) ontouml:isDerived default value = False
+DPA2) ontouml:isOrdered default value = False
+DPA3) ontouml:isReadOnly default value = False</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>property_dict</strong> (<em>dict</em>) – Property object loaded as a dictionary.</p></li>
+<li><p><strong>ontouml_graph</strong> (<em>Graph</em>) – Knowledge graph that complies with the OntoUML Vocabulary.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="json2graph.modules.decoder.decode_obj_property.set_property_relations">
+<span class="sig-prename descclassname"><span class="pre">json2graph.modules.decoder.decode_obj_property.</span></span><span class="sig-name descname"><span class="pre">set_property_relations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">property_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ontouml_graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.modules.decoder.decode_obj_property.set_property_relations" title="Permalink to this definition"></a></dt>
+<dd><p>Sets the ontouml:aggregationKind and ontouml:propertyType object properties between an ontouml:Property and
+its related elements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>property_dict</strong> (<em>dict</em>) – Property object loaded as a dictionary.</p></li>
+<li><p><strong>ontouml_graph</strong> (<em>Graph</em>) – Knowledge graph that complies with the OntoUML Vocabulary.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="json2graph.modules.decoder.decode_obj_property.determine_cardinality_bounds">
+<span class="sig-prename descclassname"><span class="pre">json2graph.modules.decoder.decode_obj_property.</span></span><span class="sig-name descname"><span class="pre">determine_cardinality_bounds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cardinalities</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">property_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.modules.decoder.decode_obj_property.determine_cardinality_bounds" title="Permalink to this definition"></a></dt>
+<dd><p>Receives a string with an ontouml:Cardinality’s ontouml:cardinalityValue, fix its format and decouple it into
+its ontouml:lowerBound and ontouml:upperBound. Checks and displays warning if the obtained values are not valid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cardinalities</strong> (<em>str</em>) – String containing the value of the cardinality to be decoupled into lower and upper bounds.</p></li>
+<li><p><strong>property_id</strong> (<em>str</em>) – ID of the Property that owns the cardinality being treated. Used in case of invalid cardinality.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tuple of three elements: full cardinality, cardinality’s lower bound, and cardinality’s upper bound.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(str, str, str)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="json2graph.modules.decoder.decode_obj_property.set_cardinality_relations">
+<span class="sig-prename descclassname"><span class="pre">json2graph.modules.decoder.decode_obj_property.</span></span><span class="sig-name descname"><span class="pre">set_cardinality_relations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">property_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ontouml_graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.modules.decoder.decode_obj_property.set_cardinality_relations" title="Permalink to this definition"></a></dt>
+<dd><p>Creates the ontouml:Cardinality instance and sets its properties.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>property_dict</strong> (<em>dict</em>) – Property object loaded as a dictionary.</p></li>
+<li><p><strong>ontouml_graph</strong> (<em>Graph</em>) – Knowledge graph that complies with the OntoUML Vocabulary.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="json2graph.modules.decoder.decode_obj_property.create_property_properties">
+<span class="sig-prename descclassname"><span class="pre">json2graph.modules.decoder.decode_obj_property.</span></span><span class="sig-name descname"><span class="pre">create_property_properties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ontouml_graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.modules.decoder.decode_obj_property.create_property_properties" title="Permalink to this definition"></a></dt>
+<dd><p>Main function for decoding an object of type Property.</p>
+<p>Receives the whole JSON loaded data as a dictionary and manipulates it to create all properties in which the
+object’s type is domain of.</p>
+<dl class="simple">
+<dt>Created instances of class:</dt><dd><ul class="simple">
+<li><p>ontouml:Cardinality</p></li>
+</ul>
+</dd>
+<dt>Created properties:</dt><dd><ul class="simple">
+<li><p>ontouml:aggregationKind (domain ontouml:Property, range ontouml:AggregationKind)</p></li>
+<li><p>ontouml:propertyType (domain ontouml:Property, range ontouml:Classifier)</p></li>
+<li><p>ontouml:stereotype (domain ontouml:Property, range ontouml:PropertyStereotype)</p></li>
+<li><p>ontouml:cardinality (domain ontouml:Property, range ontouml:Cardinality)</p></li>
+<li><p>ontouml:cardinalityValue (domain ontouml:Cardinality, range xsd:string)</p></li>
+<li><p>ontouml:lowerBound (domain ontouml:Cardinality, range xsd:nonNegativeInteger)</p></li>
+<li><p>ontouml:upperBound (domain ontouml:Cardinality)</p></li>
+<li><p>ontouml:subsetsProperty (range ontouml:Property)</p></li>
+<li><p>ontouml:redefinesProperty (range ontouml:Property)</p></li>
+<li><p>ontouml:isDerived (range xsd:boolean)</p></li>
+<li><p>ontouml:isOrdered (range xsd:boolean)</p></li>
+<li><p>ontouml:isReadOnly (range xsd:boolean)</p></li>
+</ul>
+</dd>
+</dl>
+<p>Performs validation for ontouml:stereotype.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>json_data</strong> (<em>dict</em>) – JSON’s data to have its fields decoded loaded into a dictionary.</p></li>
+<li><p><strong>ontouml_graph</strong> (<em>Graph</em>) – Knowledge graph that complies with the OntoUML Vocabulary.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../decode_obj_project/index.html" class="btn btn-neutral float-left" title="json2graph.modules.decoder.decode_obj_project" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../decode_obj_rectangularshape/index.html" class="btn btn-neutral float-right" title="json2graph.modules.decoder.decode_obj_rectangularshape" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Semantics, Cybersecurity &amp; Services (SCS), University of Twente, the Netherlands.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

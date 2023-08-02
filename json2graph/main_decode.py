@@ -1,5 +1,4 @@
-"""
-It provides a convenient interface for converting OntoUML JSON files into knowledge graphs,
+""" It provides a convenient interface for converting OntoUML JSON files into knowledge graphs,
 with the flexibility to customize the output and control the execution mode for different use cases.
 """
 

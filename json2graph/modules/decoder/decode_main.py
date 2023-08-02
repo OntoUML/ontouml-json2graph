@@ -1,7 +1,5 @@
 """ JSON decode functions."""
 
-from rdflib import Graph, URIRef, Literal, RDF, XSD, OWL, RDFS
-
 import modules.arguments as args
 from modules.decoder.decode_general import clean_null_data, count_elements_graph
 from modules.decoder.decode_obj_class import create_class_properties
@@ -19,6 +17,7 @@ from modules.globals import URI_ONTOUML, ELEMENT_VIEW_TYPES, METADATA
 from modules.logger import initialize_logger
 from modules.utils_general import get_date_time
 from modules.utils_graph import ontouml_ref
+from rdflib import Graph, URIRef, Literal, RDF, XSD, OWL, RDFS
 
 LOGGER = initialize_logger()
 

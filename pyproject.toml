@@ -2,7 +2,7 @@
 name = "ontouml-json2graph"
 description = "OntoUML JSON2Graph Decoder"
 version = "2023.08.01"
-authors = ["Pedro Paulo F. Barcelos <pedropaulofb@gmail.com>"]
+authors = ["Pedro Paulo F. Barcelos <p.p.favatobarcelos@utwente.nl>"]
 license = { text = "Apache-2.0" }
 keywords = ["semantic-web", "knowledge-graph", "ontouml", "ontology-driven-development", "ontouml-schema",
     "ontouml-vocabulary", "ontouml-metamodel"]

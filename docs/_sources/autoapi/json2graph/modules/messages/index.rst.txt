@@ -1,0 +1,67 @@
+:py:mod:`json2graph.modules.messages`
+=====================================
+
+.. py:module:: json2graph.modules.messages
+
+.. autoapi-nested-parse::
+
+   Decoding messages to be displayed to users must be concentrated in this module whenever possibile. 
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   json2graph.modules.messages.get_decode_log_message
+   json2graph.modules.messages.print_decode_log_message
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   json2graph.modules.messages.LOGGER
+
+
+.. py:data:: LOGGER
+
+   
+
+.. py:function:: get_decode_log_message(object_dict, warning_code, property_name, att_valid_stereotype = '')
+
+   Mounts and returns a warning message according to the information received as parameter.
+
+   :param object_dict: Object's JSON data loaded as a dictionary.
+   :type object_dict: dict
+   :param warning_code: Code used to select the correct message to be displayed to the user if not in silent mode.
+   :type warning_code: str
+   :param property_name: Information about a property or attribute type to be displayed in a warning message. Optional.
+   :type property_name: str
+   :param att_valid_stereotype: Stereotype associated to an attribute to be displayed in a warning message. Optional.
+   :type att_valid_stereotype: str
+   :return: Warning message containing information about the modification made to be printed to user.
+   :rtype: str
+
+
+.. py:function:: print_decode_log_message(object_dict, warning_code, property_name = '', att_valid_stereotype = '')
+
+   Gets warning message and prints it to the user as a log if not in silent mode.
+
+   :param object_dict: Object's JSON data loaded as a dictionary.
+   :type object_dict: dict
+   :param warning_code: Predefined warning number to be displayed to the user if not in silent mode.
+   :type warning_code: str
+   :param property_name: Information about a property or attribute type to be displayed in a warning message. Optional.
+   :type property_name: str
+   :param att_valid_stereotype: Optional attribute's stereotype to be displayed in a warning message.
+   :type att_valid_stereotype: str
+
+

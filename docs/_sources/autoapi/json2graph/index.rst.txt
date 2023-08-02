@@ -1,0 +1,25 @@
+:py:mod:`json2graph`
+====================
+
+.. py:module:: json2graph
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   modules/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   __main__/index.rst
+   main_decode/index.rst
+
+

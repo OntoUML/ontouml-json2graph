@@ -1,0 +1,46 @@
+:py:mod:`json2graph.modules.logger`
+===================================
+
+.. py:module:: json2graph.modules.logger
+
+.. autoapi-nested-parse::
+
+   Logging configurations. 
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   json2graph.modules.logger.logger_get_date_time
+   json2graph.modules.logger.initialize_logger
+
+
+
+.. py:function:: logger_get_date_time()
+
+   Return a string in a specified format with date and time. Format example: 2022.10.23-14.43
+
+   :return: Formatted date and time.
+   :rtype: str
+
+
+.. py:function:: initialize_logger(execution_mode = 'production')
+
+   Create and initialize logger. The created logger is called 'execution-logger'.
+   Different triggers are defined for each execution mode:
+       - production: INFO
+       - test: ERROR
+
+   :param execution_mode: Information about execution mode. Valid values are 'production' and 'test'.
+   :type execution_mode: str
+   :return: Created logger called 'execution-logger'.
+   :rtype: logging.Logger
+
+

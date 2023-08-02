@@ -3,6 +3,7 @@
 import argparse
 
 import validators as validators
+
 from .globals import METADATA
 from .logger import initialize_logger
 

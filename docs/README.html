@@ -4,23 +4,25 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The OntoUML JSON2Graph Transformation &mdash; ontouml-json2graph 2023.07.25 documentation</title>
+  <title>The OntoUML JSON2Graph Transformation &mdash; ontouml-json2graph 2023.08.02 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/sphinx-toolbox.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=6d688098"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="main module" href="main.html" />
-    <link rel="prev" title="OntoUML JSON2Graph Decoder’s Documentation" href="index.html" /> 
+    <link rel="next" title="API Reference" href="autoapi/index.html" />
+    <link rel="prev" title="Welcome to ontouml-json2graph’s documentation!" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -55,8 +57,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#author">Author</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="main.html">main module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">modules package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>
 </ul>
 
         </div>
@@ -113,14 +114,16 @@
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pip install -r requirements.txt
 </pre></div>
 </div>
-<p>For executing the software, run the following command on the terminal inside the project’s folder, where path_to_json must be substituted for the location of the catalog’s directory on your computer:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>python main.py path_to_json [ARGUMENTS]
+<p>For executing the software, run the following command on the terminal inside the project’s folder:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>python json2graph [path_to_json] [OTHER ARGUMENTS]
 </pre></div>
 </div>
+<p>The only mandatory argument is <code class="docutils literal notranslate"><span class="pre">path_to_json</span></code>, which must be substituted for the input file’s location on your computer.
+Other arguments provide additional features and are presented in the next section.</p>
 </section>
 <section id="arguments">
 <h2>Arguments<a class="headerlink" href="#arguments" title="Permalink to this heading"></a></h2>
-<p>All available ontouml-models-tools arguments can be observed below.</p>
+<p>All available ontouml-json2graph arguments can be observed below.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: ontouml-json2graph [-h]
                           [-f {turtle,ttl,turtle2,xml,pretty-xml,json-ld,ntriples,nt,nt11,n3,trig,trix,nquads}]
                           [-l LANGUAGE] [-c] [-s] [-u BASE_URI] [-m] [-v]
@@ -183,8 +186,8 @@ options:
 <li><p>Documentation: https://w3id.org/ontouml/json2graph/docs</p></li>
 <li><p>Releases:</p>
 <ul>
-<li><p>Latest: https://w3id.org/ontouml/json2graph/latest</p></li>
-<li><p>Version: https://w3id.org/ontouml/json2graph/v<n>, where &lt;n&gt; is a version number (e.g., ‘1.0.0’)</p></li>
+<li><p>Latest version: https://w3id.org/ontouml/json2graph/latest</p></li>
+<li><p>Specific version: https://w3id.org/ontouml/json2graph/v<n>, where &lt;n&gt; is a version number (e.g., ‘1.0.0’)</p></li>
 </ul>
 </li>
 </ul>
@@ -215,14 +218,14 @@ options:
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="OntoUML JSON2Graph Decoder’s Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="main.html" class="btn btn-neutral float-right" title="main module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to ontouml-json2graph’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="autoapi/index.html" class="btn btn-neutral float-right" title="API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright Barcelos, P.P.F. (2023).</p>
+    <p>&#169; Copyright 2023, Semantics, Cybersecurity &amp; Services (SCS), University of Twente, the Netherlands.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

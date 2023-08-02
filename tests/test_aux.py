@@ -1,13 +1,12 @@
 """ Auxiliary test functions. """
 import glob
 
-from rdflib import Graph
-from rdflib.compare import graph_diff, to_isomorphic
-
 import modules.arguments as args
 from modules.globals import URI_ONTOUML
 from modules.input_output import safe_write_graph_file
 from modules.utils_graph import load_graph_safely
+from rdflib import Graph
+from rdflib.compare import graph_diff, to_isomorphic
 
 
 def get_test_list() -> list[str]:

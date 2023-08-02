@@ -1,0 +1,84 @@
+:py:mod:`json2graph.modules.input_output`
+=========================================
+
+.. py:module:: json2graph.modules.input_output
+
+.. autoapi-nested-parse::
+
+   IO functions used in diverse occasions. 
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   json2graph.modules.input_output.create_directory_if_not_exists
+   json2graph.modules.input_output.safe_load_json_file
+   json2graph.modules.input_output.write_graph_file
+   json2graph.modules.input_output.safe_write_graph_file
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   json2graph.modules.input_output.LOGGER
+
+
+.. py:data:: LOGGER
+
+   
+
+.. py:function:: create_directory_if_not_exists(directory_path, file_description)
+
+   Checks if the directory that has the path received as argument exists.
+   If it does, do nothing. If it does not, create it.
+
+   :param directory_path: Path to the directory to be created (if it does not exist).
+   :type directory_path: str
+
+
+.. py:function:: safe_load_json_file(json_path)
+
+   Safely loads the JSON file inputted by the user as an argument into a dictionary.
+
+   :param json_path: Path to the JSON file to be loaded.
+   :type json_path: str
+   :return: Dictionary with loaded JSON's data.
+   :rtype: dict
+
+
+.. py:function:: write_graph_file(ontouml_graph, json_path, graph_format)
+
+   Saves the ontology graph into a file with syntax defined by the user.
+
+   :param ontouml_graph: Graph compliant with the OntoUML Vocabulary.
+   :type ontouml_graph: Graph
+   :param json_path: Path to the input json file.
+   :type json_path: str
+   :param graph_format: Syntax selected by the user to save the graph.
+   :type graph_format: str
+   :return: Saved output file path.
+   :rtype: str
+
+
+.. py:function:: safe_write_graph_file(ontouml_graph, output_file_name, syntax)
+
+   Safely saves the graph into a file in the informed destination with the desired syntax.
+
+   :param ontouml_graph: Graph compliant with the OntoUML Vocabulary.
+   :type ontouml_graph: Graph
+   :param output_file_name: Created output file name.
+   :type output_file_name: str
+   :param syntax: Syntax to be used for saving the ontology file.
+   :type syntax: str
+
+

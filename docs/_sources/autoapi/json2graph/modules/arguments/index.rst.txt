@@ -1,0 +1,57 @@
+:py:mod:`json2graph.modules.arguments`
+======================================
+
+.. py:module:: json2graph.modules.arguments
+
+.. autoapi-nested-parse::
+
+   Argument Treatments 
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   json2graph.modules.arguments.treat_user_arguments
+   json2graph.modules.arguments.initialize_arguments
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   json2graph.modules.arguments.ARGUMENTS
+   json2graph.modules.arguments.LOGGER
+
+
+.. py:data:: ARGUMENTS
+
+   
+
+.. py:data:: LOGGER
+
+   
+
+.. py:function:: treat_user_arguments()
+
+   Treat arguments provided by the user when starting software execution.
+
+   :return: Dictionary with json path (key 'json_path') and final file format (key 'format').
+   :rtype: dict
+   :raises OSError: If provided input is not of JSON type.
+
+
+.. py:function:: initialize_arguments(execution_mode = 'production')
+
+   :param execution_mode: Information about execution mode. Valid values are 'production' (default) and 'test'.
+   :type execution_mode: str
+
+

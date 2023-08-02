@@ -8,12 +8,11 @@ Function's nomenclatures:
     - Functions that set default values: set_<subject>_defaults.
 """
 
-from rdflib import Graph, URIRef
-
 import modules.arguments as args
 from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type
 from modules.globals import ELEMENT_VIEW_TYPES
 from modules.utils_graph import ontouml_ref
+from rdflib import Graph, URIRef
 
 
 def set_diagram_owner_modelelement(diagram_dict: dict, ontouml_graph: Graph) -> None:

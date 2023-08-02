@@ -8,12 +8,11 @@ Function's nomenclatures:
     - Functions that set default values: set_<subject>_defaults.
 """
 
-from rdflib import Graph, URIRef, Literal, XSD
-
 import modules.arguments as args
 from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type
 from modules.messages import print_decode_log_message
 from modules.utils_graph import ontouml_ref
+from rdflib import Graph, URIRef, Literal, XSD
 
 
 def set_generalizationset_defaults(generalizationset_dict: dict, ontouml_graph: Graph) -> None:
