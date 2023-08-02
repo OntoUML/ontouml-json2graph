@@ -25,15 +25,15 @@ Welcome to ontouml-json2graph's documentation!
 .. |maintained| image:: https://img.shields.io/maintenance/yes/2023
 	:alt: Maintenance
 
-.. |commits-latest| image:: https://img.shields.io/github/last-commit/sphinx-toolbox/sphinx-toolbox
+.. |commits-latest| image:: https://img.shields.io/github/last-commit/ontouml/ontouml-json2graph
 	:target: https://github.com/OntoUML/ontouml-json2graph/commit/main
 	:alt: GitHub last commit
 
-.. |codefactor| image:: https://img.shields.io/codefactor/grade/github/sphinx-toolbox/sphinx-toolbox?logo=codefactor
+.. |codefactor| image:: https://img.shields.io/codefactor/grade/github/ontouml/ontouml-json2graph?logo=codefactor
 	:target: https://www.codefactor.io/repository/github/ontouml/ontouml-json2graph
 	:alt: CodeFactor Grade
 
-.. |license| image:: https://img.shields.io/github/license/sphinx-toolbox/sphinx-toolbox
+.. |license| image:: https://img.shields.io/github/license/OntoUML/ontouml-json2graph
 	:target: https://img.shields.io/github/license/OntoUML/ontouml-json2graph
 	:alt: License
 
