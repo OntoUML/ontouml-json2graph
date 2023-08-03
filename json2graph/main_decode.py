@@ -14,13 +14,13 @@ from modules.logger import initialize_logger
 from modules.utils_general import get_date_time
 
 
-def decode_ontouml_json2graph(json_path: str, graph_format: str, language: str = "",
+def decode_ontouml_json2graph(json_path: str, graph_format: str = "ttl", language: str = "",
                               execution_mode: str = "production") -> str:
     """ Main function for ontouml-json2graph.
 
     :param json_path: Path to the JSON file to be decoded provided by the user.
     :type json_path: str
-    :param graph_format: Format for saving the resulting knowledge graph.
+    :param graph_format: Format for saving the resulting knowledge graph. Default value is 'ttl' (Turtle syntax).
     :type graph_format: str
     :param language: Language tag to be added to the ontology's concepts.
     :type language: str

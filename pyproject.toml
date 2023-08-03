@@ -20,7 +20,4 @@ conformsToVersion = "v1.1.0"
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
-[tool.poetry.dependencies]
-
-
 

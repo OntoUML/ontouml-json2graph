@@ -1,6 +1,6 @@
 # The OntoUML JSON2Graph Transformation
 
-<p align="center"><img src="https://raw.githubusercontent.com/OntoUML/ontouml-json2graph/main/resources/logo-json2graph.png" width="512"></p>
+<p align="center"><img src="json2graph/resources/logo-json2graph.png" width="512"></p>
 
 The OntoUML JSON2Graph (ontouml-json2graph) decodes a JSON file that complies with the [ontouml-schema](https://w3id.org/ontouml/schema) (e.g., the ones exported by the [ontouml-vp-plugin](https://github.com/OntoUML/ontouml-vp-plugin)) to a graph file that complies with the [ontouml-vocabulary](https://github.com/OntoUML/ontouml-vocabulary). Optionally, the user can enable basic semantic and syntactical verifications to improve the transformation results.
 
@@ -11,16 +11,14 @@ This project [complete docstring-generated documentation](https://w3id.org/ontou
 ## Contents
 
 <!-- TOC -->
-
 * [The OntoUML JSON2Graph Transformation](#the-ontouml-json2graph-transformation)
-    * [Contents](#contents)
-    * [Installing and Executing](#installing-and-executing)
-    * [Arguments](#arguments)
-    * [Basic Syntactical and Sematic Validation](#basic-syntactical-and-sematic-validation)
-    * [Permanent URLs and Identifiers](#permanent-urls-and-identifiers)
-    * [Related Projects](#related-projects)
-    * [Author](#author)
-
+  * [Contents](#contents)
+  * [Installing and Executing](#installing-and-executing)
+  * [Arguments](#arguments)
+  * [Basic Syntactical and Sematic Validation](#basic-syntactical-and-sematic-validation)
+  * [Permanent URLs and Identifiers](#permanent-urls-and-identifiers)
+  * [Related Projects](#related-projects)
+  * [Author](#author)
 <!-- TOC -->
 
 ## Installing and Executing
