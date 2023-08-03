@@ -2,15 +2,18 @@
 import os
 import sys
 from pathlib import Path
+
 import pytest
 
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-sys.path.append(os.path.dirname(SCRIPT_DIR)+"\json2graph")
+project_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+module_path = os.path.join(project_path, 'json2graph')
+sys.path.append(module_path)
 
-from lib_json2graph import decode_ontouml_json2graph
+from json2graph.lib_json2graph import decode_ontouml_json2graph
 from test_aux import get_test_list, compare_graphs
 
 LIST_OF_TESTS = get_test_list()
+
 
 @pytest.mark.parametrize("input_file", LIST_OF_TESTS)
 def test_ontouml_json2graph(input_file: str) -> None:
