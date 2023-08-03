@@ -2,12 +2,15 @@
 import os
 
 import yaml
+
 from .errors import report_error_io_read
 
 # Software's metadata from resources/metadata.yaml (indirectly got from pyproject.toml config file)
 global METADATA
 
-metadata_file = "../json2graph/resources/metadata.yaml"
+# Guarantees that the file will be found as it searches using this file as basis
+this_file_dir = os.path.dirname(os.path.dirname(__file__))
+metadata_file = os.path.join(this_file_dir, "resources\metadata.yaml")
 
 # Loads metadata_file into a dictionary
 try:
