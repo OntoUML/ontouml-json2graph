@@ -1,9 +1,10 @@
 """ Util functions related to graphs. """
 
+from rdflib import Graph, URIRef, RDF
+
 from .errors import report_error_io_read
 from .globals import METADATA
 from .logger import initialize_logger
-from rdflib import Graph, URIRef, RDF
 
 LOGGER = initialize_logger()
 

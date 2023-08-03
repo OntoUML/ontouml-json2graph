@@ -20,16 +20,16 @@ release = '2023.08.02'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = [
-                "autoapi.extension",
-                "myst_parser",
-                "sphinx.ext.autosectionlabel",
-                "sphinx.ext.autosummary",
-                "sphinx.ext.coverage",
-                "sphinx.ext.doctest",
-                "sphinx.ext.githubpages",
-                "sphinx_toolbox.shields",
-                "sphinx_toolbox.sidebar_links",
-            ]
+    "autoapi.extension",
+    "myst_parser",
+    "sphinx.ext.autosectionlabel",
+    "sphinx.ext.autosummary",
+    "sphinx.ext.coverage",
+    "sphinx.ext.doctest",
+    "sphinx.ext.githubpages",
+    "sphinx_toolbox.shields",
+    "sphinx_toolbox.sidebar_links",
+]
 
 autodoc_typehints = 'description'
 github_username = "pedropaulofb"
