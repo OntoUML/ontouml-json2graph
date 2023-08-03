@@ -6,16 +6,30 @@ import time
 
 from rdflib import RDF
 
-from modules import arguments as args
-from modules.decoder.decode_main import decode_json_to_graph
-from modules.globals import METADATA
-from modules.input_output import safe_load_json_file, write_graph_file
-from modules.logger import initialize_logger
-from modules.utils_general import get_date_time
+try:
+    from .modules import arguments as args
+    from .modules.decoder.decode_main import decode_json_to_graph
+    from .modules.globals import METADATA
+    from .modules.input_output import safe_load_json_file, write_graph_file
+    from .modules.logger import initialize_logger
+    from .modules.utils_general import get_date_time
+except ImportError:
+    from modules import arguments as args
+    from modules.decoder.decode_main import decode_json_to_graph
+    from modules.globals import METADATA
+    from modules.input_output import safe_load_json_file, write_graph_file
+    from modules.logger import initialize_logger
+    from modules.utils_general import get_date_time
 
 
-def decode_ontouml_json2graph(json_path: str, graph_format: str = "ttl", language: str = "",
-                              execution_mode: str = "production") -> str:
+def ontouml_json2graph(json_path: str,
+                       base_uri: str = "https://example.org#",
+                       graph_format: str = "ttl",
+                       language: str = "",
+                       model_only: bool = False,
+                       silent: bool = True,
+                       correct: bool = False,
+                       execution_mode: str = "import") -> str:
     """ Main function for ontouml-json2graph.
 
     :param json_path: Path to the JSON file to be decoded provided by the user.
@@ -24,7 +38,7 @@ def decode_ontouml_json2graph(json_path: str, graph_format: str = "ttl", languag
     :type graph_format: str
     :param language: Language tag to be added to the ontology's concepts.
     :type language: str
-    :param execution_mode: Information about execution mode. Valid values are 'production' (default) and 'test'.
+    :param execution_mode: Information about execution mode. Valid values are 'script' (default) and 'test'.
     :type execution_mode: str
     :return: Saved output file path. Used for testing.
     :rtype: str
@@ -34,15 +48,11 @@ def decode_ontouml_json2graph(json_path: str, graph_format: str = "ttl", languag
 
     model_elements = ["Class", "Property", "Generalization", "GeneralizationSet", "Relation", "Cardinality"]
 
-    # Setting tests' arguments
-    if execution_mode == "test":
-        args.ARGUMENTS.initialize_arguments(execution_mode)
-        args.ARGUMENTS["correct"] = True
-        args.ARGUMENTS["silent"] = True
-        args.ARGUMENTS["base_uri"] = 'https://example.org#'
-        args.ARGUMENTS["model_only"] = False
+    if execution_mode != "script":
+        args.initialize_arguments(json_path, base_uri, graph_format, language, model_only, silent, correct,
+                                  execution_mode)
 
-    if execution_mode == "production" and not args.ARGUMENTS["silent"]:
+    if execution_mode == "script" and not args.ARGUMENTS["silent"]:
         # Initial time information
         time_screen_format = "%d-%m-%Y %H:%M:%S"
         start_date_time = get_date_time(time_screen_format)
@@ -77,7 +87,7 @@ def decode_ontouml_json2graph(json_path: str, graph_format: str = "ttl", languag
         if not args.ARGUMENTS["silent"]:
             logger.info("All diagrammatic data removed from the output. The output contains only model elements.")
 
-    if execution_mode == "production" and not args.ARGUMENTS["silent"]:
+    if execution_mode == "script" and not args.ARGUMENTS["silent"]:
         # Get software's execution conclusion time
         end_date_time = get_date_time(time_screen_format)
         et = time.perf_counter()
@@ -89,3 +99,15 @@ def decode_ontouml_json2graph(json_path: str, graph_format: str = "ttl", languag
     logger.info(f"Output graph file successfully saved at {output_file_path}.")
 
     return output_file_path
+
+
+if __name__ == '__main__':
+    # Treat and publish user's arguments
+    args.initialize_arguments(execution_mode="script")
+
+    json_path = args.ARGUMENTS["json_path"]
+    graph_format = args.ARGUMENTS["format"]
+    language = args.ARGUMENTS["language"]
+
+    # Execute the transformation
+    ontouml_json2graph(json_path, graph_format, language, "script")

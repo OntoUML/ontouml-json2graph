@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ontouml-json2graph"
-version = "1.0.0b13"
+version = "1.0.0b15"
 description = "OntoUML JSON2Graph Decoder"
 license = "Apache-2.0"
 authors = ["Pedro Paulo F. Barcelos <p.p.favatobarcelos@utwente.nl>"]
@@ -10,6 +10,8 @@ repository = "https://w3id.org/ontouml/json2graph"
 documentation = "https://w3id.org/ontouml/json2graph/docs"
 keywords = ["semantic-web", "knowledge-graph", "ontouml", "ontology-driven-development", "ontouml-schema", "ontouml-vocabulary", "ontouml-metamodel"]
 packages = [{ include = "json2graph" }]
+exclude = ["json2graph/tests"]
+
 
 [extras]
 conformsTo = "https://w3id.org/ontouml"

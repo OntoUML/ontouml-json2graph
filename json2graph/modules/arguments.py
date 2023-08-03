@@ -4,6 +4,7 @@ import argparse
 
 import validators as validators
 
+from .errors import report_error_requirement_not_met
 from .globals import METADATA
 from .logger import initialize_logger
 
@@ -17,7 +18,6 @@ def treat_user_arguments() -> dict:
 
     :return: Dictionary with json path (key 'json_path') and final file format (key 'format').
     :rtype: dict
-    :raises OSError: If provided input is not of JSON type.
     """
 
     # Formats for saving graphs supported by RDFLib
@@ -75,7 +75,7 @@ def treat_user_arguments() -> dict:
 
     # Checking if provided URI is valid and if it has '/' or '#' at the end
     if not validators.url(arguments.base_uri):
-        raise ValueError("Provided base URI is invalid. Execution finished.")
+        report_error_requirement_not_met("Provided base URI is invalid. Execution finished.")
     elif (arguments.base_uri[-1] != '#') and (arguments.base_uri[-1] != '/'):
         arguments_dictionary["base_uri"] += '#'
 
@@ -84,14 +84,36 @@ def treat_user_arguments() -> dict:
     return arguments_dictionary
 
 
-def initialize_arguments(execution_mode: str = "production"):
-    """
+def initialize_arguments(json_path: str,
+                         base_uri: str = "https://example.org#",
+                         graph_format: str = "ttl",
+                         language: str = "",
+                         model_only: bool = False,
+                         silent: bool = True,
+                         correct: bool = False,
+                         execution_mode: str = "import"):
+    """ Initializes the global variable ARGUMENTS, of type dictionary. It must be initialized in every possible
+    execution mode.
 
-    :param execution_mode: Information about execution mode. Valid values are 'production' (default) and 'test'.
+    The valid execution modes are:
+        - 'script': If used as a script, use user's arguments.
+
+    :param execution_mode: Information about execution mode. Valid values are 'script' (default), 'package' and 'test'.
     :type execution_mode: str
     """
 
     global ARGUMENTS
 
-    if execution_mode == "production":
+    if execution_mode == "script":
         ARGUMENTS = treat_user_arguments()
+    else:
+        ARGUMENTS["base_uri"] = base_uri
+        ARGUMENTS["correct"] = correct
+        ARGUMENTS["format"] = graph_format
+        ARGUMENTS["json_file"] = json_path
+        ARGUMENTS["language"] = language
+        ARGUMENTS["model_only"] = model_only
+        ARGUMENTS["silent"] = silent
+
+    if execution_mode == "test":
+        ARGUMENTS["correct"] = True
