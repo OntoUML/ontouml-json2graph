@@ -2,7 +2,7 @@
 import glob
 
 import modules.arguments as args
-from modules.globals import URI_ONTOUML
+from modules.globals import METADATA
 from modules.input_output import safe_write_graph_file
 from modules.utils_graph import load_graph_safely
 from rdflib import Graph
@@ -39,13 +39,13 @@ def print_graphs_differences(iso_result_graph: Graph, iso_expected_graph: Graph,
 
     in_both, in_resulting, in_expected = graph_diff(iso_result_graph, iso_expected_graph)
 
-    in_both.bind("ontouml", URI_ONTOUML)
+    in_both.bind("ontouml", METADATA["conformsToBase"])
     in_both.bind("", args.ARGUMENTS["base_uri"])
 
-    in_resulting.bind("ontouml", URI_ONTOUML)
+    in_resulting.bind("ontouml", METADATA["conformsToBase"])
     in_resulting.bind("", args.ARGUMENTS["base_uri"])
 
-    in_expected.bind("ontouml", URI_ONTOUML)
+    in_expected.bind("ontouml", METADATA["conformsToBase"])
     in_expected.bind("", args.ARGUMENTS["base_uri"])
 
     base_path = "results/"

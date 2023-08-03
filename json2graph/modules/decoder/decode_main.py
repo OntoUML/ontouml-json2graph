@@ -13,7 +13,7 @@ from modules.decoder.decode_obj_project import create_project_properties
 from modules.decoder.decode_obj_property import create_property_properties
 from modules.decoder.decode_obj_rectangularshape import create_rectangularshape_properties
 from modules.decoder.decode_obj_relation import create_relation_properties
-from modules.globals import URI_ONTOUML, ELEMENT_VIEW_TYPES, METADATA
+from modules.globals import METADATA, ELEMENT_VIEW_TYPES
 from modules.logger import initialize_logger
 from modules.utils_general import get_date_time
 from modules.utils_graph import ontouml_ref
@@ -24,7 +24,7 @@ LOGGER = initialize_logger()
 
 def add_metadata(ontouml_graph: Graph) -> None:
     """ Adds basic metadata to the generated graph when not in test mode. The metadata added are:
-        - dct:conformsTo URI_ONTOUML
+        - dct:conformsTo METADATA["conformsToBase"]
         - dct:created (creation date)
         - dct:language (when user argument available)
         - type owl:Ontology
@@ -163,7 +163,7 @@ def decode_json_to_graph(json_data: dict, language: str, execution_mode: str) ->
 
     # Creating OntoUML Graph
     ontouml_graph = Graph()
-    ontouml_graph.bind("ontouml", URI_ONTOUML)
+    ontouml_graph.bind("ontouml", METADATA["conformsToBase"])
     ontouml_graph.bind("", args.ARGUMENTS["base_uri"])
 
     # Get clean data

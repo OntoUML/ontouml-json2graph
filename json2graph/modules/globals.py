@@ -15,9 +15,6 @@ pyproject_path = pyproject_path_prod if exists(pyproject_file) else pyproject_pa
 metadata_project = toml.load(pyproject_path)
 METADATA = metadata_project["tool"]["poetry"] | metadata_project["extras"]
 
-# URIs
-URI_ONTOUML = "https://w3id.org/ontouml#"
-
 # GROUPS OF CONCEPTS
 
 ELEMENT_VIEW_TYPES = ["ClassView", "PackageView", "GeneralizationSetView", "RelationView", "GeneralizationView",
