@@ -9,12 +9,13 @@ Function's nomenclatures:
 
 import inspect
 
-import modules.arguments as args
-from modules.decoder.decode_general import get_list_subdictionaries_for_specific_type, get_stereotype
-from modules.errors import report_error_end_of_switch
-from modules.messages import print_decode_log_message
-from modules.utils_graph import ontouml_ref
 from rdflib import Graph, URIRef, XSD, Literal
+
+from .. import arguments as args
+from ..decoder.decode_general import get_list_subdictionaries_for_specific_type, get_stereotype
+from ..errors import report_error_end_of_switch
+from ..messages import print_decode_log_message
+from ..utils_graph import ontouml_ref
 
 
 def validate_class_attribute_constraints(class_dict: dict) -> None:

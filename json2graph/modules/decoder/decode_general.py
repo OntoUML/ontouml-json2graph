@@ -1,10 +1,11 @@
 """ General decoding functions. """
 
-import modules.arguments as args
-from modules.logger import initialize_logger
-from modules.sparql_queries import GET_ELEMENT_AND_TYPE
-from modules.utils_graph import load_ontouml_vocabulary, ontouml_ref
 from rdflib import Graph, URIRef, Literal, RDF
+
+from .. import arguments as args
+from ..logger import initialize_logger
+from ..sparql_queries import GET_ELEMENT_AND_TYPE
+from ..utils_graph import load_ontouml_vocabulary, ontouml_ref
 
 LOGGER = initialize_logger()
 

@@ -8,10 +8,11 @@ Function's nomenclatures:
     - Functions that set default values: set_<subject>_defaults.
 """
 
-import modules.arguments as args
-from modules.decoder.decode_general import get_all_ids_of_specific_type, get_list_subdictionaries_for_specific_type
-from modules.utils_graph import ontouml_ref
 from rdflib import Graph, URIRef
+
+from .. import arguments as args
+from ..decoder.decode_general import get_all_ids_of_specific_type, get_list_subdictionaries_for_specific_type
+from ..utils_graph import ontouml_ref
 
 
 def set_ontoumlelement_project_project(project_dict: dict, ontouml_graph: Graph, element_counting: dict) -> None:
