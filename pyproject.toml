@@ -9,7 +9,7 @@ homepage = "https://w3id.org/ontouml/json2graph"
 repository = "https://w3id.org/ontouml/json2graph"
 documentation = "https://w3id.org/ontouml/json2graph/docs"
 keywords = ["semantic-web", "knowledge-graph", "ontouml", "ontology-driven-development", "ontouml-schema", "ontouml-vocabulary", "ontouml-metamodel"]
-packages = [{include = "json2graph"}]
+packages = [{ include = "json2graph" }]
 
 [extras]
 conformsTo = "https://w3id.org/ontouml"

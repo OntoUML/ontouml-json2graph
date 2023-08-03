@@ -1,7 +1,7 @@
 .. ontouml-json2graph documentation master file, created by
-   sphinx-quickstart on Wed Aug  2 09:24:40 2023.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+sphinx-quickstart on Wed Aug  2 09:24:40 2023.
+You can adapt this file completely to your liking, but it should at least
+contain the root `toctree` directive.
 
 Welcome to ontouml-json2graph's documentation!
 ==============================================

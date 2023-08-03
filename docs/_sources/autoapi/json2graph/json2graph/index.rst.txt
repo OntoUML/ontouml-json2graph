@@ -1,7 +1,7 @@
-:py:mod:`json2graph.__main__`
-=============================
+:py:mod:`json2graph.json2graph`
+===============================
 
-.. py:module:: json2graph.__main__
+.. py:module:: json2graph.json2graph
 
 .. autoapi-nested-parse::
 

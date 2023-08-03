@@ -39,7 +39,7 @@ Attributes
 .. py:function:: add_metadata(ontouml_graph)
 
    Adds basic metadata to the generated graph when not in test mode. The metadata added are:
-       - dct:conformsTo URI_ONTOUML
+       - dct:conformsTo METADATA["conformsToBase"]
        - dct:created (creation date)
        - dct:language (when user argument available)
        - type owl:Ontology

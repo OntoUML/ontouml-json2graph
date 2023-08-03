@@ -11,14 +11,16 @@ This project [complete docstring-generated documentation](https://w3id.org/ontou
 ## Contents
 
 <!-- TOC -->
+
 * [The OntoUML JSON2Graph Transformation](#the-ontouml-json2graph-transformation)
-  * [Contents](#contents)
-  * [Installing and Executing](#installing-and-executing)
-  * [Arguments](#arguments)
-  * [Basic Syntactical and Sematic Validation](#basic-syntactical-and-sematic-validation)
-  * [Permanent URLs and Identifiers](#permanent-urls-and-identifiers)
-  * [Related Projects](#related-projects)
-  * [Author](#author)
+    * [Contents](#contents)
+    * [Installing and Executing](#installing-and-executing)
+    * [Arguments](#arguments)
+    * [Basic Syntactical and Sematic Validation](#basic-syntactical-and-sematic-validation)
+    * [Permanent URLs and Identifiers](#permanent-urls-and-identifiers)
+    * [Related Projects](#related-projects)
+    * [Author](#author)
+
 <!-- TOC -->
 
 ## Installing and Executing
@@ -29,13 +31,13 @@ You need to [download and install Python](https://www.python.org/downloads/) to 
 pip install -r requirements.txt
 ```
 
-For executing the software, run the following command on the terminal inside the project's folder: 
+For executing the software, run the following command on the terminal inside the project's folder:
 
 ```text
 python json2graph [path_to_json] [OTHER ARGUMENTS]
 ```
 
-The only mandatory argument is `path_to_json`, which must be substituted for the input file's location on your computer. 
+The only mandatory argument is `path_to_json`, which must be substituted for the input file's location on your computer.
 Other arguments provide additional features and are presented in the next section.
 
 ## Arguments

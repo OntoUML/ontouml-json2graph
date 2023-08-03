@@ -37,11 +37,6 @@ Module Contents
 
    
 
-.. py:data:: URI_ONTOUML
-   :value: 'https://w3id.org/ontouml#'
-
-   
-
 .. py:data:: ELEMENT_VIEW_TYPES
    :value: ['ClassView', 'PackageView', 'GeneralizationSetView', 'RelationView', 'GeneralizationView', 'NoteView']
 

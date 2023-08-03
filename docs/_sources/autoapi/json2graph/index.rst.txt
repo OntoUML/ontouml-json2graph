@@ -19,7 +19,7 @@ Submodules
    :titlesonly:
    :maxdepth: 1
 
-   __main__/index.rst
-   main_decode/index.rst
+   decode/index.rst
+   json2graph/index.rst
 
 

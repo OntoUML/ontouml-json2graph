@@ -2,11 +2,11 @@
 import os
 import sys
 
-import modules.arguments as args
-
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
-from main_decode import decode_ontouml_json2graph
+
+from modules import arguments as args
+from decode import decode_ontouml_json2graph
 
 if __name__ == '__main__':
     # Treat and publish user's arguments
