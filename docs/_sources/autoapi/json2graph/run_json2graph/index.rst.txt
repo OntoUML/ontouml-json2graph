@@ -1,7 +1,7 @@
-:py:mod:`json2graph.json2graph`
-===============================
+:py:mod:`json2graph.run_json2graph`
+===================================
 
-.. py:module:: json2graph.json2graph
+.. py:module:: json2graph.run_json2graph
 
 .. autoapi-nested-parse::
 
@@ -11,10 +11,6 @@
 
 Module Contents
 ---------------
-
-.. py:data:: SCRIPT_DIR
-
-   
 
 .. py:data:: json_path
 

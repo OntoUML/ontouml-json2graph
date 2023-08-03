@@ -19,7 +19,7 @@ Submodules
    :titlesonly:
    :maxdepth: 1
 
-   decode/index.rst
-   json2graph/index.rst
+   lib_json2graph/index.rst
+   run_json2graph/index.rst
 
 

@@ -1,7 +1,7 @@
-:py:mod:`json2graph.decode`
-===========================
+:py:mod:`json2graph.lib_json2graph`
+===================================
 
-.. py:module:: json2graph.decode
+.. py:module:: json2graph.lib_json2graph
 
 .. autoapi-nested-parse::
 
@@ -19,7 +19,7 @@ Functions
 
 .. autoapisummary::
 
-   json2graph.decode.decode_ontouml_json2graph
+   json2graph.lib_json2graph.decode_ontouml_json2graph
 
 
 
