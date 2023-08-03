@@ -1,13 +1,13 @@
 """ Global variables definitions. """
+import os
 
 import yaml
-
-from json2graph.modules.errors import report_error_io_read
+from .errors import report_error_io_read
 
 # Software's metadata from resources/metadata.yaml (indirectly got from pyproject.toml config file)
 global METADATA
 
-metadata_file = "resources/metadata.yaml"
+metadata_file = "../json2graph/resources/metadata.yaml"
 
 # Loads metadata_file into a dictionary
 try:

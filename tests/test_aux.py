@@ -1,5 +1,6 @@
 """ Auxiliary test functions. """
 import glob
+import sys
 
 import modules.arguments as args
 from modules.globals import METADATA

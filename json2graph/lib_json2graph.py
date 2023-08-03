@@ -6,7 +6,7 @@ import time
 
 from rdflib import RDF
 
-import modules.arguments as args
+from modules import arguments as args
 from modules.decoder.decode_main import decode_json_to_graph
 from modules.globals import METADATA
 from modules.input_output import safe_load_json_file, write_graph_file
@@ -36,7 +36,7 @@ def decode_ontouml_json2graph(json_path: str, graph_format: str = "ttl", languag
 
     # Setting tests' arguments
     if execution_mode == "test":
-        args.initialize_arguments(execution_mode)
+        args.ARGUMENTS.initialize_arguments(execution_mode)
         args.ARGUMENTS["correct"] = True
         args.ARGUMENTS["silent"] = True
         args.ARGUMENTS["base_uri"] = 'https://example.org#'
