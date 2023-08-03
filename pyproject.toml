@@ -16,6 +16,12 @@ conformsTo = "https://w3id.org/ontouml"
 conformsToBase = "https://w3id.org/ontouml#"
 conformsToVersion = "v1.1.0"
 
+[tool.poetry.dependencies]
+python = "^3.11"
+validators = "^0.20.0"
+toml = "^0.10.2"
+rdflib = "^7.0.0"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"

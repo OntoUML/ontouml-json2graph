@@ -1,3 +1,0 @@
-rdflib~=6.2.0
-toml~=0.10.2
-validators~=0.20.0
