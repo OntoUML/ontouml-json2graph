@@ -1,0 +1,5 @@
+pytest~=7.3.2
+PyYAML~=6.0
+rdflib~=7.0.0
+toml~=0.10.2
+validators~=0.20.0

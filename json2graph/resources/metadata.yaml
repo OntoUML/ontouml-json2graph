@@ -1,0 +1,32 @@
+build-system:
+  build-backend: poetry.core.masonry.api
+  requires:
+  - poetry-core
+extras:
+  conformsTo: https://w3id.org/ontouml
+  conformsToBase: https://w3id.org/ontouml#
+  conformsToVersion: v1.1.0
+tool:
+  poetry:
+    authors:
+    - Pedro Paulo F. Barcelos <p.p.favatobarcelos@utwente.nl>
+    dependencies:
+      python: ^3.11
+      rdflib: ^7.0.0
+      validators: ^0.20.0
+    description: OntoUML JSON2Graph Decoder
+    documentation: https://w3id.org/ontouml/json2graph/docs
+    homepage: https://w3id.org/ontouml/json2graph
+    keywords:
+    - semantic-web
+    - knowledge-graph
+    - ontouml
+    - ontology-driven-development
+    - ontouml-schema
+    - ontouml-vocabulary
+    - ontouml-metamodel
+    license: Apache-2.0
+    name: ontouml-json2graph
+    readme: README.md
+    repository: https://w3id.org/ontouml/json2graph
+    version: 1.0.0b13
