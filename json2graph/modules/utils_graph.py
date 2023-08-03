@@ -1,8 +1,8 @@
 """ Util functions related to graphs. """
 
-from modules.errors import report_error_io_read
-from modules.globals import METADATA
-from modules.logger import initialize_logger
+from .errors import report_error_io_read
+from .globals import METADATA
+from .logger import initialize_logger
 from rdflib import Graph, URIRef, RDF
 
 LOGGER = initialize_logger()

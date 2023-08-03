@@ -1,6 +1,5 @@
 """ Global variables definitions. """
 from os.path import exists
-from pprint import pprint
 
 import toml as toml
 

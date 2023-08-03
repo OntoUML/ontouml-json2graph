@@ -4,8 +4,8 @@ import json
 import os
 from pathlib import Path
 
-from modules.errors import report_error_io_read, report_error_io_write
-from modules.logger import initialize_logger
+from .errors import report_error_io_read, report_error_io_write
+from .logger import initialize_logger
 from rdflib import Graph
 
 LOGGER = initialize_logger()

@@ -1,6 +1,6 @@
 """ Functions related to the verification and treatment of identified ERROR cases. """
 
-from modules.logger import initialize_logger
+from .logger import initialize_logger
 
 LOGGER = initialize_logger()
 

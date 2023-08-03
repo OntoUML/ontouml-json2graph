@@ -1,10 +1,10 @@
 """ Decoding messages to be displayed to users must be concentrated in this module whenever possibile. """
 import inspect
 
-import modules.arguments as args
-from modules.decoder.decode_general import get_stereotype
-from modules.errors import report_error_end_of_switch
-from modules.logger import initialize_logger
+from . import arguments as args
+from .decoder.decode_general import get_stereotype
+from .errors import report_error_end_of_switch
+from .logger import initialize_logger
 
 LOGGER = initialize_logger()
 
