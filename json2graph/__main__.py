@@ -12,8 +12,6 @@ if __name__ == '__main__':
     # Treat and publish user's arguments
     args.initialize_arguments()
 
-    print(f"{sys.path = }")
-
     json_path = args.ARGUMENTS["json_path"]
     graph_format = args.ARGUMENTS["format"]
     language = args.ARGUMENTS["language"]

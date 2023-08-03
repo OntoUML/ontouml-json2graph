@@ -13,7 +13,7 @@ sys.path.insert(0, os.path.abspath(".."))
 
 project = 'ontouml-json2graph'
 copyright = '2023, Semantics, Cybersecurity & Services (SCS), University of Twente, the Netherlands'
-author = 'Pedro Paulo F. Barcelos (p.p.favatobarcelos@utwente.nl)'
+author = 'Pedro Paulo F. Barcelos <p.p.favatobarcelos@utwente.nl>'
 release = '2023.08.02'
 
 # -- General configuration ---------------------------------------------------

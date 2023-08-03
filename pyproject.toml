@@ -1,19 +1,23 @@
-[project]
+[tool.poetry]
 name = "ontouml-json2graph"
+version = "1.0.0b5"
 description = "OntoUML JSON2Graph Decoder"
-version = "2023.08.01"
+license = "Apache-2.0"
 authors = ["Pedro Paulo F. Barcelos <p.p.favatobarcelos@utwente.nl>"]
-license = { text = "Apache-2.0" }
-keywords = ["semantic-web", "knowledge-graph", "ontouml", "ontology-driven-development", "ontouml-schema",
-    "ontouml-vocabulary", "ontouml-metamodel"]
-
+readme = "README.md"
 homepage = "https://w3id.org/ontouml/json2graph"
 repository = "https://w3id.org/ontouml/json2graph"
 documentation = "https://w3id.org/ontouml/json2graph/docs"
+keywords = ["semantic-web", "knowledge-graph", "ontouml", "ontology-driven-development", "ontouml-schema", "ontouml-vocabulary", "ontouml-metamodel"]
+packages = [{include = "json2graph"}]
 
+[extras]
 conformsTo = "https://w3id.org/ontouml"
+conformsToBase = "https://w3id.org/ontouml#"
 conformsToVersion = "v1.1.0"
 
-[project.readme]
-file = "README.md"
-content-type = "text/markdown"
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
