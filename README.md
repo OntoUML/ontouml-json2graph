@@ -3,18 +3,20 @@
  ![GitHub Release Date - Published_At](https://img.shields.io/github/release-date/ontouml/ontouml-json2graph) ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/ontouml/ontouml-json2graph/main)
  ![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/ontouml/ontouml-json2graph) ![GitHub](https://img.shields.io/github/license/ontouml/ontouml-json2graph)
 
+
 # The OntoUML JSON2Graph Transformation
 
 <p align="center"><img src="https://raw.githubusercontent.com/OntoUML/ontouml-json2graph/main/json2graph/resources/logo-json2graph.png" width="740"></p>
 
+The OntoUML JSON2Graph (ontouml-json2graph) decodes a JSON file that complies with the [ontouml-schema](https://w3id.org/ontouml/schema) (e.g., the ones exported by the [ontouml-vp-plugin](https://github.com/OntoUML/ontouml-vp-plugin)) to a graph file that complies with the [ontouml-vocabulary](https://github.com/OntoUML/ontouml-vocabulary). 
 
-The OntoUML JSON2Graph (ontouml-json2graph) decodes a JSON file that complies with the [ontouml-schema](https://w3id.org/ontouml/schema) (e.g., the ones exported by the [ontouml-vp-plugin](https://github.com/OntoUML/ontouml-vp-plugin)) to a graph file that complies with the [ontouml-vocabulary](https://github.com/OntoUML/ontouml-vocabulary). Optionally, the user can enable basic semantic and syntactical verifications to improve the transformation results.
-
-Being [released as a package](https://pypi.org/project/ontouml-json2graph/), the transformation can be used as an executable script or imported as a library into another Python project.
+When transforming a model, you can either represent only the model's core concepts, or include all its information, including diagrammatical elements, as part of the knowledge graph. Additionally, users have the choice to enable basic semantic and syntactical verifications, ensuring enhanced and accurate transformation results.
 
 This application was constructed with [RDFLib](https://rdflib.readthedocs.io/en/stable/) using Python 3.11.4. The generated graph file can be serialized in the diverse [formats supported by the RDFLib](https://rdflib.readthedocs.io/en/stable/intro_to_parsing.html#saving-rdf), which are Turtle, RDF/XML, JSON-LD, N-Triples, Notation-3, Trig, Trix, and N-Quads.
 
-This project [complete docstring-generated documentation](https://w3id.org/ontouml/json2graph/docs) is available for inquiries.
+**📦 PyPI Package:** The transformation is conveniently [available as a PyPI package](https://pypi.org/project/ontouml-json2graph/), allowing users to utilize it as an executable script or import it as a library into other Python projects.
+
+**📚 Documentation:** For inquiries and more information, you can refer to the [complete docstring-generated documentation](https://w3id.org/ontouml/json2graph/docs) available for this project.
 
 ## Contents
 
