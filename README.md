@@ -1,11 +1,11 @@
-# The OntoUML JSON2Graph Transformation
-
 ![PyPI](https://img.shields.io/pypi/v/ontouml-json2graph) ![PyPI - Downloads](https://img.shields.io/pypi/dm/ontouml-json2graph?label=pypi%20downloads)
  ![GitHub top language](https://img.shields.io/github/languages/top/ontouml/ontouml-json2graph)
  ![GitHub Release Date - Published_At](https://img.shields.io/github/release-date/ontouml/ontouml-json2graph) ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/ontouml/ontouml-json2graph/main)
  ![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/ontouml/ontouml-json2graph) ![GitHub](https://img.shields.io/github/license/ontouml/ontouml-json2graph)
 
-<p align="center"><img src="https://raw.githubusercontent.com/OntoUML/ontouml-json2graph/main/json2graph/resources/logo-json2graph.png" width="512"></p>
+# The OntoUML JSON2Graph Transformation
+
+<p align="center"><img src="https://raw.githubusercontent.com/OntoUML/ontouml-json2graph/main/json2graph/resources/logo-json2graph.png" width="740"></p>
 
 
 The OntoUML JSON2Graph (ontouml-json2graph) decodes a JSON file that complies with the [ontouml-schema](https://w3id.org/ontouml/schema) (e.g., the ones exported by the [ontouml-vp-plugin](https://github.com/OntoUML/ontouml-vp-plugin)) to a graph file that complies with the [ontouml-vocabulary](https://github.com/OntoUML/ontouml-vocabulary). Optionally, the user can enable basic semantic and syntactical verifications to improve the transformation results.
