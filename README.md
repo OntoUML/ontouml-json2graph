@@ -42,6 +42,8 @@ All dependencies will be automatically installed, and you are ready to use the o
 
 After being installed, the OntoUML JSON2Graph Decoder can be used as an **executable script** or **imported as a library** into another Python project.
 
+The output of the transformation, i.e., the graph file, will be saved into a directory named `results` in the same path in which the software was executed.
+
 ### Executing as a Script
 
 For executing the software, run the following command on the terminal inside the project's folder:
