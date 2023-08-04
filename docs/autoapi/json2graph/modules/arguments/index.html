@@ -52,6 +52,8 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph</span></code></a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="../../index.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l4 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.modules</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../resources/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.resources</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tests/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.tests</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../index.html#submodules">Submodules</a></li>
@@ -89,24 +91,23 @@
            <div itemprop="articleBody">
              
   <section id="module-json2graph.modules.arguments">
-<span id="json2graph-modules-arguments"></span><h1><a class="reference internal" href="#module-json2graph.modules.arguments" title="json2graph.modules.arguments"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.modules.arguments</span></code></a><a class="headerlink" href="#module-json2graph.modules.arguments" title="Permalink to this heading"></a></h1>
-<p>Argument Treatments</p>
+<span id="json2graph-modules-arguments"></span><h1><a class="reference internal" href="../../../../json2graph.modules.html#module-json2graph.modules.arguments" title="json2graph.modules.arguments"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.modules.arguments</span></code></a><a class="headerlink" href="#module-json2graph.modules.arguments" title="Permalink to this heading"></a></h1>
+<p>Argument Treatments Module.</p>
+<p>This module provides functions for parsing and validating user-provided arguments when starting the software execution
+as a script.</p>
+<p>It also makes the ARGUMENTS variable globally accessible with the user’s arguments (when executed as a script) or with
+default values (when executed as test or as a library).</p>
 <section id="module-contents">
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading"></a></h2>
 <section id="functions">
 <h3>Functions<a class="headerlink" href="#functions" title="Permalink to this heading"></a></h3>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#json2graph.modules.arguments.treat_user_arguments" title="json2graph.modules.arguments.treat_user_arguments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">treat_user_arguments</span></code></a>()</p></td>
-<td><p>Treat arguments provided by the user when starting software execution.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../../../json2graph.modules.html#json2graph.modules.arguments.treat_user_arguments" title="json2graph.modules.arguments.treat_user_arguments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">treat_user_arguments</span></code></a>()</p></td>
+<td><p>This function parses the command-line arguments provided by the user and performs necessary validations.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#json2graph.modules.arguments.initialize_arguments" title="json2graph.modules.arguments.initialize_arguments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initialize_arguments</span></code></a>([execution_mode])</p></td>
-<td><p><dl class="field-list simple">
-<dt class="field-odd">param execution_mode<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Information about execution mode. Valid values are 'production' (default) and 'test'.</p>
-</dd>
-</dl>
-</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../../json2graph.modules.html#json2graph.modules.arguments.initialize_arguments" title="json2graph.modules.arguments.initialize_arguments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initialize_arguments</span></code></a>([json_path, base_uri, ...])</p></td>
+<td><p>This function initializes the global variable ARGUMENTS of type dictionary, which contains user-provided</p></td>
 </tr>
 </tbody>
 </table>
@@ -136,7 +137,7 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="json2graph.modules.arguments.treat_user_arguments">
 <span class="sig-prename descclassname"><span class="pre">json2graph.modules.arguments.</span></span><span class="sig-name descname"><span class="pre">treat_user_arguments</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.modules.arguments.treat_user_arguments" title="Permalink to this definition"></a></dt>
-<dd><p>Treat arguments provided by the user when starting software execution.</p>
+<dd><p>This function parses the command-line arguments provided by the user and performs necessary validations.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Dictionary with json path (key ‘json_path’) and final file format (key ‘format’).</p>
@@ -144,20 +145,49 @@
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>dict</p>
 </dd>
-<dt class="field-odd">Raises<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>OSError</strong> – If provided input is not of JSON type.</p>
-</dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="json2graph.modules.arguments.initialize_arguments">
-<span class="sig-prename descclassname"><span class="pre">json2graph.modules.arguments.</span></span><span class="sig-name descname"><span class="pre">initialize_arguments</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">execution_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'production'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.modules.arguments.initialize_arguments" title="Permalink to this definition"></a></dt>
-<dd><dl class="field-list simple">
+<span class="sig-prename descclassname"><span class="pre">json2graph.modules.arguments.</span></span><span class="sig-name descname"><span class="pre">initialize_arguments</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'not_initialized'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_uri</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'https://example.org#'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">graph_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ttl'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">language</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">silent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correct</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">execution_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'import'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.modules.arguments.initialize_arguments" title="Permalink to this definition"></a></dt>
+<dd><p>This function initializes the global variable ARGUMENTS of type dictionary, which contains user-provided
+(when executed in script mode) or default arguments (when executed as a library or for testing).
+The ARGUMENTS variable must be initialized in every possible execution mode.</p>
+<p>The valid execution modes are:
+- ‘script’: If used as a script, use user’s arguments parsed from the command line.
+- ‘package’: When imported into external code, working as a library package.
+- ‘test’: Used for testing.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>execution_mode</strong> (<em>str</em>) – Information about execution mode. Valid values are ‘production’ (default) and ‘test’.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>json_path</strong> (<em>str</em>) – Path to the JSON file to be decoded provided by the user. (Optional)</p></li>
+<li><p><strong>base_uri</strong> (<em>str</em>) – Base URI to be used for generating URIs for ontology concepts.</p></li>
+<li><p><strong>graph_format</strong> (<em>str</em>) – </p></li>
+<li><p><strong>language</strong> (<em>str</em>) – </p></li>
+<li><p><strong>model_only</strong> (<em>bool</em>) – </p></li>
+<li><p><strong>silent</strong> (<em>bool</em>) – </p></li>
+<li><p><strong>correct</strong> (<em>bool</em>) – </p></li>
+<li><p><strong>execution_mode</strong> (<em>str</em>) – </p></li>
+</ul>
 </dd>
 </dl>
+<p>Default is “<a class="reference external" href="https://example">https://example</a>.org#”. (Optional)
+:type base_uri: str
+:param graph_format: Format for saving the resulting knowledge graph.
+Default value is ‘ttl’ (Turtle syntax). (Optional)
+:type graph_format: str
+:param language: Language tag to be added to the ontology’s concepts. (Optional)
+:type language: str
+:param model_only: If True, only the OntoUML model will be extracted without diagrammatic information. (Optional)
+:type model_only: bool
+:param silent: If True, suppresses intermediate communications and log messages during execution. (Optional)
+:type silent: bool
+:param correct: If True, attempts to correct potential errors during the conversion process. (Optional)
+:type correct: bool
+:param execution_mode: Information about the execution mode.
+Valid values are ‘import’ (default), ‘script’, and ‘test’. (Optional)
+:type execution_mode: str</p>
 </dd></dl>
 
 </section>

@@ -49,11 +49,17 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">The OntoUML JSON2Graph Transformation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#contents">Contents</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#installing-and-executing">Installing and Executing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#executing-as-a-script">Executing as a Script</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#importing-as-a-library">Importing as a Library</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#arguments">Arguments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#basic-syntactical-and-sematic-validation">Basic Syntactical and Sematic Validation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#permanent-urls-and-identifiers">Permanent URLs and Identifiers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#related-projects">Related Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#development-contribution">Development Contribution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#author">Author</a></li>
 </ul>
 </li>
@@ -86,9 +92,10 @@
              
   <section id="the-ontouml-json2graph-transformation">
 <h1>The OntoUML JSON2Graph Transformation<a class="headerlink" href="#the-ontouml-json2graph-transformation" title="Permalink to this heading"></a></h1>
-<p align="center"><img src="json2graph/resources/logo-json2graph.png" width="512"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/OntoUML/ontouml-json2graph/main/json2graph/resources/logo-json2graph.png" width="512"></p>
 <p>The OntoUML JSON2Graph (ontouml-json2graph) decodes a JSON file that complies with the <a class="reference external" href="https://w3id.org/ontouml/schema">ontouml-schema</a> (e.g., the ones exported by the <a class="reference external" href="https://github.com/OntoUML/ontouml-vp-plugin">ontouml-vp-plugin</a>) to a graph file that complies with the <a class="reference external" href="https://github.com/OntoUML/ontouml-vocabulary">ontouml-vocabulary</a>. Optionally, the user can enable basic semantic and syntactical verifications to improve the transformation results.</p>
-<p>This application was constructed with <a class="reference external" href="https://rdflib.readthedocs.io/en/stable/">RDFLib</a> using Python 3.11.4. The generated graph file can be serialized in the diverse formats supported by the RDFLib, which are Turtle, RDF/XML, JSON-LD, N-Triples, Notation-3, Trig, Trix, and N-Quads.</p>
+<p>Being <a class="reference external" href="https://pypi.org/project/ontouml-json2graph/">released as a package</a>, the transformation can be used as an executable script or imported as a library into another Python project.</p>
+<p>This application was constructed with <a class="reference external" href="https://rdflib.readthedocs.io/en/stable/">RDFLib</a> using Python 3.11.4. The generated graph file can be serialized in the diverse <a class="reference external" href="https://rdflib.readthedocs.io/en/stable/intro_to_parsing.html#saving-rdf">formats supported by the RDFLib</a>, which are Turtle, RDF/XML, JSON-LD, N-Triples, Notation-3, Trig, Trix, and N-Quads.</p>
 <p>This project <a class="reference external" href="https://w3id.org/ontouml/json2graph/docs">complete docstring-generated documentation</a> is available for inquiries.</p>
 <section id="contents">
 <h2>Contents<a class="headerlink" href="#contents" title="Permalink to this heading"></a></h2>
@@ -97,39 +104,61 @@
 <li><p><a class="reference internal" href="#the-ontouml-json2graph-transformation"><span class="xref myst">The OntoUML JSON2Graph Transformation</span></a></p>
 <ul>
 <li><p><a class="reference internal" href="#contents"><span class="std std-ref">Contents</span></a></p></li>
-<li><p><a class="reference internal" href="#installing-and-executing"><span class="xref myst">Installing and Executing</span></a></p></li>
+<li><p><a class="reference internal" href="#installation"><span class="std std-ref">Installation</span></a></p></li>
+<li><p><a class="reference internal" href="#usage"><span class="std std-ref">Usage</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#executing-as-a-script"><span class="xref myst">Executing as a Script</span></a></p></li>
+<li><p><a class="reference internal" href="#importing-as-a-library"><span class="xref myst">Importing as a Library</span></a></p></li>
+</ul>
+</li>
 <li><p><a class="reference internal" href="#arguments"><span class="std std-ref">Arguments</span></a></p></li>
 <li><p><a class="reference internal" href="#basic-syntactical-and-sematic-validation"><span class="xref myst">Basic Syntactical and Sematic Validation</span></a></p></li>
 <li><p><a class="reference internal" href="#permanent-urls-and-identifiers"><span class="xref myst">Permanent URLs and Identifiers</span></a></p></li>
 <li><p><a class="reference internal" href="#related-projects"><span class="xref myst">Related Projects</span></a></p></li>
+<li><p><a class="reference internal" href="#development-contribution"><span class="xref myst">Development Contribution</span></a></p></li>
 <li><p><a class="reference internal" href="#author"><span class="std std-ref">Author</span></a></p></li>
 </ul>
 </li>
 </ul>
 <!-- TOC -->
 </section>
-<section id="installing-and-executing">
-<h2>Installing and Executing<a class="headerlink" href="#installing-and-executing" title="Permalink to this heading"></a></h2>
-<p>You need to <a class="reference external" href="https://www.python.org/downloads/">download and install Python</a> to execute the ontouml-json2graph transformation tool. To install all necessary dependencies, run the following command on the terminal inside the project’s folder:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pip install -r requirements.txt
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
+<p>You need to <a class="reference external" href="https://www.python.org/downloads/">download and install Python</a> to use the OntoUML JSON2Graph Decoder.
+To install the application you simply need to perform the following command:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pip install ontouml-json2graph
 </pre></div>
 </div>
+<p>All dependencies will be automatically installed, and you are ready to use the ontouml-json2graph package.</p>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this heading"></a></h2>
+<p>After being installed, the OntoUML JSON2Graph Decoder can be used as an <strong>executable script</strong> or <strong>imported as a library</strong> into another Python project.</p>
+<section id="executing-as-a-script">
+<h3>Executing as a Script<a class="headerlink" href="#executing-as-a-script" title="Permalink to this heading"></a></h3>
 <p>For executing the software, run the following command on the terminal inside the project’s folder:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>python json2graph [path_to_json] [OTHER ARGUMENTS]
+<div class="highlight-txt notranslate"><div class="highlight"><pre><span></span>python -m json2graph.decode [path_to_json] [OPTIONAL ARGUMENTS]
 </pre></div>
 </div>
-<p>The only mandatory argument is <code class="docutils literal notranslate"><span class="pre">path_to_json</span></code>, which must be substituted for the input file’s location on your computer.
-Other arguments provide additional features and are presented in the next section.</p>
+</section>
+<section id="importing-as-a-library">
+<h3>Importing as a Library<a class="headerlink" href="#importing-as-a-library" title="Permalink to this heading"></a></h3>
+<p>In its current version, a single class is available to users: <strong>ontouml_json2graph</strong>. To use it, include the following line in your python module:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">json2graph.decode</span> <span class="kn">import</span> <span class="n">ontouml_json2graph</span>
+</pre></div>
+</div>
+<p>More information about how to use the decode function <a class="reference external" href="https://dev.ontouml.org/ontouml-json2graph/autoapi/json2graph/index.html#submodules">can be accessed in its documentation</a>.</p>
+</section>
 </section>
 <section id="arguments">
 <h2>Arguments<a class="headerlink" href="#arguments" title="Permalink to this heading"></a></h2>
-<p>All available ontouml-json2graph arguments can be observed below.</p>
+<p>The only mandatory argument is <code class="docutils literal notranslate"><span class="pre">path_to_json</span></code>, which must be substituted for the input file’s location on your computer. Optional arguments provide additional features. All available ontouml-json2graph arguments can be observed below.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: ontouml-json2graph [-h]
                           [-f {turtle,ttl,turtle2,xml,pretty-xml,json-ld,ntriples,nt,nt11,n3,trig,trix,nquads}]
                           [-l LANGUAGE] [-c] [-s] [-u BASE_URI] [-m] [-v]
                           json_file
 
-OntoUML JSON2Graph Decoder. Version: 2023.07.20
+OntoUML JSON2Graph Decoder. Version: 1.0.1
 
 positional arguments:
   json_file             The path of the JSON file to be encoded.
@@ -203,14 +232,24 @@ options:
 **: An OntoUML Metamodel’s serialization in JSON format. The JSON is a format better suited for manipulation within software code. It supports the exchange of models between modeling tools and the OntoUML server, providing model intelligent services.</p></li>
 </ul>
 </section>
+<section id="development-contribution">
+<h2>Development Contribution<a class="headerlink" href="#development-contribution" title="Permalink to this heading"></a></h2>
+<p>We encourage you to contribute with the development of this software.</p>
+<p>The dependencies to develop this software are not the same as the ones to execute it. Hence, it is necessary run the following command on the terminal inside the project’s folder to install all necessary dependencies:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pip install -r requirements.txt
+</pre></div>
+</div>
+<p>The software uses the metadata provided in its <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file to present information to users. If any change is made to that file, the <code class="docutils literal notranslate"><span class="pre">setup_metadata.py</span></code> file, located inside the project’s root folder must be executed to update the transformation’s data.</p>
+<p>The ontouml-json2graph package was developed using test-driven-based development. Multiple tests are available inside the following folder: ontouml-json2graph/json2graph/tests.</p>
+<p>Documentation regarding the text is also available.</p>
+</section>
 <section id="author">
 <h2>Author<a class="headerlink" href="#author" title="Permalink to this heading"></a></h2>
 <p>This project is maintained by the <a class="reference external" href="https://www.utwente.nl/en/eemcs/scs/">Semantics, Cybersecurity &amp; Services (SCS) Group</a> of the <a class="reference external" href="https://www.utwente.nl/">University of Twente</a>, The Netherlands. Its developer is:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://orcid.org/0000-0003-2736-7817">Pedro Paulo Favato Barcelos</a> [<a class="reference external" href="https://github.com/pedropaulofb">GitHub</a>] [<a class="reference external" href="https://www.linkedin.com/in/pedropaulofavatobarcelos/">LinkedIn</a>]</p></li>
 </ul>
-<p>Feel free to get in contact using the links provided. For questions, contributions, or to report any problem, you can *
-<em><a class="reference external" href="https://github.com/OntoUML/ontouml-json2graph/issues">open an issue</a></em>* at this repository.</p>
+<p>Feel free to get in contact using the links provided. For questions, contributions, or to report any problem, you can <strong><a class="reference external" href="https://github.com/OntoUML/ontouml-json2graph/issues">open an issue</a></strong> at this repository.</p>
 </section>
 </section>
 

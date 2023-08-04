@@ -143,7 +143,7 @@ The software uses the metadata provided in its `pyproject.toml` file to present 
 
 The ontouml-json2graph package was developed using test-driven-based development. Multiple tests are available inside the following folder: ontouml-json2graph/json2graph/tests.
 
-Documentation regarding the text is also available.
+Documentation regarding the text [is also available](https://dev.ontouml.org/ontouml-json2graph/autoapi/json2graph/tests/index.html).
 
 ## Author
 

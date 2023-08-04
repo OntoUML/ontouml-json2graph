@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>json2graph.modules.logger &mdash; ontouml-json2graph 2023.08.02 documentation</title>
+  <title>json2graph.tests.test_main &mdash; ontouml-json2graph 2023.08.02 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
@@ -21,8 +21,8 @@
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="json2graph.modules.messages" href="../messages/index.html" />
-    <link rel="prev" title="json2graph.modules.input_output" href="../input_output/index.html" /> 
+    <link rel="next" title="json2graph.decode" href="../../decode/index.html" />
+    <link rel="prev" title="json2graph.tests.test_aux" href="../test_aux/index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -51,9 +51,9 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph</span></code></a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="../../index.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.modules</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../modules/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.modules</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../resources/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.resources</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../tests/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.tests</span></code></a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.tests</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../index.html#submodules">Submodules</a></li>
@@ -79,10 +79,10 @@
       <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../../index.html">API Reference</a></li>
           <li class="breadcrumb-item"><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph</span></code></a></li>
-          <li class="breadcrumb-item"><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.modules</span></code></a></li>
-      <li class="breadcrumb-item active"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.modules.logger</span></code></li>
+          <li class="breadcrumb-item"><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.tests</span></code></a></li>
+      <li class="breadcrumb-item active"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.tests.test_main</span></code></li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../../../_sources/autoapi/json2graph/modules/logger/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../../_sources/autoapi/json2graph/tests/test_main/index.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -90,57 +90,56 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-json2graph.modules.logger">
-<span id="json2graph-modules-logger"></span><h1><a class="reference internal" href="../../../../json2graph.modules.html#module-json2graph.modules.logger" title="json2graph.modules.logger"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.modules.logger</span></code></a><a class="headerlink" href="#module-json2graph.modules.logger" title="Permalink to this heading"></a></h1>
-<p>Logging configurations.</p>
+  <section id="module-json2graph.tests.test_main">
+<span id="json2graph-tests-test-main"></span><h1><a class="reference internal" href="#module-json2graph.tests.test_main" title="json2graph.tests.test_main"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.tests.test_main</span></code></a><a class="headerlink" href="#module-json2graph.tests.test_main" title="Permalink to this heading"></a></h1>
+<p>OntoUML JSON2Graph Test Module.</p>
+<p>This module contains test functions to verify the correctness of the OntoUML JSON2Graph software.
+The tests are based on the comparison of the generated graph (from OntoUML JSON files provided in the test folder)
+with the expected resulting graph stored in Turtle (.ttl) files (also provided in the test folder).</p>
+<p>The module uses a list of test files (<cite>LIST_OF_TESTS</cite>) retrieved from the function <cite>get_test_list()</cite>.
+Each test file is a valid OntoUML JSON file representing a model.</p>
+<p>The comparison of graphs is done using the function <cite>compare_graphs</cite>, which should be defined and available
+for the tests to run successfully.</p>
+<p>The tests will ensure the correct functioning of the OntoUML JSON2Graph software and raise an assertion error
+if the generated graph does not match the expected graph.</p>
 <section id="module-contents">
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading"></a></h2>
 <section id="functions">
 <h3>Functions<a class="headerlink" href="#functions" title="Permalink to this heading"></a></h3>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="../../../../json2graph.modules.html#json2graph.modules.logger.logger_get_date_time" title="json2graph.modules.logger.logger_get_date_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">logger_get_date_time</span></code></a>()</p></td>
-<td><p>Return a string in a specified format with date and time. Format example: 2022.10.23-14.43</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../../../../json2graph.modules.html#json2graph.modules.logger.initialize_logger" title="json2graph.modules.logger.initialize_logger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initialize_logger</span></code></a>([execution_mode])</p></td>
-<td><p>Create and initialize logger. The created logger is called 'execution-logger'.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#json2graph.tests.test_main.test_ontouml_json2graph" title="json2graph.tests.test_main.test_ontouml_json2graph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_ontouml_json2graph</span></code></a>(input_file)</p></td>
+<td><p>Main test function the OntoUML JSON2Graph software.</p></td>
 </tr>
 </tbody>
 </table>
-<dl class="py function">
-<dt class="sig sig-object py" id="json2graph.modules.logger.logger_get_date_time">
-<span class="sig-prename descclassname"><span class="pre">json2graph.modules.logger.</span></span><span class="sig-name descname"><span class="pre">logger_get_date_time</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.modules.logger.logger_get_date_time" title="Permalink to this definition"></a></dt>
-<dd><p>Return a string in a specified format with date and time. Format example: 2022.10.23-14.43</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Formatted date and time.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
+</section>
+<section id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#json2graph.tests.test_main.LIST_OF_TESTS" title="json2graph.tests.test_main.LIST_OF_TESTS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LIST_OF_TESTS</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py data">
+<dt class="sig sig-object py" id="json2graph.tests.test_main.LIST_OF_TESTS">
+<span class="sig-prename descclassname"><span class="pre">json2graph.tests.test_main.</span></span><span class="sig-name descname"><span class="pre">LIST_OF_TESTS</span></span><a class="headerlink" href="#json2graph.tests.test_main.LIST_OF_TESTS" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="json2graph.modules.logger.initialize_logger">
-<span class="sig-prename descclassname"><span class="pre">json2graph.modules.logger.</span></span><span class="sig-name descname"><span class="pre">initialize_logger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">execution_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'production'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.modules.logger.initialize_logger" title="Permalink to this definition"></a></dt>
-<dd><p>Create and initialize logger. The created logger is called ‘execution-logger’.
-Different triggers are defined for each execution mode:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>production: INFO</p></li>
-<li><p>test: ERROR</p></li>
-</ul>
-</div></blockquote>
+<dt class="sig sig-object py" id="json2graph.tests.test_main.test_ontouml_json2graph">
+<span class="sig-prename descclassname"><span class="pre">json2graph.tests.test_main.</span></span><span class="sig-name descname"><span class="pre">test_ontouml_json2graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.tests.test_main.test_ontouml_json2graph" title="Permalink to this definition"></a></dt>
+<dd><p>Main test function the OntoUML JSON2Graph software.</p>
+<p>The test is based on the comparison of the generated graph (from a JSON file provided in the test folder)
+with an expected resulting graph (also provided in the test folder), always in ‘ttl’ format.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>execution_mode</strong> (<em>str</em>) – Information about execution mode. Valid values are ‘production’ and ‘test’.</p>
+<dd class="field-odd"><p><strong>input_file</strong> (<em>str</em>) – Path to the JSON file to be tested.</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Created logger called ‘execution-logger’.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>logging.Logger</p>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
 </dd>
 </dl>
 </dd></dl>
@@ -153,8 +152,8 @@ Different triggers are defined for each execution mode:</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../input_output/index.html" class="btn btn-neutral float-left" title="json2graph.modules.input_output" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../messages/index.html" class="btn btn-neutral float-right" title="json2graph.modules.messages" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../test_aux/index.html" class="btn btn-neutral float-left" title="json2graph.tests.test_aux" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../decode/index.html" class="btn btn-neutral float-right" title="json2graph.decode" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -52,6 +52,8 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph</span></code></a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="../../../index.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l4 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.modules</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../resources/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.resources</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tests/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.tests</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../index.html#submodules">Submodules</a></li>
@@ -90,7 +92,7 @@
            <div itemprop="articleBody">
              
   <section id="module-json2graph.modules.decoder.decode_obj_property">
-<span id="json2graph-modules-decoder-decode-obj-property"></span><h1><a class="reference internal" href="#module-json2graph.modules.decoder.decode_obj_property" title="json2graph.modules.decoder.decode_obj_property"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.modules.decoder.decode_obj_property</span></code></a><a class="headerlink" href="#module-json2graph.modules.decoder.decode_obj_property" title="Permalink to this heading"></a></h1>
+<span id="json2graph-modules-decoder-decode-obj-property"></span><h1><a class="reference internal" href="../../../../../json2graph.modules.decoder.html#module-json2graph.modules.decoder.decode_obj_property" title="json2graph.modules.decoder.decode_obj_property"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.modules.decoder.decode_obj_property</span></code></a><a class="headerlink" href="#module-json2graph.modules.decoder.decode_obj_property" title="Permalink to this heading"></a></h1>
 <p>Functions to decode specificities of the object Property.</p>
 <dl class="simple">
 <dt>Function’s nomenclatures:</dt><dd><ul class="simple">
@@ -108,22 +110,22 @@
 <h3>Functions<a class="headerlink" href="#functions" title="Permalink to this heading"></a></h3>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#json2graph.modules.decoder.decode_obj_property.validate_property_stereotype" title="json2graph.modules.decoder.decode_obj_property.validate_property_stereotype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_property_stereotype</span></code></a>(ontouml_graph)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../../../../json2graph.modules.decoder.html#json2graph.modules.decoder.decode_obj_property.validate_property_stereotype" title="json2graph.modules.decoder.decode_obj_property.validate_property_stereotype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_property_stereotype</span></code></a>(ontouml_graph)</p></td>
 <td><p>Performs syntactical and semantic validations on an ontouml:Property's stereotype.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#json2graph.modules.decoder.decode_obj_property.set_property_defaults" title="json2graph.modules.decoder.decode_obj_property.set_property_defaults"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_property_defaults</span></code></a>(property_dict, ontouml_graph)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../../../json2graph.modules.decoder.html#json2graph.modules.decoder.decode_obj_property.set_property_defaults" title="json2graph.modules.decoder.decode_obj_property.set_property_defaults"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_property_defaults</span></code></a>(property_dict, ontouml_graph)</p></td>
 <td><p>Sets default values for ontouml:Property elements that do not present them. The defaults are:</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#json2graph.modules.decoder.decode_obj_property.set_property_relations" title="json2graph.modules.decoder.decode_obj_property.set_property_relations"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_property_relations</span></code></a>(property_dict, ontouml_graph)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../../../../json2graph.modules.decoder.html#json2graph.modules.decoder.decode_obj_property.set_property_relations" title="json2graph.modules.decoder.decode_obj_property.set_property_relations"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_property_relations</span></code></a>(property_dict, ontouml_graph)</p></td>
 <td><p>Sets the ontouml:aggregationKind and ontouml:propertyType object properties between an ontouml:Property and</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#json2graph.modules.decoder.decode_obj_property.determine_cardinality_bounds" title="json2graph.modules.decoder.decode_obj_property.determine_cardinality_bounds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">determine_cardinality_bounds</span></code></a>(cardinalities, property_id)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../../../json2graph.modules.decoder.html#json2graph.modules.decoder.decode_obj_property.determine_cardinality_bounds" title="json2graph.modules.decoder.decode_obj_property.determine_cardinality_bounds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">determine_cardinality_bounds</span></code></a>(cardinalities, property_id)</p></td>
 <td><p>Receives a string with an ontouml:Cardinality's ontouml:cardinalityValue, fix its format and decouple it into</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#json2graph.modules.decoder.decode_obj_property.set_cardinality_relations" title="json2graph.modules.decoder.decode_obj_property.set_cardinality_relations"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_cardinality_relations</span></code></a>(property_dict, ontouml_graph)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../../../../json2graph.modules.decoder.html#json2graph.modules.decoder.decode_obj_property.set_cardinality_relations" title="json2graph.modules.decoder.decode_obj_property.set_cardinality_relations"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_cardinality_relations</span></code></a>(property_dict, ontouml_graph)</p></td>
 <td><p>Creates the ontouml:Cardinality instance and sets its properties.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#json2graph.modules.decoder.decode_obj_property.create_property_properties" title="json2graph.modules.decoder.decode_obj_property.create_property_properties"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_property_properties</span></code></a>(json_data, ontouml_graph)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../../../json2graph.modules.decoder.html#json2graph.modules.decoder.decode_obj_property.create_property_properties" title="json2graph.modules.decoder.decode_obj_property.create_property_properties"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_property_properties</span></code></a>(json_data, ontouml_graph)</p></td>
 <td><p>Main function for decoding an object of type Property.</p></td>
 </tr>
 </tbody>

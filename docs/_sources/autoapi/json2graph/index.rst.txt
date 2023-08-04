@@ -11,6 +11,8 @@ Subpackages
    :maxdepth: 3
 
    modules/index.rst
+   resources/index.rst
+   tests/index.rst
 
 
 Submodules
@@ -19,7 +21,6 @@ Submodules
    :titlesonly:
    :maxdepth: 1
 
-   lib_json2graph/index.rst
-   run_json2graph/index.rst
+   decode/index.rst
 
 

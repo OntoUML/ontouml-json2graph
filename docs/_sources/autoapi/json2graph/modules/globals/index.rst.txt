@@ -12,24 +12,15 @@
 Module Contents
 ---------------
 
-.. py:data:: pyproject_file
-   :value: 'pyproject.toml'
+.. py:data:: this_file_dir
 
    
 
-.. py:data:: pyproject_path_prod
+.. py:data:: metadata_file
 
    
 
-.. py:data:: pyproject_path_test
-
-   
-
-.. py:data:: pyproject_path
-
-   
-
-.. py:data:: metadata_project
+.. py:data:: metadata_dictionary
 
    
 

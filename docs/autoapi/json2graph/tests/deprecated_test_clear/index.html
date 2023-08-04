@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>json2graph.modules.sparql_queries &mdash; ontouml-json2graph 2023.08.02 documentation</title>
+  <title>json2graph.tests.deprecated_test_clear &mdash; ontouml-json2graph 2023.08.02 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
@@ -21,8 +21,8 @@
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="json2graph.modules.utils_general" href="../utils_general/index.html" />
-    <link rel="prev" title="json2graph.modules.messages" href="../messages/index.html" /> 
+    <link rel="next" title="json2graph.tests.test_aux" href="../test_aux/index.html" />
+    <link rel="prev" title="json2graph.tests" href="../index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -51,9 +51,9 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph</span></code></a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="../../index.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.modules</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../modules/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.modules</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../resources/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.resources</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../tests/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.tests</span></code></a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.tests</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../index.html#submodules">Submodules</a></li>
@@ -79,10 +79,10 @@
       <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../../index.html">API Reference</a></li>
           <li class="breadcrumb-item"><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph</span></code></a></li>
-          <li class="breadcrumb-item"><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.modules</span></code></a></li>
-      <li class="breadcrumb-item active"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.modules.sparql_queries</span></code></li>
+          <li class="breadcrumb-item"><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.tests</span></code></a></li>
+      <li class="breadcrumb-item active"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.tests.deprecated_test_clear</span></code></li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../../../_sources/autoapi/json2graph/modules/sparql_queries/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../../_sources/autoapi/json2graph/tests/deprecated_test_clear/index.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -90,47 +90,21 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-json2graph.modules.sparql_queries">
-<span id="json2graph-modules-sparql-queries"></span><h1><a class="reference internal" href="../../../../json2graph.modules.html#module-json2graph.modules.sparql_queries" title="json2graph.modules.sparql_queries"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.modules.sparql_queries</span></code></a><a class="headerlink" href="#module-json2graph.modules.sparql_queries" title="Permalink to this heading"></a></h1>
-<p>All SPARQL queries used for decoding the JSON.</p>
+  <section id="module-json2graph.tests.deprecated_test_clear">
+<span id="json2graph-tests-deprecated-test-clear"></span><h1><a class="reference internal" href="#module-json2graph.tests.deprecated_test_clear" title="json2graph.tests.deprecated_test_clear"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.tests.deprecated_test_clear</span></code></a><a class="headerlink" href="#module-json2graph.tests.deprecated_test_clear" title="Permalink to this heading"></a></h1>
+<p>This Python module provides a simple script to remove all files with the “.ttl” extension from the
+tests/results directory and then remove the directory itself.</p>
 <section id="module-contents">
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading"></a></h2>
 <dl class="py data">
-<dt class="sig sig-object py" id="json2graph.modules.sparql_queries.GET_ELEMENT_AND_TYPE">
-<span class="sig-prename descclassname"><span class="pre">json2graph.modules.sparql_queries.</span></span><span class="sig-name descname"><span class="pre">GET_ELEMENT_AND_TYPE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Multiline-String</span></em><a class="headerlink" href="#json2graph.modules.sparql_queries.GET_ELEMENT_AND_TYPE" title="Permalink to this definition"></a></dt>
-<dd><blockquote>
-<div><details><summary>Show Value</summary><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">PREFIX ontouml: &lt;https://w3id.org/ontouml#&gt;</span>
-<span class="sd">SELECT ?inst_type</span>
-<span class="sd">WHERE {</span>
-<span class="sd">    ?inst_type rdfs:subClassOf+ ontouml:OntoumlElement .</span>
-<span class="sd">    ?inst_id rdf:type ?inst_type .</span>
-<span class="sd">}&quot;&quot;&quot;</span>
-</pre></div>
-</div>
-</details></div></blockquote>
-</dd></dl>
+<dt class="sig sig-object py" id="json2graph.tests.deprecated_test_clear.dir_name">
+<span class="sig-prename descclassname"><span class="pre">json2graph.tests.deprecated_test_clear.</span></span><span class="sig-name descname"><span class="pre">dir_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'results'</span></em><a class="headerlink" href="#json2graph.tests.deprecated_test_clear.dir_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
 <dl class="py data">
-<dt class="sig sig-object py" id="json2graph.modules.sparql_queries.GET_CLASS_STEREOTYPE_ATTRIBUTE_STEREOTYPE">
-<span class="sig-prename descclassname"><span class="pre">json2graph.modules.sparql_queries.</span></span><span class="sig-name descname"><span class="pre">GET_CLASS_STEREOTYPE_ATTRIBUTE_STEREOTYPE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Multiline-String</span></em><a class="headerlink" href="#json2graph.modules.sparql_queries.GET_CLASS_STEREOTYPE_ATTRIBUTE_STEREOTYPE" title="Permalink to this definition"></a></dt>
-<dd><blockquote>
-<div><details><summary>Show Value</summary><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">PREFIX ontouml: &lt;https://w3id.org/ontouml#&gt;</span>
-<span class="sd">SELECT DISTINCT ?class_id ?class_stereotype ?class_name ?property_id ?property_stereotype</span>
-<span class="sd">WHERE {</span>
-<span class="sd">    ?class_id rdf:type ontouml:Class .</span>
-<span class="sd">    ?class_id ontouml:stereotype ?class_stereotype  .</span>
-<span class="sd">    ?class_id ontouml:name ?class_name  .</span>
-<span class="sd">    ?property_id rdf:type ontouml:Property .</span>
-<span class="sd">    ?property_id ontouml:stereotype ?property_stereotype .</span>
-<span class="sd">    ?property_id ontouml:propertyType ?class_id .</span>
-<span class="sd">    VALUES ?property_stereotype {ontouml:begin ontouml:end}</span>
-<span class="sd">}&quot;&quot;&quot;</span>
-</pre></div>
-</div>
-</details></div></blockquote>
-</dd></dl>
+<dt class="sig sig-object py" id="json2graph.tests.deprecated_test_clear.test">
+<span class="sig-prename descclassname"><span class="pre">json2graph.tests.deprecated_test_clear.</span></span><span class="sig-name descname"><span class="pre">test</span></span><a class="headerlink" href="#json2graph.tests.deprecated_test_clear.test" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
 </section>
 </section>
@@ -139,8 +113,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../messages/index.html" class="btn btn-neutral float-left" title="json2graph.modules.messages" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../utils_general/index.html" class="btn btn-neutral float-right" title="json2graph.modules.utils_general" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="json2graph.tests" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../test_aux/index.html" class="btn btn-neutral float-right" title="json2graph.tests.test_aux" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
