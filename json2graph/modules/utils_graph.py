@@ -1,4 +1,5 @@
 """ Util functions related to graphs. """
+import os
 
 from rdflib import Graph, URIRef, RDF
 
@@ -35,16 +36,19 @@ def load_ontouml_vocabulary() -> Graph:
 
     ontology_graph = Graph()
 
-    remote_option = "https://github.com/OntoUML/ontouml-vocabulary/releases/download/" + \
-                    METADATA['conformsToVersion'] + "/ontouml.ttl"
-    local_option = "resources/ontouml_v110.ttl"
+    remote_option = "https://w3id.org/ontouml/vocabulary/" + METADATA['conformsToVersion']
+
+    # Guarantees that the file will be found as it searches using this file as basis
+    package_dir = os.path.dirname(os.path.dirname(__file__))
+    file_location = "resources\\ontouml_" + METADATA['conformsToVersion'] + ".ttl"
+    file_path = os.path.join(package_dir, file_location)
 
     try:
         ontology_graph.parse(remote_option, encoding='utf-8', format="ttl")
         LOGGER.debug("OntoUML Vocabulary successfully loaded to working memory from remote option.")
     except:
         try:
-            ontology_graph.parse(local_option, encoding='utf-8', format="ttl")
+            ontology_graph.parse(file_path, encoding='utf-8', format="ttl")
             LOGGER.debug("OntoUML Vocabulary successfully loaded to working memory from local option.")
         except OSError as error:
             report_error_io_read("OntoUML Vocabulary", "from remote or local sources the", error)

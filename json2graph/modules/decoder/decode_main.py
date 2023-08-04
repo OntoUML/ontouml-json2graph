@@ -156,7 +156,7 @@ def decode_json_to_graph(json_data: dict, language: str, execution_mode: str) ->
     :type json_data: dict
     :param language: Language tag to be added to the ontology's concepts.
     :type language: str
-    :param execution_mode: Information about execution mode. Valid values are 'production' and 'test'.
+    :param execution_mode: Information about execution mode. Valid values are 'script', 'import', and 'test'.
     :type execution_mode: str
     :return: Knowledge graph that complies with the OntoUML Vocabulary
     :rtype: Graph
@@ -178,7 +178,7 @@ def decode_json_to_graph(json_data: dict, language: str, execution_mode: str) ->
     element_counting = count_elements_graph(ontouml_graph)
 
     # Adding metadata only if not test
-    if execution_mode == "production":
+    if execution_mode != "test":
         add_metadata(ontouml_graph)
 
     # SPECIFIC DECODING: create specific properties according to different object types

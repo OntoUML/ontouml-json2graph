@@ -9,8 +9,8 @@ from .errors import report_error_io_read
 global METADATA
 
 # Guarantees that the file will be found as it searches using this file as basis
-this_file_dir = os.path.dirname(os.path.dirname(__file__))
-metadata_file = os.path.join(this_file_dir, "resources\metadata.yaml")
+package_dir = os.path.dirname(os.path.dirname(__file__))
+metadata_file = os.path.join(package_dir, "resources\metadata.yaml")
 
 # Loads metadata_file into a dictionary
 try:
