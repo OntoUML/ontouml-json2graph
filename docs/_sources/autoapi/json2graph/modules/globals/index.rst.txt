@@ -12,7 +12,7 @@
 Module Contents
 ---------------
 
-.. py:data:: this_file_dir
+.. py:data:: package_dir
 
    
 

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The OntoUML JSON2Graph Transformation &mdash; ontouml-json2graph 2023.08.02 documentation</title>
+  <title>The OntoUML JSON2Graph Transformation &mdash; ontouml-json2graph 1.0.2 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
@@ -15,7 +15,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=6d688098"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=3cacef03"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="_static/js/theme.js"></script>
@@ -90,13 +90,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="the-ontouml-json2graph-transformation">
+  <p><img alt="PyPI" src="https://img.shields.io/pypi/v/ontouml-json2graph" /> <img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/ontouml-json2graph?label=pypi%20downloads" />
+<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/ontouml/ontouml-json2graph" />
+<img alt="GitHub Release Date - Published_At" src="https://img.shields.io/github/release-date/ontouml/ontouml-json2graph" /> <img alt="GitHub last commit (branch)" src="https://img.shields.io/github/last-commit/ontouml/ontouml-json2graph/main" />
+<img alt="CodeFactor Grade" src="https://img.shields.io/codefactor/grade/github/ontouml/ontouml-json2graph" /> <img alt="GitHub" src="https://img.shields.io/github/license/ontouml/ontouml-json2graph" /></p>
+<section id="the-ontouml-json2graph-transformation">
 <h1>The OntoUML JSON2Graph Transformation<a class="headerlink" href="#the-ontouml-json2graph-transformation" title="Permalink to this heading"></a></h1>
-<p align="center"><img src="https://raw.githubusercontent.com/OntoUML/ontouml-json2graph/main/json2graph/resources/logo-json2graph.png" width="512"></p>
-<p>The OntoUML JSON2Graph (ontouml-json2graph) decodes a JSON file that complies with the <a class="reference external" href="https://w3id.org/ontouml/schema">ontouml-schema</a> (e.g., the ones exported by the <a class="reference external" href="https://github.com/OntoUML/ontouml-vp-plugin">ontouml-vp-plugin</a>) to a graph file that complies with the <a class="reference external" href="https://github.com/OntoUML/ontouml-vocabulary">ontouml-vocabulary</a>. Optionally, the user can enable basic semantic and syntactical verifications to improve the transformation results.</p>
-<p>Being <a class="reference external" href="https://pypi.org/project/ontouml-json2graph/">released as a package</a>, the transformation can be used as an executable script or imported as a library into another Python project.</p>
+<p align="center"><img src="https://raw.githubusercontent.com/OntoUML/ontouml-json2graph/main/json2graph/resources/logo-json2graph.png" width="740"></p>
+<p>The OntoUML JSON2Graph (ontouml-json2graph) decodes a JSON file that complies with the <a class="reference external" href="https://w3id.org/ontouml/schema">ontouml-schema</a> (e.g., the ones exported by the <a class="reference external" href="https://github.com/OntoUML/ontouml-vp-plugin">ontouml-vp-plugin</a>) to a graph file that complies with the <a class="reference external" href="https://github.com/OntoUML/ontouml-vocabulary">ontouml-vocabulary</a>.</p>
+<p>When transforming a model, you can either represent only the model’s core concepts, or include all its information, including diagrammatical elements, as part of the knowledge graph. Additionally, users have the choice to enable basic semantic and syntactical verifications, ensuring enhanced and accurate transformation results.</p>
 <p>This application was constructed with <a class="reference external" href="https://rdflib.readthedocs.io/en/stable/">RDFLib</a> using Python 3.11.4. The generated graph file can be serialized in the diverse <a class="reference external" href="https://rdflib.readthedocs.io/en/stable/intro_to_parsing.html#saving-rdf">formats supported by the RDFLib</a>, which are Turtle, RDF/XML, JSON-LD, N-Triples, Notation-3, Trig, Trix, and N-Quads.</p>
-<p>This project <a class="reference external" href="https://w3id.org/ontouml/json2graph/docs">complete docstring-generated documentation</a> is available for inquiries.</p>
+<p><strong>📦 PyPI Package:</strong> The transformation is conveniently <a class="reference external" href="https://pypi.org/project/ontouml-json2graph/">available as a PyPI package</a>, allowing users to utilize it as an executable script or import it as a library into other Python projects.</p>
+<p><strong>📚 Documentation:</strong> For inquiries and more information, you can refer to the <a class="reference external" href="https://w3id.org/ontouml/json2graph/docs">complete docstring-generated documentation</a> available for this project.</p>
 <section id="contents">
 <h2>Contents<a class="headerlink" href="#contents" title="Permalink to this heading"></a></h2>
 <!-- TOC -->
@@ -134,6 +139,7 @@ To install the application you simply need to perform the following command:</p>
 <section id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this heading"></a></h2>
 <p>After being installed, the OntoUML JSON2Graph Decoder can be used as an <strong>executable script</strong> or <strong>imported as a library</strong> into another Python project.</p>
+<p>The output of the transformation, i.e., the graph file, will be saved into a directory named <code class="docutils literal notranslate"><span class="pre">results</span></code> in the same path in which the software was executed.</p>
 <section id="executing-as-a-script">
 <h3>Executing as a Script<a class="headerlink" href="#executing-as-a-script" title="Permalink to this heading"></a></h3>
 <p>For executing the software, run the following command on the terminal inside the project’s folder:</p>
@@ -241,7 +247,7 @@ options:
 </div>
 <p>The software uses the metadata provided in its <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file to present information to users. If any change is made to that file, the <code class="docutils literal notranslate"><span class="pre">setup_metadata.py</span></code> file, located inside the project’s root folder must be executed to update the transformation’s data.</p>
 <p>The ontouml-json2graph package was developed using test-driven-based development. Multiple tests are available inside the following folder: ontouml-json2graph/json2graph/tests.</p>
-<p>Documentation regarding the text is also available.</p>
+<p>Documentation regarding the text <a class="reference external" href="https://dev.ontouml.org/ontouml-json2graph/autoapi/json2graph/tests/index.html">is also available</a>.</p>
 </section>
 <section id="author">
 <h2>Author<a class="headerlink" href="#author" title="Permalink to this heading"></a></h2>

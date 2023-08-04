@@ -75,7 +75,7 @@ Attributes
    :type json_data: dict
    :param language: Language tag to be added to the ontology's concepts.
    :type language: str
-   :param execution_mode: Information about execution mode. Valid values are 'production' and 'test'.
+   :param execution_mode: Information about execution mode. Valid values are 'script', 'import', and 'test'.
    :type execution_mode: str
    :return: Knowledge graph that complies with the OntoUML Vocabulary
    :rtype: Graph
