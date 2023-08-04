@@ -50,7 +50,8 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 cover/
-tests/results
+**/results
+**/logs
 
 # Translations
 *.mo
@@ -167,7 +168,6 @@ cython_debug/
 /.idea/inspectionProfiles/profiles_settings.xml
 /.idea/inspectionProfiles/Project_Default.xml
 /.idea/vcs.xml
-/logs/
 /results/
 /.idea/workspace.xml
 /.idea/sonarlint/*

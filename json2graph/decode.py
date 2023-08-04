@@ -1,5 +1,20 @@
 """ It provides a convenient interface for converting OntoUML JSON files into knowledge graphs,
 with the flexibility to customize the output and control the execution mode for different use cases.
+
+Usage:
+1. Standalone Execution:
+    When this module is executed as a standalone script:
+    - The user can provide arguments via the command line to control the conversion process.
+    - The `ontouml_json2graph` function is called with the provided arguments for the transformation.
+
+2. Library Usage:
+    This module can be used as a library by importing and calling the `ontouml_json2graph` function directly
+    with appropriate parameters.
+
+Note:
+- Ensure that the required OntoUML JSON file is available before executing the transformation.
+
+
 """
 
 import time
@@ -30,15 +45,29 @@ def ontouml_json2graph(json_path: str,
                        silent: bool = True,
                        correct: bool = False,
                        execution_mode: str = "import") -> str:
-    """ Main function for ontouml-json2graph.
+    """ Main function for converting OntoUML JSON data to a Knowledge Graph.
+
+    This function takes the path to a JSON file representing OntoUML model data provided by the user
+    and converts it into a knowledge graph following the specified options.
 
     :param json_path: Path to the JSON file to be decoded provided by the user.
     :type json_path: str
-    :param graph_format: Format for saving the resulting knowledge graph. Default value is 'ttl' (Turtle syntax).
+    :param base_uri: Base URI to be used for generating URIs for ontology concepts.
+    Default is "https://example.org#". (Optional)
+    :type base_uri: str
+    :param graph_format: Format for saving the resulting knowledge graph.
+    Default value is 'ttl' (Turtle syntax). (Optional)
     :type graph_format: str
-    :param language: Language tag to be added to the ontology's concepts.
+    :param language: Language tag to be added to the ontology's concepts. (Optional)
     :type language: str
-    :param execution_mode: Information about execution mode. Valid values are 'script' (default) and 'test'.
+    :param model_only: If True, only the OntoUML model will be extracted without diagrammatic information. (Optional)
+    :type model_only: bool
+    :param silent: If True, suppresses intermediate communications and log messages during execution. (Optional)
+    :type silent: bool
+    :param correct: If True, attempts to correct potential errors during the conversion process. (Optional)
+    :type correct: bool
+    :param execution_mode: Information about the execution mode.
+    Valid values are 'import' (default), 'script', and 'test'. (Optional)
     :type execution_mode: str
     :return: Saved output file path. Used for testing.
     :rtype: str
@@ -102,12 +131,14 @@ def ontouml_json2graph(json_path: str,
 
 
 if __name__ == '__main__':
+    """Execute OntoUML JSON to Graph Transformation.
+
+    This block of code is executed when the script is run as a standalone application. 
+    It processes user-provided arguments and executes the OntoUML JSON to Graph transformation.
+    """
+
     # Treat and publish user's arguments
     args.initialize_arguments(execution_mode="script")
 
-    json_path = args.ARGUMENTS["json_path"]
-    graph_format = args.ARGUMENTS["format"]
-    language = args.ARGUMENTS["language"]
-
     # Execute the transformation
-    ontouml_json2graph(json_path, graph_format, language, "script")
+    ontouml_json2graph(json_path=args.ARGUMENTS["json_path"], execution_mode="script")

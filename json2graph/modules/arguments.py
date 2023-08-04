@@ -1,8 +1,15 @@
-""" Argument Treatments """
+""" Argument Treatments Module.
+
+This module provides functions for parsing and validating user-provided arguments when starting the software execution
+as a script.
+
+It also makes the ARGUMENTS variable globally accessible with the user's arguments (when executed as a script) or with
+default values (when executed as test or as a library).
+"""
 
 import argparse
 
-import validators as validators
+import validators
 
 from .errors import report_error_requirement_not_met
 from .globals import METADATA
@@ -14,7 +21,7 @@ LOGGER = initialize_logger()
 
 
 def treat_user_arguments() -> dict:
-    """ Treat arguments provided by the user when starting software execution.
+    """ This function parses the command-line arguments provided by the user and performs necessary validations.
 
     :return: Dictionary with json path (key 'json_path') and final file format (key 'format').
     :rtype: dict
@@ -37,7 +44,7 @@ def treat_user_arguments() -> dict:
     args_parser.version = about_message
 
     # POSITIONAL ARGUMENT
-    args_parser.add_argument("json_file", type=str, action="store",
+    args_parser.add_argument("json_path", type=str, action="store",
                              help="The path of the JSON file to be encoded.")
 
     # OPTIONAL ARGUMENT
@@ -65,15 +72,15 @@ def treat_user_arguments() -> dict:
                             "language": arguments.language,
                             "correct": arguments.correct,
                             "silent": arguments.silent,
-                            "json_path": arguments.json_file,
+                            "json_path": arguments.json_path,
                             "base_uri": arguments.base_uri,
                             "model_only": arguments.model_only}
 
     # Checking if provided input file type is valid
-    if ".json" not in arguments.json_file:
-        raise ValueError("Provided input file must be of JSON type. Execution finished.")
+    if ".json" not in arguments.json_path:
+        report_error_requirement_not_met("Provided input file must be of JSON type. Execution finished.")
 
-    # Checking if provided URI is valid and if it has '/' or '#' at the end
+    # Checking if provided URI is valid. I.e., if it has '/' or '#' at the end. If it does not, add a '#'
     if not validators.url(arguments.base_uri):
         report_error_requirement_not_met("Provided base URI is invalid. Execution finished.")
     elif (arguments.base_uri[-1] != '#') and (arguments.base_uri[-1] != '/'):
@@ -84,7 +91,7 @@ def treat_user_arguments() -> dict:
     return arguments_dictionary
 
 
-def initialize_arguments(json_path: str,
+def initialize_arguments(json_path: str="not_initialized",
                          base_uri: str = "https://example.org#",
                          graph_format: str = "ttl",
                          language: str = "",
@@ -92,13 +99,34 @@ def initialize_arguments(json_path: str,
                          silent: bool = True,
                          correct: bool = False,
                          execution_mode: str = "import"):
-    """ Initializes the global variable ARGUMENTS, of type dictionary. It must be initialized in every possible
-    execution mode.
+    """ This function initializes the global variable ARGUMENTS of type dictionary, which contains user-provided
+    (when executed in script mode) or default arguments (when executed as a library or for testing).
+    The ARGUMENTS variable must be initialized in every possible execution mode.
 
     The valid execution modes are:
-        - 'script': If used as a script, use user's arguments.
+    - 'script': If used as a script, use user's arguments parsed from the command line.
+    - 'package': When imported into external code, working as a library package.
+    - 'test': Used for testing.
 
-    :param execution_mode: Information about execution mode. Valid values are 'script' (default), 'package' and 'test'.
+
+    :param json_path: Path to the JSON file to be decoded provided by the user. (Optional)
+    :type json_path: str
+    :param base_uri: Base URI to be used for generating URIs for ontology concepts.
+    Default is "https://example.org#". (Optional)
+    :type base_uri: str
+    :param graph_format: Format for saving the resulting knowledge graph.
+    Default value is 'ttl' (Turtle syntax). (Optional)
+    :type graph_format: str
+    :param language: Language tag to be added to the ontology's concepts. (Optional)
+    :type language: str
+    :param model_only: If True, only the OntoUML model will be extracted without diagrammatic information. (Optional)
+    :type model_only: bool
+    :param silent: If True, suppresses intermediate communications and log messages during execution. (Optional)
+    :type silent: bool
+    :param correct: If True, attempts to correct potential errors during the conversion process. (Optional)
+    :type correct: bool
+    :param execution_mode: Information about the execution mode.
+    Valid values are 'import' (default), 'script', and 'test'. (Optional)
     :type execution_mode: str
     """
 
@@ -110,7 +138,7 @@ def initialize_arguments(json_path: str,
         ARGUMENTS["base_uri"] = base_uri
         ARGUMENTS["correct"] = correct
         ARGUMENTS["format"] = graph_format
-        ARGUMENTS["json_file"] = json_path
+        ARGUMENTS["json_path"] = json_path
         ARGUMENTS["language"] = language
         ARGUMENTS["model_only"] = model_only
         ARGUMENTS["silent"] = silent

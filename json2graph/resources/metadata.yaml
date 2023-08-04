@@ -12,10 +12,13 @@ tool:
     - Pedro Paulo F. Barcelos <p.p.favatobarcelos@utwente.nl>
     dependencies:
       python: ^3.11
+      pyyaml: ^6.0.1
       rdflib: ^7.0.0
       validators: ^0.20.0
     description: OntoUML JSON2Graph Decoder
     documentation: https://w3id.org/ontouml/json2graph/docs
+    exclude:
+    - json2graph/tests
     homepage: https://w3id.org/ontouml/json2graph
     keywords:
     - semantic-web
@@ -29,4 +32,6 @@ tool:
     name: ontouml-json2graph
     readme: README.md
     repository: https://w3id.org/ontouml/json2graph
-    version: 1.0.0b13
+    urls:
+      PyPi Project: https://pypi.org/project/ontouml-json2graph/
+    version: 1.0.0b15

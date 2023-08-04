@@ -12,6 +12,8 @@ keywords = ["semantic-web", "knowledge-graph", "ontouml", "ontology-driven-devel
 packages = [{ include = "json2graph" }]
 exclude = ["json2graph/tests"]
 
+[tool.poetry.urls]
+"PyPi Project" = "https://pypi.org/project/ontouml-json2graph/"
 
 [extras]
 conformsTo = "https://w3id.org/ontouml"
