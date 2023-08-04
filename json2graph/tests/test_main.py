@@ -1,37 +1,45 @@
-""" Main test function. """
-import os
-import sys
+""" OntoUML JSON2Graph Test Module.
+
+This module contains test functions to verify the correctness of the OntoUML JSON2Graph software.
+The tests are based on the comparison of the generated graph (from OntoUML JSON files provided in the test folder)
+with the expected resulting graph stored in Turtle (.ttl) files (also provided in the test folder).
+
+The module uses a list of test files (`LIST_OF_TESTS`) retrieved from the function `get_test_list()`.
+Each test file is a valid OntoUML JSON file representing a model.
+
+The comparison of graphs is done using the function `compare_graphs`, which should be defined and available
+for the tests to run successfully.
+
+The tests will ensure the correct functioning of the OntoUML JSON2Graph software and raise an assertion error
+if the generated graph does not match the expected graph.
+"""
+
 from pathlib import Path
 
 import pytest
 
-project_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-module_path = os.path.join(project_path, 'json2graph')
-sys.path.append(module_path)
-
-from json2graph.lib_json2graph import decode_ontouml_json2graph
-from test_aux import get_test_list, compare_graphs
+from json2graph.decode import ontouml_json2graph
+from json2graph.tests.test_aux import compare_graphs, get_test_list
 
 LIST_OF_TESTS = get_test_list()
 
 
 @pytest.mark.parametrize("input_file", LIST_OF_TESTS)
 def test_ontouml_json2graph(input_file: str) -> None:
-    """ Main function for testing the OntoUML JSON2Graph software.
+    """ Main test function the OntoUML JSON2Graph software.
 
     The test is based on the comparison of the generated graph (from a JSON file provided in the test folder)
-    with an expected resulting graph (also provided in the test folder).
+    with an expected resulting graph (also provided in the test folder), always in 'ttl' format.
 
     :param input_file: Path to the JSON file to be tested.
     :type input_file: str
     """
 
     test_name = Path(input_file).stem
-
     language = "en" if (int(test_name[-2:]) > 41) else ""
 
     # Create resulting Graph in ttl syntax
-    resulting_graph_file = decode_ontouml_json2graph(input_file, "ttl", language, "test")
+    resulting_graph_file = ontouml_json2graph(json_path=input_file, language=language, execution_mode="test")
 
     # Getting expected result
     expected_graph_file = input_file.replace(".json", ".ttl")

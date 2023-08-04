@@ -34,4 +34,4 @@ tool:
     repository: https://w3id.org/ontouml/json2graph
     urls:
       PyPi Project: https://pypi.org/project/ontouml-json2graph/
-    version: 1.0.0b15
+    version: 1.0.1

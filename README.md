@@ -1,48 +1,68 @@
 # The OntoUML JSON2Graph Transformation
 
-<p align="center"><img src="json2graph/resources/logo-json2graph.png" width="512"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/OntoUML/ontouml-json2graph/main/json2graph/resources/logo-json2graph.png" width="512"></p>
 
 The OntoUML JSON2Graph (ontouml-json2graph) decodes a JSON file that complies with the [ontouml-schema](https://w3id.org/ontouml/schema) (e.g., the ones exported by the [ontouml-vp-plugin](https://github.com/OntoUML/ontouml-vp-plugin)) to a graph file that complies with the [ontouml-vocabulary](https://github.com/OntoUML/ontouml-vocabulary). Optionally, the user can enable basic semantic and syntactical verifications to improve the transformation results.
 
-This application was constructed with [RDFLib](https://rdflib.readthedocs.io/en/stable/) using Python 3.11.4. The generated graph file can be serialized in the diverse formats supported by the RDFLib, which are Turtle, RDF/XML, JSON-LD, N-Triples, Notation-3, Trig, Trix, and N-Quads.
+Being [released as a package](https://pypi.org/project/ontouml-json2graph/), the transformation can be used as an executable script or imported as a library into another Python project.
+
+This application was constructed with [RDFLib](https://rdflib.readthedocs.io/en/stable/) using Python 3.11.4. The generated graph file can be serialized in the diverse [formats supported by the RDFLib](https://rdflib.readthedocs.io/en/stable/intro_to_parsing.html#saving-rdf), which are Turtle, RDF/XML, JSON-LD, N-Triples, Notation-3, Trig, Trix, and N-Quads.
 
 This project [complete docstring-generated documentation](https://w3id.org/ontouml/json2graph/docs) is available for inquiries.
 
 ## Contents
 
 <!-- TOC -->
-
 * [The OntoUML JSON2Graph Transformation](#the-ontouml-json2graph-transformation)
-    * [Contents](#contents)
-    * [Installing and Executing](#installing-and-executing)
-    * [Arguments](#arguments)
-    * [Basic Syntactical and Sematic Validation](#basic-syntactical-and-sematic-validation)
-    * [Permanent URLs and Identifiers](#permanent-urls-and-identifiers)
-    * [Related Projects](#related-projects)
-    * [Author](#author)
-
+  * [Contents](#contents)
+  * [Installation](#installation)
+  * [Usage](#usage)
+    * [Executing as a Script](#executing-as-a-script)
+    * [Importing as a Library](#importing-as-a-library)
+  * [Arguments](#arguments)
+  * [Basic Syntactical and Sematic Validation](#basic-syntactical-and-sematic-validation)
+  * [Permanent URLs and Identifiers](#permanent-urls-and-identifiers)
+  * [Related Projects](#related-projects)
+  * [Development Contribution](#development-contribution)
+  * [Author](#author)
 <!-- TOC -->
 
-## Installing and Executing
+## Installation
 
-You need to [download and install Python](https://www.python.org/downloads/) to execute the ontouml-json2graph transformation tool. To install all necessary dependencies, run the following command on the terminal inside the project's folder:
+You need to [download and install Python](https://www.python.org/downloads/) to use the OntoUML JSON2Graph Decoder.
+To install the application you simply need to perform the following command:
 
 ```text
-pip install -r requirements.txt
+pip install ontouml-json2graph
 ```
+
+All dependencies will be automatically installed, and you are ready to use the ontouml-json2graph package.
+
+## Usage
+
+After being installed, the OntoUML JSON2Graph Decoder can be used as an **executable script** or **imported as a library** into another Python project.
+
+### Executing as a Script
 
 For executing the software, run the following command on the terminal inside the project's folder:
 
-```text
-python json2graph [path_to_json] [OTHER ARGUMENTS]
+```txt
+python -m json2graph.decode [path_to_json] [OPTIONAL ARGUMENTS]
 ```
 
-The only mandatory argument is `path_to_json`, which must be substituted for the input file's location on your computer.
-Other arguments provide additional features and are presented in the next section.
+### Importing as a Library
+
+In its current version, a single class is available to users: **ontouml_json2graph**. To use it, include the following line in your python module: 
+
+```python
+from json2graph.decode import ontouml_json2graph
+```
+
+More information about how to use the decode function [can be accessed in its documentation](https://dev.ontouml.org/ontouml-json2graph/autoapi/json2graph/index.html#submodules).
 
 ## Arguments
 
-All available ontouml-json2graph arguments can be observed below.
+The only mandatory argument is `path_to_json`, which must be substituted for the input file's location on your computer. Optional arguments provide additional features. All available ontouml-json2graph arguments can be observed below.
 
 ```text
 usage: ontouml-json2graph [-h]
@@ -50,7 +70,7 @@ usage: ontouml-json2graph [-h]
                           [-l LANGUAGE] [-c] [-s] [-u BASE_URI] [-m] [-v]
                           json_file
 
-OntoUML JSON2Graph Decoder. Version: 2023.07.20
+OntoUML JSON2Graph Decoder. Version: 1.0.1
 
 positional arguments:
   json_file             The path of the JSON file to be encoded.
@@ -109,11 +129,26 @@ options:
 - **[OntoUML Schema](https://w3id.org/ontouml/schema)
   **: An OntoUML Metamodel's serialization in JSON format. The JSON is a format better suited for manipulation within software code. It supports the exchange of models between modeling tools and the OntoUML server, providing model intelligent services.
 
+## Development Contribution
+
+We encourage you to contribute with the development of this software.  
+
+The dependencies to develop this software are not the same as the ones to execute it. Hence, it is necessary run the following command on the terminal inside the project's folder to install all necessary dependencies:
+
+```text
+pip install -r requirements.txt
+```
+
+The software uses the metadata provided in its `pyproject.toml` file to present information to users. If any change is made to that file, the `setup_metadata.py` file, located inside the project's root folder must be executed to update the transformation's data. 
+
+The ontouml-json2graph package was developed using test-driven-based development. Multiple tests are available inside the following folder: ontouml-json2graph/json2graph/tests.
+
+Documentation regarding the text is also available.
+
 ## Author
 
 This project is maintained by the [Semantics, Cybersecurity & Services (SCS) Group](https://www.utwente.nl/en/eemcs/scs/) of the [University of Twente](https://www.utwente.nl/), The Netherlands. Its developer is:
 
 - [Pedro Paulo Favato Barcelos](https://orcid.org/0000-0003-2736-7817) [[GitHub](https://github.com/pedropaulofb)] [[LinkedIn](https://www.linkedin.com/in/pedropaulofavatobarcelos/)]
 
-Feel free to get in contact using the links provided. For questions, contributions, or to report any problem, you can *
-*[open an issue](https://github.com/OntoUML/ontouml-json2graph/issues)** at this repository.
+Feel free to get in contact using the links provided. For questions, contributions, or to report any problem, you can **[open an issue](https://github.com/OntoUML/ontouml-json2graph/issues)** at this repository.

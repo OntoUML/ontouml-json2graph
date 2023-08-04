@@ -1,13 +1,14 @@
 """ Auxiliary test functions. """
 import glob
-import sys
+import os
 
-import modules.arguments as args
-from modules.globals import METADATA
-from modules.input_output import safe_write_graph_file
-from modules.utils_graph import load_graph_safely
 from rdflib import Graph
 from rdflib.compare import graph_diff, to_isomorphic
+
+from json2graph.modules import arguments as args
+from json2graph.modules.globals import METADATA
+from json2graph.modules.input_output import safe_write_graph_file
+from json2graph.modules.utils_graph import load_graph_safely
 
 
 def get_test_list() -> list[str]:
@@ -17,8 +18,13 @@ def get_test_list() -> list[str]:
     :rtype: list[str]
     """
 
-    test_files_folder = "test_files/"
-    list_test_files = glob.glob(test_files_folder + '*.json')
+    # Gets test files' directory
+    this_file_dir = os.path.abspath(__file__)
+    tests_dir = os.path.dirname(this_file_dir)
+    test_files_dir = os.path.join(tests_dir, "test_files/")
+
+    # Gets test files from directory
+    list_test_files = glob.glob(test_files_dir + '*.json')
     list_test_files.sort()
 
     return list_test_files
