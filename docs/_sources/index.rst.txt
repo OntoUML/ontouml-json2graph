@@ -14,13 +14,12 @@ Welcome to ontouml-json2graph's documentation!
 
    README
 
-
 .. start shields
 
 .. list-table::
 
     * - Badges
-      - |maintained| |commits-latest| |codefactor| |license|
+      - |maintained| |commits-latest| |published-at| |pypi-project| |pypi-downloads| |language-top| |language-version| |codefactor| |ossf-scorecard| |license|
 
 .. |maintained| image:: https://img.shields.io/maintenance/yes/2023
 	:alt: Maintenance
@@ -29,9 +28,31 @@ Welcome to ontouml-json2graph's documentation!
 	:target: https://github.com/OntoUML/ontouml-json2graph/commit/main
 	:alt: GitHub last commit
 
+.. |published-at| image:: https://img.shields.io/github/release-date/OntoUML/ontouml-json2graph
+	:target: https://github.com/OntoUML/ontouml-json2graph/releases
+	:alt: GitHub release date
+
+.. |pypi-project| image:: https://img.shields.io/pypi/v/ontouml-json2graph
+    :target: https://pypi.org/project/ontouml-json2graph/
+	:alt: PyPI Project
+
+.. |pypi-downloads| image:: https://img.shields.io/pypi/dm/ontouml-json2graph
+    :target: https://pypi.org/project/ontouml-json2graph/
+	:alt: PyPI Downloads
+
+.. |language-top| image:: https://img.shields.io/github/languages/top/ontouml/ontouml-json2graph
+	:alt: Language - Top
+
+.. |language-version| image:: https://img.shields.io/pypi/pyversions/ontouml-json2graph
+	:alt: Language - Version
+
 .. |codefactor| image:: https://img.shields.io/codefactor/grade/github/ontouml/ontouml-json2graph?logo=codefactor
 	:target: https://www.codefactor.io/repository/github/ontouml/ontouml-json2graph
 	:alt: CodeFactor Grade
+
+.. |ossf-scorecard| image:: https://img.shields.io/ossf-scorecard/github.com/OntoUML/ontouml-json2graph
+	:target: https://securityscorecards.dev/viewer/?uri=github.com/OntoUML/ontouml-json2graph
+	:alt: OSSF-Scorecard
 
 .. |license| image:: https://img.shields.io/github/license/OntoUML/ontouml-json2graph
 	:target: https://img.shields.io/github/license/OntoUML/ontouml-json2graph
