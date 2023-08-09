@@ -19,10 +19,15 @@ Welcome to ontouml-json2graph's documentation!
 .. list-table::
 
     * - Badges
-      - |maintained| |commits-latest| |published-at| |pypi-project| |pypi-downloads| |language-top| |language-version| |codefactor| |ossf-scorecard| |license|
+      - |DOI| |repo-status| |commits-latest| |published-at| |pypi-project| |pypi-downloads| |language-top| |language-version| |codefactor| |ossf-scorecard| |license|
 
-.. |maintained| image:: https://img.shields.io/maintenance/yes/2023
-	:alt: Maintenance
+.. |DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.8215446.svg
+   :target: https://doi.org/10.5281/zenodo.8215446
+   :alt: DOI
+
+.. |repo-status| image:: https://www.repostatus.org/badges/latest/active.svg
+	:target: https://www.repostatus.org/#active
+	:alt: Project Status: Active
 
 .. |commits-latest| image:: https://img.shields.io/github/last-commit/ontouml/ontouml-json2graph
 	:target: https://github.com/OntoUML/ontouml-json2graph/commit/main
