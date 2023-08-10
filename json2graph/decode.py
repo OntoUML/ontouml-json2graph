@@ -37,14 +37,14 @@ except ImportError:
     from modules.utils_general import get_date_time
 
 
-def ontouml_json2graph(json_path: str,
-                       base_uri: str = "https://example.org#",
-                       graph_format: str = "ttl",
-                       language: str = "",
-                       model_only: bool = False,
-                       silent: bool = True,
-                       correct: bool = False,
-                       execution_mode: str = "import") -> str:
+def decode_ontouml_json2graph(json_path: str,
+                              base_uri: str = "https://example.org#",
+                              graph_format: str = "ttl",
+                              language: str = "",
+                              model_only: bool = False,
+                              silent: bool = True,
+                              correct: bool = False,
+                              execution_mode: str = "import") -> str:
     """ Main function for converting OntoUML JSON data to a Knowledge Graph.
 
     This function takes the path to a JSON file representing OntoUML model data provided by the user
@@ -141,4 +141,4 @@ if __name__ == '__main__':
     args.initialize_arguments(execution_mode="script")
 
     # Execute the transformation
-    ontouml_json2graph(json_path=args.ARGUMENTS["json_path"], execution_mode="script")
+    decode_ontouml_json2graph(json_path=args.ARGUMENTS["json_path"], execution_mode="script")

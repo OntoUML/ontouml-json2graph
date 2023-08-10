@@ -77,7 +77,7 @@ python -m json2graph.decode [path_to_json] [OPTIONAL ARGUMENTS]
 In the current version, users have access to a single class: **ontouml_json2graph**. To use it, include the following line in your python module:
 
 ```python
-from json2graph.decode import ontouml_json2graph
+from json2graph.decode import decode_ontouml_json2graph
 ```
 
 More information about how to use the decode function [can be accessed in its documentation](https://dev.ontouml.org/ontouml-json2graph/autoapi/json2graph/index.html#submodules).
