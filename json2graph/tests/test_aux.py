@@ -55,11 +55,12 @@ def print_graphs_differences(iso_result_graph: Graph, iso_expected_graph: Graph,
     in_expected.bind("ontouml", METADATA["conformsToBase"])
     in_expected.bind("", args.ARGUMENTS["base_uri"])
 
-    base_path = "results/"
+    base_path = "results"
+    base_test = base_path + os.path.sep + test_name
 
-    safe_write_graph_file(in_both, base_path + test_name + "_both.ttl", "ttl")
-    safe_write_graph_file(in_resulting, base_path + test_name + "_only_result.ttl", "ttl")
-    safe_write_graph_file(in_expected, base_path + test_name + "_only_expect.ttl", "ttl")
+    safe_write_graph_file(in_both, base_test + "_both.ttl", "ttl")
+    safe_write_graph_file(in_resulting, base_test + "_only_result.ttl", "ttl")
+    safe_write_graph_file(in_expected, base_test + "_only_expect.ttl", "ttl")
 
 
 def compare_graphs(resulting_graph_path: str, expected_graph_path: str, test_name: str) -> bool:

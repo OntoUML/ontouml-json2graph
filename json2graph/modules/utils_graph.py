@@ -40,7 +40,7 @@ def load_ontouml_vocabulary() -> Graph:
 
     # Guarantees that the file will be found as it searches using this file as basis
     package_dir = os.path.dirname(os.path.dirname(__file__))
-    file_location = "resources\\ontouml_" + METADATA['conformsToVersion'] + ".ttl"
+    file_location = "resources" + os.path.sep + "ontouml_" + METADATA['conformsToVersion'] + ".ttl"
     file_path = os.path.join(package_dir, file_location)
 
     try:

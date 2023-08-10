@@ -18,13 +18,14 @@ def logger_get_date_time() -> str:
     return date_time
 
 
-def initialize_logger(execution_mode: str = "production") -> logging.Logger:
+def initialize_logger(execution_mode: str = "script") -> logging.Logger:
     """ Create and initialize logger. The created logger is called 'execution-logger'.
     Different triggers are defined for each execution mode:
-        - production: INFO
+        - script: INFO
+        - import: ERROR
         - test: ERROR
 
-    :param execution_mode: Information about execution mode. Valid values are 'production' and 'test'.
+    :param execution_mode: Information about execution mode. Valid values are 'script', 'import' and 'test'.
     :type execution_mode: str
     :return: Created logger called 'execution-logger'.
     :rtype: logging.Logger
@@ -42,14 +43,17 @@ def initialize_logger(execution_mode: str = "production") -> logging.Logger:
         # Creating CONSOLE handlers
         console_handler = logging.StreamHandler()
 
-        if execution_mode == "production":
+        if execution_mode == "script":
             console_handler.setLevel(logging.INFO)
         else:
             console_handler.setLevel(logging.ERROR)
 
         # If directory "/log" does not exist, create it
         # IMPORTANT: do not substitute for own error function because of circular dependency.
-        log_directory = "logs/"
+        base_path = os.getcwd()
+        base_folder = "logs"
+        log_directory = os.path.join(base_path,base_folder)
+
         try:
             if not os.path.exists(log_directory):
                 os.makedirs(log_directory)
@@ -58,7 +62,7 @@ def initialize_logger(execution_mode: str = "production") -> logging.Logger:
             raise OSError(error)
 
         # Creating FILE handler
-        file_handler = logging.FileHandler(f"{log_directory}{logger_get_date_time()}.log")
+        file_handler = logging.FileHandler(f"{log_directory}"+os.path.sep+f"{logger_get_date_time()}.log")
         file_handler.setLevel(logging.DEBUG)
 
         # Create formatters and add it to handlers
