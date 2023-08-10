@@ -1,182 +1,262 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta charset="utf-8"/>
+    <meta content="Docutils 0.18.1: http://docutils.sourceforge.net/" name="generator"/>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>json2graph.tests.test_main &mdash; ontouml-json2graph 1.0.2 documentation</title>
-      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
-      <link rel="stylesheet" href="../../../../_static/css/sphinx-toolbox.css" type="text/css" />
-  <!--[if lt IE 9]>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>json2graph.tests.test_main &mdash; ontouml-json2graph 1.0.2 documentation</title>
+    <link href="../../../../_static/pygments.css" rel="stylesheet" type="text/css"/>
+    <link href="../../../../_static/css/theme.css" rel="stylesheet" type="text/css"/>
+    <link href="../../../../_static/graphviz.css" rel="stylesheet" type="text/css"/>
+    <link href="../../../../_static/css/sphinx-toolbox.css" rel="stylesheet" type="text/css"/>
+    <!--[if lt IE 9]>
     <script src="../../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=3cacef03"></script>
-        <script src="../../../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <![endif]-->
+
+    <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script data-url_root="../../../../" id="documentation_options"
+            src="../../../../_static/documentation_options.js?v=3cacef03"></script>
+    <script src="../../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../../../_static/js/theme.js"></script>
-    <link rel="index" title="Index" href="../../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="json2graph.decode" href="../../decode/index.html" />
-    <link rel="prev" title="json2graph.tests.test_aux" href="../test_aux/index.html" /> 
+    <link href="../../../../genindex.html" rel="index" title="Index"/>
+    <link href="../../../../search.html" rel="search" title="Search"/>
+    <link href="../../decode/index.html" rel="next" title="json2graph.decode"/>
+    <link href="../test_aux/index.html" rel="prev" title="json2graph.tests.test_aux"/>
 </head>
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+<body class="wy-body-for-nav">
+<div class="wy-grid-for-nav">
+    <nav class="wy-nav-side" data-toggle="wy-nav-shift">
+        <div class="wy-side-scroll">
+            <div class="wy-side-nav-search">
 
-          
-          
-          <a href="../../../../index.html" class="icon icon-home">
-            ontouml-json2graph
-              <img src="../../../../_static/logo-json2graph.png" class="logo" alt="Logo"/>
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../../../README.html">The OntoUML JSON2Graph Transformation</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph</span></code></a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="../../modules/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.modules</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../resources/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.resources</span></code></a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.tests</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../index.html#submodules">Submodules</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
 
+                <a class="icon icon-home" href="../../../../index.html">
+                    ontouml-json2graph
+                    <img alt="Logo" class="logo" src="../../../../_static/logo-json2graph.png"/>
+                </a>
+                <div role="search">
+                    <form action="../../../../search.html" class="wy-form" id="rtd-search-form" method="get">
+                        <input aria-label="Search docs" name="q" placeholder="Search docs" type="text"/>
+                        <input name="check_keywords" type="hidden" value="yes"/>
+                        <input name="area" type="hidden" value="default"/>
+                    </form>
+                </div>
+            </div>
+            <div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+                <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../../../../README.html">The OntoUML
+                        JSON2Graph Transformation</a></li>
+                    <li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API
+                        Reference</a>
+                        <ul class="current">
+                            <li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><code
+                                    class="xref py py-mod docutils literal notranslate"><span
+                                    class="pre">json2graph</span></code></a>
+                                <ul class="current">
+                                    <li class="toctree-l3 current"><a class="reference internal"
+                                                                      href="../../index.html#subpackages">Subpackages</a>
+                                        <ul class="current">
+                                            <li class="toctree-l4"><a class="reference internal"
+                                                                      href="../../modules/index.html"><code
+                                                    class="xref py py-mod docutils literal notranslate"><span
+                                                    class="pre">json2graph.modules</span></code></a></li>
+                                            <li class="toctree-l4"><a class="reference internal"
+                                                                      href="../../resources/index.html"><code
+                                                    class="xref py py-mod docutils literal notranslate"><span
+                                                    class="pre">json2graph.resources</span></code></a></li>
+                                            <li class="toctree-l4 current"><a class="reference internal"
+                                                                              href="../index.html"><code
+                                                    class="xref py py-mod docutils literal notranslate"><span
+                                                    class="pre">json2graph.tests</span></code></a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="toctree-l3"><a class="reference internal"
+                                                              href="../../index.html#submodules">Submodules</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
         </div>
-      </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../../../index.html">ontouml-json2graph</a>
-      </nav>
+    <section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+        <nav aria-label="Mobile navigation menu" class="wy-nav-top">
+            <i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+            <a href="../../../../index.html">ontouml-json2graph</a>
+        </nav>
 
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../../../index.html">API Reference</a></li>
-          <li class="breadcrumb-item"><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph</span></code></a></li>
-          <li class="breadcrumb-item"><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.tests</span></code></a></li>
-      <li class="breadcrumb-item active"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.tests.test_main</span></code></li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="../../../../_sources/autoapi/json2graph/tests/test_main/index.rst.txt" rel="nofollow"> View page source</a>
-      </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
-  <section id="module-json2graph.tests.test_main">
-<span id="json2graph-tests-test-main"></span><h1><a class="reference internal" href="#module-json2graph.tests.test_main" title="json2graph.tests.test_main"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.tests.test_main</span></code></a><a class="headerlink" href="#module-json2graph.tests.test_main" title="Permalink to this heading"></a></h1>
-<p>OntoUML JSON2Graph Test Module.</p>
-<p>This module contains test functions to verify the correctness of the OntoUML JSON2Graph software.
-The tests are based on the comparison of the generated graph (from OntoUML JSON files provided in the test folder)
-with the expected resulting graph stored in Turtle (.ttl) files (also provided in the test folder).</p>
-<p>The module uses a list of test files (<cite>LIST_OF_TESTS</cite>) retrieved from the function <cite>get_test_list()</cite>.
-Each test file is a valid OntoUML JSON file representing a model.</p>
-<p>The comparison of graphs is done using the function <cite>compare_graphs</cite>, which should be defined and available
-for the tests to run successfully.</p>
-<p>The tests will ensure the correct functioning of the OntoUML JSON2Graph software and raise an assertion error
-if the generated graph does not match the expected graph.</p>
-<section id="module-contents">
-<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading"></a></h2>
-<section id="functions">
-<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this heading"></a></h3>
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#json2graph.tests.test_main.test_ontouml_json2graph" title="json2graph.tests.test_main.test_ontouml_json2graph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_ontouml_json2graph</span></code></a>(input_file)</p></td>
-<td><p>Main test function the OntoUML JSON2Graph software.</p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="attributes">
-<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading"></a></h3>
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#json2graph.tests.test_main.LIST_OF_TESTS" title="json2graph.tests.test_main.LIST_OF_TESTS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LIST_OF_TESTS</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-</tbody>
-</table>
-<dl class="py data">
-<dt class="sig sig-object py" id="json2graph.tests.test_main.LIST_OF_TESTS">
-<span class="sig-prename descclassname"><span class="pre">json2graph.tests.test_main.</span></span><span class="sig-name descname"><span class="pre">LIST_OF_TESTS</span></span><a class="headerlink" href="#json2graph.tests.test_main.LIST_OF_TESTS" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+        <div class="wy-nav-content">
+            <div class="rst-content">
+                <div aria-label="Page navigation" role="navigation">
+                    <ul class="wy-breadcrumbs">
+                        <li><a aria-label="Home" class="icon icon-home" href="../../../../index.html"></a></li>
+                        <li class="breadcrumb-item"><a href="../../../index.html">API Reference</a></li>
+                        <li class="breadcrumb-item"><a href="../../index.html"><code
+                                class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph</span></code></a>
+                        </li>
+                        <li class="breadcrumb-item"><a href="../index.html"><code
+                                class="xref py py-mod docutils literal notranslate"><span
+                                class="pre">json2graph.tests</span></code></a></li>
+                        <li class="breadcrumb-item active"><code
+                                class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.tests.test_main</span></code>
+                        </li>
+                        <li class="wy-breadcrumbs-aside">
+                            <a href="../../../../_sources/autoapi/json2graph/tests/test_main/index.rst.txt"
+                               rel="nofollow"> View page source</a>
+                        </li>
+                    </ul>
+                    <hr/>
+                </div>
+                <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
+                    <div itemprop="articleBody">
 
-<dl class="py function">
-<dt class="sig sig-object py" id="json2graph.tests.test_main.test_ontouml_json2graph">
-<span class="sig-prename descclassname"><span class="pre">json2graph.tests.test_main.</span></span><span class="sig-name descname"><span class="pre">test_ontouml_json2graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.tests.test_main.test_ontouml_json2graph" title="Permalink to this definition"></a></dt>
-<dd><p>Main test function the OntoUML JSON2Graph software.</p>
-<p>The test is based on the comparison of the generated graph (from a JSON file provided in the test folder)
-with an expected resulting graph (also provided in the test folder), always in ‘ttl’ format.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>input_file</strong> (<em>str</em>) – Path to the JSON file to be tested.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
+                        <section id="module-json2graph.tests.test_main">
+                            <span id="json2graph-tests-test-main"></span>
+                            <h1><a class="reference internal" href="#module-json2graph.tests.test_main"
+                                   title="json2graph.tests.test_main"><code
+                                    class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.tests.test_main</span></code></a><a
+                                    class="headerlink" href="#module-json2graph.tests.test_main"
+                                    title="Permalink to this heading"></a></h1>
+                            <p>OntoUML JSON2Graph Test Module.</p>
+                            <p>This module contains test functions to verify the correctness of the OntoUML JSON2Graph
+                                software.
+                                The tests are based on the comparison of the generated graph (from OntoUML JSON files
+                                provided in the test folder)
+                                with the expected resulting graph stored in Turtle (.ttl) files (also provided in the
+                                test folder).</p>
+                            <p>The module uses a list of test files (<cite>LIST_OF_TESTS</cite>) retrieved from the
+                                function <cite>get_test_list()</cite>.
+                                Each test file is a valid OntoUML JSON file representing a model.</p>
+                            <p>The comparison of graphs is done using the function <cite>compare_graphs</cite>, which
+                                should be defined and available
+                                for the tests to run successfully.</p>
+                            <p>The tests will ensure the correct functioning of the OntoUML JSON2Graph software and
+                                raise an assertion error
+                                if the generated graph does not match the expected graph.</p>
+                            <section id="module-contents">
+                                <h2>Module Contents<a class="headerlink" href="#module-contents"
+                                                      title="Permalink to this heading"></a></h2>
+                                <section id="functions">
+                                    <h3>Functions<a class="headerlink" href="#functions"
+                                                    title="Permalink to this heading"></a></h3>
+                                    <table class="autosummary longtable docutils align-default">
+                                        <tbody>
+                                        <tr class="row-odd">
+                                            <td><p><a class="reference internal"
+                                                      href="#json2graph.tests.test_main.test_ontouml_json2graph"
+                                                      title="json2graph.tests.test_main.test_ontouml_json2graph"><code
+                                                    class="xref py py-obj docutils literal notranslate"><span
+                                                    class="pre">test_ontouml_json2graph</span></code></a>(input_file)
+                                            </p></td>
+                                            <td><p>Main test function the OntoUML JSON2Graph software.</p></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </section>
+                                <section id="attributes">
+                                    <h3>Attributes<a class="headerlink" href="#attributes"
+                                                     title="Permalink to this heading"></a></h3>
+                                    <table class="autosummary longtable docutils align-default">
+                                        <tbody>
+                                        <tr class="row-odd">
+                                            <td><p><a class="reference internal"
+                                                      href="#json2graph.tests.test_main.LIST_OF_TESTS"
+                                                      title="json2graph.tests.test_main.LIST_OF_TESTS"><code
+                                                    class="xref py py-obj docutils literal notranslate"><span
+                                                    class="pre">LIST_OF_TESTS</span></code></a></p></td>
+                                            <td><p></p></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <dl class="py data">
+                                        <dt class="sig sig-object py" id="json2graph.tests.test_main.LIST_OF_TESTS">
+                                            <span class="sig-prename descclassname"><span class="pre">json2graph.tests.test_main.</span></span><span
+                                                class="sig-name descname"><span
+                                                class="pre">LIST_OF_TESTS</span></span><a class="headerlink"
+                                                                                          href="#json2graph.tests.test_main.LIST_OF_TESTS"
+                                                                                          title="Permalink to this definition"></a>
+                                        </dt>
+                                        <dd></dd>
+                                    </dl>
 
-</section>
-</section>
-</section>
+                                    <dl class="py function">
+                                        <dt class="sig sig-object py"
+                                            id="json2graph.tests.test_main.test_ontouml_json2graph">
+                                            <span class="sig-prename descclassname"><span class="pre">json2graph.tests.test_main.</span></span><span
+                                                class="sig-name descname"><span
+                                                class="pre">test_ontouml_json2graph</span></span><span
+                                                class="sig-paren">(</span><em class="sig-param"><span class="n"><span
+                                                class="pre">input_file</span></span></em><span
+                                                class="sig-paren">)</span><a class="headerlink"
+                                                                             href="#json2graph.tests.test_main.test_ontouml_json2graph"
+                                                                             title="Permalink to this definition"></a>
+                                        </dt>
+                                        <dd><p>Main test function the OntoUML JSON2Graph software.</p>
+                                            <p>The test is based on the comparison of the generated graph (from a JSON
+                                                file provided in the test folder)
+                                                with an expected resulting graph (also provided in the test folder),
+                                                always in ‘ttl’ format.</p>
+                                            <dl class="field-list simple">
+                                                <dt class="field-odd">Parameters<span class="colon">:</span></dt>
+                                                <dd class="field-odd"><p><strong>input_file</strong> (<em>str</em>) –
+                                                    Path to the JSON file to be tested.</p>
+                                                </dd>
+                                                <dt class="field-even">Return type<span class="colon">:</span></dt>
+                                                <dd class="field-even"><p>None</p>
+                                                </dd>
+                                            </dl>
+                                        </dd>
+                                    </dl>
+
+                                </section>
+                            </section>
+                        </section>
 
 
-           </div>
-          </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../test_aux/index.html" class="btn btn-neutral float-left" title="json2graph.tests.test_aux" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../../decode/index.html" class="btn btn-neutral float-right" title="json2graph.decode" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+                    </div>
+                </div>
+                <footer>
+                    <div aria-label="Footer" class="rst-footer-buttons" role="navigation">
+                        <a accesskey="p" class="btn btn-neutral float-left"
+                           href="../test_aux/index.html" rel="prev" title="json2graph.tests.test_aux"><span
+                                aria-hidden="true" class="fa fa-arrow-circle-left"></span> Previous</a>
+                        <a accesskey="n" class="btn btn-neutral float-right" href="../../decode/index.html"
+                           rel="next" title="json2graph.decode">Next <span aria-hidden="true"
+                                                                           class="fa fa-arrow-circle-right"></span></a>
+                    </div>
 
-  <hr/>
+                    <hr/>
 
-  <div role="contentinfo">
-    <p>&#169; Copyright 2023, Semantics, Cybersecurity &amp; Services (SCS), University of Twente, the Netherlands.</p>
-  </div>
+                    <div role="contentinfo">
+                        <p>&#169; Copyright 2023, Semantics, Cybersecurity &amp; Services (SCS), University of Twente,
+                            the Netherlands.</p>
+                    </div>
 
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
+                    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+                    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+                    provided by <a href="https://readthedocs.org">Read the Docs</a>.
 
-</footer>
+
+                </footer>
+            </div>
         </div>
-      </div>
     </section>
-  </div>
-  <script>
+</div>
+<script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+
+
+</script>
 
 </body>
 </html>

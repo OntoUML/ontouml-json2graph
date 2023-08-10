@@ -2,7 +2,6 @@
 
 import json
 import os
-from pathlib import Path
 
 from rdflib import Graph
 
@@ -48,36 +47,6 @@ def safe_load_json_file(json_path: str) -> dict:
     LOGGER.debug(f"JSON file {json_path} successfully loaded to dictionary.")
 
     return json_data
-
-
-def write_graph_file(ontouml_graph: Graph, json_path: str, graph_format: str) -> str:
-    """Saves the ontology graph into a file with syntax defined by the user.
-
-    :param ontouml_graph: Graph compliant with the OntoUML Vocabulary.
-    :type ontouml_graph: Graph
-    :param json_path: Path to the input json file.
-    :type json_path: str
-    :param graph_format: Syntax selected by the user to save the graph.
-    :type graph_format: str
-    :return: Saved output file path.
-    :rtype: str
-    """
-
-    # Collecting information for result file name and path
-    project_directory = os.getcwd()
-    results_directory = "results"
-    loaded_file_name = Path(json_path).stem
-
-    # If directory 'results_directory' not exists, create it
-    create_directory_if_not_exists(results_directory, "results directory")
-
-    # Setting file complete path
-    output_file_name = loaded_file_name + "." + graph_format
-    output_file_path = project_directory + "\\" + results_directory + "\\" + output_file_name
-
-    safe_write_graph_file(ontouml_graph, output_file_path, graph_format)
-
-    return output_file_path
 
 
 def safe_write_graph_file(ontouml_graph: Graph, output_file_name: str, syntax: str) -> None:

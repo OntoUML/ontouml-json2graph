@@ -1,7 +1,7 @@
 [![Project Status - Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 ![GitHub - Release Date - PublishedAt](https://img.shields.io/github/release-date/ontouml/ontouml-json2graph)
 ![GitHub - Last Commit - Branch](https://img.shields.io/github/last-commit/ontouml/ontouml-json2graph/main)
-![PyPI - Project](https://img.shields.io/pypi/v/ontouml-json2graph) 
+![PyPI - Project](https://img.shields.io/pypi/v/ontouml-json2graph)
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/ontouml-json2graph?label=pypi%20downloads)
 ![Language - Top](https://img.shields.io/github/languages/top/ontouml/ontouml-json2graph)
 ![Language - Version](https://img.shields.io/pypi/pyversions/ontouml-json2graph)
@@ -19,7 +19,7 @@ When transforming a model, you can choose to represent only the core concepts of
 
 This application was developed using the [RDFLib](https://rdflib.readthedocs.io/en/stable/) and Python 3.11. The generated graph file can be serialized in the diverse [formats supported by the RDFLib](https://rdflib.readthedocs.io/en/stable/intro_to_parsing.html#saving-rdf), which are Turtle, RDF/XML, JSON-LD, N-Triples, Notation-3, Trig, Trix, and N-Quads.
 
-**📦 PyPI Package:** 
+**📦 PyPI Package:**
 The transformation is conveniently [available as a PyPI package](https://pypi.org/project/ontouml-json2graph/), which allows users to use it as an executable script or import it as a library into other Python projects.
 
 **📚 Documentation:**
@@ -28,21 +28,23 @@ For inquiries and further information, please refer to the [comprehensive docstr
 ## Contents
 
 <!-- TOC -->
+
 * [The OntoUML JSON2Graph Transformation](#the-ontouml-json2graph-transformation)
-  * [Contents](#contents)
-  * [Installation](#installation)
-  * [Usage](#usage)
-    * [Execution Modes](#execution-modes)
-      * [Executing as a Script](#executing-as-a-script)
-      * [Importing as a Library](#importing-as-a-library)
-    * [Arguments](#arguments)
-    * [Input and Output](#input-and-output)
-    * [OntoUML Vocabulary and gUFO](#ontouml-vocabulary-and-gufo)
-  * [Basic Syntactical and Sematic Validation](#basic-syntactical-and-sematic-validation)
-  * [Permanent URLs and Identifiers](#permanent-urls-and-identifiers)
-  * [Related Projects](#related-projects)
-  * [Development Contribution](#development-contribution)
-  * [Author](#author)
+    * [Contents](#contents)
+    * [Installation](#installation)
+    * [Usage](#usage)
+        * [Execution Modes](#execution-modes)
+            * [Executing as a Script](#executing-as-a-script)
+            * [Importing as a Library](#importing-as-a-library)
+        * [Arguments](#arguments)
+        * [Input and Output](#input-and-output)
+        * [OntoUML Vocabulary and gUFO](#ontouml-vocabulary-and-gufo)
+    * [Basic Syntactical and Sematic Validation](#basic-syntactical-and-sematic-validation)
+    * [Permanent URLs and Identifiers](#permanent-urls-and-identifiers)
+    * [Related Projects](#related-projects)
+    * [Development Contribution](#development-contribution)
+    * [Author](#author)
+
 <!-- TOC -->
 
 ## Installation
@@ -121,9 +123,10 @@ Both the input and output of the software are built upon the same metamodel, the
 
 ### OntoUML Vocabulary and gUFO
 
-The ontouml-vp-plugin has a feature that enables an ontology to be transformed from OntoUML to a graph format. This feature is called the [Model Transformation to OWL with gUFO](https://github.com/OntoUML/ontouml-vp-plugin/#model-transformation-to-owl-with-gufo). **[gUFO](https://nemo-ufes.github.io/gufo/)** is a lightweight implementation of the OntoUML's underlying foundational ontology, the Unified Foundational Ontology (UFO).
+The ontouml-vp-plugin has a feature that enables an ontology to be transformed from OntoUML to a graph format. This feature is called the [Model Transformation to OWL with gUFO](https://github.com/OntoUML/ontouml-vp-plugin/#model-transformation-to-owl-with-gufo).
+**[gUFO](https://nemo-ufes.github.io/gufo/)** is a lightweight implementation of the OntoUML's underlying foundational ontology, the Unified Foundational Ontology (UFO).
 
-Even though an ontology represented in gUFO and in the OntoUML Vocabulary are both suitable for Semantic Web OWL 2 DL applications, these two representations are different and were created with different purposes. 
+Even though an ontology represented in gUFO and in the OntoUML Vocabulary are both suitable for Semantic Web OWL 2 DL applications, these two representations are different and were created with different purposes.
 
 gUFO is intended for reuse in the definition of UFO-based lightweight ontologies. Reuse of gUFO consists in instantiating and/or specializing the various entities defined in the ontology, inheriting from it the domain-independent distinctions of UFO. A key feature of UFO (and hence, gUFO) is that it includes two taxonomies: one with classes whose instances are individuals (classes in this taxonomy include gufo:Object, gufo:Event) and another with classes whose instances are types (classes in this taxonomy include gufo:Kind, gufo:Phase, gufo:Category).
 
@@ -160,13 +163,17 @@ Models in this format are machine-readable resources intended to support the nee
 
 ## Related Projects
 
-- **[OntoUML Metamodel](https://w3id.org/ontouml/metamodel)**: Implementation-independent OntoUML Metamodel. Unlike the UML profile, this version is independent of UML and presents only the concepts officially supported in the language. This metamodel covers the abstract and concrete syntaxes of the language and serves as the reference for all projects in the [OntoUML as a Service (OaaS)](https://ceur-ws.org/Vol-2969/paper29-FOMI.pdf) ecosystem, including its different model serializations.
+- **[OntoUML Metamodel](https://w3id.org/ontouml/metamodel)
+  **: Implementation-independent OntoUML Metamodel. Unlike the UML profile, this version is independent of UML and presents only the concepts officially supported in the language. This metamodel covers the abstract and concrete syntaxes of the language and serves as the reference for all projects in the [OntoUML as a Service (OaaS)](https://ceur-ws.org/Vol-2969/paper29-FOMI.pdf) ecosystem, including its different model serializations.
 
-- **[OntoUML Vocabulary](https://w3id.org/ontouml/vocabulary)**: An OntoUML Metamodel's serialization in Turtle (ttl) format. This vocabulary supports the serialization, exchange, and publishing of OntoUML models as graphs that can be used for Semantic Web and Linked Data applications.
+- **[OntoUML Vocabulary](https://w3id.org/ontouml/vocabulary)
+  **: An OntoUML Metamodel's serialization in Turtle (ttl) format. This vocabulary supports the serialization, exchange, and publishing of OntoUML models as graphs that can be used for Semantic Web and Linked Data applications.
 
-- **[OntoUML Schema](https://w3id.org/ontouml/schema)**: An OntoUML Metamodel's serialization in JSON format. The JSON is a format better suited for manipulation within software code. It supports the exchange of models between modeling tools and the OntoUML server, providing model intelligent services.
+- **[OntoUML Schema](https://w3id.org/ontouml/schema)
+  **: An OntoUML Metamodel's serialization in JSON format. The JSON is a format better suited for manipulation within software code. It supports the exchange of models between modeling tools and the OntoUML server, providing model intelligent services.
 
-- **[ontouml-vp-plugin](https://w3id.org/ontouml/vp-plugin)**: The OntoUML Plugin for Visual Paradigm adds features designed for OntoUML modelers to any version of the Visual Paradigm - a modeling editor that provides a [free for non-commercial version](https://www.visual-paradigm.com/download/community.jsp). These features range from enabling OntoUML stereotypes in class diagrams to model verification and transformation.
+- **[ontouml-vp-plugin](https://w3id.org/ontouml/vp-plugin)
+  **: The OntoUML Plugin for Visual Paradigm adds features designed for OntoUML modelers to any version of the Visual Paradigm - a modeling editor that provides a [free for non-commercial version](https://www.visual-paradigm.com/download/community.jsp). These features range from enabling OntoUML stereotypes in class diagrams to model verification and transformation.
 
 ## Development Contribution
 
@@ -190,4 +197,5 @@ This project is maintained by the [Semantics, Cybersecurity & Services (SCS) Gro
 
 - [Pedro Paulo Favato Barcelos](https://orcid.org/0000-0003-2736-7817) [[GitHub](https://github.com/pedropaulofb)] [[LinkedIn](https://www.linkedin.com/in/pedropaulofavatobarcelos/)]
 
-Feel free to get in touch using the provided links. For questions, contributions, or to report any problem, you can **[open an issue](https://github.com/OntoUML/ontouml-json2graph/issues)** at this repository.
+Feel free to get in touch using the provided links. For questions, contributions, or to report any problem, you can *
+*[open an issue](https://github.com/OntoUML/ontouml-json2graph/issues)** at this repository.

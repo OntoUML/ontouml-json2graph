@@ -1,6 +1,7 @@
-from json2graph.modules.errors import report_error_io_read, report_error_io_write
-import yaml
 import toml
+import yaml
+
+from json2graph.modules.errors import report_error_io_read, report_error_io_write
 
 metadata_file_read = "pyproject.toml"
 metadata_file_write = "json2graph/resources/metadata.yaml"

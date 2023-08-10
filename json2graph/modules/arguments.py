@@ -91,7 +91,7 @@ def treat_user_arguments() -> dict:
     return arguments_dictionary
 
 
-def initialize_arguments(json_path: str="not_initialized",
+def initialize_arguments(json_path: str = "not_initialized",
                          base_uri: str = "https://example.org#",
                          graph_format: str = "ttl",
                          language: str = "",

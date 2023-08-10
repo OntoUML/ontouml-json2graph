@@ -16,23 +16,24 @@ Note:
 
 
 """
-
+import os
 import time
+from pathlib import Path
 
-from rdflib import RDF
+from rdflib import RDF, Graph
 
 try:
     from .modules import arguments as args
     from .modules.decoder.decode_main import decode_json_to_graph
     from .modules.globals import METADATA
-    from .modules.input_output import safe_load_json_file, write_graph_file
+    from .modules.input_output import safe_load_json_file, create_directory_if_not_exists, safe_write_graph_file
     from .modules.logger import initialize_logger
     from .modules.utils_general import get_date_time
 except ImportError:
     from modules import arguments as args
     from modules.decoder.decode_main import decode_json_to_graph
     from modules.globals import METADATA
-    from modules.input_output import safe_load_json_file, write_graph_file
+    from modules.input_output import safe_load_json_file, create_directory_if_not_exists, safe_write_graph_file
     from modules.logger import initialize_logger
     from modules.utils_general import get_date_time
 
@@ -44,7 +45,7 @@ def decode_ontouml_json2graph(json_path: str,
                               model_only: bool = False,
                               silent: bool = True,
                               correct: bool = False,
-                              execution_mode: str = "import") -> str:
+                              execution_mode: str = "import") -> str | Graph:
     """ Main function for converting OntoUML JSON data to a Knowledge Graph.
 
     This function takes the path to a JSON file representing OntoUML model data provided by the user
@@ -69,8 +70,11 @@ def decode_ontouml_json2graph(json_path: str,
     :param execution_mode: Information about the execution mode.
     Valid values are 'import' (default), 'script', and 'test'. (Optional)
     :type execution_mode: str
-    :return: Saved output file path. Used for testing.
+
+    :returns: Saved output file path. Used for testing.
     :rtype: str
+    :return:
+    :rtype: Graph
     """
 
     logger = initialize_logger(execution_mode)
@@ -123,9 +127,44 @@ def decode_ontouml_json2graph(json_path: str,
         elapsed_time = round((et - st), 3)
         logger.info(f"Decoding concluded on {end_date_time}. Total execution time: {elapsed_time} seconds.")
 
-    # Save graph as specified format
-    output_file_path = write_graph_file(ontouml_graph, json_path, graph_format)
-    logger.info(f"Output graph file successfully saved at {output_file_path}.")
+    # For execution as a script and for test, the file is always written
+    if execution_mode != "import":
+        # Save graph as specified format
+        output_file_path = write_graph_file(ontouml_graph, json_path, graph_format)
+        logger.info(f"Output graph file successfully saved at {output_file_path}.")
+        if execution_mode == "test":
+            return output_file_path
+    # If execution_mode == "import", than the graph is returned to be processed by the user's application
+    else:
+        return ontouml_graph
+
+
+def write_graph_file(ontouml_graph: Graph, json_path: str, graph_format: str) -> str:
+    """Saves the ontology graph into a file with syntax defined by the user.
+
+    :param ontouml_graph: Graph compliant with the OntoUML Vocabulary.
+    :type ontouml_graph: Graph
+    :param json_path: Path to the input json file.
+    :type json_path: str
+    :param graph_format: Syntax selected by the user to save the graph.
+    :type graph_format: str
+    :return: Saved output file path.
+    :rtype: str
+    """
+
+    # Collecting information for result file name and path
+    project_directory = os.getcwd()
+    results_directory = "results"
+    loaded_file_name = Path(json_path).stem
+
+    # If directory 'results_directory' not exists, create it
+    create_directory_if_not_exists(results_directory, "results directory")
+
+    # Setting file complete path
+    output_file_name = loaded_file_name + "." + graph_format
+    output_file_path = project_directory + "\\" + results_directory + "\\" + output_file_name
+
+    safe_write_graph_file(ontouml_graph, output_file_path, graph_format)
 
     return output_file_path
 
