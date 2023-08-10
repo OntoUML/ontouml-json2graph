@@ -111,7 +111,7 @@ The library provides the following functions for decoding OntoUML JSON data and 
 The `decode_json_project` function allows you to decode the complete OntoUML JSON data (including elements from OntoUML's abstract and concrete syntax) into a knowledge graph that conforms to the OntoUML Vocabulary. This function provides customization options, such as specifying the base URI for ontology concepts, adding language tags, and enabling error correction. With this function domain-level and diagrammatic data are converted to Knowledge Graph.
 
 ```python
-from ontouml-json2graph.library import decode_json_project
+from json2graph.library import decode_json_project
 
 decoded_graph_project = decode_json_project(json_path="path/to/input.json", base_uri="https://myuri.org#",
                                             language="en", correct=True)
@@ -124,7 +124,7 @@ The `decode_json_model` function decodes OntoUML JSON data representing a model-
 Differently from the `decode_json_model`, this function decodes only elements from the OntoUML's abstract syntax. I.e., only domain-level (and not diagrammatic) data is converted to knowledge graph. It offers options for base URI, language tags, and error correction.
 
 ```python
-from ontouml-json2graph.library import decode_json_model
+from json2graph.library import decode_json_model
 
 decoded_graph_model = decode_json_model(json_path="path/to/input.json", base_uri="https://myuri.org#", language="en",
                                         correct=True)
@@ -135,7 +135,7 @@ decoded_graph_model = decode_json_model(json_path="path/to/input.json", base_uri
 The `save_graph_file` utility function provides a convenient way to save an OntoUML graph as an RDF file in the desired syntax.
 
 ```python
-from ontouml-json2graph.library import save_graph_file
+from json2graph.library import save_graph_file
 
 output_file_path = "./output_graph.ttl"
 syntax = "ttl"  # Choose the desired syntax: "xml", "n3", "nt", etc.
