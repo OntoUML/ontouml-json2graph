@@ -73,8 +73,6 @@ def decode_ontouml_json2graph(json_path: str,
 
     :returns: Saved output file path. Used for testing.
     :rtype: str
-    :return:
-    :rtype: Graph
     """
 
     logger = initialize_logger(execution_mode)
