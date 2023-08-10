@@ -1,4 +1,3 @@
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8215446.svg)](https://doi.org/10.5281/zenodo.8215446)
 [![Project Status - Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 ![GitHub - Release Date - PublishedAt](https://img.shields.io/github/release-date/ontouml/ontouml-json2graph)
 ![GitHub - Last Commit - Branch](https://img.shields.io/github/last-commit/ontouml/ontouml-json2graph/main)
