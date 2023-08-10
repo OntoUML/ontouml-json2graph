@@ -204,7 +204,6 @@ def set_class_stereotype(class_dict: dict, ontouml_graph: Graph) -> None:
                              "subkind", "role", "phase", "enumeration", "datatype", "abstract"]
 
     class_stereotype = get_stereotype(class_dict)
-    class_type = class_dict["type"]
 
     # If stereotype not declared, report warning.
     if class_stereotype == "null":
