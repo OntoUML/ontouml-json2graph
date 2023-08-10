@@ -1,7 +1,7 @@
 build-system:
   build-backend: poetry.core.masonry.api
   requires:
-    - poetry-core
+  - poetry-core
 extras:
   conformsTo: https://w3id.org/ontouml
   conformsToBase: https://w3id.org/ontouml#
@@ -9,7 +9,7 @@ extras:
 tool:
   poetry:
     authors:
-      - Pedro Paulo F. Barcelos <p.p.favatobarcelos@utwente.nl>
+    - Pedro Paulo F. Barcelos <p.p.favatobarcelos@utwente.nl>
     dependencies:
       python: ^3.11
       pyyaml: ^6.0.1
@@ -18,20 +18,20 @@ tool:
     description: OntoUML JSON2Graph Decoder
     documentation: https://w3id.org/ontouml/json2graph/docs
     exclude:
-      - json2graph/tests
+    - json2graph/tests
     homepage: https://w3id.org/ontouml/json2graph
     keywords:
-      - semantic-web
-      - knowledge-graph
-      - ontouml
-      - ontology-driven-development
-      - ontouml-schema
-      - ontouml-vocabulary
-      - ontouml-metamodel
+    - semantic-web
+    - knowledge-graph
+    - ontouml
+    - ontology-driven-development
+    - ontouml-schema
+    - ontouml-vocabulary
+    - ontouml-metamodel
     license: Apache-2.0
     name: ontouml-json2graph
     readme: README.md
     repository: https://w3id.org/ontouml/json2graph
     urls:
       PyPi Project: https://pypi.org/project/ontouml-json2graph/
-    version: 1.0.2
+    version: 1.1.0a

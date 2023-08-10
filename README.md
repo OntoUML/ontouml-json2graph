@@ -28,23 +28,23 @@ For inquiries and further information, please refer to the [comprehensive docstr
 ## Contents
 
 <!-- TOC -->
-
 * [The OntoUML JSON2Graph Transformation](#the-ontouml-json2graph-transformation)
-    * [Contents](#contents)
-    * [Installation](#installation)
-    * [Usage](#usage)
-        * [Execution Modes](#execution-modes)
-            * [Executing as a Script](#executing-as-a-script)
-            * [Importing as a Library](#importing-as-a-library)
-        * [Arguments](#arguments)
-        * [Input and Output](#input-and-output)
-        * [OntoUML Vocabulary and gUFO](#ontouml-vocabulary-and-gufo)
-    * [Basic Syntactical and Sematic Validation](#basic-syntactical-and-sematic-validation)
-    * [Permanent URLs and Identifiers](#permanent-urls-and-identifiers)
-    * [Related Projects](#related-projects)
-    * [Development Contribution](#development-contribution)
-    * [Author](#author)
-
+  * [Contents](#contents)
+  * [Installation](#installation)
+  * [Usage](#usage)
+    * [Executing as a Script](#executing-as-a-script)
+      * [Arguments](#arguments)
+    * [Importing as a Library](#importing-as-a-library)
+      * [decode_json_project](#decodejsonproject)
+      * [decode_json_model](#decodejsonmodel)
+      * [save_graph_file](#savegraphfile)
+    * [Input and Output](#input-and-output)
+    * [OntoUML Vocabulary and gUFO](#ontouml-vocabulary-and-gufo)
+  * [Basic Syntactical and Sematic Validation](#basic-syntactical-and-sematic-validation)
+  * [Permanent URLs and Identifiers](#permanent-urls-and-identifiers)
+  * [Related Projects](#related-projects)
+  * [Development Contribution](#development-contribution)
+  * [Author](#author)
 <!-- TOC -->
 
 ## Installation
@@ -60,13 +60,11 @@ All dependencies will be installed automatically, and you will be ready to use t
 
 ## Usage
 
-### Execution Modes
-
 After being installed, the OntoUML JSON2Graph Decoder can be used as an **executable script** or **imported as a library** into another Python project.
 
 The output of the transformation, i.e., the graph file, will be saved into a directory named `results` in the same path in which the software was executed.
 
-#### Executing as a Script
+### Executing as a Script
 
 For executing the software, run the following command on the terminal inside the project's folder:
 
@@ -74,30 +72,17 @@ For executing the software, run the following command on the terminal inside the
 python -m json2graph.decode [path_to_json] [OPTIONAL ARGUMENTS]
 ```
 
-#### Importing as a Library
-
-In the current version, users have access to a single class: **ontouml_json2graph**. To use it, include the following line in your python module:
-
-```python
-from json2graph.decode import decode_ontouml_json2graph
-```
-
-More information about how to use the decode function [can be accessed in its documentation](https://dev.ontouml.org/ontouml-json2graph/autoapi/json2graph/index.html#submodules).
-
-### Arguments
+#### Arguments
 
 The only mandatory argument is `path_to_json`, which must be substituted for the input file's location on your computer. Optional arguments provide additional features. All available ontouml-json2graph arguments can be observed below.
 
 ```text
-usage: ontouml-json2graph [-h]
-                          [-f {turtle,ttl,turtle2,xml,pretty-xml,json-ld,ntriples,nt,nt11,n3,trig,trix,nquads}]
-                          [-l LANGUAGE] [-c] [-s] [-u BASE_URI] [-m] [-v]
-                          json_file
+usage: ontouml-json2graph [-h] [-f {turtle,ttl,turtle2,xml,pretty-xml,json-ld,ntriples,nt,nt11,n3,trig,trix,nquads}] [-l LANGUAGE] [-c] [-s] [-u BASE_URI] [-m] [-v] json_path
 
-OntoUML JSON2Graph Decoder. Version: 1.0.1
+OntoUML JSON2Graph Decoder. Version: 1.1.0
 
 positional arguments:
-  json_file             The path of the JSON file to be encoded.
+  json_path             The path of the JSON file to be encoded.
 
 options:
   -h, --help            show this help message and exit
@@ -111,7 +96,53 @@ options:
                         Base URI of the resulting graph. Default is 'https://example.org#'.
   -m, --model_only      Keep only model elements, eliminating all diagrammatic data from output.
   -v, --version         Print the software version and exit.
+
+More information at: https://w3id.org/ontouml/json2graph
 ```
+
+### Importing as a Library
+
+The `library.py` module ([full docummentation](https://dev.ontouml.org/ontouml-json2graph/autoapi/json2graph/library/index.html)) is a user-friendly component of the `ontouml-json2graph` package. By encapsulating complex functionalities, this library empowers users to seamlessly integrate OntoUML JSON conversion capabilities into their projects. In addition to conversion functions, the library provides a utility function for safely saving OntoUML graphs to files in the desired syntax.
+
+The library provides the following functions for decoding OntoUML JSON data and saving OntoUML graphs to files:
+
+#### decode_json_project
+
+The `decode_json_project` function allows you to decode the complete OntoUML JSON data (including elements from OntoUML's abstract and concrete syntax) into a knowledge graph that conforms to the OntoUML Vocabulary. This function provides customization options, such as specifying the base URI for ontology concepts, adding language tags, and enabling error correction. With this function domain-level and diagrammatic data are converted to Knowledge Graph.
+
+```python
+from ontouml-json2graph.library import decode_json_project
+
+decoded_graph_project = decode_json_project(json_path="path/to/input.json", base_uri="https://myuri.org#",
+                                            language="en", correct=True)
+```
+
+#### decode_json_model
+
+The `decode_json_model` function decodes OntoUML JSON data representing a model-level view into a knowledge graph that adheres to the OntoUML Vocabulary. 
+
+Differently from the `decode_json_model`, this function decodes only elements from the OntoUML's abstract syntax. I.e., only domain-level (and not diagrammatic) data is converted to knowledge graph. It offers options for base URI, language tags, and error correction.
+
+```python
+from ontouml-json2graph.library import decode_json_model
+
+decoded_graph_model = decode_json_model(json_path="path/to/input.json", base_uri="https://myuri.org#", language="en",
+                                        correct=True)
+```
+
+#### save_graph_file
+
+The `save_graph_file` utility function provides a convenient way to save an OntoUML graph as an RDF file in the desired syntax.
+
+```python
+from ontouml-json2graph.library import save_graph_file
+
+output_file_path = "./output_graph.ttl"
+syntax = "ttl"  # Choose the desired syntax: "xml", "n3", "nt", etc.
+save_graph_file(ontouml_graph, output_file_path, syntax)
+```
+
+The valid syntax options are the ones that [can be parsed by the RDFLib](https://rdflib.readthedocs.io/en/stable/intro_to_parsing.html#saving-rdf): turtle, ttl, turtle2, xml, pretty-xml, json-ld, ntriples, nt, nt11, n3, trig, trix, and nquads.
 
 ### Input and Output
 
@@ -163,17 +194,13 @@ Models in this format are machine-readable resources intended to support the nee
 
 ## Related Projects
 
-- **[OntoUML Metamodel](https://w3id.org/ontouml/metamodel)
-  **: Implementation-independent OntoUML Metamodel. Unlike the UML profile, this version is independent of UML and presents only the concepts officially supported in the language. This metamodel covers the abstract and concrete syntaxes of the language and serves as the reference for all projects in the [OntoUML as a Service (OaaS)](https://ceur-ws.org/Vol-2969/paper29-FOMI.pdf) ecosystem, including its different model serializations.
+- **[OntoUML Metamodel](https://w3id.org/ontouml/metamodel)**: Implementation-independent OntoUML Metamodel. Unlike the UML profile, this version is independent of UML and presents only the concepts officially supported in the language. This metamodel covers the abstract and concrete syntaxes of the language and serves as the reference for all projects in the [OntoUML as a Service (OaaS)](https://ceur-ws.org/Vol-2969/paper29-FOMI.pdf) ecosystem, including its different model serializations.
 
-- **[OntoUML Vocabulary](https://w3id.org/ontouml/vocabulary)
-  **: An OntoUML Metamodel's serialization in Turtle (ttl) format. This vocabulary supports the serialization, exchange, and publishing of OntoUML models as graphs that can be used for Semantic Web and Linked Data applications.
+- **[OntoUML Vocabulary](https://w3id.org/ontouml/vocabulary)**: An OntoUML Metamodel's serialization in Turtle (ttl) format. This vocabulary supports the serialization, exchange, and publishing of OntoUML models as graphs that can be used for Semantic Web and Linked Data applications.
 
-- **[OntoUML Schema](https://w3id.org/ontouml/schema)
-  **: An OntoUML Metamodel's serialization in JSON format. The JSON is a format better suited for manipulation within software code. It supports the exchange of models between modeling tools and the OntoUML server, providing model intelligent services.
+- **[OntoUML Schema](https://w3id.org/ontouml/schema)**: An OntoUML Metamodel's serialization in JSON format. The JSON is a format better suited for manipulation within software code. It supports the exchange of models between modeling tools and the OntoUML server, providing model intelligent services.
 
-- **[ontouml-vp-plugin](https://w3id.org/ontouml/vp-plugin)
-  **: The OntoUML Plugin for Visual Paradigm adds features designed for OntoUML modelers to any version of the Visual Paradigm - a modeling editor that provides a [free for non-commercial version](https://www.visual-paradigm.com/download/community.jsp). These features range from enabling OntoUML stereotypes in class diagrams to model verification and transformation.
+- **[ontouml-vp-plugin](https://w3id.org/ontouml/vp-plugin)**: The OntoUML Plugin for Visual Paradigm adds features designed for OntoUML modelers to any version of the Visual Paradigm - a modeling editor that provides a [free for non-commercial version](https://www.visual-paradigm.com/download/community.jsp). These features range from enabling OntoUML stereotypes in class diagrams to model verification and transformation.
 
 ## Development Contribution
 
@@ -197,5 +224,4 @@ This project is maintained by the [Semantics, Cybersecurity & Services (SCS) Gro
 
 - [Pedro Paulo Favato Barcelos](https://orcid.org/0000-0003-2736-7817) [[GitHub](https://github.com/pedropaulofb)] [[LinkedIn](https://www.linkedin.com/in/pedropaulofavatobarcelos/)]
 
-Feel free to get in touch using the provided links. For questions, contributions, or to report any problem, you can *
-*[open an issue](https://github.com/OntoUML/ontouml-json2graph/issues)** at this repository.
+Feel free to get in touch using the provided links. For questions, contributions, or to report any problem, you can **[open an issue](https://github.com/OntoUML/ontouml-json2graph/issues)** at this repository.
