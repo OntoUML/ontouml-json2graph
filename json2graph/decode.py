@@ -1,21 +1,7 @@
-""" It provides a convenient interface for converting OntoUML JSON files into knowledge graphs,
-with the flexibility to customize the output and control the execution mode for different use cases.
-
-Usage:
-1. Standalone Execution:
-    When this module is executed as a standalone script:
-    - The user can provide arguments via the command line to control the conversion process.
-    - The `ontouml_json2graph` function is called with the provided arguments for the transformation.
-
-2. Library Usage:
-    This module can be used as a library by importing and calling the `ontouml_json2graph` function directly
-    with appropriate parameters.
-
-Note:
-- Ensure that the required OntoUML JSON file is available before executing the transformation.
-
-
+""" Main function used as script to convert OntoUML JSON files into knowledge graphs, with the flexibility to
+customize the output and control the execution mode for different use cases.
 """
+
 import os
 import time
 from pathlib import Path
@@ -45,7 +31,7 @@ def decode_ontouml_json2graph(json_path: str,
                               model_only: bool = False,
                               silent: bool = True,
                               correct: bool = False,
-                              execution_mode: str = "import") -> str | Graph:
+                              execution_mode: str = "import") -> Graph:
     """ Main function for converting OntoUML JSON data to a Knowledge Graph.
 
     This function takes the path to a JSON file representing OntoUML model data provided by the user
@@ -71,8 +57,8 @@ def decode_ontouml_json2graph(json_path: str,
     Valid values are 'import' (default), 'script', and 'test'. (Optional)
     :type execution_mode: str
 
-    :returns: Saved output file path. Used for testing.
-    :rtype: str
+    :return: JSON data decoded into a RDFLib's Graph that is compliant with the OntoUML Vocabulary.
+    :rtype: Graph
     """
 
     logger = initialize_logger(execution_mode)
@@ -125,20 +111,12 @@ def decode_ontouml_json2graph(json_path: str,
         elapsed_time = round((et - st), 3)
         logger.info(f"Decoding concluded on {end_date_time}. Total execution time: {elapsed_time} seconds.")
 
-    # For execution as a script and for test, the file is always written
-    if execution_mode != "import":
-        # Save graph as specified format
-        output_file_path = write_graph_file(ontouml_graph, json_path, graph_format)
-        logger.info(f"Output graph file successfully saved at {output_file_path}.")
-        if execution_mode == "test":
-            return output_file_path
-    # If execution_mode == "import", than the graph is returned to be processed by the user's application
-    else:
-        return ontouml_graph
+    return ontouml_graph
 
 
 def write_graph_file(ontouml_graph: Graph, json_path: str, graph_format: str) -> str:
     """Saves the ontology graph into a file with syntax defined by the user.
+    The file is saved inside the 'results' directory also created by this function.
 
     :param ontouml_graph: Graph compliant with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
@@ -149,6 +127,8 @@ def write_graph_file(ontouml_graph: Graph, json_path: str, graph_format: str) ->
     :return: Saved output file path.
     :rtype: str
     """
+
+    logger = initialize_logger()
 
     # Collecting information for result file name and path
     project_directory = os.getcwd()
@@ -164,6 +144,9 @@ def write_graph_file(ontouml_graph: Graph, json_path: str, graph_format: str) ->
 
     safe_write_graph_file(ontouml_graph, output_file_path, graph_format)
 
+    if not args.ARGUMENTS["silent"]:
+        logger.info(f"Output graph file successfully saved at {output_file_path}.")
+
     return output_file_path
 
 
@@ -177,5 +160,8 @@ if __name__ == '__main__':
     # Treat and publish user's arguments
     args.initialize_arguments(execution_mode="script")
 
-    # Execute the transformation
-    decode_ontouml_json2graph(json_path=args.ARGUMENTS["json_path"], execution_mode="script")
+    # Convert JSON to Knowledge Graph
+    decoded_graph = decode_ontouml_json2graph(json_path=args.ARGUMENTS["json_path"], execution_mode="script")
+
+    # Saves knowledge graph
+    write_graph_file(decoded_graph, args.ARGUMENTS["json_path"], args.ARGUMENTS["format"])
