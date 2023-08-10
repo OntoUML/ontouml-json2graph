@@ -22,5 +22,6 @@ Submodules
    :maxdepth: 1
 
    decode/index.rst
+   library/index.rst
 
 

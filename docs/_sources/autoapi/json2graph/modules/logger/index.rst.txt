@@ -5,7 +5,8 @@
 
 .. autoapi-nested-parse::
 
-   Logging configurations. 
+   This module provides functions for configuring a logger that outputs messages to both the console and a log file.
+   The logger can be customized based on different execution modes, allowing you to control the log level.
 
 
 
@@ -25,20 +26,21 @@ Functions
 
 .. py:function:: logger_get_date_time()
 
-   Return a string in a specified format with date and time. Format example: 2022.10.23-14.43
+   Return a string in a specified format with date and time.
 
-   :return: Formatted date and time.
+   :return: Formatted date and time. Format example: 2022.10.23-14.43
    :rtype: str
 
 
-.. py:function:: initialize_logger(execution_mode = 'production')
+.. py:function:: initialize_logger(execution_mode = 'script')
 
    Create and initialize logger. The created logger is called 'execution-logger'.
    Different triggers are defined for each execution mode:
-       - production: INFO
+       - script: INFO
+       - import: ERROR
        - test: ERROR
 
-   :param execution_mode: Information about execution mode. Valid values are 'production' and 'test'.
+   :param execution_mode: Information about execution mode. Valid values are 'script', 'import' and 'test'.
    :type execution_mode: str
    :return: Created logger called 'execution-logger'.
    :rtype: logging.Logger

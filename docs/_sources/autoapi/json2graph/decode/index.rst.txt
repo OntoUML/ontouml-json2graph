@@ -5,22 +5,8 @@
 
 .. autoapi-nested-parse::
 
-   It provides a convenient interface for converting OntoUML JSON files into knowledge graphs,
-   with the flexibility to customize the output and control the execution mode for different use cases.
-
-   Usage:
-   1. Standalone Execution:
-       When this module is executed as a standalone script:
-       - The user can provide arguments via the command line to control the conversion process.
-       - The `ontouml_json2graph` function is called with the provided arguments for the transformation.
-
-   2. Library Usage:
-       This module can be used as a library by importing and calling the `ontouml_json2graph` function directly
-       with appropriate parameters.
-
-   Note:
-   - Ensure that the required OntoUML JSON file is available before executing the transformation.
-
+   Main function used as script to convert OntoUML JSON files into knowledge graphs, with the flexibility to
+   customize the output and control the execution mode for different use cases.
 
 
 
@@ -33,11 +19,20 @@ Functions
 
 .. autoapisummary::
 
-   json2graph.decode.ontouml_json2graph
+   json2graph.decode.decode_ontouml_json2graph
+   json2graph.decode.write_graph_file
 
 
 
-.. py:function:: ontouml_json2graph(json_path, base_uri = 'https://example.org#', graph_format = 'ttl', language = '', model_only = False, silent = True, correct = False, execution_mode = 'import')
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   json2graph.decode.decoded_graph
+
+
+.. py:function:: decode_ontouml_json2graph(json_path, base_uri = 'https://example.org#', graph_format = 'ttl', language = '', model_only = False, silent = True, correct = False, execution_mode = 'import')
 
    Main function for converting OntoUML JSON data to a Knowledge Graph.
 
@@ -63,7 +58,27 @@ Functions
    :param execution_mode: Information about the execution mode.
    Valid values are 'import' (default), 'script', and 'test'. (Optional)
    :type execution_mode: str
-   :return: Saved output file path. Used for testing.
+
+   :return: JSON data decoded into a RDFLib's Graph that is compliant with the OntoUML Vocabulary.
+   :rtype: Graph
+
+
+.. py:function:: write_graph_file(ontouml_graph, json_path, graph_format)
+
+   Saves the ontology graph into a file with syntax defined by the user.
+   The file is saved inside the 'results' directory also created by this function.
+
+   :param ontouml_graph: Graph compliant with the OntoUML Vocabulary.
+   :type ontouml_graph: Graph
+   :param json_path: Path to the input json file.
+   :type json_path: str
+   :param graph_format: Syntax selected by the user to save the graph.
+   :type graph_format: str
+   :return: Saved output file path.
    :rtype: str
 
+
+.. py:data:: decoded_graph
+
+   
 
