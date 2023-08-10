@@ -19,7 +19,11 @@ Welcome to ontouml-json2graph's documentation!
 .. list-table::
 
     * - Badges
-      - |repo-status| |commits-latest| |published-at| |pypi-project| |pypi-downloads| |language-top| |language-version| |codefactor| |ossf-scorecard| |license|
+      - |zenodo-doi| |repo-status| |commits-latest| |published-at| |pypi-project| |pypi-downloads| |language-top| |language-version| |codefactor| |ossf-scorecard| |license|
+
+.. |zenodo-doi| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.8214977.svg
+	:target: https://doi.org/10.5281/zenodo.8214977
+	:alt: DOI
 
 .. |repo-status| image:: https://www.repostatus.org/badges/latest/active.svg
 	:target: https://www.repostatus.org/#active
