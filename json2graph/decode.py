@@ -40,10 +40,10 @@ def decode_ontouml_json2graph(json_path: str,
     :param json_path: Path to the JSON file to be decoded provided by the user.
     :type json_path: str
     :param base_uri: Base URI to be used for generating URIs for ontology concepts.
-    Default is "https://example.org#". (Optional)
+                     Default is https://example.org#. (Optional)
     :type base_uri: str
     :param graph_format: Format for saving the resulting knowledge graph.
-    Default value is 'ttl' (Turtle syntax). (Optional)
+                         Default value is 'ttl' (Turtle syntax). (Optional)
     :type graph_format: str
     :param language: Language tag to be added to the ontology's concepts. (Optional)
     :type language: str
@@ -54,7 +54,7 @@ def decode_ontouml_json2graph(json_path: str,
     :param correct: If True, attempts to correct potential errors during the conversion process. (Optional)
     :type correct: bool
     :param execution_mode: Information about the execution mode.
-    Valid values are 'import' (default), 'script', and 'test'. (Optional)
+                           Valid values are 'import' (default), 'script', and 'test'. (Optional)
     :type execution_mode: str
 
     :return: JSON data decoded into a RDFLib's Graph that is compliant with the OntoUML Vocabulary.
@@ -124,6 +124,7 @@ def write_graph_file(ontouml_graph: Graph, json_path: str, graph_format: str) ->
     :type json_path: str
     :param graph_format: Syntax selected by the user to save the graph.
     :type graph_format: str
+
     :return: Saved output file path.
     :rtype: str
     """

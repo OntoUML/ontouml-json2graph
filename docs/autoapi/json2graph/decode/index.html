@@ -126,53 +126,23 @@ and converts it into a knowledge graph following the specified options.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>json_path</strong> (<em>str</em>) – Path to the JSON file to be decoded provided by the user.</p></li>
-<li><p><strong>base_uri</strong> (<em>str</em>) – Base URI to be used for generating URIs for ontology concepts.</p></li>
-<li><p><strong>graph_format</strong> (<em>str</em>) – </p></li>
-<li><p><strong>language</strong> (<em>str</em>) – </p></li>
-<li><p><strong>model_only</strong> (<em>bool</em>) – </p></li>
-<li><p><strong>silent</strong> (<em>bool</em>) – </p></li>
-<li><p><strong>correct</strong> (<em>bool</em>) – </p></li>
-<li><p><strong>execution_mode</strong> (<em>str</em>) – </p></li>
+<li><p><strong>base_uri</strong> (<em>str</em>) – Base URI to be used for generating URIs for ontology concepts.
+Default is <a class="reference external" href="https://example">https://example</a>.org#. (Optional)</p></li>
+<li><p><strong>graph_format</strong> (<em>str</em>) – Format for saving the resulting knowledge graph.
+Default value is ‘ttl’ (Turtle syntax). (Optional)</p></li>
+<li><p><strong>language</strong> (<em>str</em>) – Language tag to be added to the ontology’s concepts. (Optional)</p></li>
+<li><p><strong>model_only</strong> (<em>bool</em>) – If True, only the OntoUML model will be extracted without diagrammatic information. (Optional)</p></li>
+<li><p><strong>silent</strong> (<em>bool</em>) – If True, suppresses intermediate communications and log messages during execution. (Optional)</p></li>
+<li><p><strong>correct</strong> (<em>bool</em>) – If True, attempts to correct potential errors during the conversion process. (Optional)</p></li>
+<li><p><strong>execution_mode</strong> (<em>str</em>) – Information about the execution mode.
+Valid values are ‘import’ (default), ‘script’, and ‘test’. (Optional)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>rdflib.Graph</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>JSON data decoded into a RDFLib’s Graph that is compliant with the OntoUML Vocabulary.</p>
 </dd>
-</dl>
-<p>Default is “<a class="reference external" href="https://example">https://example</a>.org#”. (Optional)
-:type base_uri: str
-:param graph_format: Format for saving the resulting knowledge graph.
-Default value is ‘ttl’ (Turtle syntax). (Optional)
-:type graph_format: str
-:param language: Language tag to be added to the ontology’s concepts. (Optional)
-:type language: str
-:param model_only: If True, only the OntoUML model will be extracted without diagrammatic information. (Optional)
-:type model_only: bool
-:param silent: If True, suppresses intermediate communications and log messages during execution. (Optional)
-:type silent: bool
-:param correct: If True, attempts to correct potential errors during the conversion process. (Optional)
-:type correct: bool
-:param execution_mode: Information about the execution mode.
-Valid values are ‘import’ (default), ‘script’, and ‘test’. (Optional)
-:type execution_mode: str</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>JSON data decoded into a RDFLib’s Graph that is compliant with the OntoUML Vocabulary.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>Graph</p>
-</dd>
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>json_path</strong> (<em>str</em>) – </p></li>
-<li><p><strong>base_uri</strong> (<em>str</em>) – </p></li>
-<li><p><strong>graph_format</strong> (<em>str</em>) – </p></li>
-<li><p><strong>language</strong> (<em>str</em>) – </p></li>
-<li><p><strong>model_only</strong> (<em>bool</em>) – </p></li>
-<li><p><strong>silent</strong> (<em>bool</em>) – </p></li>
-<li><p><strong>correct</strong> (<em>bool</em>) – </p></li>
-<li><p><strong>execution_mode</strong> (<em>str</em>) – </p></li>
-</ul>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Graph</p>
 </dd>
 </dl>
 </dd></dl>
