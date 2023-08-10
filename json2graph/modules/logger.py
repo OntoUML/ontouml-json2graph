@@ -1,4 +1,6 @@
-""" Logging configurations. """
+""" This module provides functions for configuring a logger that outputs messages to both the console and a log file.
+The logger can be customized based on different execution modes, allowing you to control the log level.
+"""
 
 import logging
 import os
@@ -6,9 +8,9 @@ from datetime import datetime
 
 
 def logger_get_date_time() -> str:
-    """ Return a string in a specified format with date and time. Format example: 2022.10.23-14.43
+    """ Return a string in a specified format with date and time.
 
-    :return: Formatted date and time.
+    :return: Formatted date and time. Format example: 2022.10.23-14.43
     :rtype: str
     """
 
@@ -52,7 +54,7 @@ def initialize_logger(execution_mode: str = "script") -> logging.Logger:
         # IMPORTANT: do not substitute for own error function because of circular dependency.
         base_path = os.getcwd()
         base_folder = "logs"
-        log_directory = os.path.join(base_path,base_folder)
+        log_directory = os.path.join(base_path, base_folder)
 
         try:
             if not os.path.exists(log_directory):
@@ -62,7 +64,7 @@ def initialize_logger(execution_mode: str = "script") -> logging.Logger:
             raise OSError(error)
 
         # Creating FILE handler
-        file_handler = logging.FileHandler(f"{log_directory}"+os.path.sep+f"{logger_get_date_time()}.log")
+        file_handler = logging.FileHandler(f"{log_directory}" + os.path.sep + f"{logger_get_date_time()}.log")
         file_handler.setLevel(logging.DEBUG)
 
         # Create formatters and add it to handlers
