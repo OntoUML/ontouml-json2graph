@@ -13,12 +13,25 @@ authors:
     email: p.p.favatobarcelos@utwente.nl
     affiliation: University of Twente
     orcid: 'https://orcid.org/0000-0003-2736-7817'
+  - alias: SCS
+    name: 'Semantics, Cybersecurity & Services'
+    website: 'https://www.utwente.nl/en/eemcs/scs/'
+    city: Enschede
+    country: NL
+    post-code: 7522 NB
+    email: info@utwente.nl
+    tel: 0031 53 489 9111
+    address: Drienerlolaan 5
 identifiers:
   - type: url
     value: 'https://www.w3id.org/ontouml/json2graph'
     description: Git repository URI
+  - type: doi
+    value: 10.5281/zenodo.8214977
+    description: Project's Zenodo DOI
 repository-code: 'https://www.w3id.org/ontouml/json2graph'
 url: 'https://www.w3id.org/ontouml/json2graph/docs'
+repository-artifact: 'https://pypi.org/project/ontouml-json2graph/'
 abstract: >-
   The OntoUML JSON2Graph (ontouml-json2graph) decodes a JSON
   file that complies with the ontouml-schema (e.g., the ones
