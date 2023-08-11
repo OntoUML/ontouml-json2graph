@@ -8,10 +8,11 @@ default values (when executed as test or as a library).
 """
 
 import argparse
+import inspect
 
 import validators
 
-from .errors import report_error_requirement_not_met
+from .errors import report_error_requirement_not_met, report_error_invalid_parameter
 from .globals import METADATA
 from .logger import initialize_logger
 
@@ -105,17 +106,17 @@ def initialize_arguments(json_path: str = "not_initialized",
 
     The valid execution modes are:
     - 'script': If used as a script, use user's arguments parsed from the command line.
-    - 'package': When imported into external code, working as a library package.
+    - 'import': When imported into external code, working as a library.
     - 'test': Used for testing.
 
 
     :param json_path: Path to the JSON file to be decoded provided by the user. (Optional)
     :type json_path: str
-    :param base_uri: Base URI to be used for generating URIs for ontology concepts.
-    Default is "https://example.org#". (Optional)
+    :param base_uri: Base URI to be used for generating URIs for ontology concepts. (Optional)
+                     Default is "https://example.org#".
     :type base_uri: str
-    :param graph_format: Format for saving the resulting knowledge graph.
-    Default value is 'ttl' (Turtle syntax). (Optional)
+    :param graph_format: Format for saving the resulting knowledge graph. (Optional)
+                         Default value is 'ttl' (Turtle syntax).
     :type graph_format: str
     :param language: Language tag to be added to the ontology's concepts. (Optional)
     :type language: str
@@ -125,10 +126,15 @@ def initialize_arguments(json_path: str = "not_initialized",
     :type silent: bool
     :param correct: If True, attempts to correct potential errors during the conversion process. (Optional)
     :type correct: bool
-    :param execution_mode: Information about the execution mode.
-    Valid values are 'import' (default), 'script', and 'test'. (Optional)
+    :param execution_mode: Information about the execution mode. (Optional)
+                           Valid values are 'import' (default), 'script', and 'test'.
     :type execution_mode: str
     """
+
+    valid_execution_modes = ["script", "import", "test"]
+    if execution_mode not in valid_execution_modes:
+        current_function = inspect.stack()[0][3]
+        report_error_invalid_parameter(execution_mode, valid_execution_modes, current_function)
 
     global ARGUMENTS
 
