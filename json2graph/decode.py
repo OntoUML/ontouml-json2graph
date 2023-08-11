@@ -5,6 +5,7 @@ customize the output and control the execution mode for different use cases.
 import os
 import time
 from pathlib import Path
+
 from rdflib import RDF, Graph
 
 try:
