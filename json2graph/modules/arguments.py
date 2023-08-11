@@ -15,6 +15,7 @@ import validators
 from .errors import report_error_requirement_not_met, report_error_invalid_parameter
 from .globals import METADATA
 from .logger import initialize_logger
+from .utils_validations import validate_execution_mode
 
 ARGUMENTS = {}
 
@@ -131,10 +132,7 @@ def initialize_arguments(json_path: str = "not_initialized",
     :type execution_mode: str
     """
 
-    valid_execution_modes = ["script", "import", "test"]
-    if execution_mode not in valid_execution_modes:
-        current_function = inspect.stack()[0][3]
-        report_error_invalid_parameter(execution_mode, valid_execution_modes, current_function)
+    validate_execution_mode(execution_mode)
 
     global ARGUMENTS
 
