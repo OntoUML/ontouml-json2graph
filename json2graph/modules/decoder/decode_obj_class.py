@@ -55,12 +55,12 @@ def validate_class_attribute_constraints(class_dict: dict) -> None:
             print_decode_log_message(class_dict, "VCA2", "isPowertype", "type")
             class_dict["stereotype"] = "type"
 
-    # VCA3a: Class has stereotype different than 'collective' and isExtensional not null. Remove isExtensional.
+    # VCA3a: Class has stereotype different from 'collective' and isExtensional not null. Remove isExtensional.
     elif (class_stereotype != "collective") and ("isExtensional" in class_dict):
         print_decode_log_message(class_dict, "VCA3a", "isExtensional", "collective")
         class_dict.pop("isExtensional")
 
-    # VCA3b: Class has stereotype different than 'type' and isPowertype 'True'. Set isPowertype as 'False'.
+    # VCA3b: Class has stereotype different from 'type' and isPowertype 'True'. Set isPowertype as 'False'.
     elif (class_stereotype != "type") and ("isPowertype" in class_dict):
         if class_dict["isPowertype"]:
             print_decode_log_message(class_dict, "VCA3b", "isPowertype", "type")
