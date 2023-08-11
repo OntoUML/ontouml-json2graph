@@ -5,7 +5,6 @@ customize the output and control the execution mode for different use cases.
 import os
 import time
 from pathlib import Path
-
 from rdflib import RDF, Graph
 
 try:
@@ -15,6 +14,7 @@ try:
     from .modules.input_output import safe_load_json_file, create_directory_if_not_exists, safe_write_graph_file
     from .modules.logger import initialize_logger
     from .modules.utils_general import get_date_time
+    from .modules.utils_validations import validate_execution_mode
 except ImportError:
     from modules import arguments as args
     from modules.decoder.decode_main import decode_json_to_graph
@@ -22,6 +22,7 @@ except ImportError:
     from modules.input_output import safe_load_json_file, create_directory_if_not_exists, safe_write_graph_file
     from modules.logger import initialize_logger
     from modules.utils_general import get_date_time
+    from modules.utils_validations import validate_execution_mode
 
 
 def decode_ontouml_json2graph(json_path: str,
@@ -64,6 +65,8 @@ def decode_ontouml_json2graph(json_path: str,
     logger = initialize_logger(execution_mode)
 
     model_elements = ["Class", "Property", "Generalization", "GeneralizationSet", "Relation", "Cardinality"]
+
+    validate_execution_mode(execution_mode)
 
     if execution_mode != "script":
         args.initialize_arguments(json_path, base_uri, graph_format, language, model_only, silent, correct,

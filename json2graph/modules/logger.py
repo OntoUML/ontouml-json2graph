@@ -6,6 +6,8 @@ import logging
 import os
 from datetime import datetime
 
+from json2graph.modules.utils_validations import validate_execution_mode
+
 
 def logger_get_date_time() -> str:
     """ Return a string in a specified format with date and time.
