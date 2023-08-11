@@ -8,11 +8,10 @@ default values (when executed as test or as a library).
 """
 
 import argparse
-import inspect
 
 import validators
 
-from .errors import report_error_requirement_not_met, report_error_invalid_parameter
+from .errors import report_error_requirement_not_met
 from .globals import METADATA
 from .logger import initialize_logger
 from .utils_validations import validate_execution_mode
