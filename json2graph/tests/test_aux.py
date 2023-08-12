@@ -21,10 +21,10 @@ def get_test_list() -> list[str]:
     # Gets test files' directory
     this_file_dir = os.path.abspath(__file__)
     tests_dir = os.path.dirname(this_file_dir)
-    test_files_dir = os.path.join(tests_dir, "test_files/")
+    test_files_dir = os.path.join(tests_dir, "test_files")
 
     # Gets test files from directory
-    list_test_files = glob.glob(test_files_dir + '*.json')
+    list_test_files = glob.glob(test_files_dir + os.path.sep + '*.json')
     list_test_files.sort()
 
     return list_test_files
