@@ -22,7 +22,7 @@ conformsToVersion = "v1.1.0"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-validators = ">=0.20,<0.22"
+validators = "^0.21.2"
 rdflib = "^7.0.0"
 pyyaml = "^6.0.1"
 
