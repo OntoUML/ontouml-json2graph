@@ -8,13 +8,14 @@ default values (when executed as test or as a library).
 """
 
 import argparse
+import os
 
 import validators
 
 from .errors import report_error_requirement_not_met
 from .globals import METADATA
 from .logger import initialize_logger
-from .utils_validations import validate_execution_mode
+from .utils_validations import validate_execution_mode, validate_arg_input
 
 ARGUMENTS = {}
 
@@ -24,7 +25,7 @@ LOGGER = initialize_logger()
 def treat_user_arguments() -> dict:
     """ This function parses the command-line arguments provided by the user and performs necessary validations.
 
-    :return: Dictionary with json path (key 'json_path') and final file format (key 'format').
+    :return: Dictionary with json path (key 'input_path') and final file format (key 'format').
     :rtype: dict
     """
 
@@ -44,22 +45,25 @@ def treat_user_arguments() -> dict:
 
     args_parser.version = about_message
 
-    # POSITIONAL ARGUMENT
-    args_parser.add_argument("json_path", type=str, action="store",
-                             help="The path of the JSON file to be encoded.")
-
     # OPTIONAL ARGUMENT
-    args_parser.add_argument("-f", "--format", action="store", choices=allowed_graph_formats, default="ttl",
+    args_parser.add_argument("-i", "--input_path", type=str, action="store", required=True,
+                             help="The path of the JSON file or directory with JSON files to be decoded.")
+    args_parser.add_argument("-o", "--output_path", type=str, action="store", default=os.getcwd(),
+                             help="The path of the JSON file or directory with JSON files to be decoded.")
+
+    args_parser.add_argument("-a", "--decode_all", action="store_true", default=False,
+                             help="Converts all JSON files in the informed path.")
+    args_parser.add_argument("-f", "--format", type=str, action="store", choices=allowed_graph_formats, default="ttl",
                              help="Format to save the decoded file. Default is 'ttl'.")
-    args_parser.add_argument("-l", "--language", action="store", type=str, default="",
+    args_parser.add_argument("-l", "--language", type=str, action="store", default="",
                              help="Language tag for the ontology's concepts. Default is 'None'.")
-    args_parser.add_argument("-c", "--correct", action="store_true",
+    args_parser.add_argument("-c", "--correct", action="store_true", default=False,
                              help="Enables syntactical and semantic validations and corrections.")
-    args_parser.add_argument("-s", "--silent", action="store_true",
+    args_parser.add_argument("-s", "--silent", action="store_true", default=False,
                              help="Silent mode. Does not present validation warnings and errors.")
-    args_parser.add_argument("-u", "--base_uri", action="store", type=str, default="https://example.org#",
+    args_parser.add_argument("-u", "--base_uri", type=str, action="store", default="https://example.org#",
                              help="Base URI of the resulting graph. Default is 'https://example.org#'.")
-    args_parser.add_argument("-m", "--model_only", action="store_true",
+    args_parser.add_argument("-m", "--model_only", action="store_true", default=False,
                              help="Keep only model elements, eliminating all diagrammatic data from output.")
 
     # AUTOMATIC ARGUMENTS
@@ -69,17 +73,21 @@ def treat_user_arguments() -> dict:
     arguments = args_parser.parse_args()
 
     # Asserting dictionary keys
-    arguments_dictionary = {"format": arguments.format,
+    arguments_dictionary = {"decode_all": arguments.decode_all,
+                            "format": arguments.format,
                             "language": arguments.language,
                             "correct": arguments.correct,
                             "silent": arguments.silent,
-                            "json_path": arguments.json_path,
+                            "input_path": arguments.input_path,
                             "base_uri": arguments.base_uri,
                             "model_only": arguments.model_only}
 
-    # Checking if provided input file type is valid
-    if ".json" not in arguments.json_path:
-        report_error_requirement_not_met("Provided input file must be of JSON type. Execution finished.")
+    # Converting from relative path to absolute path
+    arguments.input_path = os.path.abspath(arguments.input_path)
+    arguments.output_path = os.path.abspath(arguments.output_path)
+
+    # Input and output validations
+    validate_arg_input(arguments.input_path, arguments.decode_all)
 
     # Checking if provided URI is valid. I.e., if it has '/' or '#' at the end. If it does not, add a '#'
     if not validators.url(arguments.base_uri):
@@ -87,12 +95,12 @@ def treat_user_arguments() -> dict:
     elif (arguments.base_uri[-1] != '#') and (arguments.base_uri[-1] != '/'):
         arguments_dictionary["base_uri"] += '#'
 
-    LOGGER.debug(f"Arguments parsed. Obtained values are: {arguments_dictionary}.")
+    LOGGER.info(f"Arguments parsed. Obtained values are: {arguments_dictionary}.")
 
     return arguments_dictionary
 
 
-def initialize_arguments(json_path: str = "not_initialized",
+def initialize_arguments(input_path: str = "not_initialized",
                          base_uri: str = "https://example.org#",
                          graph_format: str = "ttl",
                          language: str = "",
@@ -110,8 +118,11 @@ def initialize_arguments(json_path: str = "not_initialized",
     - 'test': Used for testing.
 
 
-    :param json_path: Path to the JSON file to be decoded provided by the user. (Optional)
-    :type json_path: str
+    :param input_path: Path to the JSON file to be decoded provided by the user. (Optional)
+    :type input_path: str
+    :param decode_all: Informs if user wants to convert all json files in the input_path performing the decode
+                        function multiple times. (Optional)
+    :type decode_all: bool
     :param base_uri: Base URI to be used for generating URIs for ontology concepts. (Optional)
                      Default is "https://example.org#".
     :type base_uri: str
@@ -139,9 +150,10 @@ def initialize_arguments(json_path: str = "not_initialized",
         ARGUMENTS = treat_user_arguments()
     else:
         ARGUMENTS["base_uri"] = base_uri
+        ARGUMENTS["decode_all"] = False
         ARGUMENTS["correct"] = correct
         ARGUMENTS["format"] = graph_format
-        ARGUMENTS["json_path"] = json_path
+        ARGUMENTS["input_path"] = input_path
         ARGUMENTS["language"] = language
         ARGUMENTS["model_only"] = model_only
         ARGUMENTS["silent"] = silent
