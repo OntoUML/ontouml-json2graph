@@ -11,9 +11,9 @@ OntoUML graphs to files in their desired syntax.
 
 from rdflib import Graph
 
-from json2graph.decode import decode_ontouml_json2graph
-from json2graph.modules.errors import report_error_requirement_not_met
-from json2graph.modules.input_output import safe_write_graph_file
+from decode import decode_ontouml_json2graph
+from modules.errors import report_error_requirement_not_met
+from modules.input_output import safe_write_graph_file
 
 
 def decode_json_project(json_file_path: str,
