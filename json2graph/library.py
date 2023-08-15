@@ -16,7 +16,7 @@ from json2graph.modules.errors import report_error_requirement_not_met
 from json2graph.modules.input_output import safe_write_graph_file
 
 
-def decode_json_project(json_path: str,
+def decode_json_project(json_file_path: str,
                         base_uri: str = "https://example.org#",
                         language: str = "",
                         correct: bool = False) -> Graph:
@@ -27,8 +27,8 @@ def decode_json_project(json_path: str,
     that adheres to the OntoUML Vocabulary. It provides customization options for URI generation, language tags,
     error correction, and returns the resulting knowledge graph.
 
-    :param json_path: Path to the JSON file to be decoded provided by the user.
-    :type json_path: str
+    :param json_file_path: Path to the JSON file to be decoded provided by the user.
+    :type json_file_path: str
     :param base_uri: Base URI to be used for generating URIs for ontology concepts.
                      Default is "https://example.org#". (Optional)
     :type base_uri: str
@@ -41,14 +41,15 @@ def decode_json_project(json_path: str,
     :return: JSON data decoded into a RDFLib's Graph that is compliant with the OntoUML Vocabulary.
     :rtype: Graph
     """
-    decoded_graph_project = decode_ontouml_json2graph(json_path=json_path, base_uri=base_uri, language=language,
+    decoded_graph_project = decode_ontouml_json2graph(json_file_path=json_file_path, base_uri=base_uri,
+                                                      language=language,
                                                       model_only=True, silent=True, correct=correct,
                                                       execution_mode="import")
 
     return decoded_graph_project
 
 
-def decode_json_model(json_path: str,
+def decode_json_model(json_file_path: str,
                       base_uri: str = "https://example.org#",
                       language: str = "",
                       correct: bool = False) -> Graph:
@@ -59,8 +60,8 @@ def decode_json_model(json_path: str,
     that adheres to the OntoUML Vocabulary. It provides customization options for URI generation, language tags,
     error correction, and returns the resulting knowledge graph.
 
-    :param json_path: Path to the JSON file to be decoded provided by the user.
-    :type json_path: str
+    :param json_file_path: Path to the JSON file to be decoded provided by the user.
+    :type json_file_path: str
     :param base_uri: Base URI to be used for generating URIs for ontology concepts.
                      Default is "https://example.org#". (Optional)
     :type base_uri: str
@@ -73,7 +74,7 @@ def decode_json_model(json_path: str,
     :return: JSON data decoded into a RDFLib's Graph that is compliant with the OntoUML Vocabulary.
     :rtype: Graph
     """
-    decoded_graph_model = decode_ontouml_json2graph(json_path=json_path, base_uri=base_uri, language=language,
+    decoded_graph_model = decode_ontouml_json2graph(json_file_path=json_file_path, base_uri=base_uri, language=language,
                                                     model_only=True, silent=True, correct=correct,
                                                     execution_mode="import")
 

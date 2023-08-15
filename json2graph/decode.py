@@ -1,7 +1,7 @@
 """ Main function used as script to convert OntoUML JSON files into knowledge graphs, with the flexibility to
 customize the output and control the execution mode for different use cases.
 """
-
+import glob
 import os
 import time
 from pathlib import Path
@@ -26,9 +26,8 @@ except ImportError:
     from modules.utils_validations import validate_execution_mode
 
 
-def decode_ontouml_json2graph(json_path: str,
+def decode_ontouml_json2graph(json_file_path: str,
                               base_uri: str = "https://example.org#",
-                              graph_format: str = "ttl",
                               language: str = "",
                               model_only: bool = False,
                               silent: bool = True,
@@ -39,14 +38,11 @@ def decode_ontouml_json2graph(json_path: str,
     This function takes the path to a JSON file representing OntoUML model data provided by the user
     and converts it into a knowledge graph following the specified options.
 
-    :param json_path: Path to the JSON file to be decoded provided by the user.
-    :type json_path: str
+    :param json_file_path: Path to the JSON file to be decoded provided by the user.
+    :type json_file_path: str
     :param base_uri: Base URI to be used for generating URIs for ontology concepts.
                      Default is https://example.org#. (Optional)
     :type base_uri: str
-    :param graph_format: Format for saving the resulting knowledge graph.
-                         Default value is 'ttl' (Turtle syntax). (Optional)
-    :type graph_format: str
     :param language: Language tag to be added to the ontology's concepts. (Optional)
     :type language: str
     :param model_only: If True, only the OntoUML model will be extracted without diagrammatic information. (Optional)
@@ -70,7 +66,7 @@ def decode_ontouml_json2graph(json_path: str,
     validate_execution_mode(execution_mode)
 
     if execution_mode != "script":
-        args.initialize_arguments(json_path, base_uri, graph_format, language, model_only, silent, correct,
+        args.initialize_arguments(json_file_path, base_uri, language, model_only, silent, correct,
                                   execution_mode)
 
     if execution_mode == "script" and not args.ARGUMENTS["silent"]:
@@ -81,7 +77,7 @@ def decode_ontouml_json2graph(json_path: str,
 
         logger.info(f"{METADATA['name']} v{METADATA['version']} started on {start_date_time}!")
         logger.debug(f"Selected arguments are: {args.ARGUMENTS}")
-        logger.info(f"Decoding JSON file {json_path} to {(args.ARGUMENTS['format']).upper()} graph format.\n")
+        logger.info(f"Decoding JSON file {json_file_path} to {(args.ARGUMENTS['format']).upper()} graph format.\n")
 
         if not args.ARGUMENTS['language']:
             logger.warning("Ontology's language not informed by the user. "
@@ -91,7 +87,7 @@ def decode_ontouml_json2graph(json_path: str,
                            "The transformation may generate an invalid result.")
 
     # Load JSON
-    json_data = safe_load_json_file(json_path)
+    json_data = safe_load_json_file(json_file_path)
 
     # Decode JSON into Graph
     ontouml_graph = decode_json_to_graph(json_data, language, execution_mode)
@@ -133,6 +129,9 @@ def write_graph_file(ontouml_graph: Graph, json_path: str, graph_format: str) ->
     :rtype: str
     """
 
+    print(f"{json_path = }")
+    print(f"{graph_format = }")
+
     logger = initialize_logger()
 
     # Collecting information for result file name and path
@@ -152,21 +151,41 @@ def write_graph_file(ontouml_graph: Graph, json_path: str, graph_format: str) ->
     if not args.ARGUMENTS["silent"]:
         logger.info(f"Output graph file successfully saved at {output_file_path}.")
 
+    exit(3)
     return output_file_path
+
+
+def decode_all_ontouml_json2graph(json_dir_path: str) -> None:
+    # Getting all
+    list_input_files = glob.glob(os.path.join(json_dir_path, '*.json'))
+
+    for input_file in list_input_files:
+        result_graph = decode_ontouml_json2graph(json_file_path=input_file,
+                                                 base_uri=args.ARGUMENTS["base_uri"],
+                                                 language=args.ARGUMENTS["language"],
+                                                 model_only=args.ARGUMENTS["model_only"],
+                                                 silent=args.ARGUMENTS["silent"],
+                                                 correct=args.ARGUMENTS["correct"],
+                                                 execution_mode="script")
+
+        new_file_name = input_file.replace(".json", "." + args.ARGUMENTS["format"])
+        write_graph_file(result_graph, new_file_name, args.ARGUMENTS["format"])
 
 
 if __name__ == '__main__':
     """Execute OntoUML JSON to Graph Transformation.
 
-    This block of code is executed when the script is run as a standalone application. 
+    This block of code is executed when the script is run as a standalone application (i.e., as a script). 
     It processes user-provided arguments and executes the OntoUML JSON to Graph transformation.
     """
 
     # Treat and publish user's arguments
     args.initialize_arguments(execution_mode="script")
 
-    # Convert JSON to Knowledge Graph
-    decoded_graph = decode_ontouml_json2graph(json_path=args.ARGUMENTS["json_path"], execution_mode="script")
-
-    # Saves knowledge graph
-    write_graph_file(decoded_graph, args.ARGUMENTS["json_path"], args.ARGUMENTS["format"])
+    if args.ARGUMENTS["decode_all"]:
+        decode_all_ontouml_json2graph(args.ARGUMENTS["json_path"])
+    else:
+        # Convert JSON to Knowledge Graph
+        decoded_graph = decode_ontouml_json2graph(json_file_path=args.ARGUMENTS["json_path"], execution_mode="script")
+        # Saves knowledge graph
+        write_graph_file(decoded_graph, args.ARGUMENTS["json_path"], args.ARGUMENTS["format"])

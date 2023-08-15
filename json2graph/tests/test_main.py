@@ -39,7 +39,7 @@ def test_ontouml_json2graph(input_file: str) -> None:
     language = "en" if (int(test_name[-2:]) > 41) else ""
 
     # Create resulting Graph in ttl syntax
-    resulting_graph = decode_ontouml_json2graph(json_path=input_file, language=language, execution_mode="test")
+    resulting_graph = decode_ontouml_json2graph(json_file_path=input_file, language=language, execution_mode="test")
     resulting_graph_file = write_graph_file(resulting_graph, input_file, "ttl")
 
     # Getting expected result

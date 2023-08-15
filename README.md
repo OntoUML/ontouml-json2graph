@@ -114,7 +114,7 @@ The `decode_json_project` function allows you to decode the complete OntoUML JSO
 ```python
 from json2graph.library import decode_json_project
 
-decoded_graph_project = decode_json_project(json_path="path/to/input.json", base_uri="https://myuri.org#",
+decoded_graph_project = decode_json_project(json_file_path="path/to/input.json", base_uri="https://myuri.org#",
                                             language="en", correct=True)
 ```
 
@@ -127,7 +127,8 @@ Differently from the `decode_json_model`, this function decodes only elements fr
 ```python
 from json2graph.library import decode_json_model
 
-decoded_graph_model = decode_json_model(json_path="path/to/input.json", base_uri="https://myuri.org#", language="en",
+decoded_graph_model = decode_json_model(json_file_path="path/to/input.json", base_uri="https://myuri.org#",
+                                        language="en",
                                         correct=True)
 ```
 
