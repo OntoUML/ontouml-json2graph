@@ -77,7 +77,8 @@ def decode_ontouml_json2graph(json_file_path: str,
 
         logger.info(f"{METADATA['name']} v{METADATA['version']} started on {start_date_time}!")
         logger.debug(f"Selected arguments are: {args.ARGUMENTS}")
-        logger.info(f"Decoding JSON file {json_file_path} to {(args.ARGUMENTS['format']).upper()} graph format.\n")
+        logger.info(f"Decoding JSON file {args.ARGUMENTS['input_path']} to {(args.ARGUMENTS['format']).upper()} graph "
+                    f"format.\n")
 
         if not args.ARGUMENTS['language']:
             logger.warning("Ontology's language not informed by the user. "
@@ -114,39 +115,41 @@ def decode_ontouml_json2graph(json_file_path: str,
     return ontouml_graph
 
 
-def write_graph_file(ontouml_graph: Graph, json_path: str, graph_format: str) -> str:
+def write_graph_file(ontouml_graph: Graph, execution_mode: str = "script") -> str:
     """Saves the ontology graph into a file with syntax defined by the user.
     The file is saved inside the 'results' directory also created by this function.
 
     :param ontouml_graph: Graph compliant with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
-    :param json_path: Path to the input json file.
-    :type json_path: str
-    :param graph_format: Syntax selected by the user to save the graph.
-    :type graph_format: str
+    :param execution_mode: Information about the execution mode.
+                           Valid values are 'import' (default), 'script', and 'test'. (Optional)
+    :type execution_mode: str
 
     :return: Saved output file path.
     :rtype: str
     """
 
-    print(f"{json_path = }")
-    print(f"{graph_format = }")
-
     logger = initialize_logger()
+    validate_execution_mode(execution_mode)
 
-    # Collecting information for result file name and path
-    project_directory = os.getcwd()
-    results_directory = "results"
-    loaded_file_name = Path(json_path).stem
+    if execution_mode != "script":
+        # Collecting information for result file name and path
+        project_directory = os.getcwd()
+        results_directory = "results"
+        loaded_file_name = Path(args.ARGUMENTS["input_path"]).stem
 
-    # If directory 'results_directory' not exists, create it
-    create_directory_if_not_exists(results_directory, "results directory")
+        # If directory 'results_directory' not exists, create it
+        create_directory_if_not_exists(results_directory, "results directory")
+
+        base_path = project_directory + os.path.sep + results_directory
+    else:
+        base_path = args.ARGUMENTS["output_path"]
 
     # Setting file complete path
-    output_file_name = loaded_file_name + "." + graph_format
-    output_file_path = project_directory + "\\" + results_directory + "\\" + output_file_name
+    output_file_name = loaded_file_name + "." + args.ARGUMENTS["format"]
+    output_file_path = base_path + os.path.sep + output_file_name
 
-    safe_write_graph_file(ontouml_graph, output_file_path, graph_format)
+    safe_write_graph_file(ontouml_graph, output_file_path, args.ARGUMENTS["format"])
 
     if not args.ARGUMENTS["silent"]:
         logger.info(f"Output graph file successfully saved at {output_file_path}.")
@@ -155,9 +158,9 @@ def write_graph_file(ontouml_graph: Graph, json_path: str, graph_format: str) ->
     return output_file_path
 
 
-def decode_all_ontouml_json2graph(json_dir_path: str) -> None:
+def decode_all_ontouml_json2graph() -> None:
     # Getting all
-    list_input_files = glob.glob(os.path.join(json_dir_path, '*.json'))
+    list_input_files = glob.glob(os.path.join(args.ARGUMENTS["input_path"], '*.json'))
 
     for input_file in list_input_files:
         result_graph = decode_ontouml_json2graph(json_file_path=input_file,
@@ -169,7 +172,7 @@ def decode_all_ontouml_json2graph(json_dir_path: str) -> None:
                                                  execution_mode="script")
 
         new_file_name = input_file.replace(".json", "." + args.ARGUMENTS["format"])
-        write_graph_file(result_graph, new_file_name, args.ARGUMENTS["format"])
+        write_graph_file(result_graph, execution_mode="script")
 
 
 if __name__ == '__main__':
@@ -183,9 +186,9 @@ if __name__ == '__main__':
     args.initialize_arguments(execution_mode="script")
 
     if args.ARGUMENTS["decode_all"]:
-        decode_all_ontouml_json2graph(args.ARGUMENTS["json_path"])
+        decode_all_ontouml_json2graph()
     else:
         # Convert JSON to Knowledge Graph
-        decoded_graph = decode_ontouml_json2graph(json_file_path=args.ARGUMENTS["json_path"], execution_mode="script")
+        decoded_graph = decode_ontouml_json2graph(json_file_path=args.ARGUMENTS["input_path"], execution_mode="script")
         # Saves knowledge graph
-        write_graph_file(decoded_graph, args.ARGUMENTS["json_path"], args.ARGUMENTS["format"])
+        write_graph_file(decoded_graph, execution_mode="script")

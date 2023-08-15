@@ -15,14 +15,14 @@ import validators
 from .errors import report_error_requirement_not_met
 from .globals import METADATA
 from .logger import initialize_logger
-from .utils_validations import validate_execution_mode, validate_arg_input
+from .utils_validations import validate_arg_input
 
 ARGUMENTS = {}
 
 LOGGER = initialize_logger()
 
 
-def treat_user_arguments() -> dict:
+def initialize_args_script() -> dict:
     """ This function parses the command-line arguments provided by the user and performs necessary validations.
 
     :return: Dictionary with json path (key 'input_path') and final file format (key 'format').
@@ -49,7 +49,7 @@ def treat_user_arguments() -> dict:
     args_parser.add_argument("-i", "--input_path", type=str, action="store", required=True,
                              help="The path of the JSON file or directory with JSON files to be decoded.")
     args_parser.add_argument("-o", "--output_path", type=str, action="store", default=os.getcwd(),
-                             help="The path of the JSON file or directory with JSON files to be decoded.")
+                             help="The path of the directory in which the resulting decoded file(s) will be saved.")
 
     args_parser.add_argument("-a", "--decode_all", action="store_true", default=False,
                              help="Converts all JSON files in the informed path.")
@@ -73,21 +73,24 @@ def treat_user_arguments() -> dict:
     arguments = args_parser.parse_args()
 
     # Asserting dictionary keys
-    arguments_dictionary = {"decode_all": arguments.decode_all,
-                            "format": arguments.format,
-                            "language": arguments.language,
-                            "correct": arguments.correct,
-                            "silent": arguments.silent,
-                            "input_path": arguments.input_path,
-                            "base_uri": arguments.base_uri,
-                            "model_only": arguments.model_only}
+    arguments_dictionary = {
+        "base_uri": arguments.base_uri,
+        "correct": arguments.correct,
+        "decode_all": arguments.decode_all,
+        "format": arguments.format,
+        "input_path": os.path.abspath(arguments.input_path),
+        "language": arguments.language,
+        "model_only": arguments.model_only,
+        "output_path": os.path.abspath(arguments.output_path),
+        "silent": arguments.silent,
+    }
 
-    # Converting from relative path to absolute path
-    arguments.input_path = os.path.abspath(arguments.input_path)
-    arguments.output_path = os.path.abspath(arguments.output_path)
-
-    # Input and output validations
+    # Input validation
     validate_arg_input(arguments.input_path, arguments.decode_all)
+
+    # Output validation
+    if not os.path.isdir(arguments.output_path):
+        report_error_requirement_not_met("Provided output path is not a directory. Execution finished.")
 
     # Checking if provided URI is valid. I.e., if it has '/' or '#' at the end. If it does not, add a '#'
     if not validators.url(arguments.base_uri):
@@ -95,31 +98,63 @@ def treat_user_arguments() -> dict:
     elif (arguments.base_uri[-1] != '#') and (arguments.base_uri[-1] != '/'):
         arguments_dictionary["base_uri"] += '#'
 
-    LOGGER.info(f"Arguments parsed. Obtained values are: {arguments_dictionary}.")
+    LOGGER.debug(f"Arguments parsed. Obtained values are: {arguments_dictionary}.")
 
     return arguments_dictionary
 
 
-def initialize_arguments(input_path: str = "not_initialized",
-                         base_uri: str = "https://example.org#",
-                         graph_format: str = "ttl",
-                         language: str = "",
-                         model_only: bool = False,
-                         silent: bool = True,
-                         correct: bool = False,
-                         execution_mode: str = "import"):
+def initialize_args_import(input_path: str = "not_initialized",
+                           output_path: str = os.getcwd(),
+                           base_uri: str = "https://example.org#",
+                           graph_format: str = "ttl",
+                           language: str = "",
+                           model_only: bool = False,
+                           silent: bool = True,
+                           correct: bool = False):
     """ This function initializes the global variable ARGUMENTS of type dictionary, which contains user-provided
     (when executed in script mode) or default arguments (when executed as a library or for testing).
     The ARGUMENTS variable must be initialized in every possible execution mode.
 
-    The valid execution modes are:
-    - 'script': If used as a script, use user's arguments parsed from the command line.
-    - 'import': When imported into external code, working as a library.
-    - 'test': Used for testing.
-
-
-    :param input_path: Path to the JSON file to be decoded provided by the user. (Optional)
+    :param input_path: Path to the directory or JSON file to be decoded. (Optional)
     :type input_path: str
+    :param output_path: Path to the directory in which the result file(s) will be saved. (Optional)
+    :type output_path: str
+    :param base_uri: Base URI to be used for generating URIs for ontology concepts. (Optional)
+                     Default is "https://example.org#".
+    :type base_uri: str
+    :param graph_format: Format for saving the resulting knowledge graph. (Optional)
+                         Default value is 'ttl' (Turtle syntax).
+    :type graph_format: str
+    :param language: Language tag to be added to the ontology's concepts. (Optional)
+    :type language: str
+    :param model_only: If True, only the OntoUML model will be extracted without diagrammatic information. (Optional)
+    :type model_only: bool
+    :param silent: If True, suppresses intermediate communications and log messages during execution. (Optional)
+    :type silent: bool
+    :param correct: If True, attempts to correct potential errors during the conversion process. (Optional)
+    :type correct: bool
+    """
+
+    ARGUMENTS["base_uri"] = base_uri
+    ARGUMENTS["correct"] = correct
+    ARGUMENTS["format"] = graph_format
+    ARGUMENTS["input_path"] = input_path
+    ARGUMENTS["language"] = language
+    ARGUMENTS["model_only"] = model_only
+    ARGUMENTS["output_path"] = output_path
+    ARGUMENTS["silent"] = silent
+
+
+def initialize_args_test(input_path: str = "not_initialized",
+                         language: str = ""):
+    """ This function initializes the global variable ARGUMENTS of type dictionary, which contains user-provided
+    (when executed in script mode) or default arguments (when executed as a library or for testing).
+    The ARGUMENTS variable must be initialized in every possible execution mode.
+
+    :param input_path: Path to the directory or JSON file to be decoded. (Optional)
+    :type input_path: str
+    :param output_path: Path to the directory in which the result file(s) will be saved. (Optional)
+    :type output_path: str
     :param decode_all: Informs if user wants to convert all json files in the input_path performing the decode
                         function multiple times. (Optional)
     :type decode_all: bool
@@ -137,26 +172,12 @@ def initialize_arguments(input_path: str = "not_initialized",
     :type silent: bool
     :param correct: If True, attempts to correct potential errors during the conversion process. (Optional)
     :type correct: bool
-    :param execution_mode: Information about the execution mode. (Optional)
-                           Valid values are 'import' (default), 'script', and 'test'.
-    :type execution_mode: str
     """
-
-    validate_execution_mode(execution_mode)
-
-    global ARGUMENTS
-
-    if execution_mode == "script":
-        ARGUMENTS = treat_user_arguments()
-    else:
-        ARGUMENTS["base_uri"] = base_uri
-        ARGUMENTS["decode_all"] = False
-        ARGUMENTS["correct"] = correct
-        ARGUMENTS["format"] = graph_format
-        ARGUMENTS["input_path"] = input_path
-        ARGUMENTS["language"] = language
-        ARGUMENTS["model_only"] = model_only
-        ARGUMENTS["silent"] = silent
-
-    if execution_mode == "test":
-        ARGUMENTS["correct"] = True
+    ARGUMENTS["base_uri"] = "https://example.org#"
+    ARGUMENTS["correct"] = True
+    ARGUMENTS["format"] = "ttl"
+    ARGUMENTS["input_path"] = input_path
+    ARGUMENTS["language"] = language
+    ARGUMENTS["model_only"] = False
+    ARGUMENTS["output_path"] = "tests" + os.path.sep + "results"
+    ARGUMENTS["silent"] = True
