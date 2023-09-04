@@ -114,7 +114,7 @@ def decode_ontouml_json2graph(json_file_path: str, base_uri: str = "https://exam
 
 
 def write_graph_file(ontouml_graph: Graph, execution_mode: str = "script") -> str:
-    """Saves the ontology graph into a file with syntax defined by the user.
+    """ Saves the ontology graph into a file with syntax defined by the user.
     The file is saved inside the 'results' directory also created by this function.
 
     :param ontouml_graph: Graph compliant with the OntoUML Vocabulary.
@@ -128,7 +128,6 @@ def write_graph_file(ontouml_graph: Graph, execution_mode: str = "script") -> st
     """
 
     logger = initialize_logger()
-    validate_execution_mode(execution_mode)
 
     if execution_mode != "script":
         # Collecting information for result file name and path
@@ -152,11 +151,16 @@ def write_graph_file(ontouml_graph: Graph, execution_mode: str = "script") -> st
     if not args.ARGUMENTS["silent"]:
         logger.info(f"Output graph file successfully saved at {output_file_path}.")
 
-    exit(3)
     return output_file_path
 
 
 def decode_all_ontouml_json2graph() -> None:
+    """ Decode multiple OntoUML JSON files.
+
+    This function processes a directory of OntoUML JSON files and converts each file into a corresponding
+    knowledge graph using the specified options. The output graphs are saved in the 'results' directory.
+    """
+
     # Getting all
     list_input_files = glob.glob(os.path.join(args.ARGUMENTS["input_path"], '*.json'))
 
@@ -180,8 +184,8 @@ if __name__ == '__main__':
 
     # Treat and publish user's arguments
     args.initialize_args_script()
-    print("is here")
     print(f"{args.ARGUMENTS = }")
+    exit(3)
 
     if args.ARGUMENTS["decode_all"]:
         decode_all_ontouml_json2graph()

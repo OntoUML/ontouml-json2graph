@@ -133,6 +133,8 @@ def initialize_args_import(input_path: str = "not_initialized",
     :type correct: bool
     """
 
+    global ARGUMENTS
+
     ARGUMENTS["base_uri"] = base_uri
     ARGUMENTS["correct"] = correct
     ARGUMENTS["format"] = graph_format
@@ -171,6 +173,9 @@ def initialize_args_test(input_path: str = "not_initialized",
     :param correct: If True, attempts to correct potential errors during the conversion process. (Optional)
     :type correct: bool
     """
+
+    global ARGUMENTS
+
     ARGUMENTS["base_uri"] = "https://example.org#"
     ARGUMENTS["correct"] = True
     ARGUMENTS["format"] = "ttl"
