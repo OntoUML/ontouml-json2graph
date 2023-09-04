@@ -14,6 +14,7 @@ import validators
 
 from .errors import report_error_requirement_not_met
 from .globals import METADATA
+from .input_output import create_directory_if_not_exists
 from .logger import initialize_logger
 from .utils_validations import validate_arg_input
 
@@ -86,8 +87,11 @@ def initialize_args_script()->None:
     validate_arg_input(arguments.input_path, arguments.decode_all)
 
     # Output validation
-    if not os.path.isdir(arguments.output_path):
+    if os.path.isfile(arguments.output_path):
         report_error_requirement_not_met("Provided output path is not a directory. Execution finished.")
+    if not os.path.exists(arguments.output_path):
+        create_directory_if_not_exists(arguments.output_path, "output directory")
+        LOGGER.info("The provided output directory did not exist and was created.")
 
     # Checking if provided URI is valid. I.e., if it has '/' or '#' at the end. If it does not, add a '#'
     if not validators.url(arguments.base_uri):
