@@ -2,7 +2,7 @@
 import inspect
 
 from . import arguments as args
-from .decoder.decode_general import get_stereotype
+from ..decoder.decode_general import get_stereotype
 from .errors import report_error_end_of_switch
 from .logger import initialize_logger
 

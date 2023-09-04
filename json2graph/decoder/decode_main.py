@@ -2,7 +2,6 @@
 
 from rdflib import Graph, URIRef, Literal, RDF, XSD, OWL, RDFS
 
-from .. import arguments as args
 from ..decoder.decode_general import clean_null_data, count_elements_graph
 from ..decoder.decode_obj_class import create_class_properties
 from ..decoder.decode_obj_diagram import create_diagram_properties
@@ -15,10 +14,11 @@ from ..decoder.decode_obj_project import create_project_properties
 from ..decoder.decode_obj_property import create_property_properties
 from ..decoder.decode_obj_rectangularshape import create_rectangularshape_properties
 from ..decoder.decode_obj_relation import create_relation_properties
-from ..globals import METADATA, ELEMENT_VIEW_TYPES
-from ..logger import initialize_logger
-from ..utils_general import get_date_time
-from ..utils_graph import ontouml_ref
+from ..modules import arguments as args
+from ..modules.globals import METADATA, ELEMENT_VIEW_TYPES
+from ..modules.logger import initialize_logger
+from ..modules.utils_general import get_date_time
+from ..modules.utils_graph import ontouml_ref
 
 LOGGER = initialize_logger()
 
@@ -83,8 +83,8 @@ def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph, language: str
     :type language: str
     """
 
-    restricted_fields = ["aggregationKind", "cardinality", "isExtensional", "isPowertype", "order", "stereotype",
-                         "x", "y"]
+    restricted_fields = ["aggregationKind", "cardinality", "isExtensional", "isPowertype", "order", "stereotype", "x",
+                         "y"]
     positive_integer_fields = ["width", "height"]
     mapped_fields = {"value": "text"}
 
