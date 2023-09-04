@@ -158,7 +158,7 @@ def write_graph_file(ontouml_graph: Graph, execution_mode: str = "script") -> st
     safe_write_graph_file(ontouml_graph, output_file_path, args.ARGUMENTS["format"])
 
     if not args.ARGUMENTS["silent"]:
-        logger.info(f"Output graph file successfully saved at {output_file_path}.")
+        logger.info(f"Output graph file successfully saved at {output_file_path}.\n")
 
     return output_file_path
 
@@ -181,6 +181,7 @@ def decode_all_ontouml_json2graph() -> None:
                                                  execution_mode="script")
 
         new_file_name = input_file.replace(".json", "." + args.ARGUMENTS["format"])
+        args.ARGUMENTS["input_path"] = new_file_name
         write_graph_file(result_graph, execution_mode="script")
 
 
