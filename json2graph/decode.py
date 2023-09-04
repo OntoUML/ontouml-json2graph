@@ -2,6 +2,7 @@
 customize the output and control the execution mode for different use cases.
 """
 import glob
+import inspect
 import os
 import time
 from pathlib import Path
@@ -15,6 +16,7 @@ try:
     from .modules.logger import initialize_logger
     from .modules.utils_general import get_date_time
     from .modules.utils_validations import validate_execution_mode
+    from .modules.errors import report_error_end_of_switch
     from .decoder.decode_main import decode_json_to_graph
 except ImportError:
     from modules import arguments as args
@@ -23,6 +25,7 @@ except ImportError:
     from modules.logger import initialize_logger
     from modules.utils_general import get_date_time
     from modules.utils_validations import validate_execution_mode
+    from modules.errors import report_error_end_of_switch
     from decoder.decode_main import decode_json_to_graph
 
 
@@ -73,7 +76,7 @@ def decode_ontouml_json2graph(json_file_path: str, base_uri: str = "https://exam
         start_date_time = get_date_time(time_screen_format)
         st = time.perf_counter()
 
-        logger.info(f"{METADATA['name']} v{METADATA['version']} started on {start_date_time}!")
+        logger.info(f"{METADATA['description']} v{METADATA['version']} started on {start_date_time}!")
         logger.debug(f"Selected arguments are: {args.ARGUMENTS}")
         logger.info(f"Decoding JSON file {args.ARGUMENTS['input_path']} to {(args.ARGUMENTS['format']).upper()} graph "
                     f"format.\n")
@@ -114,8 +117,11 @@ def decode_ontouml_json2graph(json_file_path: str, base_uri: str = "https://exam
 
 
 def write_graph_file(ontouml_graph: Graph, execution_mode: str = "script") -> str:
-    """ Saves the ontology graph into a file with syntax defined by the user.
-    The file is saved inside the 'results' directory also created by this function.
+    """ Saves the ontology graph received as argument into a file using the syntax defined by the user.
+
+    When running in script mode, the result is saved in the folder specified by the user as argument.
+    When running in test mode, the file is saved inside the 'results' directory created by this function.
+    Execution on
 
     :param ontouml_graph: Graph compliant with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
@@ -128,19 +134,22 @@ def write_graph_file(ontouml_graph: Graph, execution_mode: str = "script") -> st
     """
 
     logger = initialize_logger()
+    loaded_file_name = Path(args.ARGUMENTS["input_path"]).stem
 
-    if execution_mode != "script":
+    if execution_mode == "test":
         # Collecting information for result file name and path
         project_directory = os.getcwd()
         results_directory = "results"
-        loaded_file_name = Path(args.ARGUMENTS["input_path"]).stem
 
         # If directory 'results_directory' not exists, create it
         create_directory_if_not_exists(results_directory, "results directory")
 
         base_path = project_directory + os.path.sep + results_directory
-    else:
+    elif execution_mode == "script":
         base_path = args.ARGUMENTS["output_path"]
+    else:
+        current_function = inspect.stack()[0][3]
+        report_error_end_of_switch("execution_mode", current_function)
 
     # Setting file complete path
     output_file_name = loaded_file_name + "." + args.ARGUMENTS["format"]
@@ -184,8 +193,6 @@ if __name__ == '__main__':
 
     # Treat and publish user's arguments
     args.initialize_args_script()
-    print(f"{args.ARGUMENTS = }")
-    exit(3)
 
     if args.ARGUMENTS["decode_all"]:
         decode_all_ontouml_json2graph()

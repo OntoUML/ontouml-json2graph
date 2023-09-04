@@ -95,7 +95,7 @@ def initialize_args_script()->None:
     elif (arguments.base_uri[-1] != '#') and (arguments.base_uri[-1] != '/'):
         arguments_dictionary["base_uri"] += '#'
 
-    LOGGER.info(f"Arguments parsed. Obtained values are: {arguments_dictionary}.")
+    LOGGER.debug(f"Arguments parsed. Obtained values are: {arguments_dictionary}.")
 
     global ARGUMENTS
     ARGUMENTS = arguments_dictionary
