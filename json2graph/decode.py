@@ -10,28 +10,24 @@ from rdflib import RDF, Graph
 
 try:
     from .modules import arguments as args
-    from .modules.decoder.decode_main import decode_json_to_graph
     from .modules.globals import METADATA
     from .modules.input_output import safe_load_json_file, create_directory_if_not_exists, safe_write_graph_file
     from .modules.logger import initialize_logger
     from .modules.utils_general import get_date_time
     from .modules.utils_validations import validate_execution_mode
+    from .decoder.decode_main import decode_json_to_graph
 except ImportError:
     from modules import arguments as args
-    from modules.decoder.decode_main import decode_json_to_graph
     from modules.globals import METADATA
     from modules.input_output import safe_load_json_file, create_directory_if_not_exists, safe_write_graph_file
     from modules.logger import initialize_logger
     from modules.utils_general import get_date_time
     from modules.utils_validations import validate_execution_mode
+    from decoder.decode_main import decode_json_to_graph
 
 
-def decode_ontouml_json2graph(json_file_path: str,
-                              base_uri: str = "https://example.org#",
-                              language: str = "",
-                              model_only: bool = False,
-                              silent: bool = True,
-                              correct: bool = False,
+def decode_ontouml_json2graph(json_file_path: str, base_uri: str = "https://example.org#", language: str = "",
+                              model_only: bool = False, silent: bool = True, correct: bool = False,
                               execution_mode: str = "import") -> Graph:
     """ Main function for converting OntoUML JSON data to a Knowledge Graph.
 
@@ -65,9 +61,11 @@ def decode_ontouml_json2graph(json_file_path: str,
 
     validate_execution_mode(execution_mode)
 
-    if execution_mode != "script":
-        args.initialize_arguments(json_file_path, base_uri, language, model_only, silent, correct,
-                                  execution_mode)
+    if execution_mode == "test":
+        args.initialize_ars_test(input_path=json_file_path, language=language)
+    elif execution_mode == "import":
+        args.initialize_ars_import(input_path=json_file_path, base_uri=base_uri, language=language,
+                                   model_only=model_only, silent=silent, correct=correct)
 
     if execution_mode == "script" and not args.ARGUMENTS["silent"]:
         # Initial time information
@@ -163,12 +161,10 @@ def decode_all_ontouml_json2graph() -> None:
     list_input_files = glob.glob(os.path.join(args.ARGUMENTS["input_path"], '*.json'))
 
     for input_file in list_input_files:
-        result_graph = decode_ontouml_json2graph(json_file_path=input_file,
-                                                 base_uri=args.ARGUMENTS["base_uri"],
+        result_graph = decode_ontouml_json2graph(json_file_path=input_file, base_uri=args.ARGUMENTS["base_uri"],
                                                  language=args.ARGUMENTS["language"],
                                                  model_only=args.ARGUMENTS["model_only"],
-                                                 silent=args.ARGUMENTS["silent"],
-                                                 correct=args.ARGUMENTS["correct"],
+                                                 silent=args.ARGUMENTS["silent"], correct=args.ARGUMENTS["correct"],
                                                  execution_mode="script")
 
         new_file_name = input_file.replace(".json", "." + args.ARGUMENTS["format"])
@@ -183,7 +179,9 @@ if __name__ == '__main__':
     """
 
     # Treat and publish user's arguments
-    args.initialize_arguments(execution_mode="script")
+    args.initialize_args_script()
+    print("is here")
+    print(f"{args.ARGUMENTS = }")
 
     if args.ARGUMENTS["decode_all"]:
         decode_all_ontouml_json2graph()

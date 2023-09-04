@@ -22,11 +22,8 @@ ARGUMENTS = {}
 LOGGER = initialize_logger()
 
 
-def initialize_args_script() -> dict:
+def initialize_args_script()->None:
     """ This function parses the command-line arguments provided by the user and performs necessary validations.
-
-    :return: Dictionary with json path (key 'input_path') and final file format (key 'format').
-    :rtype: dict
     """
 
     # Formats for saving graphs supported by RDFLib
@@ -51,7 +48,7 @@ def initialize_args_script() -> dict:
     args_parser.add_argument("-o", "--output_path", type=str, action="store", default=os.getcwd(),
                              help="The path of the directory in which the resulting decoded file(s) will be saved.")
 
-    args_parser.add_argument("-a", "--decode_all", action="store_true", default=False,
+    args_parser.add_argument("-a", "--decode_all", action="store_true",
                              help="Converts all JSON files in the informed path.")
     args_parser.add_argument("-f", "--format", type=str, action="store", choices=allowed_graph_formats, default="ttl",
                              help="Format to save the decoded file. Default is 'ttl'.")
@@ -63,7 +60,7 @@ def initialize_args_script() -> dict:
                              help="Silent mode. Does not present validation warnings and errors.")
     args_parser.add_argument("-u", "--base_uri", type=str, action="store", default="https://example.org#",
                              help="Base URI of the resulting graph. Default is 'https://example.org#'.")
-    args_parser.add_argument("-m", "--model_only", action="store_true", default=False,
+    args_parser.add_argument("-m", "--model_only", action="store_true",
                              help="Keep only model elements, eliminating all diagrammatic data from output.")
 
     # AUTOMATIC ARGUMENTS
@@ -98,9 +95,10 @@ def initialize_args_script() -> dict:
     elif (arguments.base_uri[-1] != '#') and (arguments.base_uri[-1] != '/'):
         arguments_dictionary["base_uri"] += '#'
 
-    LOGGER.debug(f"Arguments parsed. Obtained values are: {arguments_dictionary}.")
+    LOGGER.info(f"Arguments parsed. Obtained values are: {arguments_dictionary}.")
 
-    return arguments_dictionary
+    global ARGUMENTS
+    ARGUMENTS = arguments_dictionary
 
 
 def initialize_args_import(input_path: str = "not_initialized",

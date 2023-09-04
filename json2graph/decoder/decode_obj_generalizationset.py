@@ -10,10 +10,10 @@ Function's nomenclatures:
 
 from rdflib import Graph, URIRef, Literal, XSD
 
-from .. import arguments as args
+from ..modules import arguments as args
 from ..decoder.decode_general import get_list_subdictionaries_for_specific_type
-from ..messages import print_decode_log_message
-from ..utils_graph import ontouml_ref
+from ..modules.messages import print_decode_log_message
+from ..modules.utils_graph import ontouml_ref
 
 
 def set_generalizationset_defaults(generalizationset_dict: dict, ontouml_graph: Graph) -> None:

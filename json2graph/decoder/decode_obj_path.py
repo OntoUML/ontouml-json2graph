@@ -10,9 +10,9 @@ Function's nomenclatures:
 
 from rdflib import Graph, URIRef
 
-from .. import arguments as args
+from ..modules import arguments as args
 from ..decoder.decode_general import get_list_subdictionaries_for_specific_type, create_point
-from ..utils_graph import ontouml_ref
+from ..modules.utils_graph import ontouml_ref
 
 
 def set_path_path_point(path_dict: dict, ontouml_graph: Graph) -> None:

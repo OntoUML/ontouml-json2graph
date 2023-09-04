@@ -11,11 +11,11 @@ import inspect
 
 from rdflib import Graph, URIRef
 
-from .. import arguments as args
+from ..modules import arguments as args
 from ..decoder.decode_general import get_list_subdictionaries_for_specific_type
-from ..errors import report_error_end_of_switch
-from ..globals import ELEMENT_VIEW_TYPES
-from ..utils_graph import ontouml_ref
+from ..modules.errors import report_error_end_of_switch
+from ..modules.globals import ELEMENT_VIEW_TYPES
+from ..modules.utils_graph import ontouml_ref
 
 
 def set_elementview_relations(elementview_dict: dict, ontouml_graph: Graph) -> None:
