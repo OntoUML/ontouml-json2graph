@@ -174,10 +174,7 @@ def decode_all_ontouml_json2graph() -> None:
     list_input_files = glob.glob(os.path.join(args.ARGUMENTS["input_path"], '*.json'))
 
     for input_file in list_input_files:
-        result_graph = decode_ontouml_json2graph(json_file_path=input_file, base_uri=args.ARGUMENTS["base_uri"],
-                                                 language=args.ARGUMENTS["language"],
-                                                 model_only=args.ARGUMENTS["model_only"],
-                                                 silent=args.ARGUMENTS["silent"], correct=args.ARGUMENTS["correct"],
+        result_graph = decode_ontouml_json2graph(json_file_path=input_file,
                                                  execution_mode="script")
 
         new_file_name = input_file.replace(".json", "." + args.ARGUMENTS["format"])
@@ -188,7 +185,7 @@ def decode_all_ontouml_json2graph() -> None:
 if __name__ == '__main__':
     """Execute OntoUML JSON to Graph Transformation.
 
-    This block of code is executed when the script is run as a standalone application (i.e., as a script). 
+    This block of code is executed when the script is run as a standalone application (i.e., as a script).
     It processes user-provided arguments and executes the OntoUML JSON to Graph transformation.
     """
 
