@@ -73,20 +73,37 @@ For executing the software, run the following command on the terminal inside the
 python -m json2graph.decode [path_to_json] [OPTIONAL ARGUMENTS]
 ```
 
+For example, to decode the JSON file `my_ontology.json` and save the output graph in the Turtle format, you would run the following command:
+
+```txt
+python -m json2graph.decode -i turtle my_ontology.json
+```
+
+You can also use the script to decode multiple JSON files. To do this, you would use the `decode_all` option ('-a' argument). 
+For example, to decode all of the JSON files in the my_data directory you would run the following command:
+
+```txt
+python -m json2graph.decode -a -i my_data
+```
+
 #### Arguments
 
 The only mandatory argument is `path_to_json`, which must be substituted for the input file's location on your computer. Optional arguments provide additional features. All available ontouml-json2graph arguments can be observed below.
 
 ```text
-usage: ontouml-json2graph [-h] [-f {turtle,ttl,turtle2,xml,pretty-xml,json-ld,ntriples,nt,nt11,n3,trig,trix,nquads}] [-l LANGUAGE] [-c] [-s] [-u BASE_URI] [-m] [-v] json_path
+usage: ontouml-json2graph [-h] -i INPUT_PATH [-o OUTPUT_PATH] [-a] [-f {turtle,ttl,turtle2,xml,pretty-xml,json-ld,ntriples,nt,nt11,n3,trig,trix,nquads}]
+                          [-l LANGUAGE] [-c] [-s] [-u BASE_URI] [-m] [-v]
 
-OntoUML JSON2Graph Decoder. Version: 1.1.0
 
-positional arguments:
-  json_path             The path of the JSON file to be encoded.
+OntoUML JSON2Graph Decoder. Version: 1.2.0
 
 options:
   -h, --help            show this help message and exit
+  -i INPUT_PATH, --input_path INPUT_PATH
+                        The path of the JSON file or directory with JSON files to be decoded.
+  -o OUTPUT_PATH, --output_path OUTPUT_PATH
+                        The path of the directory in which the resulting decoded file(s) will be saved.
+  -a, --decode_all      Converts all JSON files in the informed path.
   -f {turtle,ttl,turtle2,xml,pretty-xml,json-ld,ntriples,nt,nt11,n3,trig,trix,nquads}, --format {turtle,ttl,turtle2,xml,pretty-xml,json-ld,ntriples,nt,nt11,n3,trig,trix,nquads}
                         Format to save the decoded file. Default is 'ttl'.
   -l LANGUAGE, --language LANGUAGE
@@ -97,6 +114,7 @@ options:
                         Base URI of the resulting graph. Default is 'https://example.org#'.
   -m, --model_only      Keep only model elements, eliminating all diagrammatic data from output.
   -v, --version         Print the software version and exit.
+
 
 More information at: https://w3id.org/ontouml/json2graph
 ```

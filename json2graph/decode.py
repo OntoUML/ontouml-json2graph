@@ -65,9 +65,9 @@ def decode_ontouml_json2graph(json_file_path: str, base_uri: str = "https://exam
     validate_execution_mode(execution_mode)
 
     if execution_mode == "test":
-        args.initialize_ars_test(input_path=json_file_path, language=language)
+        args.initialize_args_test(input_path=json_file_path, language=language)
     elif execution_mode == "import":
-        args.initialize_ars_import(input_path=json_file_path, base_uri=base_uri, language=language,
+        args.initialize_args_import(input_path=json_file_path, base_uri=base_uri, language=language,
                                    model_only=model_only, silent=silent, correct=correct)
 
     if execution_mode == "script" and not args.ARGUMENTS["silent"]:
@@ -121,7 +121,6 @@ def write_graph_file(ontouml_graph: Graph, execution_mode: str = "script") -> st
 
     When running in script mode, the result is saved in the folder specified by the user as argument.
     When running in test mode, the file is saved inside the 'results' directory created by this function.
-    Execution on
 
     :param ontouml_graph: Graph compliant with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
