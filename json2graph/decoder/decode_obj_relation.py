@@ -10,8 +10,8 @@ Function's nomenclatures:
 
 from rdflib import Graph, URIRef, Literal, XSD
 
-from ..modules import arguments as args
 from ..decoder.decode_general import get_list_subdictionaries_for_specific_type, get_stereotype
+from ..modules import arguments as args
 from ..modules.messages import print_decode_log_message
 from ..modules.utils_graph import ontouml_ref
 

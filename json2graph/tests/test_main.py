@@ -18,8 +18,8 @@ from pathlib import Path
 
 import pytest
 
-from ..decode import decode_ontouml_json2graph, write_graph_file
 from .test_aux import compare_graphs, get_test_list
+from ..decode import decode_ontouml_json2graph, write_graph_file
 
 LIST_OF_TESTS = get_test_list()
 

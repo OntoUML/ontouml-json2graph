@@ -2,10 +2,10 @@
 
 from rdflib import Graph, URIRef, Literal, RDF
 
+from ..modules import arguments as args
 from ..modules.logger import initialize_logger
 from ..modules.sparql_queries import GET_ELEMENT_AND_TYPE
 from ..modules.utils_graph import ontouml_ref, load_ontouml_vocabulary
-from ..modules import arguments as args
 
 LOGGER = initialize_logger()
 

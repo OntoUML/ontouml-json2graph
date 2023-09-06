@@ -12,10 +12,10 @@ import inspect
 from rdflib import Graph, URIRef, XSD, Literal
 
 from ..decoder.decode_general import get_stereotype, get_list_subdictionaries_for_specific_type
+from ..modules import arguments as args
 from ..modules.errors import report_error_end_of_switch
 from ..modules.messages import print_decode_log_message
 from ..modules.utils_graph import ontouml_ref
-from ..modules import arguments as args
 
 
 def validate_class_attribute_constraints(class_dict: dict) -> None:
