@@ -23,7 +23,7 @@ ARGUMENTS = {}
 LOGGER = initialize_logger()
 
 
-def initialize_args_script()->None:
+def initialize_args_script() -> None:
     """ This function parses the command-line arguments provided by the user and performs necessary validations.
     """
 

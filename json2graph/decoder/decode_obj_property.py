@@ -10,8 +10,8 @@ Function's nomenclatures:
 
 from rdflib import Graph, URIRef, RDF, Literal, XSD
 
-from ..modules import arguments as args
 from ..decoder.decode_general import get_list_subdictionaries_for_specific_type
+from ..modules import arguments as args
 from ..modules.logger import initialize_logger
 from ..modules.messages import print_decode_log_message
 from ..modules.sparql_queries import GET_CLASS_STEREOTYPE_ATTRIBUTE_STEREOTYPE

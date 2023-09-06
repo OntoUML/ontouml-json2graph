@@ -68,7 +68,7 @@ def decode_ontouml_json2graph(json_file_path: str, base_uri: str = "https://exam
         args.initialize_args_test(input_path=json_file_path, language=language)
     elif execution_mode == "import":
         args.initialize_args_import(input_path=json_file_path, base_uri=base_uri, language=language,
-                                   model_only=model_only, silent=silent, correct=correct)
+                                    model_only=model_only, silent=silent, correct=correct)
 
     if execution_mode == "script" and not args.ARGUMENTS["silent"]:
         # Initial time information
