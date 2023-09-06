@@ -102,7 +102,7 @@ options:
   -i INPUT_PATH, --input_path INPUT_PATH
                         The path of the JSON file or directory with JSON files to be decoded.
   -o OUTPUT_PATH, --output_path OUTPUT_PATH
-                        The path of the directory in which the resulting decoded file(s) will be saved.
+                        The path of the directory in which the resulting decoded file(s) will be saved. Default is the working directory.
   -a, --decode_all      Converts all JSON files in the informed path.
   -f {turtle,ttl,turtle2,xml,pretty-xml,json-ld,ntriples,nt,nt11,n3,trig,trix,nquads}, --format {turtle,ttl,turtle2,xml,pretty-xml,json-ld,ntriples,nt,nt11,n3,trig,trix,nquads}
                         Format to save the decoded file. Default is 'ttl'.
