@@ -166,7 +166,8 @@ def decode_all_ontouml_json2graph() -> None:
     """ Decode multiple OntoUML JSON files.
 
     This function processes a directory of OntoUML JSON files and converts each file into a corresponding
-    knowledge graph using the specified options. The output graphs are saved in the 'results' directory.
+    knowledge graph using the specified options.
+    The output graphs are saved in the output directory chosen by the user as argument.
     """
 
     # Getting all

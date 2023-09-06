@@ -47,7 +47,8 @@ def initialize_args_script()->None:
     args_parser.add_argument("-i", "--input_path", type=str, action="store", required=True,
                              help="The path of the JSON file or directory with JSON files to be decoded.")
     args_parser.add_argument("-o", "--output_path", type=str, action="store", default=os.getcwd(),
-                             help="The path of the directory in which the resulting decoded file(s) will be saved.")
+                             help="The path of the directory in which the resulting decoded file(s) will be saved. "
+                                  "Default is the working directory.")
 
     args_parser.add_argument("-a", "--decode_all", action="store_true",
                              help="Converts all JSON files in the informed path.")
