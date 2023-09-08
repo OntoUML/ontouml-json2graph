@@ -1,0 +1,83 @@
+:py:mod:`json2graph.decoder.decode_main`
+========================================
+
+.. py:module:: json2graph.decoder.decode_main
+
+.. autoapi-nested-parse::
+
+   JSON decode functions.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   json2graph.decoder.decode_main.add_metadata
+   json2graph.decoder.decode_main.decode_dictionary
+   json2graph.decoder.decode_main.decode_json_to_graph
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   json2graph.decoder.decode_main.LOGGER
+
+
+.. py:data:: LOGGER
+
+   
+
+.. py:function:: add_metadata(ontouml_graph)
+
+   Adds basic metadata to the generated graph when not in test mode. The metadata added are:
+       - dct:conformsTo METADATA["conformsToBase"]
+       - dct:created (creation date)
+       - dct:language (when user argument available)
+       - type owl:Ontology
+       - Decoder information as rdfs:comment and rdfs:seeAlso
+
+   :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
+   :type ontouml_graph: Graph
+
+
+.. py:function:: decode_dictionary(dictionary_data, ontouml_graph, language)
+
+   Receives the full dictionary with the loaded JSON data and decode known allowed values to the OntoUML Graph.
+   Recursively evaluates the dictionary to create all possible instances, setting their types and attributes.
+
+   OntoUML-Vocabulary properties that are directly decoded in the general decoder:
+       - description, height, isAbstract, isComplete, isDerived, isDisjoint, isOrdered, isReadOnly, name, text, width
+
+   Restricted properties (the ones in the restricted_fields list) are not treated in this function.
+
+   :param dictionary_data: Dictionary to have its fields decoded.
+   :type dictionary_data: dict
+   :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
+   :type ontouml_graph: Graph
+   :param language: Language tag to be added to the ontology's concepts.
+   :type language: str
+
+
+.. py:function:: decode_json_to_graph(json_data, language, execution_mode)
+
+   Receives the loaded JSON data and decodes it into a graph that complies to the OntoUML Vocabulary.
+
+   :param json_data: Input JSON data loaded as a dictionary.
+   :type json_data: dict
+   :param language: Language tag to be added to the ontology's concepts.
+   :type language: str
+   :param execution_mode: Information about execution mode. Valid values are 'script', 'import', and 'test'.
+   :type execution_mode: str
+   :return: Knowledge graph that complies with the OntoUML Vocabulary
+   :rtype: Graph
+
+

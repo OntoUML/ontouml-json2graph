@@ -14,7 +14,7 @@ tool:
       python: ^3.11
       pyyaml: ^6.0.1
       rdflib: ^7.0.0
-      validators: ^0.20.0
+      validators: ^0.22.0
     description: OntoUML JSON2Graph Decoder
     documentation: https://w3id.org/ontouml/json2graph/docs
     exclude:
@@ -34,4 +34,4 @@ tool:
     repository: https://w3id.org/ontouml/json2graph
     urls:
       PyPi Project: https://pypi.org/project/ontouml-json2graph/
-    version: 1.1.0
+    version: 1.2.0

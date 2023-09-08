@@ -15,9 +15,9 @@
   
         <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=3cacef03"></script>
+        <script src="../../../../_static/documentation_options.js?v=1ed6394b"></script>
         <script src="../../../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
@@ -51,8 +51,8 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph</span></code></a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="../../index.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../decoder/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.decoder</span></code></a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.modules</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../resources/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.resources</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../tests/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.tests</span></code></a></li>
 </ul>
 </li>
@@ -91,46 +91,22 @@
            <div itemprop="articleBody">
              
   <section id="module-json2graph.modules.utils_general">
-<span id="json2graph-modules-utils-general"></span><h1><a class="reference internal" href="../../../../json2graph.modules.html#module-json2graph.modules.utils_general" title="json2graph.modules.utils_general"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.modules.utils_general</span></code></a><a class="headerlink" href="#module-json2graph.modules.utils_general" title="Permalink to this heading"></a></h1>
+<span id="json2graph-modules-utils-general"></span><h1><a class="reference internal" href="../../../../json2graph.modules.html#module-json2graph.modules.utils_general" title="json2graph.modules.utils_general"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.modules.utils_general</span></code></a><a class="headerlink" href="#module-json2graph.modules.utils_general" title="Link to this heading"></a></h1>
 <p>Diverse util and auxiliary functions.</p>
 <section id="module-contents">
-<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading"></a></h2>
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
 <section id="functions">
-<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this heading"></a></h3>
+<h3>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h3>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="../../../../json2graph.modules.html#json2graph.modules.utils_general.count_elements_types" title="json2graph.modules.utils_general.count_elements_types"><code class="xref py py-obj docutils literal notranslate"><span class="pre">count_elements_types</span></code></a>(element_type_list, element_counting)</p></td>
-<td><p>Returns the number of elements (in the already counted data) of the types given in a list.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../../../../json2graph.modules.html#json2graph.modules.utils_general.get_date_time" title="json2graph.modules.utils_general.get_date_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_date_time</span></code></a>(date_time_format)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../../../json2graph.modules.html#json2graph.modules.utils_general.get_date_time" title="json2graph.modules.utils_general.get_date_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_date_time</span></code></a>(date_time_format)</p></td>
 <td><p>Return a string with date and time according to the specified format received as argument.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py function">
-<dt class="sig sig-object py" id="json2graph.modules.utils_general.count_elements_types">
-<span class="sig-prename descclassname"><span class="pre">json2graph.modules.utils_general.</span></span><span class="sig-name descname"><span class="pre">count_elements_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element_type_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element_counting</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.modules.utils_general.count_elements_types" title="Permalink to this definition"></a></dt>
-<dd><p>Returns the number of elements (in the already counted data) of the types given in a list.
-Receives a dictionary of number of items and returns the value corresponding to the provided argument.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>element_type_list</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – List of types of elements to have their count value returned.</p></li>
-<li><p><strong>element_counting</strong> (<em>dict</em>) – Dictionary with types and corresponding number of occurrences.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Number of occurrences of the element of the given type.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
 <dt class="sig sig-object py" id="json2graph.modules.utils_general.get_date_time">
-<span class="sig-prename descclassname"><span class="pre">json2graph.modules.utils_general.</span></span><span class="sig-name descname"><span class="pre">get_date_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date_time_format</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.modules.utils_general.get_date_time" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">json2graph.modules.utils_general.</span></span><span class="sig-name descname"><span class="pre">get_date_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date_time_format</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.modules.utils_general.get_date_time" title="Link to this definition"></a></dt>
 <dd><p>Return a string with date and time according to the specified format received as argument.
 For valid formats: <a class="reference external" href="https://docs.python.org/3.11/library/datetime.html#strftime-and-strptime-format-codes">https://docs.python.org/3.11/library/datetime.html#strftime-and-strptime-format-codes</a></p>
 <dl class="field-list simple">

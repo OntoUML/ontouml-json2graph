@@ -10,7 +10,6 @@ Submodules
    :titlesonly:
    :maxdepth: 1
 
-   deprecated_test_clear/index.rst
    test_aux/index.rst
    test_main/index.rst
 

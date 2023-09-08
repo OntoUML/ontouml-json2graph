@@ -1,6 +1,0 @@
-:py:mod:`json2graph.resources`
-==============================
-
-.. py:module:: json2graph.resources
-
-

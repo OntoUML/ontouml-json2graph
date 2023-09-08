@@ -24,8 +24,9 @@ Functions
 
 .. autoapisummary::
 
-   json2graph.modules.arguments.treat_user_arguments
-   json2graph.modules.arguments.initialize_arguments
+   json2graph.modules.arguments.initialize_args_script
+   json2graph.modules.arguments.initialize_args_import
+   json2graph.modules.arguments.initialize_args_test
 
 
 
@@ -46,33 +47,27 @@ Attributes
 
    
 
-.. py:function:: treat_user_arguments()
+.. py:function:: initialize_args_script()
 
    This function parses the command-line arguments provided by the user and performs necessary validations.
-
-   :return: Dictionary with json path (key 'json_path') and final file format (key 'format').
-   :rtype: dict
+       
 
 
-.. py:function:: initialize_arguments(json_path = 'not_initialized', base_uri = 'https://example.org#', graph_format = 'ttl', language = '', model_only = False, silent = True, correct = False, execution_mode = 'import')
+.. py:function:: initialize_args_import(input_path = 'not_initialized', output_path = os.getcwd(), base_uri = 'https://example.org#', graph_format = 'ttl', language = '', model_only = False, silent = True, correct = False)
 
    This function initializes the global variable ARGUMENTS of type dictionary, which contains user-provided
    (when executed in script mode) or default arguments (when executed as a library or for testing).
    The ARGUMENTS variable must be initialized in every possible execution mode.
 
-   The valid execution modes are:
-   - 'script': If used as a script, use user's arguments parsed from the command line.
-   - 'package': When imported into external code, working as a library package.
-   - 'test': Used for testing.
-
-
-   :param json_path: Path to the JSON file to be decoded provided by the user. (Optional)
-   :type json_path: str
-   :param base_uri: Base URI to be used for generating URIs for ontology concepts.
-   Default is "https://example.org#". (Optional)
+   :param input_path: Path to the directory or JSON file to be decoded. (Optional)
+   :type input_path: str
+   :param output_path: Path to the directory in which the result file(s) will be saved. (Optional)
+   :type output_path: str
+   :param base_uri: Base URI to be used for generating URIs for ontology concepts. (Optional)
+                    Default is "https://example.org#".
    :type base_uri: str
-   :param graph_format: Format for saving the resulting knowledge graph.
-   Default value is 'ttl' (Turtle syntax). (Optional)
+   :param graph_format: Format for saving the resulting knowledge graph. (Optional)
+                        Default value is 'ttl' (Turtle syntax).
    :type graph_format: str
    :param language: Language tag to be added to the ontology's concepts. (Optional)
    :type language: str
@@ -82,8 +77,34 @@ Attributes
    :type silent: bool
    :param correct: If True, attempts to correct potential errors during the conversion process. (Optional)
    :type correct: bool
-   :param execution_mode: Information about the execution mode.
-   Valid values are 'import' (default), 'script', and 'test'. (Optional)
-   :type execution_mode: str
+
+
+.. py:function:: initialize_args_test(input_path = 'not_initialized', language = '')
+
+   This function initializes the global variable ARGUMENTS of type dictionary, which contains user-provided
+   (when executed in script mode) or default arguments (when executed as a library or for testing).
+   The ARGUMENTS variable must be initialized in every possible execution mode.
+
+   :param input_path: Path to the directory or JSON file to be decoded. (Optional)
+   :type input_path: str
+   :param output_path: Path to the directory in which the result file(s) will be saved. (Optional)
+   :type output_path: str
+   :param decode_all: Informs if user wants to convert all json files in the input_path performing the decode
+                       function multiple times. (Optional)
+   :type decode_all: bool
+   :param base_uri: Base URI to be used for generating URIs for ontology concepts. (Optional)
+                    Default is "https://example.org#".
+   :type base_uri: str
+   :param graph_format: Format for saving the resulting knowledge graph. (Optional)
+                        Default value is 'ttl' (Turtle syntax).
+   :type graph_format: str
+   :param language: Language tag to be added to the ontology's concepts. (Optional)
+   :type language: str
+   :param model_only: If True, only the OntoUML model will be extracted without diagrammatic information. (Optional)
+   :type model_only: bool
+   :param silent: If True, suppresses intermediate communications and log messages during execution. (Optional)
+   :type silent: bool
+   :param correct: If True, attempts to correct potential errors during the conversion process. (Optional)
+   :type correct: bool
 
 

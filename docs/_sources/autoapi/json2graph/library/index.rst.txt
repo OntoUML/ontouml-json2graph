@@ -32,7 +32,7 @@ Functions
 
 
 
-.. py:function:: decode_json_project(json_path, base_uri = 'https://example.org#', language = '', correct = False)
+.. py:function:: decode_json_project(json_file_path, base_uri = 'https://example.org#', language = '', correct = False)
 
    Decodes elements from OntoUML's abstract and concrete syntax from JSON format into a Knowledge Graph.
    I.e., domain-level and diagrammatic data are converted to Knowledge Graph.
@@ -41,8 +41,8 @@ Functions
    that adheres to the OntoUML Vocabulary. It provides customization options for URI generation, language tags,
    error correction, and returns the resulting knowledge graph.
 
-   :param json_path: Path to the JSON file to be decoded provided by the user.
-   :type json_path: str
+   :param json_file_path: Path to the JSON file to be decoded provided by the user.
+   :type json_file_path: str
    :param base_uri: Base URI to be used for generating URIs for ontology concepts.
                     Default is "https://example.org#". (Optional)
    :type base_uri: str
@@ -56,7 +56,7 @@ Functions
    :rtype: Graph
 
 
-.. py:function:: decode_json_model(json_path, base_uri = 'https://example.org#', language = '', correct = False)
+.. py:function:: decode_json_model(json_file_path, base_uri = 'https://example.org#', language = '', correct = False)
 
    Decodes elements from OntoUML's abstract syntax from JSON format into a Knowledge Graph.
    I.e., only domain-level (and not diagrammatic) data is converted to Knowledge Graph.
@@ -65,8 +65,8 @@ Functions
    that adheres to the OntoUML Vocabulary. It provides customization options for URI generation, language tags,
    error correction, and returns the resulting knowledge graph.
 
-   :param json_path: Path to the JSON file to be decoded provided by the user.
-   :type json_path: str
+   :param json_file_path: Path to the JSON file to be decoded provided by the user.
+   :type json_file_path: str
    :param base_uri: Base URI to be used for generating URIs for ontology concepts.
                     Default is "https://example.org#". (Optional)
    :type base_uri: str

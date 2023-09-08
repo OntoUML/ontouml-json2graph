@@ -1,0 +1,132 @@
+:py:mod:`json2graph.decoder.decode_general`
+===========================================
+
+.. py:module:: json2graph.decoder.decode_general
+
+.. autoapi-nested-parse::
+
+   General decoding functions. 
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   json2graph.decoder.decode_general.create_point
+   json2graph.decoder.decode_general.count_elements_graph
+   json2graph.decoder.decode_general.get_stereotype
+   json2graph.decoder.decode_general.get_list_subdictionaries_for_specific_type
+   json2graph.decoder.decode_general.get_subdictionary_for_specific_id
+   json2graph.decoder.decode_general.get_all_ids_of_specific_type
+   json2graph.decoder.decode_general.clean_null_data
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   json2graph.decoder.decode_general.LOGGER
+
+
+.. py:data:: LOGGER
+
+   
+
+.. py:function:: create_point(point_id, x_coord, y_coord, ontouml_graph)
+
+   Creates a new instance of ontouml:Point with its ontouml:xCoordinate, and ontouml:yCoordinate properties.
+
+   :param point_id: ID of the new ontouml:Point instance to be created.
+   :type point_id: str
+   :param x_coord: Horizontal coordinate of the new ontouml:Point.
+   :type x_coord: int
+   :param y_coord: Vertical coordinate of the new ontouml:Point.
+   :type y_coord: int
+   :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
+   :type ontouml_graph: Graph
+
+
+.. py:function:: count_elements_graph(ontouml_graph)
+
+   Returns a dictionary with all element types on graphs and their respective quantity.
+
+   :param ontouml_graph: Knowledge graph with loaded objects' ids and types
+   :type ontouml_graph: Graph
+   :return: Dictionary with types and respective quantities present on graph.
+   :rtype: dict
+
+
+.. py:function:: get_stereotype(object_dict)
+
+   For coding reasons (dictionary index error), it is necessary to check if an object has its stereotype not set.
+   Returns the evaluated object's stereotype or 'null' when the stereotype is absent.
+
+   :param object_dict: Object loaded as a dictionary.
+   :type object_dict: dict
+   :return: Evaluated object's stereotype or 'null' when the stereotype is absent.
+   :rtype: str
+
+
+.. py:function:: get_list_subdictionaries_for_specific_type(dictionary_data, wanted_type, return_list = None)
+
+   Recursively access all objects in the dictionary until find an object of the desired type.
+   When the type is found, adds a copy of its dictionaries to a list to be returned
+   (containing all its sub-dictionaries).
+
+   :param dictionary_data: Dictionary to have its fields decoded.
+   :type dictionary_data: dict
+   :param wanted_type: ID of the object to have its dictionary (including sub-dictionaries) returned.
+   :type wanted_type: str
+   :param return_list: Optional. Searched dictionary to be returned. Used for recursion only.
+   :type return_list: list[dict]
+   :return: List of copy of the object's dictionaries.
+   :rtype: list[dict]
+
+
+.. py:function:: get_subdictionary_for_specific_id(dictionary_data, wanted_id, return_dict = None)
+
+   Recursively access all objects in the dictionary until find the desired ID.
+   When the id is found, return a copy of its dictionary (containing all its sub-dictionaries).
+
+   :param dictionary_data: Dictionary to have its fields decoded.
+   :type dictionary_data: dict
+   :param wanted_id: ID of the object to have its dictionary (including sub-dictionaries) returned.
+   :type wanted_id: str
+   :param return_dict: Optional. Searched dictionary to be returned. Used for recursion only.
+   :type return_dict: dict
+   :return: Copy of the object's dictionary.
+   :rtype: dict
+
+
+.. py:function:: get_all_ids_of_specific_type(dictionary_data, wanted_type, list_ids_for_type = None)
+
+   Recursively access all objects in the dictionary and generates a list of all ids of objects for a given type.
+
+   :param dictionary_data: Dictionary to have its fields decoded.
+   :type dictionary_data: dict
+   :param wanted_type: Name of the type of the objects to have their IDs identified.
+   :type wanted_type: str
+   :return: List of ids from all objects for a given type.
+   :rtype: list[str]
+
+
+.. py:function:: clean_null_data(dictionary_data)
+
+   Removes all empty values (i.e., keys associated with None) from the received dictionary.
+   If a value of the dictionary is another dictionary, this function recursively verify this sub-dictionary elements.
+   I.e., all empty fields, from all dictionaries composing the main dictionary are also cleaned.
+
+   :param dictionary_data: Dictionary to have its empty fields cleaned.
+   :type dictionary_data: dict
+   :return: Dictionary without empty fields.
+   :rtype: dict
+
+

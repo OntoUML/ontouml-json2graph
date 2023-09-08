@@ -2,9 +2,9 @@
 import inspect
 
 from . import arguments as args
-from .decoder.decode_general import get_stereotype
 from .errors import report_error_end_of_switch
 from .logger import initialize_logger
+from ..decoder.decode_general import get_stereotype
 
 LOGGER = initialize_logger()
 
@@ -34,7 +34,7 @@ def get_decode_log_message(object_dict: dict, warning_code: str, property_name: 
     # Not for VPS1
     if warning_code != "VPS1":
         object_stereotype = get_stereotype(object_dict)
-        object_name = object_dict['name']
+        object_name = object_dict['name'] if "name" in object_dict else "null"
         object_identification = f"{object_type} '{object_name}' (stereotype: {object_stereotype}, ID: {object_id}): "
 
     # Not for VPS1, VPS2, and VPS3
