@@ -21,7 +21,6 @@ Functions
    json2graph.modules.utils_graph.ontouml_ref
    json2graph.modules.utils_graph.load_ontouml_vocabulary
    json2graph.modules.utils_graph.load_graph_safely
-   json2graph.modules.utils_graph.get_all_ids_for_type
 
 
 
@@ -67,15 +66,5 @@ Attributes
    :type format: str
    :return: RDFLib graph loaded as object.
    :rtype: Graph
-
-
-.. py:function:: get_all_ids_for_type(ontology_graph, element_type)
-
-   Queries the graph for all elements of the given element_type and returns a list of their ids.
-
-   :param ontology_file: Loaded ontology graph.
-   :type ontology_file: Graph
-   :param element_type: Type of the element (originally a JSON object) to be queried to have their ids returned .
-   :type element_type: list[str]
 
 

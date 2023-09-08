@@ -1,0 +1,27 @@
+:py:mod:`json2graph.decoder`
+============================
+
+.. py:module:: json2graph.decoder
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   decode_general/index.rst
+   decode_main/index.rst
+   decode_obj_class/index.rst
+   decode_obj_diagram/index.rst
+   decode_obj_elementview/index.rst
+   decode_obj_generalization/index.rst
+   decode_obj_generalizationset/index.rst
+   decode_obj_package/index.rst
+   decode_obj_path/index.rst
+   decode_obj_project/index.rst
+   decode_obj_property/index.rst
+   decode_obj_rectangularshape/index.rst
+   decode_obj_relation/index.rst
+
+

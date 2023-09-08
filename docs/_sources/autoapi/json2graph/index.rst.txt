@@ -10,8 +10,8 @@ Subpackages
    :titlesonly:
    :maxdepth: 3
 
+   decoder/index.rst
    modules/index.rst
-   resources/index.rst
    tests/index.rst
 
 
