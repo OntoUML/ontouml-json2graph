@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>json2graph.decoder.decode_general &mdash; ontouml-json2graph 1.0.2 documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/sphinx-toolbox.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../_static/documentation_options.js?v=1ed6394b"></script>
+        <script src="../../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="json2graph.decoder.decode_main" href="../decode_main/index.html" />
+    <link rel="prev" title="json2graph.decoder" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            ontouml-json2graph
+              <img src="../../../../_static/logo-json2graph.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../README.html">The OntoUML JSON2Graph Transformation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph</span></code></a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.decoder</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../modules/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.modules</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tests/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.tests</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">ontouml-json2graph</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph</span></code></a></li>
+          <li class="breadcrumb-item"><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.decoder</span></code></a></li>
+      <li class="breadcrumb-item active"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.decoder.decode_general</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/json2graph/decoder/decode_general/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-json2graph.decoder.decode_general">
+<span id="json2graph-decoder-decode-general"></span><h1><a class="reference internal" href="#module-json2graph.decoder.decode_general" title="json2graph.decoder.decode_general"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.decoder.decode_general</span></code></a><a class="headerlink" href="#module-json2graph.decoder.decode_general" title="Link to this heading"></a></h1>
+<p>General decoding functions.</p>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#json2graph.decoder.decode_general.create_point" title="json2graph.decoder.decode_general.create_point"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_point</span></code></a>(point_id, x_coord, y_coord, ontouml_graph)</p></td>
+<td><p>Creates a new instance of ontouml:Point with its ontouml:xCoordinate, and ontouml:yCoordinate properties.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#json2graph.decoder.decode_general.count_elements_graph" title="json2graph.decoder.decode_general.count_elements_graph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">count_elements_graph</span></code></a>(ontouml_graph)</p></td>
+<td><p>Returns a dictionary with all element types on graphs and their respective quantity.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#json2graph.decoder.decode_general.get_stereotype" title="json2graph.decoder.decode_general.get_stereotype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_stereotype</span></code></a>(object_dict)</p></td>
+<td><p>For coding reasons (dictionary index error), it is necessary to check if an object has its stereotype not set.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#json2graph.decoder.decode_general.get_list_subdictionaries_for_specific_type" title="json2graph.decoder.decode_general.get_list_subdictionaries_for_specific_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_list_subdictionaries_for_specific_type</span></code></a>(...[, ...])</p></td>
+<td><p>Recursively access all objects in the dictionary until find an object of the desired type.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#json2graph.decoder.decode_general.get_subdictionary_for_specific_id" title="json2graph.decoder.decode_general.get_subdictionary_for_specific_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_subdictionary_for_specific_id</span></code></a>(dictionary_data, ...)</p></td>
+<td><p>Recursively access all objects in the dictionary until find the desired ID.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#json2graph.decoder.decode_general.get_all_ids_of_specific_type" title="json2graph.decoder.decode_general.get_all_ids_of_specific_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_all_ids_of_specific_type</span></code></a>(dictionary_data, wanted_type)</p></td>
+<td><p>Recursively access all objects in the dictionary and generates a list of all ids of objects for a given type.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#json2graph.decoder.decode_general.clean_null_data" title="json2graph.decoder.decode_general.clean_null_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clean_null_data</span></code></a>(dictionary_data)</p></td>
+<td><p>Removes all empty values (i.e., keys associated with None) from the received dictionary.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#json2graph.decoder.decode_general.LOGGER" title="json2graph.decoder.decode_general.LOGGER"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LOGGER</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py data">
+<dt class="sig sig-object py" id="json2graph.decoder.decode_general.LOGGER">
+<span class="sig-prename descclassname"><span class="pre">json2graph.decoder.decode_general.</span></span><span class="sig-name descname"><span class="pre">LOGGER</span></span><a class="headerlink" href="#json2graph.decoder.decode_general.LOGGER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="json2graph.decoder.decode_general.create_point">
+<span class="sig-prename descclassname"><span class="pre">json2graph.decoder.decode_general.</span></span><span class="sig-name descname"><span class="pre">create_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_coord</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_coord</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ontouml_graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.decoder.decode_general.create_point" title="Link to this definition"></a></dt>
+<dd><p>Creates a new instance of ontouml:Point with its ontouml:xCoordinate, and ontouml:yCoordinate properties.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>point_id</strong> (<em>str</em>) – ID of the new ontouml:Point instance to be created.</p></li>
+<li><p><strong>x_coord</strong> (<em>int</em>) – Horizontal coordinate of the new ontouml:Point.</p></li>
+<li><p><strong>y_coord</strong> (<em>int</em>) – Vertical coordinate of the new ontouml:Point.</p></li>
+<li><p><strong>ontouml_graph</strong> (<em>Graph</em>) – Knowledge graph that complies with the OntoUML Vocabulary.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="json2graph.decoder.decode_general.count_elements_graph">
+<span class="sig-prename descclassname"><span class="pre">json2graph.decoder.decode_general.</span></span><span class="sig-name descname"><span class="pre">count_elements_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ontouml_graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.decoder.decode_general.count_elements_graph" title="Link to this definition"></a></dt>
+<dd><p>Returns a dictionary with all element types on graphs and their respective quantity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ontouml_graph</strong> (<em>Graph</em>) – Knowledge graph with loaded objects’ ids and types</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary with types and respective quantities present on graph.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="json2graph.decoder.decode_general.get_stereotype">
+<span class="sig-prename descclassname"><span class="pre">json2graph.decoder.decode_general.</span></span><span class="sig-name descname"><span class="pre">get_stereotype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">object_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.decoder.decode_general.get_stereotype" title="Link to this definition"></a></dt>
+<dd><p>For coding reasons (dictionary index error), it is necessary to check if an object has its stereotype not set.
+Returns the evaluated object’s stereotype or ‘null’ when the stereotype is absent.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>object_dict</strong> (<em>dict</em>) – Object loaded as a dictionary.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Evaluated object’s stereotype or ‘null’ when the stereotype is absent.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="json2graph.decoder.decode_general.get_list_subdictionaries_for_specific_type">
+<span class="sig-prename descclassname"><span class="pre">json2graph.decoder.decode_general.</span></span><span class="sig-name descname"><span class="pre">get_list_subdictionaries_for_specific_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dictionary_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wanted_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.decoder.decode_general.get_list_subdictionaries_for_specific_type" title="Link to this definition"></a></dt>
+<dd><p>Recursively access all objects in the dictionary until find an object of the desired type.
+When the type is found, adds a copy of its dictionaries to a list to be returned
+(containing all its sub-dictionaries).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dictionary_data</strong> (<em>dict</em>) – Dictionary to have its fields decoded.</p></li>
+<li><p><strong>wanted_type</strong> (<em>str</em>) – ID of the object to have its dictionary (including sub-dictionaries) returned.</p></li>
+<li><p><strong>return_list</strong> (<em>list</em><em>[</em><em>dict</em><em>]</em>) – Optional. Searched dictionary to be returned. Used for recursion only.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of copy of the object’s dictionaries.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[dict]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="json2graph.decoder.decode_general.get_subdictionary_for_specific_id">
+<span class="sig-prename descclassname"><span class="pre">json2graph.decoder.decode_general.</span></span><span class="sig-name descname"><span class="pre">get_subdictionary_for_specific_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dictionary_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wanted_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_dict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.decoder.decode_general.get_subdictionary_for_specific_id" title="Link to this definition"></a></dt>
+<dd><p>Recursively access all objects in the dictionary until find the desired ID.
+When the id is found, return a copy of its dictionary (containing all its sub-dictionaries).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dictionary_data</strong> (<em>dict</em>) – Dictionary to have its fields decoded.</p></li>
+<li><p><strong>wanted_id</strong> (<em>str</em>) – ID of the object to have its dictionary (including sub-dictionaries) returned.</p></li>
+<li><p><strong>return_dict</strong> (<em>dict</em>) – Optional. Searched dictionary to be returned. Used for recursion only.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Copy of the object’s dictionary.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="json2graph.decoder.decode_general.get_all_ids_of_specific_type">
+<span class="sig-prename descclassname"><span class="pre">json2graph.decoder.decode_general.</span></span><span class="sig-name descname"><span class="pre">get_all_ids_of_specific_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dictionary_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wanted_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">list_ids_for_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.decoder.decode_general.get_all_ids_of_specific_type" title="Link to this definition"></a></dt>
+<dd><p>Recursively access all objects in the dictionary and generates a list of all ids of objects for a given type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dictionary_data</strong> (<em>dict</em>) – Dictionary to have its fields decoded.</p></li>
+<li><p><strong>wanted_type</strong> (<em>str</em>) – Name of the type of the objects to have their IDs identified.</p></li>
+<li><p><strong>list_ids_for_type</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of ids from all objects for a given type.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="json2graph.decoder.decode_general.clean_null_data">
+<span class="sig-prename descclassname"><span class="pre">json2graph.decoder.decode_general.</span></span><span class="sig-name descname"><span class="pre">clean_null_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dictionary_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.decoder.decode_general.clean_null_data" title="Link to this definition"></a></dt>
+<dd><p>Removes all empty values (i.e., keys associated with None) from the received dictionary.
+If a value of the dictionary is another dictionary, this function recursively verify this sub-dictionary elements.
+I.e., all empty fields, from all dictionaries composing the main dictionary are also cleaned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dictionary_data</strong> (<em>dict</em>) – Dictionary to have its empty fields cleaned.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary without empty fields.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="json2graph.decoder" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../decode_main/index.html" class="btn btn-neutral float-right" title="json2graph.decoder.decode_main" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Semantics, Cybersecurity &amp; Services (SCS), University of Twente, the Netherlands.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

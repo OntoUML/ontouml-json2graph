@@ -4,15 +4,6 @@
 .. py:module:: json2graph.modules
 
 
-Subpackages
------------
-.. toctree::
-   :titlesonly:
-   :maxdepth: 3
-
-   decoder/index.rst
-
-
 Submodules
 ----------
 .. toctree::
@@ -28,5 +19,6 @@ Submodules
    sparql_queries/index.rst
    utils_general/index.rst
    utils_graph/index.rst
+   utils_validations/index.rst
 
 

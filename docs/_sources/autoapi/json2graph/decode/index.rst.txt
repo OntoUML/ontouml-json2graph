@@ -21,6 +21,7 @@ Functions
 
    json2graph.decode.decode_ontouml_json2graph
    json2graph.decode.write_graph_file
+   json2graph.decode.decode_all_ontouml_json2graph
 
 
 
@@ -32,21 +33,18 @@ Attributes
    json2graph.decode.decoded_graph
 
 
-.. py:function:: decode_ontouml_json2graph(json_path, base_uri = 'https://example.org#', graph_format = 'ttl', language = '', model_only = False, silent = True, correct = False, execution_mode = 'import')
+.. py:function:: decode_ontouml_json2graph(json_file_path, base_uri = 'https://example.org#', language = '', model_only = False, silent = True, correct = False, execution_mode = 'import')
 
    Main function for converting OntoUML JSON data to a Knowledge Graph.
 
    This function takes the path to a JSON file representing OntoUML model data provided by the user
    and converts it into a knowledge graph following the specified options.
 
-   :param json_path: Path to the JSON file to be decoded provided by the user.
-   :type json_path: str
+   :param json_file_path: Path to the JSON file to be decoded provided by the user.
+   :type json_file_path: str
    :param base_uri: Base URI to be used for generating URIs for ontology concepts.
                     Default is https://example.org#. (Optional)
    :type base_uri: str
-   :param graph_format: Format for saving the resulting knowledge graph.
-                        Default value is 'ttl' (Turtle syntax). (Optional)
-   :type graph_format: str
    :param language: Language tag to be added to the ontology's concepts. (Optional)
    :type language: str
    :param model_only: If True, only the OntoUML model will be extracted without diagrammatic information. (Optional)
@@ -63,19 +61,30 @@ Attributes
    :rtype: Graph
 
 
-.. py:function:: write_graph_file(ontouml_graph, json_path, graph_format)
+.. py:function:: write_graph_file(ontouml_graph, execution_mode = 'script')
 
-   Saves the ontology graph into a file with syntax defined by the user.
-   The file is saved inside the 'results' directory also created by this function.
+   Saves the ontology graph received as argument into a file using the syntax defined by the user.
+
+   When running in script mode, the result is saved in the folder specified by the user as argument.
+   When running in test mode, the file is saved inside the 'results' directory created by this function.
 
    :param ontouml_graph: Graph compliant with the OntoUML Vocabulary.
    :type ontouml_graph: Graph
-   :param json_path: Path to the input json file.
-   :type json_path: str
-   :param graph_format: Syntax selected by the user to save the graph.
-   :type graph_format: str
+   :param execution_mode: Information about the execution mode.
+                          Valid values are 'import' (default), 'script', and 'test'. (Optional)
+   :type execution_mode: str
+
    :return: Saved output file path.
    :rtype: str
+
+
+.. py:function:: decode_all_ontouml_json2graph()
+
+   Decode multiple OntoUML JSON files.
+
+   This function processes a directory of OntoUML JSON files and converts each file into a corresponding
+   knowledge graph using the specified options.
+   The output graphs are saved in the output directory chosen by the user as argument.
 
 
 .. py:data:: decoded_graph

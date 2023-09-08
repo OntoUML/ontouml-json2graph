@@ -1,10 +1,12 @@
+import os
+
 import toml
 import yaml
 
 from json2graph.modules.errors import report_error_io_read, report_error_io_write
 
-metadata_file_read = "pyproject.toml"
-metadata_file_write = "json2graph/resources/metadata.yaml"
+metadata_file_read = ".." + os.sep + "pyproject.toml"
+metadata_file_write = ".." + os.sep + "json2graph/resources/metadata.yaml"
 
 # Loads pyproject.toml file into a dictionary
 try:
