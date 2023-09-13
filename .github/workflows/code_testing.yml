@@ -1,6 +1,6 @@
 name: Code Testing
 
-on: [ push ]
+on: push
 
 permissions:
   contents: read
