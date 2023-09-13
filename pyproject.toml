@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ontouml-json2graph"
-version = "1.2.0"
+version = "1.2.1"
 description = "OntoUML JSON2Graph Decoder"
 license = "Apache-2.0"
 authors = ["Pedro Paulo F. Barcelos <p.p.favatobarcelos@utwente.nl>"]
@@ -21,7 +21,7 @@ conformsToBase = "https://w3id.org/ontouml#"
 conformsToVersion = "v1.1.0"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.9"
 pyyaml = "^6.0.1"
 rdflib = "^7.0.0"
 validators = "^0.22.0"
