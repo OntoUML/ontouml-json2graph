@@ -63,7 +63,7 @@ def report_error_end_of_switch(invalid_parameter: str, caller_function_name: str
     """
 
     LOGGER.error(
-        f"Unexpected parameter {invalid_parameter} received in function {caller_function_name}. " f"Program aborted."
+        f"Unexpected parameter {invalid_parameter} received in function {caller_function_name}. Program aborted."
     )
     raise ValueError("End of switch (if-else statements) without valid parameter!")
 
