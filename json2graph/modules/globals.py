@@ -24,5 +24,11 @@ METADATA = metadata_dictionary["tool"]["poetry"] | metadata_dictionary["extras"]
 
 # GROUPS OF CONCEPTS
 
-ELEMENT_VIEW_TYPES = ["ClassView", "PackageView", "GeneralizationSetView", "RelationView", "GeneralizationView",
-                      "NoteView"]
+ELEMENT_VIEW_TYPES = [
+    "ClassView",
+    "PackageView",
+    "GeneralizationSetView",
+    "RelationView",
+    "GeneralizationView",
+    "NoteView",
+]

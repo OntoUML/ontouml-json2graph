@@ -24,49 +24,115 @@ LOGGER = initialize_logger()
 
 
 def initialize_args_script() -> None:
-    """ This function parses the command-line arguments provided by the user and performs necessary validations.
-    """
+    """This function parses the command-line arguments provided by the user and performs necessary validations."""
 
     # Formats for saving graphs supported by RDFLib
     # https://rdflib.readthedocs.io/en/stable/intro_to_parsing.html#saving-rdf
-    allowed_graph_formats = ["turtle", "ttl", "turtle2", "xml", "pretty-xml", "json-ld", "ntriples", "nt", "nt11", "n3",
-                             "trig", "trix", "nquads"]
+    allowed_graph_formats = [
+        "turtle",
+        "ttl",
+        "turtle2",
+        "xml",
+        "pretty-xml",
+        "json-ld",
+        "ntriples",
+        "nt",
+        "nt11",
+        "n3",
+        "trig",
+        "trix",
+        "nquads",
+    ]
 
     LOGGER.debug("Parsing user's arguments...")
 
     about_message = METADATA["name"] + " - version " + METADATA["version"]
 
     # PARSING ARGUMENTS
-    args_parser = argparse.ArgumentParser(prog=METADATA["name"],
-                                          description=METADATA["description"] + ". Version: " + METADATA["version"],
-                                          allow_abbrev=False, epilog="More information at: " + METADATA["repository"])
+    args_parser = argparse.ArgumentParser(
+        prog=METADATA["name"],
+        description=METADATA["description"] + ". Version: " + METADATA["version"],
+        allow_abbrev=False,
+        epilog="More information at: " + METADATA["repository"],
+    )
 
     args_parser.version = about_message
 
     # OPTIONAL ARGUMENT
-    args_parser.add_argument("-i", "--input_path", type=str, action="store", required=True,
-                             help="The path of the JSON file or directory with JSON files to be decoded.")
-    args_parser.add_argument("-o", "--output_path", type=str, action="store", default=os.getcwd(),
-                             help="The path of the directory in which the resulting decoded file(s) will be saved. "
-                                  "Default is the working directory.")
+    args_parser.add_argument(
+        "-i",
+        "--input_path",
+        type=str,
+        action="store",
+        required=True,
+        help="The path of the JSON file or directory with JSON files to be decoded.",
+    )
+    args_parser.add_argument(
+        "-o",
+        "--output_path",
+        type=str,
+        action="store",
+        default=os.getcwd(),
+        help="The path of the directory in which the resulting decoded file(s) will be saved. "
+        "Default is the working directory.",
+    )
 
-    args_parser.add_argument("-a", "--decode_all", action="store_true",
-                             help="Converts all JSON files in the informed path.")
-    args_parser.add_argument("-f", "--format", type=str, action="store", choices=allowed_graph_formats, default="ttl",
-                             help="Format to save the decoded file. Default is 'ttl'.")
-    args_parser.add_argument("-l", "--language", type=str, action="store", default="",
-                             help="Language tag for the ontology's concepts. Default is 'None'.")
-    args_parser.add_argument("-c", "--correct", action="store_true", default=False,
-                             help="Enables syntactical and semantic validations and corrections.")
-    args_parser.add_argument("-s", "--silent", action="store_true", default=False,
-                             help="Silent mode. Does not present validation warnings and errors.")
-    args_parser.add_argument("-u", "--base_uri", type=str, action="store", default="https://example.org#",
-                             help="Base URI of the resulting graph. Default is 'https://example.org#'.")
-    args_parser.add_argument("-m", "--model_only", action="store_true",
-                             help="Keep only model elements, eliminating all diagrammatic data from output.")
+    args_parser.add_argument(
+        "-a",
+        "--decode_all",
+        action="store_true",
+        help="Converts all JSON files in the informed path.",
+    )
+    args_parser.add_argument(
+        "-f",
+        "--format",
+        type=str,
+        action="store",
+        choices=allowed_graph_formats,
+        default="ttl",
+        help="Format to save the decoded file. Default is 'ttl'.",
+    )
+    args_parser.add_argument(
+        "-l",
+        "--language",
+        type=str,
+        action="store",
+        default="",
+        help="Language tag for the ontology's concepts. Default is 'None'.",
+    )
+    args_parser.add_argument(
+        "-c",
+        "--correct",
+        action="store_true",
+        default=False,
+        help="Enables syntactical and semantic validations and corrections.",
+    )
+    args_parser.add_argument(
+        "-s",
+        "--silent",
+        action="store_true",
+        default=False,
+        help="Silent mode. Does not present validation warnings and errors.",
+    )
+    args_parser.add_argument(
+        "-u",
+        "--base_uri",
+        type=str,
+        action="store",
+        default="https://example.org#",
+        help="Base URI of the resulting graph. Default is 'https://example.org#'.",
+    )
+    args_parser.add_argument(
+        "-m",
+        "--model_only",
+        action="store_true",
+        help="Keep only model elements, eliminating all diagrammatic data from output.",
+    )
 
     # AUTOMATIC ARGUMENTS
-    args_parser.add_argument("-v", "--version", action="version", help="Print the software version and exit.")
+    args_parser.add_argument(
+        "-v", "--version", action="version", help="Print the software version and exit."
+    )
 
     # Execute arguments parser
     arguments = args_parser.parse_args()
@@ -89,16 +155,20 @@ def initialize_args_script() -> None:
 
     # Output validation
     if os.path.isfile(arguments.output_path):
-        report_error_requirement_not_met("Provided output path is not a directory. Execution finished.")
+        report_error_requirement_not_met(
+            "Provided output path is not a directory. Execution finished."
+        )
     if not os.path.exists(arguments.output_path):
         create_directory_if_not_exists(arguments.output_path, "output directory")
         LOGGER.info("The provided output directory did not exist and was created.")
 
     # Checking if provided URI is valid. I.e., if it has '/' or '#' at the end. If it does not, add a '#'
     if not validators.url(arguments.base_uri):
-        report_error_requirement_not_met("Provided base URI is invalid. Execution finished.")
-    elif (arguments.base_uri[-1] != '#') and (arguments.base_uri[-1] != '/'):
-        arguments_dictionary["base_uri"] += '#'
+        report_error_requirement_not_met(
+            "Provided base URI is invalid. Execution finished."
+        )
+    elif (arguments.base_uri[-1] != "#") and (arguments.base_uri[-1] != "/"):
+        arguments_dictionary["base_uri"] += "#"
 
     LOGGER.debug(f"Arguments parsed. Obtained values are: {arguments_dictionary}.")
 
@@ -106,15 +176,17 @@ def initialize_args_script() -> None:
     ARGUMENTS = arguments_dictionary
 
 
-def initialize_args_import(input_path: str = "not_initialized",
-                           output_path: str = os.getcwd(),
-                           base_uri: str = "https://example.org#",
-                           graph_format: str = "ttl",
-                           language: str = "",
-                           model_only: bool = False,
-                           silent: bool = True,
-                           correct: bool = False):
-    """ This function initializes the global variable ARGUMENTS of type dictionary, which contains user-provided
+def initialize_args_import(
+    input_path: str = "not_initialized",
+    output_path: str = os.getcwd(),
+    base_uri: str = "https://example.org#",
+    graph_format: str = "ttl",
+    language: str = "",
+    model_only: bool = False,
+    silent: bool = True,
+    correct: bool = False,
+):
+    """This function initializes the global variable ARGUMENTS of type dictionary, which contains user-provided
     (when executed in script mode) or default arguments (when executed as a library or for testing).
     The ARGUMENTS variable must be initialized in every possible execution mode.
 
@@ -150,9 +222,8 @@ def initialize_args_import(input_path: str = "not_initialized",
     ARGUMENTS["silent"] = silent
 
 
-def initialize_args_test(input_path: str = "not_initialized",
-                         language: str = ""):
-    """ This function initializes the global variable ARGUMENTS of type dictionary, which contains user-provided
+def initialize_args_test(input_path: str = "not_initialized", language: str = ""):
+    """This function initializes the global variable ARGUMENTS of type dictionary, which contains user-provided
     (when executed in script mode) or default arguments (when executed as a library or for testing).
     The ARGUMENTS variable must be initialized in every possible execution mode.
 

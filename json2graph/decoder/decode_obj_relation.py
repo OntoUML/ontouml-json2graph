@@ -10,14 +10,17 @@ Function's nomenclatures:
 
 from rdflib import Graph, URIRef, Literal, XSD
 
-from ..decoder.decode_general import get_list_subdictionaries_for_specific_type, get_stereotype
+from ..decoder.decode_general import (
+    get_list_subdictionaries_for_specific_type,
+    get_stereotype,
+)
 from ..modules import arguments as args
 from ..modules.messages import print_decode_log_message
 from ..modules.utils_graph import ontouml_ref
 
 
 def set_relation_defaults(relation_dict: dict, ontouml_graph: Graph) -> None:
-    """ Sets the following attribute's default values for ontouml:Relation:
+    """Sets the following attribute's default values for ontouml:Relation:
 
     DRA1) ontouml:isDerived default value = False
     DRA2) ontouml:isAbstract default value = False
@@ -32,19 +35,29 @@ def set_relation_defaults(relation_dict: dict, ontouml_graph: Graph) -> None:
 
     # DCA3: Setting ontouml:isDerived attribute default value
     if "isDerived" not in relation_dict:
-        print_decode_log_message(relation_dict, "DGA1", property_name='isDerived')
-        ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + relation_dict['id']),
-                           ontouml_ref("isDerived"), Literal(False, datatype=XSD.boolean)))
+        print_decode_log_message(relation_dict, "DGA1", property_name="isDerived")
+        ontouml_graph.add(
+            (
+                URIRef(args.ARGUMENTS["base_uri"] + relation_dict["id"]),
+                ontouml_ref("isDerived"),
+                Literal(False, datatype=XSD.boolean),
+            )
+        )
 
     # DCA4: Setting ontouml:isAbstract attribute default value
     if "isAbstract" not in relation_dict:
-        print_decode_log_message(relation_dict, "DGA1", property_name='isAbstract')
-        ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + relation_dict['id']),
-                           ontouml_ref("isAbstract"), Literal(False, datatype=XSD.boolean)))
+        print_decode_log_message(relation_dict, "DGA1", property_name="isAbstract")
+        ontouml_graph.add(
+            (
+                URIRef(args.ARGUMENTS["base_uri"] + relation_dict["id"]),
+                ontouml_ref("isAbstract"),
+                Literal(False, datatype=XSD.boolean),
+            )
+        )
 
 
 def set_relation_stereotype(relation_dict: dict, ontouml_graph: Graph) -> None:
-    """ Sets ontouml:stereotype property between an instance of ontouml:Relation and an instance representing an
+    """Sets ontouml:stereotype property between an instance of ontouml:Relation and an instance representing an
     ontouml:RelationStereotype.
 
     Warning messages:
@@ -56,17 +69,38 @@ def set_relation_stereotype(relation_dict: dict, ontouml_graph: Graph) -> None:
     :type ontouml_graph: Graph
     """
 
-    ENUM_RELATION_STEREOTYPE = ["bringsAbout", "characterization", "comparative", "componentOf", "creation",
-                                "derivation", "externalDependence", "historicalDependence", "instantiation",
-                                "manifestation", "material", "mediation", "memberOf", "participation",
-                                "participational", "subCollectionOf", "subQuantityOf", "termination", "triggers"]
+    ENUM_RELATION_STEREOTYPE = [
+        "bringsAbout",
+        "characterization",
+        "comparative",
+        "componentOf",
+        "creation",
+        "derivation",
+        "externalDependence",
+        "historicalDependence",
+        "instantiation",
+        "manifestation",
+        "material",
+        "mediation",
+        "memberOf",
+        "participation",
+        "participational",
+        "subCollectionOf",
+        "subQuantityOf",
+        "termination",
+        "triggers",
+    ]
 
     relation_stereotype = get_stereotype(relation_dict)
 
     if relation_stereotype != "null":
-        ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + relation_dict['id']),
-                           ontouml_ref("stereotype"),
-                           ontouml_ref(relation_dict['stereotype'])))
+        ontouml_graph.add(
+            (
+                URIRef(args.ARGUMENTS["base_uri"] + relation_dict["id"]),
+                ontouml_ref("stereotype"),
+                ontouml_ref(relation_dict["stereotype"]),
+            )
+        )
 
         # If declared but invalid, create and report error. Uses generic message with code 'VCSG'.
         if relation_stereotype not in ENUM_RELATION_STEREOTYPE:
@@ -74,7 +108,7 @@ def set_relation_stereotype(relation_dict: dict, ontouml_graph: Graph) -> None:
 
 
 def set_relation_relations(relation_dict: dict, ontouml_graph: Graph) -> None:
-    """ Sets the following object properties to instances of ontouml:Relation:
+    """Sets the following object properties to instances of ontouml:Relation:
         - ontouml:relationEnd (range ontouml:Property)
         - ontouml:sourceEnd (range ontouml:Property)
         - ontouml:targetEnd (range ontouml:Property)
@@ -85,7 +119,7 @@ def set_relation_relations(relation_dict: dict, ontouml_graph: Graph) -> None:
     :type ontouml_graph: Graph
     """
 
-    relation_individual = URIRef(args.ARGUMENTS["base_uri"] + relation_dict['id'])
+    relation_individual = URIRef(args.ARGUMENTS["base_uri"] + relation_dict["id"])
     uri_relation_end = ontouml_ref("relationEnd")
     uri_relation_sourceend = ontouml_ref("sourceEnd")
     uri_relation_targetend = ontouml_ref("targetEnd")
@@ -107,7 +141,7 @@ def set_relation_relations(relation_dict: dict, ontouml_graph: Graph) -> None:
 
 
 def create_relation_properties(json_data: dict, ontouml_graph: Graph) -> None:
-    """ Main function for decoding an object of type Relation.
+    """Main function for decoding an object of type Relation.
 
     Receives the whole JSON loaded data as a dictionary and manipulates it to create all properties in which the
     object's type is domain of.
@@ -127,11 +161,12 @@ def create_relation_properties(json_data: dict, ontouml_graph: Graph) -> None:
     :type ontouml_graph: Graph
     """
 
-    list_relation_dicts = get_list_subdictionaries_for_specific_type(json_data, "Relation")
+    list_relation_dicts = get_list_subdictionaries_for_specific_type(
+        json_data, "Relation"
+    )
 
     # Treat each object dictionary
     for relation_dict in list_relation_dicts:
-
         # Removing possible dictionaries that are only references
         if len(relation_dict) < 3:
             continue

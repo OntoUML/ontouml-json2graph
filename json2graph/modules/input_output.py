@@ -12,7 +12,7 @@ LOGGER = initialize_logger()
 
 
 def create_directory_if_not_exists(directory_path: str, file_description: str) -> None:
-    """ Checks if the directory that has the path received as argument exists.
+    """Checks if the directory that has the path received as argument exists.
     If it does, do nothing. If it does not, create it.
 
     :param directory_path: Path to the directory to be created (if it does not exist).
@@ -29,7 +29,7 @@ def create_directory_if_not_exists(directory_path: str, file_description: str) -
 
 
 def safe_load_json_file(json_path: str) -> dict:
-    """ Safely loads the JSON file inputted by the user as an argument into a dictionary.
+    """Safely loads the JSON file inputted by the user as an argument into a dictionary.
 
     :param json_path: Path to the JSON file to be loaded.
     :type json_path: str
@@ -49,8 +49,10 @@ def safe_load_json_file(json_path: str) -> dict:
     return json_data
 
 
-def safe_write_graph_file(ontouml_graph: Graph, output_file_path: str, syntax: str) -> None:
-    """ Safely saves the graph into a file in the informed destination with the desired syntax.
+def safe_write_graph_file(
+    ontouml_graph: Graph, output_file_path: str, syntax: str
+) -> None:
+    """Safely saves the graph into a file in the informed destination with the desired syntax.
 
     :param ontouml_graph: Graph compliant with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
@@ -61,7 +63,9 @@ def safe_write_graph_file(ontouml_graph: Graph, output_file_path: str, syntax: s
     """
 
     try:
-        ontouml_graph.serialize(destination=output_file_path, encoding='utf-8', format=syntax)
+        ontouml_graph.serialize(
+            destination=output_file_path, encoding="utf-8", format=syntax
+        )
     except OSError as error:
         file_description = "output graph file"
         report_error_io_write(output_file_path, file_description, error)
