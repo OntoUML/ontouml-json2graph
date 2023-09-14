@@ -111,8 +111,8 @@ def decode_ontouml_json2graph(
         )
 
         if not args.ARGUMENTS["language"]:
-            logger.warning("Ontology's language not informed by the user. "
-                           "Transformation will not generate language tag."
+            logger.warning(
+                "Ontology's language not informed by the user. " "Transformation will not generate language tag."
             )
         if not args.ARGUMENTS["correct"]:
             logger.warning(
