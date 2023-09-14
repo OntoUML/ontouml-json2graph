@@ -130,9 +130,7 @@ def initialize_args_script() -> None:
     )
 
     # AUTOMATIC ARGUMENTS
-    args_parser.add_argument(
-        "-v", "--version", action="version", help="Print the software version and exit."
-    )
+    args_parser.add_argument("-v", "--version", action="version", help="Print the software version and exit.")
 
     # Execute arguments parser
     arguments = args_parser.parse_args()
@@ -155,18 +153,14 @@ def initialize_args_script() -> None:
 
     # Output validation
     if os.path.isfile(arguments.output_path):
-        report_error_requirement_not_met(
-            "Provided output path is not a directory. Execution finished."
-        )
+        report_error_requirement_not_met("Provided output path is not a directory. Execution finished.")
     if not os.path.exists(arguments.output_path):
         create_directory_if_not_exists(arguments.output_path, "output directory")
         LOGGER.info("The provided output directory did not exist and was created.")
 
     # Checking if provided URI is valid. I.e., if it has '/' or '#' at the end. If it does not, add a '#'
     if not validators.url(arguments.base_uri):
-        report_error_requirement_not_met(
-            "Provided base URI is invalid. Execution finished."
-        )
+        report_error_requirement_not_met("Provided base URI is invalid. Execution finished.")
     elif (arguments.base_uri[-1] != "#") and (arguments.base_uri[-1] != "/"):
         arguments_dictionary["base_uri"] += "#"
 

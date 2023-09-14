@@ -54,9 +54,7 @@ def set_elementview_relations(elementview_dict: dict, ontouml_graph: Graph) -> N
             (
                 URIRef(args.ARGUMENTS["base_uri"] + elementview_dict["id"]),
                 ontouml_ref("isViewOf"),
-                URIRef(
-                    args.ARGUMENTS["base_uri"] + elementview_dict["modelElement"]["id"]
-                ),
+                URIRef(args.ARGUMENTS["base_uri"] + elementview_dict["modelElement"]["id"]),
             )
         )
 
@@ -102,9 +100,7 @@ def create_elementview_properties(json_data: dict, ontouml_graph: Graph) -> None
 
     # Get all ElementView' dictionaries
     for element_view in ELEMENT_VIEW_TYPES:
-        list_all_elementview_dicts += get_list_subdictionaries_for_specific_type(
-            json_data, element_view
-        )
+        list_all_elementview_dicts += get_list_subdictionaries_for_specific_type(json_data, element_view)
 
     # Treat each object dictionary
     for elementview_dict in list_all_elementview_dicts:

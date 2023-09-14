@@ -18,9 +18,7 @@ from ..modules import arguments as args
 from ..modules.utils_graph import ontouml_ref
 
 
-def set_ontoumlelement_project_project(
-    project_dict: dict, ontouml_graph: Graph, element_counting: dict
-) -> None:
+def set_ontoumlelement_project_project(project_dict: dict, ontouml_graph: Graph, element_counting: dict) -> None:
     """Sets the ontouml:project object property between an ontouml:Project (obj) and all its related entities (subj).
 
     :param project_dict: Project's data to have its fields decoded.
@@ -44,9 +42,7 @@ def set_ontoumlelement_project_project(
             statement_subject = URIRef(args.ARGUMENTS["base_uri"] + json_object_id)
             statement_predicate = ontouml_ref("project")
             statement_object = URIRef(args.ARGUMENTS["base_uri"] + project_dict["id"])
-            ontouml_graph.add(
-                (statement_subject, statement_predicate, statement_object)
-            )
+            ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
 
 def set_project_model_package(project_dict: dict, ontouml_graph: Graph) -> None:
@@ -61,9 +57,7 @@ def set_project_model_package(project_dict: dict, ontouml_graph: Graph) -> None:
     if "model" in project_dict:
         statement_subject = URIRef(args.ARGUMENTS["base_uri"] + project_dict["id"])
         statement_predicate = ontouml_ref("model")
-        statement_object = URIRef(
-            args.ARGUMENTS["base_uri"] + project_dict["model"]["id"]
-        )
+        statement_object = URIRef(args.ARGUMENTS["base_uri"] + project_dict["model"]["id"])
         ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
 
@@ -86,9 +80,7 @@ def set_project_diagram_diagram(project_dict: dict, ontouml_graph: Graph) -> Non
         ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
 
-def create_project_properties(
-    json_data: dict, ontouml_graph: Graph, element_counting: dict
-) -> None:
+def create_project_properties(json_data: dict, ontouml_graph: Graph, element_counting: dict) -> None:
     """Main function for decoding objects of type 'Project'.
 
     Receives the whole JSON loaded data as a dictionary and manipulates it to create all properties in which the
@@ -110,14 +102,10 @@ def create_project_properties(
     """
 
     # Getting all Project dictionaries
-    projects_dicts_list = get_list_subdictionaries_for_specific_type(
-        json_data, "Project"
-    )
+    projects_dicts_list = get_list_subdictionaries_for_specific_type(json_data, "Project")
 
     for project_dict in projects_dicts_list:
-        set_ontoumlelement_project_project(
-            project_dict, ontouml_graph, element_counting
-        )
+        set_ontoumlelement_project_project(project_dict, ontouml_graph, element_counting)
         set_project_model_package(project_dict, ontouml_graph)
 
         # Treats relations between instances of Project and Diagram only if the formers exist

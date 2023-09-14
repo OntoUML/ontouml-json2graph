@@ -43,9 +43,7 @@ def get_decode_log_message(
 
     # Not for VPS1, VPS2, and VPS3
     if "VPS" not in warning_code:
-        att_value = (
-            object_dict[property_name] if property_name in object_dict else "null"
-        )
+        att_value = object_dict[property_name] if property_name in object_dict else "null"
 
     # Warnings generated in function decode_obj_class.validate_class_attribute_constraints
 
@@ -171,7 +169,5 @@ def print_decode_log_message(
     if args.ARGUMENTS["silent"]:
         return
 
-    log_message = get_decode_log_message(
-        object_dict, warning_code, property_name, att_valid_stereotype
-    )
+    log_message = get_decode_log_message(object_dict, warning_code, property_name, att_valid_stereotype)
     LOGGER.warning(log_message)

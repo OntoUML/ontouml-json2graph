@@ -36,32 +36,22 @@ def load_ontouml_vocabulary() -> Graph:
 
     ontology_graph = Graph()
 
-    remote_option = (
-        "https://w3id.org/ontouml/vocabulary/" + METADATA["conformsToVersion"]
-    )
+    remote_option = "https://w3id.org/ontouml/vocabulary/" + METADATA["conformsToVersion"]
 
     # Guarantees that the file will be found as it searches using this file as basis
     package_dir = os.path.dirname(os.path.dirname(__file__))
-    file_location = (
-        "resources" + os.path.sep + "ontouml_" + METADATA["conformsToVersion"] + ".ttl"
-    )
+    file_location = "resources" + os.path.sep + "ontouml_" + METADATA["conformsToVersion"] + ".ttl"
     file_path = os.path.join(package_dir, file_location)
 
     try:
         ontology_graph.parse(remote_option, encoding="utf-8", format="ttl")
-        LOGGER.debug(
-            "OntoUML Vocabulary successfully loaded to working memory from remote option."
-        )
+        LOGGER.debug("OntoUML Vocabulary successfully loaded to working memory from remote option.")
     except:
         try:
             ontology_graph.parse(file_path, encoding="utf-8", format="ttl")
-            LOGGER.debug(
-                "OntoUML Vocabulary successfully loaded to working memory from local option."
-            )
+            LOGGER.debug("OntoUML Vocabulary successfully loaded to working memory from local option.")
         except OSError as error:
-            report_error_io_read(
-                "OntoUML Vocabulary", "from remote or local sources the", error
-            )
+            report_error_io_read("OntoUML Vocabulary", "from remote or local sources the", error)
 
     return ontology_graph
 
@@ -89,8 +79,6 @@ def load_graph_safely(ontology_file: str, format: str = "not_provided") -> Graph
         file_description = "input ontology file"
         report_error_io_read(ontology_file, file_description, error)
 
-    LOGGER.debug(
-        f"Ontology file {ontology_file} successfully loaded to working memory."
-    )
+    LOGGER.debug(f"Ontology file {ontology_file} successfully loaded to working memory.")
 
     return ontology_graph

@@ -161,9 +161,7 @@ def create_relation_properties(json_data: dict, ontouml_graph: Graph) -> None:
     :type ontouml_graph: Graph
     """
 
-    list_relation_dicts = get_list_subdictionaries_for_specific_type(
-        json_data, "Relation"
-    )
+    list_relation_dicts = get_list_subdictionaries_for_specific_type(json_data, "Relation")
 
     # Treat each object dictionary
     for relation_dict in list_relation_dicts:

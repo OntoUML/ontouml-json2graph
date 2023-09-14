@@ -161,9 +161,7 @@ def set_property_relations(property_dict: dict, ontouml_graph: Graph) -> None:
     # Setting ontouml:propertyType
     if "propertyType" in property_dict:
         statement_predicate = ontouml_ref("propertyType")
-        statement_object = URIRef(
-            args.ARGUMENTS["base_uri"] + property_dict["propertyType"]["id"]
-        )
+        statement_object = URIRef(args.ARGUMENTS["base_uri"] + property_dict["propertyType"]["id"])
         ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
     # Setting ontouml:stereotype. Its validation is performed later in function validate_property_stereotype
@@ -177,29 +175,19 @@ def set_property_relations(property_dict: dict, ontouml_graph: Graph) -> None:
         statement_predicate = ontouml_ref("subsetsProperty")
 
         for subsetted_prop_dict in property_dict["subsettedProperties"]:
-            statement_object = URIRef(
-                args.ARGUMENTS["base_uri"] + subsetted_prop_dict["id"]
-            )
-            ontouml_graph.add(
-                (statement_subject, statement_predicate, statement_object)
-            )
+            statement_object = URIRef(args.ARGUMENTS["base_uri"] + subsetted_prop_dict["id"])
+            ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
     # Setting ontouml:redefinesProperty
     if "redefinedProperties" in property_dict:
         statement_predicate = ontouml_ref("redefinesProperty")
 
         for redefined_prop_dict in property_dict["redefinedProperties"]:
-            statement_object = URIRef(
-                args.ARGUMENTS["base_uri"] + redefined_prop_dict["id"]
-            )
-            ontouml_graph.add(
-                (statement_subject, statement_predicate, statement_object)
-            )
+            statement_object = URIRef(args.ARGUMENTS["base_uri"] + redefined_prop_dict["id"])
+            ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
 
-def determine_cardinality_bounds(
-    cardinalities: str, property_id: str
-) -> (str, str, str):
+def determine_cardinality_bounds(cardinalities: str, property_id: str) -> (str, str, str):
     """Receives a string with an ontouml:Cardinality's ontouml:cardinalityValue, fix its format and decouple it into
     its ontouml:lowerBound and ontouml:upperBound. Checks and displays warning if the obtained values are not valid.
 
@@ -223,10 +211,7 @@ def determine_cardinality_bounds(
     full_cardinality = lower_bound + ".." + upper_bound
 
     # Validating discovered cardinality bounds
-    if (
-        not (upper_bound.isnumeric() or upper_bound == "*")
-        and not args.ARGUMENTS["silent"]
-    ):
+    if not (upper_bound.isnumeric() or upper_bound == "*") and not args.ARGUMENTS["silent"]:
         LOGGER.warning(
             f"Invalid cardinality's upper bound (value '{upper_bound}') for Property individual with "
             f"ID '{property_id}'. Transformation proceeded as is."
@@ -250,12 +235,8 @@ def set_cardinality_relations(property_dict: dict, ontouml_graph: Graph) -> None
     """
 
     if "cardinality" in property_dict:
-        ontology_property_individual = URIRef(
-            args.ARGUMENTS["base_uri"] + property_dict["id"]
-        )
-        ontology_cardinality_individual = URIRef(
-            args.ARGUMENTS["base_uri"] + property_dict["id"] + "_cardinality"
-        )
+        ontology_property_individual = URIRef(args.ARGUMENTS["base_uri"] + property_dict["id"])
+        ontology_cardinality_individual = URIRef(args.ARGUMENTS["base_uri"] + property_dict["id"] + "_cardinality")
 
         ontouml_cardinality_class = ontouml_ref("Cardinality")
         ontouml_cardinality_property = ontouml_ref("cardinality")
@@ -265,9 +246,7 @@ def set_cardinality_relations(property_dict: dict, ontouml_graph: Graph) -> None
         ontouml_upperbound_property = ontouml_ref("upperBound")
 
         # Creating ontouml:Cardinality individuals (named after its related Property's name + '_cardinality' string)
-        ontouml_graph.add(
-            (ontology_cardinality_individual, RDF.type, ontouml_cardinality_class)
-        )
+        ontouml_graph.add((ontology_cardinality_individual, RDF.type, ontouml_cardinality_class))
 
         # Setting the ontouml:cardinality between an ontouml:Property and its ontouml:Cardinality
         ontouml_graph.add(
@@ -337,9 +316,7 @@ def create_property_properties(json_data: dict, ontouml_graph: Graph) -> None:
     """
 
     # Getting Property dictionaries
-    property_dicts_list = get_list_subdictionaries_for_specific_type(
-        json_data, "Property"
-    )
+    property_dicts_list = get_list_subdictionaries_for_specific_type(json_data, "Property")
 
     for property_dict in property_dicts_list:
         # Removing possible dictionaries that are only references
