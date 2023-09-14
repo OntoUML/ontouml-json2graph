@@ -17,7 +17,7 @@ from ..modules.utils_graph import ontouml_ref
 
 
 def set_diagram_owner_modelelement(diagram_dict: dict, ontouml_graph: Graph) -> None:
-    """ Set the ontouml:owner property between an ontouml:Diagram and its related ontouml:Package.
+    """Set the ontouml:owner property between an ontouml:Diagram and its related ontouml:Package.
 
     :param diagram_dict: Diagram object loaded as a dictionary.
     :type diagram_dict: dict
@@ -31,8 +31,10 @@ def set_diagram_owner_modelelement(diagram_dict: dict, ontouml_graph: Graph) -> 
     ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
 
-def set_diagram_containsview_elementview(diagram_dict: dict, ontouml_graph: Graph) -> None:
-    """ Set the ontouml:containsView property between an ontouml:Diagram and its related ontouml:ElementView.
+def set_diagram_containsview_elementview(
+    diagram_dict: dict, ontouml_graph: Graph
+) -> None:
+    """Set the ontouml:containsView property between an ontouml:Diagram and its related ontouml:ElementView.
 
     :param diagram_dict: Diagram object loaded as a dictionary.
     :type diagram_dict: dict
@@ -43,18 +45,24 @@ def set_diagram_containsview_elementview(diagram_dict: dict, ontouml_graph: Grap
     list_related_elementviews = []
 
     for view_type in ELEMENT_VIEW_TYPES:
-        list_related_elementviews += get_list_subdictionaries_for_specific_type(diagram_dict, view_type)
+        list_related_elementviews += get_list_subdictionaries_for_specific_type(
+            diagram_dict, view_type
+        )
 
     for related_elementview in list_related_elementviews:
         statement_subject = URIRef(args.ARGUMENTS["base_uri"] + diagram_dict["id"])
         statement_predicate = ontouml_ref("containsView")
-        statement_object = URIRef(args.ARGUMENTS["base_uri"] + related_elementview["id"])
+        statement_object = URIRef(
+            args.ARGUMENTS["base_uri"] + related_elementview["id"]
+        )
 
         ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
 
-def create_diagram_properties(json_data: dict, ontouml_graph: Graph, element_counting: dict) -> None:
-    """ Main function for decoding objects of type 'Diagram'.
+def create_diagram_properties(
+    json_data: dict, ontouml_graph: Graph, element_counting: dict
+) -> None:
+    """Main function for decoding objects of type 'Diagram'.
 
     Receives the whole JSON loaded data as a dictionary and manipulates it to create all properties in which the
     object's type is domain of.
@@ -72,10 +80,11 @@ def create_diagram_properties(json_data: dict, ontouml_graph: Graph, element_cou
     """
 
     # Setting diagram properties
-    diagrams_dicts_list = get_list_subdictionaries_for_specific_type(json_data, "Diagram")
+    diagrams_dicts_list = get_list_subdictionaries_for_specific_type(
+        json_data, "Diagram"
+    )
 
     for diagram_dict in diagrams_dicts_list:
-
         set_diagram_owner_modelelement(diagram_dict, ontouml_graph)
 
         # Treats relations between instances of Diagram and ElementView only if the formers exist

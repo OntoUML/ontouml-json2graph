@@ -12,7 +12,7 @@ from json2graph.modules.utils_graph import load_graph_safely
 
 
 def get_test_list() -> list[str]:
-    """ Returns a list with all JSON files in the test_files folder.
+    """Returns a list with all JSON files in the test_files folder.
 
     :return: List with complete path of all JSON files in the test_files folder.
     :rtype: list[str]
@@ -24,14 +24,16 @@ def get_test_list() -> list[str]:
     test_files_dir = os.path.join(tests_dir, "test_files")
 
     # Gets test files from directory
-    list_test_files = glob.glob(test_files_dir + os.path.sep + '*.json')
+    list_test_files = glob.glob(test_files_dir + os.path.sep + "*.json")
     list_test_files.sort()
 
     return list_test_files
 
 
-def print_graphs_differences(iso_result_graph: Graph, iso_expected_graph: Graph, test_name: str):
-    """ Print three files:
+def print_graphs_differences(
+    iso_result_graph: Graph, iso_expected_graph: Graph, test_name: str
+):
+    """Print three files:
         - test*_both.ttl: contains the statements that are present in both the resulting and expected graphs.
         - test*_or.ttl: contains the statements that are present only in the resulting graph.
         - test*_oe.ttl: contains the statements that are present only in the expected graph.
@@ -44,7 +46,9 @@ def print_graphs_differences(iso_result_graph: Graph, iso_expected_graph: Graph,
     :type test_name: str
     """
 
-    in_both, in_resulting, in_expected = graph_diff(iso_result_graph, iso_expected_graph)
+    in_both, in_resulting, in_expected = graph_diff(
+        iso_result_graph, iso_expected_graph
+    )
 
     in_both.bind("ontouml", METADATA["conformsToBase"])
     in_both.bind("", args.ARGUMENTS["base_uri"])
@@ -63,8 +67,10 @@ def print_graphs_differences(iso_result_graph: Graph, iso_expected_graph: Graph,
     safe_write_graph_file(in_expected, base_test + "_only_expect.ttl", "ttl")
 
 
-def compare_graphs(resulting_graph_path: str, expected_graph_path: str, test_name: str) -> bool:
-    """ Verifies if resulting graph corresponds to expected graph.
+def compare_graphs(
+    resulting_graph_path: str, expected_graph_path: str, test_name: str
+) -> bool:
+    """Verifies if resulting graph corresponds to expected graph.
 
     :param resulting_graph_path: Path to the generated resulting graph file.
     :type resulting_graph_path: str
@@ -82,7 +88,7 @@ def compare_graphs(resulting_graph_path: str, expected_graph_path: str, test_nam
     iso_result_graph = to_isomorphic(result_graph)
     iso_expected_graph = to_isomorphic(expected_graph)
 
-    is_equal = (iso_result_graph == iso_expected_graph)
+    is_equal = iso_result_graph == iso_expected_graph
 
     if not is_equal:
         print_graphs_differences(iso_result_graph, iso_expected_graph, test_name)

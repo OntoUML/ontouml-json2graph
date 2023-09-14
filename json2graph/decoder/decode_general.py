@@ -10,8 +10,10 @@ from ..modules.utils_graph import ontouml_ref, load_ontouml_vocabulary
 LOGGER = initialize_logger()
 
 
-def create_point(point_id: str, x_coord: int, y_coord: int, ontouml_graph: Graph) -> None:
-    """ Creates a new instance of ontouml:Point with its ontouml:xCoordinate, and ontouml:yCoordinate properties.
+def create_point(
+    point_id: str, x_coord: int, y_coord: int, ontouml_graph: Graph
+) -> None:
+    """Creates a new instance of ontouml:Point with its ontouml:xCoordinate, and ontouml:yCoordinate properties.
 
     :param point_id: ID of the new ontouml:Point instance to be created.
     :type point_id: str
@@ -23,21 +25,31 @@ def create_point(point_id: str, x_coord: int, y_coord: int, ontouml_graph: Graph
     :type ontouml_graph: Graph
     """
 
-    ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + point_id), RDF.type, ontouml_ref("Point")))
+    ontouml_graph.add(
+        (URIRef(args.ARGUMENTS["base_uri"] + point_id), RDF.type, ontouml_ref("Point"))
+    )
 
     # Setting x coordinate
-    ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + point_id),
-                       ontouml_ref("xCoordinate"),
-                       Literal(x_coord)))
+    ontouml_graph.add(
+        (
+            URIRef(args.ARGUMENTS["base_uri"] + point_id),
+            ontouml_ref("xCoordinate"),
+            Literal(x_coord),
+        )
+    )
 
     # Setting y coordinate
-    ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + point_id),
-                       ontouml_ref("yCoordinate"),
-                       Literal(y_coord)))
+    ontouml_graph.add(
+        (
+            URIRef(args.ARGUMENTS["base_uri"] + point_id),
+            ontouml_ref("yCoordinate"),
+            Literal(y_coord),
+        )
+    )
 
 
 def count_elements_graph(ontouml_graph: Graph) -> dict:
-    """ Returns a dictionary with all element types on graphs and their respective quantity.
+    """Returns a dictionary with all element types on graphs and their respective quantity.
 
     :param ontouml_graph: Knowledge graph with loaded objects' ids and types
     :type ontouml_graph: Graph
@@ -63,7 +75,7 @@ def count_elements_graph(ontouml_graph: Graph) -> dict:
 
 
 def get_stereotype(object_dict: dict) -> str:
-    """ For coding reasons (dictionary index error), it is necessary to check if an object has its stereotype not set.
+    """For coding reasons (dictionary index error), it is necessary to check if an object has its stereotype not set.
     Returns the evaluated object's stereotype or 'null' when the stereotype is absent.
 
     :param object_dict: Object loaded as a dictionary.
@@ -80,9 +92,10 @@ def get_stereotype(object_dict: dict) -> str:
     return result_stereotype
 
 
-def get_list_subdictionaries_for_specific_type(dictionary_data: dict, wanted_type: str,
-                                               return_list: list[dict] = None) -> list[dict]:
-    """ Recursively access all objects in the dictionary until find an object of the desired type.
+def get_list_subdictionaries_for_specific_type(
+    dictionary_data: dict, wanted_type: str, return_list: list[dict] = None
+) -> list[dict]:
+    """Recursively access all objects in the dictionary until find an object of the desired type.
     When the type is found, adds a copy of its dictionaries to a list to be returned
     (containing all its sub-dictionaries).
 
@@ -106,23 +119,27 @@ def get_list_subdictionaries_for_specific_type(dictionary_data: dict, wanted_typ
 
     # If not found, recursively search for it
     for dict_field in dictionary_data.keys():
-
         # Treating dictionary fields
         if type(dictionary_data[dict_field]) is dict:
-            return_list = get_list_subdictionaries_for_specific_type(dictionary_data[dict_field], wanted_type,
-                                                                     return_list)
+            return_list = get_list_subdictionaries_for_specific_type(
+                dictionary_data[dict_field], wanted_type, return_list
+            )
 
         # Treating list fields
         if type(dictionary_data[dict_field]) is list:
             for item in dictionary_data[dict_field]:
                 if type(item) is dict:
-                    return_list = get_list_subdictionaries_for_specific_type(item, wanted_type, return_list)
+                    return_list = get_list_subdictionaries_for_specific_type(
+                        item, wanted_type, return_list
+                    )
 
     return return_list
 
 
-def get_subdictionary_for_specific_id(dictionary_data: dict, wanted_id: str, return_dict: dict = None) -> dict:
-    """ Recursively access all objects in the dictionary until find the desired ID.
+def get_subdictionary_for_specific_id(
+    dictionary_data: dict, wanted_id: str, return_dict: dict = None
+) -> dict:
+    """Recursively access all objects in the dictionary until find the desired ID.
     When the id is found, return a copy of its dictionary (containing all its sub-dictionaries).
 
     :param dictionary_data: Dictionary to have its fields decoded.
@@ -147,22 +164,26 @@ def get_subdictionary_for_specific_id(dictionary_data: dict, wanted_id: str, ret
 
     # If not found, recursively search for it
     for dict_field in dictionary_data.keys():
-
         # Treating dictionary fields
         if type(dictionary_data[dict_field]) is dict:
-            return_dict = get_subdictionary_for_specific_id(dictionary_data[dict_field], wanted_id, return_dict)
+            return_dict = get_subdictionary_for_specific_id(
+                dictionary_data[dict_field], wanted_id, return_dict
+            )
 
         # Treating list fields
         if type(dictionary_data[dict_field]) is list:
             for item in dictionary_data[dict_field]:
-                return_dict = get_subdictionary_for_specific_id(item, wanted_id, return_dict)
+                return_dict = get_subdictionary_for_specific_id(
+                    item, wanted_id, return_dict
+                )
 
     return return_dict
 
 
-def get_all_ids_of_specific_type(dictionary_data: dict, wanted_type: str, list_ids_for_type: list[str] = None) -> list[
-    str]:
-    """ Recursively access all objects in the dictionary and generates a list of all ids of objects for a given type.
+def get_all_ids_of_specific_type(
+    dictionary_data: dict, wanted_type: str, list_ids_for_type: list[str] = None
+) -> list[str]:
+    """Recursively access all objects in the dictionary and generates a list of all ids of objects for a given type.
 
     :param dictionary_data: Dictionary to have its fields decoded.
     :type dictionary_data: dict
@@ -182,17 +203,19 @@ def get_all_ids_of_specific_type(dictionary_data: dict, wanted_type: str, list_i
 
     # Continue searching
     for dict_field in dictionary_data.keys():
-
         # Treating dictionaries fields
         if type(dictionary_data[dict_field]) is dict:
-            list_ids_for_type = get_all_ids_of_specific_type(dictionary_data[dict_field], wanted_type,
-                                                             list_ids_for_type)
+            list_ids_for_type = get_all_ids_of_specific_type(
+                dictionary_data[dict_field], wanted_type, list_ids_for_type
+            )
 
         # Treating list fields
         if type(dictionary_data[dict_field]) is list:
             for item in dictionary_data[dict_field]:
                 if type(item) is dict:
-                    list_ids_for_type = get_all_ids_of_specific_type(item, wanted_type, list_ids_for_type)
+                    list_ids_for_type = get_all_ids_of_specific_type(
+                        item, wanted_type, list_ids_for_type
+                    )
 
     # remove duplicates
     list_ids_for_type = list(dict.fromkeys(list_ids_for_type))
@@ -201,7 +224,7 @@ def get_all_ids_of_specific_type(dictionary_data: dict, wanted_type: str, list_i
 
 
 def clean_null_data(dictionary_data) -> dict:
-    """ Removes all empty values (i.e., keys associated with None) from the received dictionary.
+    """Removes all empty values (i.e., keys associated with None) from the received dictionary.
     If a value of the dictionary is another dictionary, this function recursively verify this sub-dictionary elements.
     I.e., all empty fields, from all dictionaries composing the main dictionary are also cleaned.
 
@@ -213,7 +236,6 @@ def clean_null_data(dictionary_data) -> dict:
 
     # Using list() to force a copy of the keys. Avoids "RuntimeError: dictionary changed size during iteration".
     for key in list(dictionary_data.keys()):
-
         # Recursively treats sub-dictionaries inside lists
         if type(dictionary_data[key]) is list:
             for item in dictionary_data[key]:
