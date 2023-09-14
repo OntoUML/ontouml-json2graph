@@ -16,11 +16,13 @@ from .modules.errors import report_error_requirement_not_met
 from .modules.input_output import safe_write_graph_file
 
 
-def decode_json_project(json_file_path: str,
-                        base_uri: str = "https://example.org#",
-                        language: str = "",
-                        correct: bool = False) -> Graph:
-    """ Decodes elements from OntoUML's abstract and concrete syntax from JSON format into a Knowledge Graph.
+def decode_json_project(
+    json_file_path: str,
+    base_uri: str = "https://example.org#",
+    language: str = "",
+    correct: bool = False,
+) -> Graph:
+    """Decodes elements from OntoUML's abstract and concrete syntax from JSON format into a Knowledge Graph.
     I.e., domain-level and diagrammatic data are converted to Knowledge Graph.
 
     This function decodes OntoUML JSON data representing a project-level model into a knowledge graph
@@ -41,19 +43,26 @@ def decode_json_project(json_file_path: str,
     :return: JSON data decoded into a RDFLib's Graph that is compliant with the OntoUML Vocabulary.
     :rtype: Graph
     """
-    decoded_graph_project = decode_ontouml_json2graph(json_file_path=json_file_path, base_uri=base_uri,
-                                                      language=language,
-                                                      model_only=True, silent=True, correct=correct,
-                                                      execution_mode="import")
+    decoded_graph_project = decode_ontouml_json2graph(
+        json_file_path=json_file_path,
+        base_uri=base_uri,
+        language=language,
+        model_only=True,
+        silent=True,
+        correct=correct,
+        execution_mode="import",
+    )
 
     return decoded_graph_project
 
 
-def decode_json_model(json_file_path: str,
-                      base_uri: str = "https://example.org#",
-                      language: str = "",
-                      correct: bool = False) -> Graph:
-    """ Decodes elements from OntoUML's abstract syntax from JSON format into a Knowledge Graph.
+def decode_json_model(
+    json_file_path: str,
+    base_uri: str = "https://example.org#",
+    language: str = "",
+    correct: bool = False,
+) -> Graph:
+    """Decodes elements from OntoUML's abstract syntax from JSON format into a Knowledge Graph.
     I.e., only domain-level (and not diagrammatic) data is converted to Knowledge Graph.
 
     This function decodes OntoUML JSON data representing a model-level view into a knowledge graph
@@ -74,15 +83,21 @@ def decode_json_model(json_file_path: str,
     :return: JSON data decoded into a RDFLib's Graph that is compliant with the OntoUML Vocabulary.
     :rtype: Graph
     """
-    decoded_graph_model = decode_ontouml_json2graph(json_file_path=json_file_path, base_uri=base_uri, language=language,
-                                                    model_only=True, silent=True, correct=correct,
-                                                    execution_mode="import")
+    decoded_graph_model = decode_ontouml_json2graph(
+        json_file_path=json_file_path,
+        base_uri=base_uri,
+        language=language,
+        model_only=True,
+        silent=True,
+        correct=correct,
+        execution_mode="import",
+    )
 
     return decoded_graph_model
 
 
 def save_graph_file(ontouml_graph: Graph, output_file_path: str, syntax: str) -> None:
-    """ The save_graph_file function is designed to securely save an OntoUML graph, represented as an RDFLib's Graph
+    """The save_graph_file function is designed to securely save an OntoUML graph, represented as an RDFLib's Graph
     object, into a file at a specified destination while using the user's informed syntax.
 
     :param ontouml_graph: Graph compliant with the OntoUML Vocabulary.
@@ -93,8 +108,21 @@ def save_graph_file(ontouml_graph: Graph, output_file_path: str, syntax: str) ->
     :type syntax: str
     """
 
-    valid_syntaxes = ['turtle', 'ttl', 'turtle2', 'xml', 'pretty-xml', 'json-ld', 'ntriples', 'nt', 'nt11', 'n3',
-                      'trig', 'trix', 'nquads']
+    valid_syntaxes = [
+        "turtle",
+        "ttl",
+        "turtle2",
+        "xml",
+        "pretty-xml",
+        "json-ld",
+        "ntriples",
+        "nt",
+        "nt11",
+        "n3",
+        "trig",
+        "trix",
+        "nquads",
+    ]
 
     if syntax not in valid_syntaxes:
         report_error_requirement_not_met("Invalid syntax used as argument.")

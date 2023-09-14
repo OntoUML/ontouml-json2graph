@@ -10,13 +10,16 @@ Function's nomenclatures:
 
 from rdflib import Graph, URIRef
 
-from ..decoder.decode_general import get_list_subdictionaries_for_specific_type, create_point
+from ..decoder.decode_general import (
+    get_list_subdictionaries_for_specific_type,
+    create_point,
+)
 from ..modules import arguments as args
 from ..modules.utils_graph import ontouml_ref
 
 
 def set_path_path_point(path_dict: dict, ontouml_graph: Graph) -> None:
-    """ Creates an ontouml:Point, their properties and the ontouml:point of an ontouml:Path.
+    """Creates an ontouml:Point, their properties and the ontouml:point of an ontouml:Path.
 
     :param path_dict: Path object loaded as a dictionary.
     :type path_dict: dict
@@ -33,15 +36,19 @@ def set_path_path_point(path_dict: dict, ontouml_graph: Graph) -> None:
         create_point(point_name, point_dict["x"], point_dict["y"], ontouml_graph)
 
         # Associating new Point with the Path
-        ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + path_dict["id"]),
-                           ontouml_ref("point"),
-                           URIRef(args.ARGUMENTS["base_uri"] + point_name)))
+        ontouml_graph.add(
+            (
+                URIRef(args.ARGUMENTS["base_uri"] + path_dict["id"]),
+                ontouml_ref("point"),
+                URIRef(args.ARGUMENTS["base_uri"] + point_name),
+            )
+        )
 
         point_counter += 1
 
 
 def create_path_properties(json_data: dict, ontouml_graph: Graph) -> None:
-    """ Main function for decoding an object of type Path.
+    """Main function for decoding an object of type Path.
 
     Receives the whole JSON loaded data as a dictionary and manipulates it to create all properties in which the
     object's type is domain of.

@@ -7,7 +7,7 @@ from datetime import datetime
 
 
 def logger_get_date_time() -> str:
-    """ Return a string in a specified format with date and time.
+    """Return a string in a specified format with date and time.
 
     :return: Formatted date and time. Format example: 2022.10.23-14.43
     :rtype: str
@@ -20,7 +20,7 @@ def logger_get_date_time() -> str:
 
 
 def initialize_logger(execution_mode: str = "script") -> logging.Logger:
-    """ Create and initialize logger named 'execution-logger'.
+    """Create and initialize logger named 'execution-logger'.
 
     Different triggers are defined for each execution mode:
         - script: INFO
@@ -41,7 +41,6 @@ def initialize_logger(execution_mode: str = "script") -> logging.Logger:
 
     # Creates a new logger only if current logger does not exist
     if not logging.getLogger("execution-logger").hasHandlers():
-
         # Creating CONSOLE handlers
         console_handler = logging.StreamHandler()
 
@@ -51,7 +50,7 @@ def initialize_logger(execution_mode: str = "script") -> logging.Logger:
             console_handler.setLevel(logging.ERROR)
 
         # Create formatters and add it to handlers
-        console_format = logging.Formatter('%(levelname)s - %(message)s')
+        console_format = logging.Formatter("%(levelname)s - %(message)s")
         console_handler.setFormatter(console_format)
 
         # Add handlers to the logger
