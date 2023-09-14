@@ -1,19 +1,28 @@
 name: Code formatting with Black
+
 on: [ push ]
+
 jobs:
   linter_name:
     name: runner / black
     runs-on: ubuntu-latest
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@v2.5.1
+        with:
+          egress-policy: audit
+
       - uses: actions/checkout@v3
+
       - name: Check files using the black formatter
         uses: rickstaa/action-black@v1.3.1
         id: action_black
         with:
           black_args: "."
+
       - name: Create Pull Request
         if: steps.action_black.outputs.is_formatted == 'true'
-        uses: peter-evans/create-pull-request@v5
+        uses: peter-evans/create-pull-request@v5.0.2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           title: "Format Python code with psf/black push"
