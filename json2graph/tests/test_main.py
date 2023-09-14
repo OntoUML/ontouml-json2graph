@@ -26,7 +26,7 @@ LIST_OF_TESTS = get_test_list()
 
 @pytest.mark.parametrize("input_file", LIST_OF_TESTS)
 def test_ontouml_json2graph(input_file: str) -> None:
-    """ Main test function the OntoUML JSON2Graph software.
+    """Main test function the OntoUML JSON2Graph software.
 
     The test is based on the comparison of the generated graph (from a JSON file provided in the test folder)
     with an expected resulting graph (also provided in the test folder), always in 'ttl' format.
@@ -41,8 +41,12 @@ def test_ontouml_json2graph(input_file: str) -> None:
     language = "en" if (int(test_name[-2:]) > 41) else ""
 
     # Create resulting Graph in ttl syntax
-    resulting_graph = decode_ontouml_json2graph(json_file_path=input_file, language=language, execution_mode="test")
-    resulting_graph_file = write_graph_file(ontouml_graph=resulting_graph, execution_mode="test")
+    resulting_graph = decode_ontouml_json2graph(
+        json_file_path=input_file, language=language, execution_mode="test"
+    )
+    resulting_graph_file = write_graph_file(
+        ontouml_graph=resulting_graph, execution_mode="test"
+    )
 
     # Getting expected result
     expected_graph_file = input_file.replace(".json", ".ttl")

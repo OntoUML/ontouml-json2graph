@@ -1,553 +1,956 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta charset="utf-8"/>
+    <meta content="Docutils 0.18.1: http://docutils.sourceforge.net/" name="generator"/>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>json2graph.modules package &mdash; ontouml-json2graph 1.0.2 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/sphinx-toolbox.css" type="text/css" />
-  <!--[if lt IE 9]>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>json2graph.modules package &mdash; ontouml-json2graph 1.0.2 documentation</title>
+    <link href="_static/pygments.css" rel="stylesheet" type="text/css"/>
+    <link href="_static/css/theme.css" rel="stylesheet" type="text/css"/>
+    <link href="_static/graphviz.css" rel="stylesheet" type="text/css"/>
+    <link href="_static/css/sphinx-toolbox.css" rel="stylesheet" type="text/css"/>
+    <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=1ed6394b"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <![endif]-->
+
+    <script src="_static/jquery.js?v=5d32c60e"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="_static/documentation_options.js?v=1ed6394b"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link href="genindex.html" rel="index" title="Index"/>
+    <link href="search.html" rel="search" title="Search"/>
 </head>
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+<body class="wy-body-for-nav">
+<div class="wy-grid-for-nav">
+    <nav class="wy-nav-side" data-toggle="wy-nav-shift">
+        <div class="wy-side-scroll">
+            <div class="wy-side-nav-search">
 
-          
-          
-          <a href="index.html" class="icon icon-home">
-            ontouml-json2graph
-              <img src="_static/logo-json2graph.png" class="logo" alt="Logo"/>
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="README.html">The OntoUML JSON2Graph Transformation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>
-</ul>
 
+                <a class="icon icon-home" href="index.html">
+                    ontouml-json2graph
+                    <img alt="Logo" class="logo" src="_static/logo-json2graph.png"/>
+                </a>
+                <div role="search">
+                    <form action="search.html" class="wy-form" id="rtd-search-form" method="get">
+                        <input aria-label="Search docs" name="q" placeholder="Search docs" type="text"/>
+                        <input name="check_keywords" type="hidden" value="yes"/>
+                        <input name="area" type="hidden" value="default"/>
+                    </form>
+                </div>
+            </div>
+            <div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+                <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="README.html">The OntoUML JSON2Graph
+                        Transformation</a></li>
+                    <li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a>
+                    </li>
+                </ul>
+
+            </div>
         </div>
-      </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">ontouml-json2graph</a>
-      </nav>
+    <section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+        <nav aria-label="Mobile navigation menu" class="wy-nav-top">
+            <i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+            <a href="index.html">ontouml-json2graph</a>
+        </nav>
 
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">json2graph.modules package</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="_sources/json2graph.modules.rst.txt" rel="nofollow"> View page source</a>
-      </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
-  <section id="json2graph-modules-package">
-<h1>json2graph.modules package<a class="headerlink" href="#json2graph-modules-package" title="Link to this heading"></a></h1>
-<section id="subpackages">
-<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="json2graph.modules.decoder.html">json2graph.modules.decoder package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="json2graph.modules.decoder.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="json2graph.modules.decoder.html#json2graph-modules-decoder-decode-general-module">json2graph.modules.decoder.decode_general module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="json2graph.modules.decoder.html#json2graph-modules-decoder-decode-main-module">json2graph.modules.decoder.decode_main module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="json2graph.modules.decoder.html#json2graph-modules-decoder-decode-obj-class-module">json2graph.modules.decoder.decode_obj_class module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="json2graph.modules.decoder.html#json2graph-modules-decoder-decode-obj-diagram-module">json2graph.modules.decoder.decode_obj_diagram module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="json2graph.modules.decoder.html#json2graph-modules-decoder-decode-obj-elementview-module">json2graph.modules.decoder.decode_obj_elementview module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="json2graph.modules.decoder.html#json2graph-modules-decoder-decode-obj-generalization-module">json2graph.modules.decoder.decode_obj_generalization module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="json2graph.modules.decoder.html#json2graph-modules-decoder-decode-obj-generalizationset-module">json2graph.modules.decoder.decode_obj_generalizationset module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="json2graph.modules.decoder.html#json2graph-modules-decoder-decode-obj-package-module">json2graph.modules.decoder.decode_obj_package module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="json2graph.modules.decoder.html#json2graph-modules-decoder-decode-obj-path-module">json2graph.modules.decoder.decode_obj_path module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="json2graph.modules.decoder.html#json2graph-modules-decoder-decode-obj-project-module">json2graph.modules.decoder.decode_obj_project module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="json2graph.modules.decoder.html#json2graph-modules-decoder-decode-obj-property-module">json2graph.modules.decoder.decode_obj_property module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="json2graph.modules.decoder.html#json2graph-modules-decoder-decode-obj-rectangularshape-module">json2graph.modules.decoder.decode_obj_rectangularshape module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="json2graph.modules.decoder.html#json2graph-modules-decoder-decode-obj-relation-module">json2graph.modules.decoder.decode_obj_relation module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="json2graph.modules.decoder.html#module-json2graph.modules.decoder">Module contents</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</section>
-<section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
-</section>
-<section id="module-json2graph.modules.arguments">
-<span id="json2graph-modules-arguments-module"></span><h2>json2graph.modules.arguments module<a class="headerlink" href="#module-json2graph.modules.arguments" title="Link to this heading"></a></h2>
-<p>Argument Treatments Module.</p>
-<p>This module provides functions for parsing and validating user-provided arguments when starting the software execution
-as a script.</p>
-<p>It also makes the ARGUMENTS variable globally accessible with the user’s arguments (when executed as a script) or with
-default values (when executed as test or as a library).</p>
-<dl class="py function">
-<dt class="sig sig-object py" id="json2graph.modules.arguments.initialize_args_import">
-<span class="sig-prename descclassname"><span class="pre">json2graph.modules.arguments.</span></span><span class="sig-name descname"><span class="pre">initialize_args_import</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'not_initialized'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'C:\\Users\\FavatoBarcelosPP\\Dev\\ontouml-json2graph\\sphinx'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_uri</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'https://example.org#'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">graph_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ttl'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">language</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">silent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correct</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.modules.arguments.initialize_args_import" title="Link to this definition"></a></dt>
-<dd><p>This function initializes the global variable ARGUMENTS of type dictionary, which contains user-provided
-(when executed in script mode) or default arguments (when executed as a library or for testing).
-The ARGUMENTS variable must be initialized in every possible execution mode.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>input_path</strong> (<em>str</em>) – Path to the directory or JSON file to be decoded. (Optional)</p></li>
-<li><p><strong>output_path</strong> (<em>str</em>) – Path to the directory in which the result file(s) will be saved. (Optional)</p></li>
-<li><p><strong>base_uri</strong> (<em>str</em>) – Base URI to be used for generating URIs for ontology concepts. (Optional)
-Default is “<a class="reference external" href="https://example">https://example</a>.org#”.</p></li>
-<li><p><strong>graph_format</strong> (<em>str</em>) – Format for saving the resulting knowledge graph. (Optional)
-Default value is ‘ttl’ (Turtle syntax).</p></li>
-<li><p><strong>language</strong> (<em>str</em>) – Language tag to be added to the ontology’s concepts. (Optional)</p></li>
-<li><p><strong>model_only</strong> (<em>bool</em>) – If True, only the OntoUML model will be extracted without diagrammatic information. (Optional)</p></li>
-<li><p><strong>silent</strong> (<em>bool</em>) – If True, suppresses intermediate communications and log messages during execution. (Optional)</p></li>
-<li><p><strong>correct</strong> (<em>bool</em>) – If True, attempts to correct potential errors during the conversion process. (Optional)</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
+        <div class="wy-nav-content">
+            <div class="rst-content">
+                <div aria-label="Page navigation" role="navigation">
+                    <ul class="wy-breadcrumbs">
+                        <li><a aria-label="Home" class="icon icon-home" href="index.html"></a></li>
+                        <li class="breadcrumb-item active">json2graph.modules package</li>
+                        <li class="wy-breadcrumbs-aside">
+                            <a href="_sources/json2graph.modules.rst.txt" rel="nofollow"> View page source</a>
+                        </li>
+                    </ul>
+                    <hr/>
+                </div>
+                <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
+                    <div itemprop="articleBody">
 
-<dl class="py function">
-<dt class="sig sig-object py" id="json2graph.modules.arguments.initialize_args_script">
-<span class="sig-prename descclassname"><span class="pre">json2graph.modules.arguments.</span></span><span class="sig-name descname"><span class="pre">initialize_args_script</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.modules.arguments.initialize_args_script" title="Link to this definition"></a></dt>
-<dd><p>This function parses the command-line arguments provided by the user and performs necessary validations.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
+                        <section id="json2graph-modules-package">
+                            <h1>json2graph.modules package<a class="headerlink" href="#json2graph-modules-package"
+                                                             title="Link to this heading"></a></h1>
+                            <section id="subpackages">
+                                <h2>Subpackages<a class="headerlink" href="#subpackages"
+                                                  title="Link to this heading"></a></h2>
+                                <div class="toctree-wrapper compound">
+                                    <ul>
+                                        <li class="toctree-l1"><a class="reference internal"
+                                                                  href="json2graph.modules.decoder.html">json2graph.modules.decoder
+                                            package</a>
+                                            <ul>
+                                                <li class="toctree-l2"><a class="reference internal"
+                                                                          href="json2graph.modules.decoder.html#submodules">Submodules</a>
+                                                </li>
+                                                <li class="toctree-l2"><a class="reference internal"
+                                                                          href="json2graph.modules.decoder.html#json2graph-modules-decoder-decode-general-module">json2graph.modules.decoder.decode_general
+                                                    module</a></li>
+                                                <li class="toctree-l2"><a class="reference internal"
+                                                                          href="json2graph.modules.decoder.html#json2graph-modules-decoder-decode-main-module">json2graph.modules.decoder.decode_main
+                                                    module</a></li>
+                                                <li class="toctree-l2"><a class="reference internal"
+                                                                          href="json2graph.modules.decoder.html#json2graph-modules-decoder-decode-obj-class-module">json2graph.modules.decoder.decode_obj_class
+                                                    module</a></li>
+                                                <li class="toctree-l2"><a class="reference internal"
+                                                                          href="json2graph.modules.decoder.html#json2graph-modules-decoder-decode-obj-diagram-module">json2graph.modules.decoder.decode_obj_diagram
+                                                    module</a></li>
+                                                <li class="toctree-l2"><a class="reference internal"
+                                                                          href="json2graph.modules.decoder.html#json2graph-modules-decoder-decode-obj-elementview-module">json2graph.modules.decoder.decode_obj_elementview
+                                                    module</a></li>
+                                                <li class="toctree-l2"><a class="reference internal"
+                                                                          href="json2graph.modules.decoder.html#json2graph-modules-decoder-decode-obj-generalization-module">json2graph.modules.decoder.decode_obj_generalization
+                                                    module</a></li>
+                                                <li class="toctree-l2"><a class="reference internal"
+                                                                          href="json2graph.modules.decoder.html#json2graph-modules-decoder-decode-obj-generalizationset-module">json2graph.modules.decoder.decode_obj_generalizationset
+                                                    module</a></li>
+                                                <li class="toctree-l2"><a class="reference internal"
+                                                                          href="json2graph.modules.decoder.html#json2graph-modules-decoder-decode-obj-package-module">json2graph.modules.decoder.decode_obj_package
+                                                    module</a></li>
+                                                <li class="toctree-l2"><a class="reference internal"
+                                                                          href="json2graph.modules.decoder.html#json2graph-modules-decoder-decode-obj-path-module">json2graph.modules.decoder.decode_obj_path
+                                                    module</a></li>
+                                                <li class="toctree-l2"><a class="reference internal"
+                                                                          href="json2graph.modules.decoder.html#json2graph-modules-decoder-decode-obj-project-module">json2graph.modules.decoder.decode_obj_project
+                                                    module</a></li>
+                                                <li class="toctree-l2"><a class="reference internal"
+                                                                          href="json2graph.modules.decoder.html#json2graph-modules-decoder-decode-obj-property-module">json2graph.modules.decoder.decode_obj_property
+                                                    module</a></li>
+                                                <li class="toctree-l2"><a class="reference internal"
+                                                                          href="json2graph.modules.decoder.html#json2graph-modules-decoder-decode-obj-rectangularshape-module">json2graph.modules.decoder.decode_obj_rectangularshape
+                                                    module</a></li>
+                                                <li class="toctree-l2"><a class="reference internal"
+                                                                          href="json2graph.modules.decoder.html#json2graph-modules-decoder-decode-obj-relation-module">json2graph.modules.decoder.decode_obj_relation
+                                                    module</a></li>
+                                                <li class="toctree-l2"><a class="reference internal"
+                                                                          href="json2graph.modules.decoder.html#module-json2graph.modules.decoder">Module
+                                                    contents</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </section>
+                            <section id="submodules">
+                                <h2>Submodules<a class="headerlink" href="#submodules"
+                                                 title="Link to this heading"></a></h2>
+                            </section>
+                            <section id="module-json2graph.modules.arguments">
+                                <span id="json2graph-modules-arguments-module"></span>
+                                <h2>json2graph.modules.arguments module<a class="headerlink"
+                                                                          href="#module-json2graph.modules.arguments"
+                                                                          title="Link to this heading"></a></h2>
+                                <p>Argument Treatments Module.</p>
+                                <p>This module provides functions for parsing and validating user-provided arguments
+                                    when starting the software execution
+                                    as a script.</p>
+                                <p>It also makes the ARGUMENTS variable globally accessible with the user’s arguments
+                                    (when executed as a script) or with
+                                    default values (when executed as test or as a library).</p>
+                                <dl class="py function">
+                                    <dt class="sig sig-object py"
+                                        id="json2graph.modules.arguments.initialize_args_import">
+                                        <span class="sig-prename descclassname"><span class="pre">json2graph.modules.arguments.</span></span><span
+                                            class="sig-name descname"><span
+                                            class="pre">initialize_args_import</span></span><span
+                                            class="sig-paren">(</span><em class="sig-param"><span class="n"><span
+                                            class="pre">input_path</span></span><span class="o"><span
+                                            class="pre">=</span></span><span class="default_value"><span class="pre">'not_initialized'</span></span></em>,
+                                        <em class="sig-param"><span class="n"><span
+                                                class="pre">output_path</span></span><span class="o"><span
+                                                class="pre">=</span></span><span class="default_value"><span
+                                                class="pre">'C:\\Users\\FavatoBarcelosPP\\Dev\\ontouml-json2graph\\sphinx'</span></span></em>,
+                                        <em class="sig-param"><span class="n"><span
+                                                class="pre">base_uri</span></span><span class="o"><span
+                                                class="pre">=</span></span><span class="default_value"><span
+                                                class="pre">'https://example.org#'</span></span></em>, <em
+                                            class="sig-param"><span class="n"><span
+                                            class="pre">graph_format</span></span><span class="o"><span
+                                            class="pre">=</span></span><span class="default_value"><span class="pre">'ttl'</span></span></em>,
+                                        <em class="sig-param"><span class="n"><span
+                                                class="pre">language</span></span><span class="o"><span
+                                                class="pre">=</span></span><span class="default_value"><span
+                                                class="pre">''</span></span></em>, <em class="sig-param"><span
+                                            class="n"><span class="pre">model_only</span></span><span class="o"><span
+                                            class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>,
+                                        <em class="sig-param"><span class="n"><span
+                                                class="pre">silent</span></span><span class="o"><span
+                                                class="pre">=</span></span><span class="default_value"><span
+                                                class="pre">True</span></span></em>, <em class="sig-param"><span
+                                            class="n"><span class="pre">correct</span></span><span class="o"><span
+                                            class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span
+                                            class="sig-paren">)</span><a class="headerlink"
+                                                                         href="#json2graph.modules.arguments.initialize_args_import"
+                                                                         title="Link to this definition"></a></dt>
+                                    <dd><p>This function initializes the global variable ARGUMENTS of type dictionary,
+                                        which contains user-provided
+                                        (when executed in script mode) or default arguments (when executed as a library
+                                        or for testing).
+                                        The ARGUMENTS variable must be initialized in every possible execution mode.</p>
+                                        <dl class="field-list simple">
+                                            <dt class="field-odd">Parameters<span class="colon">:</span></dt>
+                                            <dd class="field-odd">
+                                                <ul class="simple">
+                                                    <li><p><strong>input_path</strong> (<em>str</em>) – Path to the
+                                                        directory or JSON file to be decoded. (Optional)</p></li>
+                                                    <li><p><strong>output_path</strong> (<em>str</em>) – Path to the
+                                                        directory in which the result file(s) will be saved. (Optional)
+                                                    </p></li>
+                                                    <li><p><strong>base_uri</strong> (<em>str</em>) – Base URI to be
+                                                        used for generating URIs for ontology concepts. (Optional)
+                                                        Default is “<a class="reference external"
+                                                                       href="https://example">https://example</a>.org#”.
+                                                    </p></li>
+                                                    <li><p><strong>graph_format</strong> (<em>str</em>) – Format for
+                                                        saving the resulting knowledge graph. (Optional)
+                                                        Default value is ‘ttl’ (Turtle syntax).</p></li>
+                                                    <li><p><strong>language</strong> (<em>str</em>) – Language tag to be
+                                                        added to the ontology’s concepts. (Optional)</p></li>
+                                                    <li><p><strong>model_only</strong> (<em>bool</em>) – If True, only
+                                                        the OntoUML model will be extracted without diagrammatic
+                                                        information. (Optional)</p></li>
+                                                    <li><p><strong>silent</strong> (<em>bool</em>) – If True, suppresses
+                                                        intermediate communications and log messages during execution.
+                                                        (Optional)</p></li>
+                                                    <li><p><strong>correct</strong> (<em>bool</em>) – If True, attempts
+                                                        to correct potential errors during the conversion process.
+                                                        (Optional)</p></li>
+                                                </ul>
+                                            </dd>
+                                        </dl>
+                                    </dd>
+                                </dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="json2graph.modules.arguments.initialize_args_test">
-<span class="sig-prename descclassname"><span class="pre">json2graph.modules.arguments.</span></span><span class="sig-name descname"><span class="pre">initialize_args_test</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'not_initialized'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">language</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.modules.arguments.initialize_args_test" title="Link to this definition"></a></dt>
-<dd><p>This function initializes the global variable ARGUMENTS of type dictionary, which contains user-provided
-(when executed in script mode) or default arguments (when executed as a library or for testing).
-The ARGUMENTS variable must be initialized in every possible execution mode.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>input_path</strong> (<em>str</em>) – Path to the directory or JSON file to be decoded. (Optional)</p></li>
-<li><p><strong>output_path</strong> (<em>str</em>) – Path to the directory in which the result file(s) will be saved. (Optional)</p></li>
-<li><p><strong>decode_all</strong> (<em>bool</em>) – Informs if user wants to convert all json files in the input_path performing the decode
-function multiple times. (Optional)</p></li>
-<li><p><strong>base_uri</strong> (<em>str</em>) – Base URI to be used for generating URIs for ontology concepts. (Optional)
-Default is “<a class="reference external" href="https://example">https://example</a>.org#”.</p></li>
-<li><p><strong>graph_format</strong> (<em>str</em>) – Format for saving the resulting knowledge graph. (Optional)
-Default value is ‘ttl’ (Turtle syntax).</p></li>
-<li><p><strong>language</strong> (<em>str</em>) – Language tag to be added to the ontology’s concepts. (Optional)</p></li>
-<li><p><strong>model_only</strong> (<em>bool</em>) – If True, only the OntoUML model will be extracted without diagrammatic information. (Optional)</p></li>
-<li><p><strong>silent</strong> (<em>bool</em>) – If True, suppresses intermediate communications and log messages during execution. (Optional)</p></li>
-<li><p><strong>correct</strong> (<em>bool</em>) – If True, attempts to correct potential errors during the conversion process. (Optional)</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
+                                <dl class="py function">
+                                    <dt class="sig sig-object py"
+                                        id="json2graph.modules.arguments.initialize_args_script">
+                                        <span class="sig-prename descclassname"><span class="pre">json2graph.modules.arguments.</span></span><span
+                                            class="sig-name descname"><span
+                                            class="pre">initialize_args_script</span></span><span
+                                            class="sig-paren">(</span><span class="sig-paren">)</span><a
+                                            class="headerlink"
+                                            href="#json2graph.modules.arguments.initialize_args_script"
+                                            title="Link to this definition"></a></dt>
+                                    <dd><p>This function parses the command-line arguments provided by the user and
+                                        performs necessary validations.</p>
+                                        <dl class="field-list simple">
+                                            <dt class="field-odd">Return type<span class="colon">:</span></dt>
+                                            <dd class="field-odd"><p>None</p>
+                                            </dd>
+                                        </dl>
+                                    </dd>
+                                </dl>
 
-</section>
-<section id="module-json2graph.modules.errors">
-<span id="json2graph-modules-errors-module"></span><h2>json2graph.modules.errors module<a class="headerlink" href="#module-json2graph.modules.errors" title="Link to this heading"></a></h2>
-<p>This module provides a collection of functions for reporting various error scenarios that can occur during the software
-execution. These functions are designed to improve the robustness and reliability of the program by providing clear
-error messages and raising appropriate exceptions when necessary.</p>
-<dl class="py function">
-<dt class="sig sig-object py" id="json2graph.modules.errors.report_error_end_of_switch">
-<span class="sig-prename descclassname"><span class="pre">json2graph.modules.errors.</span></span><span class="sig-name descname"><span class="pre">report_error_end_of_switch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">invalid_parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">caller_function_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.modules.errors.report_error_end_of_switch" title="Link to this definition"></a></dt>
-<dd><p>Reports the error caused when an invalid parameter is provided to a switch case (if-else statements).
-Used to validate parameters.</p>
-<p>NOTE: caller_function_name can be obtained from ‘current_function = inspect.stack()[0][3]’</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>invalid_parameter</strong> (<em>str</em>) – Invalid function parameter that caused the error.</p></li>
-<li><p><strong>caller_function_name</strong> (<em>str</em>) – Name of the function in which the invalid parameter was used.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>ValueError</strong> – Always.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
+                                <dl class="py function">
+                                    <dt class="sig sig-object py"
+                                        id="json2graph.modules.arguments.initialize_args_test">
+                                        <span class="sig-prename descclassname"><span class="pre">json2graph.modules.arguments.</span></span><span
+                                            class="sig-name descname"><span
+                                            class="pre">initialize_args_test</span></span><span
+                                            class="sig-paren">(</span><em class="sig-param"><span class="n"><span
+                                            class="pre">input_path</span></span><span class="o"><span
+                                            class="pre">=</span></span><span class="default_value"><span class="pre">'not_initialized'</span></span></em>,
+                                        <em class="sig-param"><span class="n"><span
+                                                class="pre">language</span></span><span class="o"><span
+                                                class="pre">=</span></span><span class="default_value"><span
+                                                class="pre">''</span></span></em><span class="sig-paren">)</span><a
+                                            class="headerlink" href="#json2graph.modules.arguments.initialize_args_test"
+                                            title="Link to this definition"></a></dt>
+                                    <dd><p>This function initializes the global variable ARGUMENTS of type dictionary,
+                                        which contains user-provided
+                                        (when executed in script mode) or default arguments (when executed as a library
+                                        or for testing).
+                                        The ARGUMENTS variable must be initialized in every possible execution mode.</p>
+                                        <dl class="field-list simple">
+                                            <dt class="field-odd">Parameters<span class="colon">:</span></dt>
+                                            <dd class="field-odd">
+                                                <ul class="simple">
+                                                    <li><p><strong>input_path</strong> (<em>str</em>) – Path to the
+                                                        directory or JSON file to be decoded. (Optional)</p></li>
+                                                    <li><p><strong>output_path</strong> (<em>str</em>) – Path to the
+                                                        directory in which the result file(s) will be saved. (Optional)
+                                                    </p></li>
+                                                    <li><p><strong>decode_all</strong> (<em>bool</em>) – Informs if user
+                                                        wants to convert all json files in the input_path performing the
+                                                        decode
+                                                        function multiple times. (Optional)</p></li>
+                                                    <li><p><strong>base_uri</strong> (<em>str</em>) – Base URI to be
+                                                        used for generating URIs for ontology concepts. (Optional)
+                                                        Default is “<a class="reference external"
+                                                                       href="https://example">https://example</a>.org#”.
+                                                    </p></li>
+                                                    <li><p><strong>graph_format</strong> (<em>str</em>) – Format for
+                                                        saving the resulting knowledge graph. (Optional)
+                                                        Default value is ‘ttl’ (Turtle syntax).</p></li>
+                                                    <li><p><strong>language</strong> (<em>str</em>) – Language tag to be
+                                                        added to the ontology’s concepts. (Optional)</p></li>
+                                                    <li><p><strong>model_only</strong> (<em>bool</em>) – If True, only
+                                                        the OntoUML model will be extracted without diagrammatic
+                                                        information. (Optional)</p></li>
+                                                    <li><p><strong>silent</strong> (<em>bool</em>) – If True, suppresses
+                                                        intermediate communications and log messages during execution.
+                                                        (Optional)</p></li>
+                                                    <li><p><strong>correct</strong> (<em>bool</em>) – If True, attempts
+                                                        to correct potential errors during the conversion process.
+                                                        (Optional)</p></li>
+                                                </ul>
+                                            </dd>
+                                        </dl>
+                                    </dd>
+                                </dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="json2graph.modules.errors.report_error_invalid_parameter">
-<span class="sig-prename descclassname"><span class="pre">json2graph.modules.errors.</span></span><span class="sig-name descname"><span class="pre">report_error_invalid_parameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">invalid_parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">list_valid_parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">caller_function_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.modules.errors.report_error_invalid_parameter" title="Link to this definition"></a></dt>
-<dd><p>Reports the error caused when an invalid parameter is passed to a function. E.g., the function accepts (i.e.,
-list_valid_parameters is) [“alfa”, “beta”] and the received parameter (invalid_parameter) was “gama”.</p>
-<p>NOTE 1: This function must be used only for validation of parameters of type string.
-NOTE 2: caller_function_name can be obtained from ‘current_function = inspect.stack()[0][3]’</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>invalid_parameter</strong> (<em>str</em>) – Used parameter value that was evaluated as not valid.</p></li>
-<li><p><strong>list_valid_parameters</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – List of valid values for the evaluated parameter.</p></li>
-<li><p><strong>caller_function_name</strong> (<em>str</em>) – Name of the function in which the invalid parameter was used.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>ValueError</strong> – Always.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
+                            </section>
+                            <section id="module-json2graph.modules.errors">
+                                <span id="json2graph-modules-errors-module"></span>
+                                <h2>json2graph.modules.errors module<a class="headerlink"
+                                                                       href="#module-json2graph.modules.errors"
+                                                                       title="Link to this heading"></a></h2>
+                                <p>This module provides a collection of functions for reporting various error scenarios
+                                    that can occur during the software
+                                    execution. These functions are designed to improve the robustness and reliability of
+                                    the program by providing clear
+                                    error messages and raising appropriate exceptions when necessary.</p>
+                                <dl class="py function">
+                                    <dt class="sig sig-object py"
+                                        id="json2graph.modules.errors.report_error_end_of_switch">
+                                        <span class="sig-prename descclassname"><span class="pre">json2graph.modules.errors.</span></span><span
+                                            class="sig-name descname"><span
+                                            class="pre">report_error_end_of_switch</span></span><span class="sig-paren">(</span><em
+                                            class="sig-param"><span class="n"><span class="pre">invalid_parameter</span></span></em>,
+                                        <em class="sig-param"><span class="n"><span
+                                                class="pre">caller_function_name</span></span></em><span
+                                            class="sig-paren">)</span><a class="headerlink"
+                                                                         href="#json2graph.modules.errors.report_error_end_of_switch"
+                                                                         title="Link to this definition"></a></dt>
+                                    <dd><p>Reports the error caused when an invalid parameter is provided to a switch
+                                        case (if-else statements).
+                                        Used to validate parameters.</p>
+                                        <p>NOTE: caller_function_name can be obtained from ‘current_function =
+                                            inspect.stack()[0][3]’</p>
+                                        <dl class="field-list simple">
+                                            <dt class="field-odd">Parameters<span class="colon">:</span></dt>
+                                            <dd class="field-odd">
+                                                <ul class="simple">
+                                                    <li><p><strong>invalid_parameter</strong> (<em>str</em>) – Invalid
+                                                        function parameter that caused the error.</p></li>
+                                                    <li><p><strong>caller_function_name</strong> (<em>str</em>) – Name
+                                                        of the function in which the invalid parameter was used.</p>
+                                                    </li>
+                                                </ul>
+                                            </dd>
+                                            <dt class="field-even">Raises<span class="colon">:</span></dt>
+                                            <dd class="field-even"><p><strong>ValueError</strong> – Always.</p>
+                                            </dd>
+                                            <dt class="field-odd">Return type<span class="colon">:</span></dt>
+                                            <dd class="field-odd"><p>None</p>
+                                            </dd>
+                                        </dl>
+                                    </dd>
+                                </dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="json2graph.modules.errors.report_error_io_read">
-<span class="sig-prename descclassname"><span class="pre">json2graph.modules.errors.</span></span><span class="sig-name descname"><span class="pre">report_error_io_read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">desired_content</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_description</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.modules.errors.report_error_io_read" title="Link to this definition"></a></dt>
-<dd><p>Reports the error caused program cannot read or load the desired content (test_files or directories).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>desired_content</strong> (<em>str</em>) – Name of the file used by the IO operation caused the error.</p></li>
-<li><p><strong>file_description</strong> (<em>str</em>) – Description of the file in desired_content.</p></li>
-<li><p><strong>error</strong> (<em>OSError</em>) – Error raised by the IO operation.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>OSError</strong> – Always.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
+                                <dl class="py function">
+                                    <dt class="sig sig-object py"
+                                        id="json2graph.modules.errors.report_error_invalid_parameter">
+                                        <span class="sig-prename descclassname"><span class="pre">json2graph.modules.errors.</span></span><span
+                                            class="sig-name descname"><span
+                                            class="pre">report_error_invalid_parameter</span></span><span
+                                            class="sig-paren">(</span><em class="sig-param"><span class="n"><span
+                                            class="pre">invalid_parameter</span></span></em>, <em
+                                            class="sig-param"><span class="n"><span
+                                            class="pre">list_valid_parameters</span></span></em>, <em class="sig-param"><span
+                                            class="n"><span class="pre">caller_function_name</span></span></em><span
+                                            class="sig-paren">)</span><a class="headerlink"
+                                                                         href="#json2graph.modules.errors.report_error_invalid_parameter"
+                                                                         title="Link to this definition"></a></dt>
+                                    <dd><p>Reports the error caused when an invalid parameter is passed to a function.
+                                        E.g., the function accepts (i.e.,
+                                        list_valid_parameters is) [“alfa”, “beta”] and the received parameter
+                                        (invalid_parameter) was “gama”.</p>
+                                        <p>NOTE 1: This function must be used only for validation of parameters of type
+                                            string.
+                                            NOTE 2: caller_function_name can be obtained from ‘current_function =
+                                            inspect.stack()[0][3]’</p>
+                                        <dl class="field-list simple">
+                                            <dt class="field-odd">Parameters<span class="colon">:</span></dt>
+                                            <dd class="field-odd">
+                                                <ul class="simple">
+                                                    <li><p><strong>invalid_parameter</strong> (<em>str</em>) – Used
+                                                        parameter value that was evaluated as not valid.</p></li>
+                                                    <li><p><strong>list_valid_parameters</strong>
+                                                        (<em>list</em><em>[</em><em>str</em><em>]</em>) – List of valid
+                                                        values for the evaluated parameter.</p></li>
+                                                    <li><p><strong>caller_function_name</strong> (<em>str</em>) – Name
+                                                        of the function in which the invalid parameter was used.</p>
+                                                    </li>
+                                                </ul>
+                                            </dd>
+                                            <dt class="field-even">Raises<span class="colon">:</span></dt>
+                                            <dd class="field-even"><p><strong>ValueError</strong> – Always.</p>
+                                            </dd>
+                                            <dt class="field-odd">Return type<span class="colon">:</span></dt>
+                                            <dd class="field-odd"><p>None</p>
+                                            </dd>
+                                        </dl>
+                                    </dd>
+                                </dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="json2graph.modules.errors.report_error_io_write">
-<span class="sig-prename descclassname"><span class="pre">json2graph.modules.errors.</span></span><span class="sig-name descname"><span class="pre">report_error_io_write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">desired_content</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_description</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.modules.errors.report_error_io_write" title="Link to this definition"></a></dt>
-<dd><p>Reports the error caused program cannot save or write the desired content (test_files or directories).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>desired_content</strong> (<em>str</em>) – Name of the file used by the IO operation caused the error.</p></li>
-<li><p><strong>file_description</strong> (<em>str</em>) – Description of the file in desired_content.</p></li>
-<li><p><strong>error</strong> (<em>OSError</em>) – Error raised by the IO operation.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>OSError</strong> – Always.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
+                                <dl class="py function">
+                                    <dt class="sig sig-object py" id="json2graph.modules.errors.report_error_io_read">
+                                        <span class="sig-prename descclassname"><span class="pre">json2graph.modules.errors.</span></span><span
+                                            class="sig-name descname"><span
+                                            class="pre">report_error_io_read</span></span><span
+                                            class="sig-paren">(</span><em class="sig-param"><span class="n"><span
+                                            class="pre">desired_content</span></span></em>, <em class="sig-param"><span
+                                            class="n"><span class="pre">file_description</span></span></em>, <em
+                                            class="sig-param"><span class="n"><span class="pre">error</span></span></em><span
+                                            class="sig-paren">)</span><a class="headerlink"
+                                                                         href="#json2graph.modules.errors.report_error_io_read"
+                                                                         title="Link to this definition"></a></dt>
+                                    <dd><p>Reports the error caused program cannot read or load the desired content
+                                        (test_files or directories).</p>
+                                        <dl class="field-list simple">
+                                            <dt class="field-odd">Parameters<span class="colon">:</span></dt>
+                                            <dd class="field-odd">
+                                                <ul class="simple">
+                                                    <li><p><strong>desired_content</strong> (<em>str</em>) – Name of the
+                                                        file used by the IO operation caused the error.</p></li>
+                                                    <li><p><strong>file_description</strong> (<em>str</em>) –
+                                                        Description of the file in desired_content.</p></li>
+                                                    <li><p><strong>error</strong> (<em>OSError</em>) – Error raised by
+                                                        the IO operation.</p></li>
+                                                </ul>
+                                            </dd>
+                                            <dt class="field-even">Raises<span class="colon">:</span></dt>
+                                            <dd class="field-even"><p><strong>OSError</strong> – Always.</p>
+                                            </dd>
+                                            <dt class="field-odd">Return type<span class="colon">:</span></dt>
+                                            <dd class="field-odd"><p>None</p>
+                                            </dd>
+                                        </dl>
+                                    </dd>
+                                </dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="json2graph.modules.errors.report_error_requirement_not_met">
-<span class="sig-prename descclassname"><span class="pre">json2graph.modules.errors.</span></span><span class="sig-name descname"><span class="pre">report_error_requirement_not_met</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error_message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.modules.errors.report_error_requirement_not_met" title="Link to this definition"></a></dt>
-<dd><p>Reports the error caused when a requirement is not met. As this is a generic function, the error message
-parameter must be used to identify the error to the user.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>error_message</strong> (<em>str</em>) – Message to be printed to the user indicating the detected error.</p>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>ValueError</strong> – Always.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
+                                <dl class="py function">
+                                    <dt class="sig sig-object py" id="json2graph.modules.errors.report_error_io_write">
+                                        <span class="sig-prename descclassname"><span class="pre">json2graph.modules.errors.</span></span><span
+                                            class="sig-name descname"><span
+                                            class="pre">report_error_io_write</span></span><span
+                                            class="sig-paren">(</span><em class="sig-param"><span class="n"><span
+                                            class="pre">desired_content</span></span></em>, <em class="sig-param"><span
+                                            class="n"><span class="pre">file_description</span></span></em>, <em
+                                            class="sig-param"><span class="n"><span class="pre">error</span></span></em><span
+                                            class="sig-paren">)</span><a class="headerlink"
+                                                                         href="#json2graph.modules.errors.report_error_io_write"
+                                                                         title="Link to this definition"></a></dt>
+                                    <dd><p>Reports the error caused program cannot save or write the desired content
+                                        (test_files or directories).</p>
+                                        <dl class="field-list simple">
+                                            <dt class="field-odd">Parameters<span class="colon">:</span></dt>
+                                            <dd class="field-odd">
+                                                <ul class="simple">
+                                                    <li><p><strong>desired_content</strong> (<em>str</em>) – Name of the
+                                                        file used by the IO operation caused the error.</p></li>
+                                                    <li><p><strong>file_description</strong> (<em>str</em>) –
+                                                        Description of the file in desired_content.</p></li>
+                                                    <li><p><strong>error</strong> (<em>OSError</em>) – Error raised by
+                                                        the IO operation.</p></li>
+                                                </ul>
+                                            </dd>
+                                            <dt class="field-even">Raises<span class="colon">:</span></dt>
+                                            <dd class="field-even"><p><strong>OSError</strong> – Always.</p>
+                                            </dd>
+                                            <dt class="field-odd">Return type<span class="colon">:</span></dt>
+                                            <dd class="field-odd"><p>None</p>
+                                            </dd>
+                                        </dl>
+                                    </dd>
+                                </dl>
 
-</section>
-<section id="module-json2graph.modules.globals">
-<span id="json2graph-modules-globals-module"></span><h2>json2graph.modules.globals module<a class="headerlink" href="#module-json2graph.modules.globals" title="Link to this heading"></a></h2>
-<p>Global variables definitions.</p>
-</section>
-<section id="module-json2graph.modules.input_output">
-<span id="json2graph-modules-input-output-module"></span><h2>json2graph.modules.input_output module<a class="headerlink" href="#module-json2graph.modules.input_output" title="Link to this heading"></a></h2>
-<p>IO functions used in diverse occasions.</p>
-<dl class="py function">
-<dt class="sig sig-object py" id="json2graph.modules.input_output.create_directory_if_not_exists">
-<span class="sig-prename descclassname"><span class="pre">json2graph.modules.input_output.</span></span><span class="sig-name descname"><span class="pre">create_directory_if_not_exists</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_description</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.modules.input_output.create_directory_if_not_exists" title="Link to this definition"></a></dt>
-<dd><p>Checks if the directory that has the path received as argument exists.
-If it does, do nothing. If it does not, create it.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>directory_path</strong> (<em>str</em>) – Path to the directory to be created (if it does not exist).</p></li>
-<li><p><strong>file_description</strong> (<em>str</em>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
+                                <dl class="py function">
+                                    <dt class="sig sig-object py"
+                                        id="json2graph.modules.errors.report_error_requirement_not_met">
+                                        <span class="sig-prename descclassname"><span class="pre">json2graph.modules.errors.</span></span><span
+                                            class="sig-name descname"><span
+                                            class="pre">report_error_requirement_not_met</span></span><span
+                                            class="sig-paren">(</span><em class="sig-param"><span class="n"><span
+                                            class="pre">error_message</span></span></em><span class="sig-paren">)</span><a
+                                            class="headerlink"
+                                            href="#json2graph.modules.errors.report_error_requirement_not_met"
+                                            title="Link to this definition"></a></dt>
+                                    <dd><p>Reports the error caused when a requirement is not met. As this is a generic
+                                        function, the error message
+                                        parameter must be used to identify the error to the user.</p>
+                                        <dl class="field-list simple">
+                                            <dt class="field-odd">Parameters<span class="colon">:</span></dt>
+                                            <dd class="field-odd"><p><strong>error_message</strong> (<em>str</em>) –
+                                                Message to be printed to the user indicating the detected error.</p>
+                                            </dd>
+                                            <dt class="field-even">Raises<span class="colon">:</span></dt>
+                                            <dd class="field-even"><p><strong>ValueError</strong> – Always.</p>
+                                            </dd>
+                                            <dt class="field-odd">Return type<span class="colon">:</span></dt>
+                                            <dd class="field-odd"><p>None</p>
+                                            </dd>
+                                        </dl>
+                                    </dd>
+                                </dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="json2graph.modules.input_output.safe_load_json_file">
-<span class="sig-prename descclassname"><span class="pre">json2graph.modules.input_output.</span></span><span class="sig-name descname"><span class="pre">safe_load_json_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.modules.input_output.safe_load_json_file" title="Link to this definition"></a></dt>
-<dd><p>Safely loads the JSON file inputted by the user as an argument into a dictionary.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>json_path</strong> (<em>str</em>) – Path to the JSON file to be loaded.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Dictionary with loaded JSON’s data.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>dict</p>
-</dd>
-</dl>
-</dd></dl>
+                            </section>
+                            <section id="module-json2graph.modules.globals">
+                                <span id="json2graph-modules-globals-module"></span>
+                                <h2>json2graph.modules.globals module<a class="headerlink"
+                                                                        href="#module-json2graph.modules.globals"
+                                                                        title="Link to this heading"></a></h2>
+                                <p>Global variables definitions.</p>
+                            </section>
+                            <section id="module-json2graph.modules.input_output">
+                                <span id="json2graph-modules-input-output-module"></span>
+                                <h2>json2graph.modules.input_output module<a class="headerlink"
+                                                                             href="#module-json2graph.modules.input_output"
+                                                                             title="Link to this heading"></a></h2>
+                                <p>IO functions used in diverse occasions.</p>
+                                <dl class="py function">
+                                    <dt class="sig sig-object py"
+                                        id="json2graph.modules.input_output.create_directory_if_not_exists">
+                                        <span class="sig-prename descclassname"><span class="pre">json2graph.modules.input_output.</span></span><span
+                                            class="sig-name descname"><span
+                                            class="pre">create_directory_if_not_exists</span></span><span
+                                            class="sig-paren">(</span><em class="sig-param"><span class="n"><span
+                                            class="pre">directory_path</span></span></em>, <em class="sig-param"><span
+                                            class="n"><span class="pre">file_description</span></span></em><span
+                                            class="sig-paren">)</span><a class="headerlink"
+                                                                         href="#json2graph.modules.input_output.create_directory_if_not_exists"
+                                                                         title="Link to this definition"></a></dt>
+                                    <dd><p>Checks if the directory that has the path received as argument exists.
+                                        If it does, do nothing. If it does not, create it.</p>
+                                        <dl class="field-list simple">
+                                            <dt class="field-odd">Parameters<span class="colon">:</span></dt>
+                                            <dd class="field-odd">
+                                                <ul class="simple">
+                                                    <li><p><strong>directory_path</strong> (<em>str</em>) – Path to the
+                                                        directory to be created (if it does not exist).</p></li>
+                                                    <li><p><strong>file_description</strong> (<em>str</em>) – </p></li>
+                                                </ul>
+                                            </dd>
+                                            <dt class="field-even">Return type<span class="colon">:</span></dt>
+                                            <dd class="field-even"><p>None</p>
+                                            </dd>
+                                        </dl>
+                                    </dd>
+                                </dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="json2graph.modules.input_output.safe_write_graph_file">
-<span class="sig-prename descclassname"><span class="pre">json2graph.modules.input_output.</span></span><span class="sig-name descname"><span class="pre">safe_write_graph_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ontouml_graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_file_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">syntax</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.modules.input_output.safe_write_graph_file" title="Link to this definition"></a></dt>
-<dd><p>Safely saves the graph into a file in the informed destination with the desired syntax.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>ontouml_graph</strong> (<em>Graph</em>) – Graph compliant with the OntoUML Vocabulary.</p></li>
-<li><p><strong>output_file_path</strong> (<em>str</em>) – Complete path of the output file to be created (including name and extension).</p></li>
-<li><p><strong>syntax</strong> (<em>str</em>) – Syntax to be used for saving the ontology file.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
+                                <dl class="py function">
+                                    <dt class="sig sig-object py"
+                                        id="json2graph.modules.input_output.safe_load_json_file">
+                                        <span class="sig-prename descclassname"><span class="pre">json2graph.modules.input_output.</span></span><span
+                                            class="sig-name descname"><span
+                                            class="pre">safe_load_json_file</span></span><span
+                                            class="sig-paren">(</span><em class="sig-param"><span class="n"><span
+                                            class="pre">json_path</span></span></em><span class="sig-paren">)</span><a
+                                            class="headerlink"
+                                            href="#json2graph.modules.input_output.safe_load_json_file"
+                                            title="Link to this definition"></a></dt>
+                                    <dd><p>Safely loads the JSON file inputted by the user as an argument into a
+                                        dictionary.</p>
+                                        <dl class="field-list simple">
+                                            <dt class="field-odd">Parameters<span class="colon">:</span></dt>
+                                            <dd class="field-odd"><p><strong>json_path</strong> (<em>str</em>) – Path to
+                                                the JSON file to be loaded.</p>
+                                            </dd>
+                                            <dt class="field-even">Returns<span class="colon">:</span></dt>
+                                            <dd class="field-even"><p>Dictionary with loaded JSON’s data.</p>
+                                            </dd>
+                                            <dt class="field-odd">Return type<span class="colon">:</span></dt>
+                                            <dd class="field-odd"><p>dict</p>
+                                            </dd>
+                                        </dl>
+                                    </dd>
+                                </dl>
 
-</section>
-<section id="module-json2graph.modules.logger">
-<span id="json2graph-modules-logger-module"></span><h2>json2graph.modules.logger module<a class="headerlink" href="#module-json2graph.modules.logger" title="Link to this heading"></a></h2>
-<p>This module provides functions for configuring a logger that outputs messages to the console.
-The logger can be customized based on different execution modes, allowing you to control the log level.</p>
-<dl class="py function">
-<dt class="sig sig-object py" id="json2graph.modules.logger.initialize_logger">
-<span class="sig-prename descclassname"><span class="pre">json2graph.modules.logger.</span></span><span class="sig-name descname"><span class="pre">initialize_logger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">execution_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'script'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.modules.logger.initialize_logger" title="Link to this definition"></a></dt>
-<dd><p>Create and initialize logger named ‘execution-logger’.</p>
-<dl class="simple">
-<dt>Different triggers are defined for each execution mode:</dt><dd><ul class="simple">
-<li><p>script: INFO</p></li>
-<li><p>import: ERROR</p></li>
-<li><p>test: ERROR</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>execution_mode</strong> (<em>str</em>) – Information about execution mode. Valid values are ‘script’, ‘import’ and ‘test’.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Created logger called ‘execution-logger’.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>logging.Logger</p>
-</dd>
-</dl>
-</dd></dl>
+                                <dl class="py function">
+                                    <dt class="sig sig-object py"
+                                        id="json2graph.modules.input_output.safe_write_graph_file">
+                                        <span class="sig-prename descclassname"><span class="pre">json2graph.modules.input_output.</span></span><span
+                                            class="sig-name descname"><span
+                                            class="pre">safe_write_graph_file</span></span><span
+                                            class="sig-paren">(</span><em class="sig-param"><span class="n"><span
+                                            class="pre">ontouml_graph</span></span></em>, <em class="sig-param"><span
+                                            class="n"><span class="pre">output_file_path</span></span></em>, <em
+                                            class="sig-param"><span class="n"><span
+                                            class="pre">syntax</span></span></em><span class="sig-paren">)</span><a
+                                            class="headerlink"
+                                            href="#json2graph.modules.input_output.safe_write_graph_file"
+                                            title="Link to this definition"></a></dt>
+                                    <dd><p>Safely saves the graph into a file in the informed destination with the
+                                        desired syntax.</p>
+                                        <dl class="field-list simple">
+                                            <dt class="field-odd">Parameters<span class="colon">:</span></dt>
+                                            <dd class="field-odd">
+                                                <ul class="simple">
+                                                    <li><p><strong>ontouml_graph</strong> (<em>Graph</em>) – Graph
+                                                        compliant with the OntoUML Vocabulary.</p></li>
+                                                    <li><p><strong>output_file_path</strong> (<em>str</em>) – Complete
+                                                        path of the output file to be created (including name and
+                                                        extension).</p></li>
+                                                    <li><p><strong>syntax</strong> (<em>str</em>) – Syntax to be used
+                                                        for saving the ontology file.</p></li>
+                                                </ul>
+                                            </dd>
+                                            <dt class="field-even">Return type<span class="colon">:</span></dt>
+                                            <dd class="field-even"><p>None</p>
+                                            </dd>
+                                        </dl>
+                                    </dd>
+                                </dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="json2graph.modules.logger.logger_get_date_time">
-<span class="sig-prename descclassname"><span class="pre">json2graph.modules.logger.</span></span><span class="sig-name descname"><span class="pre">logger_get_date_time</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.modules.logger.logger_get_date_time" title="Link to this definition"></a></dt>
-<dd><p>Return a string in a specified format with date and time.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Formatted date and time. Format example: 2022.10.23-14.43</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
+                            </section>
+                            <section id="module-json2graph.modules.logger">
+                                <span id="json2graph-modules-logger-module"></span>
+                                <h2>json2graph.modules.logger module<a class="headerlink"
+                                                                       href="#module-json2graph.modules.logger"
+                                                                       title="Link to this heading"></a></h2>
+                                <p>This module provides functions for configuring a logger that outputs messages to the
+                                    console.
+                                    The logger can be customized based on different execution modes, allowing you to
+                                    control the log level.</p>
+                                <dl class="py function">
+                                    <dt class="sig sig-object py" id="json2graph.modules.logger.initialize_logger">
+                                        <span class="sig-prename descclassname"><span class="pre">json2graph.modules.logger.</span></span><span
+                                            class="sig-name descname"><span
+                                            class="pre">initialize_logger</span></span><span
+                                            class="sig-paren">(</span><em class="sig-param"><span class="n"><span
+                                            class="pre">execution_mode</span></span><span class="o"><span
+                                            class="pre">=</span></span><span class="default_value"><span class="pre">'script'</span></span></em><span
+                                            class="sig-paren">)</span><a class="headerlink"
+                                                                         href="#json2graph.modules.logger.initialize_logger"
+                                                                         title="Link to this definition"></a></dt>
+                                    <dd><p>Create and initialize logger named ‘execution-logger’.</p>
+                                        <dl class="simple">
+                                            <dt>Different triggers are defined for each execution mode:</dt>
+                                            <dd>
+                                                <ul class="simple">
+                                                    <li><p>script: INFO</p></li>
+                                                    <li><p>import: ERROR</p></li>
+                                                    <li><p>test: ERROR</p></li>
+                                                </ul>
+                                            </dd>
+                                        </dl>
+                                        <dl class="field-list simple">
+                                            <dt class="field-odd">Parameters<span class="colon">:</span></dt>
+                                            <dd class="field-odd"><p><strong>execution_mode</strong> (<em>str</em>) –
+                                                Information about execution mode. Valid values are ‘script’, ‘import’
+                                                and ‘test’.</p>
+                                            </dd>
+                                            <dt class="field-even">Returns<span class="colon">:</span></dt>
+                                            <dd class="field-even"><p>Created logger called ‘execution-logger’.</p>
+                                            </dd>
+                                            <dt class="field-odd">Return type<span class="colon">:</span></dt>
+                                            <dd class="field-odd"><p>logging.Logger</p>
+                                            </dd>
+                                        </dl>
+                                    </dd>
+                                </dl>
 
-</section>
-<section id="module-json2graph.modules.messages">
-<span id="json2graph-modules-messages-module"></span><h2>json2graph.modules.messages module<a class="headerlink" href="#module-json2graph.modules.messages" title="Link to this heading"></a></h2>
-<p>Decoding messages to be displayed to users must be concentrated in this module whenever possibile.</p>
-<dl class="py function">
-<dt class="sig sig-object py" id="json2graph.modules.messages.get_decode_log_message">
-<span class="sig-prename descclassname"><span class="pre">json2graph.modules.messages.</span></span><span class="sig-name descname"><span class="pre">get_decode_log_message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">object_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warning_code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">property_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">att_valid_stereotype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.modules.messages.get_decode_log_message" title="Link to this definition"></a></dt>
-<dd><p>Mounts and returns a warning message according to the information received as parameter.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>object_dict</strong> (<em>dict</em>) – Object’s JSON data loaded as a dictionary.</p></li>
-<li><p><strong>warning_code</strong> (<em>str</em>) – Code used to select the correct message to be displayed to the user if not in silent mode.</p></li>
-<li><p><strong>property_name</strong> (<em>str</em>) – Information about a property or attribute type to be displayed in a warning message. Optional.</p></li>
-<li><p><strong>att_valid_stereotype</strong> (<em>str</em>) – Stereotype associated to an attribute to be displayed in a warning message. Optional.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Warning message containing information about the modification made to be printed to user.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
+                                <dl class="py function">
+                                    <dt class="sig sig-object py" id="json2graph.modules.logger.logger_get_date_time">
+                                        <span class="sig-prename descclassname"><span class="pre">json2graph.modules.logger.</span></span><span
+                                            class="sig-name descname"><span
+                                            class="pre">logger_get_date_time</span></span><span
+                                            class="sig-paren">(</span><span class="sig-paren">)</span><a
+                                            class="headerlink" href="#json2graph.modules.logger.logger_get_date_time"
+                                            title="Link to this definition"></a></dt>
+                                    <dd><p>Return a string in a specified format with date and time.</p>
+                                        <dl class="field-list simple">
+                                            <dt class="field-odd">Returns<span class="colon">:</span></dt>
+                                            <dd class="field-odd"><p>Formatted date and time. Format example:
+                                                2022.10.23-14.43</p>
+                                            </dd>
+                                            <dt class="field-even">Return type<span class="colon">:</span></dt>
+                                            <dd class="field-even"><p>str</p>
+                                            </dd>
+                                        </dl>
+                                    </dd>
+                                </dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="json2graph.modules.messages.print_decode_log_message">
-<span class="sig-prename descclassname"><span class="pre">json2graph.modules.messages.</span></span><span class="sig-name descname"><span class="pre">print_decode_log_message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">object_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warning_code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">property_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">att_valid_stereotype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.modules.messages.print_decode_log_message" title="Link to this definition"></a></dt>
-<dd><p>Gets warning message and prints it to the user as a log if not in silent mode.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>object_dict</strong> (<em>dict</em>) – Object’s JSON data loaded as a dictionary.</p></li>
-<li><p><strong>warning_code</strong> (<em>str</em>) – Predefined warning number to be displayed to the user if not in silent mode.</p></li>
-<li><p><strong>property_name</strong> (<em>str</em>) – Information about a property or attribute type to be displayed in a warning message. Optional.</p></li>
-<li><p><strong>att_valid_stereotype</strong> (<em>str</em>) – Optional attribute’s stereotype to be displayed in a warning message.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
+                            </section>
+                            <section id="module-json2graph.modules.messages">
+                                <span id="json2graph-modules-messages-module"></span>
+                                <h2>json2graph.modules.messages module<a class="headerlink"
+                                                                         href="#module-json2graph.modules.messages"
+                                                                         title="Link to this heading"></a></h2>
+                                <p>Decoding messages to be displayed to users must be concentrated in this module
+                                    whenever possibile.</p>
+                                <dl class="py function">
+                                    <dt class="sig sig-object py"
+                                        id="json2graph.modules.messages.get_decode_log_message">
+                                        <span class="sig-prename descclassname"><span class="pre">json2graph.modules.messages.</span></span><span
+                                            class="sig-name descname"><span
+                                            class="pre">get_decode_log_message</span></span><span
+                                            class="sig-paren">(</span><em class="sig-param"><span class="n"><span
+                                            class="pre">object_dict</span></span></em>, <em class="sig-param"><span
+                                            class="n"><span class="pre">warning_code</span></span></em>, <em
+                                            class="sig-param"><span class="n"><span
+                                            class="pre">property_name</span></span></em>, <em class="sig-param"><span
+                                            class="n"><span class="pre">att_valid_stereotype</span></span><span
+                                            class="o"><span class="pre">=</span></span><span class="default_value"><span
+                                            class="pre">''</span></span></em><span class="sig-paren">)</span><a
+                                            class="headerlink"
+                                            href="#json2graph.modules.messages.get_decode_log_message"
+                                            title="Link to this definition"></a></dt>
+                                    <dd><p>Mounts and returns a warning message according to the information received as
+                                        parameter.</p>
+                                        <dl class="field-list simple">
+                                            <dt class="field-odd">Parameters<span class="colon">:</span></dt>
+                                            <dd class="field-odd">
+                                                <ul class="simple">
+                                                    <li><p><strong>object_dict</strong> (<em>dict</em>) – Object’s JSON
+                                                        data loaded as a dictionary.</p></li>
+                                                    <li><p><strong>warning_code</strong> (<em>str</em>) – Code used to
+                                                        select the correct message to be displayed to the user if not in
+                                                        silent mode.</p></li>
+                                                    <li><p><strong>property_name</strong> (<em>str</em>) – Information
+                                                        about a property or attribute type to be displayed in a warning
+                                                        message. Optional.</p></li>
+                                                    <li><p><strong>att_valid_stereotype</strong> (<em>str</em>) –
+                                                        Stereotype associated to an attribute to be displayed in a
+                                                        warning message. Optional.</p></li>
+                                                </ul>
+                                            </dd>
+                                            <dt class="field-even">Returns<span class="colon">:</span></dt>
+                                            <dd class="field-even"><p>Warning message containing information about the
+                                                modification made to be printed to user.</p>
+                                            </dd>
+                                            <dt class="field-odd">Return type<span class="colon">:</span></dt>
+                                            <dd class="field-odd"><p>str</p>
+                                            </dd>
+                                        </dl>
+                                    </dd>
+                                </dl>
 
-</section>
-<section id="module-json2graph.modules.sparql_queries">
-<span id="json2graph-modules-sparql-queries-module"></span><h2>json2graph.modules.sparql_queries module<a class="headerlink" href="#module-json2graph.modules.sparql_queries" title="Link to this heading"></a></h2>
-<p>All SPARQL queries used for decoding the JSON.</p>
-</section>
-<section id="module-json2graph.modules.utils_general">
-<span id="json2graph-modules-utils-general-module"></span><h2>json2graph.modules.utils_general module<a class="headerlink" href="#module-json2graph.modules.utils_general" title="Link to this heading"></a></h2>
-<p>Diverse util and auxiliary functions.</p>
-<dl class="py function">
-<dt class="sig sig-object py" id="json2graph.modules.utils_general.get_date_time">
-<span class="sig-prename descclassname"><span class="pre">json2graph.modules.utils_general.</span></span><span class="sig-name descname"><span class="pre">get_date_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date_time_format</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.modules.utils_general.get_date_time" title="Link to this definition"></a></dt>
-<dd><p>Return a string with date and time according to the specified format received as argument.
-For valid formats: <a class="reference external" href="https://docs.python.org/3.11/library/datetime.html#strftime-and-strptime-format-codes">https://docs.python.org/3.11/library/datetime.html#strftime-and-strptime-format-codes</a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>date_time_format</strong> (<em>str</em>) – Valid format accepted by the datetime function.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Formatted current date and time.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
+                                <dl class="py function">
+                                    <dt class="sig sig-object py"
+                                        id="json2graph.modules.messages.print_decode_log_message">
+                                        <span class="sig-prename descclassname"><span class="pre">json2graph.modules.messages.</span></span><span
+                                            class="sig-name descname"><span class="pre">print_decode_log_message</span></span><span
+                                            class="sig-paren">(</span><em class="sig-param"><span class="n"><span
+                                            class="pre">object_dict</span></span></em>, <em class="sig-param"><span
+                                            class="n"><span class="pre">warning_code</span></span></em>, <em
+                                            class="sig-param"><span class="n"><span
+                                            class="pre">property_name</span></span><span class="o"><span
+                                            class="pre">=</span></span><span class="default_value"><span
+                                            class="pre">''</span></span></em>, <em class="sig-param"><span
+                                            class="n"><span class="pre">att_valid_stereotype</span></span><span
+                                            class="o"><span class="pre">=</span></span><span class="default_value"><span
+                                            class="pre">''</span></span></em><span class="sig-paren">)</span><a
+                                            class="headerlink"
+                                            href="#json2graph.modules.messages.print_decode_log_message"
+                                            title="Link to this definition"></a></dt>
+                                    <dd><p>Gets warning message and prints it to the user as a log if not in silent
+                                        mode.</p>
+                                        <dl class="field-list simple">
+                                            <dt class="field-odd">Parameters<span class="colon">:</span></dt>
+                                            <dd class="field-odd">
+                                                <ul class="simple">
+                                                    <li><p><strong>object_dict</strong> (<em>dict</em>) – Object’s JSON
+                                                        data loaded as a dictionary.</p></li>
+                                                    <li><p><strong>warning_code</strong> (<em>str</em>) – Predefined
+                                                        warning number to be displayed to the user if not in silent
+                                                        mode.</p></li>
+                                                    <li><p><strong>property_name</strong> (<em>str</em>) – Information
+                                                        about a property or attribute type to be displayed in a warning
+                                                        message. Optional.</p></li>
+                                                    <li><p><strong>att_valid_stereotype</strong> (<em>str</em>) –
+                                                        Optional attribute’s stereotype to be displayed in a warning
+                                                        message.</p></li>
+                                                </ul>
+                                            </dd>
+                                            <dt class="field-even">Return type<span class="colon">:</span></dt>
+                                            <dd class="field-even"><p>None</p>
+                                            </dd>
+                                        </dl>
+                                    </dd>
+                                </dl>
 
-</section>
-<section id="module-json2graph.modules.utils_graph">
-<span id="json2graph-modules-utils-graph-module"></span><h2>json2graph.modules.utils_graph module<a class="headerlink" href="#module-json2graph.modules.utils_graph" title="Link to this heading"></a></h2>
-<p>Util functions related to graphs.</p>
-<dl class="py function">
-<dt class="sig sig-object py" id="json2graph.modules.utils_graph.load_graph_safely">
-<span class="sig-prename descclassname"><span class="pre">json2graph.modules.utils_graph.</span></span><span class="sig-name descname"><span class="pre">load_graph_safely</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ontology_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'not_provided'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.modules.utils_graph.load_graph_safely" title="Link to this definition"></a></dt>
-<dd><p>Safely load graph from file to working memory using arguments provided by the user, which are the file path
-and (optionally) the file type.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>ontology_file</strong> (<em>str</em>) – Path to the ontology file to be loaded into the working memory.</p></li>
-<li><p><strong>format</strong> (<em>str</em>) – Optional argument. Format of the file to be loaded.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>RDFLib graph loaded as object.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Graph</p>
-</dd>
-</dl>
-</dd></dl>
+                            </section>
+                            <section id="module-json2graph.modules.sparql_queries">
+                                <span id="json2graph-modules-sparql-queries-module"></span>
+                                <h2>json2graph.modules.sparql_queries module<a class="headerlink"
+                                                                               href="#module-json2graph.modules.sparql_queries"
+                                                                               title="Link to this heading"></a></h2>
+                                <p>All SPARQL queries used for decoding the JSON.</p>
+                            </section>
+                            <section id="module-json2graph.modules.utils_general">
+                                <span id="json2graph-modules-utils-general-module"></span>
+                                <h2>json2graph.modules.utils_general module<a class="headerlink"
+                                                                              href="#module-json2graph.modules.utils_general"
+                                                                              title="Link to this heading"></a></h2>
+                                <p>Diverse util and auxiliary functions.</p>
+                                <dl class="py function">
+                                    <dt class="sig sig-object py" id="json2graph.modules.utils_general.get_date_time">
+                                        <span class="sig-prename descclassname"><span class="pre">json2graph.modules.utils_general.</span></span><span
+                                            class="sig-name descname"><span class="pre">get_date_time</span></span><span
+                                            class="sig-paren">(</span><em class="sig-param"><span class="n"><span
+                                            class="pre">date_time_format</span></span></em><span
+                                            class="sig-paren">)</span><a class="headerlink"
+                                                                         href="#json2graph.modules.utils_general.get_date_time"
+                                                                         title="Link to this definition"></a></dt>
+                                    <dd><p>Return a string with date and time according to the specified format received
+                                        as argument.
+                                        For valid formats: <a class="reference external"
+                                                              href="https://docs.python.org/3.11/library/datetime.html#strftime-and-strptime-format-codes">https://docs.python.org/3.11/library/datetime.html#strftime-and-strptime-format-codes</a>
+                                    </p>
+                                        <dl class="field-list simple">
+                                            <dt class="field-odd">Parameters<span class="colon">:</span></dt>
+                                            <dd class="field-odd"><p><strong>date_time_format</strong> (<em>str</em>) –
+                                                Valid format accepted by the datetime function.</p>
+                                            </dd>
+                                            <dt class="field-even">Returns<span class="colon">:</span></dt>
+                                            <dd class="field-even"><p>Formatted current date and time.</p>
+                                            </dd>
+                                            <dt class="field-odd">Return type<span class="colon">:</span></dt>
+                                            <dd class="field-odd"><p>str</p>
+                                            </dd>
+                                        </dl>
+                                    </dd>
+                                </dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="json2graph.modules.utils_graph.load_ontouml_vocabulary">
-<span class="sig-prename descclassname"><span class="pre">json2graph.modules.utils_graph.</span></span><span class="sig-name descname"><span class="pre">load_ontouml_vocabulary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.modules.utils_graph.load_ontouml_vocabulary" title="Link to this definition"></a></dt>
-<dd><p>Loads the OntoUML Vocabulary to the working memory. First tries to load from web resource, if fails, it tries to
-load form the local resource. If both options fail, calls error reporting function.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>RDFLib graph loaded as object.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>Graph</p>
-</dd>
-</dl>
-</dd></dl>
+                            </section>
+                            <section id="module-json2graph.modules.utils_graph">
+                                <span id="json2graph-modules-utils-graph-module"></span>
+                                <h2>json2graph.modules.utils_graph module<a class="headerlink"
+                                                                            href="#module-json2graph.modules.utils_graph"
+                                                                            title="Link to this heading"></a></h2>
+                                <p>Util functions related to graphs.</p>
+                                <dl class="py function">
+                                    <dt class="sig sig-object py" id="json2graph.modules.utils_graph.load_graph_safely">
+                                        <span class="sig-prename descclassname"><span class="pre">json2graph.modules.utils_graph.</span></span><span
+                                            class="sig-name descname"><span
+                                            class="pre">load_graph_safely</span></span><span
+                                            class="sig-paren">(</span><em class="sig-param"><span class="n"><span
+                                            class="pre">ontology_file</span></span></em>, <em class="sig-param"><span
+                                            class="n"><span class="pre">format</span></span><span class="o"><span
+                                            class="pre">=</span></span><span class="default_value"><span class="pre">'not_provided'</span></span></em><span
+                                            class="sig-paren">)</span><a class="headerlink"
+                                                                         href="#json2graph.modules.utils_graph.load_graph_safely"
+                                                                         title="Link to this definition"></a></dt>
+                                    <dd><p>Safely load graph from file to working memory using arguments provided by the
+                                        user, which are the file path
+                                        and (optionally) the file type.</p>
+                                        <dl class="field-list simple">
+                                            <dt class="field-odd">Parameters<span class="colon">:</span></dt>
+                                            <dd class="field-odd">
+                                                <ul class="simple">
+                                                    <li><p><strong>ontology_file</strong> (<em>str</em>) – Path to the
+                                                        ontology file to be loaded into the working memory.</p></li>
+                                                    <li><p><strong>format</strong> (<em>str</em>) – Optional argument.
+                                                        Format of the file to be loaded.</p></li>
+                                                </ul>
+                                            </dd>
+                                            <dt class="field-even">Returns<span class="colon">:</span></dt>
+                                            <dd class="field-even"><p>RDFLib graph loaded as object.</p>
+                                            </dd>
+                                            <dt class="field-odd">Return type<span class="colon">:</span></dt>
+                                            <dd class="field-odd"><p>Graph</p>
+                                            </dd>
+                                        </dl>
+                                    </dd>
+                                </dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="json2graph.modules.utils_graph.ontouml_ref">
-<span class="sig-prename descclassname"><span class="pre">json2graph.modules.utils_graph.</span></span><span class="sig-name descname"><span class="pre">ontouml_ref</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.modules.utils_graph.ontouml_ref" title="Link to this definition"></a></dt>
-<dd><p>Receives the name of the OntoUML Vocabulary’s entity as a string and returns the corresponding URIRef.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>entity</strong> (<em>str</em>) – OntoUML Vocabulary entity (class, property, or individual) to have its URIRef returned.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>URIRef of the informed OntoUML Vocabulary’s entity.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>URIRef</p>
-</dd>
-</dl>
-</dd></dl>
+                                <dl class="py function">
+                                    <dt class="sig sig-object py"
+                                        id="json2graph.modules.utils_graph.load_ontouml_vocabulary">
+                                        <span class="sig-prename descclassname"><span class="pre">json2graph.modules.utils_graph.</span></span><span
+                                            class="sig-name descname"><span
+                                            class="pre">load_ontouml_vocabulary</span></span><span
+                                            class="sig-paren">(</span><span class="sig-paren">)</span><a
+                                            class="headerlink"
+                                            href="#json2graph.modules.utils_graph.load_ontouml_vocabulary"
+                                            title="Link to this definition"></a></dt>
+                                    <dd><p>Loads the OntoUML Vocabulary to the working memory. First tries to load from
+                                        web resource, if fails, it tries to
+                                        load form the local resource. If both options fail, calls error reporting
+                                        function.</p>
+                                        <dl class="field-list simple">
+                                            <dt class="field-odd">Returns<span class="colon">:</span></dt>
+                                            <dd class="field-odd"><p>RDFLib graph loaded as object.</p>
+                                            </dd>
+                                            <dt class="field-even">Return type<span class="colon">:</span></dt>
+                                            <dd class="field-even"><p>Graph</p>
+                                            </dd>
+                                        </dl>
+                                    </dd>
+                                </dl>
 
-</section>
-<section id="module-json2graph.modules">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-json2graph.modules" title="Link to this heading"></a></h2>
-</section>
-</section>
+                                <dl class="py function">
+                                    <dt class="sig sig-object py" id="json2graph.modules.utils_graph.ontouml_ref">
+                                        <span class="sig-prename descclassname"><span class="pre">json2graph.modules.utils_graph.</span></span><span
+                                            class="sig-name descname"><span class="pre">ontouml_ref</span></span><span
+                                            class="sig-paren">(</span><em class="sig-param"><span class="n"><span
+                                            class="pre">entity</span></span></em><span class="sig-paren">)</span><a
+                                            class="headerlink" href="#json2graph.modules.utils_graph.ontouml_ref"
+                                            title="Link to this definition"></a></dt>
+                                    <dd><p>Receives the name of the OntoUML Vocabulary’s entity as a string and returns
+                                        the corresponding URIRef.</p>
+                                        <dl class="field-list simple">
+                                            <dt class="field-odd">Parameters<span class="colon">:</span></dt>
+                                            <dd class="field-odd"><p><strong>entity</strong> (<em>str</em>) – OntoUML
+                                                Vocabulary entity (class, property, or individual) to have its URIRef
+                                                returned.</p>
+                                            </dd>
+                                            <dt class="field-even">Returns<span class="colon">:</span></dt>
+                                            <dd class="field-even"><p>URIRef of the informed OntoUML Vocabulary’s
+                                                entity.</p>
+                                            </dd>
+                                            <dt class="field-odd">Return type<span class="colon">:</span></dt>
+                                            <dd class="field-odd"><p>URIRef</p>
+                                            </dd>
+                                        </dl>
+                                    </dd>
+                                </dl>
+
+                            </section>
+                            <section id="module-json2graph.modules">
+                                <span id="module-contents"></span>
+                                <h2>Module contents<a class="headerlink" href="#module-json2graph.modules"
+                                                      title="Link to this heading"></a></h2>
+                            </section>
+                        </section>
 
 
-           </div>
-          </div>
-          <footer>
+                    </div>
+                </div>
+                <footer>
 
-  <hr/>
+                    <hr/>
 
-  <div role="contentinfo">
-    <p>&#169; Copyright 2023, Semantics, Cybersecurity &amp; Services (SCS), University of Twente, the Netherlands.</p>
-  </div>
+                    <div role="contentinfo">
+                        <p>&#169; Copyright 2023, Semantics, Cybersecurity &amp; Services (SCS), University of Twente,
+                            the Netherlands.</p>
+                    </div>
 
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
+                    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+                    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+                    provided by <a href="https://readthedocs.org">Read the Docs</a>.
 
-</footer>
+
+                </footer>
+            </div>
         </div>
-      </div>
     </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
+</div>
+<script>
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable(true);
+    });
+</script>
 
 </body>
 </html>
