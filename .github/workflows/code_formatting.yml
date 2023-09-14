@@ -1,7 +1,6 @@
 name: Code formatting with Black
 
 on: [ push ]
-permissions: read-all
 
 jobs:
   linter_name:
@@ -25,6 +24,7 @@ jobs:
         if: steps.action_black.outputs.is_formatted == 'true'
         uses: peter-evans/create-pull-request@153407881ec5c347639a548ade7d8ad1d6740e38 # v5.0.2
         with:
+          permissions: read|write
           token: ${{ secrets.GITHUB_TOKEN }}
           title: "Format Python code with psf/black push"
           commit-message: ":art: Format Python code with psf/black"
