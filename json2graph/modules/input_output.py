@@ -49,9 +49,7 @@ def safe_load_json_file(json_path: str) -> dict:
     return json_data
 
 
-def safe_write_graph_file(
-    ontouml_graph: Graph, output_file_path: str, syntax: str
-) -> None:
+def safe_write_graph_file(ontouml_graph: Graph, output_file_path: str, syntax: str) -> None:
     """Safely saves the graph into a file in the informed destination with the desired syntax.
 
     :param ontouml_graph: Graph compliant with the OntoUML Vocabulary.
@@ -63,9 +61,7 @@ def safe_write_graph_file(
     """
 
     try:
-        ontouml_graph.serialize(
-            destination=output_file_path, encoding="utf-8", format=syntax
-        )
+        ontouml_graph.serialize(destination=output_file_path, encoding="utf-8", format=syntax)
     except OSError as error:
         file_description = "output graph file"
         report_error_io_write(output_file_path, file_description, error)

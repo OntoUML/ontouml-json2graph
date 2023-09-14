@@ -48,9 +48,7 @@ def report_error_invalid_parameter(
     raise ValueError("Invalid parameter!")
 
 
-def report_error_end_of_switch(
-    invalid_parameter: str, caller_function_name: str
-) -> None:
+def report_error_end_of_switch(invalid_parameter: str, caller_function_name: str) -> None:
     """Reports the error caused when an invalid parameter is provided to a switch case (if-else statements).
     Used to validate parameters.
 
@@ -65,15 +63,12 @@ def report_error_end_of_switch(
     """
 
     LOGGER.error(
-        f"Unexpected parameter {invalid_parameter} received in function {caller_function_name}. "
-        f"Program aborted."
+        f"Unexpected parameter {invalid_parameter} received in function {caller_function_name}. " f"Program aborted."
     )
     raise ValueError("End of switch (if-else statements) without valid parameter!")
 
 
-def report_error_io_read(
-    desired_content: str, file_description: str, error: OSError
-) -> None:
+def report_error_io_read(desired_content: str, file_description: str, error: OSError) -> None:
     """Reports the error caused program cannot read or load the desired content (test_files or directories).
 
     :param desired_content: Name of the file used by the IO operation caused the error.
@@ -86,15 +81,11 @@ def report_error_io_read(
     :raises OSError: Always.
     """
 
-    LOGGER.error(
-        f"Could not load or read the {file_description} {desired_content}. Program aborted."
-    )
+    LOGGER.error(f"Could not load or read the {file_description} {desired_content}. Program aborted.")
     raise OSError(error)
 
 
-def report_error_io_write(
-    desired_content: str, file_description: str, error: OSError
-) -> None:
+def report_error_io_write(desired_content: str, file_description: str, error: OSError) -> None:
     """Reports the error caused program cannot save or write the desired content (test_files or directories).
 
     :param desired_content: Name of the file used by the IO operation caused the error.
@@ -107,7 +98,5 @@ def report_error_io_write(
     :raises OSError: Always.
     """
 
-    LOGGER.error(
-        f"Could not create, write, or save the {file_description} {desired_content}. Program aborted."
-    )
+    LOGGER.error(f"Could not create, write, or save the {file_description} {desired_content}. Program aborted.")
     raise OSError(error)
