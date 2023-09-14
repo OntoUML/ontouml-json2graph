@@ -3,26 +3,11 @@ name: Code formatting with Black
 on: [ push ]
 permissions:
   pull-requests: write
-  
-  actions: read
-  checks: read
-  contents: read
-  deployments: read
-  id-token: read
-  issues: read
-  discussions: read
-  packages: read
-  pages: read
-  repository-projects: read
-  security-events: read
-  statuses: read
 
 jobs:
-
   linter_name:
     name: runner / black
     runs-on: ubuntu-latest
-
     steps:
       - name: Harden Runner
         uses: step-security/harden-runner@8ca2b8b2ece13480cda6dacd3511b49857a23c09 # v2.5.1
