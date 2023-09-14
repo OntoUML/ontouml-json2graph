@@ -1,15 +1,27 @@
 name: Code formatting with Black
 
 on: [ push ]
+permissions:
+  pull-requests: write
+  
+  actions: read
+  checks: read
+  contents: read
+  deployments: read
+  id-token: read
+  issues: read
+  discussions: read
+  packages: read
+  pages: read
+  repository-projects: read
+  security-events: read
+  statuses: read
 
 jobs:
 
   linter_name:
     name: runner / black
     runs-on: ubuntu-latest
-
-    permissions:
-      pull-requests: read|write
 
     steps:
       - name: Harden Runner
