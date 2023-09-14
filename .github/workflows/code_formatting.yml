@@ -1,7 +1,9 @@
 name: Code formatting with Black
 
 on: [ push ]
+
 permissions:
+  contents: read
   pull-requests: write
 
 jobs:
