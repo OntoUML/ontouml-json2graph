@@ -15,8 +15,10 @@ from ..modules import arguments as args
 from ..modules.utils_graph import ontouml_ref
 
 
-def get_package_contents(package_dict: dict, package_id: str, list_contents: list = []) -> list[dict]:
-    """ Receives the dictionary with all loaded JSON data and returns the value of the 'contents' field for a given
+def get_package_contents(
+    package_dict: dict, package_id: str, list_contents: list = []
+) -> list[dict]:
+    """Receives the dictionary with all loaded JSON data and returns the value of the 'contents' field for a given
     object (defined by the received value of its ID).
 
     :param package_dict: Package's data to have its fields decoded.
@@ -38,12 +40,10 @@ def get_package_contents(package_dict: dict, package_id: str, list_contents: lis
 
     # Recursively treats sub-dictionaries
     else:
-
         if list_contents:
             return list_contents
 
         for key in package_dict.keys():
-
             # Treat case dictionary
             if type(package_dict[key]) is dict:
                 list_contents = get_package_contents(package_dict[key], package_id)
@@ -52,7 +52,9 @@ def get_package_contents(package_dict: dict, package_id: str, list_contents: lis
             elif type(package_dict[key]) is list:
                 for item in package_dict[key]:
                     if type(item) is dict:
-                        list_contents = get_package_contents(item, package_id, list_contents)
+                        list_contents = get_package_contents(
+                            item, package_id, list_contents
+                        )
 
                     if list_contents:
                         break
@@ -60,8 +62,10 @@ def get_package_contents(package_dict: dict, package_id: str, list_contents: lis
     return list_contents
 
 
-def set_package_containsmodelelement_modelelement(package_dict: dict, ontouml_graph: Graph) -> None:
-    """ Set object property ontouml:containsModelElement between an ontouml:Package and an ontouml:ModelElement it
+def set_package_containsmodelelement_modelelement(
+    package_dict: dict, ontouml_graph: Graph
+) -> None:
+    """Set object property ontouml:containsModelElement between an ontouml:Package and an ontouml:ModelElement it
     contains.
 
     :param package_dict: Package's data to have its fields decoded.
@@ -75,7 +79,6 @@ def set_package_containsmodelelement_modelelement(package_dict: dict, ontouml_gr
 
     # Treat only non-empy cases
     if package_id_contents_list:
-
         # Create a list of all ids inside the returned list
         list_related_ids = []
         for content in package_id_contents_list:
@@ -83,13 +86,17 @@ def set_package_containsmodelelement_modelelement(package_dict: dict, ontouml_gr
 
         # Include found related elements in graph using ontouml:containsModelElement
         for related_id in list_related_ids:
-            ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + package_dict["id"]),
-                               ontouml_ref("containsModelElement"),
-                               URIRef(args.ARGUMENTS["base_uri"] + related_id)))
+            ontouml_graph.add(
+                (
+                    URIRef(args.ARGUMENTS["base_uri"] + package_dict["id"]),
+                    ontouml_ref("containsModelElement"),
+                    URIRef(args.ARGUMENTS["base_uri"] + related_id),
+                )
+            )
 
 
 def create_package_properties(json_data: dict, ontouml_graph: Graph) -> None:
-    """ Main function for decoding an object of type Package.
+    """Main function for decoding an object of type Package.
 
     Receives the whole JSON loaded data as a dictionary and manipulates it to create all properties in which the
     object's type is domain of.
@@ -104,7 +111,9 @@ def create_package_properties(json_data: dict, ontouml_graph: Graph) -> None:
     """
 
     # Getting all Project dictionaries
-    packages_dicts_list = get_list_subdictionaries_for_specific_type(json_data, "Package")
+    packages_dicts_list = get_list_subdictionaries_for_specific_type(
+        json_data, "Package"
+    )
 
     for package_dict in packages_dicts_list:
         set_package_containsmodelelement_modelelement(package_dict, ontouml_graph)

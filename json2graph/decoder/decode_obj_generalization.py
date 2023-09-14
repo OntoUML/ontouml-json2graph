@@ -15,8 +15,10 @@ from ..modules import arguments as args
 from ..modules.utils_graph import ontouml_ref
 
 
-def set_generalization_relations(generalization_dict: dict, ontouml_graph: Graph) -> None:
-    """ Set the ontouml:general and ontouml:specific properties in the resulting graph.
+def set_generalization_relations(
+    generalization_dict: dict, ontouml_graph: Graph
+) -> None:
+    """Set the ontouml:general and ontouml:specific properties in the resulting graph.
 
     :param generalization_dict: Generalization object loaded as a dictionary.
     :type generalization_dict: dict
@@ -24,16 +26,26 @@ def set_generalization_relations(generalization_dict: dict, ontouml_graph: Graph
     :type ontouml_graph: Graph
     """
 
-    generalization_individual = URIRef(args.ARGUMENTS["base_uri"] + generalization_dict['id'])
-    general_individual = URIRef(args.ARGUMENTS["base_uri"] + generalization_dict["general"]['id'])
-    specific_individual = URIRef(args.ARGUMENTS["base_uri"] + generalization_dict["specific"]['id'])
+    generalization_individual = URIRef(
+        args.ARGUMENTS["base_uri"] + generalization_dict["id"]
+    )
+    general_individual = URIRef(
+        args.ARGUMENTS["base_uri"] + generalization_dict["general"]["id"]
+    )
+    specific_individual = URIRef(
+        args.ARGUMENTS["base_uri"] + generalization_dict["specific"]["id"]
+    )
 
-    ontouml_graph.add((generalization_individual, ontouml_ref("general"), general_individual))
-    ontouml_graph.add((generalization_individual, ontouml_ref("specific"), specific_individual))
+    ontouml_graph.add(
+        (generalization_individual, ontouml_ref("general"), general_individual)
+    )
+    ontouml_graph.add(
+        (generalization_individual, ontouml_ref("specific"), specific_individual)
+    )
 
 
 def create_generalization_properties(json_data: dict, ontouml_graph: Graph) -> None:
-    """ Main function for decoding an object of type Generalization.
+    """Main function for decoding an object of type Generalization.
 
     Receives the whole JSON loaded data as a dictionary and manipulates it to create all properties in which the
     object's type is domain of.
@@ -48,11 +60,12 @@ def create_generalization_properties(json_data: dict, ontouml_graph: Graph) -> N
     :type ontouml_graph: Graph
     """
 
-    list_generalization_dicts = get_list_subdictionaries_for_specific_type(json_data, "Generalization")
+    list_generalization_dicts = get_list_subdictionaries_for_specific_type(
+        json_data, "Generalization"
+    )
 
     # Treat each object dictionary
     for generalization_dict in list_generalization_dicts:
-
         # Removing dictionaries that are only references
         if len(generalization_dict) < 3:
             continue
