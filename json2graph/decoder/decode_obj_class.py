@@ -43,11 +43,7 @@ def validate_class_attribute_constraints(class_dict: dict) -> None:
     class_stereotype = get_stereotype(class_dict)
 
     # VCA1: Reports Class different from 'type' with isExtensional value not null and isPowertype value True.
-    if (
-        (class_stereotype != "type")
-        and ("isExtensional" in class_dict)
-        and ("isPowertype" in class_dict)
-    ):
+    if (class_stereotype != "type") and ("isExtensional" in class_dict) and ("isPowertype" in class_dict):
         if class_dict["isPowertype"]:
             print_decode_log_message(class_dict, "VCA1")
 
@@ -97,9 +93,7 @@ def validate_class_order_constraints(class_dict: dict) -> None:
     # Constraints VCO1 and VCO2 depend on the existence of the order attribute
     if "order" in class_dict:
         # VCO1: order must be greater than 1 when the class's stereotype is 'type'. Remove order to set default.
-        if class_stereotype == "type" and (
-            (class_dict["order"] == 1) or (class_dict["order"] == "1")
-        ):
+        if class_stereotype == "type" and ((class_dict["order"] == 1) or (class_dict["order"] == "1")):
             # The 'order' value is removed, so it can receive a new value in the set_class_defaults function
             class_dict.pop("order")
 
@@ -331,9 +325,7 @@ def set_class_order_nonnegativeinteger(class_dict: dict, ontouml_graph: Graph) -
         class_dict.pop("order")
 
 
-def set_class_restrictedto_ontologicalnature(
-    class_dict: dict, ontouml_graph: Graph
-) -> None:
+def set_class_restrictedto_ontologicalnature(class_dict: dict, ontouml_graph: Graph) -> None:
     """Sets the ontouml:restrictedTo relation between a class and its related ontouml:OntologicalNature instance.
 
     :param class_dict: Class object loaded as a dictionary.
@@ -407,9 +399,7 @@ def set_class_attribute_property(class_dict: dict, ontouml_graph: Graph) -> None
     :type ontouml_graph: Graph
     """
 
-    list_related_properties = get_list_subdictionaries_for_specific_type(
-        class_dict, "Property"
-    )
+    list_related_properties = get_list_subdictionaries_for_specific_type(class_dict, "Property")
 
     for related_property in list_related_properties:
         statement_subject = URIRef(args.ARGUMENTS["base_uri"] + class_dict["id"])
@@ -428,9 +418,7 @@ def set_class_literal_literal(class_dict: dict, ontouml_graph: Graph) -> None:
     :type ontouml_graph: Graph
     """
 
-    list_related_literals = get_list_subdictionaries_for_specific_type(
-        class_dict, "Literal"
-    )
+    list_related_literals = get_list_subdictionaries_for_specific_type(class_dict, "Literal")
 
     for related_literal in list_related_literals:
         statement_subject = URIRef(args.ARGUMENTS["base_uri"] + class_dict["id"])
@@ -440,9 +428,7 @@ def set_class_literal_literal(class_dict: dict, ontouml_graph: Graph) -> None:
         ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
 
-def create_class_properties(
-    json_data: dict, ontouml_graph: Graph, element_counting: dict
-) -> None:
+def create_class_properties(json_data: dict, ontouml_graph: Graph, element_counting: dict) -> None:
     """Main function for decoding an object of type 'Class'.
 
     Receives the whole JSON loaded data as a dictionary and manipulates it to create all properties in which the
@@ -471,9 +457,7 @@ def create_class_properties(
     """
 
     # Get all class' dictionaries
-    list_all_class_dicts = get_list_subdictionaries_for_specific_type(
-        json_data, "Class"
-    )
+    list_all_class_dicts = get_list_subdictionaries_for_specific_type(json_data, "Class")
 
     # Treat each object dictionary
     for class_dict in list_all_class_dicts:

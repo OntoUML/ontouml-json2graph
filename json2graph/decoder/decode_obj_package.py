@@ -15,9 +15,7 @@ from ..modules import arguments as args
 from ..modules.utils_graph import ontouml_ref
 
 
-def get_package_contents(
-    package_dict: dict, package_id: str, list_contents: list = []
-) -> list[dict]:
+def get_package_contents(package_dict: dict, package_id: str, list_contents: list = []) -> list[dict]:
     """Receives the dictionary with all loaded JSON data and returns the value of the 'contents' field for a given
     object (defined by the received value of its ID).
 
@@ -52,9 +50,7 @@ def get_package_contents(
             elif type(package_dict[key]) is list:
                 for item in package_dict[key]:
                     if type(item) is dict:
-                        list_contents = get_package_contents(
-                            item, package_id, list_contents
-                        )
+                        list_contents = get_package_contents(item, package_id, list_contents)
 
                     if list_contents:
                         break
@@ -62,9 +58,7 @@ def get_package_contents(
     return list_contents
 
 
-def set_package_containsmodelelement_modelelement(
-    package_dict: dict, ontouml_graph: Graph
-) -> None:
+def set_package_containsmodelelement_modelelement(package_dict: dict, ontouml_graph: Graph) -> None:
     """Set object property ontouml:containsModelElement between an ontouml:Package and an ontouml:ModelElement it
     contains.
 
@@ -111,9 +105,7 @@ def create_package_properties(json_data: dict, ontouml_graph: Graph) -> None:
     """
 
     # Getting all Project dictionaries
-    packages_dicts_list = get_list_subdictionaries_for_specific_type(
-        json_data, "Package"
-    )
+    packages_dicts_list = get_list_subdictionaries_for_specific_type(json_data, "Package")
 
     for package_dict in packages_dicts_list:
         set_package_containsmodelelement_modelelement(package_dict, ontouml_graph)

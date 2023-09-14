@@ -16,9 +16,7 @@ from ..modules.messages import print_decode_log_message
 from ..modules.utils_graph import ontouml_ref
 
 
-def set_generalizationset_defaults(
-    generalizationset_dict: dict, ontouml_graph: Graph
-) -> None:
+def set_generalizationset_defaults(generalizationset_dict: dict, ontouml_graph: Graph) -> None:
     """Sets the default values to ontouml:generalizationSets to the resulting graph.
 
     - Default isDisjoint: If isDisjoint is null, set as False.
@@ -30,33 +28,21 @@ def set_generalizationset_defaults(
     :type ontouml_graph: Graph
     """
 
-    generalizationset_individual = URIRef(
-        args.ARGUMENTS["base_uri"] + generalizationset_dict["id"]
-    )
+    generalizationset_individual = URIRef(args.ARGUMENTS["base_uri"] + generalizationset_dict["id"])
     set_false = Literal(False, datatype=XSD.boolean)
 
     if "isDisjoint" not in generalizationset_dict:
-        print_decode_log_message(
-            generalizationset_dict, "DGA1", property_name="isDisjoint"
-        )
+        print_decode_log_message(generalizationset_dict, "DGA1", property_name="isDisjoint")
         is_disjoint_property = ontouml_ref("isDisjoint")
-        ontouml_graph.add(
-            (generalizationset_individual, is_disjoint_property, set_false)
-        )
+        ontouml_graph.add((generalizationset_individual, is_disjoint_property, set_false))
 
     if "isComplete" not in generalizationset_dict:
-        print_decode_log_message(
-            generalizationset_dict, "DGA1", property_name="isComplete"
-        )
+        print_decode_log_message(generalizationset_dict, "DGA1", property_name="isComplete")
         is_complete_property = ontouml_ref("isComplete")
-        ontouml_graph.add(
-            (generalizationset_individual, is_complete_property, set_false)
-        )
+        ontouml_graph.add((generalizationset_individual, is_complete_property, set_false))
 
 
-def set_generalizationset_relations(
-    generalizationset_dict: dict, ontouml_graph: Graph
-) -> None:
+def set_generalizationset_relations(generalizationset_dict: dict, ontouml_graph: Graph) -> None:
     """Sets the ontouml:generalization and ontouml:categorizer property to the resulting graph.
 
     :param generalizationset_dict: GeneralizationSet object loaded as a dictionary.
@@ -65,17 +51,13 @@ def set_generalizationset_relations(
     :type ontouml_graph: Graph
     """
 
-    generalizationset_individual = URIRef(
-        args.ARGUMENTS["base_uri"] + generalizationset_dict["id"]
-    )
+    generalizationset_individual = URIRef(args.ARGUMENTS["base_uri"] + generalizationset_dict["id"])
     generalization_property = ontouml_ref("generalization")
     categorizer_property = ontouml_ref("categorizer")
 
     # Setting ontouml:generalization property
     for generalization_dict in generalizationset_dict["generalizations"]:
-        generalization_individual = URIRef(
-            args.ARGUMENTS["base_uri"] + generalization_dict["id"]
-        )
+        generalization_individual = URIRef(args.ARGUMENTS["base_uri"] + generalization_dict["id"])
         ontouml_graph.add(
             (
                 generalizationset_individual,
@@ -86,12 +68,8 @@ def set_generalizationset_relations(
 
     # Setting ontouml:categorizer property
     if "categorizer" in generalizationset_dict:
-        categorizer_individual = URIRef(
-            args.ARGUMENTS["base_uri"] + generalizationset_dict["categorizer"]["id"]
-        )
-        ontouml_graph.add(
-            (generalizationset_individual, categorizer_property, categorizer_individual)
-        )
+        categorizer_individual = URIRef(args.ARGUMENTS["base_uri"] + generalizationset_dict["categorizer"]["id"])
+        ontouml_graph.add((generalizationset_individual, categorizer_property, categorizer_individual))
 
 
 def create_generalizationset_properties(json_data: dict, ontouml_graph: Graph) -> None:
@@ -110,9 +88,7 @@ def create_generalizationset_properties(json_data: dict, ontouml_graph: Graph) -
     :type ontouml_graph: Graph
     """
 
-    list_generalizationset_dicts = get_list_subdictionaries_for_specific_type(
-        json_data, "GeneralizationSet"
-    )
+    list_generalizationset_dicts = get_list_subdictionaries_for_specific_type(json_data, "GeneralizationSet")
 
     # Treat each object dictionary
     for generalizationset_dict in list_generalizationset_dicts:

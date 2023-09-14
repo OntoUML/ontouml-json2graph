@@ -55,9 +55,7 @@ def add_metadata(ontouml_graph: Graph) -> None:
     date_format = "%Y-%m-%d"
     created_date = get_date_time(date_format)
     dct_created = URIRef(uri_dct + "created")
-    ontouml_graph.add(
-        (uriref_ontology, dct_created, Literal(created_date, datatype=XSD.date))
-    )
+    ontouml_graph.add((uriref_ontology, dct_created, Literal(created_date, datatype=XSD.date)))
 
     # Adding language
     if args.ARGUMENTS["language"]:
@@ -86,9 +84,7 @@ def add_metadata(ontouml_graph: Graph) -> None:
     )
 
 
-def decode_dictionary(
-    dictionary_data: dict, ontouml_graph: Graph, language: str
-) -> None:
+def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph, language: str) -> None:
     """Receives the full dictionary with the loaded JSON data and decode known allowed values to the OntoUML Graph.
     Recursively evaluates the dictionary to create all possible instances, setting their types and attributes.
 

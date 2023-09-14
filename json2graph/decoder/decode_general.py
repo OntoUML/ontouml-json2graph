@@ -10,9 +10,7 @@ from ..modules.utils_graph import ontouml_ref, load_ontouml_vocabulary
 LOGGER = initialize_logger()
 
 
-def create_point(
-    point_id: str, x_coord: int, y_coord: int, ontouml_graph: Graph
-) -> None:
+def create_point(point_id: str, x_coord: int, y_coord: int, ontouml_graph: Graph) -> None:
     """Creates a new instance of ontouml:Point with its ontouml:xCoordinate, and ontouml:yCoordinate properties.
 
     :param point_id: ID of the new ontouml:Point instance to be created.
@@ -25,9 +23,7 @@ def create_point(
     :type ontouml_graph: Graph
     """
 
-    ontouml_graph.add(
-        (URIRef(args.ARGUMENTS["base_uri"] + point_id), RDF.type, ontouml_ref("Point"))
-    )
+    ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + point_id), RDF.type, ontouml_ref("Point")))
 
     # Setting x coordinate
     ontouml_graph.add(
@@ -129,16 +125,12 @@ def get_list_subdictionaries_for_specific_type(
         if type(dictionary_data[dict_field]) is list:
             for item in dictionary_data[dict_field]:
                 if type(item) is dict:
-                    return_list = get_list_subdictionaries_for_specific_type(
-                        item, wanted_type, return_list
-                    )
+                    return_list = get_list_subdictionaries_for_specific_type(item, wanted_type, return_list)
 
     return return_list
 
 
-def get_subdictionary_for_specific_id(
-    dictionary_data: dict, wanted_id: str, return_dict: dict = None
-) -> dict:
+def get_subdictionary_for_specific_id(dictionary_data: dict, wanted_id: str, return_dict: dict = None) -> dict:
     """Recursively access all objects in the dictionary until find the desired ID.
     When the id is found, return a copy of its dictionary (containing all its sub-dictionaries).
 
@@ -166,16 +158,12 @@ def get_subdictionary_for_specific_id(
     for dict_field in dictionary_data.keys():
         # Treating dictionary fields
         if type(dictionary_data[dict_field]) is dict:
-            return_dict = get_subdictionary_for_specific_id(
-                dictionary_data[dict_field], wanted_id, return_dict
-            )
+            return_dict = get_subdictionary_for_specific_id(dictionary_data[dict_field], wanted_id, return_dict)
 
         # Treating list fields
         if type(dictionary_data[dict_field]) is list:
             for item in dictionary_data[dict_field]:
-                return_dict = get_subdictionary_for_specific_id(
-                    item, wanted_id, return_dict
-                )
+                return_dict = get_subdictionary_for_specific_id(item, wanted_id, return_dict)
 
     return return_dict
 
@@ -213,9 +201,7 @@ def get_all_ids_of_specific_type(
         if type(dictionary_data[dict_field]) is list:
             for item in dictionary_data[dict_field]:
                 if type(item) is dict:
-                    list_ids_for_type = get_all_ids_of_specific_type(
-                        item, wanted_type, list_ids_for_type
-                    )
+                    list_ids_for_type = get_all_ids_of_specific_type(item, wanted_type, list_ids_for_type)
 
     # remove duplicates
     list_ids_for_type = list(dict.fromkeys(list_ids_for_type))
