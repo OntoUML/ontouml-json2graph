@@ -39,7 +39,8 @@ except ImportError:
 
 def decode_ontouml_json2graph(
     json_file_path: str,
-    base_uri: str = "https://example.org#",
+    base_uri: str =
+    "https://example.org#",
     language: str = "",
     model_only: bool = False,
     silent: bool = True,
@@ -86,9 +87,11 @@ def decode_ontouml_json2graph(
     validate_execution_mode(execution_mode)
 
     if execution_mode == "test":
-        args.initialize_args_test(input_path=json_file_path, language=language)
+        args.initialize_args_test(
+            input_path=json_file_path, language=language)
     elif execution_mode == "import":
         args.initialize_args_import(
+
             input_path=json_file_path,
             base_uri=base_uri,
             language=language,

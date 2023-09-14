@@ -1,6 +1,7 @@
 name: Code formatting with Black
 
 on: [ push ]
+permissions: read-all
 
 jobs:
   linter_name:
