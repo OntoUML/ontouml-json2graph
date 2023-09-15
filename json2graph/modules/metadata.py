@@ -20,14 +20,13 @@ try:
 except ModuleNotFoundError:
     LOGGER.warning("EXECUTING ON DEVELOPMENT MODE\n")
     METADATA = {
-        "Summary": "(dev) OntoUML JSON2Graph Decoder",
-        "Version": "(dev) 1.2.1",
-        "Name": "(dev) ontouml-json2graph",
-        "Home-page": "(dev) https://w3id.org/ontouml/json2graph",
+        "Summary": "OntoUML JSON2Graph Decoder",
+        "Version": "X.X.X",
+        "Name": "ontouml-json2graph",
+        "Home-page": "https://w3id.org/ontouml/json2graph",
     }
 
 # Manually including additional metadata
 METADATA["conformsTo"] = "https://w3id.org/ontouml"
 METADATA["conformsToBase"] = "https://w3id.org/ontouml#"
 METADATA["conformsToVersion"] = "v1.1.0"
-

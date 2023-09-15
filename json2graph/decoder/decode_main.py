@@ -5,7 +5,7 @@ from rdflib import Graph, URIRef, Literal, RDF, XSD, OWL, RDFS
 from ..decoder.decode_general import clean_null_data, count_elements_graph
 from ..decoder.decode_obj_class import create_class_properties
 from ..decoder.decode_obj_diagram import create_diagram_properties
-from ..decoder.decode_obj_elementview import create_elementview_properties
+from ..decoder.decode_obj_elementview import create_elementview_properties, ELEMENT_VIEW_TYPES
 from ..decoder.decode_obj_generalization import create_generalization_properties
 from ..decoder.decode_obj_generalizationset import create_generalizationset_properties
 from ..decoder.decode_obj_package import create_package_properties
@@ -21,15 +21,6 @@ from ..modules.utils_general import get_date_time
 from ..modules.utils_graph import ontouml_ref
 
 LOGGER = initialize_logger()
-
-ELEMENT_VIEW_TYPES = [
-    "ClassView",
-    "PackageView",
-    "GeneralizationSetView",
-    "RelationView",
-    "GeneralizationView",
-    "NoteView",
-]
 
 
 def add_metadata(ontouml_graph: Graph) -> None:

@@ -11,12 +11,20 @@ import inspect
 
 from rdflib import Graph, URIRef
 
-from .decode_main import ELEMENT_VIEW_TYPES
 from ..decoder.decode_general import get_list_subdictionaries_for_specific_type
 from ..modules import arguments as args
 from ..modules.errors import report_error_end_of_switch
 from ..modules.utils_graph import ontouml_ref
 
+global ELEMENT_VIEW_TYPES
+ELEMENT_VIEW_TYPES = [
+    "ClassView",
+    "PackageView",
+    "GeneralizationSetView",
+    "RelationView",
+    "GeneralizationView",
+    "NoteView",
+]
 
 def set_elementview_relations(elementview_dict: dict, ontouml_graph: Graph) -> None:
     """Set an ontouml:ElementView's ontouml:shape and ontouml:isViewOf object properties in the resulting graph.
