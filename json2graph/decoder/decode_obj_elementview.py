@@ -14,7 +14,7 @@ from rdflib import Graph, URIRef
 from ..decoder.decode_general import get_list_subdictionaries_for_specific_type
 from ..modules import arguments as args
 from ..modules.errors import report_error_end_of_switch
-from ..modules.globals import ELEMENT_VIEW_TYPES
+from ..modules.metadata import ELEMENT_VIEW_TYPES
 from ..modules.utils_graph import ontouml_ref
 
 

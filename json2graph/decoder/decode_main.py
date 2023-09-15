@@ -15,12 +15,21 @@ from ..decoder.decode_obj_property import create_property_properties
 from ..decoder.decode_obj_rectangularshape import create_rectangularshape_properties
 from ..decoder.decode_obj_relation import create_relation_properties
 from ..modules import arguments as args
-from ..modules.globals import METADATA, ELEMENT_VIEW_TYPES
 from ..modules.logger import initialize_logger
+from ..modules.metadata import METADATA
 from ..modules.utils_general import get_date_time
 from ..modules.utils_graph import ontouml_ref
 
 LOGGER = initialize_logger()
+
+ELEMENT_VIEW_TYPES = [
+    "ClassView",
+    "PackageView",
+    "GeneralizationSetView",
+    "RelationView",
+    "GeneralizationView",
+    "NoteView",
+]
 
 
 def add_metadata(ontouml_graph: Graph) -> None:

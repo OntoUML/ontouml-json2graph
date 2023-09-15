@@ -6,8 +6,8 @@ from rdflib import Graph
 from rdflib.compare import graph_diff, to_isomorphic
 
 from json2graph.modules import arguments as args
-from json2graph.modules.globals import METADATA
 from json2graph.modules.input_output import safe_write_graph_file
+from json2graph.modules.metadata import METADATA
 from json2graph.modules.utils_graph import load_graph_safely
 
 

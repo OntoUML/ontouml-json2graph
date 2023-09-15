@@ -4,8 +4,8 @@ import os
 from rdflib import Graph, URIRef
 
 from .errors import report_error_io_read
-from .globals import METADATA
 from .logger import initialize_logger
+from .metadata import METADATA
 
 LOGGER = initialize_logger()
 

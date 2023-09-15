@@ -15,11 +15,6 @@ exclude = ["json2graph/tests"]
 [tool.poetry.urls]
 "PyPi Project" = "https://pypi.org/project/ontouml-json2graph/"
 
-[extras]
-conformsTo = "https://w3id.org/ontouml"
-conformsToBase = "https://w3id.org/ontouml#"
-conformsToVersion = "v1.1.0"
-
 [tool.poetry.dependencies]
 python = "^3.9"
 pyyaml = "^6.0.1"
@@ -30,6 +25,7 @@ importlib = "^1.0.4"
 [tool.poetry.group.dev.dependencies]
 sphinx = "^7.2.6"
 pytest = "^7.4.2"
+pre-commit = "^3.4.0"
 
 [build-system]
 requires = ["poetry-core"]

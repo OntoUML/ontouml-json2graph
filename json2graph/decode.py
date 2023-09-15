@@ -11,7 +11,7 @@ from rdflib import RDF, Graph
 
 try:
     from .modules import arguments as args
-    from .modules.globals import METADATA
+    from .modules.metadata import METADATA
     from .modules.input_output import (
         safe_load_json_file,
         create_directory_if_not_exists,
@@ -24,7 +24,7 @@ try:
     from .decoder.decode_main import decode_json_to_graph
 except ImportError:
     from modules import arguments as args
-    from modules.globals import METADATA
+    from modules.metadata import METADATA
     from modules.input_output import (
         safe_load_json_file,
         create_directory_if_not_exists,

@@ -13,9 +13,9 @@ import os
 import validators
 
 from .errors import report_error_requirement_not_met
-from .globals import METADATA
 from .input_output import create_directory_if_not_exists
 from .logger import initialize_logger
+from .metadata import METADATA
 from .utils_validations import validate_arg_input
 
 ARGUMENTS = {}
@@ -223,25 +223,8 @@ def initialize_args_test(input_path: str = "not_initialized", language: str = ""
 
     :param input_path: Path to the directory or JSON file to be decoded. (Optional)
     :type input_path: str
-    :param output_path: Path to the directory in which the result file(s) will be saved. (Optional)
-    :type output_path: str
-    :param decode_all: Informs if user wants to convert all json files in the input_path performing the decode
-                        function multiple times. (Optional)
-    :type decode_all: bool
-    :param base_uri: Base URI to be used for generating URIs for ontology concepts. (Optional)
-                     Default is "https://example.org#".
-    :type base_uri: str
-    :param graph_format: Format for saving the resulting knowledge graph. (Optional)
-                         Default value is 'ttl' (Turtle syntax).
-    :type graph_format: str
     :param language: Language tag to be added to the ontology's concepts. (Optional)
     :type language: str
-    :param model_only: If True, only the OntoUML model will be extracted without diagrammatic information. (Optional)
-    :type model_only: bool
-    :param silent: If True, suppresses intermediate communications and log messages during execution. (Optional)
-    :type silent: bool
-    :param correct: If True, attempts to correct potential errors during the conversion process. (Optional)
-    :type correct: bool
     """
 
     global ARGUMENTS

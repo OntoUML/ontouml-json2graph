@@ -1,19 +1,23 @@
-""" Global variables definitions. """
+""" Load metadata about the ontouml-json2graph software.
+
+Metadata is loaded in one of two ways:
+    (a) Automatically read from the pyproject.toml file.
+    (b) Manually inserted.
+"""
 
 from importlib.metadata import metadata
 
 from json2graph.modules.logger import initialize_logger
 
-global METADATA
-
 LOGGER = initialize_logger()
 
-# Software's metadata directly got from pyproject.toml config file
+global METADATA
+
+# Get software's metadata directly from pyproject.toml config file
 try:
     METADATA = dict(metadata("ontouml-json2graph"))
-
 # When developing, the metadata is not available and hence the information is manually declared
-except:
+except ModuleNotFoundError:
     LOGGER.warning("EXECUTING ON DEVELOPMENT MODE\n")
     METADATA = {
         "Summary": "(dev) OntoUML JSON2Graph Decoder",
@@ -22,13 +26,8 @@ except:
         "Home-page": "(dev) https://w3id.org/ontouml/json2graph",
     }
 
-# GROUPS OF CONCEPTS
+# Manually including additional metadata
+METADATA["conformsTo"] = "https://w3id.org/ontouml"
+METADATA["conformsToBase"] = "https://w3id.org/ontouml#"
+METADATA["conformsToVersion"] = "v1.1.0"
 
-ELEMENT_VIEW_TYPES = [
-    "ClassView",
-    "PackageView",
-    "GeneralizationSetView",
-    "RelationView",
-    "GeneralizationView",
-    "NoteView",
-]
