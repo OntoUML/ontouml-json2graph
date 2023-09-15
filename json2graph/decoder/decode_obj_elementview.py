@@ -26,6 +26,7 @@ ELEMENT_VIEW_TYPES = [
     "NoteView",
 ]
 
+
 def set_elementview_relations(elementview_dict: dict, ontouml_graph: Graph) -> None:
     """Set an ontouml:ElementView's ontouml:shape and ontouml:isViewOf object properties in the resulting graph.
 
