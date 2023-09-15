@@ -1,26 +1,26 @@
 """ Global variables definitions. """
-import os
 
-import yaml
+from importlib.metadata import metadata
 
-from .errors import report_error_io_read
+from json2graph.modules.logger import initialize_logger
 
-# Software's metadata from resources/metadata.yaml (indirectly got from pyproject.toml config file)
 global METADATA
 
-# Guarantees that the file will be found as it searches using this file as basis
-package_dir = os.path.dirname(os.path.dirname(__file__))
-metadata_file = os.path.join(package_dir, "resources" + os.sep + "metadata.yaml")
+LOGGER = initialize_logger()
 
-# Loads metadata_file into a dictionary
+# Software's metadata directly got from pyproject.toml config file
 try:
-    with open(metadata_file) as file:
-        metadata_dictionary = yaml.safe_load(file)
-except IOError as error:
-    file_description = "Metadata file could not be loaded."
-    report_error_io_read(metadata_file, file_description, error)
+    METADATA = dict(metadata("ontouml-json2graph"))
 
-METADATA = metadata_dictionary["tool"]["poetry"] | metadata_dictionary["extras"]
+# When developing, the metadata is not available and hence the information is manually declared
+except:
+    LOGGER.warning("EXECUTING ON DEVELOPMENT MODE\n")
+    METADATA = {
+        "Summary": "(dev) OntoUML JSON2Graph Decoder",
+        "Version": "(dev) 1.2.1",
+        "Name": "(dev) ontouml-json2graph",
+        "Home-page": "(dev) https://w3id.org/ontouml/json2graph",
+    }
 
 # GROUPS OF CONCEPTS
 

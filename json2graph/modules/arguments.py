@@ -44,21 +44,22 @@ def initialize_args_script() -> None:
         "nquads",
     ]
 
-    LOGGER.debug("Parsing user's arguments...")
-
-    about_message = METADATA["name"] + " - version " + METADATA["version"]
+    # Parsing user's arguments
 
     # PARSING ARGUMENTS
+
     args_parser = argparse.ArgumentParser(
-        prog=METADATA["name"],
-        description=METADATA["description"] + ". Version: " + METADATA["version"],
+        prog=METADATA["Name"],
+        description=METADATA["Summary"] + ". Version: " + METADATA["Version"],
         allow_abbrev=False,
-        epilog="More information at: " + METADATA["repository"],
+        epilog="More information at: " + METADATA["Home-page"],
     )
 
+    # Building -v argument information
+    about_message = METADATA["Name"] + " - version " + METADATA["Version"]
     args_parser.version = about_message
 
-    # OPTIONAL ARGUMENT
+    # OPTIONAL ARGUMENTS
     args_parser.add_argument(
         "-i",
         "--input_path",
@@ -76,7 +77,6 @@ def initialize_args_script() -> None:
         help="The path of the directory in which the resulting decoded file(s) will be saved. "
         "Default is the working directory.",
     )
-
     args_parser.add_argument(
         "-a",
         "--decode_all",

@@ -103,8 +103,8 @@ def decode_ontouml_json2graph(
         start_date_time = get_date_time(time_screen_format)
         st = time.perf_counter()
 
-        logger.info(f"{METADATA['description']} v{METADATA['version']} started on {start_date_time}!")
-        logger.debug(f"Selected arguments are: {args.ARGUMENTS}")
+        logger.info(f"{METADATA['Summary']} v{METADATA['Version']} started on {start_date_time}!")
+
         logger.info(
             f"Decoding JSON file {args.ARGUMENTS['input_path']} to {(args.ARGUMENTS['format']).upper()} graph "
             f"format.\n"
