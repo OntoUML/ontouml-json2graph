@@ -59,10 +59,10 @@ def load_ontouml_vocabulary(enable_remote: bool = False) -> Graph:
             LOGGER.debug("OntoUML Vocabulary successfully loaded to working memory from REMOTE option.")
         except Exception:
             LOGGER.debug("OntoUML Vocabulary successfully loaded to working memory from LOCAL option.")
-            load_graph_safely(file_path, "ttl")
+            ontology_graph = load_graph_safely(file_path, "ttl")
     else:
         LOGGER.debug("OntoUML Vocabulary successfully loaded to working memory from LOCAL option.")
-        load_graph_safely(file_path, "ttl")
+        ontology_graph = load_graph_safely(file_path, "ttl")
 
     return ontology_graph
 
