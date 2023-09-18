@@ -3,19 +3,6 @@
 The logger can be customized based on different execution modes, allowing you to control the log level.
 """
 import logging
-from datetime import datetime
-
-
-def logger_get_date_time() -> str:
-    """Return a string in a specified format with date and time.
-
-    :return: Formatted date and time. Format example: 2022.10.23-14.43
-    :rtype: str
-    """
-    now = datetime.now()
-    date_time = now.strftime("%Y.%m.%d-%H.%M.%S")
-
-    return date_time
 
 
 def initialize_logger(execution_mode: str = "script") -> logging.Logger:

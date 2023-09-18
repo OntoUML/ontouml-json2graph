@@ -40,3 +40,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.black]
 line-length = 120
+
+[tool.vulture]
+paths = ["."]
+exclude = ["docs/", "sphinx/", "library.py"]

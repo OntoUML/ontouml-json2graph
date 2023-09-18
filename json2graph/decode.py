@@ -126,7 +126,7 @@ def decode_ontouml_json2graph(
 
     # If set by user, remove all diagrammatic elements
     if args.ARGUMENTS["model_only"]:
-        for s, p, o in ontouml_graph.triples((None, RDF.type, None)):
+        for s, _, o in ontouml_graph.triples((None, RDF.type, None)):
             s_type = s.toPython()
             o_type = o.fragment
             # Remove if not a model element and if it is defined by of the ontology being handled
