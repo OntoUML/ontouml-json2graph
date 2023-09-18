@@ -1,5 +1,4 @@
-"""Configuration file for the Sphinx documentation builder."""
-
+# Configuration file for the Sphinx documentation builder.
 # For the full list of built-in configuration values, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
@@ -14,7 +13,6 @@ sys.path.insert(0, os.path.abspath(".."))
 project = "ontouml-json2graph"
 copyright = "2023, Semantics, Cybersecurity & Services (SCS), University of Twente, the Netherlands"
 author = "Pedro Paulo F. Barcelos <p.p.favatobarcelos@utwente.nl>"
-release = "1.0.2"
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -27,7 +25,6 @@ extensions = [
     "sphinx.ext.coverage",
     "sphinx.ext.doctest",
     "sphinx.ext.githubpages",
-    "sphinx_toolbox.shields",
     "sphinx_toolbox.sidebar_links",
 ]
 
