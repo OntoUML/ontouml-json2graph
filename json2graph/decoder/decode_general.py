@@ -1,5 +1,4 @@
-""" General decoding functions. """
-
+"""General decoding functions."""
 from rdflib import Graph, URIRef, Literal, RDF
 
 from ..modules import arguments as args
@@ -11,7 +10,7 @@ LOGGER = initialize_logger()
 
 
 def create_point(point_id: str, x_coord: int, y_coord: int, ontouml_graph: Graph) -> None:
-    """Creates a new instance of ontouml:Point with its ontouml:xCoordinate, and ontouml:yCoordinate properties.
+    """Create a new instance of ontouml:Point with its ontouml:xCoordinate, and ontouml:yCoordinate properties.
 
     :param point_id: ID of the new ontouml:Point instance to be created.
     :type point_id: str
@@ -22,7 +21,6 @@ def create_point(point_id: str, x_coord: int, y_coord: int, ontouml_graph: Graph
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
-
     ontouml_graph.add((URIRef(args.ARGUMENTS["base_uri"] + point_id), RDF.type, ontouml_ref("Point")))
 
     # Setting x coordinate
@@ -45,14 +43,13 @@ def create_point(point_id: str, x_coord: int, y_coord: int, ontouml_graph: Graph
 
 
 def count_elements_graph(ontouml_graph: Graph) -> dict:
-    """Returns a dictionary with all element types on graphs and their respective quantity.
+    """Return a dictionary with all element types on graphs and their respective quantity.
 
     :param ontouml_graph: Knowledge graph with loaded objects' ids and types
     :type ontouml_graph: Graph
     :return: Dictionary with types and respective quantities present on graph.
     :rtype: dict
     """
-
     element_counting = {}
 
     ontouml_meta_graph = load_ontouml_vocabulary()
@@ -72,6 +69,7 @@ def count_elements_graph(ontouml_graph: Graph) -> dict:
 
 def get_stereotype(object_dict: dict) -> str:
     """For coding reasons (dictionary index error), it is necessary to check if an object has its stereotype not set.
+
     Returns the evaluated object's stereotype or 'null' when the stereotype is absent.
 
     :param object_dict: Object loaded as a dictionary.
@@ -79,7 +77,6 @@ def get_stereotype(object_dict: dict) -> str:
     :return: Evaluated object's stereotype or 'null' when the stereotype is absent.
     :rtype: str
     """
-
     if "stereotype" not in object_dict:
         result_stereotype = "null"
     else:
@@ -92,6 +89,7 @@ def get_list_subdictionaries_for_specific_type(
     dictionary_data: dict, wanted_type: str, return_list: list[dict] = None
 ) -> list[dict]:
     """Recursively access all objects in the dictionary until find an object of the desired type.
+
     When the type is found, adds a copy of its dictionaries to a list to be returned
     (containing all its sub-dictionaries).
 
@@ -104,7 +102,6 @@ def get_list_subdictionaries_for_specific_type(
     :return: List of copy of the object's dictionaries.
     :rtype: list[dict]
     """
-
     if return_list is None:
         return_list = []
 
@@ -132,6 +129,7 @@ def get_list_subdictionaries_for_specific_type(
 
 def get_subdictionary_for_specific_id(dictionary_data: dict, wanted_id: str, return_dict: dict = None) -> dict:
     """Recursively access all objects in the dictionary until find the desired ID.
+
     When the id is found, return a copy of its dictionary (containing all its sub-dictionaries).
 
     :param dictionary_data: Dictionary to have its fields decoded.
@@ -143,7 +141,6 @@ def get_subdictionary_for_specific_id(dictionary_data: dict, wanted_id: str, ret
     :return: Copy of the object's dictionary.
     :rtype: dict
     """
-
     # If value is already found, return it and stop recursion.
     if return_dict is not None:
         return return_dict
@@ -180,7 +177,6 @@ def get_all_ids_of_specific_type(
     :return: List of ids from all objects for a given type.
     :rtype: list[str]
     """
-
     if list_ids_for_type is None:
         list_ids_for_type = []
 
@@ -210,7 +206,8 @@ def get_all_ids_of_specific_type(
 
 
 def clean_null_data(dictionary_data) -> dict:
-    """Removes all empty values (i.e., keys associated with None) from the received dictionary.
+    """Remove all empty values (i.e., keys associated with None) from the received dictionary.
+
     If a value of the dictionary is another dictionary, this function recursively verify this sub-dictionary elements.
     I.e., all empty fields, from all dictionaries composing the main dictionary are also cleaned.
 
@@ -219,7 +216,6 @@ def clean_null_data(dictionary_data) -> dict:
     :return: Dictionary without empty fields.
     :rtype: dict
     """
-
     # Using list() to force a copy of the keys. Avoids "RuntimeError: dictionary changed size during iteration".
     for key in list(dictionary_data.keys()):
         # Recursively treats sub-dictionaries inside lists

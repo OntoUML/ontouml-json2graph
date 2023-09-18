@@ -1,10 +1,9 @@
-""" Load metadata about the ontouml-json2graph software.
+"""Load metadata about the ontouml-json2graph software.
 
 Metadata is loaded in one of two ways:
     (a) Automatically read from the pyproject.toml file.
     (b) Manually inserted.
 """
-
 from importlib.metadata import metadata
 
 from json2graph.modules.logger import initialize_logger

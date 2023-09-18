@@ -1,4 +1,4 @@
-""" The `library.py` module serves as a versatile and user-friendly library within the broader ontouml-json2graph
+"""The `library.py` module serves as a versatile and user-friendly library within the broader ontouml-json2graph \
 package.
 
 It offers a streamlined way for users to convert OntoUML model data in JSON format into RDF graphs that adhere to the
@@ -8,7 +8,6 @@ integrate OntoUML JSON conversion capabilities into their projects.
 In addition to conversion functions, the library provides the `save_graph_file` utility, enabling users to safely save
 OntoUML graphs to files in their desired syntax.
 """
-
 from rdflib import Graph
 
 from .decode import decode_ontouml_json2graph
@@ -22,7 +21,7 @@ def decode_json_project(
     language: str = "",
     correct: bool = False,
 ) -> Graph:
-    """Decodes elements from OntoUML's abstract and concrete syntax from JSON format into a Knowledge Graph.
+    """Decode elements from OntoUML's abstract and concrete syntax from JSON format into a Knowledge Graph. \
     I.e., domain-level and diagrammatic data are converted to Knowledge Graph.
 
     This function decodes OntoUML JSON data representing a project-level model into a knowledge graph
@@ -62,7 +61,7 @@ def decode_json_model(
     language: str = "",
     correct: bool = False,
 ) -> Graph:
-    """Decodes elements from OntoUML's abstract syntax from JSON format into a Knowledge Graph.
+    """Decode elements from OntoUML's abstract syntax from JSON format into a Knowledge Graph. \
     I.e., only domain-level (and not diagrammatic) data is converted to Knowledge Graph.
 
     This function decodes OntoUML JSON data representing a model-level view into a knowledge graph
@@ -97,7 +96,7 @@ def decode_json_model(
 
 
 def save_graph_file(ontouml_graph: Graph, output_file_path: str, syntax: str) -> None:
-    """The save_graph_file function is designed to securely save an OntoUML graph, represented as an RDFLib's Graph
+    """Is designed to securely save an OntoUML graph, represented as an RDFLib's Graph \
     object, into a file at a specified destination while using the user's informed syntax.
 
     :param ontouml_graph: Graph compliant with the OntoUML Vocabulary.
@@ -107,7 +106,6 @@ def save_graph_file(ontouml_graph: Graph, output_file_path: str, syntax: str) ->
     :param syntax: Syntax to be used for saving the ontology file. A syntax allowed by RDFLib must be informed.
     :type syntax: str
     """
-
     valid_syntaxes = [
         "turtle",
         "ttl",

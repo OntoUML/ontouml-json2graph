@@ -240,7 +240,7 @@ ontouml:isPowertype
     rdfs:domain  ontouml:Class ;
     rdfs:range   xsd:boolean ;
     rdfs:comment """Identifies if a class decorated as «type» is a powertype in the sense of Cardelli (1988).
-                    
+
                     Cardelli, L.: Structural subtyping and the notion of power type. In: 15th ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages. pp. 70–79 (1988). https://doi.org/10.1145/73560.73566
                     """@en .
 

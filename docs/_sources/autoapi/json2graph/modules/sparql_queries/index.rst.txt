@@ -5,7 +5,7 @@
 
 .. autoapi-nested-parse::
 
-   All SPARQL queries used for decoding the JSON. 
+   All SPARQL queries used for decoding the JSON.
 
 
 
@@ -33,7 +33,7 @@ Module Contents
 
         </details>
 
-   
+
 
 .. py:data:: GET_CLASS_STEREOTYPE_ATTRIBUTE_STEREOTYPE
    :value: Multiline-String
@@ -60,6 +60,3 @@ Module Contents
     .. raw:: html
 
         </details>
-
-   
-

@@ -1,4 +1,4 @@
-""" Functions to decode specificities of the object RectangularShare.
+"""Functions to decode specificities of the object RectangularShare.
 
 Function's nomenclatures:
     - Functions that set one property are named: set_<subject>_<predicate>_<object>.
@@ -7,7 +7,6 @@ Function's nomenclatures:
     - Functions that set both object and data properties are named: set_<subject>_properties.
     - Functions that set default values: set_<subject>_defaults.
 """
-
 from rdflib import Graph, URIRef
 
 from ..decoder.decode_general import (
@@ -19,14 +18,13 @@ from ..modules.utils_graph import ontouml_ref
 
 
 def set_rectangularshape_coordinates(rectangularshape_dict: dict, ontouml_graph: Graph) -> None:
-    """Creates an ontouml:Point, their properties and the ontouml:topLeftPosition of an ontouml:RectangularShape.
+    """Create an ontouml:Point, their properties and the ontouml:topLeftPosition of an ontouml:RectangularShape.
 
     :param rectangularshape_dict: RectangularShape object loaded as a dictionary.
     :type rectangularshape_dict: dict
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
-
     # Creating new Point instance
     point_name = rectangularshape_dict["id"] + "_point"
     create_point(
@@ -47,7 +45,7 @@ def set_rectangularshape_coordinates(rectangularshape_dict: dict, ontouml_graph:
 
 
 def create_rectangularshape_properties(json_data: dict, ontouml_graph: Graph) -> None:
-    """Main function for decoding an object of type RectangularShape.
+    """Decode an object of type RectangularShape.
 
     Receives the whole JSON loaded data as a dictionary and manipulates it to create all properties in which the
     object's type is domain of.
@@ -68,7 +66,6 @@ def create_rectangularshape_properties(json_data: dict, ontouml_graph: Graph) ->
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
-
     # Get all Rectangles' and Texts' dictionaries
     list_all_rectangle_dicts = get_list_subdictionaries_for_specific_type(json_data, "Rectangle")
     list_all_text_dicts = get_list_subdictionaries_for_specific_type(json_data, "Text")

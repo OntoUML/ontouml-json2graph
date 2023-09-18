@@ -5,7 +5,7 @@
 
 .. autoapi-nested-parse::
 
-   Functions that performs validations for different functions or parameters used in the software. 
+   Functions that performs validations for different functions or parameters used in the software.
 
 
 
@@ -43,5 +43,3 @@ Functions
 
    :param execution_mode: The execution mode to be validated.
    :type execution_mode: str
-
-

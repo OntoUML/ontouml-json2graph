@@ -1,4 +1,4 @@
-""" Auxiliary test functions. """
+"""Auxiliary test functions."""
 import glob
 import os
 
@@ -12,12 +12,11 @@ from json2graph.modules.utils_graph import load_graph_safely
 
 
 def get_test_list() -> list[str]:
-    """Returns a list with all JSON files in the test_files folder.
+    """Return a list with all JSON files in the test_files folder.
 
     :return: List with complete path of all JSON files in the test_files folder.
     :rtype: list[str]
     """
-
     # Gets test files' directory
     this_file_dir = os.path.abspath(__file__)
     tests_dir = os.path.dirname(this_file_dir)
@@ -43,7 +42,6 @@ def print_graphs_differences(iso_result_graph: Graph, iso_expected_graph: Graph,
     :param test_name: Name of the test to be used for printing comparison if evaluation result is negative.
     :type test_name: str
     """
-
     in_both, in_resulting, in_expected = graph_diff(iso_result_graph, iso_expected_graph)
 
     in_both.bind("ontouml", METADATA["conformsToBase"])
@@ -64,7 +62,7 @@ def print_graphs_differences(iso_result_graph: Graph, iso_expected_graph: Graph,
 
 
 def compare_graphs(resulting_graph_path: str, expected_graph_path: str, test_name: str) -> bool:
-    """Verifies if resulting graph corresponds to expected graph.
+    """Verify if resulting graph corresponds to expected graph.
 
     :param resulting_graph_path: Path to the generated resulting graph file.
     :type resulting_graph_path: str
@@ -75,7 +73,6 @@ def compare_graphs(resulting_graph_path: str, expected_graph_path: str, test_nam
     :return: Boolean value indicating if the resulting and expected graphs are equal.
     :rtype: bool
     """
-
     result_graph = load_graph_safely(resulting_graph_path)
     expected_graph = load_graph_safely(expected_graph_path)
 

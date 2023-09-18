@@ -1,4 +1,4 @@
-""" Functions to decode objects of type Class.
+"""Functions to decode objects of type Class.
 
 Function's nomenclatures:
     - Functions that set one property are named: set_<subject>_<predicate>_<object>.
@@ -6,7 +6,6 @@ Function's nomenclatures:
     - Functions that set multiple data properties are named: set_<subject>_attributes.
     - Functions that set both object and data properties are named: set_<subject>_properties.
 """
-
 import inspect
 
 from rdflib import Graph, URIRef, XSD, Literal
@@ -22,7 +21,7 @@ from ..modules.utils_graph import ontouml_ref
 
 
 def validate_class_attribute_constraints(class_dict: dict) -> None:
-    """Verifies all Class dictionaries and check if the constraints related to classes were correctly considered and
+    """Verify all Class dictionaries and check if the constraints related to classes were correctly considered and \
     fixes them when they are not.
 
     The pair of attribute/stereotype: isExtensional/collective and isPowertype/type checked constraints are:
@@ -36,7 +35,6 @@ def validate_class_attribute_constraints(class_dict: dict) -> None:
     :param class_dict: Class object loaded as a dictionary.
     :type class_dict: dict
     """
-
     if not args.ARGUMENTS["correct"]:
         return
 
@@ -71,7 +69,7 @@ def validate_class_attribute_constraints(class_dict: dict) -> None:
 
 
 def validate_class_order_constraints(class_dict: dict) -> None:
-    """Verifies all Class dictionaries and check if the constraints related to classes were correctly considered and
+    """Verify all Class dictionaries and check if the constraints related to classes were correctly considered and \
     fixes them when they are not.
 
     The checked constraints are:
@@ -84,7 +82,6 @@ def validate_class_order_constraints(class_dict: dict) -> None:
     :param class_dict: Class object loaded as a dictionary.
     :type class_dict: dict
     """
-
     if not args.ARGUMENTS["correct"]:
         return
 
@@ -104,20 +101,20 @@ def validate_class_order_constraints(class_dict: dict) -> None:
 
 
 def set_defaults_class_attribute(class_dict: dict, ontouml_graph: Graph) -> None:
-    """Verifies a class dictionary and check if their non-nullable attributes isExtensional and isPowertype were set
-    or not. If not, creates default values. Default values checked are:
+    """Verify a class dictionary and check if their non-nullable attributes isExtensional and isPowertype were set \
+    or not. If not, creates default values.
 
-    DCA1) ontouml:isExtensional default value = False when class's stereotype 'collective'
-    DCA2) ontouml:isPowertype default value = False
-    DCA3) ontouml:isDerived default value = False
-    DCA4) ontouml:isAbstract default value = False
+    The default values checked are:
+        DCA1) ontouml:isExtensional default value = False when class's stereotype 'collective'
+        DCA2) ontouml:isPowertype default value = False
+        DCA3) ontouml:isDerived default value = False
+        DCA4) ontouml:isAbstract default value = False
 
     :param class_dict: Class object loaded as a dictionary.
     :type class_dict: dict
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
-
     class_stereotype = get_stereotype(class_dict)
 
     # DCA1: Setting ontouml:isExtensional default value to False when it's not set in a class with stereotype collective
@@ -173,7 +170,7 @@ def set_defaults_class_attribute(class_dict: dict, ontouml_graph: Graph) -> None
 
 
 def set_defaults_class_order(class_dict: dict, ontouml_graph: Graph) -> None:
-    """Verifies a class dictionary and check if their non-nullable attribute order was set or not.
+    """Verify a class dictionary and check if their non-nullable attribute order was set or not. \
     If not, creates default values.
 
     Default values checked are:
@@ -188,7 +185,6 @@ def set_defaults_class_order(class_dict: dict, ontouml_graph: Graph) -> None:
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
-
     class_stereotype = get_stereotype(class_dict)
 
     # Setting ORDER attribute default value. Do nothing if the stereotype is unknown.
@@ -222,7 +218,7 @@ def set_defaults_class_order(class_dict: dict, ontouml_graph: Graph) -> None:
 
 
 def set_class_stereotype(class_dict: dict, ontouml_graph: Graph) -> None:
-    """Sets ontouml:stereotype property between an instance of ontouml:Class and an instance representing an
+    """Set ontouml:stereotype property between an instance of ontouml:Class and an instance representing an \
     ontouml:ClassStereotype.
 
     Warning messages:
@@ -234,7 +230,6 @@ def set_class_stereotype(class_dict: dict, ontouml_graph: Graph) -> None:
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
-
     ENUM_CLASS_STEREOTYPE = [
         "type",
         "historicalRole",
@@ -279,7 +274,7 @@ def set_class_stereotype(class_dict: dict, ontouml_graph: Graph) -> None:
 
 
 def set_class_order_nonnegativeinteger(class_dict: dict, ontouml_graph: Graph) -> None:
-    """Sets an ontouml:Class's ontouml:order property based on the received value of the object's field 'order'.
+    """Set an ontouml:Class's ontouml:order property based on the received value of the object's field 'order'.
 
     The treated possibilities are:
     A) invalid value (null, non integers, integers <= 0) ---> is converted to the default value of the class
@@ -291,7 +286,6 @@ def set_class_order_nonnegativeinteger(class_dict: dict, ontouml_graph: Graph) -
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
-
     # Case A: if 'order' field is null, it will receive the default value (see function set_class_defaults)
     if "order" not in class_dict:
         return
@@ -326,14 +320,13 @@ def set_class_order_nonnegativeinteger(class_dict: dict, ontouml_graph: Graph) -
 
 
 def set_class_restrictedto_ontologicalnature(class_dict: dict, ontouml_graph: Graph) -> None:
-    """Sets the ontouml:restrictedTo relation between a class and its related ontouml:OntologicalNature instance.
+    """Set the ontouml:restrictedTo relation between a class and its related ontouml:OntologicalNature instance.
 
     :param class_dict: Class object loaded as a dictionary.
     :type class_dict: dict
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
-
     restriction_nature_mapping = {
         "abstract": "abstractNature",
         "collective": "collectiveNature",
@@ -360,7 +353,7 @@ def set_class_restrictedto_ontologicalnature(class_dict: dict, ontouml_graph: Gr
 
 
 def set_class_attributes(class_dict: dict, ontouml_graph: Graph) -> None:
-    """Defines the ontouml:isPowertype and ontouml:isExtensional data properties of an ontouml:Class in the graph.
+    """Define the ontouml:isPowertype and ontouml:isExtensional data properties of an ontouml:Class in the graph.
 
     This function must be called after the function set_class_defaults, as the received value may change because of
     identified problems.
@@ -370,7 +363,6 @@ def set_class_attributes(class_dict: dict, ontouml_graph: Graph) -> None:
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
-
     if "isExtensional" in class_dict:
         ontouml_graph.add(
             (
@@ -391,14 +383,13 @@ def set_class_attributes(class_dict: dict, ontouml_graph: Graph) -> None:
 
 
 def set_class_attribute_property(class_dict: dict, ontouml_graph: Graph) -> None:
-    """Sets ontouml:attribute relation between an ontouml:Class and an ontouml:Property.
+    """Set ontouml:attribute relation between an ontouml:Class and an ontouml:Property.
 
     :param class_dict: Class object loaded as a dictionary.
     :type class_dict: dict
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
-
     list_related_properties = get_list_subdictionaries_for_specific_type(class_dict, "Property")
 
     for related_property in list_related_properties:
@@ -410,14 +401,13 @@ def set_class_attribute_property(class_dict: dict, ontouml_graph: Graph) -> None
 
 
 def set_class_literal_literal(class_dict: dict, ontouml_graph: Graph) -> None:
-    """Sets ontouml:literal relation between an ontouml:Class and its related ontouml:Literal individuals.
+    """Set ontouml:literal relation between an ontouml:Class and its related ontouml:Literal individuals.
 
     :param class_dict: Class object loaded as a dictionary.
     :type class_dict: dict
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
-
     list_related_literals = get_list_subdictionaries_for_specific_type(class_dict, "Literal")
 
     for related_literal in list_related_literals:
@@ -429,7 +419,7 @@ def set_class_literal_literal(class_dict: dict, ontouml_graph: Graph) -> None:
 
 
 def create_class_properties(json_data: dict, ontouml_graph: Graph, element_counting: dict) -> None:
-    """Main function for decoding an object of type 'Class'.
+    """Decode an object of type 'Class'.
 
     Receives the whole JSON loaded data as a dictionary and manipulates it to create all properties in which the
     object's type is domain of.
@@ -455,7 +445,6 @@ def create_class_properties(json_data: dict, ontouml_graph: Graph, element_count
     :param element_counting: Dictionary with types and respective quantities present on graph.
     :type element_counting: dict
     """
-
     # Get all class' dictionaries
     list_all_class_dicts = get_list_subdictionaries_for_specific_type(json_data, "Class")
 

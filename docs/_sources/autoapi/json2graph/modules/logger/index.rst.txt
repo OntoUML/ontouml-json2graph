@@ -45,5 +45,3 @@ Functions
    :type execution_mode: str
    :return: Created logger called 'execution-logger'.
    :rtype: logging.Logger
-
-

@@ -1,4 +1,4 @@
-""" Argument Treatments Module.
+"""Argument Treatments Module.
 
 This module provides functions for parsing and validating user-provided arguments when starting the software execution
 as a script.
@@ -6,7 +6,6 @@ as a script.
 It also makes the ARGUMENTS variable globally accessible with the user's arguments (when executed as a script) or with
 default values (when executed as test or as a library).
 """
-
 import argparse
 import os
 
@@ -24,8 +23,10 @@ LOGGER = initialize_logger()
 
 
 def initialize_args_script() -> None:
-    """This function parses the command-line arguments provided by the user and performs necessary validations."""
+    """Parse the command-line arguments provided by the user and performs necessary validations.
 
+    The ARGUMENTS variable must be initialized in every possible execution mode.
+    """
     # Formats for saving graphs supported by RDFLib
     # https://rdflib.readthedocs.io/en/stable/intro_to_parsing.html#saving-rdf
     allowed_graph_formats = [
@@ -180,8 +181,9 @@ def initialize_args_import(
     silent: bool = True,
     correct: bool = False,
 ):
-    """This function initializes the global variable ARGUMENTS of type dictionary, which contains user-provided
+    """Initialize the global variable ARGUMENTS of type dictionary, which contains user-provided \
     (when executed in script mode) or default arguments (when executed as a library or for testing).
+
     The ARGUMENTS variable must be initialized in every possible execution mode.
 
     :param input_path: Path to the directory or JSON file to be decoded. (Optional)
@@ -203,7 +205,6 @@ def initialize_args_import(
     :param correct: If True, attempts to correct potential errors during the conversion process. (Optional)
     :type correct: bool
     """
-
     global ARGUMENTS
 
     ARGUMENTS["base_uri"] = base_uri
@@ -217,8 +218,9 @@ def initialize_args_import(
 
 
 def initialize_args_test(input_path: str = "not_initialized", language: str = ""):
-    """This function initializes the global variable ARGUMENTS of type dictionary, which contains user-provided
+    """Initialize the global variable ARGUMENTS of type dictionary, which contains user-provided \
     (when executed in script mode) or default arguments (when executed as a library or for testing).
+
     The ARGUMENTS variable must be initialized in every possible execution mode.
 
     :param input_path: Path to the directory or JSON file to be decoded. (Optional)
@@ -226,7 +228,6 @@ def initialize_args_test(input_path: str = "not_initialized", language: str = ""
     :param language: Language tag to be added to the ontology's concepts. (Optional)
     :type language: str
     """
-
     global ARGUMENTS
 
     ARGUMENTS["base_uri"] = "https://example.org#"

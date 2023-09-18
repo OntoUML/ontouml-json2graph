@@ -1,4 +1,4 @@
-""" Functions to decode specificities of the object Relation.
+"""Functions to decode specificities of the object Relation.
 
 Function's nomenclatures:
     - Functions that set one property are named: set_<subject>_<predicate>_<object>.
@@ -7,7 +7,6 @@ Function's nomenclatures:
     - Functions that set both object and data properties are named: set_<subject>_properties.
     - Functions that set default values: set_<subject>_defaults.
 """
-
 from rdflib import Graph, URIRef, Literal, XSD
 
 from ..decoder.decode_general import (
@@ -20,17 +19,17 @@ from ..modules.utils_graph import ontouml_ref
 
 
 def set_relation_defaults(relation_dict: dict, ontouml_graph: Graph) -> None:
-    """Sets the following attribute's default values for ontouml:Relation:
+    """Set attribute's default values for ontouml:Relation.
 
-    DRA1) ontouml:isDerived default value = False
-    DRA2) ontouml:isAbstract default value = False
+    The attribute's default values are the following:
+        DRA1) ontouml:isDerived default value = False
+        DRA2) ontouml:isAbstract default value = False
 
     :param relation_dict: Relation object loaded as a dictionary.
     :type relation_dict: dict
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
-
     # DRA1, and DRA2 use the same message DGA1, as they are not associated to their holder's stereotype.
 
     # DCA3: Setting ontouml:isDerived attribute default value
@@ -57,7 +56,7 @@ def set_relation_defaults(relation_dict: dict, ontouml_graph: Graph) -> None:
 
 
 def set_relation_stereotype(relation_dict: dict, ontouml_graph: Graph) -> None:
-    """Sets ontouml:stereotype property between an instance of ontouml:Relation and an instance representing an
+    """Set ontouml:stereotype property between an instance of ontouml:Relation and an instance representing an \
     ontouml:RelationStereotype.
 
     Warning messages:
@@ -68,7 +67,6 @@ def set_relation_stereotype(relation_dict: dict, ontouml_graph: Graph) -> None:
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
-
     ENUM_RELATION_STEREOTYPE = [
         "bringsAbout",
         "characterization",
@@ -108,7 +106,9 @@ def set_relation_stereotype(relation_dict: dict, ontouml_graph: Graph) -> None:
 
 
 def set_relation_relations(relation_dict: dict, ontouml_graph: Graph) -> None:
-    """Sets the following object properties to instances of ontouml:Relation:
+    """Set the following object properties to instances of ontouml:Relation.
+
+    The object properties are the following:
         - ontouml:relationEnd (range ontouml:Property)
         - ontouml:sourceEnd (range ontouml:Property)
         - ontouml:targetEnd (range ontouml:Property)
@@ -118,7 +118,6 @@ def set_relation_relations(relation_dict: dict, ontouml_graph: Graph) -> None:
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
-
     relation_individual = URIRef(args.ARGUMENTS["base_uri"] + relation_dict["id"])
     uri_relation_end = ontouml_ref("relationEnd")
     uri_relation_sourceend = ontouml_ref("sourceEnd")
@@ -141,7 +140,7 @@ def set_relation_relations(relation_dict: dict, ontouml_graph: Graph) -> None:
 
 
 def create_relation_properties(json_data: dict, ontouml_graph: Graph) -> None:
-    """Main function for decoding an object of type Relation.
+    """Decode an object of type Relation.
 
     Receives the whole JSON loaded data as a dictionary and manipulates it to create all properties in which the
     object's type is domain of.
@@ -160,7 +159,6 @@ def create_relation_properties(json_data: dict, ontouml_graph: Graph) -> None:
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
-
     list_relation_dicts = get_list_subdictionaries_for_specific_type(json_data, "Relation")
 
     # Treat each object dictionary

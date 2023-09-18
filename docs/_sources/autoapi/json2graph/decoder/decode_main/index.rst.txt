@@ -34,7 +34,7 @@ Attributes
 
 .. py:data:: LOGGER
 
-   
+
 
 .. py:function:: add_metadata(ontouml_graph)
 
@@ -79,5 +79,3 @@ Attributes
    :type execution_mode: str
    :return: Knowledge graph that complies with the OntoUML Vocabulary
    :rtype: Graph
-
-

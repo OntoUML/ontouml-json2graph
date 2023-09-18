@@ -12,5 +12,3 @@ Submodules
 
    test_aux/index.rst
    test_main/index.rst
-
-

@@ -1,6 +1,5 @@
-""" Main function used as script to convert OntoUML JSON files into knowledge graphs, with the flexibility to
-customize the output and control the execution mode for different use cases.
-"""
+"""Main function used as script to convert OntoUML JSON files into knowledge graphs, with the flexibility to \
+customize the output and control the execution mode for different use cases."""
 import glob
 import inspect
 import os
@@ -46,7 +45,7 @@ def decode_ontouml_json2graph(
     correct: bool = False,
     execution_mode: str = "import",
 ) -> Graph:
-    """Main function for converting OntoUML JSON data to a Knowledge Graph.
+    """Convert OntoUML JSON data to a Knowledge Graph.
 
     This function takes the path to a JSON file representing OntoUML model data provided by the user
     and converts it into a knowledge graph following the specified options.
@@ -71,7 +70,6 @@ def decode_ontouml_json2graph(
     :return: JSON data decoded into a RDFLib's Graph that is compliant with the OntoUML Vocabulary.
     :rtype: Graph
     """
-
     logger = initialize_logger(execution_mode)
 
     model_elements = [
@@ -149,7 +147,7 @@ def decode_ontouml_json2graph(
 
 
 def write_graph_file(ontouml_graph: Graph, execution_mode: str = "script") -> str:
-    """Saves the ontology graph received as argument into a file using the syntax defined by the user.
+    """Save the ontology graph received as argument into a file using the syntax defined by the user.
 
     When running in script mode, the result is saved in the folder specified by the user as argument.
     When running in test mode, the file is saved inside the 'results' directory created by this function.
@@ -163,7 +161,6 @@ def write_graph_file(ontouml_graph: Graph, execution_mode: str = "script") -> st
     :return: Saved output file path.
     :rtype: str
     """
-
     logger = initialize_logger()
     loaded_file_name = Path(args.ARGUMENTS["input_path"]).stem
 
@@ -201,7 +198,6 @@ def decode_all_ontouml_json2graph() -> None:
     knowledge graph using the specified options.
     The output graphs are saved in the output directory chosen by the user as argument.
     """
-
     # Getting all
     list_input_files = glob.glob(os.path.join(args.ARGUMENTS["input_path"], "*.json"))
 
@@ -219,7 +215,6 @@ if __name__ == "__main__":
     This block of code is executed when the script is run as a standalone application (i.e., as a script).
     It processes user-provided arguments and executes the OntoUML JSON to Graph transformation.
     """
-
     # Treat and publish user's arguments
     args.initialize_args_script()
 

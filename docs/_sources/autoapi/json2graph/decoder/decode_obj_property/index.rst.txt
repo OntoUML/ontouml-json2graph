@@ -44,7 +44,7 @@ Attributes
 
 .. py:data:: LOGGER
 
-   
+
 
 .. py:function:: validate_property_stereotype(ontouml_graph)
 
@@ -141,5 +141,3 @@ Attributes
    :type json_data: dict
    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
    :type ontouml_graph: Graph
-
-

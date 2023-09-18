@@ -5,7 +5,7 @@
 
 .. autoapi-nested-parse::
 
-   Global variables definitions. 
+   Global variables definitions.
 
 
 
@@ -14,22 +14,19 @@ Module Contents
 
 .. py:data:: package_dir
 
-   
+
 
 .. py:data:: metadata_file
 
-   
+
 
 .. py:data:: metadata_dictionary
 
-   
+
 
 .. py:data:: METADATA
 
-   
+
 
 .. py:data:: ELEMENT_VIEW_TYPES
    :value: ['ClassView', 'PackageView', 'GeneralizationSetView', 'RelationView', 'GeneralizationView', 'NoteView']
-
-   
-

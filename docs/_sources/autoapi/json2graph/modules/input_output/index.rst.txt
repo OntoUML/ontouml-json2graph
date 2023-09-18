@@ -5,7 +5,7 @@
 
 .. autoapi-nested-parse::
 
-   IO functions used in diverse occasions. 
+   IO functions used in diverse occasions.
 
 
 
@@ -34,7 +34,7 @@ Attributes
 
 .. py:data:: LOGGER
 
-   
+
 
 .. py:function:: create_directory_if_not_exists(directory_path, file_description)
 
@@ -65,5 +65,3 @@ Attributes
    :type output_file_path: str
    :param syntax: Syntax to be used for saving the ontology file.
    :type syntax: str
-
-

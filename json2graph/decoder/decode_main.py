@@ -1,6 +1,4 @@
-""" JSON decode functions."""
-from pprint import pprint
-
+"""JSON decode functions."""
 from rdflib import Graph, URIRef, Literal, RDF, XSD, OWL, RDFS
 
 from ..decoder.decode_general import clean_null_data, count_elements_graph
@@ -25,7 +23,9 @@ LOGGER = initialize_logger()
 
 
 def add_metadata(ontouml_graph: Graph) -> None:
-    """Adds basic metadata to the generated graph when not in test mode. The metadata added are:
+    """Add basic metadata to the generated graph when not in test mode.
+
+    The metadata added are:
         - dct:conformsTo METADATA["conformsToBase"]
         - dct:created (creation date)
         - dct:language (when user argument available)
@@ -35,7 +35,6 @@ def add_metadata(ontouml_graph: Graph) -> None:
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
-
     uri_dct = "http://purl.org/dc/terms/"
     ontouml_graph.bind("dct", uri_dct)
     uriref_ontology = URIRef(args.ARGUMENTS["base_uri"][:-1])
@@ -86,7 +85,8 @@ def add_metadata(ontouml_graph: Graph) -> None:
 
 
 def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph, language: str) -> None:
-    """Receives the full dictionary with the loaded JSON data and decode known allowed values to the OntoUML Graph.
+    """Receive the full dictionary with the loaded JSON data and decode known allowed values to the OntoUML Graph.
+
     Recursively evaluates the dictionary to create all possible instances, setting their types and attributes.
 
     OntoUML-Vocabulary properties that are directly decoded in the general decoder:
@@ -101,7 +101,6 @@ def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph, language: str
     :param language: Language tag to be added to the ontology's concepts.
     :type language: str
     """
-
     restricted_fields = [
         "aggregationKind",
         "cardinality",
@@ -178,7 +177,7 @@ def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph, language: str
 
 
 def decode_json_to_graph(json_data: dict, language: str, execution_mode: str) -> Graph:
-    """Receives the loaded JSON data and decodes it into a graph that complies to the OntoUML Vocabulary.
+    """Receive the loaded JSON data and decodes it into a graph that complies to the OntoUML Vocabulary.
 
     :param json_data: Input JSON data loaded as a dictionary.
     :type json_data: dict
@@ -189,7 +188,6 @@ def decode_json_to_graph(json_data: dict, language: str, execution_mode: str) ->
     :return: Knowledge graph that complies with the OntoUML Vocabulary
     :rtype: Graph
     """
-
     # Creating OntoUML Graph
     ontouml_graph = Graph()
     ontouml_graph.bind("ontouml", METADATA["conformsToBase"])

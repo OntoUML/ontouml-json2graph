@@ -1,21 +1,22 @@
 repos:
-  - repo: https://github.com/gitleaks/gitleaks
-    rev: v8.16.3
+  - repo: https://github.com/psf/black-pre-commit-mirror
+    rev: 23.9.1
     hooks:
-      - id: gitleaks
+      - id: black
+        language_version: python3.11
+        args: [ --line-length=120 ]
+        exclude: ^(docs/)
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.4.0
     hooks:
       - id: end-of-file-fixer
       - id: trailing-whitespace
-  - repo: https://github.com/pylint-dev/pylint
-    rev: v2.17.2
+  - repo: https://github.com/pycqa/pydocstyle
+    rev: 6.3.0
     hooks:
-      - id: pylint
-  - repo: github.com/PyCQA/pydocstyle
-  - id: pydocstyle
-    name: pydocstyle
-    description: pydocstyle is a static analysis tool for checking compliance with Python docstring conventions.
-    entry: pydocstyle
-    language: python
-    types: [ python ]
+      - id: pydocstyle
+        name: pydocstyle
+        description: pydocstyle is a static analysis tool for checking compliance with Python docstring conventions.
+        entry: pydocstyle
+        language: python
+        types: [ python ]

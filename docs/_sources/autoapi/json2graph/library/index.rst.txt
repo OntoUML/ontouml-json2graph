@@ -91,5 +91,3 @@ Functions
    :type output_file_path: str
    :param syntax: Syntax to be used for saving the ontology file. A syntax allowed by RDFLib must be informed.
    :type syntax: str
-
-

@@ -1,4 +1,4 @@
-""" Functions to decode specificities of the object ElementView.
+"""Functions to decode specificities of the object ElementView.
 
 Function's nomenclatures:
     - Functions that set one property are named: set_<subject>_<predicate>_<object>.
@@ -35,7 +35,6 @@ def set_elementview_relations(elementview_dict: dict, ontouml_graph: Graph) -> N
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
-
     # An ElementView's shape is always named after it:
     shape_name = elementview_dict["id"]
     # When its shape type is 'Rectangle', adding the suffix '_shape'.
@@ -88,7 +87,7 @@ def set_elementview_relations(elementview_dict: dict, ontouml_graph: Graph) -> N
 
 
 def create_elementview_properties(json_data: dict, ontouml_graph: Graph) -> None:
-    """Main function for decoding an object of type ElementView.
+    """Decode an object of type ElementView.
 
     Receives the whole JSON loaded data as a dictionary and manipulates it to create all properties in which the
     object's type is domain of.
@@ -104,7 +103,6 @@ def create_elementview_properties(json_data: dict, ontouml_graph: Graph) -> None
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
-
     list_all_elementview_dicts = []
 
     # Get all ElementView' dictionaries

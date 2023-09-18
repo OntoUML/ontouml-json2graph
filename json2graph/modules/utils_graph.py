@@ -1,4 +1,4 @@
-""" Util functions related to graphs. """
+"""Util functions related to graphs."""
 import os
 
 from rdflib import Graph, URIRef
@@ -11,14 +11,13 @@ LOGGER = initialize_logger()
 
 
 def ontouml_ref(entity: str) -> URIRef:
-    """Receives the name of the OntoUML Vocabulary's entity as a string and returns the corresponding URIRef.
+    """Receive the name of the OntoUML Vocabulary's entity as a string and returns the corresponding URIRef.
 
     :param entity: OntoUML Vocabulary entity (class, property, or individual) to have its URIRef returned.
     :type entity: str
     :return: URIRef of the informed OntoUML Vocabulary's entity.
     :rtype: URIRef
     """
-
     entity_uri = METADATA["conformsTo"] + "#" + entity
 
     entity_uriref = URIRef(entity_uri)
@@ -27,8 +26,7 @@ def ontouml_ref(entity: str) -> URIRef:
 
 
 def load_ontouml_vocabulary(enable_remote: bool = False) -> Graph:
-    """Loads the OntoUML Vocabulary to the working memory.
-
+    """Load the OntoUML Vocabulary to the working memory.
 
     If the argument enable_remote is enabled (i.e., equals True), it first tries to load from web resource, if fails,
     it tries to load form the local resource. If both options fail, calls error reporting function.
@@ -44,7 +42,6 @@ def load_ontouml_vocabulary(enable_remote: bool = False) -> Graph:
     :return: RDFLib graph loaded as object.
     :rtype: Graph
     """
-
     ontology_graph = Graph()
 
     # Guarantees that the file will be found as it searches using this file as basis
@@ -68,7 +65,7 @@ def load_ontouml_vocabulary(enable_remote: bool = False) -> Graph:
 
 
 def load_graph_safely(ontology_file: str, format: str = "not_provided") -> Graph:
-    """Safely load graph from file to working memory using arguments provided by the user, which are the file path
+    """Safely load graph from file to working memory using arguments provided by the user, which are the file path \
     and (optionally) the file type.
 
     :param ontology_file: Path to the ontology file to be loaded into the working memory.
@@ -78,7 +75,6 @@ def load_graph_safely(ontology_file: str, format: str = "not_provided") -> Graph
     :return: RDFLib graph loaded as object.
     :rtype: Graph
     """
-
     ontology_graph = Graph()
 
     try:

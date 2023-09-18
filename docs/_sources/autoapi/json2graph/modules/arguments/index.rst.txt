@@ -41,16 +41,16 @@ Attributes
 
 .. py:data:: ARGUMENTS
 
-   
+
 
 .. py:data:: LOGGER
 
-   
+
 
 .. py:function:: initialize_args_script()
 
    This function parses the command-line arguments provided by the user and performs necessary validations.
-       
+
 
 
 .. py:function:: initialize_args_import(input_path = 'not_initialized', output_path = os.getcwd(), base_uri = 'https://example.org#', graph_format = 'ttl', language = '', model_only = False, silent = True, correct = False)
@@ -106,5 +106,3 @@ Attributes
    :type silent: bool
    :param correct: If True, attempts to correct potential errors during the conversion process. (Optional)
    :type correct: bool
-
-

@@ -1,4 +1,4 @@
-""" Functions to decode specificities of the object Property.
+"""Functions to decode specificities of the object Property.
 
 Function's nomenclatures:
     - Functions that set one property are named: set_<subject>_<predicate>_<object>.
@@ -7,7 +7,6 @@ Function's nomenclatures:
     - Functions that set both object and data properties are named: set_<subject>_properties.
     - Functions that set default values: set_<subject>_defaults.
 """
-
 from rdflib import Graph, URIRef, RDF, Literal, XSD
 
 from ..decoder.decode_general import get_list_subdictionaries_for_specific_type
@@ -21,7 +20,7 @@ LOGGER = initialize_logger()
 
 
 def validate_property_stereotype(ontouml_graph: Graph) -> None:
-    """Performs syntactical and semantic validations on an ontouml:Property's stereotype.
+    """Perform syntactical and semantic validations on an ontouml:Property's stereotype.
 
     Differently from what is used in the validation of other JSON objects, this function manipulates the graph itself,
     not the JSON object. This is because it is much straightforward to access all the necessary property elements.
@@ -35,7 +34,6 @@ def validate_property_stereotype(ontouml_graph: Graph) -> None:
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
-
     if not args.ARGUMENTS["correct"]:
         return
 
@@ -89,18 +87,18 @@ def validate_property_stereotype(ontouml_graph: Graph) -> None:
 
 
 def set_property_defaults(property_dict: dict, ontouml_graph: Graph) -> None:
-    """Sets default values for ontouml:Property elements that do not present them. The defaults are:
+    """Set default values for ontouml:Property elements that do not present them.
 
-    DPA1) ontouml:isDerived default value = False
-    DPA2) ontouml:isOrdered default value = False
-    DPA3) ontouml:isReadOnly default value = False
+    The defaults are:
+        DPA1) ontouml:isDerived default value = False
+        DPA2) ontouml:isOrdered default value = False
+        DPA3) ontouml:isReadOnly default value = False
 
     :param property_dict: Property object loaded as a dictionary.
     :type property_dict: dict
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
-
     # DPA1, DPA2, and DPA3 use the same message DGA1, as they are not associated to their holder's stereotype.
 
     # DPA1: Setting ontouml:isDerived attribute default value
@@ -138,7 +136,7 @@ def set_property_defaults(property_dict: dict, ontouml_graph: Graph) -> None:
 
 
 def set_property_relations(property_dict: dict, ontouml_graph: Graph) -> None:
-    """Sets the ontouml:aggregationKind and ontouml:propertyType object properties between an ontouml:Property and
+    """Set the ontouml:aggregationKind and ontouml:propertyType object properties between an ontouml:Property and \
     its related elements.
 
     :param property_dict: Property object loaded as a dictionary.
@@ -146,7 +144,6 @@ def set_property_relations(property_dict: dict, ontouml_graph: Graph) -> None:
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
-
     statement_subject = URIRef(args.ARGUMENTS["base_uri"] + property_dict["id"])
 
     # Setting ontouml:aggregationKind
@@ -188,7 +185,7 @@ def set_property_relations(property_dict: dict, ontouml_graph: Graph) -> None:
 
 
 def determine_cardinality_bounds(cardinalities: str, property_id: str) -> (str, str, str):
-    """Receives a string with an ontouml:Cardinality's ontouml:cardinalityValue, fix its format and decouple it into
+    """Receive a string with an ontouml:Cardinality's ontouml:cardinalityValue, fix its format and decouple it into \
     its ontouml:lowerBound and ontouml:upperBound. Checks and displays warning if the obtained values are not valid.
 
     :param cardinalities: String containing the value of the cardinality to be decoupled into lower and upper bounds.
@@ -198,7 +195,6 @@ def determine_cardinality_bounds(cardinalities: str, property_id: str) -> (str, 
     :return: Tuple of three elements: full cardinality, cardinality's lower bound, and cardinality's upper bound.
     :rtype: (str, str, str)
     """
-
     lower_bound, _, upper_bound = cardinalities.partition("..")
 
     # If separator '..' not found, exact cardinality, meaning that lower and upper bounds have the same value
@@ -226,14 +222,13 @@ def determine_cardinality_bounds(cardinalities: str, property_id: str) -> (str, 
 
 
 def set_cardinality_relations(property_dict: dict, ontouml_graph: Graph) -> None:
-    """Creates the ontouml:Cardinality instance and sets its properties.
+    """Create the ontouml:Cardinality instance and sets its properties.
 
     :param property_dict: Property object loaded as a dictionary.
     :type property_dict: dict
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
-
     if "cardinality" in property_dict:
         ontology_property_individual = URIRef(args.ARGUMENTS["base_uri"] + property_dict["id"])
         ontology_cardinality_individual = URIRef(args.ARGUMENTS["base_uri"] + property_dict["id"] + "_cardinality")
@@ -285,7 +280,7 @@ def set_cardinality_relations(property_dict: dict, ontouml_graph: Graph) -> None
 
 
 def create_property_properties(json_data: dict, ontouml_graph: Graph) -> None:
-    """Main function for decoding an object of type Property.
+    """Decode object of type Property.
 
     Receives the whole JSON loaded data as a dictionary and manipulates it to create all properties in which the
     object's type is domain of.
@@ -314,7 +309,6 @@ def create_property_properties(json_data: dict, ontouml_graph: Graph) -> None:
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
-
     # Getting Property dictionaries
     property_dicts_list = get_list_subdictionaries_for_specific_type(json_data, "Property")
 
