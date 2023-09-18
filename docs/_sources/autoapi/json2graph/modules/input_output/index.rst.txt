@@ -34,12 +34,11 @@ Attributes
 
 .. py:data:: LOGGER
 
-
+   
 
 .. py:function:: create_directory_if_not_exists(directory_path, file_description)
 
-   Checks if the directory that has the path received as argument exists.
-   If it does, do nothing. If it does not, create it.
+   Check if the directory that has the path received as argument exists.     If it does, do nothing. If it does not, create it.
 
    :param directory_path: Path to the directory to be created (if it does not exist).
    :type directory_path: str
@@ -65,3 +64,5 @@ Attributes
    :type output_file_path: str
    :param syntax: Syntax to be used for saving the ontology file.
    :type syntax: str
+
+

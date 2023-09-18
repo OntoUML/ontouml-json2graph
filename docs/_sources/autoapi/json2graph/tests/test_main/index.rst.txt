@@ -45,7 +45,7 @@ Attributes
 
 .. py:data:: LIST_OF_TESTS
 
-
+   
 
 .. py:function:: test_ontouml_json2graph(input_file)
 
@@ -56,3 +56,5 @@ Attributes
 
    :param input_file: Path to the JSON file to be tested.
    :type input_file: str
+
+

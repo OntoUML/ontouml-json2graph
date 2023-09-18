@@ -40,8 +40,7 @@ Functions
 
 .. py:function:: validate_class_attribute_constraints(class_dict)
 
-   Verifies all Class dictionaries and check if the constraints related to classes were correctly considered and
-   fixes them when they are not.
+   Verify all Class dictionaries and check if the constraints related to classes were correctly considered and     fixes them when they are not.
 
    The pair of attribute/stereotype: isExtensional/collective and isPowertype/type checked constraints are:
 
@@ -57,8 +56,7 @@ Functions
 
 .. py:function:: validate_class_order_constraints(class_dict)
 
-   Verifies all Class dictionaries and check if the constraints related to classes were correctly considered and
-   fixes them when they are not.
+   Verify all Class dictionaries and check if the constraints related to classes were correctly considered and     fixes them when they are not.
 
    The checked constraints are:
 
@@ -73,13 +71,13 @@ Functions
 
 .. py:function:: set_defaults_class_attribute(class_dict, ontouml_graph)
 
-   Verifies a class dictionary and check if their non-nullable attributes isExtensional and isPowertype were set
-   or not. If not, creates default values. Default values checked are:
+   Verify a class dictionary and check if their non-nullable attributes isExtensional and isPowertype were set     or not. If not, creates default values.
 
-   DCA1) ontouml:isExtensional default value = False when class's stereotype 'collective'
-   DCA2) ontouml:isPowertype default value = False
-   DCA3) ontouml:isDerived default value = False
-   DCA4) ontouml:isAbstract default value = False
+   The default values checked are:
+       DCA1) ontouml:isExtensional default value = False when class's stereotype 'collective'
+       DCA2) ontouml:isPowertype default value = False
+       DCA3) ontouml:isDerived default value = False
+       DCA4) ontouml:isAbstract default value = False
 
    :param class_dict: Class object loaded as a dictionary.
    :type class_dict: dict
@@ -89,8 +87,7 @@ Functions
 
 .. py:function:: set_defaults_class_order(class_dict, ontouml_graph)
 
-   Verifies a class dictionary and check if their non-nullable attribute order was set or not.
-   If not, creates default values.
+   Verify a class dictionary and check if their non-nullable attribute order was set or not.     If not, creates default values.
 
    Default values checked are:
 
@@ -107,8 +104,7 @@ Functions
 
 .. py:function:: set_class_stereotype(class_dict, ontouml_graph)
 
-   Sets ontouml:stereotype property between an instance of ontouml:Class and an instance representing an
-   ontouml:ClassStereotype.
+   Set ontouml:stereotype property between an instance of ontouml:Class and an instance representing an     ontouml:ClassStereotype.
 
    Warning messages:
        - VCS1: Mandatory stereotype not assigned to a class. Result is invalid.
@@ -122,7 +118,7 @@ Functions
 
 .. py:function:: set_class_order_nonnegativeinteger(class_dict, ontouml_graph)
 
-   Sets an ontouml:Class's ontouml:order property based on the received value of the object's field 'order'.
+   Set an ontouml:Class's ontouml:order property based on the received value of the object's field 'order'.
 
    The treated possibilities are:
    A) invalid value (null, non integers, integers <= 0) ---> is converted to the default value of the class
@@ -137,7 +133,7 @@ Functions
 
 .. py:function:: set_class_restrictedto_ontologicalnature(class_dict, ontouml_graph)
 
-   Sets the ontouml:restrictedTo relation between a class and its related ontouml:OntologicalNature instance.
+   Set the ontouml:restrictedTo relation between a class and its related ontouml:OntologicalNature instance.
 
    :param class_dict: Class object loaded as a dictionary.
    :type class_dict: dict
@@ -147,7 +143,7 @@ Functions
 
 .. py:function:: set_class_attributes(class_dict, ontouml_graph)
 
-   Defines the ontouml:isPowertype and ontouml:isExtensional data properties of an ontouml:Class in the graph.
+   Define the ontouml:isPowertype and ontouml:isExtensional data properties of an ontouml:Class in the graph.
 
    This function must be called after the function set_class_defaults, as the received value may change because of
    identified problems.
@@ -160,7 +156,7 @@ Functions
 
 .. py:function:: set_class_attribute_property(class_dict, ontouml_graph)
 
-   Sets ontouml:attribute relation between an ontouml:Class and an ontouml:Property.
+   Set ontouml:attribute relation between an ontouml:Class and an ontouml:Property.
 
    :param class_dict: Class object loaded as a dictionary.
    :type class_dict: dict
@@ -170,7 +166,7 @@ Functions
 
 .. py:function:: set_class_literal_literal(class_dict, ontouml_graph)
 
-   Sets ontouml:literal relation between an ontouml:Class and its related ontouml:Literal individuals.
+   Set ontouml:literal relation between an ontouml:Class and its related ontouml:Literal individuals.
 
    :param class_dict: Class object loaded as a dictionary.
    :type class_dict: dict
@@ -180,7 +176,7 @@ Functions
 
 .. py:function:: create_class_properties(json_data, ontouml_graph, element_counting)
 
-   Main function for decoding an object of type 'Class'.
+   Decode an object of type 'Class'.
 
    Receives the whole JSON loaded data as a dictionary and manipulates it to create all properties in which the
    object's type is domain of.
@@ -205,3 +201,5 @@ Functions
    :type ontouml_graph: Graph
    :param element_counting: Dictionary with types and respective quantities present on graph.
    :type element_counting: dict
+
+

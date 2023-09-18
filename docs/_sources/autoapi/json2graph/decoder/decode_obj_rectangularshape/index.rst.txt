@@ -32,7 +32,7 @@ Functions
 
 .. py:function:: set_rectangularshape_coordinates(rectangularshape_dict, ontouml_graph)
 
-   Creates an ontouml:Point, their properties and the ontouml:topLeftPosition of an ontouml:RectangularShape.
+   Create an ontouml:Point, their properties and the ontouml:topLeftPosition of an ontouml:RectangularShape.
 
    :param rectangularshape_dict: RectangularShape object loaded as a dictionary.
    :type rectangularshape_dict: dict
@@ -42,7 +42,7 @@ Functions
 
 .. py:function:: create_rectangularshape_properties(json_data, ontouml_graph)
 
-   Main function for decoding an object of type RectangularShape.
+   Decode an object of type RectangularShape.
 
    Receives the whole JSON loaded data as a dictionary and manipulates it to create all properties in which the
    object's type is domain of.
@@ -62,3 +62,5 @@ Functions
    :type json_data: dict
    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
    :type ontouml_graph: Graph
+
+

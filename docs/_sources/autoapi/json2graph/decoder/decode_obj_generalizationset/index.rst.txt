@@ -33,7 +33,7 @@ Functions
 
 .. py:function:: set_generalizationset_defaults(generalizationset_dict, ontouml_graph)
 
-   Sets the default values to ontouml:generalizationSets to the resulting graph.
+   Set the default values to ontouml:generalizationSets to the resulting graph.
 
    - Default isDisjoint: If isDisjoint is null, set as False.
    - Default isComplete: If isComplete is null, set as False.
@@ -46,7 +46,7 @@ Functions
 
 .. py:function:: set_generalizationset_relations(generalizationset_dict, ontouml_graph)
 
-   Sets the ontouml:generalization and ontouml:categorizer property to the resulting graph.
+   Set the ontouml:generalization and ontouml:categorizer property to the resulting graph.
 
    :param generalizationset_dict: GeneralizationSet object loaded as a dictionary.
    :type generalizationset_dict: dict
@@ -56,7 +56,7 @@ Functions
 
 .. py:function:: create_generalizationset_properties(json_data, ontouml_graph)
 
-   Main function for decoding an object of type GeneralizationSet.
+   Decode an object of type GeneralizationSet.
 
    Receives the whole JSON loaded data as a dictionary and manipulates it to create all properties in which the
    object's type is domain of.
@@ -69,3 +69,5 @@ Functions
    :type json_data: dict
    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
    :type ontouml_graph: Graph
+
+

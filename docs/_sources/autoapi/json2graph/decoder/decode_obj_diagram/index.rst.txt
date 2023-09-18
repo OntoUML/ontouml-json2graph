@@ -53,7 +53,7 @@ Functions
 
 .. py:function:: create_diagram_properties(json_data, ontouml_graph, element_counting)
 
-   Main function for decoding objects of type 'Diagram'.
+   Decode objects of type 'Diagram'.
 
    Receives the whole JSON loaded data as a dictionary and manipulates it to create all properties in which the
    object's type is domain of.
@@ -68,3 +68,5 @@ Functions
    :type ontouml_graph: Graph
    :param element_counting: Dictionary with types and respective quantities present on graph.
    :type element_counting: dict
+
+

@@ -34,11 +34,11 @@ Attributes
 
 .. py:data:: LOGGER
 
-
+   
 
 .. py:function:: ontouml_ref(entity)
 
-   Receives the name of the OntoUML Vocabulary's entity as a string and returns the corresponding URIRef.
+   Receive the name of the OntoUML Vocabulary's entity as a string and returns the corresponding URIRef.
 
    :param entity: OntoUML Vocabulary entity (class, property, or individual) to have its URIRef returned.
    :type entity: str
@@ -46,19 +46,28 @@ Attributes
    :rtype: URIRef
 
 
-.. py:function:: load_ontouml_vocabulary()
+.. py:function:: load_ontouml_vocabulary(enable_remote = False)
 
-   Loads the OntoUML Vocabulary to the working memory. First tries to load from web resource, if fails, it tries to
-   load form the local resource. If both options fail, calls error reporting function.
+   Load the OntoUML Vocabulary to the working memory.
 
+   If the argument enable_remote is enabled (i.e., equals True), it first tries to load from web resource, if fails,
+   it tries to load form the local resource. If both options fail, calls error reporting function.
+
+   If the argument enable_remote is disabled, the function tries to load form the local resource and if fails,
+   it calls the error reporting function.
+
+   The enable_remote is disabled by default as it can significantly decrease the software performance.
+   However, using it can guarantee that the most recent version of vocabulary is always used.
+
+   :param enable_remote: Controls if the software will try to get the ontouml vocabulary ttl file from a remote source.
+   :type enable_remote: bool
    :return: RDFLib graph loaded as object.
    :rtype: Graph
 
 
 .. py:function:: load_graph_safely(ontology_file, format = 'not_provided')
 
-   Safely load graph from file to working memory using arguments provided by the user, which are the file path
-   and (optionally) the file type.
+   Safely load graph from file to working memory using arguments provided by the user, which are the file path     and (optionally) the file type.
 
    :param ontology_file: Path to the ontology file to be loaded into the working memory.
    :type ontology_file: str
@@ -66,3 +75,5 @@ Attributes
    :type format: str
    :return: RDFLib graph loaded as object.
    :rtype: Graph
+
+

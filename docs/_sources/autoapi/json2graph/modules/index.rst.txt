@@ -3,6 +3,11 @@
 
 .. py:module:: json2graph.modules
 
+.. autoapi-nested-parse::
+
+   Empty __init__ file.
+
+
 
 Submodules
 ----------
@@ -12,11 +17,13 @@ Submodules
 
    arguments/index.rst
    errors/index.rst
-   globals/index.rst
    input_output/index.rst
    logger/index.rst
    messages/index.rst
+   metadata/index.rst
    sparql_queries/index.rst
    utils_general/index.rst
    utils_graph/index.rst
    utils_validations/index.rst
+
+

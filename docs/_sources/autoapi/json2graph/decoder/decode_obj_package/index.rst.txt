@@ -33,8 +33,7 @@ Functions
 
 .. py:function:: get_package_contents(package_dict, package_id, list_contents = [])
 
-   Receives the dictionary with all loaded JSON data and returns the value of the 'contents' field for a given
-   object (defined by the received value of its ID).
+   Receive the dictionary with all loaded JSON data and returns the value of the 'contents' field for a given     object (defined by the received value of its ID).
 
    :param package_dict: Package's data to have its fields decoded.
    :type package_dict: dict
@@ -48,8 +47,7 @@ Functions
 
 .. py:function:: set_package_containsmodelelement_modelelement(package_dict, ontouml_graph)
 
-   Set object property ontouml:containsModelElement between an ontouml:Package and an ontouml:ModelElement it
-   contains.
+   Set object property ontouml:containsModelElement between an ontouml:Package and an ontouml:ModelElement it     contains.
 
    :param package_dict: Package's data to have its fields decoded.
    :type package_dict: dict
@@ -59,7 +57,7 @@ Functions
 
 .. py:function:: create_package_properties(json_data, ontouml_graph)
 
-   Main function for decoding an object of type Package.
+   Decode an object of type Package.
 
    Receives the whole JSON loaded data as a dictionary and manipulates it to create all properties in which the
    object's type is domain of.
@@ -71,3 +69,5 @@ Functions
    :type json_data: dict
    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
    :type ontouml_graph: Graph
+
+

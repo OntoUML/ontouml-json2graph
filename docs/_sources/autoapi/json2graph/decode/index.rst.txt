@@ -5,8 +5,7 @@
 
 .. autoapi-nested-parse::
 
-   Main function used as script to convert OntoUML JSON files into knowledge graphs, with the flexibility to
-   customize the output and control the execution mode for different use cases.
+   Main function used as script to convert OntoUML JSON files into knowledge graphs, with the flexibility to customize the output and control the execution mode for different use cases.
 
 
 
@@ -35,7 +34,7 @@ Attributes
 
 .. py:function:: decode_ontouml_json2graph(json_file_path, base_uri = 'https://example.org#', language = '', model_only = False, silent = True, correct = False, execution_mode = 'import')
 
-   Main function for converting OntoUML JSON data to a Knowledge Graph.
+   Convert OntoUML JSON data to a Knowledge Graph.
 
    This function takes the path to a JSON file representing OntoUML model data provided by the user
    and converts it into a knowledge graph following the specified options.
@@ -63,7 +62,7 @@ Attributes
 
 .. py:function:: write_graph_file(ontouml_graph, execution_mode = 'script')
 
-   Saves the ontology graph received as argument into a file using the syntax defined by the user.
+   Save the ontology graph received as argument into a file using the syntax defined by the user.
 
    When running in script mode, the result is saved in the folder specified by the user as argument.
    When running in test mode, the file is saved inside the 'results' directory created by this function.
@@ -88,3 +87,6 @@ Attributes
 
 
 .. py:data:: decoded_graph
+
+   
+

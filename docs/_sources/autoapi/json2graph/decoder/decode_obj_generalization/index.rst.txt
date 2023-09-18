@@ -42,7 +42,7 @@ Functions
 
 .. py:function:: create_generalization_properties(json_data, ontouml_graph)
 
-   Main function for decoding an object of type Generalization.
+   Decode an object of type Generalization.
 
    Receives the whole JSON loaded data as a dictionary and manipulates it to create all properties in which the
    object's type is domain of.
@@ -55,3 +55,5 @@ Functions
    :type json_data: dict
    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
    :type ontouml_graph: Graph
+
+

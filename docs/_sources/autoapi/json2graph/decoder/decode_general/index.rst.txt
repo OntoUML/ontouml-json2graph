@@ -38,11 +38,11 @@ Attributes
 
 .. py:data:: LOGGER
 
-
+   
 
 .. py:function:: create_point(point_id, x_coord, y_coord, ontouml_graph)
 
-   Creates a new instance of ontouml:Point with its ontouml:xCoordinate, and ontouml:yCoordinate properties.
+   Create a new instance of ontouml:Point with its ontouml:xCoordinate, and ontouml:yCoordinate properties.
 
    :param point_id: ID of the new ontouml:Point instance to be created.
    :type point_id: str
@@ -56,7 +56,7 @@ Attributes
 
 .. py:function:: count_elements_graph(ontouml_graph)
 
-   Returns a dictionary with all element types on graphs and their respective quantity.
+   Return a dictionary with all element types on graphs and their respective quantity.
 
    :param ontouml_graph: Knowledge graph with loaded objects' ids and types
    :type ontouml_graph: Graph
@@ -67,6 +67,7 @@ Attributes
 .. py:function:: get_stereotype(object_dict)
 
    For coding reasons (dictionary index error), it is necessary to check if an object has its stereotype not set.
+
    Returns the evaluated object's stereotype or 'null' when the stereotype is absent.
 
    :param object_dict: Object loaded as a dictionary.
@@ -78,6 +79,7 @@ Attributes
 .. py:function:: get_list_subdictionaries_for_specific_type(dictionary_data, wanted_type, return_list = None)
 
    Recursively access all objects in the dictionary until find an object of the desired type.
+
    When the type is found, adds a copy of its dictionaries to a list to be returned
    (containing all its sub-dictionaries).
 
@@ -94,6 +96,7 @@ Attributes
 .. py:function:: get_subdictionary_for_specific_id(dictionary_data, wanted_id, return_dict = None)
 
    Recursively access all objects in the dictionary until find the desired ID.
+
    When the id is found, return a copy of its dictionary (containing all its sub-dictionaries).
 
    :param dictionary_data: Dictionary to have its fields decoded.
@@ -120,7 +123,8 @@ Attributes
 
 .. py:function:: clean_null_data(dictionary_data)
 
-   Removes all empty values (i.e., keys associated with None) from the received dictionary.
+   Remove all empty values (i.e., keys associated with None) from the received dictionary.
+
    If a value of the dictionary is another dictionary, this function recursively verify this sub-dictionary elements.
    I.e., all empty fields, from all dictionaries composing the main dictionary are also cleaned.
 
@@ -128,3 +132,5 @@ Attributes
    :type dictionary_data: dict
    :return: Dictionary without empty fields.
    :rtype: dict
+
+

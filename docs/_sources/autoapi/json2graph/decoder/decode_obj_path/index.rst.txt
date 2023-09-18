@@ -32,7 +32,7 @@ Functions
 
 .. py:function:: set_path_path_point(path_dict, ontouml_graph)
 
-   Creates an ontouml:Point, their properties and the ontouml:point of an ontouml:Path.
+   Create an ontouml:Point, their properties and the ontouml:point of an ontouml:Path.
 
    :param path_dict: Path object loaded as a dictionary.
    :type path_dict: dict
@@ -42,7 +42,7 @@ Functions
 
 .. py:function:: create_path_properties(json_data, ontouml_graph)
 
-   Main function for decoding an object of type Path.
+   Decode an object of type Path.
 
    Receives the whole JSON loaded data as a dictionary and manipulates it to create all properties in which the
    object's type is domain of.
@@ -57,3 +57,5 @@ Functions
    :type json_data: dict
    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
    :type ontouml_graph: Graph
+
+

@@ -3,6 +3,11 @@
 
 .. py:module:: json2graph.decoder
 
+.. autoapi-nested-parse::
+
+   Empty __init__ file.
+
+
 
 Submodules
 ----------
@@ -23,3 +28,5 @@ Submodules
    decode_obj_property/index.rst
    decode_obj_rectangularshape/index.rst
    decode_obj_relation/index.rst
+
+

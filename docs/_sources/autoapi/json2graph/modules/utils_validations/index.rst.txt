@@ -25,7 +25,7 @@ Functions
 
 .. py:function:: validate_arg_input(input_path, decode_all)
 
-   Validates the input path received as argument.
+   Validate the input path received as argument.
 
    :param input_path: The path to the input file or directory.
    :type input_path: str
@@ -43,3 +43,5 @@ Functions
 
    :param execution_mode: The execution mode to be validated.
    :type execution_mode: str
+
+

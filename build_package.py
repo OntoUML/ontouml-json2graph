@@ -47,12 +47,15 @@ def run_tests() -> None:
         exit(1)
 
 
-def get_latest_package_version() -> None:
+def get_latest_package_version() -> str:
     """
     Get the latest version of a package from PyPI.
 
     This function fetches the latest version of a specified package from PyPI
     by making an HTTP GET request to the PyPI JSON API.
+
+    :return: The latest version of a package from PyPI
+    :rtype: str
     """
     package_name = "ontouml-json2graph"
 
@@ -78,12 +81,15 @@ def get_latest_package_version() -> None:
         exit(1)
 
 
-def get_current_package_version() -> None:
+def get_current_package_version() -> str:
     """
     Get the current version of a package from 'pyproject.toml'.
 
     This function reads the 'pyproject.toml' file and extracts the version
     information from the 'tool.poetry.version' section.
+
+    :return: The current version of a package from PyPI
+    :rtype: str
     """
     pyproject_path = "pyproject.toml"
 
@@ -133,10 +139,9 @@ def run_poetry_commands() -> None:
     """
     # Commands to run
     commands = [
-        ["poetry", "export", "-f", "requirements.txt", "--output", "requirements.txt"],
+        ["poetry", "export", "-f", "requirements.txt", "--output", "requirements.txt", "--dev"],
         ["poetry", "check"],
         ["poetry", "build"],
-        # ["poetry", "publish"],
     ]
 
     for command in commands:
@@ -152,6 +157,52 @@ def run_poetry_commands() -> None:
             exit(1)
 
 
+def execute_documentation_commands():
+    """
+    Execute a sequence of documentation-related commands.
+
+    This function executes the following commands sequentially:
+    1. Clean the Sphinx documentation build.
+    2. Build the Sphinx HTML documentation.
+    3. Remove the 'docs' directory and its contents.
+    4. Create a new 'docs' directory.
+    5. Copy the HTML documentation to the 'docs' directory.
+    6. Clean the Sphinx documentation build again.
+
+    If any command fails, the function raises an exception and stops the execution.
+    """
+    # Define the base directory
+    base_dir = os.getcwd()  # Use the current working directory
+
+    # Define paths to directories and commands
+    sphinx_dir = os.path.join(base_dir, "sphinx")
+    docs_dir = os.path.join(base_dir, "docs")
+
+    # Command list
+    commands = [
+        ["make", "clean"],
+        ["make", "html"],
+        ["rmdir", docs_dir, "/s", "/q"],
+        ["mkdir", docs_dir],
+        ["xcopy", os.path.join(sphinx_dir, "_build", "html"), docs_dir, "/E", "/H"],
+        ["make", "clean"],
+    ]
+
+    # Execute commands sequentially
+    for command in commands:
+        try:
+            subprocess.run(command, cwd=sphinx_dir, shell=True, check=True)
+            LOGGER.info(f"Command successfully executed: {' '.join(command)}")
+        except subprocess.CalledProcessError as e:
+            LOGGER.error(f"Command failed with return code {e.returncode}: {e.cmd}")
+            exit(1)
+        except Exception as e:
+            LOGGER.error(f"An error occurred: {e}")
+            exit(1)
+
+    LOGGER.info("Documentation commands executed successfully.")
+
+
 if __name__ == "__main__":
     """This block serves as the main entry point when the script is executed directly.
     It orchestrates the execution of various tasks related to a software project, including testing, version checking,
@@ -163,3 +214,4 @@ if __name__ == "__main__":
     version_after = get_current_package_version()
     check_versions(version_before, version_after)
     run_poetry_commands()
+    execute_documentation_commands()

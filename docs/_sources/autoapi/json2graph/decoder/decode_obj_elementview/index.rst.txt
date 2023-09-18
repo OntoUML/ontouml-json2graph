@@ -30,6 +30,19 @@ Functions
 
 
 
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   json2graph.decoder.decode_obj_elementview.ELEMENT_VIEW_TYPES
+
+
+.. py:data:: ELEMENT_VIEW_TYPES
+   :value: ['ClassView', 'PackageView', 'GeneralizationSetView', 'RelationView', 'GeneralizationView', 'NoteView']
+
+   
+
 .. py:function:: set_elementview_relations(elementview_dict, ontouml_graph)
 
    Set an ontouml:ElementView's ontouml:shape and ontouml:isViewOf object properties in the resulting graph.
@@ -42,7 +55,7 @@ Functions
 
 .. py:function:: create_elementview_properties(json_data, ontouml_graph)
 
-   Main function for decoding an object of type ElementView.
+   Decode an object of type ElementView.
 
    Receives the whole JSON loaded data as a dictionary and manipulates it to create all properties in which the
    object's type is domain of.
@@ -57,3 +70,5 @@ Functions
    :type json_data: dict
    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
    :type ontouml_graph: Graph
+
+

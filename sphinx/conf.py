@@ -25,6 +25,7 @@ extensions = [
     "sphinx.ext.coverage",
     "sphinx.ext.doctest",
     "sphinx.ext.githubpages",
+    "sphinx_rtd_size",
     "sphinx_toolbox.sidebar_links",
 ]
 
@@ -44,5 +45,7 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
 html_theme = "sphinx_rtd_theme"
 html_static_path = ["_static"]
-html_logo = "../json2graph/resources/logo-json2graph.png"
+html_logo = "../json2graph/resources/logo-json2graph-reduced.png"
 html_theme_options = {"display_version": True}
+
+sphinx_rtd_size_width = "100%"

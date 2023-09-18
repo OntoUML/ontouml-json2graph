@@ -3,6 +3,11 @@
 
 .. py:module:: json2graph
 
+.. autoapi-nested-parse::
+
+   Empty __init__ file.
+
+
 
 Subpackages
 -----------
@@ -23,3 +28,5 @@ Submodules
 
    decode/index.rst
    library/index.rst
+
+

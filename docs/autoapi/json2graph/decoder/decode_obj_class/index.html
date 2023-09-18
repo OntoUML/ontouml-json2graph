@@ -1,720 +1,415 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" >
 <head>
-    <meta charset="utf-8"/>
-    <meta content="Docutils 0.18.1: http://docutils.sourceforge.net/" name="generator"/>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>json2graph.decoder.decode_obj_class &mdash; ontouml-json2graph 1.0.2 documentation</title>
-    <link href="../../../../_static/pygments.css" rel="stylesheet" type="text/css"/>
-    <link href="../../../../_static/css/theme.css" rel="stylesheet" type="text/css"/>
-    <link href="../../../../_static/graphviz.css" rel="stylesheet" type="text/css"/>
-    <link href="../../../../_static/css/sphinx-toolbox.css" rel="stylesheet" type="text/css"/>
-    <!--[if lt IE 9]>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>json2graph.decoder.decode_obj_class &mdash; ontouml-json2graph  documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/sphinx_rtd_size.css" type="text/css" />
+  <!--[if lt IE 9]>
     <script src="../../../../_static/js/html5shiv.min.js"></script>
-    <![endif]-->
-
-    <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
-    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="../../../../_static/documentation_options.js?v=1ed6394b"></script>
-    <script src="../../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../../_static/js/theme.js"></script>
-    <link href="../../../../genindex.html" rel="index" title="Index"/>
-    <link href="../../../../search.html" rel="search" title="Search"/>
-    <link href="../decode_obj_diagram/index.html" rel="next" title="json2graph.decoder.decode_obj_diagram"/>
-    <link href="../decode_main/index.html" rel="prev" title="json2graph.decoder.decode_main"/>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="json2graph.decoder.decode_obj_diagram" href="../decode_obj_diagram/index.html" />
+    <link rel="prev" title="json2graph.decoder.decode_main" href="../decode_main/index.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-<div class="wy-grid-for-nav">
-    <nav class="wy-nav-side" data-toggle="wy-nav-shift">
-        <div class="wy-side-scroll">
-            <div class="wy-side-nav-search">
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
 
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            ontouml-json2graph
+              <img src="../../../../_static/logo-json2graph-reduced.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../README.html">The OntoUML JSON2Graph Transformation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph</span></code></a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.decoder</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../modules/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.modules</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tests/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.tests</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
-                <a class="icon icon-home" href="../../../../index.html">
-                    ontouml-json2graph
-                    <img alt="Logo" class="logo" src="../../../../_static/logo-json2graph.png"/>
-                </a>
-                <div role="search">
-                    <form action="../../../../search.html" class="wy-form" id="rtd-search-form" method="get">
-                        <input aria-label="Search docs" name="q" placeholder="Search docs" type="text"/>
-                        <input name="check_keywords" type="hidden" value="yes"/>
-                        <input name="area" type="hidden" value="default"/>
-                    </form>
-                </div>
-            </div>
-            <div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
-                <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-                <ul class="current">
-                    <li class="toctree-l1"><a class="reference internal" href="../../../../README.html">The OntoUML
-                        JSON2Graph Transformation</a></li>
-                    <li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API
-                        Reference</a>
-                        <ul class="current">
-                            <li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><code
-                                    class="xref py py-mod docutils literal notranslate"><span
-                                    class="pre">json2graph</span></code></a>
-                                <ul class="current">
-                                    <li class="toctree-l3 current"><a class="reference internal"
-                                                                      href="../../index.html#subpackages">Subpackages</a>
-                                        <ul class="current">
-                                            <li class="toctree-l4 current"><a class="reference internal"
-                                                                              href="../index.html"><code
-                                                    class="xref py py-mod docutils literal notranslate"><span
-                                                    class="pre">json2graph.decoder</span></code></a></li>
-                                            <li class="toctree-l4"><a class="reference internal"
-                                                                      href="../../modules/index.html"><code
-                                                    class="xref py py-mod docutils literal notranslate"><span
-                                                    class="pre">json2graph.modules</span></code></a></li>
-                                            <li class="toctree-l4"><a class="reference internal"
-                                                                      href="../../tests/index.html"><code
-                                                    class="xref py py-mod docutils literal notranslate"><span
-                                                    class="pre">json2graph.tests</span></code></a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="toctree-l3"><a class="reference internal"
-                                                              href="../../index.html#submodules">Submodules</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-
-            </div>
         </div>
+      </div>
     </nav>
 
-    <section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
-        <nav aria-label="Mobile navigation menu" class="wy-nav-top">
-            <i class="fa fa-bars" data-toggle="wy-nav-top"></i>
-            <a href="../../../../index.html">ontouml-json2graph</a>
-        </nav>
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">ontouml-json2graph</a>
+      </nav>
 
-        <div class="wy-nav-content">
-            <div class="rst-content">
-                <div aria-label="Page navigation" role="navigation">
-                    <ul class="wy-breadcrumbs">
-                        <li><a aria-label="Home" class="icon icon-home" href="../../../../index.html"></a></li>
-                        <li class="breadcrumb-item"><a href="../../../index.html">API Reference</a></li>
-                        <li class="breadcrumb-item"><a href="../../index.html"><code
-                                class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph</span></code></a>
-                        </li>
-                        <li class="breadcrumb-item"><a href="../index.html"><code
-                                class="xref py py-mod docutils literal notranslate"><span
-                                class="pre">json2graph.decoder</span></code></a></li>
-                        <li class="breadcrumb-item active"><code
-                                class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.decoder.decode_obj_class</span></code>
-                        </li>
-                        <li class="wy-breadcrumbs-aside">
-                            <a href="../../../../_sources/autoapi/json2graph/decoder/decode_obj_class/index.rst.txt"
-                               rel="nofollow"> View page source</a>
-                        </li>
-                    </ul>
-                    <hr/>
-                </div>
-                <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
-                    <div itemprop="articleBody">
-
-                        <section id="module-json2graph.decoder.decode_obj_class">
-                            <span id="json2graph-decoder-decode-obj-class"></span>
-                            <h1><a class="reference internal" href="#module-json2graph.decoder.decode_obj_class"
-                                   title="json2graph.decoder.decode_obj_class"><code
-                                    class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.decoder.decode_obj_class</span></code></a><a
-                                    class="headerlink" href="#module-json2graph.decoder.decode_obj_class"
-                                    title="Link to this heading"></a></h1>
-                            <p>Functions to decode objects of type Class.</p>
-                            <dl class="simple">
-                                <dt>Function’s nomenclatures:</dt>
-                                <dd>
-                                    <ul class="simple">
-                                        <li><p>Functions that set one property are named: set_&lt;subject&gt;_&lt;predicate&gt;_&lt;object&gt;.</p>
-                                        </li>
-                                        <li><p>Functions that set multiple object properties are named: set_&lt;subject&gt;_relations.</p>
-                                        </li>
-                                        <li><p>Functions that set multiple data properties are named: set_&lt;subject&gt;_attributes.</p>
-                                        </li>
-                                        <li><p>Functions that set both object and data properties are named: set_&lt;subject&gt;_properties.</p>
-                                        </li>
-                                    </ul>
-                                </dd>
-                            </dl>
-                            <section id="module-contents">
-                                <h2>Module Contents<a class="headerlink" href="#module-contents"
-                                                      title="Link to this heading"></a></h2>
-                                <section id="functions">
-                                    <h3>Functions<a class="headerlink" href="#functions"
-                                                    title="Link to this heading"></a></h3>
-                                    <table class="autosummary longtable docutils align-default">
-                                        <tbody>
-                                        <tr class="row-odd">
-                                            <td><p><a class="reference internal"
-                                                      href="#json2graph.decoder.decode_obj_class.validate_class_attribute_constraints"
-                                                      title="json2graph.decoder.decode_obj_class.validate_class_attribute_constraints"><code
-                                                    class="xref py py-obj docutils literal notranslate"><span
-                                                    class="pre">validate_class_attribute_constraints</span></code></a>(class_dict)
-                                            </p></td>
-                                            <td><p>Verifies all Class dictionaries and check if the constraints related
-                                                to classes were correctly considered and</p></td>
-                                        </tr>
-                                        <tr class="row-even">
-                                            <td><p><a class="reference internal"
-                                                      href="#json2graph.decoder.decode_obj_class.validate_class_order_constraints"
-                                                      title="json2graph.decoder.decode_obj_class.validate_class_order_constraints"><code
-                                                    class="xref py py-obj docutils literal notranslate"><span
-                                                    class="pre">validate_class_order_constraints</span></code></a>(class_dict)
-                                            </p></td>
-                                            <td><p>Verifies all Class dictionaries and check if the constraints related
-                                                to classes were correctly considered and</p></td>
-                                        </tr>
-                                        <tr class="row-odd">
-                                            <td><p><a class="reference internal"
-                                                      href="#json2graph.decoder.decode_obj_class.set_defaults_class_attribute"
-                                                      title="json2graph.decoder.decode_obj_class.set_defaults_class_attribute"><code
-                                                    class="xref py py-obj docutils literal notranslate"><span
-                                                    class="pre">set_defaults_class_attribute</span></code></a>(class_dict, ontouml_graph)
-                                            </p></td>
-                                            <td><p>Verifies a class dictionary and check if their non-nullable
-                                                attributes isExtensional and isPowertype were set</p></td>
-                                        </tr>
-                                        <tr class="row-even">
-                                            <td><p><a class="reference internal"
-                                                      href="#json2graph.decoder.decode_obj_class.set_defaults_class_order"
-                                                      title="json2graph.decoder.decode_obj_class.set_defaults_class_order"><code
-                                                    class="xref py py-obj docutils literal notranslate"><span
-                                                    class="pre">set_defaults_class_order</span></code></a>(class_dict, ontouml_graph)
-                                            </p></td>
-                                            <td><p>Verifies a class dictionary and check if their non-nullable attribute
-                                                order was set or not.</p></td>
-                                        </tr>
-                                        <tr class="row-odd">
-                                            <td><p><a class="reference internal"
-                                                      href="#json2graph.decoder.decode_obj_class.set_class_stereotype"
-                                                      title="json2graph.decoder.decode_obj_class.set_class_stereotype"><code
-                                                    class="xref py py-obj docutils literal notranslate"><span
-                                                    class="pre">set_class_stereotype</span></code></a>(class_dict, ontouml_graph)
-                                            </p></td>
-                                            <td><p>Sets ontouml:stereotype property between an instance of ontouml:Class
-                                                and an instance representing an</p></td>
-                                        </tr>
-                                        <tr class="row-even">
-                                            <td><p><a class="reference internal"
-                                                      href="#json2graph.decoder.decode_obj_class.set_class_order_nonnegativeinteger"
-                                                      title="json2graph.decoder.decode_obj_class.set_class_order_nonnegativeinteger"><code
-                                                    class="xref py py-obj docutils literal notranslate"><span
-                                                    class="pre">set_class_order_nonnegativeinteger</span></code></a>(class_dict, ...)
-                                            </p></td>
-                                            <td><p>Sets an ontouml:Class's ontouml:order property based on the received
-                                                value of the object's field 'order'.</p></td>
-                                        </tr>
-                                        <tr class="row-odd">
-                                            <td><p><a class="reference internal"
-                                                      href="#json2graph.decoder.decode_obj_class.set_class_restrictedto_ontologicalnature"
-                                                      title="json2graph.decoder.decode_obj_class.set_class_restrictedto_ontologicalnature"><code
-                                                    class="xref py py-obj docutils literal notranslate"><span
-                                                    class="pre">set_class_restrictedto_ontologicalnature</span></code></a>(class_dict, ...)
-                                            </p></td>
-                                            <td><p>Sets the ontouml:restrictedTo relation between a class and its
-                                                related ontouml:OntologicalNature instance.</p></td>
-                                        </tr>
-                                        <tr class="row-even">
-                                            <td><p><a class="reference internal"
-                                                      href="#json2graph.decoder.decode_obj_class.set_class_attributes"
-                                                      title="json2graph.decoder.decode_obj_class.set_class_attributes"><code
-                                                    class="xref py py-obj docutils literal notranslate"><span
-                                                    class="pre">set_class_attributes</span></code></a>(class_dict, ontouml_graph)
-                                            </p></td>
-                                            <td><p>Defines the ontouml:isPowertype and ontouml:isExtensional data
-                                                properties of an ontouml:Class in the graph.</p></td>
-                                        </tr>
-                                        <tr class="row-odd">
-                                            <td><p><a class="reference internal"
-                                                      href="#json2graph.decoder.decode_obj_class.set_class_attribute_property"
-                                                      title="json2graph.decoder.decode_obj_class.set_class_attribute_property"><code
-                                                    class="xref py py-obj docutils literal notranslate"><span
-                                                    class="pre">set_class_attribute_property</span></code></a>(class_dict, ontouml_graph)
-                                            </p></td>
-                                            <td><p>Sets ontouml:attribute relation between an ontouml:Class and an
-                                                ontouml:Property.</p></td>
-                                        </tr>
-                                        <tr class="row-even">
-                                            <td><p><a class="reference internal"
-                                                      href="#json2graph.decoder.decode_obj_class.set_class_literal_literal"
-                                                      title="json2graph.decoder.decode_obj_class.set_class_literal_literal"><code
-                                                    class="xref py py-obj docutils literal notranslate"><span
-                                                    class="pre">set_class_literal_literal</span></code></a>(class_dict, ontouml_graph)
-                                            </p></td>
-                                            <td><p>Sets ontouml:literal relation between an ontouml:Class and its
-                                                related ontouml:Literal individuals.</p></td>
-                                        </tr>
-                                        <tr class="row-odd">
-                                            <td><p><a class="reference internal"
-                                                      href="#json2graph.decoder.decode_obj_class.create_class_properties"
-                                                      title="json2graph.decoder.decode_obj_class.create_class_properties"><code
-                                                    class="xref py py-obj docutils literal notranslate"><span
-                                                    class="pre">create_class_properties</span></code></a>(json_data, ontouml_graph, ...)
-                                            </p></td>
-                                            <td><p>Main function for decoding an object of type 'Class'.</p></td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                    <dl class="py function">
-                                        <dt class="sig sig-object py"
-                                            id="json2graph.decoder.decode_obj_class.validate_class_attribute_constraints">
-                                            <span class="sig-prename descclassname"><span class="pre">json2graph.decoder.decode_obj_class.</span></span><span
-                                                class="sig-name descname"><span class="pre">validate_class_attribute_constraints</span></span><span
-                                                class="sig-paren">(</span><em class="sig-param"><span class="n"><span
-                                                class="pre">class_dict</span></span></em><span
-                                                class="sig-paren">)</span><a class="headerlink"
-                                                                             href="#json2graph.decoder.decode_obj_class.validate_class_attribute_constraints"
-                                                                             title="Link to this definition"></a></dt>
-                                        <dd><p>Verifies all Class dictionaries and check if the constraints related to
-                                            classes were correctly considered and
-                                            fixes them when they are not.</p>
-                                            <p>The pair of attribute/stereotype: isExtensional/collective and
-                                                isPowertype/type checked constraints are:</p>
-                                            <p>VCA1) If class is not type and has isExtensional True and isPowertype
-                                                True, then do nothing and report error.
-                                                VCA2a) If class has no stereotype and isExtensional is not null, set as
-                                                ontouml:collective.
-                                                VCA2b) If class has no stereotype and isPowertype is True, set as
-                                                ontouml: type.
-                                                VCA3a) If class has stereotype different from ‘collective’ and
-                                                isExtensional is not null, remove isExtensional.
-                                                VCA3b) If class has stereotype different from ‘type’ and isPowertype is
-                                                True, set isPowertype as False.</p>
-                                            <dl class="field-list simple">
-                                                <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-                                                <dd class="field-odd"><p><strong>class_dict</strong> (<em>dict</em>) –
-                                                    Class object loaded as a dictionary.</p>
-                                                </dd>
-                                                <dt class="field-even">Return type<span class="colon">:</span></dt>
-                                                <dd class="field-even"><p>None</p>
-                                                </dd>
-                                            </dl>
-                                        </dd>
-                                    </dl>
-
-                                    <dl class="py function">
-                                        <dt class="sig sig-object py"
-                                            id="json2graph.decoder.decode_obj_class.validate_class_order_constraints">
-                                            <span class="sig-prename descclassname"><span class="pre">json2graph.decoder.decode_obj_class.</span></span><span
-                                                class="sig-name descname"><span class="pre">validate_class_order_constraints</span></span><span
-                                                class="sig-paren">(</span><em class="sig-param"><span class="n"><span
-                                                class="pre">class_dict</span></span></em><span
-                                                class="sig-paren">)</span><a class="headerlink"
-                                                                             href="#json2graph.decoder.decode_obj_class.validate_class_order_constraints"
-                                                                             title="Link to this definition"></a></dt>
-                                        <dd><p>Verifies all Class dictionaries and check if the constraints related to
-                                            classes were correctly considered and
-                                            fixes them when they are not.</p>
-                                            <p>The checked constraints are:</p>
-                                            <p>VCO1) ‘order’ property must be greater than 1 when class’s stereotype is
-                                                ‘type’
-                                                VCO2) class’s ‘order’ property must be 1 when class’s stereotype is not
-                                                ‘type’</p>
-                                            <p>The above codes are used to display warning/error messages when
-                                                necessary.</p>
-                                            <dl class="field-list simple">
-                                                <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-                                                <dd class="field-odd"><p><strong>class_dict</strong> (<em>dict</em>) –
-                                                    Class object loaded as a dictionary.</p>
-                                                </dd>
-                                                <dt class="field-even">Return type<span class="colon">:</span></dt>
-                                                <dd class="field-even"><p>None</p>
-                                                </dd>
-                                            </dl>
-                                        </dd>
-                                    </dl>
-
-                                    <dl class="py function">
-                                        <dt class="sig sig-object py"
-                                            id="json2graph.decoder.decode_obj_class.set_defaults_class_attribute">
-                                            <span class="sig-prename descclassname"><span class="pre">json2graph.decoder.decode_obj_class.</span></span><span
-                                                class="sig-name descname"><span
-                                                class="pre">set_defaults_class_attribute</span></span><span
-                                                class="sig-paren">(</span><em class="sig-param"><span class="n"><span
-                                                class="pre">class_dict</span></span></em>, <em class="sig-param"><span
-                                                class="n"><span class="pre">ontouml_graph</span></span></em><span
-                                                class="sig-paren">)</span><a class="headerlink"
-                                                                             href="#json2graph.decoder.decode_obj_class.set_defaults_class_attribute"
-                                                                             title="Link to this definition"></a></dt>
-                                        <dd><p>Verifies a class dictionary and check if their non-nullable attributes
-                                            isExtensional and isPowertype were set
-                                            or not. If not, creates default values. Default values checked are:</p>
-                                            <p>DCA1) ontouml:isExtensional default value = False when class’s stereotype
-                                                ‘collective’
-                                                DCA2) ontouml:isPowertype default value = False
-                                                DCA3) ontouml:isDerived default value = False
-                                                DCA4) ontouml:isAbstract default value = False</p>
-                                            <dl class="field-list simple">
-                                                <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-                                                <dd class="field-odd">
-                                                    <ul class="simple">
-                                                        <li><p><strong>class_dict</strong> (<em>dict</em>) – Class
-                                                            object loaded as a dictionary.</p></li>
-                                                        <li><p><strong>ontouml_graph</strong> (<em>Graph</em>) –
-                                                            Knowledge graph that complies with the OntoUML Vocabulary.
-                                                        </p></li>
-                                                    </ul>
-                                                </dd>
-                                                <dt class="field-even">Return type<span class="colon">:</span></dt>
-                                                <dd class="field-even"><p>None</p>
-                                                </dd>
-                                            </dl>
-                                        </dd>
-                                    </dl>
-
-                                    <dl class="py function">
-                                        <dt class="sig sig-object py"
-                                            id="json2graph.decoder.decode_obj_class.set_defaults_class_order">
-                                            <span class="sig-prename descclassname"><span class="pre">json2graph.decoder.decode_obj_class.</span></span><span
-                                                class="sig-name descname"><span
-                                                class="pre">set_defaults_class_order</span></span><span
-                                                class="sig-paren">(</span><em class="sig-param"><span class="n"><span
-                                                class="pre">class_dict</span></span></em>, <em class="sig-param"><span
-                                                class="n"><span class="pre">ontouml_graph</span></span></em><span
-                                                class="sig-paren">)</span><a class="headerlink"
-                                                                             href="#json2graph.decoder.decode_obj_class.set_defaults_class_order"
-                                                                             title="Link to this definition"></a></dt>
-                                        <dd><p>Verifies a class dictionary and check if their non-nullable attribute
-                                            order was set or not.
-                                            If not, creates default values.</p>
-                                            <p>Default values checked are:</p>
-                                            <p>DCO1) order default value = 1 when class’s stereotype is not ‘type’
-                                                DCO2) order default value = 2 when class’s stereotype ‘type’</p>
-                                            <p>The above codes are used to display warning/error messages when
-                                                necessary.</p>
-                                            <dl class="field-list simple">
-                                                <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-                                                <dd class="field-odd">
-                                                    <ul class="simple">
-                                                        <li><p><strong>class_dict</strong> (<em>dict</em>) – Class
-                                                            object loaded as a dictionary.</p></li>
-                                                        <li><p><strong>ontouml_graph</strong> (<em>Graph</em>) –
-                                                            Knowledge graph that complies with the OntoUML Vocabulary.
-                                                        </p></li>
-                                                    </ul>
-                                                </dd>
-                                                <dt class="field-even">Return type<span class="colon">:</span></dt>
-                                                <dd class="field-even"><p>None</p>
-                                                </dd>
-                                            </dl>
-                                        </dd>
-                                    </dl>
-
-                                    <dl class="py function">
-                                        <dt class="sig sig-object py"
-                                            id="json2graph.decoder.decode_obj_class.set_class_stereotype">
-                                            <span class="sig-prename descclassname"><span class="pre">json2graph.decoder.decode_obj_class.</span></span><span
-                                                class="sig-name descname"><span class="pre">set_class_stereotype</span></span><span
-                                                class="sig-paren">(</span><em class="sig-param"><span class="n"><span
-                                                class="pre">class_dict</span></span></em>, <em class="sig-param"><span
-                                                class="n"><span class="pre">ontouml_graph</span></span></em><span
-                                                class="sig-paren">)</span><a class="headerlink"
-                                                                             href="#json2graph.decoder.decode_obj_class.set_class_stereotype"
-                                                                             title="Link to this definition"></a></dt>
-                                        <dd><p>Sets ontouml:stereotype property between an instance of ontouml:Class and
-                                            an instance representing an
-                                            ontouml:ClassStereotype.</p>
-                                            <dl class="simple">
-                                                <dt>Warning messages:</dt>
-                                                <dd>
-                                                    <ul class="simple">
-                                                        <li><p>VCS1: Mandatory stereotype not assigned to a class.
-                                                            Result is invalid.</p></li>
-                                                        <li><p>VCS2: Class has invalid stereotype associated to it.
-                                                            Result is invalid.</p></li>
-                                                    </ul>
-                                                </dd>
-                                            </dl>
-                                            <dl class="field-list simple">
-                                                <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-                                                <dd class="field-odd">
-                                                    <ul class="simple">
-                                                        <li><p><strong>class_dict</strong> (<em>dict</em>) – Class
-                                                            object loaded as a dictionary.</p></li>
-                                                        <li><p><strong>ontouml_graph</strong> (<em>Graph</em>) –
-                                                            Knowledge graph that complies with the OntoUML Vocabulary.
-                                                        </p></li>
-                                                    </ul>
-                                                </dd>
-                                                <dt class="field-even">Return type<span class="colon">:</span></dt>
-                                                <dd class="field-even"><p>None</p>
-                                                </dd>
-                                            </dl>
-                                        </dd>
-                                    </dl>
-
-                                    <dl class="py function">
-                                        <dt class="sig sig-object py"
-                                            id="json2graph.decoder.decode_obj_class.set_class_order_nonnegativeinteger">
-                                            <span class="sig-prename descclassname"><span class="pre">json2graph.decoder.decode_obj_class.</span></span><span
-                                                class="sig-name descname"><span class="pre">set_class_order_nonnegativeinteger</span></span><span
-                                                class="sig-paren">(</span><em class="sig-param"><span class="n"><span
-                                                class="pre">class_dict</span></span></em>, <em class="sig-param"><span
-                                                class="n"><span class="pre">ontouml_graph</span></span></em><span
-                                                class="sig-paren">)</span><a class="headerlink"
-                                                                             href="#json2graph.decoder.decode_obj_class.set_class_order_nonnegativeinteger"
-                                                                             title="Link to this definition"></a></dt>
-                                        <dd><p>Sets an ontouml:Class’s ontouml:order property based on the received
-                                            value of the object’s field ‘order’.</p>
-                                            <p>The treated possibilities are:
-                                                A) invalid value (null, non integers, integers &lt;= 0) —&gt; is
-                                                converted to the default value of the class
-                                                B) positive integers —&gt; directly converted
-                                                C) * (representing an orderless type) —&gt; converted to 0
-                                                (representation of orderless in the OntoUML Vocabulary).</p>
-                                            <dl class="field-list simple">
-                                                <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-                                                <dd class="field-odd">
-                                                    <ul class="simple">
-                                                        <li><p><strong>class_dict</strong> (<em>dict</em>) – Class
-                                                            object loaded as a dictionary.</p></li>
-                                                        <li><p><strong>ontouml_graph</strong> (<em>Graph</em>) –
-                                                            Knowledge graph that complies with the OntoUML Vocabulary.
-                                                        </p></li>
-                                                    </ul>
-                                                </dd>
-                                                <dt class="field-even">Return type<span class="colon">:</span></dt>
-                                                <dd class="field-even"><p>None</p>
-                                                </dd>
-                                            </dl>
-                                        </dd>
-                                    </dl>
-
-                                    <dl class="py function">
-                                        <dt class="sig sig-object py"
-                                            id="json2graph.decoder.decode_obj_class.set_class_restrictedto_ontologicalnature">
-                                            <span class="sig-prename descclassname"><span class="pre">json2graph.decoder.decode_obj_class.</span></span><span
-                                                class="sig-name descname"><span class="pre">set_class_restrictedto_ontologicalnature</span></span><span
-                                                class="sig-paren">(</span><em class="sig-param"><span class="n"><span
-                                                class="pre">class_dict</span></span></em>, <em class="sig-param"><span
-                                                class="n"><span class="pre">ontouml_graph</span></span></em><span
-                                                class="sig-paren">)</span><a class="headerlink"
-                                                                             href="#json2graph.decoder.decode_obj_class.set_class_restrictedto_ontologicalnature"
-                                                                             title="Link to this definition"></a></dt>
-                                        <dd><p>Sets the ontouml:restrictedTo relation between a class and its related
-                                            ontouml:OntologicalNature instance.</p>
-                                            <dl class="field-list simple">
-                                                <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-                                                <dd class="field-odd">
-                                                    <ul class="simple">
-                                                        <li><p><strong>class_dict</strong> (<em>dict</em>) – Class
-                                                            object loaded as a dictionary.</p></li>
-                                                        <li><p><strong>ontouml_graph</strong> (<em>Graph</em>) –
-                                                            Knowledge graph that complies with the OntoUML Vocabulary.
-                                                        </p></li>
-                                                    </ul>
-                                                </dd>
-                                                <dt class="field-even">Return type<span class="colon">:</span></dt>
-                                                <dd class="field-even"><p>None</p>
-                                                </dd>
-                                            </dl>
-                                        </dd>
-                                    </dl>
-
-                                    <dl class="py function">
-                                        <dt class="sig sig-object py"
-                                            id="json2graph.decoder.decode_obj_class.set_class_attributes">
-                                            <span class="sig-prename descclassname"><span class="pre">json2graph.decoder.decode_obj_class.</span></span><span
-                                                class="sig-name descname"><span class="pre">set_class_attributes</span></span><span
-                                                class="sig-paren">(</span><em class="sig-param"><span class="n"><span
-                                                class="pre">class_dict</span></span></em>, <em class="sig-param"><span
-                                                class="n"><span class="pre">ontouml_graph</span></span></em><span
-                                                class="sig-paren">)</span><a class="headerlink"
-                                                                             href="#json2graph.decoder.decode_obj_class.set_class_attributes"
-                                                                             title="Link to this definition"></a></dt>
-                                        <dd><p>Defines the ontouml:isPowertype and ontouml:isExtensional data properties
-                                            of an ontouml:Class in the graph.</p>
-                                            <p>This function must be called after the function set_class_defaults, as
-                                                the received value may change because of
-                                                identified problems.</p>
-                                            <dl class="field-list simple">
-                                                <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-                                                <dd class="field-odd">
-                                                    <ul class="simple">
-                                                        <li><p><strong>class_dict</strong> (<em>dict</em>) – Class
-                                                            object loaded as a dictionary.</p></li>
-                                                        <li><p><strong>ontouml_graph</strong> (<em>Graph</em>) –
-                                                            Knowledge graph that complies with the OntoUML Vocabulary.
-                                                        </p></li>
-                                                    </ul>
-                                                </dd>
-                                                <dt class="field-even">Return type<span class="colon">:</span></dt>
-                                                <dd class="field-even"><p>None</p>
-                                                </dd>
-                                            </dl>
-                                        </dd>
-                                    </dl>
-
-                                    <dl class="py function">
-                                        <dt class="sig sig-object py"
-                                            id="json2graph.decoder.decode_obj_class.set_class_attribute_property">
-                                            <span class="sig-prename descclassname"><span class="pre">json2graph.decoder.decode_obj_class.</span></span><span
-                                                class="sig-name descname"><span
-                                                class="pre">set_class_attribute_property</span></span><span
-                                                class="sig-paren">(</span><em class="sig-param"><span class="n"><span
-                                                class="pre">class_dict</span></span></em>, <em class="sig-param"><span
-                                                class="n"><span class="pre">ontouml_graph</span></span></em><span
-                                                class="sig-paren">)</span><a class="headerlink"
-                                                                             href="#json2graph.decoder.decode_obj_class.set_class_attribute_property"
-                                                                             title="Link to this definition"></a></dt>
-                                        <dd><p>Sets ontouml:attribute relation between an ontouml:Class and an
-                                            ontouml:Property.</p>
-                                            <dl class="field-list simple">
-                                                <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-                                                <dd class="field-odd">
-                                                    <ul class="simple">
-                                                        <li><p><strong>class_dict</strong> (<em>dict</em>) – Class
-                                                            object loaded as a dictionary.</p></li>
-                                                        <li><p><strong>ontouml_graph</strong> (<em>Graph</em>) –
-                                                            Knowledge graph that complies with the OntoUML Vocabulary.
-                                                        </p></li>
-                                                    </ul>
-                                                </dd>
-                                                <dt class="field-even">Return type<span class="colon">:</span></dt>
-                                                <dd class="field-even"><p>None</p>
-                                                </dd>
-                                            </dl>
-                                        </dd>
-                                    </dl>
-
-                                    <dl class="py function">
-                                        <dt class="sig sig-object py"
-                                            id="json2graph.decoder.decode_obj_class.set_class_literal_literal">
-                                            <span class="sig-prename descclassname"><span class="pre">json2graph.decoder.decode_obj_class.</span></span><span
-                                                class="sig-name descname"><span
-                                                class="pre">set_class_literal_literal</span></span><span
-                                                class="sig-paren">(</span><em class="sig-param"><span class="n"><span
-                                                class="pre">class_dict</span></span></em>, <em class="sig-param"><span
-                                                class="n"><span class="pre">ontouml_graph</span></span></em><span
-                                                class="sig-paren">)</span><a class="headerlink"
-                                                                             href="#json2graph.decoder.decode_obj_class.set_class_literal_literal"
-                                                                             title="Link to this definition"></a></dt>
-                                        <dd><p>Sets ontouml:literal relation between an ontouml:Class and its related
-                                            ontouml:Literal individuals.</p>
-                                            <dl class="field-list simple">
-                                                <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-                                                <dd class="field-odd">
-                                                    <ul class="simple">
-                                                        <li><p><strong>class_dict</strong> (<em>dict</em>) – Class
-                                                            object loaded as a dictionary.</p></li>
-                                                        <li><p><strong>ontouml_graph</strong> (<em>Graph</em>) –
-                                                            Knowledge graph that complies with the OntoUML Vocabulary.
-                                                        </p></li>
-                                                    </ul>
-                                                </dd>
-                                                <dt class="field-even">Return type<span class="colon">:</span></dt>
-                                                <dd class="field-even"><p>None</p>
-                                                </dd>
-                                            </dl>
-                                        </dd>
-                                    </dl>
-
-                                    <dl class="py function">
-                                        <dt class="sig sig-object py"
-                                            id="json2graph.decoder.decode_obj_class.create_class_properties">
-                                            <span class="sig-prename descclassname"><span class="pre">json2graph.decoder.decode_obj_class.</span></span><span
-                                                class="sig-name descname"><span
-                                                class="pre">create_class_properties</span></span><span
-                                                class="sig-paren">(</span><em class="sig-param"><span class="n"><span
-                                                class="pre">json_data</span></span></em>, <em class="sig-param"><span
-                                                class="n"><span class="pre">ontouml_graph</span></span></em>, <em
-                                                class="sig-param"><span class="n"><span
-                                                class="pre">element_counting</span></span></em><span
-                                                class="sig-paren">)</span><a class="headerlink"
-                                                                             href="#json2graph.decoder.decode_obj_class.create_class_properties"
-                                                                             title="Link to this definition"></a></dt>
-                                        <dd><p>Main function for decoding an object of type ‘Class’.</p>
-                                            <p>Receives the whole JSON loaded data as a dictionary and manipulates it to
-                                                create all properties in which the
-                                                object’s type is domain of.</p>
-                                            <dl class="simple">
-                                                <dt>Created properties:</dt>
-                                                <dd>
-                                                    <ul class="simple">
-                                                        <li><p>ontouml:order (range xsd:nonNegativeInteger)</p></li>
-                                                        <li><p>ontouml:stereotype (range ontouml:ClassStereotype)</p>
-                                                        </li>
-                                                        <li><p>ontouml:restrictedTo (range
-                                                            ontouml:OntologicalNature)</p></li>
-                                                        <li><p>ontouml:isPowertype (range xsd:boolean)</p></li>
-                                                        <li><p>ontouml:isExtensional (range xsd:boolean)</p></li>
-                                                        <li><p>ontouml:isDerived (range xsd:boolean)</p></li>
-                                                        <li><p>ontouml:isAbstract (range xsd:boolean)</p></li>
-                                                        <li><p>ontouml:attribute (range ontouml:Property)</p></li>
-                                                        <li><p>ontouml:literal (range ontouml:Literal)</p></li>
-                                                    </ul>
-                                                </dd>
-                                            </dl>
-                                            <p>Dictionaries containing classes IDs are used for reference. One of its
-                                                characteristics is that they do not have the
-                                                field ‘name’. These are not Classes dictionaries and, hence, are not
-                                                treated here.</p>
-                                            <dl class="field-list simple">
-                                                <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-                                                <dd class="field-odd">
-                                                    <ul class="simple">
-                                                        <li><p><strong>json_data</strong> (<em>dict</em>) – JSON’s data
-                                                            to have its fields decoded loaded into a dictionary.</p>
-                                                        </li>
-                                                        <li><p><strong>ontouml_graph</strong> (<em>Graph</em>) –
-                                                            Knowledge graph that complies with the OntoUML Vocabulary.
-                                                        </p></li>
-                                                        <li><p><strong>element_counting</strong> (<em>dict</em>) –
-                                                            Dictionary with types and respective quantities present on
-                                                            graph.</p></li>
-                                                    </ul>
-                                                </dd>
-                                                <dt class="field-even">Return type<span class="colon">:</span></dt>
-                                                <dd class="field-even"><p>None</p>
-                                                </dd>
-                                            </dl>
-                                        </dd>
-                                    </dl>
-
-                                </section>
-                            </section>
-                        </section>
-
-
-                    </div>
-                </div>
-                <footer>
-                    <div aria-label="Footer" class="rst-footer-buttons" role="navigation">
-                        <a accesskey="p" class="btn btn-neutral float-left"
-                           href="../decode_main/index.html" rel="prev" title="json2graph.decoder.decode_main"><span
-                                aria-hidden="true" class="fa fa-arrow-circle-left"></span> Previous</a>
-                        <a accesskey="n" class="btn btn-neutral float-right"
-                           href="../decode_obj_diagram/index.html" rel="next"
-                           title="json2graph.decoder.decode_obj_diagram">Next <span
-                                aria-hidden="true" class="fa fa-arrow-circle-right"></span></a>
-                    </div>
-
-                    <hr/>
-
-                    <div role="contentinfo">
-                        <p>&#169; Copyright 2023, Semantics, Cybersecurity &amp; Services (SCS), University of Twente,
-                            the Netherlands.</p>
-                    </div>
-
-                    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-                    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-                    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-
-
-                </footer>
-            </div>
-        </div>
-    </section>
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph</span></code></a></li>
+          <li class="breadcrumb-item"><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.decoder</span></code></a></li>
+      <li class="breadcrumb-item active"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.decoder.decode_obj_class</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/json2graph/decoder/decode_obj_class/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
 </div>
-<script>
-    jQuery(function () {
-        SphinxRtdTheme.Navigation.enable(true);
-    });
-</script>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-json2graph.decoder.decode_obj_class">
+<span id="json2graph-decoder-decode-obj-class"></span><h1><a class="reference internal" href="#module-json2graph.decoder.decode_obj_class" title="json2graph.decoder.decode_obj_class"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.decoder.decode_obj_class</span></code></a><a class="headerlink" href="#module-json2graph.decoder.decode_obj_class" title="Link to this heading"></a></h1>
+<p>Functions to decode objects of type Class.</p>
+<dl class="simple">
+<dt>Function’s nomenclatures:</dt><dd><ul class="simple">
+<li><p>Functions that set one property are named: set_&lt;subject&gt;_&lt;predicate&gt;_&lt;object&gt;.</p></li>
+<li><p>Functions that set multiple object properties are named: set_&lt;subject&gt;_relations.</p></li>
+<li><p>Functions that set multiple data properties are named: set_&lt;subject&gt;_attributes.</p></li>
+<li><p>Functions that set both object and data properties are named: set_&lt;subject&gt;_properties.</p></li>
+</ul>
+</dd>
+</dl>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#json2graph.decoder.decode_obj_class.validate_class_attribute_constraints" title="json2graph.decoder.decode_obj_class.validate_class_attribute_constraints"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_class_attribute_constraints</span></code></a>(class_dict)</p></td>
+<td><p>Verify all Class dictionaries and check if the constraints related to classes were correctly considered and     fixes them when they are not.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#json2graph.decoder.decode_obj_class.validate_class_order_constraints" title="json2graph.decoder.decode_obj_class.validate_class_order_constraints"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_class_order_constraints</span></code></a>(class_dict)</p></td>
+<td><p>Verify all Class dictionaries and check if the constraints related to classes were correctly considered and     fixes them when they are not.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#json2graph.decoder.decode_obj_class.set_defaults_class_attribute" title="json2graph.decoder.decode_obj_class.set_defaults_class_attribute"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_defaults_class_attribute</span></code></a>(class_dict, ontouml_graph)</p></td>
+<td><p>Verify a class dictionary and check if their non-nullable attributes isExtensional and isPowertype were set     or not. If not, creates default values.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#json2graph.decoder.decode_obj_class.set_defaults_class_order" title="json2graph.decoder.decode_obj_class.set_defaults_class_order"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_defaults_class_order</span></code></a>(class_dict, ontouml_graph)</p></td>
+<td><p>Verify a class dictionary and check if their non-nullable attribute order was set or not.     If not, creates default values.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#json2graph.decoder.decode_obj_class.set_class_stereotype" title="json2graph.decoder.decode_obj_class.set_class_stereotype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_class_stereotype</span></code></a>(class_dict, ontouml_graph)</p></td>
+<td><p>Set ontouml:stereotype property between an instance of ontouml:Class and an instance representing an     ontouml:ClassStereotype.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#json2graph.decoder.decode_obj_class.set_class_order_nonnegativeinteger" title="json2graph.decoder.decode_obj_class.set_class_order_nonnegativeinteger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_class_order_nonnegativeinteger</span></code></a>(class_dict, ...)</p></td>
+<td><p>Set an ontouml:Class's ontouml:order property based on the received value of the object's field 'order'.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#json2graph.decoder.decode_obj_class.set_class_restrictedto_ontologicalnature" title="json2graph.decoder.decode_obj_class.set_class_restrictedto_ontologicalnature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_class_restrictedto_ontologicalnature</span></code></a>(class_dict, ...)</p></td>
+<td><p>Set the ontouml:restrictedTo relation between a class and its related ontouml:OntologicalNature instance.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#json2graph.decoder.decode_obj_class.set_class_attributes" title="json2graph.decoder.decode_obj_class.set_class_attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_class_attributes</span></code></a>(class_dict, ontouml_graph)</p></td>
+<td><p>Define the ontouml:isPowertype and ontouml:isExtensional data properties of an ontouml:Class in the graph.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#json2graph.decoder.decode_obj_class.set_class_attribute_property" title="json2graph.decoder.decode_obj_class.set_class_attribute_property"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_class_attribute_property</span></code></a>(class_dict, ontouml_graph)</p></td>
+<td><p>Set ontouml:attribute relation between an ontouml:Class and an ontouml:Property.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#json2graph.decoder.decode_obj_class.set_class_literal_literal" title="json2graph.decoder.decode_obj_class.set_class_literal_literal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_class_literal_literal</span></code></a>(class_dict, ontouml_graph)</p></td>
+<td><p>Set ontouml:literal relation between an ontouml:Class and its related ontouml:Literal individuals.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#json2graph.decoder.decode_obj_class.create_class_properties" title="json2graph.decoder.decode_obj_class.create_class_properties"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_class_properties</span></code></a>(json_data, ontouml_graph, ...)</p></td>
+<td><p>Decode an object of type 'Class'.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="json2graph.decoder.decode_obj_class.validate_class_attribute_constraints">
+<span class="sig-prename descclassname"><span class="pre">json2graph.decoder.decode_obj_class.</span></span><span class="sig-name descname"><span class="pre">validate_class_attribute_constraints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">class_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.decoder.decode_obj_class.validate_class_attribute_constraints" title="Link to this definition"></a></dt>
+<dd><p>Verify all Class dictionaries and check if the constraints related to classes were correctly considered and     fixes them when they are not.</p>
+<p>The pair of attribute/stereotype: isExtensional/collective and isPowertype/type checked constraints are:</p>
+<p>VCA1) If class is not type and has isExtensional True and isPowertype True, then do nothing and report error.
+VCA2a) If class has no stereotype and isExtensional is not null, set as ontouml:collective.
+VCA2b) If class has no stereotype and isPowertype is True, set as ontouml: type.
+VCA3a) If class has stereotype different from ‘collective’ and isExtensional is not null, remove isExtensional.
+VCA3b) If class has stereotype different from ‘type’ and isPowertype is True, set isPowertype as False.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>class_dict</strong> (<em>dict</em>) – Class object loaded as a dictionary.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="json2graph.decoder.decode_obj_class.validate_class_order_constraints">
+<span class="sig-prename descclassname"><span class="pre">json2graph.decoder.decode_obj_class.</span></span><span class="sig-name descname"><span class="pre">validate_class_order_constraints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">class_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.decoder.decode_obj_class.validate_class_order_constraints" title="Link to this definition"></a></dt>
+<dd><p>Verify all Class dictionaries and check if the constraints related to classes were correctly considered and     fixes them when they are not.</p>
+<p>The checked constraints are:</p>
+<p>VCO1) ‘order’ property must be greater than 1 when class’s stereotype is ‘type’
+VCO2) class’s ‘order’ property must be 1 when class’s stereotype is not ‘type’</p>
+<p>The above codes are used to display warning/error messages when necessary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>class_dict</strong> (<em>dict</em>) – Class object loaded as a dictionary.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="json2graph.decoder.decode_obj_class.set_defaults_class_attribute">
+<span class="sig-prename descclassname"><span class="pre">json2graph.decoder.decode_obj_class.</span></span><span class="sig-name descname"><span class="pre">set_defaults_class_attribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">class_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ontouml_graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.decoder.decode_obj_class.set_defaults_class_attribute" title="Link to this definition"></a></dt>
+<dd><p>Verify a class dictionary and check if their non-nullable attributes isExtensional and isPowertype were set     or not. If not, creates default values.</p>
+<dl class="simple">
+<dt>The default values checked are:</dt><dd><p>DCA1) ontouml:isExtensional default value = False when class’s stereotype ‘collective’
+DCA2) ontouml:isPowertype default value = False
+DCA3) ontouml:isDerived default value = False
+DCA4) ontouml:isAbstract default value = False</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>class_dict</strong> (<em>dict</em>) – Class object loaded as a dictionary.</p></li>
+<li><p><strong>ontouml_graph</strong> (<em>Graph</em>) – Knowledge graph that complies with the OntoUML Vocabulary.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="json2graph.decoder.decode_obj_class.set_defaults_class_order">
+<span class="sig-prename descclassname"><span class="pre">json2graph.decoder.decode_obj_class.</span></span><span class="sig-name descname"><span class="pre">set_defaults_class_order</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">class_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ontouml_graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.decoder.decode_obj_class.set_defaults_class_order" title="Link to this definition"></a></dt>
+<dd><p>Verify a class dictionary and check if their non-nullable attribute order was set or not.     If not, creates default values.</p>
+<p>Default values checked are:</p>
+<p>DCO1) order default value = 1 when class’s stereotype is not ‘type’
+DCO2) order default value = 2 when class’s stereotype ‘type’</p>
+<p>The above codes are used to display warning/error messages when necessary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>class_dict</strong> (<em>dict</em>) – Class object loaded as a dictionary.</p></li>
+<li><p><strong>ontouml_graph</strong> (<em>Graph</em>) – Knowledge graph that complies with the OntoUML Vocabulary.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="json2graph.decoder.decode_obj_class.set_class_stereotype">
+<span class="sig-prename descclassname"><span class="pre">json2graph.decoder.decode_obj_class.</span></span><span class="sig-name descname"><span class="pre">set_class_stereotype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">class_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ontouml_graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.decoder.decode_obj_class.set_class_stereotype" title="Link to this definition"></a></dt>
+<dd><p>Set ontouml:stereotype property between an instance of ontouml:Class and an instance representing an     ontouml:ClassStereotype.</p>
+<dl class="simple">
+<dt>Warning messages:</dt><dd><ul class="simple">
+<li><p>VCS1: Mandatory stereotype not assigned to a class. Result is invalid.</p></li>
+<li><p>VCS2: Class has invalid stereotype associated to it. Result is invalid.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>class_dict</strong> (<em>dict</em>) – Class object loaded as a dictionary.</p></li>
+<li><p><strong>ontouml_graph</strong> (<em>Graph</em>) – Knowledge graph that complies with the OntoUML Vocabulary.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="json2graph.decoder.decode_obj_class.set_class_order_nonnegativeinteger">
+<span class="sig-prename descclassname"><span class="pre">json2graph.decoder.decode_obj_class.</span></span><span class="sig-name descname"><span class="pre">set_class_order_nonnegativeinteger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">class_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ontouml_graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.decoder.decode_obj_class.set_class_order_nonnegativeinteger" title="Link to this definition"></a></dt>
+<dd><p>Set an ontouml:Class’s ontouml:order property based on the received value of the object’s field ‘order’.</p>
+<p>The treated possibilities are:
+A) invalid value (null, non integers, integers &lt;= 0) —&gt; is converted to the default value of the class
+B) positive integers —&gt; directly converted
+C) * (representing an orderless type) —&gt; converted to 0 (representation of orderless in the OntoUML Vocabulary).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>class_dict</strong> (<em>dict</em>) – Class object loaded as a dictionary.</p></li>
+<li><p><strong>ontouml_graph</strong> (<em>Graph</em>) – Knowledge graph that complies with the OntoUML Vocabulary.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="json2graph.decoder.decode_obj_class.set_class_restrictedto_ontologicalnature">
+<span class="sig-prename descclassname"><span class="pre">json2graph.decoder.decode_obj_class.</span></span><span class="sig-name descname"><span class="pre">set_class_restrictedto_ontologicalnature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">class_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ontouml_graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.decoder.decode_obj_class.set_class_restrictedto_ontologicalnature" title="Link to this definition"></a></dt>
+<dd><p>Set the ontouml:restrictedTo relation between a class and its related ontouml:OntologicalNature instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>class_dict</strong> (<em>dict</em>) – Class object loaded as a dictionary.</p></li>
+<li><p><strong>ontouml_graph</strong> (<em>Graph</em>) – Knowledge graph that complies with the OntoUML Vocabulary.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="json2graph.decoder.decode_obj_class.set_class_attributes">
+<span class="sig-prename descclassname"><span class="pre">json2graph.decoder.decode_obj_class.</span></span><span class="sig-name descname"><span class="pre">set_class_attributes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">class_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ontouml_graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.decoder.decode_obj_class.set_class_attributes" title="Link to this definition"></a></dt>
+<dd><p>Define the ontouml:isPowertype and ontouml:isExtensional data properties of an ontouml:Class in the graph.</p>
+<p>This function must be called after the function set_class_defaults, as the received value may change because of
+identified problems.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>class_dict</strong> (<em>dict</em>) – Class object loaded as a dictionary.</p></li>
+<li><p><strong>ontouml_graph</strong> (<em>Graph</em>) – Knowledge graph that complies with the OntoUML Vocabulary.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="json2graph.decoder.decode_obj_class.set_class_attribute_property">
+<span class="sig-prename descclassname"><span class="pre">json2graph.decoder.decode_obj_class.</span></span><span class="sig-name descname"><span class="pre">set_class_attribute_property</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">class_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ontouml_graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.decoder.decode_obj_class.set_class_attribute_property" title="Link to this definition"></a></dt>
+<dd><p>Set ontouml:attribute relation between an ontouml:Class and an ontouml:Property.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>class_dict</strong> (<em>dict</em>) – Class object loaded as a dictionary.</p></li>
+<li><p><strong>ontouml_graph</strong> (<em>Graph</em>) – Knowledge graph that complies with the OntoUML Vocabulary.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="json2graph.decoder.decode_obj_class.set_class_literal_literal">
+<span class="sig-prename descclassname"><span class="pre">json2graph.decoder.decode_obj_class.</span></span><span class="sig-name descname"><span class="pre">set_class_literal_literal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">class_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ontouml_graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.decoder.decode_obj_class.set_class_literal_literal" title="Link to this definition"></a></dt>
+<dd><p>Set ontouml:literal relation between an ontouml:Class and its related ontouml:Literal individuals.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>class_dict</strong> (<em>dict</em>) – Class object loaded as a dictionary.</p></li>
+<li><p><strong>ontouml_graph</strong> (<em>Graph</em>) – Knowledge graph that complies with the OntoUML Vocabulary.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="json2graph.decoder.decode_obj_class.create_class_properties">
+<span class="sig-prename descclassname"><span class="pre">json2graph.decoder.decode_obj_class.</span></span><span class="sig-name descname"><span class="pre">create_class_properties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ontouml_graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element_counting</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.decoder.decode_obj_class.create_class_properties" title="Link to this definition"></a></dt>
+<dd><p>Decode an object of type ‘Class’.</p>
+<p>Receives the whole JSON loaded data as a dictionary and manipulates it to create all properties in which the
+object’s type is domain of.</p>
+<dl class="simple">
+<dt>Created properties:</dt><dd><ul class="simple">
+<li><p>ontouml:order (range xsd:nonNegativeInteger)</p></li>
+<li><p>ontouml:stereotype (range ontouml:ClassStereotype)</p></li>
+<li><p>ontouml:restrictedTo (range ontouml:OntologicalNature)</p></li>
+<li><p>ontouml:isPowertype (range xsd:boolean)</p></li>
+<li><p>ontouml:isExtensional (range xsd:boolean)</p></li>
+<li><p>ontouml:isDerived (range xsd:boolean)</p></li>
+<li><p>ontouml:isAbstract (range xsd:boolean)</p></li>
+<li><p>ontouml:attribute (range ontouml:Property)</p></li>
+<li><p>ontouml:literal (range ontouml:Literal)</p></li>
+</ul>
+</dd>
+</dl>
+<p>Dictionaries containing classes IDs are used for reference. One of its characteristics is that they do not have the
+field ‘name’. These are not Classes dictionaries and, hence, are not treated here.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>json_data</strong> (<em>dict</em>) – JSON’s data to have its fields decoded loaded into a dictionary.</p></li>
+<li><p><strong>ontouml_graph</strong> (<em>Graph</em>) – Knowledge graph that complies with the OntoUML Vocabulary.</p></li>
+<li><p><strong>element_counting</strong> (<em>dict</em>) – Dictionary with types and respective quantities present on graph.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../decode_main/index.html" class="btn btn-neutral float-left" title="json2graph.decoder.decode_main" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../decode_obj_diagram/index.html" class="btn btn-neutral float-right" title="json2graph.decoder.decode_obj_diagram" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Semantics, Cybersecurity &amp; Services (SCS), University of Twente, the Netherlands.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
 
 </body>
 </html>

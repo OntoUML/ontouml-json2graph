@@ -3,6 +3,11 @@
 
 .. py:module:: json2graph.tests
 
+.. autoapi-nested-parse::
+
+   Empty __init__ file.
+
+
 
 Submodules
 ----------
@@ -12,3 +17,5 @@ Submodules
 
    test_aux/index.rst
    test_main/index.rst
+
+

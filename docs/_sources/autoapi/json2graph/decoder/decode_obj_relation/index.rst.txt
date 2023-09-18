@@ -34,10 +34,11 @@ Functions
 
 .. py:function:: set_relation_defaults(relation_dict, ontouml_graph)
 
-   Sets the following attribute's default values for ontouml:Relation:
+   Set attribute's default values for ontouml:Relation.
 
-   DRA1) ontouml:isDerived default value = False
-   DRA2) ontouml:isAbstract default value = False
+   The attribute's default values are the following:
+       DRA1) ontouml:isDerived default value = False
+       DRA2) ontouml:isAbstract default value = False
 
    :param relation_dict: Relation object loaded as a dictionary.
    :type relation_dict: dict
@@ -47,8 +48,7 @@ Functions
 
 .. py:function:: set_relation_stereotype(relation_dict, ontouml_graph)
 
-   Sets ontouml:stereotype property between an instance of ontouml:Relation and an instance representing an
-   ontouml:RelationStereotype.
+   Set ontouml:stereotype property between an instance of ontouml:Relation and an instance representing an     ontouml:RelationStereotype.
 
    Warning messages:
        - VRS1: Relation has invalid stereotype associated to it. Result is invalid.
@@ -61,7 +61,9 @@ Functions
 
 .. py:function:: set_relation_relations(relation_dict, ontouml_graph)
 
-   Sets the following object properties to instances of ontouml:Relation:
+   Set the following object properties to instances of ontouml:Relation.
+
+   The object properties are the following:
        - ontouml:relationEnd (range ontouml:Property)
        - ontouml:sourceEnd (range ontouml:Property)
        - ontouml:targetEnd (range ontouml:Property)
@@ -74,7 +76,7 @@ Functions
 
 .. py:function:: create_relation_properties(json_data, ontouml_graph)
 
-   Main function for decoding an object of type Relation.
+   Decode an object of type Relation.
 
    Receives the whole JSON loaded data as a dictionary and manipulates it to create all properties in which the
    object's type is domain of.
@@ -92,3 +94,5 @@ Functions
    :type json_data: dict
    :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
    :type ontouml_graph: Graph
+
+

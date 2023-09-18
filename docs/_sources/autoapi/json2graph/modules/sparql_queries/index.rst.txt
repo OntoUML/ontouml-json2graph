@@ -21,8 +21,7 @@ Module Contents
 
     .. code-block:: python
 
-        """
-        PREFIX ontouml: <https://w3id.org/ontouml#>
+        """PREFIX ontouml: <https://w3id.org/ontouml#>
         SELECT ?inst_type
         WHERE {
             ?inst_type rdfs:subClassOf+ ontouml:OntoumlElement .
@@ -33,7 +32,7 @@ Module Contents
 
         </details>
 
-
+   
 
 .. py:data:: GET_CLASS_STEREOTYPE_ATTRIBUTE_STEREOTYPE
    :value: Multiline-String
@@ -44,8 +43,7 @@ Module Contents
 
     .. code-block:: python
 
-        """
-        PREFIX ontouml: <https://w3id.org/ontouml#>
+        """PREFIX ontouml: <https://w3id.org/ontouml#>
         SELECT DISTINCT ?class_id ?class_stereotype ?class_name ?property_id ?property_stereotype
         WHERE {
             ?class_id rdf:type ontouml:Class .
@@ -60,3 +58,6 @@ Module Contents
     .. raw:: html
 
         </details>
+
+   
+

@@ -34,11 +34,13 @@ Attributes
 
 .. py:data:: LOGGER
 
-
+   
 
 .. py:function:: add_metadata(ontouml_graph)
 
-   Adds basic metadata to the generated graph when not in test mode. The metadata added are:
+   Add basic metadata to the generated graph when not in test mode.
+
+   The metadata added are:
        - dct:conformsTo METADATA["conformsToBase"]
        - dct:created (creation date)
        - dct:language (when user argument available)
@@ -51,7 +53,8 @@ Attributes
 
 .. py:function:: decode_dictionary(dictionary_data, ontouml_graph, language)
 
-   Receives the full dictionary with the loaded JSON data and decode known allowed values to the OntoUML Graph.
+   Receive the full dictionary with the loaded JSON data and decode known allowed values to the OntoUML Graph.
+
    Recursively evaluates the dictionary to create all possible instances, setting their types and attributes.
 
    OntoUML-Vocabulary properties that are directly decoded in the general decoder:
@@ -69,7 +72,7 @@ Attributes
 
 .. py:function:: decode_json_to_graph(json_data, language, execution_mode)
 
-   Receives the loaded JSON data and decodes it into a graph that complies to the OntoUML Vocabulary.
+   Receive the loaded JSON data and decodes it into a graph that complies to the OntoUML Vocabulary.
 
    :param json_data: Input JSON data loaded as a dictionary.
    :type json_data: dict
@@ -79,3 +82,5 @@ Attributes
    :type execution_mode: str
    :return: Knowledge graph that complies with the OntoUML Vocabulary
    :rtype: Graph
+
+

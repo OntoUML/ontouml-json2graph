@@ -41,22 +41,23 @@ Attributes
 
 .. py:data:: ARGUMENTS
 
-
+   
 
 .. py:data:: LOGGER
 
-
+   
 
 .. py:function:: initialize_args_script()
 
-   This function parses the command-line arguments provided by the user and performs necessary validations.
+   Parse the command-line arguments provided by the user and performs necessary validations.
 
+   The ARGUMENTS variable must be initialized in every possible execution mode.
 
 
 .. py:function:: initialize_args_import(input_path = 'not_initialized', output_path = os.getcwd(), base_uri = 'https://example.org#', graph_format = 'ttl', language = '', model_only = False, silent = True, correct = False)
 
-   This function initializes the global variable ARGUMENTS of type dictionary, which contains user-provided
-   (when executed in script mode) or default arguments (when executed as a library or for testing).
+   Initialize the global variable ARGUMENTS of type dictionary, which contains user-provided     (when executed in script mode) or default arguments (when executed as a library or for testing).
+
    The ARGUMENTS variable must be initialized in every possible execution mode.
 
    :param input_path: Path to the directory or JSON file to be decoded. (Optional)
@@ -81,28 +82,13 @@ Attributes
 
 .. py:function:: initialize_args_test(input_path = 'not_initialized', language = '')
 
-   This function initializes the global variable ARGUMENTS of type dictionary, which contains user-provided
-   (when executed in script mode) or default arguments (when executed as a library or for testing).
+   Initialize the global variable ARGUMENTS of type dictionary, which contains user-provided     (when executed in script mode) or default arguments (when executed as a library or for testing).
+
    The ARGUMENTS variable must be initialized in every possible execution mode.
 
    :param input_path: Path to the directory or JSON file to be decoded. (Optional)
    :type input_path: str
-   :param output_path: Path to the directory in which the result file(s) will be saved. (Optional)
-   :type output_path: str
-   :param decode_all: Informs if user wants to convert all json files in the input_path performing the decode
-                       function multiple times. (Optional)
-   :type decode_all: bool
-   :param base_uri: Base URI to be used for generating URIs for ontology concepts. (Optional)
-                    Default is "https://example.org#".
-   :type base_uri: str
-   :param graph_format: Format for saving the resulting knowledge graph. (Optional)
-                        Default value is 'ttl' (Turtle syntax).
-   :type graph_format: str
    :param language: Language tag to be added to the ontology's concepts. (Optional)
    :type language: str
-   :param model_only: If True, only the OntoUML model will be extracted without diagrammatic information. (Optional)
-   :type model_only: bool
-   :param silent: If True, suppresses intermediate communications and log messages during execution. (Optional)
-   :type silent: bool
-   :param correct: If True, attempts to correct potential errors during the conversion process. (Optional)
-   :type correct: bool
+
+
