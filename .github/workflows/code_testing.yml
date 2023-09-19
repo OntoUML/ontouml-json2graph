@@ -1,7 +1,7 @@
 name: Code Testing
 
 # Substitute for pull-request
-on: push
+on: pull_request
 
 permissions:
   contents: read

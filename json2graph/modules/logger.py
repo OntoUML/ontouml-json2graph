@@ -1,4 +1,4 @@
-"""This module provides DEL5! functions for configuring a logger that outputs messages to the console.
+"""This module provides functions for configuring a logger that outputs messages to the console.
 
 The logger can be customized based on different execution modes, allowing you to control the log level.
 """

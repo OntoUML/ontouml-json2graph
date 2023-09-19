@@ -1,11 +1,12 @@
 name: Update Docs
 
-# Substitute for pull-request
 on:
-  workflow_run:
-    workflows: [ "Code Testing" ]
-    types:
-      - completed
+  pull_request_review:
+    types: [ approved ]
+#  workflow_run:
+#    workflows: [ "Code Testing" ]
+#    types:
+#      - completed
 
 jobs:
   generate-docs:
