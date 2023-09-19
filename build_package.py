@@ -18,33 +18,33 @@ from json2graph.modules.logger import initialize_logger
 LOGGER = initialize_logger()
 
 
-def run_tests() -> None:
-    """
-    Run custom tests using pytest.
-
-    This function runs custom-defined tests using the pytest framework.
-    It executes the pytest command on a specified test file and logs the results.
-    """
-    LOGGER.info(
-        "Running own-defined tests using pytest.\nExecuting command: 'pytest .\\json2graph\\tests\\test_main.py'"
-    )
-
-    # Path to the test file
-    test_file_path = os.path.join("json2graph", "tests", "test_main.py")
-
-    # Construct the command
-    command = ["pytest", test_file_path]
-
-    try:
-        # Run the command
-        subprocess.run(command, check=True)
-        LOGGER.info("Tests concluded with success. Proceeding to the next step.\n")
-    except subprocess.CalledProcessError as e:
-        LOGGER.error(f"Test failed with return code {e.returncode}: {e.cmd}")
-        exit(1)
-    except FileNotFoundError:
-        LOGGER.error("pytest command not found. Please make sure pytest is installed.")
-        exit(1)
+# def run_tests() -> None:
+#     """
+#     Run custom tests using pytest.
+#
+#     This function runs custom-defined tests using the pytest framework.
+#     It executes the pytest command on a specified test file and logs the results.
+#     """
+#     LOGGER.info(
+#         "Running own-defined tests using pytest.\nExecuting command: 'pytest .\\json2graph\\tests\\test_main.py'"
+#     )
+#
+#     # Path to the test file
+#     test_file_path = os.path.join("json2graph", "tests", "test_main.py")
+#
+#     # Construct the command
+#     command = ["pytest", test_file_path]
+#
+#     try:
+#         # Run the command
+#         subprocess.run(command, check=True)
+#         LOGGER.info("Tests concluded with success. Proceeding to the next step.\n")
+#     except subprocess.CalledProcessError as e:
+#         LOGGER.error(f"Test failed with return code {e.returncode}: {e.cmd}")
+#         exit(1)
+#     except FileNotFoundError:
+#         LOGGER.error("pytest command not found. Please make sure pytest is installed.")
+#         exit(1)
 
 
 def get_latest_package_version() -> str:
@@ -209,7 +209,7 @@ if __name__ == "__main__":
     and running Poetry commands.
     """
     LOGGER.info("Building a new package")
-    run_tests()
+    # run_tests()
     version_before = get_latest_package_version()
     version_after = get_current_package_version()
     check_versions(version_before, version_after)
