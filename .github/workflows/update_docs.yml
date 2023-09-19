@@ -4,6 +4,7 @@ name: Update Docs
 on:
   workflow_run:
     workflows: [ "Code Testing" ]
+    branches: [ v1.3.0 ]
     types:
       - completed
 
