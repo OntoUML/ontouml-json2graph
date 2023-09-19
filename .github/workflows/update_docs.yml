@@ -42,4 +42,4 @@ jobs:
           git config --local user.name "pedropaulofb"
           git add .
           git commit -m "Update documentation"
-          git push origin v1.3.0
+          git push
