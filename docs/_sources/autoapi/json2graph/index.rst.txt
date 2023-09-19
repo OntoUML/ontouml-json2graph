@@ -23,5 +23,3 @@ Submodules
 
    decode/index.rst
    library/index.rst
-
-

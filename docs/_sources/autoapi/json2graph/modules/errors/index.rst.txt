@@ -38,7 +38,7 @@ Attributes
 
 .. py:data:: LOGGER
 
-   
+
 
 .. py:function:: report_error_requirement_not_met(error_message)
 
@@ -110,5 +110,3 @@ Attributes
    :type error: OSError
 
    :raises OSError: Always.
-
-

@@ -5,7 +5,7 @@
 
 .. autoapi-nested-parse::
 
-   General decoding functions. 
+   General decoding functions.
 
 
 
@@ -38,7 +38,7 @@ Attributes
 
 .. py:data:: LOGGER
 
-   
+
 
 .. py:function:: create_point(point_id, x_coord, y_coord, ontouml_graph)
 
@@ -128,5 +128,3 @@ Attributes
    :type dictionary_data: dict
    :return: Dictionary without empty fields.
    :rtype: dict
-
-

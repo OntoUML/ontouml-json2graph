@@ -89,5 +89,4 @@ Attributes
 
 .. py:data:: decoded_graph
 
-   
 

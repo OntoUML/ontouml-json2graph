@@ -5,7 +5,7 @@
 
 .. autoapi-nested-parse::
 
-   Diverse util and auxiliary functions. 
+   Diverse util and auxiliary functions.
 
 
 
@@ -31,5 +31,3 @@ Functions
    :type date_time_format: str
    :return: Formatted current date and time.
    :rtype: str
-
-

@@ -205,5 +205,3 @@ Functions
    :type ontouml_graph: Graph
    :param element_counting: Dictionary with types and respective quantities present on graph.
    :type element_counting: dict
-
-

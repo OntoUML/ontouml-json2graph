@@ -5,7 +5,7 @@
 
 .. autoapi-nested-parse::
 
-   Util functions related to graphs. 
+   Util functions related to graphs.
 
 
 
@@ -34,7 +34,7 @@ Attributes
 
 .. py:data:: LOGGER
 
-   
+
 
 .. py:function:: ontouml_ref(entity)
 
@@ -66,5 +66,3 @@ Attributes
    :type format: str
    :return: RDFLib graph loaded as object.
    :rtype: Graph
-
-
