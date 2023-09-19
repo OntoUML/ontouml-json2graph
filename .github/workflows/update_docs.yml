@@ -1,0 +1,44 @@
+name: Update Docs
+
+# Substitute for pull-request
+on:
+  workflow_run:
+    workflows: [ "Code Testing" ]
+    types:
+      - completed
+
+jobs:
+  generate-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@8ca2b8b2ece13480cda6dacd3511b49857a23c09 # v2.5.1
+        with:
+          egress-policy: audit
+
+      - uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        with:
+          token: ${{ secrets.WORKFLOW_GIT_ACCESS_TOKEN }}
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1 # v4.7.0
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Generate Documentation
+        run: |
+          python build_package.py
+
+      - name: Commit Generated Docs
+        run: |
+          git config --local user.email "pedropaulofb@gmail.com"
+          git config --local user.name "pedropaulofb"
+          git add .
+          git commit -m "Update documentation"
+          git push origin v1.3.0
