@@ -8,6 +8,7 @@ Usage:
 """
 
 import os
+import shutil
 import subprocess
 
 import requests
@@ -133,10 +134,10 @@ def execute_documentation_commands():
     Execute a sequence of documentation-related commands.
 
     This function executes the following commands sequentially:
-    1. Clean the Sphinx documentation build.
-    2. Build the Sphinx HTML documentation.
-    3. Remove the 'docs' directory and its contents.
-    4. Create a new 'docs' directory.
+    1. Remove the 'docs' directory and its contents.
+    2. Create a new 'docs' directory.
+    3. Clean the Sphinx documentation build.
+    4. Build the Sphinx HTML documentation.
     5. Copy the HTML documentation to the 'docs' directory.
     6. Clean the Sphinx documentation build again.
 
@@ -149,12 +150,20 @@ def execute_documentation_commands():
     sphinx_dir = os.path.join(base_dir, "sphinx")
     docs_dir = os.path.join(base_dir, "docs")
 
+    # Delete and creating again the existing docs/ directory
+    try:
+        # Use shutil.rmtree to remove the directory and its contents
+        shutil.rmtree(docs_dir)
+        LOGGER.info(f"Directory '{docs_dir}' and its contents have been successfully removed.")
+        os.makedirs(docs_dir, exist_ok=True)
+        print(f"Empty directory '{docs_dir}' has been successfully created.")
+    except OSError as e:
+        LOGGER.error(f"Error: {e}")
+
     # Command list
     commands = [
         ["make", "clean"],
         ["make", "html"],
-        ["rmdir", docs_dir, "/s", "/q"],
-        ["mkdir", docs_dir],
         ["xcopy", os.path.join(sphinx_dir, "_build", "html"), docs_dir, "/E", "/H"],
         ["make", "clean"],
     ]

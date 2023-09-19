@@ -1,4 +1,4 @@
-name: Code testing
+name: Code Testing
 
 # Substitute for pull-request
 on: push
@@ -36,6 +36,3 @@ jobs:
 
       - name: Testing with pytest
         run: pytest ./json2graph/tests/test_main.py
-
-      - name: Building test
-        run: python build_package.py

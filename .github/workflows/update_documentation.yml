@@ -1,0 +1,30 @@
+name: Generate and Commit Documentation
+
+on:
+  push:
+    branches:
+      - v1.3.0
+  workflow_run:
+    workflows: [ "Code Testing" ]
+    types:
+      - completed
+
+jobs:
+  generate-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Generate Documentation
+      run: |
+        python build_package.py
+
+    - name: Commit Generated Docs
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add .
+        git commit -m "Update documentation"
+        git push
