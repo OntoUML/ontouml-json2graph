@@ -43,8 +43,9 @@ jobs:
 
       - name: Commit Generated Docs
         run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
+          git config --global user.email "username@users.noreply.github.com"
+          git commit -a -m "${{ env.CI_COMMIT_MESSAGE }}"
           git add .
           git commit -m "Update documentation"
-          git push
+          git push origin v1.3.0
