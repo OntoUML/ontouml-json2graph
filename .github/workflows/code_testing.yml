@@ -23,6 +23,8 @@ jobs:
           egress-policy: audit
 
       - uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        with:
+          token: ${{ secrets.WORKFLOW_GIT_ACCESS_TOKEN }}
 
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1 # v4.7.0
@@ -43,8 +45,8 @@ jobs:
 
       - name: Commit Generated Docs
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
+          git config --local user.email "pedropaulofb@gmail.com"
+          git config --local user.name "pedropaulofb"
           git add .
           git commit -m "Update documentation"
           git push origin v1.3.0
