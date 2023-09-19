@@ -1,12 +1,12 @@
 name: Update Docs
 
-# Substitute for pull-request
 on:
-  workflow_run:
-    workflows: [ "Code Testing" ]
-    branches: [ v1.3.0 ]
-    types:
-      - completed
+  pull_request_review:
+    types: [ approved ]
+#  workflow_run:
+#    workflows: [ "Code Testing" ]
+#    types:
+#      - completed
 
 jobs:
   generate-docs:
@@ -42,4 +42,4 @@ jobs:
           git config --local user.name "pedropaulofb"
           git add .
           git commit -m "Update documentation"
-          git push origin v1.3.0
+          git push

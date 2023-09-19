@@ -1,6 +1,10 @@
-name: Code testing
+name: Code Testing
 
-on: push
+# Substitute for pull-request
+on:
+  pull_request:
+    types:
+      - opened
 
 permissions:
   contents: read
