@@ -1,6 +1,5 @@
-""" Main function used as script to convert OntoUML JSON files into knowledge graphs, with the flexibility to
-customize the output and control the execution mode for different use cases.
-"""
+"""Main function used as script to convert OntoUML JSON files into knowledge graphs, with the flexibility to \
+customize the output and control the execution mode for different use cases."""
 import glob
 import inspect
 import os
@@ -11,7 +10,7 @@ from rdflib import RDF, Graph
 
 try:
     from .modules import arguments as args
-    from .modules.globals import METADATA
+    from .modules.metadata import METADATA
     from .modules.input_output import (
         safe_load_json_file,
         create_directory_if_not_exists,
@@ -24,7 +23,7 @@ try:
     from .decoder.decode_main import decode_json_to_graph
 except ImportError:
     from modules import arguments as args
-    from modules.globals import METADATA
+    from modules.metadata import METADATA
     from modules.input_output import (
         safe_load_json_file,
         create_directory_if_not_exists,
@@ -46,7 +45,7 @@ def decode_ontouml_json2graph(
     correct: bool = False,
     execution_mode: str = "import",
 ) -> Graph:
-    """Main function for converting OntoUML JSON data to a Knowledge Graph.
+    """Convert OntoUML JSON data to a Knowledge Graph.
 
     This function takes the path to a JSON file representing OntoUML model data provided by the user
     and converts it into a knowledge graph following the specified options.
@@ -71,7 +70,6 @@ def decode_ontouml_json2graph(
     :return: JSON data decoded into a RDFLib's Graph that is compliant with the OntoUML Vocabulary.
     :rtype: Graph
     """
-
     logger = initialize_logger(execution_mode)
 
     model_elements = [
@@ -103,8 +101,8 @@ def decode_ontouml_json2graph(
         start_date_time = get_date_time(time_screen_format)
         st = time.perf_counter()
 
-        logger.info(f"{METADATA['description']} v{METADATA['version']} started on {start_date_time}!")
-        logger.debug(f"Selected arguments are: {args.ARGUMENTS}")
+        logger.info(f"{METADATA['Summary']} v{METADATA['Version']} started on {start_date_time}!")
+
         logger.info(
             f"Decoding JSON file {args.ARGUMENTS['input_path']} to {(args.ARGUMENTS['format']).upper()} graph "
             f"format.\n"
@@ -128,7 +126,7 @@ def decode_ontouml_json2graph(
 
     # If set by user, remove all diagrammatic elements
     if args.ARGUMENTS["model_only"]:
-        for s, p, o in ontouml_graph.triples((None, RDF.type, None)):
+        for s, _, o in ontouml_graph.triples((None, RDF.type, None)):
             s_type = s.toPython()
             o_type = o.fragment
             # Remove if not a model element and if it is defined by of the ontology being handled
@@ -149,7 +147,7 @@ def decode_ontouml_json2graph(
 
 
 def write_graph_file(ontouml_graph: Graph, execution_mode: str = "script") -> str:
-    """Saves the ontology graph received as argument into a file using the syntax defined by the user.
+    """Save the ontology graph received as argument into a file using the syntax defined by the user.
 
     When running in script mode, the result is saved in the folder specified by the user as argument.
     When running in test mode, the file is saved inside the 'results' directory created by this function.
@@ -163,7 +161,6 @@ def write_graph_file(ontouml_graph: Graph, execution_mode: str = "script") -> st
     :return: Saved output file path.
     :rtype: str
     """
-
     logger = initialize_logger()
     loaded_file_name = Path(args.ARGUMENTS["input_path"]).stem
 
@@ -201,7 +198,6 @@ def decode_all_ontouml_json2graph() -> None:
     knowledge graph using the specified options.
     The output graphs are saved in the output directory chosen by the user as argument.
     """
-
     # Getting all
     list_input_files = glob.glob(os.path.join(args.ARGUMENTS["input_path"], "*.json"))
 
@@ -219,7 +215,6 @@ if __name__ == "__main__":
     This block of code is executed when the script is run as a standalone application (i.e., as a script).
     It processes user-provided arguments and executes the OntoUML JSON to Graph transformation.
     """
-
     # Treat and publish user's arguments
     args.initialize_args_script()
 

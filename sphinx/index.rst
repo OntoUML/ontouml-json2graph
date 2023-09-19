@@ -1,69 +1,15 @@
-.. ontouml-json2graph documentation master file, created by
-sphinx-quickstart on Wed Aug  2 09:24:40 2023.
-You can adapt this file completely to your liking, but it should at least
-contain the root `toctree` directive.
+.. ontouml-json2graph documentation master file
 
 Welcome to ontouml-json2graph's documentation!
 ==============================================
 
-.. image:: ../json2graph/resources/logo-json2graph.png
+.. image:: ../json2graph/resources/logo-json2graph-reduced.png
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
    README
-
-.. start shields
-
-.. list-table::
-
-    * - Badges
-      - |zenodo-doi| |repo-status| |commits-latest| |published-at| |pypi-project| |pypi-downloads| |language-top| |language-version| |codefactor| |ossf-scorecard| |license|
-
-.. |zenodo-doi| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.8214977.svg
-	:target: https://doi.org/10.5281/zenodo.8214977
-	:alt: DOI
-
-.. |repo-status| image:: https://www.repostatus.org/badges/latest/active.svg
-	:target: https://www.repostatus.org/#active
-	:alt: Project Status: Active
-
-.. |commits-latest| image:: https://img.shields.io/github/last-commit/ontouml/ontouml-json2graph
-	:target: https://github.com/OntoUML/ontouml-json2graph/commit/main
-	:alt: GitHub last commit
-
-.. |published-at| image:: https://img.shields.io/github/release-date/OntoUML/ontouml-json2graph
-	:target: https://github.com/OntoUML/ontouml-json2graph/releases
-	:alt: GitHub release date
-
-.. |pypi-project| image:: https://img.shields.io/pypi/v/ontouml-json2graph
-    :target: https://pypi.org/project/ontouml-json2graph/
-	:alt: PyPI Project
-
-.. |pypi-downloads| image:: https://img.shields.io/pypi/dm/ontouml-json2graph
-    :target: https://pypi.org/project/ontouml-json2graph/
-	:alt: PyPI Downloads
-
-.. |language-top| image:: https://img.shields.io/github/languages/top/ontouml/ontouml-json2graph
-	:alt: Language - Top
-
-.. |language-version| image:: https://img.shields.io/pypi/pyversions/ontouml-json2graph
-	:alt: Language - Version
-
-.. |codefactor| image:: https://img.shields.io/codefactor/grade/github/ontouml/ontouml-json2graph?logo=codefactor
-	:target: https://www.codefactor.io/repository/github/ontouml/ontouml-json2graph
-	:alt: CodeFactor Grade
-
-.. |ossf-scorecard| image:: https://img.shields.io/ossf-scorecard/github.com/OntoUML/ontouml-json2graph
-	:target: https://securityscorecards.dev/viewer/?uri=github.com/OntoUML/ontouml-json2graph
-	:alt: OSSF-Scorecard
-
-.. |license| image:: https://img.shields.io/github/license/OntoUML/ontouml-json2graph
-	:target: https://img.shields.io/github/license/OntoUML/ontouml-json2graph
-	:alt: License
-
-.. end shields
 
 Indices and tables
 ==================

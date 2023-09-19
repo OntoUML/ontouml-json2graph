@@ -10,6 +10,8 @@
 ![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/OntoUML/ontouml-json2graph/badge)
 ![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)
 ![License - GitHub](https://img.shields.io/github/license/ontouml/ontouml-json2graph)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://github.com/pre-commit/pre-commit)
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/OntoUML/ontouml-json2graph/main.svg)](https://results.pre-commit.ci/latest/github/OntoUML/ontouml-json2graph/main)
 
 # The OntoUML JSON2Graph Transformation
 

@@ -1,4 +1,4 @@
-""" Decoding messages to be displayed to users must be concentrated in this module whenever possibile. """
+"""Decoding messages to be displayed to users must be concentrated in this module whenever possible."""
 import inspect
 
 from . import arguments as args
@@ -15,7 +15,7 @@ def get_decode_log_message(
     property_name: str,
     att_valid_stereotype: str = "",
 ) -> str:
-    """Mounts and returns a warning message according to the information received as parameter.
+    """Mount and returns a warning message according to the information received as parameter.
 
     :param object_dict: Object's JSON data loaded as a dictionary.
     :type object_dict: dict
@@ -28,7 +28,6 @@ def get_decode_log_message(
     :return: Warning message containing information about the modification made to be printed to user.
     :rtype: str
     """
-
     message = "NOT DEFINED MESSAGE"
 
     # All cases require
@@ -153,7 +152,7 @@ def print_decode_log_message(
     property_name: str = "",
     att_valid_stereotype: str = "",
 ) -> None:
-    """Gets warning message and prints it to the user as a log if not in silent mode.
+    """Get warning message and prints it to the user as a log if not in silent mode.
 
     :param object_dict: Object's JSON data loaded as a dictionary.
     :type object_dict: dict
@@ -164,7 +163,6 @@ def print_decode_log_message(
     :param att_valid_stereotype: Optional attribute's stereotype to be displayed in a warning message.
     :type att_valid_stereotype: str
     """
-
     # If in silent mode, exit function and do not print anything
     if args.ARGUMENTS["silent"]:
         return

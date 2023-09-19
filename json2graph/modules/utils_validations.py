@@ -1,5 +1,4 @@
-""" Functions that performs validations for different functions or parameters used in the software. """
-
+"""Functions that performs validations for different functions or parameters used in the software."""
 import inspect
 import os
 
@@ -7,14 +6,13 @@ from .errors import report_error_invalid_parameter, report_error_requirement_not
 
 
 def validate_arg_input(input_path: str, decode_all: bool) -> None:
-    """Validates the input path received as argument.
+    """Validate the input path received as argument.
 
     :param input_path: The path to the input file or directory.
     :type input_path: str
     :param decode_all: A flag indicating whether to decode all files in the directory.
     :type decode_all: bool
     """
-
     # Verification 1: Checking if path or file exists
     if not os.path.exists(input_path):
         report_error_requirement_not_met("Provided input path does not exist. Execution finished.")
@@ -40,7 +38,6 @@ def validate_execution_mode(execution_mode):
     :param execution_mode: The execution mode to be validated.
     :type execution_mode: str
     """
-
     valid_execution_modes = ["script", "import", "test"]
     if execution_mode not in valid_execution_modes:
         current_function = inspect.stack()[0][3]

@@ -1,4 +1,4 @@
-""" OntoUML JSON2Graph Test Module.
+"""OntoUML JSON2Graph Test Module.
 
 This module contains test functions to verify the correctness of the OntoUML JSON2Graph software.
 The tests are based on the comparison of the generated graph (from OntoUML JSON files provided in the test folder)
@@ -13,7 +13,6 @@ for the tests to run successfully.
 The tests will ensure the correct functioning of the OntoUML JSON2Graph software and raise an assertion error
 if the generated graph does not match the expected graph.
 """
-
 from pathlib import Path
 
 import pytest
@@ -34,7 +33,6 @@ def test_ontouml_json2graph(input_file: str) -> None:
     :param input_file: Path to the JSON file to be tested.
     :type input_file: str
     """
-
     test_name = Path(input_file).stem
 
     # Test with language starts on file test_042

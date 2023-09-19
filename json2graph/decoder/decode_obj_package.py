@@ -1,4 +1,4 @@
-""" Functions to decode specificities of the object Package.
+"""Functions to decode specificities of the object Package.
 
 Function's nomenclatures:
     - Functions that set one property are named: set_<subject>_<predicate>_<object>.
@@ -7,7 +7,6 @@ Function's nomenclatures:
     - Functions that set both object and data properties are named: set_<subject>_properties.
     - Functions that set default values: set_<subject>_defaults.
 """
-
 from rdflib import Graph, URIRef
 
 from ..decoder.decode_general import get_list_subdictionaries_for_specific_type
@@ -16,7 +15,7 @@ from ..modules.utils_graph import ontouml_ref
 
 
 def get_package_contents(package_dict: dict, package_id: str, list_contents: list = []) -> list[dict]:
-    """Receives the dictionary with all loaded JSON data and returns the value of the 'contents' field for a given
+    """Receive the dictionary with all loaded JSON data and returns the value of the 'contents' field for a given \
     object (defined by the received value of its ID).
 
     :param package_dict: Package's data to have its fields decoded.
@@ -28,7 +27,6 @@ def get_package_contents(package_dict: dict, package_id: str, list_contents: lis
     :return: List of contents for a given Package.
     :rtype: list[dict]
     """
-
     # End of recursion
     if package_dict["id"] == package_id:
         if "contents" in package_dict:
@@ -59,7 +57,7 @@ def get_package_contents(package_dict: dict, package_id: str, list_contents: lis
 
 
 def set_package_containsmodelelement_modelelement(package_dict: dict, ontouml_graph: Graph) -> None:
-    """Set object property ontouml:containsModelElement between an ontouml:Package and an ontouml:ModelElement it
+    """Set object property ontouml:containsModelElement between an ontouml:Package and an ontouml:ModelElement it \
     contains.
 
     :param package_dict: Package's data to have its fields decoded.
@@ -67,7 +65,6 @@ def set_package_containsmodelelement_modelelement(package_dict: dict, ontouml_gr
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
-
     # Get the list inside the 'contents' key
     package_id_contents_list = get_package_contents(package_dict, package_dict["id"])
 
@@ -90,7 +87,7 @@ def set_package_containsmodelelement_modelelement(package_dict: dict, ontouml_gr
 
 
 def create_package_properties(json_data: dict, ontouml_graph: Graph) -> None:
-    """Main function for decoding an object of type Package.
+    """Decode an object of type Package.
 
     Receives the whole JSON loaded data as a dictionary and manipulates it to create all properties in which the
     object's type is domain of.
@@ -103,7 +100,6 @@ def create_package_properties(json_data: dict, ontouml_graph: Graph) -> None:
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
-
     # Getting all Project dictionaries
     packages_dicts_list = get_list_subdictionaries_for_specific_type(json_data, "Package")
 

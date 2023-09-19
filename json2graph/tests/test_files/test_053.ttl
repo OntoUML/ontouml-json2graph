@@ -1415,4 +1415,3 @@
     ontouml:diagram :gWhw_pGGAqACNw_c ;
     ontouml:model   :DGuw_pGGAqACNwwB_root ;
     ontouml:name    "test_050"@en .
-

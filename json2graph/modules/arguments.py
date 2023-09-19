@@ -1,4 +1,4 @@
-""" Argument Treatments Module.
+"""Argument Treatments Module.
 
 This module provides functions for parsing and validating user-provided arguments when starting the software execution
 as a script.
@@ -6,16 +6,15 @@ as a script.
 It also makes the ARGUMENTS variable globally accessible with the user's arguments (when executed as a script) or with
 default values (when executed as test or as a library).
 """
-
 import argparse
 import os
 
 import validators
 
 from .errors import report_error_requirement_not_met
-from .globals import METADATA
 from .input_output import create_directory_if_not_exists
 from .logger import initialize_logger
+from .metadata import METADATA
 from .utils_validations import validate_arg_input
 
 ARGUMENTS = {}
@@ -24,8 +23,10 @@ LOGGER = initialize_logger()
 
 
 def initialize_args_script() -> None:
-    """This function parses the command-line arguments provided by the user and performs necessary validations."""
+    """Parse the command-line arguments provided by the user and performs necessary validations.
 
+    The ARGUMENTS variable must be initialized in every possible execution mode.
+    """
     # Formats for saving graphs supported by RDFLib
     # https://rdflib.readthedocs.io/en/stable/intro_to_parsing.html#saving-rdf
     allowed_graph_formats = [
@@ -44,21 +45,22 @@ def initialize_args_script() -> None:
         "nquads",
     ]
 
-    LOGGER.debug("Parsing user's arguments...")
-
-    about_message = METADATA["name"] + " - version " + METADATA["version"]
+    # Parsing user's arguments
 
     # PARSING ARGUMENTS
+
     args_parser = argparse.ArgumentParser(
-        prog=METADATA["name"],
-        description=METADATA["description"] + ". Version: " + METADATA["version"],
+        prog=METADATA["Name"],
+        description=METADATA["Summary"] + ". Version: " + METADATA["Version"],
         allow_abbrev=False,
-        epilog="More information at: " + METADATA["repository"],
+        epilog="More information at: " + METADATA["Home-page"],
     )
 
+    # Building -v argument information
+    about_message = METADATA["Name"] + " - version " + METADATA["Version"]
     args_parser.version = about_message
 
-    # OPTIONAL ARGUMENT
+    # OPTIONAL ARGUMENTS
     args_parser.add_argument(
         "-i",
         "--input_path",
@@ -76,7 +78,6 @@ def initialize_args_script() -> None:
         help="The path of the directory in which the resulting decoded file(s) will be saved. "
         "Default is the working directory.",
     )
-
     args_parser.add_argument(
         "-a",
         "--decode_all",
@@ -180,8 +181,9 @@ def initialize_args_import(
     silent: bool = True,
     correct: bool = False,
 ):
-    """This function initializes the global variable ARGUMENTS of type dictionary, which contains user-provided
+    """Initialize the global variable ARGUMENTS of type dictionary, which contains user-provided \
     (when executed in script mode) or default arguments (when executed as a library or for testing).
+
     The ARGUMENTS variable must be initialized in every possible execution mode.
 
     :param input_path: Path to the directory or JSON file to be decoded. (Optional)
@@ -203,7 +205,6 @@ def initialize_args_import(
     :param correct: If True, attempts to correct potential errors during the conversion process. (Optional)
     :type correct: bool
     """
-
     global ARGUMENTS
 
     ARGUMENTS["base_uri"] = base_uri
@@ -217,33 +218,16 @@ def initialize_args_import(
 
 
 def initialize_args_test(input_path: str = "not_initialized", language: str = ""):
-    """This function initializes the global variable ARGUMENTS of type dictionary, which contains user-provided
+    """Initialize the global variable ARGUMENTS of type dictionary, which contains user-provided \
     (when executed in script mode) or default arguments (when executed as a library or for testing).
+
     The ARGUMENTS variable must be initialized in every possible execution mode.
 
     :param input_path: Path to the directory or JSON file to be decoded. (Optional)
     :type input_path: str
-    :param output_path: Path to the directory in which the result file(s) will be saved. (Optional)
-    :type output_path: str
-    :param decode_all: Informs if user wants to convert all json files in the input_path performing the decode
-                        function multiple times. (Optional)
-    :type decode_all: bool
-    :param base_uri: Base URI to be used for generating URIs for ontology concepts. (Optional)
-                     Default is "https://example.org#".
-    :type base_uri: str
-    :param graph_format: Format for saving the resulting knowledge graph. (Optional)
-                         Default value is 'ttl' (Turtle syntax).
-    :type graph_format: str
     :param language: Language tag to be added to the ontology's concepts. (Optional)
     :type language: str
-    :param model_only: If True, only the OntoUML model will be extracted without diagrammatic information. (Optional)
-    :type model_only: bool
-    :param silent: If True, suppresses intermediate communications and log messages during execution. (Optional)
-    :type silent: bool
-    :param correct: If True, attempts to correct potential errors during the conversion process. (Optional)
-    :type correct: bool
     """
-
     global ARGUMENTS
 
     ARGUMENTS["base_uri"] = "https://example.org#"

@@ -1,4 +1,4 @@
-""" Functions to decode specificities of the object GeneralizationSet.
+"""Functions to decode specificities of the object GeneralizationSet.
 
 Function's nomenclatures:
     - Functions that set one property are named: set_<subject>_<predicate>_<object>.
@@ -7,7 +7,6 @@ Function's nomenclatures:
     - Functions that set both object and data properties are named: set_<subject>_properties.
     - Functions that set default values: set_<subject>_defaults.
 """
-
 from rdflib import Graph, URIRef, Literal, XSD
 
 from ..decoder.decode_general import get_list_subdictionaries_for_specific_type
@@ -17,7 +16,7 @@ from ..modules.utils_graph import ontouml_ref
 
 
 def set_generalizationset_defaults(generalizationset_dict: dict, ontouml_graph: Graph) -> None:
-    """Sets the default values to ontouml:generalizationSets to the resulting graph.
+    """Set the default values to ontouml:generalizationSets to the resulting graph.
 
     - Default isDisjoint: If isDisjoint is null, set as False.
     - Default isComplete: If isComplete is null, set as False.
@@ -27,7 +26,6 @@ def set_generalizationset_defaults(generalizationset_dict: dict, ontouml_graph: 
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
-
     generalizationset_individual = URIRef(args.ARGUMENTS["base_uri"] + generalizationset_dict["id"])
     set_false = Literal(False, datatype=XSD.boolean)
 
@@ -43,14 +41,13 @@ def set_generalizationset_defaults(generalizationset_dict: dict, ontouml_graph: 
 
 
 def set_generalizationset_relations(generalizationset_dict: dict, ontouml_graph: Graph) -> None:
-    """Sets the ontouml:generalization and ontouml:categorizer property to the resulting graph.
+    """Set the ontouml:generalization and ontouml:categorizer property to the resulting graph.
 
     :param generalizationset_dict: GeneralizationSet object loaded as a dictionary.
     :type generalizationset_dict: dict
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
-
     generalizationset_individual = URIRef(args.ARGUMENTS["base_uri"] + generalizationset_dict["id"])
     generalization_property = ontouml_ref("generalization")
     categorizer_property = ontouml_ref("categorizer")
@@ -73,7 +70,7 @@ def set_generalizationset_relations(generalizationset_dict: dict, ontouml_graph:
 
 
 def create_generalizationset_properties(json_data: dict, ontouml_graph: Graph) -> None:
-    """Main function for decoding an object of type GeneralizationSet.
+    """Decode an object of type GeneralizationSet.
 
     Receives the whole JSON loaded data as a dictionary and manipulates it to create all properties in which the
     object's type is domain of.
@@ -87,7 +84,6 @@ def create_generalizationset_properties(json_data: dict, ontouml_graph: Graph) -
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
-
     list_generalizationset_dicts = get_list_subdictionaries_for_specific_type(json_data, "GeneralizationSet")
 
     # Treat each object dictionary

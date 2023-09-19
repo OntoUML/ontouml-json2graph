@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ontouml-json2graph"
-version = "1.2.1"
+version = "1.3.0a"
 description = "OntoUML JSON2Graph Decoder"
 license = "Apache-2.0"
 authors = ["Pedro Paulo F. Barcelos <p.p.favatobarcelos@utwente.nl>"]
@@ -15,17 +15,25 @@ exclude = ["json2graph/tests"]
 [tool.poetry.urls]
 "PyPi Project" = "https://pypi.org/project/ontouml-json2graph/"
 
-[extras]
-conformsTo = "https://w3id.org/ontouml"
-conformsToBase = "https://w3id.org/ontouml#"
-conformsToVersion = "v1.1.0"
-
 [tool.poetry.dependencies]
 python = "^3.9"
 pyyaml = "^6.0.1"
 rdflib = "^7.0.0"
 validators = "^0.22.0"
+importlib = "^1.0.4"
 
+[tool.poetry.group.dev.dependencies]
+sphinx = "^7.2.6"
+pytest = "^7.4.2"
+pre-commit = "^3.4.0"
+sphinx-autoapi = "^2.1.1"
+myst-parser = "^2.0.0"
+sphinx-toolbox = "^3.5.0"
+sphinx-rtd-theme = "^1.3.0"
+sphinx-rtd-size = "^0.2.0"
+requests = "^2.31.0"
+tomli = "^2.0.1"
+poetry = "^1.6.1"
 
 [build-system]
 requires = ["poetry-core"]
@@ -34,3 +42,6 @@ build-backend = "poetry.core.masonry.api"
 [tool.black]
 line-length = 120
 
+[tool.vulture]
+paths = ["."]
+exclude = ["docs/", "sphinx/", "library.py"]

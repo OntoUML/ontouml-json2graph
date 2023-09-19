@@ -1,4 +1,4 @@
-""" Functions to decode specificities of the object Path.
+"""Functions to decode specificities of the object Path.
 
 Function's nomenclatures:
     - Functions that set one property are named: set_<subject>_<predicate>_<object>.
@@ -7,7 +7,6 @@ Function's nomenclatures:
     - Functions that set both object and data properties are named: set_<subject>_properties.
     - Functions that set default values: set_<subject>_defaults.
 """
-
 from rdflib import Graph, URIRef
 
 from ..decoder.decode_general import (
@@ -19,14 +18,13 @@ from ..modules.utils_graph import ontouml_ref
 
 
 def set_path_path_point(path_dict: dict, ontouml_graph: Graph) -> None:
-    """Creates an ontouml:Point, their properties and the ontouml:point of an ontouml:Path.
+    """Create an ontouml:Point, their properties and the ontouml:point of an ontouml:Path.
 
     :param path_dict: Path object loaded as a dictionary.
     :type path_dict: dict
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
-
     base_point_name = path_dict["id"] + "_point_"
     point_counter = 0
 
@@ -48,7 +46,7 @@ def set_path_path_point(path_dict: dict, ontouml_graph: Graph) -> None:
 
 
 def create_path_properties(json_data: dict, ontouml_graph: Graph) -> None:
-    """Main function for decoding an object of type Path.
+    """Decode an object of type Path.
 
     Receives the whole JSON loaded data as a dictionary and manipulates it to create all properties in which the
     object's type is domain of.
@@ -64,7 +62,6 @@ def create_path_properties(json_data: dict, ontouml_graph: Graph) -> None:
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
-
     list_path_dicts = get_list_subdictionaries_for_specific_type(json_data, "Path")
 
     # Treat each object dictionary

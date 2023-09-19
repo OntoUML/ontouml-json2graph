@@ -1,5 +1,4 @@
-""" IO functions used in diverse occasions. """
-
+"""IO functions used in diverse occasions."""
 import json
 import os
 
@@ -12,13 +11,12 @@ LOGGER = initialize_logger()
 
 
 def create_directory_if_not_exists(directory_path: str, file_description: str) -> None:
-    """Checks if the directory that has the path received as argument exists.
+    """Check if the directory that has the path received as argument exists. \
     If it does, do nothing. If it does not, create it.
 
     :param directory_path: Path to the directory to be created (if it does not exist).
     :type directory_path: str
     """
-
     try:
         if not os.path.exists(directory_path):
             os.makedirs(directory_path)
@@ -36,7 +34,6 @@ def safe_load_json_file(json_path: str) -> dict:
     :return: Dictionary with loaded JSON's data.
     :rtype: dict
     """
-
     try:
         with open(json_path, "r") as read_file:
             json_data = json.load(read_file)
@@ -59,7 +56,6 @@ def safe_write_graph_file(ontouml_graph: Graph, output_file_path: str, syntax: s
     :param syntax: Syntax to be used for saving the ontology file.
     :type syntax: str
     """
-
     try:
         ontouml_graph.serialize(destination=output_file_path, encoding="utf-8", format=syntax)
     except OSError as error:
