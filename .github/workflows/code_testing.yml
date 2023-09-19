@@ -36,3 +36,15 @@ jobs:
 
       - name: Testing with pytest
         run: pytest ./json2graph/tests/test_main.py
+
+      - name: Generate Documentation
+        run: |
+          python build_package.py
+
+      - name: Commit Generated Docs
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "Update documentation"
+          git push
