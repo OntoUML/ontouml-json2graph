@@ -1,7 +1,10 @@
 name: Code Testing
 
 # Substitute for pull-request
-on: pull_request
+on:
+  pull_request:
+    types:
+      - opened
 
 permissions:
   contents: read
