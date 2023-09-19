@@ -1,8 +1,9 @@
 name: Update Docs
 
 on:
-  pull_request_review:
-    types: [ approved ]
+  pull_request:
+    types: [ merged ]
+    branches: [ main ]
 #  workflow_run:
 #    workflows: [ "Code Testing" ]
 #    types:
