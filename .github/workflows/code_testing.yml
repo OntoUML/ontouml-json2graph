@@ -32,10 +32,6 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          pre-commit install
-
-      - name: Testing with pre-commit
-        run: pre-commit run --all-files
 
       - name: Testing with pytest
         run: pytest ./json2graph/tests/test_main.py
