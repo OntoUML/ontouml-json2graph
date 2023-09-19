@@ -2,9 +2,6 @@ name: Update Docs
 
 # Substitute for pull-request
 on:
-  push:
-    branches:
-      - v1.3.0
   workflow_run:
     workflows: [ "Code Testing" ]
     types:
