@@ -20,17 +20,8 @@ Functions
 
 .. autoapisummary::
 
-   json2graph.modules.logger.logger_get_date_time
    json2graph.modules.logger.initialize_logger
 
-
-
-.. py:function:: logger_get_date_time()
-
-   Return a string in a specified format with date and time.
-
-   :return: Formatted date and time. Format example: 2022.10.23-14.43
-   :rtype: str
 
 
 .. py:function:: initialize_logger(execution_mode = 'script')
