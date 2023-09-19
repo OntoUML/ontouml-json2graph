@@ -43,4 +43,3 @@ jobs:
           git add .
           git commit -m "Update documentation"
           git push
-
