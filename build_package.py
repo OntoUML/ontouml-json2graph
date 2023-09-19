@@ -153,32 +153,44 @@ def execute_documentation_commands():
     # Delete and creating again the existing docs/ directory
     try:
         # Use shutil.rmtree to remove the directory and its contents
-        shutil.rmtree(docs_dir)
-        LOGGER.info(f"Directory '{docs_dir}' and its contents have been successfully removed.")
+        if os.path.exists(docs_dir):
+            shutil.rmtree(docs_dir)
+            LOGGER.info(f"Directory '{docs_dir}' and its contents have been successfully removed.")
         os.makedirs(docs_dir, exist_ok=True)
-        print(f"Empty directory '{docs_dir}' has been successfully created.")
+        LOGGER.info(f"Empty directory '{docs_dir}' has been successfully created.")
     except OSError as e:
         LOGGER.error(f"Error: {e}")
 
-    # Command list
-    commands = [
-        ["make", "clean"],
-        ["make", "html"],
-        ["xcopy", os.path.join(sphinx_dir, "_build", "html"), docs_dir, "/E", "/H"],
-        ["make", "clean"],
-    ]
+    # Execute commands 'make clean' and 'make html' sequentially
+    try:
+        subprocess.run(["make", "clean"], cwd=sphinx_dir, shell=True, check=True)
+        subprocess.run(["make", "html"], cwd=sphinx_dir, shell=True, check=True)
+        LOGGER.info("Commands 'make clean' and 'make html' successfully executed.")
+    except subprocess.CalledProcessError as e:
+        LOGGER.error(f"Commands 'make clean' and 'make html' failed with return code {e.returncode}: {e.cmd}")
+        exit(1)
+    except Exception as e:
+        LOGGER.error(f"An error occurred: {e}")
+        exit(1)
 
-    # Execute commands sequentially
-    for command in commands:
-        try:
-            subprocess.run(command, cwd=sphinx_dir, shell=True, check=True)
-            LOGGER.info(f"Command successfully executed: {' '.join(command)}")
-        except subprocess.CalledProcessError as e:
-            LOGGER.error(f"Command failed with return code {e.returncode}: {e.cmd}")
-            exit(1)
-        except Exception as e:
-            LOGGER.error(f"An error occurred: {e}")
-            exit(1)
+    try:
+        sphinx_dir_html = os.path.join(sphinx_dir, "_build", "html")
+        # Copy the contents of the source directory to the destination directory
+        shutil.copytree(sphinx_dir_html, docs_dir, dirs_exist_ok=True)
+        LOGGER.info(f"Contents of '{sphinx_dir_html}' copied to '{docs_dir}' successfully.")
+    except Exception as e:
+        LOGGER.error(f"Error: {e}")
+
+    # Execute command 'make clean'
+    try:
+        subprocess.run(["make", "clean"], cwd=sphinx_dir, shell=True, check=True)
+        LOGGER.info("Commands 'make clean' and 'make html' successfully executed.")
+    except subprocess.CalledProcessError as e:
+        LOGGER.error(f"Commands 'make clean' and 'make html' failed with return code {e.returncode}: {e.cmd}")
+        exit(1)
+    except Exception as e:
+        LOGGER.error(f"An error occurred: {e}")
+        exit(1)
 
     LOGGER.info("Documentation commands executed successfully.")
 
