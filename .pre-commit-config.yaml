@@ -10,6 +10,7 @@ repos:
         pass_filenames: false
         stages:
           - pre-push
+          - manual
       - id: update_documentation
         name: update documentation
         entry: python update_documentation.py
