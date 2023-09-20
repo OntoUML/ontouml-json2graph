@@ -60,6 +60,9 @@ def initialize_args_script() -> None:
     about_message = METADATA["Name"] + " - version " + METADATA["Version"]
     args_parser.version = about_message
 
+    # This LOGGER.debug was inserted to prevent vulture from reporting false positive dead code
+    LOGGER.debug(args_parser.version)
+
     # OPTIONAL ARGUMENTS
     args_parser.add_argument(
         "-i",
@@ -207,6 +210,8 @@ def initialize_args_import(
     """
     global ARGUMENTS
 
+    validate_arg_input(input_path, decode_all=False)
+
     ARGUMENTS["base_uri"] = base_uri
     ARGUMENTS["correct"] = correct
     ARGUMENTS["format"] = graph_format
@@ -229,6 +234,8 @@ def initialize_args_test(input_path: str = "not_initialized", language: str = ""
     :type language: str
     """
     global ARGUMENTS
+
+    validate_arg_input(input_path, decode_all=False)
 
     ARGUMENTS["base_uri"] = "https://example.org#"
     ARGUMENTS["correct"] = True
