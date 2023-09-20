@@ -1,6 +1,21 @@
 exclude: ^(sphinx|doc)
 
 repos:
+  - repo: local
+    hooks:
+      - id: update_requirements
+        name: update requirements.txt
+        entry: poetry export -f requirements.txt --output requirements.txt --with dev
+        language: system
+        pass_filenames: false
+      - id: update_documentation
+        name: update documentation
+        entry: python update_documentation.py
+        language: system
+        types: [ python ]
+        pass_filenames: false
+        stages:
+          - pre-push
   - repo: https://github.com/jendrikseipp/vulture
     rev: v2.9.1
     hooks:
@@ -50,23 +65,6 @@ repos:
         language: system
         pass_filenames: false
         files: pyproject.toml
-        stages:
-          - pre-push
-  - repo: local
-    hooks:
-      - id: update_requirements
-        name: update requirements.txt
-        entry: poetry export -f requirements.txt --output requirements.txt --dev
-        language: system
-        pass_filenames: false
-        stages:
-          - pre-push
-      - id: update_documentation
-        name: update documentation
-        entry: python update_documentation.py
-        language: system
-        types: [ python ]
-        pass_filenames: false
         stages:
           - pre-push
 
