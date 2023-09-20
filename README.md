@@ -3,7 +3,6 @@
 ![GitHub - Release Date - PublishedAt](https://img.shields.io/github/release-date/ontouml/ontouml-json2graph)
 ![GitHub - Last Commit - Branch](https://img.shields.io/github/last-commit/ontouml/ontouml-json2graph/main)
 ![PyPI - Project](https://img.shields.io/pypi/v/ontouml-json2graph)
-![PyPI - Downloads](https://img.shields.io/pypi/dm/ontouml-json2graph?label=pypi%20downloads)
 ![Language - Top](https://img.shields.io/github/languages/top/ontouml/ontouml-json2graph)
 ![Language - Version](https://img.shields.io/pypi/pyversions/ontouml-json2graph)
 ![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/ontouml/ontouml-json2graph)
@@ -12,6 +11,8 @@
 ![License - GitHub](https://img.shields.io/github/license/ontouml/ontouml-json2graph)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://github.com/pre-commit/pre-commit)
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/OntoUML/ontouml-json2graph/main.svg)](https://results.pre-commit.ci/latest/github/OntoUML/ontouml-json2graph/main)
+![Website](https://img.shields.io/website/http/ontouml.github.io/ontouml-json2graph.svg)
+![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/ontouml/ontouml-json2graph/code_testing.yml)
 
 # The OntoUML JSON2Graph Transformation
 
