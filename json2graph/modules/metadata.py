@@ -6,7 +6,7 @@ Metadata is loaded in one of two ways:
 """
 from importlib.metadata import metadata
 
-from json2graph.modules.logger import initialize_logger
+from .logger import initialize_logger
 
 LOGGER = initialize_logger()
 

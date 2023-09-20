@@ -117,20 +117,13 @@
 <section id="the-ontouml-json2graph-transformation">
 <h1>The OntoUML JSON2Graph Transformation<a class="headerlink" href="#the-ontouml-json2graph-transformation" title="Link to this heading"></a></h1>
 <p align="center"><img src="https://raw.githubusercontent.com/OntoUML/ontouml-json2graph/main/json2graph/resources/logo-json2graph.png" width="740"></p>
-<p>The OntoUML JSON2Graph (ontouml-json2graph) decodes a JSON file that complies with the <a class="reference external" href="https://w3id.org/ontouml/schema">ontouml-schema</a> (e.g., the ones
-exported by the <a class="reference external" href="https://github.com/OntoUML/ontouml-vp-plugin">ontouml-vp-plugin</a>) to a graph file that complies with the <a class="reference external" href="https://github.com/OntoUML/ontouml-vocabulary">ontouml-vocabulary</a>.</p>
-<p>When transforming a model, you can choose to represent only the core concepts of the model or include all of its information, including diagrammatic
-elements, as part of the knowledge graph. Additionally, users have the choice to enable basic semantic and syntactical verifications, ensuring enhanced and
-accurate transformation results.</p>
-<p>This application was developed using the <a class="reference external" href="https://rdflib.readthedocs.io/en/stable/">RDFLib</a> and Python 3.11. The generated graph file can be serialized in
-the diverse <a class="reference external" href="https://rdflib.readthedocs.io/en/stable/intro_to_parsing.html#saving-rdf">formats supported by the RDFLib</a>, which are Turtle, RDF/XML, JSON-LD,
-N-Triples, Notation-3, Trig, Trix, and N-Quads.</p>
+<p>The OntoUML JSON2Graph (ontouml-json2graph) decodes a JSON file that complies with the <a class="reference external" href="https://w3id.org/ontouml/schema">ontouml-schema</a> (e.g., the ones exported by the <a class="reference external" href="https://github.com/OntoUML/ontouml-vp-plugin">ontouml-vp-plugin</a>) to a graph file that complies with the <a class="reference external" href="https://github.com/OntoUML/ontouml-vocabulary">ontouml-vocabulary</a>.</p>
+<p>When transforming a model, you can choose to represent only the core concepts of the model or include all of its information, including diagrammatic elements, as part of the knowledge graph. Additionally, users have the choice to enable basic semantic and syntactical verifications, ensuring enhanced and accurate transformation results.</p>
+<p>This application was developed using the <a class="reference external" href="https://rdflib.readthedocs.io/en/stable/">RDFLib</a> and Python 3.11. The generated graph file can be serialized in the diverse <a class="reference external" href="https://rdflib.readthedocs.io/en/stable/intro_to_parsing.html#saving-rdf">formats supported by the RDFLib</a>, which are Turtle, RDF/XML, JSON-LD, N-Triples, Notation-3, Trig, Trix, and N-Quads.</p>
 <p><strong>📦 PyPI Package:</strong>
-The transformation is conveniently <a class="reference external" href="https://pypi.org/project/ontouml-json2graph/">available as a PyPI package</a>, which allows users to use it as an
-executable script or import it as a library into other Python projects.</p>
+The transformation is conveniently <a class="reference external" href="https://pypi.org/project/ontouml-json2graph/">available as a PyPI package</a>, which allows users to use it as an executable script or import it as a library into other Python projects.</p>
 <p><strong>📚 Code Documentation:</strong>
-For inquiries and further information, please refer to the <a class="reference external" href="https://w3id.org/ontouml/json2graph/docs">comprehensive docstring-generated documentation</a>
-available for this project.</p>
+For inquiries and further information, please refer to the <a class="reference external" href="https://w3id.org/ontouml/json2graph/docs">comprehensive docstring-generated documentation</a> available for this project.</p>
 <section id="contents">
 <h2>Contents<a class="headerlink" href="#contents" title="Link to this heading"></a></h2>
 <!-- TOC -->
@@ -169,8 +162,7 @@ available for this project.</p>
 </section>
 <section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
-<p>Before using the OntoUML JSON2Graph Decoder, you need to <a class="reference external" href="https://www.python.org/downloads/">download and install Python</a>. To install the application you
-simply need to perform the following command:</p>
+<p>Before using the OntoUML JSON2Graph Decoder, you need to <a class="reference external" href="https://www.python.org/downloads/">download and install Python</a>. To install the application you simply need to perform the following command:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pip install ontouml-json2graph
 </pre></div>
 </div>
@@ -202,7 +194,7 @@ Optional arguments provide additional features. All available ontouml-json2graph
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: ontouml-json2graph [-h] -i INPUT_PATH [-o OUTPUT_PATH] [-a] [-f {turtle,ttl,turtle2,xml,pretty-xml,json-ld,ntriples,nt,nt11,n3,trig,trix,nquads}]
                           [-l LANGUAGE] [-c] [-s] [-u BASE_URI] [-m] [-v]
 
-OntoUML JSON2Graph Decoder. Version: 1.3.0
+OntoUML JSON2Graph Decoder. Version: 1.3.1
 
 options:
   -h, --help            show this help message and exit
@@ -229,17 +221,11 @@ More information at: https://w3id.org/ontouml/json2graph
 </section>
 <section id="importing-as-a-library">
 <h3>Importing as a Library<a class="headerlink" href="#importing-as-a-library" title="Link to this heading"></a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">library.py</span></code>
-module (<a class="reference external" href="https://dev.ontouml.org/ontouml-json2graph/autoapi/json2graph/library/index.html">full documentation</a>) is a user-friendly component of the
-<code class="docutils literal notranslate"><span class="pre">ontouml-json2graph</span></code> package. By encapsulating complex functionalities, this library empowers users to seamlessly integrate OntoUML JSON conversion
-capabilities into their projects. In addition to conversion functions, the library provides a utility function for safely saving OntoUML graphs to files in
-the desired syntax.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">library.py</span></code> module (<a class="reference external" href="https://dev.ontouml.org/ontouml-json2graph/autoapi/json2graph/library/index.html">full documentation</a>) is a user-friendly component of the <code class="docutils literal notranslate"><span class="pre">ontouml-json2graph</span></code> package. By encapsulating complex functionalities, this library empowers users to seamlessly integrate OntoUML JSON conversion capabilities into their projects. In addition to conversion functions, the library provides a utility function for safely saving OntoUML graphs to files in the desired syntax.</p>
 <p>The library provides the following functions for decoding OntoUML JSON data and saving OntoUML graphs to files:</p>
 <section id="decode-json-project">
 <h4>decode_json_project<a class="headerlink" href="#decode-json-project" title="Link to this heading"></a></h4>
-<p>The <code class="docutils literal notranslate"><span class="pre">decode_json_project</span></code> function allows you to decode the complete OntoUML JSON data (including elements from OntoUML’s abstract and concrete syntax) into
-a knowledge graph that conforms to the OntoUML Vocabulary. This function provides customization options, such as specifying the base URI for ontology
-concepts, adding language tags, and enabling error correction. With this function domain-level and diagrammatic data are converted to Knowledge Graph.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">decode_json_project</span></code> function allows you to decode the complete OntoUML JSON data (including elements from OntoUML’s abstract and concrete syntax) into a knowledge graph that conforms to the OntoUML Vocabulary. This function provides customization options, such as specifying the base URI for ontology concepts, adding language tags, and enabling error correction. With this function domain-level and diagrammatic data are converted to Knowledge Graph.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">json2graph.library</span> <span class="kn">import</span> <span class="n">decode_json_project</span>
 
 <span class="n">decoded_graph_project</span> <span class="o">=</span> <span class="n">decode_json_project</span><span class="p">(</span><span class="n">json_file_path</span><span class="o">=</span><span class="s2">&quot;path/to/input.json&quot;</span><span class="p">,</span> <span class="n">base_uri</span><span class="o">=</span><span class="s2">&quot;https://myuri.org#&quot;</span><span class="p">,</span>
@@ -250,8 +236,7 @@ concepts, adding language tags, and enabling error correction. With this functio
 <section id="decode-json-model">
 <h4>decode_json_model<a class="headerlink" href="#decode-json-model" title="Link to this heading"></a></h4>
 <p>The <code class="docutils literal notranslate"><span class="pre">decode_json_model</span></code> function decodes OntoUML JSON data representing a model-level view into a knowledge graph that adheres to the OntoUML Vocabulary.</p>
-<p>Differently from the <code class="docutils literal notranslate"><span class="pre">decode_json_model</span></code>, this function decodes only elements from the OntoUML’s abstract syntax. I.e., only domain-level (and not
-diagrammatic) data is converted to knowledge graph. It offers options for base URI, language tags, and error correction.</p>
+<p>Differently from the <code class="docutils literal notranslate"><span class="pre">decode_json_model</span></code>, this function decodes only elements from the OntoUML’s abstract syntax. I.e., only domain-level (and not diagrammatic) data is converted to knowledge graph. It offers options for base URI, language tags, and error correction.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">json2graph.library</span> <span class="kn">import</span> <span class="n">decode_json_model</span>
 
 <span class="n">decoded_graph_model</span> <span class="o">=</span> <span class="n">decode_json_model</span><span class="p">(</span><span class="n">json_file_path</span><span class="o">=</span><span class="s2">&quot;path/to/input.json&quot;</span><span class="p">,</span> <span class="n">base_uri</span><span class="o">=</span><span class="s2">&quot;https://myuri.org#&quot;</span><span class="p">,</span>
@@ -270,39 +255,27 @@ diagrammatic) data is converted to knowledge graph. It offers options for base U
 <span class="n">save_graph_file</span><span class="p">(</span><span class="n">ontouml_graph</span><span class="p">,</span> <span class="n">output_file_path</span><span class="p">,</span> <span class="n">syntax</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The valid syntax options are the ones that <a class="reference external" href="https://rdflib.readthedocs.io/en/stable/intro_to_parsing.html#saving-rdf">can be parsed by the RDFLib</a>: turtle,
-ttl, turtle2, xml, pretty-xml, json-ld, ntriples, nt, nt11, n3, trig, trix, and nquads.</p>
+<p>The valid syntax options are the ones that <a class="reference external" href="https://rdflib.readthedocs.io/en/stable/intro_to_parsing.html#saving-rdf">can be parsed by the RDFLib</a>: turtle, ttl, turtle2, xml, pretty-xml, json-ld, ntriples, nt, nt11, n3, trig, trix, and nquads.</p>
 </section>
 </section>
 <section id="input-and-output">
 <h3>Input and Output<a class="headerlink" href="#input-and-output" title="Link to this heading"></a></h3>
-<p>This software’s <strong>input</strong> is a JSON file that complies with the <a class="reference external" href="https://w3id.org/ontouml/schema">OntoUML Schema</a>. This JSON file can be obtained from the
-<a class="reference external" href="https://w3id.org/ontouml/vp-plugin">ontouml-vp-plugin</a>’s export feature. The JSON2Graph Decoder was tested to guarantee its compatibility with the JSON
-generated by the plugin’s <a class="reference external" href="https://w3id.org/ontouml/vp-plugin/v0.5.3">version 0.5.3</a>.</p>
-<p>The transformation’s <strong>output</strong> corresponds to the OntoUML Model serialized as a graph. The saved file information is described by the
-<a class="reference external" href="https://w3id.org/ontouml/vocabulary">OntoUML Vocabulary</a> and can be saved in the
-<a class="reference external" href="https://rdflib.readthedocs.io/en/stable/intro_to_parsing.html#saving-rdf">different formats that are supported by the RDFLib</a>.
+<p>This software’s **input
+** is a JSON file that complies with the <a class="reference external" href="https://w3id.org/ontouml/schema">OntoUML Schema</a>. This JSON file can be obtained from the <a class="reference external" href="https://w3id.org/ontouml/vp-plugin">ontouml-vp-plugin</a>’s export feature. The JSON2Graph Decoder was tested to guarantee its compatibility with the JSON generated by the plugin’s <a class="reference external" href="https://w3id.org/ontouml/vp-plugin/v0.5.3">version 0.5.3</a>.</p>
+<p>The transformation’s **output
+** corresponds to the OntoUML Model serialized as a graph. The saved file information is described by the <a class="reference external" href="https://w3id.org/ontouml/vocabulary">OntoUML Vocabulary</a> and can be saved in the <a class="reference external" href="https://rdflib.readthedocs.io/en/stable/intro_to_parsing.html#saving-rdf">different formats that are supported by the RDFLib</a>.
 This output graph may contain the model’s diagrammatic information or not, depending on the user’s provided arguments.
-The <a class="reference external" href="https://dev.ontouml.org/ontouml-vocabulary/#mozTocId376551">OntoUML Vocabulary documentation</a> contains a usage overview, presenting information about all
-available elements, and about how to use them, including examples of SPARQL queries.</p>
-<p>Both the input and output of the software are built upon the same metamodel, the <a class="reference external" href="https://w3id.org/ontouml/metamodel">OntoUML Metamodel</a>, which facilitates
-the conversion between different representations.</p>
+The <a class="reference external" href="https://dev.ontouml.org/ontouml-vocabulary/#mozTocId376551">OntoUML Vocabulary documentation</a> contains a usage overview, presenting information about all available elements, and about how to use them, including examples of SPARQL queries.</p>
+<p>Both the input and output of the software are built upon the same metamodel, the <a class="reference external" href="https://w3id.org/ontouml/metamodel">OntoUML Metamodel</a>, which facilitates the conversion between different representations.</p>
 </section>
 <section id="ontouml-vocabulary-and-gufo">
 <h3>OntoUML Vocabulary and gUFO<a class="headerlink" href="#ontouml-vocabulary-and-gufo" title="Link to this heading"></a></h3>
-<p>The ontouml-vp-plugin has a feature that enables an ontology to be transformed from OntoUML to a graph format. This feature is called the <a class="reference external" href="https://github.com/OntoUML/ontouml-vp-plugin/#model-transformation-to-owl-with-gufo">Model
-Transformation to OWL with gUFO</a>. <strong>[gUFO](https://nemo-ufes.github.
-io/gufo/)</strong> is a lightweight implementation of the OntoUML’s underlying foundational ontology, the Unified Foundational Ontology (UFO).</p>
-<p>Even though an ontology represented in gUFO and in the OntoUML Vocabulary are both suitable for Semantic Web OWL 2 DL applications, these two
-representations are different and were created with different purposes.</p>
-<p>gUFO is intended for reuse in the definition of UFO-based lightweight ontologies. Reuse of gUFO consists in instantiating and/or specializing the various
-entities defined in the ontology, inheriting from it the domain-independent distinctions of UFO. A key feature of UFO (and hence, gUFO) is that it includes
-two taxonomies: one with classes whose instances are individuals (classes in this taxonomy include gufo:Object, gufo:Event) and another with
-classes whose instances are types (classes in this taxonomy include gufo:Kind, gufo:Phase, gufo:Category).</p>
-<p>Differently, the OntoUML Vocabulary was created to support the serialization, exchange, publishing of OntoUML as linked data, and to be used in Semantic Web
-applications. Models in this format are machine-readable resources intended to support the needs of tool developers and researchers, enabling the
-performance of complex analysis using the SPARQL querying language with no need for additional software. In addition, as it contains the concrete elements
-(i.e., diagrammatic data such as diagrams and diagram elements) of OntoUML projects, it can also be used to fully reconstruct the original models.</p>
+<p>The ontouml-vp-plugin has a feature that enables an ontology to be transformed from OntoUML to a graph format. This feature is called the <a class="reference external" href="https://github.com/OntoUML/ontouml-vp-plugin/#model-transformation-to-owl-with-gufo">Model Transformation to OWL with gUFO</a>.
+<strong><a class="reference external" href="https://nemo-ufes.github.io/gufo/">gUFO</a></strong> is a lightweight implementation of the OntoUML’s underlying foundational ontology, the Unified Foundational
+Ontology (UFO).</p>
+<p>Even though an ontology represented in gUFO and in the OntoUML Vocabulary are both suitable for Semantic Web OWL 2 DL applications, these two representations are different and were created with different purposes.</p>
+<p>gUFO is intended for reuse in the definition of UFO-based lightweight ontologies. Reuse of gUFO consists in instantiating and/or specializing the various entities defined in the ontology, inheriting from it the domain-independent distinctions of UFO. A key feature of UFO (and hence, gUFO) is that it includes two taxonomies: one with classes whose instances are individuals (classes in this taxonomy include gufo:Object, gufo:Event) and another with classes whose instances are types (classes in this taxonomy include gufo:Kind, gufo:Phase, gufo:Category).</p>
+<p>Differently, the OntoUML Vocabulary was created to support the serialization, exchange, publishing of OntoUML as linked data, and to be used in Semantic Web applications. Models in this format are machine-readable resources intended to support the needs of tool developers and researchers, enabling the performance of complex analysis using the SPARQL querying language with no need for additional software. In addition, as it contains the concrete elements (i.e., diagrammatic data such as diagrams and diagram elements) of OntoUML projects, it can also be used to fully reconstruct the original models.</p>
 </section>
 </section>
 <section id="basic-syntactical-and-sematic-validation">
@@ -353,32 +326,26 @@ PropertyStereotype).</p></li>
 <section id="related-projects">
 <h2>Related Projects<a class="headerlink" href="#related-projects" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p>**<a class="reference external" href="https://w3id.org/ontouml/metamodel">OntoUML Metamodel</a>
-**: Implementation-independent OntoUML Metamodel. Unlike the UML profile, this version is independent of UML and presents only the</p></li>
-<li><p>concepts officially supported in the language. This metamodel covers the abstract and concrete syntaxes of the language and serves as the reference for
-all projects in the <a class="reference external" href="https://ceur-ws.org/Vol-2969/paper29-FOMI.pdf">OntoUML as a Service (OaaS)</a> ecosystem, including its different model serializations.</p></li>
-<li><p>**<a class="reference external" href="https://w3id.org/ontouml/vocabulary">OntoUML Vocabulary</a>
-**: An OntoUML Metamodel’s serialization in Turtle (ttl) format. This vocabulary supports the serialization, exchange, and</p></li>
-<li><p>publishing of OntoUML models as graphs that can be used for Semantic Web and Linked Data applications.</p></li>
-<li><p><strong><a class="reference external" href="https://w3id.org/ontouml/schema">OntoUML Schema</a></strong>: An OntoUML Metamodel’s serialization in JSON format. The JSON is a format better suited for
-manipulation within software code. It supports the exchange of models between modeling tools and the OntoUML server, providing model intelligent services.</p></li>
-<li><p>**<a class="reference external" href="https://w3id.org/ontouml/vp-plugin">ontouml-vp-plugin</a>
-**: The OntoUML Plugin for Visual Paradigm adds features designed for OntoUML modelers to any version of the Visual Paradigm -</p></li>
-<li><p>a modeling editor that provides a <a class="reference external" href="https://www.visual-paradigm.com/download/community.jsp">free for non-commercial version</a>. These features range from
-enabling OntoUML stereotypes in class diagrams to model verification and transformation.</p></li>
+<li><p><strong><a class="reference external" href="https://w3id.org/ontouml/metamodel">OntoUML Metamodel</a></strong>:
+Implementation-independent OntoUML Metamodel. Unlike the UML profile, this version is independent of UML and presents only the concepts officially supported in the language. This metamodel covers the abstract and concrete syntaxes of the language and serves as the reference for all projects in the <a class="reference external" href="https://ceur-ws.org/Vol-2969/paper29-FOMI.pdf">OntoUML as a Service (OaaS)</a> ecosystem, including its different model serializations.</p></li>
+<li><p><strong><a class="reference external" href="https://w3id.org/ontouml/vocabulary">OntoUML Vocabulary</a></strong>:
+An OntoUML Metamodel’s serialization in Turtle (ttl) format. This vocabulary supports the serialization, exchange, and publishing of OntoUML models as graphs that can be used for Semantic Web and Linked Data applications.</p></li>
+<li><p><strong><a class="reference external" href="https://w3id.org/ontouml/schema">OntoUML Schema</a></strong>:
+An OntoUML Metamodel’s serialization in JSON format. The JSON is a format better suited for manipulation within software code. It supports the exchange of models between modeling tools and the OntoUML server, providing model intelligent services.</p></li>
+<li><p><strong><a class="reference external" href="https://w3id.org/ontouml/vp-plugin">ontouml-vp-plugin</a></strong>:
+The OntoUML Plugin for Visual Paradigm adds features designed for OntoUML modelers to any version of the Visual Paradigm - a modeling editor that provides a <a class="reference external" href="https://www.visual-paradigm.com/download/community.jsp">free for non-commercial version</a>.
+These features range from enabling OntoUML stereotypes in class diagrams to model verification and transformation.</p></li>
 </ul>
 </section>
 <section id="development-contribution">
 <h2>Development Contribution<a class="headerlink" href="#development-contribution" title="Link to this heading"></a></h2>
 <p>We encourage you to contribute to the development of this software.</p>
-<p>The dependencies to develop this software are not the same as the ones to execute it. Hence, it is necessary run the following command on the terminal
-inside the project’s folder to install all necessary dependencies:</p>
+<p>The dependencies to develop this software are not the same as the ones to execute it. Hence, it is necessary run the following command on the terminal inside the project’s folder to install all necessary dependencies:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pip install -r requirements.txt
 </pre></div>
 </div>
 <p>You also need run <code class="docutils literal notranslate"><span class="pre">pre-commit</span> <span class="pre">install</span></code> to set up the git hook scripts.</p>
-<p>The ontouml-json2graph package was developed using test-driven-based development. Multiple tests are available inside
-the following folder: <code class="docutils literal notranslate"><span class="pre">ontouml-json2graph/json2graph/tests</span></code>. To execute the tests, run the following command from inside the project’s root folder:</p>
+<p>The ontouml-json2graph package was developed using test-driven-based development. Multiple tests are available inside the following folder: <code class="docutils literal notranslate"><span class="pre">ontouml-json2graph/json2graph/tests</span></code>. To execute the tests, run the following command from inside the project’s root folder:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pytest .\json2graph\tests\test_main.py
 </pre></div>
 </div>
@@ -386,13 +353,11 @@ the following folder: <code class="docutils literal notranslate"><span class="pr
 </section>
 <section id="author">
 <h2>Author<a class="headerlink" href="#author" title="Link to this heading"></a></h2>
-<p>This project is maintained by the <a class="reference external" href="https://www.utwente.nl/en/eemcs/scs/">Semantics, Cybersecurity &amp; Services (SCS) Group</a> of the
-<a class="reference external" href="https://www.utwente.nl/">University of Twente</a>, The Netherlands. Its developer is:</p>
+<p>This project is maintained by the <a class="reference external" href="https://www.utwente.nl/en/eemcs/scs/">Semantics, Cybersecurity &amp; Services (SCS) Group</a> of the <a class="reference external" href="https://www.utwente.nl/">University of Twente</a>, The Netherlands. Its developer is:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://orcid.org/0000-0003-2736-7817">Pedro Paulo Favato Barcelos</a> [<a class="reference external" href="https://github.com/pedropaulofb">GitHub</a>] [<a class="reference external" href="https://www.linkedin.com/in/pedro-paulo-favato-barcelos/">LinkedIn</a>]</p></li>
 </ul>
-<p>Feel free to get in touch using the provided links. For questions, contributions, or to report any problem, you can <strong><a class="reference external" href="https://github.com/OntoUML/ontouml-json2graph/issues">open an issue</a></strong>
-at this repository.</p>
+<p>Feel free to get in touch using the provided links. For questions, contributions, or to report any problem, you can <strong><a class="reference external" href="https://github.com/OntoUML/ontouml-json2graph/issues">open an issue</a></strong> at this repository.</p>
 </section>
 </section>
 
