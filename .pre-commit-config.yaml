@@ -1,4 +1,5 @@
 exclude: ^(sphinx|doc)
+
 repos:
   - repo: https://github.com/jendrikseipp/vulture
     rev: v2.9.1
@@ -64,13 +65,10 @@ repos:
         name: update documentation
         entry: python update_documentation.py
         language: system
-        types: [python]
+        types: [ python ]
         pass_filenames: false
         stages:
           - pre-push
-
-
-#
 
 ci:
   autofix_commit_msg: |

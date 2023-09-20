@@ -1,225 +1,389 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta charset="utf-8"/>
+    <meta content="Docutils 0.18.1: http://docutils.sourceforge.net/" name="generator"/>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>json2graph.modules.arguments &mdash; ontouml-json2graph  documentation</title>
-      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
-      <link rel="stylesheet" href="../../../../_static/css/sphinx_rtd_size.css" type="text/css" />
-  <!--[if lt IE 9]>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>json2graph.modules.arguments &mdash; ontouml-json2graph documentation</title>
+    <link href="../../../../_static/pygments.css" rel="stylesheet" type="text/css"/>
+    <link href="../../../../_static/css/theme.css" rel="stylesheet" type="text/css"/>
+    <link href="../../../../_static/graphviz.css" rel="stylesheet" type="text/css"/>
+    <link href="../../../../_static/css/sphinx_rtd_size.css" rel="stylesheet" type="text/css"/>
+    <!--[if lt IE 9]>
     <script src="../../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../../../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <![endif]-->
+
+    <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../../_static/js/theme.js"></script>
-    <link rel="index" title="Index" href="../../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="json2graph.modules.errors" href="../errors/index.html" />
-    <link rel="prev" title="json2graph.modules" href="../index.html" /> 
+    <link href="../../../../genindex.html" rel="index" title="Index"/>
+    <link href="../../../../search.html" rel="search" title="Search"/>
+    <link href="../errors/index.html" rel="next" title="json2graph.modules.errors"/>
+    <link href="../index.html" rel="prev" title="json2graph.modules"/>
 </head>
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+<body class="wy-body-for-nav">
+<div class="wy-grid-for-nav">
+    <nav class="wy-nav-side" data-toggle="wy-nav-shift">
+        <div class="wy-side-scroll">
+            <div class="wy-side-nav-search">
 
-          
-          
-          <a href="../../../../index.html" class="icon icon-home">
-            ontouml-json2graph
-              <img src="../../../../_static/logo-json2graph-reduced.png" class="logo" alt="Logo"/>
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../../../README.html">The OntoUML JSON2Graph Transformation</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph</span></code></a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="../../decoder/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.decoder</span></code></a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.modules</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../tests/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.tests</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../index.html#submodules">Submodules</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
 
+                <a class="icon icon-home" href="../../../../index.html">
+                    ontouml-json2graph
+                    <img alt="Logo" class="logo" src="../../../../_static/logo-json2graph-reduced.png"/>
+                </a>
+                <div role="search">
+                    <form action="../../../../search.html" class="wy-form" id="rtd-search-form" method="get">
+                        <input aria-label="Search docs" name="q" placeholder="Search docs" type="text"/>
+                        <input name="check_keywords" type="hidden" value="yes"/>
+                        <input name="area" type="hidden" value="default"/>
+                    </form>
+                </div>
+            </div>
+            <div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+                <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../../../../README.html">The OntoUML
+                        JSON2Graph Transformation</a></li>
+                    <li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API
+                        Reference</a>
+                        <ul class="current">
+                            <li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><code
+                                    class="xref py py-mod docutils literal notranslate"><span
+                                    class="pre">json2graph</span></code></a>
+                                <ul class="current">
+                                    <li class="toctree-l3 current"><a class="reference internal"
+                                                                      href="../../index.html#subpackages">Subpackages</a>
+                                        <ul class="current">
+                                            <li class="toctree-l4"><a class="reference internal"
+                                                                      href="../../decoder/index.html"><code
+                                                    class="xref py py-mod docutils literal notranslate"><span
+                                                    class="pre">json2graph.decoder</span></code></a></li>
+                                            <li class="toctree-l4 current"><a class="reference internal"
+                                                                              href="../index.html"><code
+                                                    class="xref py py-mod docutils literal notranslate"><span
+                                                    class="pre">json2graph.modules</span></code></a></li>
+                                            <li class="toctree-l4"><a class="reference internal"
+                                                                      href="../../tests/index.html"><code
+                                                    class="xref py py-mod docutils literal notranslate"><span
+                                                    class="pre">json2graph.tests</span></code></a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="toctree-l3"><a class="reference internal"
+                                                              href="../../index.html#submodules">Submodules</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
         </div>
-      </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../../../index.html">ontouml-json2graph</a>
-      </nav>
+    <section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+        <nav aria-label="Mobile navigation menu" class="wy-nav-top">
+            <i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+            <a href="../../../../index.html">ontouml-json2graph</a>
+        </nav>
 
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../../../index.html">API Reference</a></li>
-          <li class="breadcrumb-item"><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph</span></code></a></li>
-          <li class="breadcrumb-item"><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.modules</span></code></a></li>
-      <li class="breadcrumb-item active"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.modules.arguments</span></code></li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="../../../../_sources/autoapi/json2graph/modules/arguments/index.rst.txt" rel="nofollow"> View page source</a>
-      </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
-  <section id="module-json2graph.modules.arguments">
-<span id="json2graph-modules-arguments"></span><h1><a class="reference internal" href="#module-json2graph.modules.arguments" title="json2graph.modules.arguments"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.modules.arguments</span></code></a><a class="headerlink" href="#module-json2graph.modules.arguments" title="Link to this heading"></a></h1>
-<p>Argument Treatments Module.</p>
-<p>This module provides functions for parsing and validating user-provided arguments when starting the software execution
-as a script.</p>
-<p>It also makes the ARGUMENTS variable globally accessible with the user’s arguments (when executed as a script) or with
-default values (when executed as test or as a library).</p>
-<section id="module-contents">
-<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
-<section id="functions">
-<h3>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h3>
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#json2graph.modules.arguments.initialize_args_script" title="json2graph.modules.arguments.initialize_args_script"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initialize_args_script</span></code></a>()</p></td>
-<td><p>Parse the command-line arguments provided by the user and performs necessary validations.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#json2graph.modules.arguments.initialize_args_import" title="json2graph.modules.arguments.initialize_args_import"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initialize_args_import</span></code></a>([input_path, output_path, ...])</p></td>
-<td><p>Initialize the global variable ARGUMENTS of type dictionary, which contains user-provided     (when executed in script mode) or default arguments (when executed as a library or for testing).</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#json2graph.modules.arguments.initialize_args_test" title="json2graph.modules.arguments.initialize_args_test"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initialize_args_test</span></code></a>([input_path, language])</p></td>
-<td><p>Initialize the global variable ARGUMENTS of type dictionary, which contains user-provided     (when executed in script mode) or default arguments (when executed as a library or for testing).</p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="attributes">
-<h3>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h3>
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#json2graph.modules.arguments.ARGUMENTS" title="json2graph.modules.arguments.ARGUMENTS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ARGUMENTS</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#json2graph.modules.arguments.LOGGER" title="json2graph.modules.arguments.LOGGER"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LOGGER</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-</tbody>
-</table>
-<dl class="py data">
-<dt class="sig sig-object py" id="json2graph.modules.arguments.ARGUMENTS">
-<span class="sig-prename descclassname"><span class="pre">json2graph.modules.arguments.</span></span><span class="sig-name descname"><span class="pre">ARGUMENTS</span></span><a class="headerlink" href="#json2graph.modules.arguments.ARGUMENTS" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+        <div class="wy-nav-content">
+            <div class="rst-content">
+                <div aria-label="Page navigation" role="navigation">
+                    <ul class="wy-breadcrumbs">
+                        <li><a aria-label="Home" class="icon icon-home" href="../../../../index.html"></a></li>
+                        <li class="breadcrumb-item"><a href="../../../index.html">API Reference</a></li>
+                        <li class="breadcrumb-item"><a href="../../index.html"><code
+                                class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph</span></code></a>
+                        </li>
+                        <li class="breadcrumb-item"><a href="../index.html"><code
+                                class="xref py py-mod docutils literal notranslate"><span
+                                class="pre">json2graph.modules</span></code></a></li>
+                        <li class="breadcrumb-item active"><code
+                                class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.modules.arguments</span></code>
+                        </li>
+                        <li class="wy-breadcrumbs-aside">
+                            <a href="../../../../_sources/autoapi/json2graph/modules/arguments/index.rst.txt"
+                               rel="nofollow"> View page source</a>
+                        </li>
+                    </ul>
+                    <hr/>
+                </div>
+                <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
+                    <div itemprop="articleBody">
 
-<dl class="py data">
-<dt class="sig sig-object py" id="json2graph.modules.arguments.LOGGER">
-<span class="sig-prename descclassname"><span class="pre">json2graph.modules.arguments.</span></span><span class="sig-name descname"><span class="pre">LOGGER</span></span><a class="headerlink" href="#json2graph.modules.arguments.LOGGER" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+                        <section id="module-json2graph.modules.arguments">
+                            <span id="json2graph-modules-arguments"></span>
+                            <h1><a class="reference internal" href="#module-json2graph.modules.arguments"
+                                   title="json2graph.modules.arguments"><code
+                                    class="xref py py-mod docutils literal notranslate"><span class="pre">json2graph.modules.arguments</span></code></a><a
+                                    class="headerlink" href="#module-json2graph.modules.arguments"
+                                    title="Link to this heading"></a></h1>
+                            <p>Argument Treatments Module.</p>
+                            <p>This module provides functions for parsing and validating user-provided arguments when
+                                starting the software execution
+                                as a script.</p>
+                            <p>It also makes the ARGUMENTS variable globally accessible with the user’s arguments (when
+                                executed as a script) or with
+                                default values (when executed as test or as a library).</p>
+                            <section id="module-contents">
+                                <h2>Module Contents<a class="headerlink" href="#module-contents"
+                                                      title="Link to this heading"></a></h2>
+                                <section id="functions">
+                                    <h3>Functions<a class="headerlink" href="#functions"
+                                                    title="Link to this heading"></a></h3>
+                                    <table class="autosummary longtable docutils align-default">
+                                        <tbody>
+                                        <tr class="row-odd">
+                                            <td><p><a class="reference internal"
+                                                      href="#json2graph.modules.arguments.initialize_args_script"
+                                                      title="json2graph.modules.arguments.initialize_args_script"><code
+                                                    class="xref py py-obj docutils literal notranslate"><span
+                                                    class="pre">initialize_args_script</span></code></a>()</p></td>
+                                            <td><p>Parse the command-line arguments provided by the user and performs
+                                                necessary validations.</p></td>
+                                        </tr>
+                                        <tr class="row-even">
+                                            <td><p><a class="reference internal"
+                                                      href="#json2graph.modules.arguments.initialize_args_import"
+                                                      title="json2graph.modules.arguments.initialize_args_import"><code
+                                                    class="xref py py-obj docutils literal notranslate"><span
+                                                    class="pre">initialize_args_import</span></code></a>([input_path, output_path, ...])
+                                            </p></td>
+                                            <td><p>Initialize the global variable ARGUMENTS of type dictionary, which
+                                                contains user-provided (when executed in script mode) or default
+                                                arguments (when executed as a library or for testing).</p></td>
+                                        </tr>
+                                        <tr class="row-odd">
+                                            <td><p><a class="reference internal"
+                                                      href="#json2graph.modules.arguments.initialize_args_test"
+                                                      title="json2graph.modules.arguments.initialize_args_test"><code
+                                                    class="xref py py-obj docutils literal notranslate"><span
+                                                    class="pre">initialize_args_test</span></code></a>([input_path, language])
+                                            </p></td>
+                                            <td><p>Initialize the global variable ARGUMENTS of type dictionary, which
+                                                contains user-provided (when executed in script mode) or default
+                                                arguments (when executed as a library or for testing).</p></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </section>
+                                <section id="attributes">
+                                    <h3>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a>
+                                    </h3>
+                                    <table class="autosummary longtable docutils align-default">
+                                        <tbody>
+                                        <tr class="row-odd">
+                                            <td><p><a class="reference internal"
+                                                      href="#json2graph.modules.arguments.ARGUMENTS"
+                                                      title="json2graph.modules.arguments.ARGUMENTS"><code
+                                                    class="xref py py-obj docutils literal notranslate"><span
+                                                    class="pre">ARGUMENTS</span></code></a></p></td>
+                                            <td><p></p></td>
+                                        </tr>
+                                        <tr class="row-even">
+                                            <td><p><a class="reference internal"
+                                                      href="#json2graph.modules.arguments.LOGGER"
+                                                      title="json2graph.modules.arguments.LOGGER"><code
+                                                    class="xref py py-obj docutils literal notranslate"><span
+                                                    class="pre">LOGGER</span></code></a></p></td>
+                                            <td><p></p></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <dl class="py data">
+                                        <dt class="sig sig-object py" id="json2graph.modules.arguments.ARGUMENTS">
+                                            <span class="sig-prename descclassname"><span class="pre">json2graph.modules.arguments.</span></span><span
+                                                class="sig-name descname"><span class="pre">ARGUMENTS</span></span><a
+                                                class="headerlink" href="#json2graph.modules.arguments.ARGUMENTS"
+                                                title="Link to this definition"></a></dt>
+                                        <dd></dd>
+                                    </dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="json2graph.modules.arguments.initialize_args_script">
-<span class="sig-prename descclassname"><span class="pre">json2graph.modules.arguments.</span></span><span class="sig-name descname"><span class="pre">initialize_args_script</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.modules.arguments.initialize_args_script" title="Link to this definition"></a></dt>
-<dd><p>Parse the command-line arguments provided by the user and performs necessary validations.</p>
-<p>The ARGUMENTS variable must be initialized in every possible execution mode.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
+                                    <dl class="py data">
+                                        <dt class="sig sig-object py" id="json2graph.modules.arguments.LOGGER">
+                                            <span class="sig-prename descclassname"><span class="pre">json2graph.modules.arguments.</span></span><span
+                                                class="sig-name descname"><span class="pre">LOGGER</span></span><a
+                                                class="headerlink" href="#json2graph.modules.arguments.LOGGER"
+                                                title="Link to this definition"></a></dt>
+                                        <dd></dd>
+                                    </dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="json2graph.modules.arguments.initialize_args_import">
-<span class="sig-prename descclassname"><span class="pre">json2graph.modules.arguments.</span></span><span class="sig-name descname"><span class="pre">initialize_args_import</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'not_initialized'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">os.getcwd()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_uri</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'https://example.org#'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">graph_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ttl'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">language</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">silent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correct</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.modules.arguments.initialize_args_import" title="Link to this definition"></a></dt>
-<dd><p>Initialize the global variable ARGUMENTS of type dictionary, which contains user-provided     (when executed in script mode) or default arguments (when executed as a library or for testing).</p>
-<p>The ARGUMENTS variable must be initialized in every possible execution mode.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>input_path</strong> (<em>str</em>) – Path to the directory or JSON file to be decoded. (Optional)</p></li>
-<li><p><strong>output_path</strong> (<em>str</em>) – Path to the directory in which the result file(s) will be saved. (Optional)</p></li>
-<li><p><strong>base_uri</strong> (<em>str</em>) – Base URI to be used for generating URIs for ontology concepts. (Optional)
-Default is “<a class="reference external" href="https://example">https://example</a>.org#”.</p></li>
-<li><p><strong>graph_format</strong> (<em>str</em>) – Format for saving the resulting knowledge graph. (Optional)
-Default value is ‘ttl’ (Turtle syntax).</p></li>
-<li><p><strong>language</strong> (<em>str</em>) – Language tag to be added to the ontology’s concepts. (Optional)</p></li>
-<li><p><strong>model_only</strong> (<em>bool</em>) – If True, only the OntoUML model will be extracted without diagrammatic information. (Optional)</p></li>
-<li><p><strong>silent</strong> (<em>bool</em>) – If True, suppresses intermediate communications and log messages during execution. (Optional)</p></li>
-<li><p><strong>correct</strong> (<em>bool</em>) – If True, attempts to correct potential errors during the conversion process. (Optional)</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
+                                    <dl class="py function">
+                                        <dt class="sig sig-object py"
+                                            id="json2graph.modules.arguments.initialize_args_script">
+                                            <span class="sig-prename descclassname"><span class="pre">json2graph.modules.arguments.</span></span><span
+                                                class="sig-name descname"><span
+                                                class="pre">initialize_args_script</span></span><span class="sig-paren">(</span><span
+                                                class="sig-paren">)</span><a class="headerlink"
+                                                                             href="#json2graph.modules.arguments.initialize_args_script"
+                                                                             title="Link to this definition"></a></dt>
+                                        <dd><p>Parse the command-line arguments provided by the user and performs
+                                            necessary validations.</p>
+                                            <p>The ARGUMENTS variable must be initialized in every possible execution
+                                                mode.</p>
+                                            <dl class="field-list simple">
+                                                <dt class="field-odd">Return type<span class="colon">:</span></dt>
+                                                <dd class="field-odd"><p>None</p>
+                                                </dd>
+                                            </dl>
+                                        </dd>
+                                    </dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="json2graph.modules.arguments.initialize_args_test">
-<span class="sig-prename descclassname"><span class="pre">json2graph.modules.arguments.</span></span><span class="sig-name descname"><span class="pre">initialize_args_test</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'not_initialized'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">language</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.modules.arguments.initialize_args_test" title="Link to this definition"></a></dt>
-<dd><p>Initialize the global variable ARGUMENTS of type dictionary, which contains user-provided     (when executed in script mode) or default arguments (when executed as a library or for testing).</p>
-<p>The ARGUMENTS variable must be initialized in every possible execution mode.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>input_path</strong> (<em>str</em>) – Path to the directory or JSON file to be decoded. (Optional)</p></li>
-<li><p><strong>language</strong> (<em>str</em>) – Language tag to be added to the ontology’s concepts. (Optional)</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
+                                    <dl class="py function">
+                                        <dt class="sig sig-object py"
+                                            id="json2graph.modules.arguments.initialize_args_import">
+                                            <span class="sig-prename descclassname"><span class="pre">json2graph.modules.arguments.</span></span><span
+                                                class="sig-name descname"><span
+                                                class="pre">initialize_args_import</span></span><span class="sig-paren">(</span><em
+                                                class="sig-param"><span class="n"><span
+                                                class="pre">input_path</span></span><span class="o"><span
+                                                class="pre">=</span></span><span class="default_value"><span
+                                                class="pre">'not_initialized'</span></span></em>, <em class="sig-param"><span
+                                                class="n"><span class="pre">output_path</span></span><span
+                                                class="o"><span class="pre">=</span></span><span
+                                                class="default_value"><span class="pre">os.getcwd()</span></span></em>,
+                                            <em class="sig-param"><span class="n"><span
+                                                    class="pre">base_uri</span></span><span class="o"><span class="pre">=</span></span><span
+                                                    class="default_value"><span
+                                                    class="pre">'https://example.org#'</span></span></em>, <em
+                                                class="sig-param"><span class="n"><span class="pre">graph_format</span></span><span
+                                                class="o"><span class="pre">=</span></span><span
+                                                class="default_value"><span class="pre">'ttl'</span></span></em>, <em
+                                                class="sig-param"><span class="n"><span
+                                                class="pre">language</span></span><span class="o"><span
+                                                class="pre">=</span></span><span class="default_value"><span
+                                                class="pre">''</span></span></em>, <em class="sig-param"><span
+                                                class="n"><span class="pre">model_only</span></span><span
+                                                class="o"><span class="pre">=</span></span><span
+                                                class="default_value"><span class="pre">False</span></span></em>, <em
+                                                class="sig-param"><span class="n"><span class="pre">silent</span></span><span
+                                                class="o"><span class="pre">=</span></span><span
+                                                class="default_value"><span class="pre">True</span></span></em>, <em
+                                                class="sig-param"><span class="n"><span
+                                                class="pre">correct</span></span><span class="o"><span
+                                                class="pre">=</span></span><span class="default_value"><span
+                                                class="pre">False</span></span></em><span class="sig-paren">)</span><a
+                                                class="headerlink"
+                                                href="#json2graph.modules.arguments.initialize_args_import"
+                                                title="Link to this definition"></a></dt>
+                                        <dd><p>Initialize the global variable ARGUMENTS of type dictionary, which
+                                            contains user-provided (when executed in script mode) or default arguments
+                                            (when executed as a library or for testing).</p>
+                                            <p>The ARGUMENTS variable must be initialized in every possible execution
+                                                mode.</p>
+                                            <dl class="field-list simple">
+                                                <dt class="field-odd">Parameters<span class="colon">:</span></dt>
+                                                <dd class="field-odd">
+                                                    <ul class="simple">
+                                                        <li><p><strong>input_path</strong> (<em>str</em>) – Path to the
+                                                            directory or JSON file to be decoded. (Optional)</p></li>
+                                                        <li><p><strong>output_path</strong> (<em>str</em>) – Path to the
+                                                            directory in which the result file(s) will be saved.
+                                                            (Optional)</p></li>
+                                                        <li><p><strong>base_uri</strong> (<em>str</em>) – Base URI to be
+                                                            used for generating URIs for ontology concepts. (Optional)
+                                                            Default is “<a class="reference external"
+                                                                           href="https://example">https://example</a>.org#”.
+                                                        </p></li>
+                                                        <li><p><strong>graph_format</strong> (<em>str</em>) – Format for
+                                                            saving the resulting knowledge graph. (Optional)
+                                                            Default value is ‘ttl’ (Turtle syntax).</p></li>
+                                                        <li><p><strong>language</strong> (<em>str</em>) – Language tag
+                                                            to be added to the ontology’s concepts. (Optional)</p></li>
+                                                        <li><p><strong>model_only</strong> (<em>bool</em>) – If True,
+                                                            only the OntoUML model will be extracted without
+                                                            diagrammatic information. (Optional)</p></li>
+                                                        <li><p><strong>silent</strong> (<em>bool</em>) – If True,
+                                                            suppresses intermediate communications and log messages
+                                                            during execution. (Optional)</p></li>
+                                                        <li><p><strong>correct</strong> (<em>bool</em>) – If True,
+                                                            attempts to correct potential errors during the conversion
+                                                            process. (Optional)</p></li>
+                                                    </ul>
+                                                </dd>
+                                            </dl>
+                                        </dd>
+                                    </dl>
 
-</section>
-</section>
-</section>
+                                    <dl class="py function">
+                                        <dt class="sig sig-object py"
+                                            id="json2graph.modules.arguments.initialize_args_test">
+                                            <span class="sig-prename descclassname"><span class="pre">json2graph.modules.arguments.</span></span><span
+                                                class="sig-name descname"><span class="pre">initialize_args_test</span></span><span
+                                                class="sig-paren">(</span><em class="sig-param"><span class="n"><span
+                                                class="pre">input_path</span></span><span class="o"><span
+                                                class="pre">=</span></span><span class="default_value"><span
+                                                class="pre">'not_initialized'</span></span></em>, <em class="sig-param"><span
+                                                class="n"><span class="pre">language</span></span><span class="o"><span
+                                                class="pre">=</span></span><span class="default_value"><span
+                                                class="pre">''</span></span></em><span class="sig-paren">)</span><a
+                                                class="headerlink"
+                                                href="#json2graph.modules.arguments.initialize_args_test"
+                                                title="Link to this definition"></a></dt>
+                                        <dd><p>Initialize the global variable ARGUMENTS of type dictionary, which
+                                            contains user-provided (when executed in script mode) or default arguments
+                                            (when executed as a library or for testing).</p>
+                                            <p>The ARGUMENTS variable must be initialized in every possible execution
+                                                mode.</p>
+                                            <dl class="field-list simple">
+                                                <dt class="field-odd">Parameters<span class="colon">:</span></dt>
+                                                <dd class="field-odd">
+                                                    <ul class="simple">
+                                                        <li><p><strong>input_path</strong> (<em>str</em>) – Path to the
+                                                            directory or JSON file to be decoded. (Optional)</p></li>
+                                                        <li><p><strong>language</strong> (<em>str</em>) – Language tag
+                                                            to be added to the ontology’s concepts. (Optional)</p></li>
+                                                    </ul>
+                                                </dd>
+                                            </dl>
+                                        </dd>
+                                    </dl>
+
+                                </section>
+                            </section>
+                        </section>
 
 
-           </div>
-          </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../index.html" class="btn btn-neutral float-left" title="json2graph.modules" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../errors/index.html" class="btn btn-neutral float-right" title="json2graph.modules.errors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+                    </div>
+                </div>
+                <footer>
+                    <div aria-label="Footer" class="rst-footer-buttons" role="navigation">
+                        <a accesskey="p" class="btn btn-neutral float-left" href="../index.html"
+                           rel="prev" title="json2graph.modules"><span aria-hidden="true" class="fa fa-arrow-circle-left"></span>
+                            Previous</a>
+                        <a accesskey="n" class="btn btn-neutral float-right"
+                           href="../errors/index.html" rel="next" title="json2graph.modules.errors">Next <span
+                                aria-hidden="true" class="fa fa-arrow-circle-right"></span></a>
+                    </div>
 
-  <hr/>
+                    <hr/>
 
-  <div role="contentinfo">
-    <p>&#169; Copyright 2023, Semantics, Cybersecurity &amp; Services (SCS), University of Twente, the Netherlands.</p>
-  </div>
+                    <div role="contentinfo">
+                        <p>&#169; Copyright 2023, Semantics, Cybersecurity &amp; Services (SCS), University of Twente,
+                            the Netherlands.</p>
+                    </div>
 
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
+                    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+                    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+                    provided by <a href="https://readthedocs.org">Read the Docs</a>.
 
-</footer>
+
+                </footer>
+            </div>
         </div>
-      </div>
     </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
+</div>
+<script>
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable(true);
+    });
+</script>
 
 </body>
 </html>
