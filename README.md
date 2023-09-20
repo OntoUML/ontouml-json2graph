@@ -274,6 +274,8 @@ inside the project's folder to install all necessary dependencies:
 pip install -r requirements.txt
 ```
 
+You also need run `pre-commit install` to set up the git hook scripts.
+
 The ontouml-json2graph package was developed using test-driven-based development. Multiple tests are available inside
 the following folder: `ontouml-json2graph/json2graph/tests`. To execute the tests, run the following command from inside the project's root folder:
 
