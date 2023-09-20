@@ -1,0 +1,73 @@
+:py:mod:`json2graph.decoder.decode_obj_package`
+===============================================
+
+.. py:module:: json2graph.decoder.decode_obj_package
+
+.. autoapi-nested-parse::
+
+   Functions to decode specificities of the object Package.
+
+   Function's nomenclatures:
+       - Functions that set one property are named: set_<subject>_<predicate>_<object>.
+       - Functions that set multiple object properties are named: set_<subject>_relations.
+       - Functions that set multiple data properties are named: set_<subject>_attributes.
+       - Functions that set both object and data properties are named: set_<subject>_properties.
+       - Functions that set default values: set_<subject>_defaults.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   json2graph.decoder.decode_obj_package.get_package_contents
+   json2graph.decoder.decode_obj_package.set_package_containsmodelelement_modelelement
+   json2graph.decoder.decode_obj_package.create_package_properties
+
+
+
+.. py:function:: get_package_contents(package_dict, package_id, list_contents = [])
+
+   Receive the dictionary with all loaded JSON data and returns the value of the 'contents' field for a given     object (defined by the received value of its ID).
+
+   :param package_dict: Package's data to have its fields decoded.
+   :type package_dict: dict
+   :param package_id: ID of the Package to have its list of contents returned.
+   :type package_id: str
+   :param list_contents: Optional. Used to identify if the desired value was already found and exit recursion.
+   :type list_contents: list
+   :return: List of contents for a given Package.
+   :rtype: list[dict]
+
+
+.. py:function:: set_package_containsmodelelement_modelelement(package_dict, ontouml_graph)
+
+   Set object property ontouml:containsModelElement between an ontouml:Package and an ontouml:ModelElement it     contains.
+
+   :param package_dict: Package's data to have its fields decoded.
+   :type package_dict: dict
+   :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
+   :type ontouml_graph: Graph
+
+
+.. py:function:: create_package_properties(json_data, ontouml_graph)
+
+   Decode an object of type Package.
+
+   Receives the whole JSON loaded data as a dictionary and manipulates it to create all properties in which the
+   object's type is domain of.
+
+   Created object properties:
+       - ontouml:containsModelElement (range:ModelElement)
+
+   :param json_data: JSON's data to have its fields decoded loaded into a dictionary.
+   :type json_data: dict
+   :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
+   :type ontouml_graph: Graph
+
+

@@ -1,0 +1,21 @@
+:py:mod:`json2graph.tests`
+==========================
+
+.. py:module:: json2graph.tests
+
+.. autoapi-nested-parse::
+
+   Empty __init__ file.
+
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   test_aux/index.rst
+   test_main/index.rst
+
+

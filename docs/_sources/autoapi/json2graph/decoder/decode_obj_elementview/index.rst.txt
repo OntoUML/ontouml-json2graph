@@ -1,0 +1,74 @@
+:py:mod:`json2graph.decoder.decode_obj_elementview`
+===================================================
+
+.. py:module:: json2graph.decoder.decode_obj_elementview
+
+.. autoapi-nested-parse::
+
+   Functions to decode specificities of the object ElementView.
+
+   Function's nomenclatures:
+       - Functions that set one property are named: set_<subject>_<predicate>_<object>.
+       - Functions that set multiple object properties are named: set_<subject>_relations.
+       - Functions that set multiple data properties are named: set_<subject>_attributes.
+       - Functions that set both object and data properties are named: set_<subject>_properties.
+       - Functions that set default values: set_<subject>_defaults.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   json2graph.decoder.decode_obj_elementview.set_elementview_relations
+   json2graph.decoder.decode_obj_elementview.create_elementview_properties
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   json2graph.decoder.decode_obj_elementview.ELEMENT_VIEW_TYPES
+
+
+.. py:data:: ELEMENT_VIEW_TYPES
+   :value: ['ClassView', 'PackageView', 'GeneralizationSetView', 'RelationView', 'GeneralizationView', 'NoteView']
+
+   
+
+.. py:function:: set_elementview_relations(elementview_dict, ontouml_graph)
+
+   Set an ontouml:ElementView's ontouml:shape and ontouml:isViewOf object properties in the resulting graph.
+
+   :param elementview_dict: ElementView object loaded as a dictionary.
+   :type elementview_dict: dict
+   :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
+   :type ontouml_graph: Graph
+
+
+.. py:function:: create_elementview_properties(json_data, ontouml_graph)
+
+   Decode an object of type ElementView.
+
+   Receives the whole JSON loaded data as a dictionary and manipulates it to create all properties in which the
+   object's type is domain of.
+
+   Created properties:
+       - ontouml:shape (domain ontouml:ElementView, range ontouml:Shape)
+       - ontouml:isViewOf (domain ontouml:ElementView, range ontouml:ModelElement)
+       - ontouml:sourceView (domain ontouml:ConnectorView, range ontouml:ElementView)
+       - ontouml:targetView (domain ontouml:ConnectorView, range ontouml:ElementView)
+
+   :param json_data: JSON's data to have its fields decoded loaded into a dictionary.
+   :type json_data: dict
+   :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
+   :type ontouml_graph: Graph
+
+

@@ -1,0 +1,41 @@
+:py:mod:`json2graph.modules.logger`
+===================================
+
+.. py:module:: json2graph.modules.logger
+
+.. autoapi-nested-parse::
+
+   This module provides functions for configuring a logger that outputs messages to the console.
+
+   The logger can be customized based on different execution modes, allowing you to control the log level.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   json2graph.modules.logger.initialize_logger
+
+
+
+.. py:function:: initialize_logger(execution_mode = 'script')
+
+   Create and initialize logger named 'execution-logger'.
+
+   Different triggers are defined for each execution mode:
+       - script: INFO
+       - import: ERROR
+       - test: ERROR
+
+   :param execution_mode: Information about execution mode. Valid values are 'script', 'import' and 'test'.
+   :type execution_mode: str
+   :return: Created logger called 'execution-logger'.
+   :rtype: logging.Logger
+
+

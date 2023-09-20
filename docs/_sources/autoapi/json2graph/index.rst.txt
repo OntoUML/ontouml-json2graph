@@ -1,0 +1,32 @@
+:py:mod:`json2graph`
+====================
+
+.. py:module:: json2graph
+
+.. autoapi-nested-parse::
+
+   Empty __init__ file.
+
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   decoder/index.rst
+   modules/index.rst
+   tests/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   decode/index.rst
+   library/index.rst
+
+
