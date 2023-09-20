@@ -8,6 +8,8 @@ repos:
         entry: poetry export -f requirements.txt --output requirements.txt --with dev
         language: system
         pass_filenames: false
+        stages:
+          - pre-push
       - id: update_documentation
         name: update documentation
         entry: python update_documentation.py
