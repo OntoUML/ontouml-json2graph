@@ -1,7 +1,9 @@
 """IO functions used in diverse occasions."""
 import json
 import os
+import urllib
 
+from icecream import ic
 from rdflib import Graph
 
 from .errors import report_error_io_read, report_error_io_write
@@ -46,6 +48,34 @@ def safe_load_json_file(json_path: str) -> dict:
     return json_data
 
 
+def fix_uri(url_string) -> str:
+    """To do."""
+    # Step 1: Parse the URL
+    parsed_url = urllib.parse.urlparse(url_string)
+
+    # Step 2: URL Encode Non-URI Characters
+    # Encode non-ASCII characters and spaces in the path and query components
+    encoded_path = urllib.parse.quote(parsed_url.path)
+    encoded_query = urllib.parse.quote(parsed_url.query)
+    encoded_scheme = urllib.parse.quote(parsed_url.scheme)
+    encoded_netloc = urllib.parse.quote(parsed_url.netloc)
+    encoded_fragment = urllib.parse.quote(parsed_url.fragment)
+
+    # Step 3: Reconstruct the URI
+    valid_uri = urllib.parse.urlunparse(
+        (
+            encoded_scheme,
+            encoded_netloc,
+            encoded_path,
+            "",  # Empty string for params
+            encoded_query,
+            encoded_fragment,
+        )
+    )
+
+    return valid_uri
+
+
 def safe_write_graph_file(ontouml_graph: Graph, output_file_path: str, syntax: str) -> None:
     """Safely saves the graph into a file in the informed destination with the desired syntax.
 
@@ -58,6 +88,24 @@ def safe_write_graph_file(ontouml_graph: Graph, output_file_path: str, syntax: s
     """
     try:
         ontouml_graph.serialize(destination=output_file_path, encoding="utf-8", format=syntax)
-    except OSError as error:
-        file_description = "output graph file"
-        report_error_io_write(output_file_path, file_description, error)
+    except Exception:
+        for s, p, o in ontouml_graph:
+            if "URIRef" in str(type(s)):
+                old_s = s.toPython()
+                new_s = fix_uri(old_s)
+                if old_s != new_s:
+                    ic(old_s, new_s)
+            if "URIRef" in str(type(p)):
+                old_p = p.toPython()
+                new_p = fix_uri(old_p)
+                if old_p != new_p:
+                    ic(old_p, new_p)
+            if "URIRef" in str(type(o)):
+                old_o = o.toPython()
+                new_o = fix_uri(old_o)
+                if old_o != new_o:
+                    ic(old_o, new_o)
+        # ontouml_graph.serialize(destination=output_file_path, encoding="utf-8", format=syntax)
+    except OSError as errorOS:
+        file_description = "output graph file - OSError"
+        report_error_io_write(output_file_path, file_description, errorOS)
