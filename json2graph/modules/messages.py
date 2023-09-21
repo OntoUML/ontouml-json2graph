@@ -1,4 +1,5 @@
-"""Decoding messages to be displayed to users must be concentrated in this module whenever possible."""
+"""Warning messages generated during the decoding process to be displayed to users must be concentrated in this module \
+whenever possible."""
 import inspect
 
 from . import arguments as args
@@ -139,6 +140,15 @@ def get_decode_log_message(
             f"happen associated to 'event' classes."
         )
 
+    # Warning for wrongly mounted GENERALIZATION SETS
+    elif warning_code == "WGS":
+        object_identification = f"{object_type} (ID: {object_id}): "
+        message = (
+            "does not aggregate any generalization, representing an invalid input. "
+            "The transformation output is syntactically INVALID."
+        )
+
+    # The switch must never have an invalid parameter
     else:
         current_function = inspect.stack()[0][3]
         report_error_end_of_switch("warning_number", current_function)

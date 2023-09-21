@@ -88,8 +88,15 @@ def create_generalizationset_properties(json_data: dict, ontouml_graph: Graph) -
 
     # Treat each object dictionary
     for generalizationset_dict in list_generalizationset_dicts:
-        # Removing dictionaries that are only references
+        # Removing from treatment the dictionaries that are only references
         if len(generalizationset_dict) < 3:
+            continue
+
+        # Removing from treatment the GS that does not have generalizations (somehow wrongly mounted)
+        if "generalizations" not in generalizationset_dict:
+            print_decode_log_message(
+                object_dict=generalizationset_dict, warning_code="WGS", property_name="generalizations"
+            )
             continue
 
         set_generalizationset_defaults(generalizationset_dict, ontouml_graph)

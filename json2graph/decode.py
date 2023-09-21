@@ -192,7 +192,7 @@ def write_graph_file(ontouml_graph: Graph, execution_mode: str = "script") -> st
 
 
 def decode_all_ontouml_json2graph() -> None:
-    """Decode multiple OntoUML JSON files.
+    """Decode multiple OntoUML JSON files in batch mode.
 
     This function processes a directory of OntoUML JSON files and converts each file into a corresponding
     knowledge graph using the specified options.
