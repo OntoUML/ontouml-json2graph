@@ -21,6 +21,8 @@ Functions
    json2graph.modules.utils_graph.ontouml_ref
    json2graph.modules.utils_graph.load_ontouml_vocabulary
    json2graph.modules.utils_graph.load_graph_safely
+   json2graph.modules.utils_graph.fix_uri
+   json2graph.modules.utils_graph.rename_uriref_resource
 
 
 
@@ -65,15 +67,40 @@ Attributes
    :rtype: Graph
 
 
-.. py:function:: load_graph_safely(ontology_file, format = 'not_provided')
+.. py:function:: load_graph_safely(ontology_file, out_format = 'not_provided')
 
    Safely load graph from file to working memory using arguments provided by the user, which are the file path     and (optionally) the file type.
 
    :param ontology_file: Path to the ontology file to be loaded into the working memory.
    :type ontology_file: str
-   :param format: Optional argument. Format of the file to be loaded.
-   :type format: str
+   :param out_format: Optional argument. Format of the file to be loaded.
+   :type out_format: str
    :return: RDFLib graph loaded as object.
    :rtype: Graph
+
+
+.. py:function:: fix_uri(url_string)
+
+   Received a valid URL, but invalid URI string and converts to a valid URL and valid URI string.
+
+   This function takes a URL string, parses it, encodes non-URI characters, and reconstructs a valid URI.
+
+   :param url_string: The URL string to be fixed.
+   :type url_string: str
+   :return: The resulting valid URI string.
+   :rtype: str
+
+
+.. py:function:: rename_uriref_resource(graph, old_resource, new_resource)
+
+   Rename a URIRef resource of an RDF graph by replacing it to a new one with a different name.
+
+   :param graph: The RDF graph that contains the resource to be renamed.
+   :type graph: Graph
+   :param old_resource: The old resource to be replaced.
+   :type old_resource: URIRef
+   :param new_resource: The new resource to replace the old one.
+   :type new_resource: URIRef
+   :return: None
 
 
