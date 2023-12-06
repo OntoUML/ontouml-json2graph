@@ -13,4 +13,4 @@ jobs:
       with:
         target: all
         botName: dependabot
-        github-token: ${{ secrets.SECRET_AUTO_MERGE_JSON2GRAPH }}
+        github-token: ${{ secrets.AUTO_MERGE_JSON2GRAPH_DEPENDABOT }}
