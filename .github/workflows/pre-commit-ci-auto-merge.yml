@@ -37,5 +37,5 @@ jobs:
               pull_number: prNumber,
               merge_method: 'squash' // You can change this to 'merge' or 'rebase'
             });
-          github-token: ${{ secrets.AUTO_MERGE_JSON2GRAPH_DEPENDABOT }}
+          github-token: ${{ secrets.AUTO_MERGE_JSON2GRAPH_PRE_COMMIT_CI }}
 
