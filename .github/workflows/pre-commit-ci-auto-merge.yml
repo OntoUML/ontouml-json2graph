@@ -21,7 +21,7 @@ jobs:
             const prNumber = context.issue.number;
             const repoOwner = context.repo.owner;
             const repoName = context.repo.repo;
-      
+
             // Create a pull request review and approve it
             await github.rest.pulls.createReview({
               owner: repoOwner,
@@ -29,7 +29,7 @@ jobs:
               pull_number: prNumber,
               event: 'APPROVE'
             });
-      
+
             // Merge the pull request
             await github.rest.pulls.merge({
               owner: repoOwner,
@@ -38,4 +38,3 @@ jobs:
               merge_method: 'squash' // You can change this to 'merge' or 'rebase'
             });
           github-token: ${{ secrets.AUTO_MERGE_JSON2GRAPH_PRE_COMMIT_CI }}
-
