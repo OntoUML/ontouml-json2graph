@@ -7,6 +7,7 @@ Function's nomenclatures:
     - Functions that set both object and data properties are named: set_<subject>_properties.
     - Functions that set default values: set_<subject>_defaults.
 """
+
 from rdflib import Graph, URIRef
 
 from ..decoder.decode_general import (

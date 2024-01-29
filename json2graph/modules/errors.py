@@ -4,6 +4,7 @@ software's execution.
 These functions are designed to improve the robustness and reliability of the program by providing clear error messages
 and raising appropriate exceptions when necessary.
 """
+
 from .logger import initialize_logger
 
 LOGGER = initialize_logger()

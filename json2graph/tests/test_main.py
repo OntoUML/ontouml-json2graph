@@ -13,6 +13,7 @@ for the tests to run successfully.
 The tests will ensure the correct functioning of the OntoUML JSON2Graph software and raise an assertion error
 if the generated graph does not match the expected graph.
 """
+
 from pathlib import Path
 
 import pytest

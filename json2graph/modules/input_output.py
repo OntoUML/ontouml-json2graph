@@ -1,4 +1,5 @@
 """IO functions used in diverse occasions."""
+
 import json
 import os
 

@@ -1,4 +1,5 @@
 """Auxiliary test functions."""
+
 import glob
 import os
 

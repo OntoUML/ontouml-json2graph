@@ -6,6 +6,7 @@ Function's nomenclatures:
     - Functions that set multiple data properties are named: set_<subject>_attributes.
     - Functions that set both object and data properties are named: set_<subject>_properties.
 """
+
 import inspect
 
 from rdflib import Graph, URIRef, XSD, Literal

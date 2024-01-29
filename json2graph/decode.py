@@ -1,5 +1,6 @@
 """Main function used as script to convert OntoUML JSON files into knowledge graphs, with the flexibility to \
 customize the output and control the execution mode for different use cases."""
+
 import glob
 import inspect
 import os

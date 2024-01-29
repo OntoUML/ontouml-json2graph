@@ -4,6 +4,7 @@ Metadata is loaded in one of two ways:
     (a) Automatically read from the pyproject.toml file.
     (b) Manually inserted.
 """
+
 from importlib.metadata import metadata
 
 from .logger import initialize_logger
