@@ -1,4 +1,5 @@
 """General decoding functions."""
+
 from rdflib import Graph, URIRef, Literal, RDF
 
 from ..modules import arguments as args

@@ -1,4 +1,5 @@
 """JSON decode functions."""
+
 from rdflib import Graph, URIRef, Literal, RDF, XSD, OWL, RDFS
 
 from ..decoder.decode_general import clean_null_data, count_elements_graph

@@ -6,6 +6,7 @@ as a script.
 It also makes the ARGUMENTS variable globally accessible with the user's arguments (when executed as a script) or with
 default values (when executed as test or as a library).
 """
+
 import argparse
 import os
 

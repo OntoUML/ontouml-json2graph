@@ -8,6 +8,7 @@ integrate OntoUML JSON conversion capabilities into their projects.
 In addition to conversion functions, the library provides the `save_graph_file` utility, enabling users to safely save
 OntoUML graphs to files in their desired syntax.
 """
+
 from rdflib import Graph
 
 from .decode import decode_ontouml_json2graph

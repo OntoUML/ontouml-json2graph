@@ -1,5 +1,6 @@
 """Warning messages generated during the decoding process to be displayed to users must be concentrated in this module \
 whenever possible."""
+
 import inspect
 
 from . import arguments as args

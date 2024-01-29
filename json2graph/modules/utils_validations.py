@@ -1,4 +1,5 @@
 """Functions that performs validations for different functions or parameters used in the software."""
+
 import inspect
 import os
 

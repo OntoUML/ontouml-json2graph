@@ -1,4 +1,5 @@
 """Diverse util and auxiliary functions."""
+
 from datetime import datetime
 
 
