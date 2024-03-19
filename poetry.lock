@@ -2061,25 +2061,14 @@ zstd = ["zstandard (>=0.18.0)"]
 
 [[package]]
 name = "validators"
-version = "0.22.0"
+version = "0.23.0"
 description = "Python Data Validation for Humans™"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "validators-0.22.0-py3-none-any.whl", hash = "sha256:61cf7d4a62bbae559f2e54aed3b000cea9ff3e2fdbe463f51179b92c58c9585a"},
-    {file = "validators-0.22.0.tar.gz", hash = "sha256:77b2689b172eeeb600d9605ab86194641670cdb73b60afd577142a9397873370"},
+    {file = "validators-0.23.0-py3-none-any.whl", hash = "sha256:5fad1863feb5003993e19b733beee31fc7a64f94ede4ead4bf08e1bcac8f8db6"},
+    {file = "validators-0.23.0.tar.gz", hash = "sha256:4b413f191646329cc3de65d7e54dcdffccada6301ca11d7a7e45f7b163c6ce6f"},
 ]
-
-[package.extras]
-docs-offline = ["myst-parser (>=2.0.0)", "pypandoc-binary (>=1.11)", "sphinx (>=7.1.1)"]
-docs-online = ["mkdocs (>=1.5.2)", "mkdocs-git-revision-date-localized-plugin (>=1.2.0)", "mkdocs-material (>=9.2.6)", "mkdocstrings[python] (>=0.22.0)", "pyaml (>=23.7.0)"]
-hooks = ["pre-commit (>=3.3.3)"]
-package = ["build (>=1.0.0)", "twine (>=4.0.2)"]
-runner = ["tox (>=4.11.1)"]
-sast = ["bandit[toml] (>=1.7.5)"]
-testing = ["pytest (>=7.4.0)"]
-tooling = ["black (>=23.7.0)", "pyright (>=1.1.325)", "ruff (>=0.0.287)"]
-tooling-extras = ["pyaml (>=23.7.0)", "pypandoc-binary (>=1.11)", "pytest (>=7.4.0)"]
 
 [[package]]
 name = "virtualenv"
@@ -2203,4 +2192,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "7167f219f87fdbf047fc52a92f49f1cb13e34332a057d552fdbf83b60cd582ed"
+content-hash = "1cef827157cc7e9aa21ada7c2f4b5baac97084be523da76d1cb984ed5dc6eea9"
