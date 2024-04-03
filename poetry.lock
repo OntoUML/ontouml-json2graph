@@ -2061,13 +2061,13 @@ zstd = ["zstandard (>=0.18.0)"]
 
 [[package]]
 name = "validators"
-version = "0.25.0"
+version = "0.27.0"
 description = "Python Data Validation for Humans™"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "validators-0.25.0-py3-none-any.whl", hash = "sha256:ced341a606d5affa0dc7ea26658a757a45e4a391d4c75d228813017376672ffd"},
-    {file = "validators-0.25.0.tar.gz", hash = "sha256:ce8634a741d5cf3a9e84ddf58b18e2d7e90cd46321f5340269fd00eb553d355a"},
+    {file = "validators-0.27.0-py3-none-any.whl", hash = "sha256:bc0d93d874a363bde9e61b7e31dd274fef168ec057ecb8118edc96c161a89285"},
+    {file = "validators-0.27.0.tar.gz", hash = "sha256:4a70757730619a2c0788aa3c60ba1680372173237c445571586cdef02e37223b"},
 ]
 
 [[package]]
@@ -2192,4 +2192,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "fdbe0ba830f1959c72ff6c1403e2595e2d36b0a8182562aea209f4a0c6328616"
+content-hash = "b95fe203db41a7c9a8d311c32cde9d607f67594045c272426d752a2ce0054c6b"
