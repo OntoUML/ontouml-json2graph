@@ -19,7 +19,7 @@ exclude = ["json2graph/tests"]
 python = "^3.9"
 pyyaml = "^6.0.1"
 rdflib = "^7.0.0"
-validators = ">=0.32.0,<0.33"
+validators = ">=0.32.0,<0.34"
 importlib = "^1.0.4"
 
 [tool.poetry.group.dev.dependencies]
