@@ -19,7 +19,7 @@ repos:
         stages:
           - pre-push
   - repo: https://github.com/jendrikseipp/vulture
-    rev: v2.11
+    rev: v2.12
     hooks:
       - id: vulture
   - repo: https://github.com/pre-commit/pre-commit-hooks
