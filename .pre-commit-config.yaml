@@ -19,11 +19,11 @@ repos:
         stages:
           - pre-push
   - repo: https://github.com/jendrikseipp/vulture
-    rev: v2.12
+    rev: v2.13
     hooks:
       - id: vulture
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.6.0
+    rev: v5.0.0
     hooks:
       - id: end-of-file-fixer
       - id: trailing-whitespace
@@ -32,7 +32,7 @@ repos:
       - id: check-merge-conflict
       # - id: no-commit-to-branch    # To be included when other contributions join the project
   - repo: https://github.com/psf/black-pre-commit-mirror
-    rev: 24.8.0
+    rev: 24.10.0
     hooks:
       - id: black
         args: [ --line-length=120 ]
