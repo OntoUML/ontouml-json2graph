@@ -619,23 +619,6 @@ genshi = ["genshi"]
 lxml = ["lxml"]
 
 [[package]]
-name = "html5lib-modern"
-version = "1.2"
-description = "HTML parser based on the WHATWG HTML specification"
-optional = false
-python-versions = ">=3.8"
-files = [
-    {file = "html5lib_modern-1.2-py2.py3-none-any.whl", hash = "sha256:3458b6e31525ede4fcaac0ff42d9eeb5efaf755473768103cb56e0275caa8d99"},
-    {file = "html5lib_modern-1.2.tar.gz", hash = "sha256:1fadbfc27ea955431270e4e79a4a4c290ba11c3a3098a95cc22dc73e312a1768"},
-]
-
-[package.extras]
-all = ["chardet (>=2.2.1)", "genshi (>=0.7.1)", "lxml (>=3.4.0)"]
-chardet = ["chardet (>=2.2.1)"]
-genshi = ["genshi (>=0.7.1)"]
-lxml = ["lxml (>=3.4.0)"]
-
-[[package]]
 name = "identify"
 version = "2.5.28"
 description = "File identification library for Python"
@@ -1480,22 +1463,22 @@ full = ["numpy"]
 
 [[package]]
 name = "rdflib"
-version = "7.1.0"
+version = "7.1.1"
 description = "RDFLib is a Python library for working with RDF, a simple yet powerful language for representing information."
 optional = false
 python-versions = "<4.0.0,>=3.8.1"
 files = [
-    {file = "rdflib-7.1.0-py3-none-any.whl", hash = "sha256:240c25c6e1b573ffa67aed23aae128e253c443c15291c9a01d8d392ea80c05b6"},
-    {file = "rdflib-7.1.0.tar.gz", hash = "sha256:a29a8fccebd3d3a5f1b7e88d92dace1c89829018c7d29a6114fff4449c188b3b"},
+    {file = "rdflib-7.1.1-py3-none-any.whl", hash = "sha256:e590fa9a2c34ba33a667818b5a84be3fb8a4d85868f8038f17912ec84f912a25"},
+    {file = "rdflib-7.1.1.tar.gz", hash = "sha256:164de86bd3564558802ca983d84f6616a4a1a420c7a17a8152f5016076b2913e"},
 ]
 
 [package.dependencies]
-html5lib-modern = ">=1.2,<2.0"
 isodate = {version = ">=0.7.2,<1.0.0", markers = "python_version < \"3.11\""}
 pyparsing = ">=2.1.0,<4"
 
 [package.extras]
 berkeleydb = ["berkeleydb (>=18.1.0,<19.0.0)"]
+html = ["html5rdf (>=1.2,<2)"]
 lxml = ["lxml (>=4.3,<6.0)"]
 networkx = ["networkx (>=2,<4)"]
 orjson = ["orjson (>=3.9.14,<4)"]
