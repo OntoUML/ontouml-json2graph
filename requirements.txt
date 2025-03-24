@@ -16,9 +16,9 @@ astroid==2.15.6 ; python_version >= "3.9" and python_version < "4.0" \
 attrs==23.1.0 ; python_version >= "3.9" and python_version < "4.0" \
     --hash=sha256:1f28b4522cdc2fb4256ac1a020c78acf9cba2c6b461ccd2c126f3aa8e8335d04 \
     --hash=sha256:6279836d581513a26f1bf235f9acd333bc9115683f14f7e8fae46c98fc50e015
-autodocsumm==0.2.11 ; python_version >= "3.9" and python_version < "4.0" \
-    --hash=sha256:183212bd9e9f3b58a96bb21b7958ee4e06224107aa45b2fd894b61b83581b9a9 \
-    --hash=sha256:f1d0a623bf1ad64d979a9e23fd360d1fb1b8f869beaf3197f711552cddc174e2
+autodocsumm==0.2.14 ; python_version >= "3.9" and python_version < "4.0" \
+    --hash=sha256:2839a9d4facc3c4eccd306c08695540911042b46eeafcdc3203e6d0bab40bc77 \
+    --hash=sha256:3bad8717fc5190802c60392a7ab04b9f3c97aa9efa8b3780b3d81d615bfe5dc0
 babel==2.12.1 ; python_version >= "3.9" and python_version < "4.0" \
     --hash=sha256:b4246fb7677d3b98f501a39d43396d3cafdc8eadb045f4a31be01863f655c610 \
     --hash=sha256:cc2d99999cd01d44420ae725a21c9e3711b3aadc7976d6147f622d8581963455
