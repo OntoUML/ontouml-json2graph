@@ -855,9 +855,9 @@ tabulate==0.9.0 ; python_version >= "3.9" and python_version < "4.0" \
 tomli==2.0.1 ; python_version >= "3.9" and python_version < "4.0" \
     --hash=sha256:939de3e7a6161af0c887ef91b7d41a53e7c5a1ca976325f429cb46ea9bc30ecc \
     --hash=sha256:de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f
-tomlkit==0.12.1 ; python_version >= "3.9" and python_version < "4.0" \
-    --hash=sha256:38e1ff8edb991273ec9f6181244a6a391ac30e9f5098e7535640ea6be97a7c86 \
-    --hash=sha256:712cbd236609acc6a3e2e97253dfc52d4c2082982a88f61b640ecf0817eab899
+tomlkit==0.13.2 ; python_version >= "3.9" and python_version < "4.0" \
+    --hash=sha256:7a974427f6e119197f670fbbbeae7bef749a6c14e793db934baefc1b5f03efde \
+    --hash=sha256:fff5fe59a87295b278abd31bec92c15d9bc4a06885ab12bcea52c71119392e79
 trove-classifiers==2023.9.19 ; python_version >= "3.9" and python_version < "4.0" \
     --hash=sha256:3e700af445c802f251ce2b741ee78d2e5dfa5ab8115b933b89ca631b414691c9 \
     --hash=sha256:55460364fe248294386d4dfa5d16544ec930493ecc6bd1db07a0d50afb37018e
