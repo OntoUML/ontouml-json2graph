@@ -801,9 +801,9 @@ snowballstemmer==2.2.0 ; python_version >= "3.9" and python_version < "4.0" \
 soupsieve==2.5 ; python_version >= "3.9" and python_version < "4.0" \
     --hash=sha256:5663d5a7b3bfaeee0bc4372e7fc48f9cff4940b3eec54a6451cc5299f1097690 \
     --hash=sha256:eaa337ff55a1579b6549dc679565eac1e3d000563bcb1c8ab0d0fefbc0c2cdc7
-sphinx-autoapi==2.1.1 ; python_version >= "3.9" and python_version < "4.0" \
-    --hash=sha256:d8da890477bd18e3327cafdead9d5a44a7d798476c6fa32492100e288250a5a3 \
-    --hash=sha256:fbadb96e79020d6b0ec45d888517bf816d6b587a2d340fbe1ec31135e300a6c8
+sphinx-autoapi==3.6.1 ; python_version >= "3.9" and python_version < "4.0" \
+    --hash=sha256:1ff2992b7d5e39ccf92413098a376e0f91e7b4ca532c4f3e71298dbc8a4a9900 \
+    --hash=sha256:6b7af0d5650f6eac1f4b85c1eb9f9a4911160ec7138bdc4451c77a5e94d5832c
 sphinx-autodoc-typehints==1.24.0 ; python_version >= "3.9" and python_version < "4.0" \
     --hash=sha256:6a73c0c61a9144ce2ed5ef2bed99d615254e5005c1cc32002017d72d69fb70e6 \
     --hash=sha256:94e440066941bb237704bb880785e2d05e8ae5406c88674feefbb938ad0dc6af
