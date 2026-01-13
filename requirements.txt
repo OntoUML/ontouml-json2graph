@@ -870,9 +870,9 @@ urllib3==2.6.0 ; python_version >= "3.9" and python_version < "4.0" \
 validators==0.22.0 ; python_version >= "3.9" and python_version < "4.0" \
     --hash=sha256:61cf7d4a62bbae559f2e54aed3b000cea9ff3e2fdbe463f51179b92c58c9585a \
     --hash=sha256:77b2689b172eeeb600d9605ab86194641670cdb73b60afd577142a9397873370
-virtualenv==20.26.6 ; python_version >= "3.9" and python_version < "4.0" \
-    --hash=sha256:280aede09a2a5c317e409a00102e7077c6432c5a38f0ef938e643805a7ad2c48 \
-    --hash=sha256:7345cc5b25405607a624d8418154577459c3e0277f5466dd79c49d5e492995f2
+virtualenv==20.36.1 ; python_version >= "3.9" and python_version < "4.0" \
+    --hash=sha256:575a8d6b124ef88f6f51d56d656132389f961062a9177016a50e4f507bbcc19f \
+    --hash=sha256:8befb5c81842c641f8ee658481e42641c68b5eab3521d8e092d18320902466ba
 webencodings==0.5.1 ; python_version >= "3.9" and python_version < "4.0" \
     --hash=sha256:a0af1213f3c2226497a97e2b3aa01a7e4bee4f403f95be16fc9acd2947514a78 \
     --hash=sha256:b36a1c245f2d304965eb4e0a82848379241dc04b865afcc4aab16748587e1923
