@@ -209,8 +209,6 @@ def initialize_args_import(
     :param correct: If True, attempts to correct potential errors during the conversion process. (Optional)
     :type correct: bool
     """
-    global ARGUMENTS
-
     validate_arg_input(input_path, decode_all=False)
 
     ARGUMENTS["base_uri"] = base_uri
@@ -234,8 +232,6 @@ def initialize_args_test(input_path: str = "not_initialized", language: str = ""
     :param language: Language tag to be added to the ontology's concepts. (Optional)
     :type language: str
     """
-    global ARGUMENTS
-
     validate_arg_input(input_path, decode_all=False)
 
     ARGUMENTS["base_uri"] = "https://example.org#"
