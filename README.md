@@ -100,7 +100,7 @@ Optional arguments provide additional features. All available ontouml-json2graph
 usage: ontouml-json2graph [-h] -i INPUT_PATH [-o OUTPUT_PATH] [-a] [-f {turtle,ttl,turtle2,xml,pretty-xml,json-ld,ntriples,nt,nt11,n3,trig,trix,nquads}]
                           [-l LANGUAGE] [-c] [-s] [-u BASE_URI] [-m] [-v]
 
-OntoUML JSON2Graph Decoder. Version: 1.3.1
+OntoUML JSON2Graph Decoder. Version: 1.3.3
 
 options:
   -h, --help            show this help message and exit
