@@ -212,9 +212,9 @@ distlib==0.3.7 ; python_version >= "3.9" and python_version < "4.0" \
 docutils==0.20.1 ; python_version >= "3.9" and python_version < "4.0" \
     --hash=sha256:96f387a2c5562db4476f09f13bbab2192e764cac08ebbf3a34a95d9b1e4a59d6 \
     --hash=sha256:f08a4e276c3a1583a86dce3e34aba3fe04d02bba2dd51ed16106244e8a923e3b
-domdf-python-tools==3.10.0 ; python_version >= "3.9" and python_version < "4.0" \
-    --hash=sha256:2ae308d2f4f1e9145f5f4ba57f840fbfd1c2983ee26e4824347789649d3ae298 \
-    --hash=sha256:5e71c1be71bbcc1f881d690c8984b60e64298ec256903b3147f068bc33090c36
+domdf-python-tools==3.6.1 ; python_version >= "3.9" and python_version < "4.0" \
+    --hash=sha256:acc04563d23bce4d437dd08af6b9bea788328c412772a044d8ca428a7ad861be \
+    --hash=sha256:e18158460850957f18e740eb94ede56f580ddb0cb162ab9d9834ed8bbb1b6431
 dulwich==0.22.7 ; python_version >= "3.9" and python_version < "4.0" \
     --hash=sha256:007d8160b511bb149d31c08548307982f6ce752a46e7088b020517de00c3bd46 \
     --hash=sha256:01544915c4056d0820de8cf126b971f7c180743ff64c4435c89168e44b30df4b \
