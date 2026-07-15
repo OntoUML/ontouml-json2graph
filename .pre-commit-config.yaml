@@ -1,74 +1,69 @@
-exclude: ^(sphinx|doc)
+minimum_pre_commit_version: "3.4.0"
+default_install_hook_types: [pre-commit, pre-push]
+default_stages: [pre-commit]
+exclude: ^(?:docs|sphinx)/
 
 repos:
+  - repo: https://github.com/python-poetry/poetry
+    rev: "1.8.5"
+    hooks:
+      - id: poetry-check
+        stages: [pre-push]
+
   - repo: local
     hooks:
-      - id: update_requirements
-        name: update requirements.txt
-        entry: poetry export -f requirements.txt --output requirements.txt --with dev
+      - id: pytest
+        name: pytest
+        entry: python -m pytest json2graph/tests/test_main.py
         language: system
         pass_filenames: false
-        stages:
-          - pre-push
-      - id: update_documentation
-        name: update documentation
-        entry: python update_documentation.py
-        language: system
-        types: [ python ]
-        pass_filenames: false
-        stages:
-          - pre-push
+        files: ^(?:json2graph/.*|pyproject\.toml|poetry\.lock|requirements\.txt)$
+        stages: [pre-push]
+
   - repo: https://github.com/jendrikseipp/vulture
     rev: v2.14
     hooks:
       - id: vulture
+
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0
     hooks:
       - id: end-of-file-fixer
+        stages: [pre-commit]
       - id: trailing-whitespace
+        stages: [pre-commit]
       - id: check-ast
       - id: check-case-conflict
+      - id: check-illegal-windows-names
+      - id: check-json
       - id: check-merge-conflict
-      # - id: no-commit-to-branch    # To be included when other contributions join the project
+      - id: check-toml
+      - id: check-yaml
+      - id: debug-statements
+
   - repo: https://github.com/psf/black-pre-commit-mirror
     rev: 25.1.0
     hooks:
       - id: black
-        args: [ --line-length=120 ]
+
   - repo: https://github.com/PyCQA/flake8
-    rev: 7.1.2
+    rev: 7.3.0
     hooks:
       - id: flake8
-        args: [ --max-line-length=120 ]
+        args: [--max-line-length=120]
+
   - repo: https://github.com/pycqa/pydocstyle
     rev: 6.3.0
     hooks:
       - id: pydocstyle
-        name: pydocstyle
-        description: pydocstyle is a static analysis tool for checking compliance with Python docstring conventions.
-        entry: pydocstyle
-        language: python
-        types: [ python ]
-  - repo: https://github.com/Lucas-C/pre-commit-hooks-safety
-    rev: v1.4.0
+
+  - repo: https://github.com/python-poetry/poetry-plugin-export
+    rev: 1.8.0
     hooks:
-      - id: python-safety-dependencies-check
-        files: pyproject.toml
-        stages:
-          - pre-push
-  - repo: https://gitlab.com/smop/pre-commit-hooks
-    rev: v1.0.0
-    hooks:
-      - id: check-poetry
-        name: Poetry check
-        description: Validates the structure of the pyproject.toml file
-        entry: poetry check
-        language: system
-        pass_filenames: false
-        files: pyproject.toml
-        stages:
-          - pre-push
+      - id: poetry-export
+        additional_dependencies: [poetry==1.8.5, poetry-core==1.9.1]
+        args: [-f, requirements.txt, -o, requirements.txt, --with, dev]
+        files: ^(?:pyproject\.toml|poetry\.lock)$
 
 ci:
   autofix_commit_msg: |
@@ -79,5 +74,5 @@ ci:
   autoupdate_branch: ''
   autoupdate_commit_msg: '[pre-commit.ci] pre-commit autoupdate'
   autoupdate_schedule: weekly
-  skip: [ ]
+  skip: []
   submodules: false

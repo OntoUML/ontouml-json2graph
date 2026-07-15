@@ -25,6 +25,7 @@ except ModuleNotFoundError:
         "Name": "ontouml-json2graph",
         "Home-page": "https://w3id.org/ontouml/json2graph",
     }
+METADATA.setdefault("Home-page", "https://w3id.org/ontouml/json2graph")
 
 # Manually including additional metadata
 METADATA["conformsTo"] = "https://w3id.org/ontouml"

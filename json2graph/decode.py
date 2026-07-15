@@ -79,6 +79,7 @@ def decode_ontouml_json2graph(
         "Generalization",
         "GeneralizationSet",
         "Relation",
+        "Literal",
         "Cardinality",
     ]
 
