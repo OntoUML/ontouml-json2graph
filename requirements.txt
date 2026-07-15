@@ -1,6 +1,6 @@
-alabaster==1.0.0 ; python_version >= "3.9" and python_version < "4.0" \
-    --hash=sha256:c00dca57bca26fa62a6d7d0a9fcce65f3e026e9bfe33e9c538fd3fbb2144fd9e \
-    --hash=sha256:fc6786402dc3fcb2de3cabd5fe455a2db534b371124f1f21de8731783dec828b
+alabaster==0.7.16 ; python_version >= "3.9" and python_version < "4.0" \
+    --hash=sha256:75a8b99c28a5dad50dd7f8ccdd447a121ddb3892da9e53d1ca5cca3106d58d65 \
+    --hash=sha256:b46733c07dce03ae4e150330b975c75737fa60f0a7c591b6c8bf4928a28e2c92
 apeye-core==1.1.4 ; python_version >= "3.9" and python_version < "4.0" \
     --hash=sha256:084bc696448d3ac428fece41c1f2eb08fa9d9ce1d1b2f4d43187e3def4528a60 \
     --hash=sha256:72bb89fed3baa647cb81aa28e1d851787edcbf9573853b5d2b5f87c02f50eaf5
