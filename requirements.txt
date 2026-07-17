@@ -739,9 +739,9 @@ sphinx==7.4.7 ; python_version >= "3.9" and python_version < "4.0" \
 sphinxcontrib-applehelp==1.0.7 ; python_version >= "3.9" and python_version < "4.0" \
     --hash=sha256:094c4d56209d1734e7d252f6e0b3ccc090bd52ee56807a5d9315b19c122ab15d \
     --hash=sha256:39fdc8d762d33b01a7d8f026a3b7d71563ea3b72787d5f00ad8465bd9d6dfbfa
-sphinxcontrib-devhelp==1.0.5 ; python_version >= "3.9" and python_version < "4.0" \
-    --hash=sha256:63b41e0d38207ca40ebbeabcf4d8e51f76c03e78cd61abe118cf4435c73d4212 \
-    --hash=sha256:fe8009aed765188f08fcaadbb3ea0d90ce8ae2d76710b7e29ea7d047177dae2f
+sphinxcontrib-devhelp==2.0.0 ; python_version >= "3.9" and python_version < "4.0" \
+    --hash=sha256:411f5d96d445d1d73bb5d52133377b4248ec79db5c793ce7dbe59e074b4dd1ad \
+    --hash=sha256:aefb8b83854e4b0998877524d1029fd3e6879210422ee3780459e28a1f03a8a2
 sphinxcontrib-htmlhelp==2.0.4 ; python_version >= "3.9" and python_version < "4.0" \
     --hash=sha256:6c26a118a05b76000738429b724a0568dbde5b72391a688577da08f11891092a \
     --hash=sha256:8001661c077a73c29beaf4a79968d0726103c5605e27db92b9ebed8bab1359e9
