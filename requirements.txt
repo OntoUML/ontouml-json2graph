@@ -279,9 +279,9 @@ idna==3.7 ; python_version >= "3.9" and python_version < "4.0" \
 imagesize==1.4.1 ; python_version >= "3.9" and python_version < "4.0" \
     --hash=sha256:0d8d18d08f840c19d0ee7ca1fd82490fdc3729b7ac93f49870406ddde8ef8d8b \
     --hash=sha256:69150444affb9cb0d5cc5a92b3676f0b2fb7cd9ae39e947a5e11a36b4497cd4a
-importlib-metadata==6.8.0 ; python_version >= "3.9" and python_version < "3.12" \
-    --hash=sha256:3ebb78df84a805d7698245025b975d9d67053cd94c79245ba4b3eb694abe68bb \
-    --hash=sha256:dbace7892d8c0c4ac1ad096662232f831d4e64f4c4545bd53016a3e9d4654743
+importlib-metadata==9.0.0 ; python_version >= "3.9" and python_version < "3.12" \
+    --hash=sha256:2d21d1cc5a017bd0559e36150c21c830ab1dc304dedd1b7ea85d20f45ef3edd7 \
+    --hash=sha256:a4f57ab599e6a2e3016d7595cfd72eb4661a5106e787a95bcc90c7105b831efc
 importlib==1.0.4 ; python_version >= "3.9" and python_version < "4.0" \
     --hash=sha256:b6ee7066fea66e35f8d0acee24d98006de1a0a8a94a8ce6efe73a9a23c8d9826
 iniconfig==2.0.0 ; python_version >= "3.9" and python_version < "4.0" \
