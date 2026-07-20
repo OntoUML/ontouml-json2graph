@@ -763,9 +763,9 @@ sphinxcontrib-jsmath==1.0.1 ; python_version >= "3.9" and python_version < "4.0"
 sphinxcontrib-qthelp==1.0.6 ; python_version >= "3.9" and python_version < "4.0" \
     --hash=sha256:62b9d1a186ab7f5ee3356d906f648cacb7a6bdb94d201ee7adf26db55092982d \
     --hash=sha256:bf76886ee7470b934e363da7a954ea2825650013d367728588732c7350f49ea4
-sphinxcontrib-serializinghtml==1.1.9 ; python_version >= "3.9" and python_version < "4.0" \
-    --hash=sha256:0c64ff898339e1fac29abd2bf5f11078f3ec413cfe9c046d3120d7ca65530b54 \
-    --hash=sha256:9b36e503703ff04f20e9675771df105e58aa029cfcbc23b8ed716019b7416ae1
+sphinxcontrib-serializinghtml==2.0.0 ; python_version >= "3.9" and python_version < "4.0" \
+    --hash=sha256:6e2cb0eef194e10c27ec0023bfeb25badbbb5868244cf5bc5bdc04e4464bf331 \
+    --hash=sha256:e9d912827f872c029017a53f0ef2180b327c3f7fd23c87229f7a8e8b70031d4d
 stdlib-list==0.10.0 ; python_version >= "3.9" and python_version < "3.10" \
     --hash=sha256:6519c50d645513ed287657bfe856d527f277331540691ddeaf77b25459964a14 \
     --hash=sha256:b3a911bc441d03e0332dd1a9e7d0870ba3bb0a542a74d7524f54fb431256e214
