@@ -11,7 +11,7 @@ on:
       - main
 
 # The built-in GITHUB_TOKEN is used only to read PR metadata and check results.
-# The fine-grained PAT is used for approval and merge operations.
+# The fine-grained PAT is used for approval and auto-merge operations.
 permissions:
   actions: read
   checks: read
@@ -26,7 +26,7 @@ concurrency:
 
 jobs:
   auto-merge-dependabot:
-    name: Approve and configure Dependabot PR
+    name: Approve and auto-merge Dependabot PR
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
@@ -50,6 +50,7 @@ jobs:
           PR_URL: ${{ github.event.pull_request.html_url }}
         run: |
           echo "Waiting for all required checks to complete..."
+
           gh pr checks "$PR_URL" \
             --required \
             --watch \
@@ -66,10 +67,11 @@ jobs:
         run: |
           gh pr review "$PR_URL" --approve
 
-      - name: Enable auto-merge for patch and minor updates
+      - name: Enable auto-merge for patch, minor, and major updates
         if: >-
           steps.metadata.outputs.update-type == 'version-update:semver-patch' ||
-          steps.metadata.outputs.update-type == 'version-update:semver-minor'
+          steps.metadata.outputs.update-type == 'version-update:semver-minor' ||
+          steps.metadata.outputs.update-type == 'version-update:semver-major'
         env:
           GH_TOKEN: ${{ secrets.AUTO_MERGE_JSON2GRAPH_DEPENDABOT }}
           PR_URL: ${{ github.event.pull_request.html_url }}
@@ -79,10 +81,3 @@ jobs:
             --auto \
             --squash \
             --match-head-commit "$PR_HEAD_SHA"
-
-      - name: Report approved major update
-        if: steps.metadata.outputs.update-type == 'version-update:semver-major'
-        run: |
-          echo "Major-version update detected."
-          echo "All required checks passed."
-          echo "The pull request was approved but will remain open for manual merge."
