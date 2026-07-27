@@ -16,9 +16,9 @@ exclude = ["json2graph/tests"]
 "PyPi Project" = "https://pypi.org/project/ontouml-json2graph/"
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.10"
 pyyaml = "^6.0.1"
-rdflib = "^7.0.0"
+rdflib = "^7.1.4"
 validators = ">=0.32.0,<0.36"
 importlib = "^1.0.4"
 
