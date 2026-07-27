@@ -375,9 +375,9 @@ pyyaml==6.0.2 ; python_version >= "3.9" and python_version < "4.0" \
 rdflib==7.1.1 ; python_version >= "3.9" and python_version < "4.0" \
     --hash=sha256:164de86bd3564558802ca983d84f6616a4a1a420c7a17a8152f5016076b2913e \
     --hash=sha256:e590fa9a2c34ba33a667818b5a84be3fb8a4d85868f8038f17912ec84f912a25
-requests==2.32.3 ; python_version >= "3.9" and python_version < "4.0" \
-    --hash=sha256:55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760 \
-    --hash=sha256:70761cfe03c773ceb22aa2f671b4757976145175cdfca038c02654d061d6dcc6
+requests==2.32.5 ; python_version >= "3.9" and python_version < "4.0" \
+    --hash=sha256:2462f94637a34fd532264295e186976db0f5d453d1cdd31473c85a6a161affb6 \
+    --hash=sha256:dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf
 roman==5.1 ; python_version >= "3.9" and python_version < "3.12" \
     --hash=sha256:3a86572e9bc9183e771769601189e5fa32f1620ffeceebb9eca836affb409986 \
     --hash=sha256:bf595d8a9bc4a8e8b1dfa23e1d4def0251b03b494786df6b8c3d3f1635ce285a
