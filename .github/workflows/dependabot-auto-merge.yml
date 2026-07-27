@@ -2,15 +2,87 @@ name: dependabot-auto-merge
 
 on:
   pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - ready_for_review
+    branches:
+      - main
+
+# The built-in GITHUB_TOKEN is used only to read PR metadata and check results.
+# The fine-grained PAT is used for approval and merge operations.
+permissions:
+  actions: read
+  checks: read
+  contents: read
+  pull-requests: read
+  statuses: read
+
+# Prevent overlapping runs for the same pull request.
+concurrency:
+  group: dependabot-auto-merge-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
 
 jobs:
   auto-merge-dependabot:
+    name: Approve and configure Dependabot PR
     runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    if: >-
+      github.event.pull_request.user.login == 'dependabot[bot]' &&
+      github.repository == 'OntoUML/ontouml-json2graph' &&
+      github.event.pull_request.draft == false
+
     steps:
-    - uses: actions/checkout@v7
-    - name: Auto merge dependabot
-      uses: ahmadnassri/action-dependabot-auto-merge@v2.6.6
-      with:
-        target: all
-        botName: dependabot
-        github-token: ${{ secrets.AUTO_MERGE_JSON2GRAPH_DEPENDABOT }}
+      - name: Fetch Dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@d7267f607e9d3fb96fc2fbe83e0af444713e90b7
+        with:
+          github-token: ${{ github.token }}
+
+      # Do not configure this auto-merge workflow itself as a required
+      # status check, because it would otherwise wait for itself.
+      - name: Wait for required checks
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: |
+          echo "Waiting for all required checks to complete..."
+          gh pr checks "$PR_URL" \
+            --required \
+            --watch \
+            --fail-fast
+
+      - name: Approve patch, minor, and major updates
+        if: >-
+          steps.metadata.outputs.update-type == 'version-update:semver-patch' ||
+          steps.metadata.outputs.update-type == 'version-update:semver-minor' ||
+          steps.metadata.outputs.update-type == 'version-update:semver-major'
+        env:
+          GH_TOKEN: ${{ secrets.AUTO_MERGE_JSON2GRAPH_DEPENDABOT }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: |
+          gh pr review "$PR_URL" --approve
+
+      - name: Enable auto-merge for patch and minor updates
+        if: >-
+          steps.metadata.outputs.update-type == 'version-update:semver-patch' ||
+          steps.metadata.outputs.update-type == 'version-update:semver-minor'
+        env:
+          GH_TOKEN: ${{ secrets.AUTO_MERGE_JSON2GRAPH_DEPENDABOT }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          gh pr merge "$PR_URL" \
+            --auto \
+            --squash \
+            --match-head-commit "$PR_HEAD_SHA"
+
+      - name: Report approved major update
+        if: steps.metadata.outputs.update-type == 'version-update:semver-major'
+        run: |
+          echo "Major-version update detected."
+          echo "All required checks passed."
+          echo "The pull request was approved but will remain open for manual merge."
