@@ -13,8 +13,14 @@ updates:
         patterns:
           - "github/codeql-action/*"
 
-  # Keep Python dependencies up to date.
+  # Keep Python dependencies up to date using Poetry's
+  # pyproject.toml and poetry.lock as the authoritative files.
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
       interval: "daily"
+
+    # requirements.txt is generated from Poetry and must not be
+    # updated independently.
+    exclude-paths:
+      - "requirements.txt"
