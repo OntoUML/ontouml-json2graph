@@ -24,6 +24,7 @@ repos:
     rev: v2.16
     hooks:
       - id: vulture
+        name: vulture
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
@@ -61,7 +62,7 @@ repos:
     rev: 1.10.0
     hooks:
       - id: poetry-export
-        additional_dependencies: [poetry==1.8.5, poetry-core==1.9.1]
+        additional_dependencies: [poetry==2.4.1]
         args: [-f, requirements.txt, -o, requirements.txt, --with, dev]
         files: ^(?:pyproject\.toml|poetry\.lock)$
 
