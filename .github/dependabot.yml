@@ -1,11 +1,20 @@
 version: 2
-updates:
-  - package-ecosystem: github-actions
-    directory: /
-    schedule:
-      interval: daily
 
-  - package-ecosystem: pip
-    directory: /
+updates:
+  # Keep GitHub Actions up to date.
+  - package-ecosystem: "github-actions"
+    directory: "/"
     schedule:
-      interval: daily
+      interval: "daily"
+
+    # CodeQL's init, autobuild, and analyze actions must be updated together.
+    groups:
+      codeql:
+        patterns:
+          - "github/codeql-action/*"
+
+  # Keep Python dependencies up to date.
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "daily"
