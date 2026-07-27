@@ -452,9 +452,9 @@ sphinx-prompt==1.8.0 ; python_version >= "3.9" and python_version < "4.0" \
 sphinx-rtd-size==0.2.0 ; python_version >= "3.9" and python_version < "4.0" \
     --hash=sha256:00168969c870923dca449c3264741a0b77607e3419b9af1faafcf008dab9a730 \
     --hash=sha256:fb1c78fbab1880ae6c2092359aa7401b61716dcb97c8694b7b990f69a98dac62
-sphinx-rtd-theme==3.0.2 ; python_version >= "3.9" and python_version < "4.0" \
-    --hash=sha256:422ccc750c3a3a311de4ae327e82affdaf59eb695ba4936538552f3b00f4ee13 \
-    --hash=sha256:b7457bc25dda723b20b086a670b9953c859eab60a2a03ee8eb2bb23e176e5f85
+sphinx-rtd-theme==3.1.0 ; python_version >= "3.9" and python_version < "4.0" \
+    --hash=sha256:1785824ae8e6632060490f67cf3a72d404a85d2d9fc26bce3619944de5682b89 \
+    --hash=sha256:b44276f2c276e909239a4f6c955aa667aaafeb78597923b1c60babc76db78e4c
 sphinx-tabs==3.4.7 ; python_version >= "3.9" and python_version < "3.12" \
     --hash=sha256:991ad4a424ff54119799ba1491701aa8130dd43509474aef45a81c42d889784d \
     --hash=sha256:c12d7a36fd413b369e9e9967a0a4015781b71a9c393575419834f19204bd1915
