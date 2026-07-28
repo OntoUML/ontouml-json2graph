@@ -2,39 +2,71 @@ name: pre-commit-ci-auto-merge
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened]
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - ready_for_review
     branches:
       - main
 
+# The built-in GITHUB_TOKEN is used only to read PR metadata and check results.
+# The fine-grained PAT is used for approval and auto-merge operations.
+permissions:
+  actions: read
+  checks: read
+  contents: read
+  pull-requests: read
+  statuses: read
+
+# Prevent overlapping runs for the same pull request.
+concurrency:
+  group: pre-commit-ci-auto-merge-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 jobs:
-  auto-merge:
+  auto-merge-pre-commit-ci:
+    name: Approve and auto-merge pre-commit.ci PR
     runs-on: ubuntu-latest
-    if: github.actor == 'pre-commit-ci[bot]'
+    timeout-minutes: 30
+
+    # Check the PR author, not the actor that triggered the event.
+    # This prevents the workflow from handling Dependabot PRs that
+    # pre-commit.ci has modified.
+    if: >-
+      github.event.pull_request.user.login == 'pre-commit-ci[bot]' &&
+      github.repository == 'OntoUML/ontouml-json2graph' &&
+      github.event.pull_request.draft == false
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v7.0.1
+      # Do not configure this auto-merge workflow itself as a required
+      # status check, because it would otherwise wait for itself.
+      - name: Wait for required checks
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: |
+          echo "Waiting for all required checks to complete..."
 
-      - name: Auto merge PR
-        uses: actions/github-script@v9
-        with:
-          script: |
-            const prNumber = context.issue.number;
-            const repoOwner = context.repo.owner;
-            const repoName = context.repo.repo;
+          gh pr checks "$PR_URL" \
+            --required \
+            --watch \
+            --fail-fast
 
-            // Create a pull request review and approve it
-            await github.rest.pulls.createReview({
-              owner: repoOwner,
-              repo: repoName,
-              pull_number: prNumber,
-              event: 'APPROVE'
-            });
+      - name: Approve pre-commit.ci PR
+        env:
+          GH_TOKEN: ${{ secrets.AUTO_MERGE_JSON2GRAPH_PRE_COMMIT_CI }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: |
+          gh pr review "$PR_URL" --approve
 
-            // Merge the pull request
-            await github.rest.pulls.merge({
-              owner: repoOwner,
-              repo: repoName,
-              pull_number: prNumber,
-              merge_method: 'squash' // You can change this to 'merge' or 'rebase'
-            });
-          github-token: ${{ secrets.AUTO_MERGE_JSON2GRAPH_PRE_COMMIT_CI }}
+      - name: Enable auto-merge
+        env:
+          GH_TOKEN: ${{ secrets.AUTO_MERGE_JSON2GRAPH_PRE_COMMIT_CI }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          gh pr merge "$PR_URL" \
+            --auto \
+            --squash \
+            --match-head-commit "$PR_HEAD_SHA"
