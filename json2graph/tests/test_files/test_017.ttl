@@ -61,7 +61,7 @@
     rdf:type           ontouml:Class ;
     ontouml:project    :dGSNHRGFS_j2pAvw ;
     ontouml:name       "ClassStereotypeOut" ;
-    ontouml:stereotype ontouml:Agent ;
+    ontouml:stereotype ontouml:agent ;
     ontouml:isAbstract "false"^^xsd:boolean ;
     ontouml:isDerived  "false"^^xsd:boolean ;
     ontouml:order      "1"^^xsd:nonNegativeInteger .
@@ -175,7 +175,7 @@
     rdf:type           ontouml:Class ;
     ontouml:project    :dGSNHRGFS_j2pAvw ;
     ontouml:name       "MultipleSterNonOU" ;
-    ontouml:stereotype ontouml:Consumer ;
+    ontouml:stereotype ontouml:consumer ;
     ontouml:isAbstract "false"^^xsd:boolean ;
     ontouml:isDerived  "false"^^xsd:boolean ;
     ontouml:order      "1"^^xsd:nonNegativeInteger .

@@ -45,6 +45,7 @@ def decode_ontouml_json2graph(
     silent: bool = True,
     correct: bool = False,
     execution_mode: str = "import",
+    invalid_stereotype_policy: str = "preserve",
 ) -> Graph:
     """Convert OntoUML JSON data to a Knowledge Graph.
 
@@ -67,6 +68,9 @@ def decode_ontouml_json2graph(
     :param execution_mode: Information about the execution mode.
                            Valid values are 'import' (default), 'script', and 'test'. (Optional)
     :type execution_mode: str
+    :param invalid_stereotype_policy: How to handle stereotypes absent from the recognized list. Valid values are
+                                      'preserve', 'omit', and 'error'. Default is 'preserve'. (Optional)
+    :type invalid_stereotype_policy: str
 
     :return: JSON data decoded into a RDFLib's Graph that is compliant with the OntoUML Vocabulary.
     :rtype: Graph
@@ -86,7 +90,11 @@ def decode_ontouml_json2graph(
     validate_execution_mode(execution_mode)
 
     if execution_mode == "test":
-        args.initialize_args_test(input_path=json_file_path, language=language)
+        args.initialize_args_test(
+            input_path=json_file_path,
+            language=language,
+            invalid_stereotype_policy=invalid_stereotype_policy,
+        )
     elif execution_mode == "import":
         args.initialize_args_import(
             input_path=json_file_path,
@@ -95,6 +103,7 @@ def decode_ontouml_json2graph(
             model_only=model_only,
             silent=silent,
             correct=correct,
+            invalid_stereotype_policy=invalid_stereotype_policy,
         )
 
     if execution_mode == "script" and not args.ARGUMENTS["silent"]:

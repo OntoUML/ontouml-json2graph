@@ -21,6 +21,7 @@ def decode_json_project(
     base_uri: str = "https://example.org#",
     language: str = "",
     correct: bool = False,
+    invalid_stereotype_policy: str = "preserve",
 ) -> Graph:
     """Decode elements from OntoUML's abstract and concrete syntax from JSON format into a Knowledge Graph. \
     I.e., domain-level and diagrammatic data are converted to Knowledge Graph.
@@ -39,6 +40,9 @@ def decode_json_project(
     :type language: str
     :param correct: If True, attempts to correct potential errors during the conversion process. (Optional)
     :type correct: bool
+    :param invalid_stereotype_policy: How to handle stereotypes absent from the recognized list. Valid values are
+                                      'preserve', 'omit', and 'error'. Default is 'preserve'. (Optional)
+    :type invalid_stereotype_policy: str
 
     :return: JSON data decoded into a RDFLib's Graph that is compliant with the OntoUML Vocabulary.
     :rtype: Graph
@@ -51,6 +55,7 @@ def decode_json_project(
         silent=True,
         correct=correct,
         execution_mode="import",
+        invalid_stereotype_policy=invalid_stereotype_policy,
     )
 
     return decoded_graph_project
@@ -61,6 +66,7 @@ def decode_json_model(
     base_uri: str = "https://example.org#",
     language: str = "",
     correct: bool = False,
+    invalid_stereotype_policy: str = "preserve",
 ) -> Graph:
     """Decode elements from OntoUML's abstract syntax from JSON format into a Knowledge Graph. \
     I.e., only domain-level (and not diagrammatic) data is converted to Knowledge Graph.
@@ -79,6 +85,9 @@ def decode_json_model(
     :type language: str
     :param correct: If True, attempts to correct potential errors during the conversion process. (Optional)
     :type correct: bool
+    :param invalid_stereotype_policy: How to handle stereotypes absent from the recognized list. Valid values are
+                                      'preserve', 'omit', and 'error'. Default is 'preserve'. (Optional)
+    :type invalid_stereotype_policy: str
 
     :return: JSON data decoded into a RDFLib's Graph that is compliant with the OntoUML Vocabulary.
     :rtype: Graph
@@ -91,6 +100,7 @@ def decode_json_model(
         silent=True,
         correct=correct,
         execution_mode="import",
+        invalid_stereotype_policy=invalid_stereotype_policy,
     )
 
     return decoded_graph_model

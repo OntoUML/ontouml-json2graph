@@ -98,7 +98,8 @@ Optional arguments provide additional features. All available ontouml-json2graph
 
 ```text
 usage: ontouml-json2graph [-h] -i INPUT_PATH [-o OUTPUT_PATH] [-a] [-f {turtle,ttl,turtle2,xml,pretty-xml,json-ld,ntriples,nt,nt11,n3,trig,trix,nquads}]
-                          [-l LANGUAGE] [-c] [-s] [-u BASE_URI] [-m] [-v]
+                          [-l LANGUAGE] [-c] [-s] [-u BASE_URI] [-m]
+                          [--invalid-stereotype-policy {preserve,omit,error}] [-v]
 
 OntoUML JSON2Graph Decoder. Version: 1.3.3
 
@@ -118,6 +119,8 @@ options:
   -u BASE_URI, --base_uri BASE_URI
                         Base URI of the resulting graph. Default is 'https://example.org#'.
   -m, --model_only      Keep only model elements, eliminating all diagrammatic data from output.
+  --invalid-stereotype-policy {preserve,omit,error}
+                        Handle stereotypes absent from the recognized list: preserve, omit, or error. Default is 'preserve'.
   -v, --version         Print the software version and exit.
 
 More information at: https://w3id.org/ontouml/json2graph
@@ -137,7 +140,8 @@ The `decode_json_project` function allows you to decode the complete OntoUML JSO
 from json2graph.library import decode_json_project
 
 decoded_graph_project = decode_json_project(json_file_path="path/to/input.json", base_uri="https://myuri.org#",
-                                            language="en", correct=True)
+                                            language="en", correct=True,
+                                            invalid_stereotype_policy="preserve")
 ```
 
 #### decode_json_model
@@ -151,7 +155,8 @@ from json2graph.library import decode_json_model
 
 decoded_graph_model = decode_json_model(json_file_path="path/to/input.json", base_uri="https://myuri.org#",
                                         language="en",
-                                        correct=True)
+                                        correct=True,
+                                        invalid_stereotype_policy="preserve")
 ```
 
 #### save_graph_file
@@ -203,11 +208,14 @@ Differently, the OntoUML Vocabulary was created to support the serialization, ex
     - Sets the Class's order attribute to '1' if the Class's stereotype is not 'type' and its order different from '1'.
     - Sets the Class's order attribute to '2' if the Class's stereotype is 'type' and its order is '1'.
     - Reports mandatory Class stereotype missing.
-- Stereotype validations:
-    - Reports invalid Class stereotype assigned (i.e., assigned stereotype is not in enumeration class ClassStereotype).
-    - Reports invalid Relation stereotype assigned (i.e., assigned stereotype is not in enumeration class RelationStereotype).
-    - Reports invalid Property stereotype assigned (i.e., assigned stereotype is not in enumeration class
-      PropertyStereotype).
+- Stereotype handling:
+    - Normalizes every assigned stereotype to lowerCamelCase.
+    - Checks existence against the combined list of Class, Relation, and Property stereotypes, independently of the
+      element type.
+    - Handles nonexistent stereotypes according to `--invalid-stereotype-policy`:
+        - `preserve` (default): generates the normalized stereotype triple and issues a warning;
+        - `omit`: issues a warning and omits only the stereotype triple;
+        - `error`: raises an error and aborts before an output file is generated.
 - Property validations:
     - Reports invalid assertion when a Property stereotype is related to a Class that is known not to be of stereotype 'event'.
     - Sets Class stereotype as 'event' when it is originally 'null' and the class is related to a Property with stereotype.

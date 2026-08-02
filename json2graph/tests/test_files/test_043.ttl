@@ -231,7 +231,7 @@
     rdf:type            ontouml:Property ;
     ontouml:project     :fJlIhJGGAqACNw3E ;
     ontouml:name        "att12"@en ;
-    ontouml:stereotype  ontouml:Event ;
+    ontouml:stereotype  ontouml:event ;
     ontouml:cardinality :aeRzRJGGAqACNwnP_cardinality .
 
 :aeRzRJGGAqACNwnP_cardinality
@@ -248,7 +248,7 @@
     rdf:type            ontouml:Property ;
     ontouml:project     :fJlIhJGGAqACNw3E ;
     ontouml:name        "att13"@en ;
-    ontouml:stereotype  ontouml:CMP ;
+    ontouml:stereotype  ontouml:cmp ;
     ontouml:cardinality :nyVzRJGGAqACNwn3_cardinality .
 
 :nyVzRJGGAqACNwn3_cardinality

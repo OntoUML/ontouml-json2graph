@@ -18,6 +18,7 @@ from ..decoder.decode_general import (
 from ..modules import arguments as args
 from ..modules.errors import report_error_end_of_switch
 from ..modules.messages import print_decode_log_message
+from ..modules.stereotypes import set_stereotype_relation
 from ..modules.utils_graph import ontouml_ref
 
 
@@ -219,59 +220,29 @@ def set_defaults_class_order(class_dict: dict, ontouml_graph: Graph) -> None:
 
 
 def set_class_stereotype(class_dict: dict, ontouml_graph: Graph) -> None:
-    """Set ontouml:stereotype property between an instance of ontouml:Class and an instance representing an \
-    ontouml:ClassStereotype.
+    """Normalize and handle an ontouml:Class's stereotype using the configured policy.
 
     Warning messages:
         - VCS1: Mandatory stereotype not assigned to a class. Result is invalid.
-        - VCS2: Class has invalid stereotype associated to it. Result is invalid.
+        - InvalidStereotypeWarning: Assigned stereotype is absent from the global recognized stereotype list.
 
     :param class_dict: Class object loaded as a dictionary.
     :type class_dict: dict
     :param ontouml_graph: Knowledge graph that complies with the OntoUML Vocabulary.
     :type ontouml_graph: Graph
     """
-    ENUM_CLASS_STEREOTYPE = [
-        "type",
-        "historicalRole",
-        "historicalRoleMixin",
-        "event",
-        "situation",
-        "category",
-        "mixin",
-        "roleMixin",
-        "phaseMixin",
-        "kind",
-        "collective",
-        "quantity",
-        "relator",
-        "quality",
-        "mode",
-        "subkind",
-        "role",
-        "phase",
-        "enumeration",
-        "datatype",
-        "abstract",
-    ]
-
     class_stereotype = get_stereotype(class_dict)
 
     # If stereotype not declared, report warning.
     if class_stereotype == "null":
         print_decode_log_message(class_dict, "VCS1", "stereotype")
     else:
-        ontouml_graph.add(
-            (
-                URIRef(args.ARGUMENTS["base_uri"] + class_dict["id"]),
-                ontouml_ref("stereotype"),
-                ontouml_ref(class_dict["stereotype"]),
-            )
+        set_stereotype_relation(
+            class_dict,
+            ontouml_graph,
+            args.ARGUMENTS["invalid_stereotype_policy"],
+            args.ARGUMENTS["base_uri"],
         )
-
-        # If declared but invalid, create and report error. Uses generic message with code 'VCSG'.
-        if class_stereotype not in ENUM_CLASS_STEREOTYPE:
-            print_decode_log_message(class_dict, "VCSG", property_name="stereotype")
 
 
 def set_class_order_nonnegativeinteger(class_dict: dict, ontouml_graph: Graph) -> None:

@@ -15,6 +15,7 @@ from ..modules import arguments as args
 from ..modules.logger import initialize_logger
 from ..modules.messages import print_decode_log_message
 from ..modules.sparql_queries import GET_CLASS_STEREOTYPE_ATTRIBUTE_STEREOTYPE
+from ..modules.stereotypes import set_stereotype_relation
 from ..modules.utils_graph import load_ontouml_vocabulary, ontouml_ref
 
 LOGGER = initialize_logger()
@@ -162,11 +163,14 @@ def set_property_relations(property_dict: dict, ontouml_graph: Graph) -> None:
         statement_object = URIRef(args.ARGUMENTS["base_uri"] + property_dict["propertyType"]["id"])
         ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
-    # Setting ontouml:stereotype. Its validation is performed later in function validate_property_stereotype
+    # Setting ontouml:stereotype. Global existence is handled here; optional semantic validation is performed later.
     if "stereotype" in property_dict:
-        statement_predicate = ontouml_ref("stereotype")
-        statement_object = ontouml_ref(property_dict["stereotype"])
-        ontouml_graph.add((statement_subject, statement_predicate, statement_object))
+        set_stereotype_relation(
+            property_dict,
+            ontouml_graph,
+            args.ARGUMENTS["invalid_stereotype_policy"],
+            args.ARGUMENTS["base_uri"],
+        )
 
     # Setting ontouml:subsetsProperty
     if "subsettedProperties" in property_dict:

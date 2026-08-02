@@ -16,6 +16,7 @@ from .errors import report_error_requirement_not_met
 from .input_output import create_directory_if_not_exists
 from .logger import initialize_logger
 from .metadata import METADATA
+from .stereotypes import INVALID_STEREOTYPE_POLICIES
 from .utils_validations import validate_arg_input
 
 ARGUMENTS = {}
@@ -133,6 +134,14 @@ def initialize_args_script() -> None:
         action="store_true",
         help="Keep only model elements, eliminating all diagrammatic data from output.",
     )
+    args_parser.add_argument(
+        "--invalid-stereotype-policy",
+        type=str,
+        action="store",
+        choices=INVALID_STEREOTYPE_POLICIES,
+        default="preserve",
+        help="Handle stereotypes absent from the recognized list: preserve, omit, or error. Default is 'preserve'.",
+    )
 
     # AUTOMATIC ARGUMENTS
     args_parser.add_argument("-v", "--version", action="version", help="Print the software version and exit.")
@@ -147,6 +156,7 @@ def initialize_args_script() -> None:
         "decode_all": arguments.decode_all,
         "format": arguments.format,
         "input_path": os.path.abspath(arguments.input_path),
+        "invalid_stereotype_policy": arguments.invalid_stereotype_policy,
         "language": arguments.language,
         "model_only": arguments.model_only,
         "output_path": os.path.abspath(arguments.output_path),
@@ -184,6 +194,7 @@ def initialize_args_import(
     model_only: bool = False,
     silent: bool = True,
     correct: bool = False,
+    invalid_stereotype_policy: str = "preserve",
 ):
     """Initialize the global variable ARGUMENTS of type dictionary, which contains user-provided \
     (when executed in script mode) or default arguments (when executed as a library or for testing).
@@ -208,20 +219,34 @@ def initialize_args_import(
     :type silent: bool
     :param correct: If True, attempts to correct potential errors during the conversion process. (Optional)
     :type correct: bool
+    :param invalid_stereotype_policy: How to handle stereotypes absent from the recognized list. Valid values are
+                                      'preserve', 'omit', and 'error'. (Optional)
+    :type invalid_stereotype_policy: str
     """
     validate_arg_input(input_path, decode_all=False)
+
+    if invalid_stereotype_policy not in INVALID_STEREOTYPE_POLICIES:
+        report_error_requirement_not_met(
+            f"Invalid stereotype policy '{invalid_stereotype_policy}'. Valid values are: "
+            f"{list(INVALID_STEREOTYPE_POLICIES)}."
+        )
 
     ARGUMENTS["base_uri"] = base_uri
     ARGUMENTS["correct"] = correct
     ARGUMENTS["format"] = graph_format
     ARGUMENTS["input_path"] = input_path
+    ARGUMENTS["invalid_stereotype_policy"] = invalid_stereotype_policy
     ARGUMENTS["language"] = language
     ARGUMENTS["model_only"] = model_only
     ARGUMENTS["output_path"] = output_path
     ARGUMENTS["silent"] = silent
 
 
-def initialize_args_test(input_path: str = "not_initialized", language: str = ""):
+def initialize_args_test(
+    input_path: str = "not_initialized",
+    language: str = "",
+    invalid_stereotype_policy: str = "preserve",
+):
     """Initialize the global variable ARGUMENTS of type dictionary, which contains user-provided \
     (when executed in script mode) or default arguments (when executed as a library or for testing).
 
@@ -231,13 +256,22 @@ def initialize_args_test(input_path: str = "not_initialized", language: str = ""
     :type input_path: str
     :param language: Language tag to be added to the ontology's concepts. (Optional)
     :type language: str
+    :param invalid_stereotype_policy: How to handle stereotypes absent from the recognized list. (Optional)
+    :type invalid_stereotype_policy: str
     """
     validate_arg_input(input_path, decode_all=False)
+
+    if invalid_stereotype_policy not in INVALID_STEREOTYPE_POLICIES:
+        report_error_requirement_not_met(
+            f"Invalid stereotype policy '{invalid_stereotype_policy}'. Valid values are: "
+            f"{list(INVALID_STEREOTYPE_POLICIES)}."
+        )
 
     ARGUMENTS["base_uri"] = "https://example.org#"
     ARGUMENTS["correct"] = True
     ARGUMENTS["format"] = "ttl"
     ARGUMENTS["input_path"] = input_path
+    ARGUMENTS["invalid_stereotype_policy"] = invalid_stereotype_policy
     ARGUMENTS["language"] = language
     ARGUMENTS["model_only"] = False
     ARGUMENTS["output_path"] = "tests" + os.path.sep + "results"
