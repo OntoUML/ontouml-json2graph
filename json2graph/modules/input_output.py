@@ -2,6 +2,7 @@
 
 import json
 import os
+import warnings
 
 from rdflib import Graph, URIRef
 
@@ -10,6 +11,10 @@ from .logger import initialize_logger
 from .utils_graph import rename_uriref_resource, fix_uri
 
 LOGGER = initialize_logger()
+
+
+class JSONEncodingFallbackWarning(UserWarning):
+    """Warn that a JSON input required a fallback character encoding."""
 
 
 def create_directory_if_not_exists(directory_path: str, file_description: str) -> None:
@@ -37,8 +42,21 @@ def safe_load_json_file(json_path: str) -> dict:
     :rtype: dict
     """
     try:
-        with open(json_path, "r") as read_file:
+        with open(json_path, "r", encoding="utf-8") as read_file:
             json_data = json.load(read_file)
+    except UnicodeDecodeError:
+        try:
+            with open(json_path, "r", encoding="cp1252") as read_file:
+                json_data = json.load(read_file)
+        except OSError as error:
+            file_description = "input json file"
+            report_error_io_read(json_path, file_description, error)
+
+        warnings.warn(
+            f"JSON file {json_path} is not valid UTF-8; loaded using CP1252.",
+            JSONEncodingFallbackWarning,
+            stacklevel=2,
+        )
     except IOError as error:
         file_description = "input json file"
         report_error_io_read(json_path, file_description, error)

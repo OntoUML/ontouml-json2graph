@@ -14,6 +14,8 @@ The tests will ensure the correct functioning of the OntoUML JSON2Graph software
 if the generated graph does not match the expected graph.
 """
 
+import json
+import warnings
 from pathlib import Path
 
 import pytest
@@ -22,6 +24,7 @@ from rdflib import RDF, Graph, Literal, Namespace, URIRef
 from .test_aux import compare_graphs, get_test_list
 from ..decode import decode_ontouml_json2graph, write_graph_file
 from ..library import decode_json_model
+from ..modules.input_output import JSONEncodingFallbackWarning, safe_load_json_file
 
 LIST_OF_TESTS = get_test_list()
 
@@ -116,3 +119,28 @@ def test_decode_json_model_preserves_enumeration_literals() -> None:
     ontouml_graph = decode_json_model(json_file_path=ENUMERATION_INPUT_FILE)
 
     assert_enumeration_literals_preserved(ontouml_graph)
+
+
+@pytest.mark.parametrize("encoding", ["utf-8", "cp1252"])
+def test_safe_load_json_file_preserves_supported_source_encodings(
+    tmp_path: Path,
+    encoding: str,
+) -> None:
+    """Verify that supported source encodings preserve the same JSON data."""
+    expected_json = {
+        "id": "project-1",
+        "type": "Project",
+        "name": "Integração €",
+    }
+    input_file = tmp_path / f"project-{encoding}.json"
+    input_file.write_bytes(json.dumps(expected_json, ensure_ascii=False).encode(encoding))
+
+    if encoding == "cp1252":
+        with pytest.warns(JSONEncodingFallbackWarning, match="loaded using CP1252"):
+            loaded_json = safe_load_json_file(str(input_file))
+    else:
+        with warnings.catch_warnings():
+            warnings.simplefilter("error", JSONEncodingFallbackWarning)
+            loaded_json = safe_load_json_file(str(input_file))
+
+    assert loaded_json == expected_json
