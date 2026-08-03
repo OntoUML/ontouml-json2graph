@@ -17,6 +17,7 @@ from .cardinalities import INVALID_CARDINALITY_POLICIES
 from .input_output import create_directory_if_not_exists
 from .logger import initialize_logger
 from .metadata import METADATA
+from .model_element_references import UNRESOLVED_MODEL_ELEMENT_POLICIES
 from .stereotypes import INVALID_STEREOTYPE_POLICIES
 from .utils_validations import validate_arg_input
 
@@ -151,6 +152,14 @@ def initialize_args_script() -> None:
         default="preserve",
         help="Handle stereotypes invalid for their element type: preserve, omit, or error. Default is 'preserve'.",
     )
+    args_parser.add_argument(
+        "--unresolved-model-element-policy",
+        type=str,
+        action="store",
+        choices=UNRESOLVED_MODEL_ELEMENT_POLICIES,
+        default="omit",
+        help="Handle unresolved modelElement references: preserve, omit, or error. Default is 'omit'.",
+    )
 
     # AUTOMATIC ARGUMENTS
     args_parser.add_argument("-v", "--version", action="version", help="Print the software version and exit.")
@@ -171,6 +180,7 @@ def initialize_args_script() -> None:
         "model_only": arguments.model_only,
         "output_path": os.path.abspath(arguments.output_path),
         "silent": arguments.silent,
+        "unresolved_model_element_policy": arguments.unresolved_model_element_policy,
     }
 
     # Input validation
@@ -206,6 +216,7 @@ def initialize_args_import(
     correct: bool = False,
     invalid_stereotype_policy: str = "preserve",
     invalid_cardinality_policy: str = "preserve",
+    unresolved_model_element_policy: str = "omit",
 ):
     """Initialize the global variable ARGUMENTS of type dictionary, which contains user-provided \
     (when executed in script mode) or default arguments (when executed as a library or for testing).
@@ -236,6 +247,9 @@ def initialize_args_import(
     :param invalid_cardinality_policy: How to handle invalid cardinalities. Valid values are 'preserve', 'repair',
                                        and 'error'. (Optional)
     :type invalid_cardinality_policy: str
+    :param unresolved_model_element_policy: How to handle unresolved modelElement references. Valid values are
+                                            'preserve', 'omit', and 'error'. (Optional)
+    :type unresolved_model_element_policy: str
     """
     validate_arg_input(input_path, decode_all=False)
 
@@ -251,6 +265,12 @@ def initialize_args_import(
             f"{list(INVALID_STEREOTYPE_POLICIES)}."
         )
 
+    if unresolved_model_element_policy not in UNRESOLVED_MODEL_ELEMENT_POLICIES:
+        report_error_requirement_not_met(
+            f"Invalid unresolved modelElement policy '{unresolved_model_element_policy}'. Valid values are: "
+            f"{list(UNRESOLVED_MODEL_ELEMENT_POLICIES)}."
+        )
+
     ARGUMENTS["base_uri"] = base_uri
     ARGUMENTS["correct"] = correct
     ARGUMENTS["format"] = graph_format
@@ -261,6 +281,7 @@ def initialize_args_import(
     ARGUMENTS["model_only"] = model_only
     ARGUMENTS["output_path"] = output_path
     ARGUMENTS["silent"] = silent
+    ARGUMENTS["unresolved_model_element_policy"] = unresolved_model_element_policy
 
 
 def initialize_args_test(
@@ -268,6 +289,7 @@ def initialize_args_test(
     language: str = "",
     invalid_stereotype_policy: str = "preserve",
     invalid_cardinality_policy: str = "preserve",
+    unresolved_model_element_policy: str = "omit",
 ):
     """Initialize the global variable ARGUMENTS of type dictionary, which contains user-provided \
     (when executed in script mode) or default arguments (when executed as a library or for testing).
@@ -282,6 +304,8 @@ def initialize_args_test(
     :type invalid_stereotype_policy: str
     :param invalid_cardinality_policy: How to handle invalid cardinalities. (Optional)
     :type invalid_cardinality_policy: str
+    :param unresolved_model_element_policy: How to handle unresolved modelElement references. (Optional)
+    :type unresolved_model_element_policy: str
     """
     validate_arg_input(input_path, decode_all=False)
 
@@ -297,6 +321,12 @@ def initialize_args_test(
             f"{list(INVALID_STEREOTYPE_POLICIES)}."
         )
 
+    if unresolved_model_element_policy not in UNRESOLVED_MODEL_ELEMENT_POLICIES:
+        report_error_requirement_not_met(
+            f"Invalid unresolved modelElement policy '{unresolved_model_element_policy}'. Valid values are: "
+            f"{list(UNRESOLVED_MODEL_ELEMENT_POLICIES)}."
+        )
+
     ARGUMENTS["base_uri"] = "https://example.org#"
     ARGUMENTS["correct"] = True
     ARGUMENTS["format"] = "ttl"
@@ -307,3 +337,4 @@ def initialize_args_test(
     ARGUMENTS["model_only"] = False
     ARGUMENTS["output_path"] = "tests" + os.path.sep + "results"
     ARGUMENTS["silent"] = True
+    ARGUMENTS["unresolved_model_element_policy"] = unresolved_model_element_policy

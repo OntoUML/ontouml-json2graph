@@ -17,6 +17,7 @@ from ..decoder.decode_obj_relation import create_relation_properties
 from ..modules import arguments as args
 from ..modules.logger import initialize_logger
 from ..modules.metadata import METADATA
+from ..modules.model_element_references import apply_unresolved_model_element_policy
 from ..modules.text_values import warn_if_text_value_is_unsupported
 from ..modules.utils_general import get_date_time
 from ..modules.utils_graph import ontouml_ref
@@ -197,6 +198,12 @@ def decode_json_to_graph(json_data: dict, language: str, execution_mode: str) ->
     # Get clean data
     # Dictionary data is all the JSON data loaded as a dictionary to be manipulated
     dictionary_data = clean_null_data(json_data)
+
+    # Validate only diagrammatic modelElement references before reference stubs can be decoded as real individuals.
+    apply_unresolved_model_element_policy(
+        dictionary_data,
+        args.ARGUMENTS["unresolved_model_element_policy"],
+    )
 
     # GENERAL DECODING: creating all instances and setting their types.
     decode_dictionary(dictionary_data, ontouml_graph, language)

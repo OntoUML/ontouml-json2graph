@@ -3458,7 +3458,6 @@
 
 :J2hz9JGGAqACNwwF
     a                  ontouml:RelationView ;
-    ontouml:isViewOf   :G2hz9JGGAqACNwwA ;
     ontouml:project    :2Yx01JGGAqACNw2l ;
     ontouml:shape      :J2hz9JGGAqACNwwF_path ;
     ontouml:targetView :uyYz9JGGAqACNwth .
@@ -3671,7 +3670,6 @@
 
 :lnhz9JGGAqACNwwP
     a                  ontouml:RelationView ;
-    ontouml:isViewOf   :Onhz9JGGAqACNwwK ;
     ontouml:project    :2Yx01JGGAqACNw2l ;
     ontouml:shape      :lnhz9JGGAqACNwwP_path ;
     ontouml:targetView :inoz9JGGAqACNwtW .
@@ -3706,7 +3704,6 @@
 
 :qvBz9JGGAqACNwv7
     a                  ontouml:RelationView ;
-    ontouml:isViewOf   :EvBz9JGGAqACNwv2 ;
     ontouml:project    :2Yx01JGGAqACNw2l ;
     ontouml:shape      :qvBz9JGGAqACNwv7_path ;
     ontouml:targetView :gRoz9JGGAqACNwtL .
@@ -3819,18 +3816,10 @@
 :E_ZS1JGGAqACNwu1_path
     ontouml:project :2Yx01JGGAqACNw2l .
 
-:EvBz9JGGAqACNwv2
-    a               ontouml:Relation ;
-    ontouml:project :2Yx01JGGAqACNw2l .
-
 :FUes1JGGAqACNxOO
     ontouml:isAbstract false .
 
 :FbDS1JGGAqACNwwe_path
-    ontouml:project :2Yx01JGGAqACNw2l .
-
-:G2hz9JGGAqACNwwA
-    a               ontouml:Relation ;
     ontouml:project :2Yx01JGGAqACNw2l .
 
 :GK5S1JGGAqACNwu6
@@ -3870,10 +3859,6 @@
     ontouml:project :2Yx01JGGAqACNw2l .
 
 :NfC1JGGAqACNxSq_path
-    ontouml:project :2Yx01JGGAqACNw2l .
-
-:Onhz9JGGAqACNwwK
-    a               ontouml:Relation ;
     ontouml:project :2Yx01JGGAqACNw2l .
 
 :R89M1JGGAqACNxLM

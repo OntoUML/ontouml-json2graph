@@ -33,6 +33,10 @@ from ..modules.cardinalities import (
 )
 from ..modules.input_output import JSONEncodingFallbackWarning, safe_load_json_file
 from ..modules.metadata import METADATA
+from ..modules.model_element_references import (
+    UnresolvedModelElementError,
+    UnresolvedModelElementWarning,
+)
 from ..modules.stereotypes import (
     InvalidStereotypeError,
     InvalidStereotypeWarning,
@@ -196,6 +200,88 @@ def write_text_shape_project(
                                     "height": height,
                                     "value": value,
                                 },
+                            }
+                        ],
+                    }
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+    return input_file
+
+
+def write_model_element_reference_project(
+    tmp_path: Path,
+    referenced_element_type: str = "Relation",
+    resolved: bool = False,
+) -> Path:
+    """Write a minimal project containing an ElementView modelElement reference."""
+    referenced_element_id = "referenced-element-1"
+
+    if resolved:
+        nested_contents = [
+            {
+                "id": referenced_element_id,
+                "type": "Class",
+                "name": "Defined class",
+            }
+        ]
+        model_contents = [
+            {
+                "id": "nested-package-1",
+                "type": "Package",
+                "name": "Nested package",
+                "contents": nested_contents,
+            }
+        ]
+    else:
+        model_contents = []
+
+    if referenced_element_type == "Relation":
+        shape = {
+            "id": "view-1_path",
+            "type": "Path",
+            "points": [{"x": 0, "y": 0}, {"x": 20, "y": 20}],
+        }
+    else:
+        shape = {
+            "id": "view-1_shape",
+            "type": "Rectangle",
+            "x": 0,
+            "y": 0,
+            "width": 80,
+            "height": 40,
+        }
+
+    input_file = tmp_path / "model-element-reference.json"
+    input_file.write_text(
+        json.dumps(
+            {
+                "id": "project-1",
+                "type": "Project",
+                "name": "Example",
+                "model": {
+                    "id": "package-1",
+                    "type": "Package",
+                    "name": "Model",
+                    "contents": model_contents,
+                },
+                "diagrams": [
+                    {
+                        "id": "diagram-1",
+                        "type": "Diagram",
+                        "name": "Diagram",
+                        "owner": {"id": "package-1", "type": "Package"},
+                        "contents": [
+                            {
+                                "id": "view-1",
+                                "type": f"{referenced_element_type}View",
+                                "modelElement": {
+                                    "id": referenced_element_id,
+                                    "type": referenced_element_type,
+                                },
+                                "shape": shape,
                             }
                         ],
                     }
@@ -768,3 +854,112 @@ def test_new_cardinality_argument_preserves_existing_positional_api_order(tmp_pa
     element_uri = URIRef(BASE_URI + "class-1")
     assert (element_uri, RDF.type, ONTOUML.Class) in ontouml_graph
     assert set(ontouml_graph.objects(element_uri, ONTOUML.stereotype)) == set()
+
+
+@pytest.mark.parametrize("referenced_element_type", ["Class", "Relation"])
+def test_default_policy_omits_unresolved_model_element_reference(
+    tmp_path: Path,
+    referenced_element_type: str,
+) -> None:
+    """Verify that omit is the default for every unresolved modelElement reference type."""
+    input_file = write_model_element_reference_project(tmp_path, referenced_element_type)
+
+    with pytest.warns(UnresolvedModelElementWarning, match="policy is 'omit'"):
+        ontouml_graph = decode_ontouml_json2graph(json_file_path=str(input_file))
+
+    element_view_uri = URIRef(BASE_URI + "view-1")
+    referenced_element_uri = URIRef(BASE_URI + "referenced-element-1")
+    shape_suffix = "_path" if referenced_element_type == "Relation" else "_shape"
+
+    assert (element_view_uri, RDF.type, ONTOUML[f"{referenced_element_type}View"]) in ontouml_graph
+    assert (element_view_uri, ONTOUML.shape, URIRef(BASE_URI + "view-1" + shape_suffix)) in ontouml_graph
+    assert not any(ontouml_graph.triples((element_view_uri, ONTOUML.isViewOf, None)))
+    assert not any(ontouml_graph.triples((referenced_element_uri, None, None)))
+    assert not any(ontouml_graph.triples((None, None, referenced_element_uri)))
+
+
+@pytest.mark.parametrize("referenced_element_type", ["Class", "Relation"])
+def test_preserve_policy_retains_unresolved_model_element_reference(
+    tmp_path: Path,
+    referenced_element_type: str,
+) -> None:
+    """Verify that preserve keeps the current materialization behavior with a warning."""
+    input_file = write_model_element_reference_project(tmp_path, referenced_element_type)
+
+    with pytest.warns(UnresolvedModelElementWarning, match="policy is 'preserve'"):
+        ontouml_graph = decode_ontouml_json2graph(
+            json_file_path=str(input_file),
+            unresolved_model_element_policy="preserve",
+        )
+
+    element_view_uri = URIRef(BASE_URI + "view-1")
+    referenced_element_uri = URIRef(BASE_URI + "referenced-element-1")
+
+    assert (referenced_element_uri, RDF.type, ONTOUML[referenced_element_type]) in ontouml_graph
+    assert (element_view_uri, ONTOUML.isViewOf, referenced_element_uri) in ontouml_graph
+
+
+def test_resolved_model_element_reference_is_preserved_without_warning(tmp_path: Path) -> None:
+    """Verify that recursively contained model elements resolve normally under the default policy."""
+    input_file = write_model_element_reference_project(tmp_path, referenced_element_type="Class", resolved=True)
+
+    with warnings.catch_warnings():
+        warnings.simplefilter("error", UnresolvedModelElementWarning)
+        ontouml_graph = decode_ontouml_json2graph(json_file_path=str(input_file))
+
+    element_view_uri = URIRef(BASE_URI + "view-1")
+    referenced_element_uri = URIRef(BASE_URI + "referenced-element-1")
+
+    assert (referenced_element_uri, RDF.type, ONTOUML.Class) in ontouml_graph
+    assert (element_view_uri, ONTOUML.isViewOf, referenced_element_uri) in ontouml_graph
+
+
+def test_unresolved_model_element_error_policy_aborts_decoding(tmp_path: Path) -> None:
+    """Verify that error policy rejects an unresolved modelElement reference."""
+    input_file = write_model_element_reference_project(tmp_path)
+
+    with pytest.raises(UnresolvedModelElementError, match="Transformation aborted"):
+        decode_ontouml_json2graph(
+            json_file_path=str(input_file),
+            unresolved_model_element_policy="error",
+        )
+
+
+def test_unresolved_model_element_error_policy_does_not_create_output_file(tmp_path: Path) -> None:
+    """Verify that command-line error policy aborts before writing output."""
+    input_file = write_model_element_reference_project(tmp_path)
+
+    result = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "json2graph.decode",
+            "-i",
+            str(input_file),
+            "-o",
+            str(tmp_path),
+            "--unresolved-model-element-policy",
+            "error",
+        ],
+        capture_output=True,
+        check=False,
+        text=True,
+    )
+
+    assert result.returncode != 0
+    assert "UnresolvedModelElementError" in result.stderr
+    assert not (tmp_path / "model-element-reference.ttl").exists()
+
+
+def test_decode_json_model_exposes_unresolved_model_element_policy(tmp_path: Path) -> None:
+    """Verify that the public model API exposes explicit preserve behavior."""
+    input_file = write_model_element_reference_project(tmp_path)
+
+    with pytest.warns(UnresolvedModelElementWarning, match="policy is 'preserve'"):
+        ontouml_graph = decode_json_model(
+            json_file_path=str(input_file),
+            unresolved_model_element_policy="preserve",
+        )
+
+    referenced_element_uri = URIRef(BASE_URI + "referenced-element-1")
+    assert (referenced_element_uri, RDF.type, ONTOUML.Relation) in ontouml_graph

@@ -47,6 +47,7 @@ def decode_ontouml_json2graph(
     execution_mode: str = "import",
     invalid_stereotype_policy: str = "preserve",
     invalid_cardinality_policy: str = "preserve",
+    unresolved_model_element_policy: str = "omit",
 ) -> Graph:
     """Convert OntoUML JSON data to a Knowledge Graph.
 
@@ -75,6 +76,9 @@ def decode_ontouml_json2graph(
     :param invalid_cardinality_policy: How to handle invalid cardinalities. Valid values are 'preserve', 'repair',
                                        and 'error'. Default is 'preserve'. (Optional)
     :type invalid_cardinality_policy: str
+    :param unresolved_model_element_policy: How to handle unresolved modelElement references. Valid values are
+                                            'preserve', 'omit', and 'error'. Default is 'omit'. (Optional)
+    :type unresolved_model_element_policy: str
 
     :return: JSON data decoded into a RDFLib's Graph that is compliant with the OntoUML Vocabulary.
     :rtype: Graph
@@ -99,6 +103,7 @@ def decode_ontouml_json2graph(
             language=language,
             invalid_cardinality_policy=invalid_cardinality_policy,
             invalid_stereotype_policy=invalid_stereotype_policy,
+            unresolved_model_element_policy=unresolved_model_element_policy,
         )
     elif execution_mode == "import":
         args.initialize_args_import(
@@ -110,6 +115,7 @@ def decode_ontouml_json2graph(
             correct=correct,
             invalid_cardinality_policy=invalid_cardinality_policy,
             invalid_stereotype_policy=invalid_stereotype_policy,
+            unresolved_model_element_policy=unresolved_model_element_policy,
         )
 
     if execution_mode == "script" and not args.ARGUMENTS["silent"]:
