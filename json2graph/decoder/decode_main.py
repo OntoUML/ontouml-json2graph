@@ -203,6 +203,7 @@ def decode_json_to_graph(json_data: dict, language: str, execution_mode: str) ->
     apply_unresolved_model_element_policy(
         dictionary_data,
         args.ARGUMENTS["unresolved_model_element_policy"],
+        args.ARGUMENTS["input_path"],
     )
 
     # GENERAL DECODING: creating all instances and setting their types.

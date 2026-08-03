@@ -864,8 +864,14 @@ def test_default_policy_omits_unresolved_model_element_reference(
     """Verify that omit is the default for every unresolved modelElement reference type."""
     input_file = write_model_element_reference_project(tmp_path, referenced_element_type)
 
-    with pytest.warns(UnresolvedModelElementWarning, match="policy is 'omit'"):
+    with pytest.warns(UnresolvedModelElementWarning, match="policy is 'omit'") as warning_records:
         ontouml_graph = decode_ontouml_json2graph(json_file_path=str(input_file))
+
+    warning_message = str(warning_records[0].message)
+    assert str(input_file) in warning_message
+    assert "view-1" in warning_message
+    assert "referenced-element-1" in warning_message
+    assert f"declared type '{referenced_element_type}'" in warning_message
 
     element_view_uri = URIRef(BASE_URI + "view-1")
     referenced_element_uri = URIRef(BASE_URI + "referenced-element-1")
@@ -918,11 +924,17 @@ def test_unresolved_model_element_error_policy_aborts_decoding(tmp_path: Path) -
     """Verify that error policy rejects an unresolved modelElement reference."""
     input_file = write_model_element_reference_project(tmp_path)
 
-    with pytest.raises(UnresolvedModelElementError, match="Transformation aborted"):
+    with pytest.raises(UnresolvedModelElementError, match="Transformation aborted") as error_info:
         decode_ontouml_json2graph(
             json_file_path=str(input_file),
             unresolved_model_element_policy="error",
         )
+
+    error_message = str(error_info.value)
+    assert str(input_file) in error_message
+    assert "view-1" in error_message
+    assert "referenced-element-1" in error_message
+    assert "declared type 'Relation'" in error_message
 
 
 def test_unresolved_model_element_error_policy_does_not_create_output_file(tmp_path: Path) -> None:
@@ -948,6 +960,9 @@ def test_unresolved_model_element_error_policy_does_not_create_output_file(tmp_p
 
     assert result.returncode != 0
     assert "UnresolvedModelElementError" in result.stderr
+    assert str(input_file) in result.stderr
+    assert "view-1" in result.stderr
+    assert "referenced-element-1" in result.stderr
     assert not (tmp_path / "model-element-reference.ttl").exists()
 
 

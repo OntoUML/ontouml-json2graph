@@ -39,7 +39,11 @@ def _collect_model_element_ids(model_package: dict) -> set[str]:
     return model_element_ids
 
 
-def apply_unresolved_model_element_policy(project_data: dict, policy: str) -> None:
+def apply_unresolved_model_element_policy(
+    project_data: dict,
+    policy: str,
+    input_path: str,
+) -> None:
     """Handle unresolved ElementView.modelElement references according to policy.
 
     Only ``modelElement`` references on objects contained by diagrams are
@@ -50,6 +54,8 @@ def apply_unresolved_model_element_policy(project_data: dict, policy: str) -> No
     :type project_data: dict
     :param policy: One of ``preserve``, ``omit``, or ``error``.
     :type policy: str
+    :param input_path: Path of the JSON file containing the reference.
+    :type input_path: str
     """
     if policy not in UNRESOLVED_MODEL_ELEMENT_POLICIES:
         raise ValueError(
@@ -81,9 +87,11 @@ def apply_unresolved_model_element_policy(project_data: dict, policy: str) -> No
 
             element_view_type = element_view.get("type", "ElementView")
             element_view_id = element_view.get("id", "unknown")
+            referenced_type = model_element.get("type", "unknown")
             message = (
-                f"{element_view_type} with ID '{element_view_id}' has unresolved modelElement reference "
-                f"'{referenced_id}', which is not defined in the project's model contents."
+                f"Input file '{input_path}': {element_view_type} with ID '{element_view_id}' has unresolved "
+                f"modelElement reference '{referenced_id}' (declared type '{referenced_type}'), which is not "
+                f"defined in the project's model contents."
             )
 
             if policy == "error":
