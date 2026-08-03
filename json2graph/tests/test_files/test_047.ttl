@@ -80,10 +80,10 @@
 
 :2GPBlG6GAqACBArN_shape
     a                       ontouml:Rectangle ;
-    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:height          "40"^^xsd:nonNegativeInteger ;
     ontouml:project         :Rol55G6GAqACBAnR ;
     ontouml:topLeftPosition :2GPBlG6GAqACBArN_shape_point ;
-    ontouml:width           "80"^^xsd:positiveInteger .
+    ontouml:width           "80"^^xsd:nonNegativeInteger .
 
 :2GPBlG6GAqACBArN_shape_point
     a                   ontouml:Point ;
@@ -195,10 +195,10 @@
 
 :4w4hlG6GAqACBArg_shape
     a                       ontouml:Rectangle ;
-    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:height          "40"^^xsd:nonNegativeInteger ;
     ontouml:project         :Rol55G6GAqACBAnR ;
     ontouml:topLeftPosition :4w4hlG6GAqACBArg_shape_point ;
-    ontouml:width           "91"^^xsd:positiveInteger .
+    ontouml:width           "91"^^xsd:nonNegativeInteger .
 
 :4w4hlG6GAqACBArg_shape_point
     a                   ontouml:Point ;
@@ -230,10 +230,10 @@
 
 :6Y4n5G6GAqACBCb6_shape
     a                       ontouml:Rectangle ;
-    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:height          "40"^^xsd:nonNegativeInteger ;
     ontouml:project         :Rol55G6GAqACBAnR ;
     ontouml:topLeftPosition :6Y4n5G6GAqACBCb6_shape_point ;
-    ontouml:width           "161"^^xsd:positiveInteger .
+    ontouml:width           "161"^^xsd:nonNegativeInteger .
 
 :6Y4n5G6GAqACBCb6_shape_point
     a                   ontouml:Point ;
@@ -333,10 +333,10 @@
 
 :8V7BlG6GAqACBAnC_shape
     a                       ontouml:Rectangle ;
-    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:height          "40"^^xsd:nonNegativeInteger ;
     ontouml:project         :Rol55G6GAqACBAnR ;
     ontouml:topLeftPosition :8V7BlG6GAqACBAnC_shape_point ;
-    ontouml:width           "91"^^xsd:positiveInteger .
+    ontouml:width           "91"^^xsd:nonNegativeInteger .
 
 :8V7BlG6GAqACBAnC_shape_point
     a                   ontouml:Point ;
@@ -362,10 +362,10 @@
 
 :BK6P5G6GAqACBCnf_shape
     a                       ontouml:Rectangle ;
-    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:height          "40"^^xsd:nonNegativeInteger ;
     ontouml:project         :Rol55G6GAqACBAnR ;
     ontouml:topLeftPosition :BK6P5G6GAqACBCnf_shape_point ;
-    ontouml:width           "125"^^xsd:positiveInteger .
+    ontouml:width           "125"^^xsd:nonNegativeInteger .
 
 :BK6P5G6GAqACBCnf_shape_point
     a                   ontouml:Point ;
@@ -374,10 +374,10 @@
 
 :BwXz5G6GAqACBBff_shape
     a                       ontouml:Rectangle ;
-    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:height          "40"^^xsd:nonNegativeInteger ;
     ontouml:project         :Rol55G6GAqACBAnR ;
     ontouml:topLeftPosition :BwXz5G6GAqACBBff_shape_point ;
-    ontouml:width           "134"^^xsd:positiveInteger .
+    ontouml:width           "134"^^xsd:nonNegativeInteger .
 
 :BwXz5G6GAqACBBff_shape_point
     a                   ontouml:Point ;
@@ -477,10 +477,10 @@
 
 :DV7BlG6GAqACBAna_shape
     a                       ontouml:Rectangle ;
-    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:height          "40"^^xsd:nonNegativeInteger ;
     ontouml:project         :Rol55G6GAqACBAnR ;
     ontouml:topLeftPosition :DV7BlG6GAqACBAna_shape_point ;
-    ontouml:width           "161"^^xsd:positiveInteger .
+    ontouml:width           "161"^^xsd:nonNegativeInteger .
 
 :DV7BlG6GAqACBAna_shape_point
     a                   ontouml:Point ;
@@ -535,10 +535,10 @@
 
 :FwXz5G6GAqACBBfk_shape
     a                       ontouml:Rectangle ;
-    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:height          "40"^^xsd:nonNegativeInteger ;
     ontouml:project         :Rol55G6GAqACBAnR ;
     ontouml:topLeftPosition :FwXz5G6GAqACBBfk_shape_point ;
-    ontouml:width           "82"^^xsd:positiveInteger .
+    ontouml:width           "82"^^xsd:nonNegativeInteger .
 
 :FwXz5G6GAqACBBfk_shape_point
     a                   ontouml:Point ;
@@ -570,10 +570,10 @@
 
 :HI1H5G6GAqACBCa._shape
     a                       ontouml:Rectangle ;
-    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:height          "40"^^xsd:nonNegativeInteger ;
     ontouml:project         :Rol55G6GAqACBAnR ;
     ontouml:topLeftPosition :HI1H5G6GAqACBCa._shape_point ;
-    ontouml:width           "157"^^xsd:positiveInteger .
+    ontouml:width           "157"^^xsd:nonNegativeInteger .
 
 :HI1H5G6GAqACBCa._shape_point
     a                   ontouml:Point ;
@@ -582,10 +582,10 @@
 
 :JF7BlG6GAqACBAmS_shape
     a                       ontouml:Rectangle ;
-    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:height          "40"^^xsd:nonNegativeInteger ;
     ontouml:project         :Rol55G6GAqACBAnR ;
     ontouml:topLeftPosition :JF7BlG6GAqACBAmS_shape_point ;
-    ontouml:width           "122"^^xsd:positiveInteger .
+    ontouml:width           "122"^^xsd:nonNegativeInteger .
 
 :JF7BlG6GAqACBAmS_shape_point
     a                   ontouml:Point ;
@@ -594,10 +594,10 @@
 
 :JQXz5G6GAqACBBfG_shape
     a                       ontouml:Rectangle ;
-    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:height          "40"^^xsd:nonNegativeInteger ;
     ontouml:project         :Rol55G6GAqACBAnR ;
     ontouml:topLeftPosition :JQXz5G6GAqACBBfG_shape_point ;
-    ontouml:width           "122"^^xsd:positiveInteger .
+    ontouml:width           "122"^^xsd:nonNegativeInteger .
 
 :JQXz5G6GAqACBBfG_shape_point
     a                   ontouml:Point ;
@@ -641,10 +641,10 @@
 
 :P0pRlG6GAqACBAs__shape
     a                       ontouml:Rectangle ;
-    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:height          "40"^^xsd:nonNegativeInteger ;
     ontouml:project         :Rol55G6GAqACBAnR ;
     ontouml:topLeftPosition :P0pRlG6GAqACBAs__shape_point ;
-    ontouml:width           "121"^^xsd:positiveInteger .
+    ontouml:width           "121"^^xsd:nonNegativeInteger .
 
 :P0pRlG6GAqACBAs__shape_point
     a                   ontouml:Point ;
@@ -687,10 +687,10 @@
 
 :PV7BlG6GAqACBAni_shape
     a                       ontouml:Rectangle ;
-    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:height          "40"^^xsd:nonNegativeInteger ;
     ontouml:project         :Rol55G6GAqACBAnR ;
     ontouml:topLeftPosition :PV7BlG6GAqACBAni_shape_point ;
-    ontouml:width           "176"^^xsd:positiveInteger .
+    ontouml:width           "176"^^xsd:nonNegativeInteger .
 
 :PV7BlG6GAqACBAni_shape_point
     a                   ontouml:Point ;
@@ -699,10 +699,10 @@
 
 :PwXz5G6GAqACBBfw_shape
     a                       ontouml:Rectangle ;
-    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:height          "40"^^xsd:nonNegativeInteger ;
     ontouml:project         :Rol55G6GAqACBAnR ;
     ontouml:topLeftPosition :PwXz5G6GAqACBBfw_shape_point ;
-    ontouml:width           "124"^^xsd:positiveInteger .
+    ontouml:width           "124"^^xsd:nonNegativeInteger .
 
 :PwXz5G6GAqACBBfw_shape_point
     a                   ontouml:Point ;
@@ -723,10 +723,10 @@
 
 :Rg.H5G6GAqACBCaY_shape
     a                       ontouml:Rectangle ;
-    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:height          "40"^^xsd:nonNegativeInteger ;
     ontouml:project         :Rol55G6GAqACBAnR ;
     ontouml:topLeftPosition :Rg.H5G6GAqACBCaY_shape_point ;
-    ontouml:width           "161"^^xsd:positiveInteger .
+    ontouml:width           "161"^^xsd:nonNegativeInteger .
 
 :Rg.H5G6GAqACBCaY_shape_point
     a                   ontouml:Point ;
@@ -811,10 +811,10 @@
 
 :WcZn5G6GAqACBCcW_shape
     a                       ontouml:Rectangle ;
-    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:height          "40"^^xsd:nonNegativeInteger ;
     ontouml:project         :Rol55G6GAqACBAnR ;
     ontouml:topLeftPosition :WcZn5G6GAqACBCcW_shape_point ;
-    ontouml:width           "176"^^xsd:positiveInteger .
+    ontouml:width           "176"^^xsd:nonNegativeInteger .
 
 :WcZn5G6GAqACBCcW_shape_point
     a                   ontouml:Point ;
@@ -859,10 +859,10 @@
 
 :YedRlG6GAqACBAtW_shape
     a                       ontouml:Rectangle ;
-    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:height          "40"^^xsd:nonNegativeInteger ;
     ontouml:project         :Rol55G6GAqACBAnR ;
     ontouml:topLeftPosition :YedRlG6GAqACBAtW_shape_point ;
-    ontouml:width           "113"^^xsd:positiveInteger .
+    ontouml:width           "113"^^xsd:nonNegativeInteger .
 
 :YedRlG6GAqACBAtW_shape_point
     a                   ontouml:Point ;
@@ -1021,10 +1021,10 @@
 
 :f81xlG6GAqACBAxn_shape
     a                       ontouml:Rectangle ;
-    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:height          "40"^^xsd:nonNegativeInteger ;
     ontouml:project         :Rol55G6GAqACBAnR ;
     ontouml:topLeftPosition :f81xlG6GAqACBAxn_shape_point ;
-    ontouml:width           "155"^^xsd:positiveInteger .
+    ontouml:width           "155"^^xsd:nonNegativeInteger .
 
 :f81xlG6GAqACBAxn_shape_point
     a                   ontouml:Point ;
@@ -1062,10 +1062,10 @@
 
 :jQXz5G6GAqACBBfL_shape
     a                       ontouml:Rectangle ;
-    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:height          "40"^^xsd:nonNegativeInteger ;
     ontouml:project         :Rol55G6GAqACBAnR ;
     ontouml:topLeftPosition :jQXz5G6GAqACBBfL_shape_point ;
-    ontouml:width           "198"^^xsd:positiveInteger .
+    ontouml:width           "198"^^xsd:nonNegativeInteger .
 
 :jQXz5G6GAqACBBfL_shape_point
     a                   ontouml:Point ;
@@ -1074,10 +1074,10 @@
 
 :mD6X5G6GAqACBCew_shape
     a                       ontouml:Rectangle ;
-    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:height          "40"^^xsd:nonNegativeInteger ;
     ontouml:project         :Rol55G6GAqACBAnR ;
     ontouml:topLeftPosition :mD6X5G6GAqACBCew_shape_point ;
-    ontouml:width           "124"^^xsd:positiveInteger .
+    ontouml:width           "124"^^xsd:nonNegativeInteger .
 
 :mD6X5G6GAqACBCew_shape_point
     a                   ontouml:Point ;
@@ -1086,10 +1086,10 @@
 
 :nSJxlG6GAqACBAxB_shape
     a                       ontouml:Rectangle ;
-    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:height          "40"^^xsd:nonNegativeInteger ;
     ontouml:project         :Rol55G6GAqACBAnR ;
     ontouml:topLeftPosition :nSJxlG6GAqACBAxB_shape_point ;
-    ontouml:width           "132"^^xsd:positiveInteger .
+    ontouml:width           "132"^^xsd:nonNegativeInteger .
 
 :nSJxlG6GAqACBAxB_shape_point
     a                   ontouml:Point ;
@@ -1098,10 +1098,10 @@
 
 :oIXz5G6GAqACBBf1_shape
     a                       ontouml:Rectangle ;
-    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:height          "40"^^xsd:nonNegativeInteger ;
     ontouml:project         :Rol55G6GAqACBAnR ;
     ontouml:topLeftPosition :oIXz5G6GAqACBBf1_shape_point ;
-    ontouml:width           "91"^^xsd:positiveInteger .
+    ontouml:width           "91"^^xsd:nonNegativeInteger .
 
 :oIXz5G6GAqACBBf1_shape_point
     a                   ontouml:Point ;
@@ -1110,10 +1110,10 @@
 
 :ol7BlG6GAqACBAma_shape
     a                       ontouml:Rectangle ;
-    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:height          "40"^^xsd:nonNegativeInteger ;
     ontouml:project         :Rol55G6GAqACBAnR ;
     ontouml:topLeftPosition :ol7BlG6GAqACBAma_shape_point ;
-    ontouml:width           "198"^^xsd:positiveInteger .
+    ontouml:width           "198"^^xsd:nonNegativeInteger .
 
 :ol7BlG6GAqACBAma_shape_point
     a                   ontouml:Point ;
@@ -1272,10 +1272,10 @@
 
 :zwXz5G6GAqACBBfr_shape
     a                       ontouml:Rectangle ;
-    ontouml:height          "40"^^xsd:positiveInteger ;
+    ontouml:height          "40"^^xsd:nonNegativeInteger ;
     ontouml:project         :Rol55G6GAqACBAnR ;
     ontouml:topLeftPosition :zwXz5G6GAqACBBfr_shape_point ;
-    ontouml:width           "114"^^xsd:positiveInteger .
+    ontouml:width           "114"^^xsd:nonNegativeInteger .
 
 :zwXz5G6GAqACBBfr_shape_point
     a                   ontouml:Point ;

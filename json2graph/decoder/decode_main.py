@@ -17,6 +17,7 @@ from ..decoder.decode_obj_relation import create_relation_properties
 from ..modules import arguments as args
 from ..modules.logger import initialize_logger
 from ..modules.metadata import METADATA
+from ..modules.text_values import warn_if_text_value_is_unsupported
 from ..modules.utils_general import get_date_time
 from ..modules.utils_graph import ontouml_ref
 
@@ -91,7 +92,7 @@ def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph, language: str
     Recursively evaluates the dictionary to create all possible instances, setting their types and attributes.
 
     OntoUML-Vocabulary properties that are directly decoded in the general decoder:
-        - description, height, isAbstract, isComplete, isDerived, isDisjoint, isOrdered, isReadOnly, name, text, width
+        - description, height, isAbstract, isComplete, isDerived, isDisjoint, isOrdered, isReadOnly, name, width
 
     Restricted properties (the ones in the restricted_fields list) are not treated in this function.
 
@@ -112,8 +113,7 @@ def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph, language: str
         "x",
         "y",
     ]
-    positive_integer_fields = ["width", "height"]
-    mapped_fields = {"value": "text"}
+    non_negative_integer_fields = ["width", "height"]
 
     # Treating Path sub dictionaries
     if "id" not in dictionary_data:
@@ -133,6 +133,12 @@ def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph, language: str
         if key == "id" or key == "type":
             continue
 
+        # A legacy Text.value field has no equivalent in OntoUML Vocabulary v1.1.1.
+        # Empty values are omitted silently; non-empty values are omitted with a warning.
+        if key == "value" and dictionary_data["type"] == "Text":
+            warn_if_text_value_is_unsupported(dictionary_data)
+            continue
+
         # If it is of a restricted field, do not add other attributes now
         if key in restricted_fields:
             continue
@@ -150,26 +156,20 @@ def decode_dictionary(dictionary_data: dict, ontouml_graph: Graph, language: str
             continue
 
         # Graph's PREDICATE definition
-        # May be direct or mapped
-        if key not in mapped_fields.keys():
-            new_predicate = ontouml_ref(key)
-        else:
-            new_predicate = ontouml_ref(mapped_fields[key])
+        new_predicate = ontouml_ref(key)
 
         # Graph's OBJECT definition
         if (key == "name") and language != "":
             new_object = Literal(dictionary_data[key], lang=language)
-        elif key in positive_integer_fields:
-            # Checking if is not integer (as int or as string)
-            if type(dictionary_data[key]) is not int:
-                if not dictionary_data[key].isdigit():
-                    LOGGER.error(
-                        f"The object with ID {dictionary_data['id']} has an invalid type for its "
-                        f"field '{key}' and was not transformed (expected type 'int', "
-                        f"received '{type(dictionary_data[key]).__name__}')."
-                    )
-            else:
-                new_object = Literal(dictionary_data[key], datatype=XSD.positiveInteger)
+        elif key in non_negative_integer_fields:
+            dimension_value = dictionary_data[key]
+            if type(dimension_value) is not int or dimension_value < 0:
+                LOGGER.error(
+                    f"The object with ID {dictionary_data['id']} has an invalid value for its field '{key}' "
+                    f"and was not transformed (expected a non-negative integer, received {dimension_value!r})."
+                )
+                continue
+            new_object = Literal(dimension_value, datatype=XSD.nonNegativeInteger)
         else:
             new_object = Literal(dictionary_data[key])
 

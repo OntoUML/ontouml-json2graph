@@ -5,7 +5,7 @@ build-system:
 extras:
   conformsTo: https://w3id.org/ontouml
   conformsToBase: https://w3id.org/ontouml#
-  conformsToVersion: v1.1.0
+  conformsToVersion: v1.1.1
 tool:
   poetry:
     authors:

@@ -30,4 +30,4 @@ METADATA.setdefault("Home-page", "https://w3id.org/ontouml/json2graph")
 # Manually including additional metadata
 METADATA["conformsTo"] = "https://w3id.org/ontouml"
 METADATA["conformsToBase"] = "https://w3id.org/ontouml#"
-METADATA["conformsToVersion"] = "v1.1.0"
+METADATA["conformsToVersion"] = "v1.1.1"

@@ -233,6 +233,13 @@ Differently, the OntoUML Vocabulary was created to support the serialization, ex
         - `error`: raises an error and aborts before an output file is generated.
     - Reports invalid assertion when a Property stereotype is related to a Class that is known not to be of stereotype 'event'.
     - Sets Class stereotype as 'event' when it is originally 'null' and the class is related to a Property with stereotype.
+- Diagrammatic value handling:
+    - Targets OntoUML Vocabulary v1.1.1 and emits `ontouml:width` and `ontouml:height` as
+      `xsd:nonNegativeInteger`, preserving zero-valued dimensions.
+    - Omits the legacy `value` field from `ontouml:Text` shapes instead of mapping it to `ontouml:text`, whose
+      domain is `ontouml:Note`.
+    - Omits empty `Text.value` fields silently and issues `UnsupportedTextValueWarning` before omitting a non-empty
+      value that cannot be represented by OntoUML Vocabulary v1.1.1.
 
 ## Permanent URLs and Identifiers
 

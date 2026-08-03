@@ -21,7 +21,7 @@ import warnings
 from pathlib import Path
 
 import pytest
-from rdflib import RDF, XSD, Graph, Literal, Namespace, URIRef
+from rdflib import RDF, RDFS, XSD, Graph, Literal, Namespace, URIRef
 
 from .test_aux import compare_graphs, get_test_list
 from ..decode import decode_ontouml_json2graph, write_graph_file
@@ -32,6 +32,7 @@ from ..modules.cardinalities import (
     InvalidCardinalityWarning,
 )
 from ..modules.input_output import JSONEncodingFallbackWarning, safe_load_json_file
+from ..modules.metadata import METADATA
 from ..modules.stereotypes import (
     InvalidStereotypeError,
     InvalidStereotypeWarning,
@@ -39,6 +40,8 @@ from ..modules.stereotypes import (
     normalize_stereotype,
     set_stereotype_relation,
 )
+from ..modules.text_values import UnsupportedTextValueWarning
+from ..modules.utils_graph import load_ontouml_vocabulary
 
 LIST_OF_TESTS = get_test_list()
 
@@ -154,6 +157,56 @@ def write_cardinality_project(tmp_path: Path, cardinality: str) -> Path:
     return input_file
 
 
+def write_text_shape_project(
+    tmp_path: Path,
+    width: int,
+    height: int,
+    value: str = "",
+) -> Path:
+    """Write a minimal project containing a diagrammatic Text shape."""
+    input_file = tmp_path / "text-shape.json"
+    input_file.write_text(
+        json.dumps(
+            {
+                "id": "project-1",
+                "type": "Project",
+                "name": "Example",
+                "model": {
+                    "id": "package-1",
+                    "type": "Package",
+                    "name": "Model",
+                    "contents": [],
+                },
+                "diagrams": [
+                    {
+                        "id": "diagram-1",
+                        "type": "Diagram",
+                        "name": "Diagram",
+                        "owner": {"id": "package-1", "type": "Package"},
+                        "contents": [
+                            {
+                                "id": "view-1",
+                                "type": "GeneralizationSetView",
+                                "shape": {
+                                    "id": "view-1_shape",
+                                    "type": "Text",
+                                    "x": 0,
+                                    "y": 0,
+                                    "width": width,
+                                    "height": height,
+                                    "value": value,
+                                },
+                            }
+                        ],
+                    }
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+    return input_file
+
+
 def assert_cardinality(
     ontouml_graph: Graph,
     value: str,
@@ -250,6 +303,77 @@ def test_safe_load_json_file_preserves_supported_source_encodings(
             loaded_json = safe_load_json_file(str(input_file))
 
     assert loaded_json == expected_json
+
+
+def test_empty_text_shape_value_is_omitted_without_warning(tmp_path: Path) -> None:
+    """Verify that an empty legacy Text.value is omitted without misusing ontouml:text."""
+    input_file = write_text_shape_project(tmp_path, width=80, height=42)
+
+    with warnings.catch_warnings():
+        warnings.simplefilter("error", UnsupportedTextValueWarning)
+        ontouml_graph = decode_ontouml_json2graph(json_file_path=str(input_file))
+
+    text_shape_uri = URIRef(BASE_URI + "view-1_shape")
+    assert (text_shape_uri, RDF.type, ONTOUML.Text) in ontouml_graph
+    assert not any(ontouml_graph.triples((text_shape_uri, ONTOUML.text, None)))
+    assert not any(ontouml_graph.triples((text_shape_uri, ONTOUML.value, None)))
+
+
+def test_non_empty_text_shape_value_is_warned_and_omitted(tmp_path: Path) -> None:
+    """Verify defensive handling for an unsupported non-empty legacy Text.value."""
+    input_file = write_text_shape_project(tmp_path, width=80, height=42, value="Legacy label")
+
+    with pytest.warns(UnsupportedTextValueWarning, match="Legacy label"):
+        ontouml_graph = decode_ontouml_json2graph(json_file_path=str(input_file))
+
+    text_shape_uri = URIRef(BASE_URI + "view-1_shape")
+    assert (text_shape_uri, RDF.type, ONTOUML.Text) in ontouml_graph
+    assert not any(ontouml_graph.triples((text_shape_uri, ONTOUML.text, None)))
+    assert not any(ontouml_graph.triples((text_shape_uri, ONTOUML.value, None)))
+
+
+@pytest.mark.parametrize(
+    ("width", "height"),
+    [
+        (80, 42),
+        (10, 0),
+        (0, 10),
+        (0, 0),
+    ],
+)
+def test_dimensions_use_non_negative_integer_datatype(
+    tmp_path: Path,
+    width: int,
+    height: int,
+) -> None:
+    """Verify that positive and zero dimensions follow OntoUML Vocabulary v1.1.1."""
+    input_file = write_text_shape_project(tmp_path, width=width, height=height)
+
+    ontouml_graph = decode_ontouml_json2graph(json_file_path=str(input_file))
+
+    text_shape_uri = URIRef(BASE_URI + "view-1_shape")
+    assert set(ontouml_graph.objects(text_shape_uri, ONTOUML.width)) == {
+        Literal(width, datatype=XSD.nonNegativeInteger)
+    }
+    assert set(ontouml_graph.objects(text_shape_uri, ONTOUML.height)) == {
+        Literal(height, datatype=XSD.nonNegativeInteger)
+    }
+    assert not any(
+        value.datatype == XSD.positiveInteger
+        for predicate in (ONTOUML.width, ONTOUML.height)
+        for value in ontouml_graph.objects(text_shape_uri, predicate)
+    )
+
+
+def test_bundled_vocabulary_111_defines_non_negative_dimensions() -> None:
+    """Verify that the declared and bundled vocabulary version supports zero dimensions."""
+    ontouml_vocabulary = load_ontouml_vocabulary()
+
+    assert METADATA["conformsToVersion"] == "v1.1.1"
+    assert (ONTOUML.width, RDFS.range, XSD.nonNegativeInteger) in ontouml_vocabulary
+    assert (ONTOUML.height, RDFS.range, XSD.nonNegativeInteger) in ontouml_vocabulary
+    assert (ONTOUML.width, RDFS.range, XSD.positiveInteger) not in ontouml_vocabulary
+    assert (ONTOUML.height, RDFS.range, XSD.positiveInteger) not in ontouml_vocabulary
 
 
 @pytest.mark.parametrize(

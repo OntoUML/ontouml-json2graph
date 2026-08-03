@@ -91,8 +91,8 @@
 
 :5AvIDJGGAqACNxED_shape
     rdf:type                ontouml:Rectangle ;
-    ontouml:height          "40"^^xsd:positiveInteger ;
-    ontouml:width           "102"^^xsd:positiveInteger ;
+    ontouml:height          "40"^^xsd:nonNegativeInteger ;
+    ontouml:width           "102"^^xsd:nonNegativeInteger ;
     ontouml:topLeftPosition :5AvIDJGGAqACNxED_shape_point .
 
 :5AvIDJGGAqACNxED_shape_point
@@ -102,8 +102,8 @@
 
 :uu_P9JGGAqACNxC8_shape
     rdf:type                ontouml:Rectangle ;
-    ontouml:height          "100"^^xsd:positiveInteger ;
-    ontouml:width           "140"^^xsd:positiveInteger ;
+    ontouml:height          "100"^^xsd:nonNegativeInteger ;
+    ontouml:width           "140"^^xsd:nonNegativeInteger ;
     ontouml:topLeftPosition :uu_P9JGGAqACNxC8_shape_point .
 
 :uu_P9JGGAqACNxC8_shape_point
@@ -113,8 +113,8 @@
 
 :2D4v9JGGAqACNxDh_shape
     rdf:type                ontouml:Rectangle ;
-    ontouml:height          "100"^^xsd:positiveInteger ;
-    ontouml:width           "140"^^xsd:positiveInteger ;
+    ontouml:height          "100"^^xsd:nonNegativeInteger ;
+    ontouml:width           "140"^^xsd:nonNegativeInteger ;
     ontouml:topLeftPosition :2D4v9JGGAqACNxDh_shape_point .
 
 :2D4v9JGGAqACNxDh_shape_point
@@ -124,8 +124,8 @@
 
 :6bAoDJGGAqACNxEe_shape
     rdf:type                ontouml:Rectangle ;
-    ontouml:height          "40"^^xsd:positiveInteger ;
-    ontouml:width           "80"^^xsd:positiveInteger ;
+    ontouml:height          "40"^^xsd:nonNegativeInteger ;
+    ontouml:width           "80"^^xsd:nonNegativeInteger ;
     ontouml:topLeftPosition :6bAoDJGGAqACNxEe_shape_point .
 
 :6bAoDJGGAqACNxEe_shape_point
@@ -135,8 +135,8 @@
 
 :ow9P9JGGAqACNxCB_shape
     rdf:type                ontouml:Rectangle ;
-    ontouml:height          "318"^^xsd:positiveInteger ;
-    ontouml:width           "499"^^xsd:positiveInteger ;
+    ontouml:height          "318"^^xsd:nonNegativeInteger ;
+    ontouml:width           "499"^^xsd:nonNegativeInteger ;
     ontouml:topLeftPosition :ow9P9JGGAqACNxCB_shape_point .
 
 :ow9P9JGGAqACNxCB_shape_point

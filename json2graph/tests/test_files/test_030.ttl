@@ -641,8 +641,8 @@
 
 :jk2M1JGGAqACNxHo_shape
     rdf:type                ontouml:Rectangle ;
-    ontouml:height          "40"^^xsd:positiveInteger ;
-    ontouml:width           "80"^^xsd:positiveInteger ;
+    ontouml:height          "40"^^xsd:nonNegativeInteger ;
+    ontouml:width           "80"^^xsd:nonNegativeInteger ;
     ontouml:topLeftPosition :jk2M1JGGAqACNxHo_shape_point .
 
 :jk2M1JGGAqACNxHo_shape_point
@@ -652,8 +652,8 @@
 
 :cOmM1JGGAqACNxGm_shape
     rdf:type                ontouml:Rectangle ;
-    ontouml:height          "40"^^xsd:positiveInteger ;
-    ontouml:width           "80"^^xsd:positiveInteger ;
+    ontouml:height          "40"^^xsd:nonNegativeInteger ;
+    ontouml:width           "80"^^xsd:nonNegativeInteger ;
     ontouml:topLeftPosition :cOmM1JGGAqACNxGm_shape_point .
 
 :cOmM1JGGAqACNxGm_shape_point
@@ -663,8 +663,8 @@
 
 :SN2M1JGGAqACNxH_shape
     rdf:type                ontouml:Rectangle ;
-    ontouml:height          "40"^^xsd:positiveInteger ;
-    ontouml:width           "80"^^xsd:positiveInteger ;
+    ontouml:height          "40"^^xsd:nonNegativeInteger ;
+    ontouml:width           "80"^^xsd:nonNegativeInteger ;
     ontouml:topLeftPosition :SN2M1JGGAqACNxH_shape_point .
 
 :SN2M1JGGAqACNxH_shape_point
@@ -674,8 +674,8 @@
 
 :J32M1JGGAqACNxIJ_shape
     rdf:type                ontouml:Rectangle ;
-    ontouml:height          "40"^^xsd:positiveInteger ;
-    ontouml:width           "80"^^xsd:positiveInteger ;
+    ontouml:height          "40"^^xsd:nonNegativeInteger ;
+    ontouml:width           "80"^^xsd:nonNegativeInteger ;
     ontouml:topLeftPosition :J32M1JGGAqACNxIJ_shape_point .
 
 :J32M1JGGAqACNxIJ_shape_point
@@ -685,8 +685,8 @@
 
 :1HWM1JGGAqACNxHd_shape
     rdf:type                ontouml:Rectangle ;
-    ontouml:height          "40"^^xsd:positiveInteger ;
-    ontouml:width           "80"^^xsd:positiveInteger ;
+    ontouml:height          "40"^^xsd:nonNegativeInteger ;
+    ontouml:width           "80"^^xsd:nonNegativeInteger ;
     ontouml:topLeftPosition :1HWM1JGGAqACNxHd_shape_point .
 
 :1HWM1JGGAqACNxHd_shape_point
@@ -696,8 +696,8 @@
 
 :kfZM1JGGAqACNxKD_shape
     rdf:type                ontouml:Rectangle ;
-    ontouml:height          "40"^^xsd:positiveInteger ;
-    ontouml:width           "80"^^xsd:positiveInteger ;
+    ontouml:height          "40"^^xsd:nonNegativeInteger ;
+    ontouml:width           "80"^^xsd:nonNegativeInteger ;
     ontouml:topLeftPosition :kfZM1JGGAqACNxKD_shape_point .
 
 :kfZM1JGGAqACNxKD_shape_point
@@ -707,8 +707,8 @@
 
 :i22M1JGGAqACNxHz_shape
     rdf:type                ontouml:Rectangle ;
-    ontouml:height          "40"^^xsd:positiveInteger ;
-    ontouml:width           "80"^^xsd:positiveInteger ;
+    ontouml:height          "40"^^xsd:nonNegativeInteger ;
+    ontouml:width           "80"^^xsd:nonNegativeInteger ;
     ontouml:topLeftPosition :i22M1JGGAqACNxHz_shape_point .
 
 :i22M1JGGAqACNxHz_shape_point
@@ -718,8 +718,8 @@
 
 :0FWM1JGGAqACNxHS_shape
     rdf:type                ontouml:Rectangle ;
-    ontouml:height          "40"^^xsd:positiveInteger ;
-    ontouml:width           "80"^^xsd:positiveInteger ;
+    ontouml:height          "40"^^xsd:nonNegativeInteger ;
+    ontouml:width           "80"^^xsd:nonNegativeInteger ;
     ontouml:topLeftPosition :0FWM1JGGAqACNxHS_shape_point .
 
 :0FWM1JGGAqACNxHS_shape_point
@@ -729,8 +729,8 @@
 
 :B1pM1JGGAqACNxJy_shape
     rdf:type                ontouml:Rectangle ;
-    ontouml:height          "40"^^xsd:positiveInteger ;
-    ontouml:width           "80"^^xsd:positiveInteger ;
+    ontouml:height          "40"^^xsd:nonNegativeInteger ;
+    ontouml:width           "80"^^xsd:nonNegativeInteger ;
     ontouml:topLeftPosition :B1pM1JGGAqACNxJy_shape_point .
 
 :B1pM1JGGAqACNxJy_shape_point
@@ -740,8 +740,8 @@
 
 :B2pM1JGGAqACNxJn_shape
     rdf:type                ontouml:Rectangle ;
-    ontouml:height          "40"^^xsd:positiveInteger ;
-    ontouml:width           "80"^^xsd:positiveInteger ;
+    ontouml:height          "40"^^xsd:nonNegativeInteger ;
+    ontouml:width           "80"^^xsd:nonNegativeInteger ;
     ontouml:topLeftPosition :B2pM1JGGAqACNxJn_shape_point .
 
 :B2pM1JGGAqACNxJn_shape_point
@@ -751,8 +751,8 @@
 
 :c6WM1JGGAqACNxHH_shape
     rdf:type                ontouml:Rectangle ;
-    ontouml:height          "40"^^xsd:positiveInteger ;
-    ontouml:width           "80"^^xsd:positiveInteger ;
+    ontouml:height          "40"^^xsd:nonNegativeInteger ;
+    ontouml:width           "80"^^xsd:nonNegativeInteger ;
     ontouml:topLeftPosition :c6WM1JGGAqACNxHH_shape_point .
 
 :c6WM1JGGAqACNxHH_shape_point
@@ -762,8 +762,8 @@
 
 :5TmM1JGGAqACNxGx_shape
     rdf:type                ontouml:Rectangle ;
-    ontouml:height          "40"^^xsd:positiveInteger ;
-    ontouml:width           "80"^^xsd:positiveInteger ;
+    ontouml:height          "40"^^xsd:nonNegativeInteger ;
+    ontouml:width           "80"^^xsd:nonNegativeInteger ;
     ontouml:topLeftPosition :5TmM1JGGAqACNxGx_shape_point .
 
 :5TmM1JGGAqACNxGx_shape_point
@@ -773,8 +773,8 @@
 
 :HM5M1JGGAqACNxKO_shape
     rdf:type                ontouml:Rectangle ;
-    ontouml:height          "40"^^xsd:positiveInteger ;
-    ontouml:width           "80"^^xsd:positiveInteger ;
+    ontouml:height          "40"^^xsd:nonNegativeInteger ;
+    ontouml:width           "80"^^xsd:nonNegativeInteger ;
     ontouml:topLeftPosition :HM5M1JGGAqACNxKO_shape_point .
 
 :HM5M1JGGAqACNxKO_shape_point
@@ -784,8 +784,8 @@
 
 :TIWM1JGGAqACNxG8_shape
     rdf:type                ontouml:Rectangle ;
-    ontouml:height          "40"^^xsd:positiveInteger ;
-    ontouml:width           "80"^^xsd:positiveInteger ;
+    ontouml:height          "40"^^xsd:nonNegativeInteger ;
+    ontouml:width           "80"^^xsd:nonNegativeInteger ;
     ontouml:topLeftPosition :TIWM1JGGAqACNxG8_shape_point .
 
 :TIWM1JGGAqACNxG8_shape_point
