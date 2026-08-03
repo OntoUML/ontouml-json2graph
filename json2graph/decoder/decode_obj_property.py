@@ -163,7 +163,8 @@ def set_property_relations(property_dict: dict, ontouml_graph: Graph) -> None:
         statement_object = URIRef(args.ARGUMENTS["base_uri"] + property_dict["propertyType"]["id"])
         ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
-    # Setting ontouml:stereotype. Global existence is handled here; optional semantic validation is performed later.
+    # Setting ontouml:stereotype. Type-specific validity is handled here; optional semantic validation is performed
+    # later.
     if "stereotype" in property_dict:
         set_stereotype_relation(
             property_dict,

@@ -120,7 +120,7 @@ options:
                         Base URI of the resulting graph. Default is 'https://example.org#'.
   -m, --model_only      Keep only model elements, eliminating all diagrammatic data from output.
   --invalid-stereotype-policy {preserve,omit,error}
-                        Handle stereotypes absent from the recognized list: preserve, omit, or error. Default is 'preserve'.
+                        Handle stereotypes invalid for their element type: preserve, omit, or error. Default is 'preserve'.
   -v, --version         Print the software version and exit.
 
 More information at: https://w3id.org/ontouml/json2graph
@@ -210,9 +210,12 @@ Differently, the OntoUML Vocabulary was created to support the serialization, ex
     - Reports mandatory Class stereotype missing.
 - Stereotype handling:
     - Normalizes every assigned stereotype to lowerCamelCase.
-    - Checks existence against the combined list of Class, Relation, and Property stereotypes, independently of the
-      element type.
-    - Handles nonexistent stereotypes according to `--invalid-stereotype-policy`:
+    - Checks the normalized value against the recognized stereotype list for the assigned element type: Class,
+      Relation, or Property.
+    - Emits the canonical valid triple and an explicit normalization warning when a lexical variant such as `Role` or
+      `Kind` normalizes to a valid stereotype for that element type.
+    - Handles stereotypes that are nonexistent or invalid for their assigned element type according to
+      `--invalid-stereotype-policy`:
         - `preserve` (default): generates the normalized stereotype triple and issues a warning;
         - `omit`: issues a warning and omits only the stereotype triple;
         - `error`: raises an error and aborts before an output file is generated.

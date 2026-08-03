@@ -68,7 +68,7 @@ def decode_ontouml_json2graph(
     :param execution_mode: Information about the execution mode.
                            Valid values are 'import' (default), 'script', and 'test'. (Optional)
     :type execution_mode: str
-    :param invalid_stereotype_policy: How to handle stereotypes absent from the recognized list. Valid values are
+    :param invalid_stereotype_policy: How to handle stereotypes invalid for their element type. Valid values are
                                       'preserve', 'omit', and 'error'. Default is 'preserve'. (Optional)
     :type invalid_stereotype_policy: str
 

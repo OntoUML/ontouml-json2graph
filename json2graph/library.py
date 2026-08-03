@@ -40,7 +40,7 @@ def decode_json_project(
     :type language: str
     :param correct: If True, attempts to correct potential errors during the conversion process. (Optional)
     :type correct: bool
-    :param invalid_stereotype_policy: How to handle stereotypes absent from the recognized list. Valid values are
+    :param invalid_stereotype_policy: How to handle stereotypes invalid for their element type. Valid values are
                                       'preserve', 'omit', and 'error'. Default is 'preserve'. (Optional)
     :type invalid_stereotype_policy: str
 
@@ -85,7 +85,7 @@ def decode_json_model(
     :type language: str
     :param correct: If True, attempts to correct potential errors during the conversion process. (Optional)
     :type correct: bool
-    :param invalid_stereotype_policy: How to handle stereotypes absent from the recognized list. Valid values are
+    :param invalid_stereotype_policy: How to handle stereotypes invalid for their element type. Valid values are
                                       'preserve', 'omit', and 'error'. Default is 'preserve'. (Optional)
     :type invalid_stereotype_policy: str
 

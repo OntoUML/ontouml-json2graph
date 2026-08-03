@@ -30,6 +30,7 @@ from ..modules.input_output import JSONEncodingFallbackWarning, safe_load_json_f
 from ..modules.stereotypes import (
     InvalidStereotypeError,
     InvalidStereotypeWarning,
+    StereotypeNormalizationWarning,
     normalize_stereotype,
     set_stereotype_relation,
 )
@@ -82,8 +83,8 @@ def assert_diagrammatic_elements_removed(ontouml_graph: Graph) -> None:
         assert not any(ontouml_graph.triples((None, RDF.type, diagrammatic_type)))
 
 
-def write_invalid_stereotype_project(tmp_path: Path) -> Path:
-    """Write a minimal project containing one nonexistent stereotype."""
+def write_invalid_stereotype_project(tmp_path: Path, stereotype: str = "abstract individual") -> Path:
+    """Write a minimal project containing one invalid Class stereotype assignment."""
     input_file = tmp_path / "invalid-stereotype.json"
     input_file.write_text(
         json.dumps(
@@ -100,7 +101,7 @@ def write_invalid_stereotype_project(tmp_path: Path) -> Path:
                             "id": "class-1",
                             "type": "Class",
                             "name": "Example",
-                            "stereotype": "abstract individual",
+                            "stereotype": stereotype,
                         }
                     ],
                 },
@@ -239,15 +240,30 @@ def test_invalid_stereotype_policy(
 
 
 @pytest.mark.parametrize(
-    ("element_type", "stereotype"),
+    ("element_type", "stereotype", "recognized_element_type"),
     [
-        ("Class", "participation"),
-        ("Relation", "kind"),
-        ("Property", "material"),
+        ("Class", "participation", "Relation"),
+        ("Relation", "kind", "Class"),
+        ("Property", "material", "Relation"),
     ],
 )
-def test_stereotype_existence_does_not_depend_on_element_type(element_type: str, stereotype: str) -> None:
-    """Verify that every globally recognized stereotype is accepted for every element type."""
+@pytest.mark.parametrize(
+    ("policy", "expected_stereotype", "expected_exception"),
+    [
+        ("preserve", True, None),
+        ("omit", False, None),
+        ("error", False, InvalidStereotypeError),
+    ],
+)
+def test_wrong_element_type_applies_invalid_stereotype_policy(
+    element_type: str,
+    stereotype: str,
+    recognized_element_type: str,
+    policy: str,
+    expected_stereotype: bool,
+    expected_exception: type[Exception] | None,
+) -> None:
+    """Verify policy handling when a recognized stereotype is assigned to the wrong element type."""
     element = {
         "id": "element-1",
         "type": element_type,
@@ -256,12 +272,55 @@ def test_stereotype_existence_does_not_depend_on_element_type(element_type: str,
     }
     ontouml_graph = Graph()
 
-    with warnings.catch_warnings():
-        warnings.simplefilter("error", InvalidStereotypeWarning)
-        set_stereotype_relation(element, ontouml_graph, "error", BASE_URI)
+    if expected_exception is not None:
+        with pytest.raises(expected_exception, match=f"not valid for {element_type}"):
+            set_stereotype_relation(element, ontouml_graph, policy, BASE_URI)
+    else:
+        with pytest.warns(
+            InvalidStereotypeWarning,
+            match=rf"recognized for {recognized_element_type}, but not for {element_type}",
+        ):
+            set_stereotype_relation(element, ontouml_graph, policy, BASE_URI)
 
     element_uri = URIRef(BASE_URI + element["id"])
-    assert set(ontouml_graph.objects(element_uri, ONTOUML.stereotype)) == {ONTOUML[stereotype]}
+    mapped_stereotypes = set(ontouml_graph.objects(element_uri, ONTOUML.stereotype))
+
+    if expected_stereotype:
+        assert mapped_stereotypes == {ONTOUML[stereotype]}
+    else:
+        assert mapped_stereotypes == set()
+
+
+@pytest.mark.parametrize(
+    ("element_type", "stereotype", "canonical_stereotype"),
+    [
+        ("Class", "Role", "role"),
+        ("Class", "Kind", "kind"),
+        ("Relation", "Material", "material"),
+        ("Property", "Begin", "begin"),
+    ],
+)
+@pytest.mark.parametrize("policy", ["preserve", "omit", "error"])
+def test_valid_lexical_variant_emits_canonical_stereotype_with_warning(
+    element_type: str,
+    stereotype: str,
+    canonical_stereotype: str,
+    policy: str,
+) -> None:
+    """Verify that valid lexical variants are normalized, warned about, and emitted under every policy."""
+    element = {
+        "id": "element-1",
+        "type": element_type,
+        "name": "Example",
+        "stereotype": stereotype,
+    }
+    ontouml_graph = Graph()
+
+    with pytest.warns(StereotypeNormalizationWarning, match="normalized to the canonical"):
+        set_stereotype_relation(element, ontouml_graph, policy, BASE_URI)
+
+    element_uri = URIRef(BASE_URI + element["id"])
+    assert set(ontouml_graph.objects(element_uri, ONTOUML.stereotype)) == {ONTOUML[canonical_stereotype]}
 
 
 @pytest.mark.parametrize(
@@ -290,9 +349,36 @@ def test_decoding_applies_invalid_stereotype_policy(
     assert set(ontouml_graph.objects(element_uri, ONTOUML.stereotype)) == expected_stereotypes
 
 
-def test_error_policy_does_not_create_an_output_file(tmp_path: Path) -> None:
+@pytest.mark.parametrize(
+    ("policy", "expected_stereotypes"),
+    [
+        ("preserve", {ONTOUML.participation}),
+        ("omit", set()),
+    ],
+)
+def test_decoding_applies_policy_to_stereotype_from_wrong_element_type(
+    tmp_path: Path,
+    policy: str,
+    expected_stereotypes: set[URIRef],
+) -> None:
+    """Verify that a wrong-type stereotype follows policy without removing its element."""
+    input_file = write_invalid_stereotype_project(tmp_path, stereotype="participation")
+
+    with pytest.warns(InvalidStereotypeWarning, match="recognized for Relation, but not for Class"):
+        ontouml_graph = decode_ontouml_json2graph(
+            json_file_path=str(input_file),
+            invalid_stereotype_policy=policy,
+        )
+
+    element_uri = URIRef(BASE_URI + "class-1")
+    assert (element_uri, RDF.type, ONTOUML.Class) in ontouml_graph
+    assert set(ontouml_graph.objects(element_uri, ONTOUML.stereotype)) == expected_stereotypes
+
+
+@pytest.mark.parametrize("stereotype", ["abstract individual", "participation"])
+def test_error_policy_does_not_create_an_output_file(tmp_path: Path, stereotype: str) -> None:
     """Verify that command-line error policy aborts before an output file is written."""
-    input_file = write_invalid_stereotype_project(tmp_path)
+    input_file = write_invalid_stereotype_project(tmp_path, stereotype=stereotype)
 
     result = subprocess.run(
         [

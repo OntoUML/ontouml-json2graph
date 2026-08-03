@@ -61,7 +61,7 @@ def set_relation_stereotype(relation_dict: dict, ontouml_graph: Graph) -> None:
     """Normalize and handle an ontouml:Relation's stereotype using the configured policy.
 
     Warning messages:
-        - InvalidStereotypeWarning: Assigned stereotype is absent from the global recognized stereotype list.
+        - InvalidStereotypeWarning: Assigned stereotype is invalid for Relation elements.
 
     :param relation_dict: Relation object loaded as a dictionary.
     :type relation_dict: dict

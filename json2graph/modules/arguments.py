@@ -140,7 +140,7 @@ def initialize_args_script() -> None:
         action="store",
         choices=INVALID_STEREOTYPE_POLICIES,
         default="preserve",
-        help="Handle stereotypes absent from the recognized list: preserve, omit, or error. Default is 'preserve'.",
+        help="Handle stereotypes invalid for their element type: preserve, omit, or error. Default is 'preserve'.",
     )
 
     # AUTOMATIC ARGUMENTS
@@ -219,7 +219,7 @@ def initialize_args_import(
     :type silent: bool
     :param correct: If True, attempts to correct potential errors during the conversion process. (Optional)
     :type correct: bool
-    :param invalid_stereotype_policy: How to handle stereotypes absent from the recognized list. Valid values are
+    :param invalid_stereotype_policy: How to handle stereotypes invalid for their element type. Valid values are
                                       'preserve', 'omit', and 'error'. (Optional)
     :type invalid_stereotype_policy: str
     """
@@ -256,7 +256,7 @@ def initialize_args_test(
     :type input_path: str
     :param language: Language tag to be added to the ontology's concepts. (Optional)
     :type language: str
-    :param invalid_stereotype_policy: How to handle stereotypes absent from the recognized list. (Optional)
+    :param invalid_stereotype_policy: How to handle stereotypes invalid for their element type. (Optional)
     :type invalid_stereotype_policy: str
     """
     validate_arg_input(input_path, decode_all=False)

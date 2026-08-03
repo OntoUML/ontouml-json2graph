@@ -224,7 +224,7 @@ def set_class_stereotype(class_dict: dict, ontouml_graph: Graph) -> None:
 
     Warning messages:
         - VCS1: Mandatory stereotype not assigned to a class. Result is invalid.
-        - InvalidStereotypeWarning: Assigned stereotype is absent from the global recognized stereotype list.
+        - InvalidStereotypeWarning: Assigned stereotype is invalid for Class elements.
 
     :param class_dict: Class object loaded as a dictionary.
     :type class_dict: dict
