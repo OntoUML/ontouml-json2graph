@@ -12,6 +12,7 @@ from rdflib import Graph, URIRef, RDF, Literal, XSD
 
 from ..decoder.decode_general import get_list_subdictionaries_for_specific_type
 from ..modules import arguments as args
+from ..modules.cardinalities import resolve_cardinality
 from ..modules.logger import initialize_logger
 from ..modules.messages import print_decode_log_message
 from ..modules.sparql_queries import GET_CLASS_STEREOTYPE_ATTRIBUTE_STEREOTYPE
@@ -190,41 +191,24 @@ def set_property_relations(property_dict: dict, ontouml_graph: Graph) -> None:
             ontouml_graph.add((statement_subject, statement_predicate, statement_object))
 
 
-def determine_cardinality_bounds(cardinalities: str, property_id: str) -> (str, str, str):
-    """Receive a string with an ontouml:Cardinality's ontouml:cardinalityValue, fix its format and decouple it into \
-    its ontouml:lowerBound and ontouml:upperBound. Checks and displays warning if the obtained values are not valid.
+def determine_cardinality_bounds(
+    cardinalities: str,
+    property_id: str,
+) -> tuple[str, str | None, str | None]:
+    """Resolve a cardinality and decouple valid values into lower and upper bounds.
 
     :param cardinalities: String containing the value of the cardinality to be decoupled into lower and upper bounds.
     :type cardinalities: str
     :param property_id: ID of the Property that owns the cardinality being treated. Used in case of invalid cardinality.
     :type property_id: str
-    :return: Tuple of three elements: full cardinality, cardinality's lower bound, and cardinality's upper bound.
-    :rtype: (str, str, str)
+    :return: Full cardinality and optional lower and upper bounds.
+    :rtype: tuple[str, str | None, str | None]
     """
-    lower_bound, _, upper_bound = cardinalities.partition("..")
-
-    # If separator '..' not found, exact cardinality, meaning that lower and upper bounds have the same value
-    if upper_bound == "":
-        upper_bound = lower_bound
-    # If lower bound is * it is converted to zero
-    if lower_bound == "*":
-        lower_bound = "0"
-
-    full_cardinality = lower_bound + ".." + upper_bound
-
-    # Validating discovered cardinality bounds
-    if not (upper_bound.isnumeric() or upper_bound == "*") and not args.ARGUMENTS["silent"]:
-        LOGGER.warning(
-            f"Invalid cardinality's upper bound (value '{upper_bound}') for Property individual with "
-            f"ID '{property_id}'. Transformation proceeded as is."
-        )
-    if not lower_bound.isnumeric() and not args.ARGUMENTS["silent"]:
-        LOGGER.warning(
-            f"Invalid cardinality's lower bound (value '{lower_bound}') for Property individual with "
-            f"ID '{property_id}'. Transformation proceeded as is."
-        )
-
-    return full_cardinality, lower_bound, upper_bound
+    return resolve_cardinality(
+        cardinalities,
+        property_id,
+        args.ARGUMENTS["invalid_cardinality_policy"],
+    )
 
 
 def set_cardinality_relations(property_dict: dict, ontouml_graph: Graph) -> None:
@@ -236,6 +220,11 @@ def set_cardinality_relations(property_dict: dict, ontouml_graph: Graph) -> None
     :type ontouml_graph: Graph
     """
     if "cardinality" in property_dict:
+        # Resolve before changing the graph so error policy aborts without creating a partial Cardinality individual.
+        full_cardinality, lower_bound, upper_bound = determine_cardinality_bounds(
+            property_dict["cardinality"], property_dict["id"]
+        )
+
         ontology_property_individual = URIRef(args.ARGUMENTS["base_uri"] + property_dict["id"])
         ontology_cardinality_individual = URIRef(args.ARGUMENTS["base_uri"] + property_dict["id"] + "_cardinality")
 
@@ -258,10 +247,7 @@ def set_cardinality_relations(property_dict: dict, ontouml_graph: Graph) -> None
             )
         )
 
-        # Setting the full cardinality value and the lower and upper bounds
-        full_cardinality, lower_bound, upper_bound = determine_cardinality_bounds(
-            property_dict["cardinality"], property_dict["id"]
-        )
+        # Always preserve a Cardinality individual and its source or repaired cardinalityValue.
         ontouml_graph.add(
             (
                 ontology_cardinality_individual,
@@ -269,20 +255,22 @@ def set_cardinality_relations(property_dict: dict, ontouml_graph: Graph) -> None
                 Literal(full_cardinality),
             )
         )
-        ontouml_graph.add(
-            (
-                ontology_cardinality_individual,
-                ontouml_lowerbound_property,
-                Literal(lower_bound),
+        # Bounds are emitted only for valid or successfully repaired values.
+        if lower_bound is not None and upper_bound is not None:
+            ontouml_graph.add(
+                (
+                    ontology_cardinality_individual,
+                    ontouml_lowerbound_property,
+                    Literal(lower_bound, datatype=XSD.nonNegativeInteger),
+                )
             )
-        )
-        ontouml_graph.add(
-            (
-                ontology_cardinality_individual,
-                ontouml_upperbound_property,
-                Literal(upper_bound),
+            ontouml_graph.add(
+                (
+                    ontology_cardinality_individual,
+                    ontouml_upperbound_property,
+                    Literal(upper_bound),
+                )
             )
-        )
 
 
 def create_property_properties(json_data: dict, ontouml_graph: Graph) -> None:

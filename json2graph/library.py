@@ -22,6 +22,7 @@ def decode_json_project(
     language: str = "",
     correct: bool = False,
     invalid_stereotype_policy: str = "preserve",
+    invalid_cardinality_policy: str = "preserve",
 ) -> Graph:
     """Decode elements from OntoUML's abstract and concrete syntax from JSON format into a Knowledge Graph. \
     I.e., domain-level and diagrammatic data are converted to Knowledge Graph.
@@ -43,6 +44,9 @@ def decode_json_project(
     :param invalid_stereotype_policy: How to handle stereotypes invalid for their element type. Valid values are
                                       'preserve', 'omit', and 'error'. Default is 'preserve'. (Optional)
     :type invalid_stereotype_policy: str
+    :param invalid_cardinality_policy: How to handle invalid cardinalities. Valid values are 'preserve', 'repair',
+                                       and 'error'. Default is 'preserve'. (Optional)
+    :type invalid_cardinality_policy: str
 
     :return: JSON data decoded into a RDFLib's Graph that is compliant with the OntoUML Vocabulary.
     :rtype: Graph
@@ -55,6 +59,7 @@ def decode_json_project(
         silent=True,
         correct=correct,
         execution_mode="import",
+        invalid_cardinality_policy=invalid_cardinality_policy,
         invalid_stereotype_policy=invalid_stereotype_policy,
     )
 
@@ -67,6 +72,7 @@ def decode_json_model(
     language: str = "",
     correct: bool = False,
     invalid_stereotype_policy: str = "preserve",
+    invalid_cardinality_policy: str = "preserve",
 ) -> Graph:
     """Decode elements from OntoUML's abstract syntax from JSON format into a Knowledge Graph. \
     I.e., only domain-level (and not diagrammatic) data is converted to Knowledge Graph.
@@ -88,6 +94,9 @@ def decode_json_model(
     :param invalid_stereotype_policy: How to handle stereotypes invalid for their element type. Valid values are
                                       'preserve', 'omit', and 'error'. Default is 'preserve'. (Optional)
     :type invalid_stereotype_policy: str
+    :param invalid_cardinality_policy: How to handle invalid cardinalities. Valid values are 'preserve', 'repair',
+                                       and 'error'. Default is 'preserve'. (Optional)
+    :type invalid_cardinality_policy: str
 
     :return: JSON data decoded into a RDFLib's Graph that is compliant with the OntoUML Vocabulary.
     :rtype: Graph
@@ -100,6 +109,7 @@ def decode_json_model(
         silent=True,
         correct=correct,
         execution_mode="import",
+        invalid_cardinality_policy=invalid_cardinality_policy,
         invalid_stereotype_policy=invalid_stereotype_policy,
     )
 

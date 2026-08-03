@@ -46,6 +46,7 @@ def decode_ontouml_json2graph(
     correct: bool = False,
     execution_mode: str = "import",
     invalid_stereotype_policy: str = "preserve",
+    invalid_cardinality_policy: str = "preserve",
 ) -> Graph:
     """Convert OntoUML JSON data to a Knowledge Graph.
 
@@ -71,6 +72,9 @@ def decode_ontouml_json2graph(
     :param invalid_stereotype_policy: How to handle stereotypes invalid for their element type. Valid values are
                                       'preserve', 'omit', and 'error'. Default is 'preserve'. (Optional)
     :type invalid_stereotype_policy: str
+    :param invalid_cardinality_policy: How to handle invalid cardinalities. Valid values are 'preserve', 'repair',
+                                       and 'error'. Default is 'preserve'. (Optional)
+    :type invalid_cardinality_policy: str
 
     :return: JSON data decoded into a RDFLib's Graph that is compliant with the OntoUML Vocabulary.
     :rtype: Graph
@@ -93,6 +97,7 @@ def decode_ontouml_json2graph(
         args.initialize_args_test(
             input_path=json_file_path,
             language=language,
+            invalid_cardinality_policy=invalid_cardinality_policy,
             invalid_stereotype_policy=invalid_stereotype_policy,
         )
     elif execution_mode == "import":
@@ -103,6 +108,7 @@ def decode_ontouml_json2graph(
             model_only=model_only,
             silent=silent,
             correct=correct,
+            invalid_cardinality_policy=invalid_cardinality_policy,
             invalid_stereotype_policy=invalid_stereotype_policy,
         )
 

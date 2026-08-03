@@ -52,7 +52,7 @@
 :II2khJGGAqACNwm0_cardinality
     rdf:type                 ontouml:Cardinality ;
     ontouml:cardinalityValue "0..1" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :II2khJGGAqACNwm0
@@ -70,7 +70,7 @@
 :MCOkhJGGAqACNwm3_cardinality
     rdf:type                 ontouml:Cardinality ;
     ontouml:cardinalityValue "0..*" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :MCOkhJGGAqACNwm3
@@ -88,7 +88,7 @@
 :vnOkhJGGAqACNwm6_cardinality
     rdf:type                 ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :vnOkhJGGAqACNwm6
@@ -107,7 +107,7 @@
 :onZkhJGGAqACNwnW_cardinality
     rdf:type                 ontouml:Cardinality ;
     ontouml:cardinalityValue "20..25" ;
-    ontouml:lowerBound       "20" ;
+    ontouml:lowerBound       "20"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "25" .
 
 :onZkhJGGAqACNwnW

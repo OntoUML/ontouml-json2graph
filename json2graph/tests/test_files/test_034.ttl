@@ -624,7 +624,7 @@
 :R89M1JGGAqACNxLN_cardinality
     rdf:type                 ontouml:Cardinality ;
     ontouml:cardinalityValue "1..1" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :R89M1JGGAqACNxLN
@@ -642,7 +642,7 @@
 :R89M1JGGAqACNxLP_cardinality
     rdf:type                 ontouml:Cardinality ;
     ontouml:cardinalityValue "1..1" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :R89M1JGGAqACNxLP
@@ -694,7 +694,7 @@
 :mOjM1JGGAqACNxLn_cardinality
     rdf:type                 ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :mOjM1JGGAqACNxLn
@@ -713,7 +713,7 @@
 :mOjM1JGGAqACNxLp_cardinality
     rdf:type                 ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :mOjM1JGGAqACNxLp
@@ -749,7 +749,7 @@
 :rG7M1JGGAqACNxL6_cardinality
     rdf:type                 ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :rG7M1JGGAqACNxL6
@@ -768,7 +768,7 @@
 :dwnM1JGGAqACNxMG_cardinality
     rdf:type                 ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :dwnM1JGGAqACNxMG
@@ -831,7 +831,7 @@
 :xwXM1JGGAqACNxMc_cardinality
     rdf:type                 ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :xwXM1JGGAqACNxMc
@@ -870,7 +870,7 @@
 :aFCs1JGGAqACNxNT_cardinality
     rdf:type                 ontouml:Cardinality ;
     ontouml:cardinalityValue "1..1" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :aFCs1JGGAqACNxNT
@@ -888,7 +888,7 @@
 :aFCs1JGGAqACNxNV_cardinality
     rdf:type                 ontouml:Cardinality ;
     ontouml:cardinalityValue "1..1" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :aFCs1JGGAqACNxNV
@@ -962,7 +962,7 @@
 :FUes1JGGAqACNxOP_cardinality
     rdf:type                 ontouml:Cardinality ;
     ontouml:cardinalityValue "0..1" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :FUes1JGGAqACNxOP
@@ -980,7 +980,7 @@
 :lUes1JGGAqACNxOR_cardinality
     rdf:type                 ontouml:Cardinality ;
     ontouml:cardinalityValue "1..1" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :lUes1JGGAqACNxOR
@@ -1270,7 +1270,7 @@
 :736919f2-7443-4be3-8263-ee3e57810ece_cardinality
     rdf:type                 ontouml:Cardinality ;
     ontouml:cardinalityValue "1..1" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :736919f2-7443-4be3-8263-ee3e57810ece
@@ -1288,7 +1288,7 @@
 :8c89fdf2-6e2d-43d6-9aa1-1b79ee9b0b2a_cardinality
     rdf:type                 ontouml:Cardinality ;
     ontouml:cardinalityValue "1..1" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :8c89fdf2-6e2d-43d6-9aa1-1b79ee9b0b2a
@@ -1306,7 +1306,7 @@
 :81c7e247-126b-491b-899d-9af567b2fee3_cardinality
     rdf:type                 ontouml:Cardinality ;
     ontouml:cardinalityValue "1..1" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :81c7e247-126b-491b-899d-9af567b2fee3
@@ -1324,7 +1324,7 @@
 :b6d8aeb8-dc3d-45c6-b0f2-eceea3addcd7_cardinality
     rdf:type                 ontouml:Cardinality ;
     ontouml:cardinalityValue "1..1" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :b6d8aeb8-dc3d-45c6-b0f2-eceea3addcd7
@@ -2594,7 +2594,7 @@
     ontouml:targetView :jk2M1JGGAqACNxHo .
 
 :52NM1JGGAqACNxK4_cardinality
-    ontouml:lowerBound "0" ;
+    ontouml:lowerBound "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound "*" .
 
 :5EKS1JGGAqACNwsC_shape
@@ -2648,7 +2648,7 @@
     ontouml:targetView :JRS1JGGAqACNwuO .
 
 :F2NM1JGGAqACNxK7_cardinality
-    ontouml:lowerBound "0" ;
+    ontouml:lowerBound "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound "*" .
 
 :FbDS1JGGAqACNwwe
@@ -2674,7 +2674,7 @@
     ontouml:owner :2Yx01JGGAqACNw2l_root .
 
 :H7DM1JGGAqACNxLd_cardinality
-    ontouml:lowerBound "0" ;
+    ontouml:lowerBound "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound "*" .
 
 :HM5M1JGGAqACNxKO_shape
@@ -2706,7 +2706,7 @@
     ontouml:project :2Yx01JGGAqACNw2l .
 
 :LG7M1JGGAqACNxL4_cardinality
-    ontouml:lowerBound "0" ;
+    ontouml:lowerBound "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound "0" .
 
 :Llws1JGGAqACNxMz
@@ -2838,7 +2838,7 @@
     ontouml:project :2Yx01JGGAqACNw2l .
 
 :n7DM1JGGAqACNxLf_cardinality
-    ontouml:lowerBound "0" ;
+    ontouml:lowerBound "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound "*" .
 
 :oXOs1JGGAqACNxN
@@ -2890,7 +2890,7 @@
     ontouml:targetView :Lt_S1JGGAqACNwyz .
 
 :xwXM1JGGAqACNxMa_cardinality
-    ontouml:lowerBound "0" ;
+    ontouml:lowerBound "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound "*" .
 
 :yF5S1JGGAqACNwvJ

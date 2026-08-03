@@ -13,6 +13,7 @@ import os
 import validators
 
 from .errors import report_error_requirement_not_met
+from .cardinalities import INVALID_CARDINALITY_POLICIES
 from .input_output import create_directory_if_not_exists
 from .logger import initialize_logger
 from .metadata import METADATA
@@ -135,6 +136,14 @@ def initialize_args_script() -> None:
         help="Keep only model elements, eliminating all diagrammatic data from output.",
     )
     args_parser.add_argument(
+        "--invalid-cardinality-policy",
+        type=str,
+        action="store",
+        choices=INVALID_CARDINALITY_POLICIES,
+        default="preserve",
+        help="Handle invalid cardinalities: preserve, repair known corpus patterns, or error. Default is 'preserve'.",
+    )
+    args_parser.add_argument(
         "--invalid-stereotype-policy",
         type=str,
         action="store",
@@ -156,6 +165,7 @@ def initialize_args_script() -> None:
         "decode_all": arguments.decode_all,
         "format": arguments.format,
         "input_path": os.path.abspath(arguments.input_path),
+        "invalid_cardinality_policy": arguments.invalid_cardinality_policy,
         "invalid_stereotype_policy": arguments.invalid_stereotype_policy,
         "language": arguments.language,
         "model_only": arguments.model_only,
@@ -195,6 +205,7 @@ def initialize_args_import(
     silent: bool = True,
     correct: bool = False,
     invalid_stereotype_policy: str = "preserve",
+    invalid_cardinality_policy: str = "preserve",
 ):
     """Initialize the global variable ARGUMENTS of type dictionary, which contains user-provided \
     (when executed in script mode) or default arguments (when executed as a library or for testing).
@@ -222,8 +233,17 @@ def initialize_args_import(
     :param invalid_stereotype_policy: How to handle stereotypes invalid for their element type. Valid values are
                                       'preserve', 'omit', and 'error'. (Optional)
     :type invalid_stereotype_policy: str
+    :param invalid_cardinality_policy: How to handle invalid cardinalities. Valid values are 'preserve', 'repair',
+                                       and 'error'. (Optional)
+    :type invalid_cardinality_policy: str
     """
     validate_arg_input(input_path, decode_all=False)
+
+    if invalid_cardinality_policy not in INVALID_CARDINALITY_POLICIES:
+        report_error_requirement_not_met(
+            f"Invalid cardinality policy '{invalid_cardinality_policy}'. Valid values are: "
+            f"{list(INVALID_CARDINALITY_POLICIES)}."
+        )
 
     if invalid_stereotype_policy not in INVALID_STEREOTYPE_POLICIES:
         report_error_requirement_not_met(
@@ -235,6 +255,7 @@ def initialize_args_import(
     ARGUMENTS["correct"] = correct
     ARGUMENTS["format"] = graph_format
     ARGUMENTS["input_path"] = input_path
+    ARGUMENTS["invalid_cardinality_policy"] = invalid_cardinality_policy
     ARGUMENTS["invalid_stereotype_policy"] = invalid_stereotype_policy
     ARGUMENTS["language"] = language
     ARGUMENTS["model_only"] = model_only
@@ -246,6 +267,7 @@ def initialize_args_test(
     input_path: str = "not_initialized",
     language: str = "",
     invalid_stereotype_policy: str = "preserve",
+    invalid_cardinality_policy: str = "preserve",
 ):
     """Initialize the global variable ARGUMENTS of type dictionary, which contains user-provided \
     (when executed in script mode) or default arguments (when executed as a library or for testing).
@@ -258,8 +280,16 @@ def initialize_args_test(
     :type language: str
     :param invalid_stereotype_policy: How to handle stereotypes invalid for their element type. (Optional)
     :type invalid_stereotype_policy: str
+    :param invalid_cardinality_policy: How to handle invalid cardinalities. (Optional)
+    :type invalid_cardinality_policy: str
     """
     validate_arg_input(input_path, decode_all=False)
+
+    if invalid_cardinality_policy not in INVALID_CARDINALITY_POLICIES:
+        report_error_requirement_not_met(
+            f"Invalid cardinality policy '{invalid_cardinality_policy}'. Valid values are: "
+            f"{list(INVALID_CARDINALITY_POLICIES)}."
+        )
 
     if invalid_stereotype_policy not in INVALID_STEREOTYPE_POLICIES:
         report_error_requirement_not_met(
@@ -271,6 +301,7 @@ def initialize_args_test(
     ARGUMENTS["correct"] = True
     ARGUMENTS["format"] = "ttl"
     ARGUMENTS["input_path"] = input_path
+    ARGUMENTS["invalid_cardinality_policy"] = invalid_cardinality_policy
     ARGUMENTS["invalid_stereotype_policy"] = invalid_stereotype_policy
     ARGUMENTS["language"] = language
     ARGUMENTS["model_only"] = False

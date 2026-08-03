@@ -55,7 +55,7 @@
 :II2khJGGAqACNwm0_cardinality
     rdf:type                 ontouml:Cardinality ;
     ontouml:cardinalityValue "0..1" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :II2khJGGAqACNwm0
@@ -73,7 +73,7 @@
 :MCOkhJGGAqACNwm3_cardinality
     rdf:type                 ontouml:Cardinality ;
     ontouml:cardinalityValue "0..*" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :MCOkhJGGAqACNwm3
@@ -96,7 +96,7 @@
 :vnOkhJGGAqACNwm6_cardinality
     rdf:type                 ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :onZkhJGGAqACNwnW
@@ -109,7 +109,7 @@
 :onZkhJGGAqACNwnW_cardinality
     rdf:type                 ontouml:Cardinality ;
     ontouml:cardinalityValue "20..25" ;
-    ontouml:lowerBound       "20" ;
+    ontouml:lowerBound       "20"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "25" .
 
 :onZkhJGGAqACNwnW
@@ -154,7 +154,7 @@
 :VN6tRJGGAqACNwm1_cardinality
     rdf:type                 ontouml:Cardinality ;
     ontouml:cardinalityValue "5..5" ;
-    ontouml:lowerBound       "5" ;
+    ontouml:lowerBound       "5"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "5" .
 
 :VN6tRJGGAqACNwm1
@@ -191,7 +191,7 @@
 :OeOzRJGGAqACNwmr_cardinality
     rdf:type                 ontouml:Cardinality ;
     ontouml:cardinalityValue "7..7" ;
-    ontouml:lowerBound       "7" ;
+    ontouml:lowerBound       "7"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "7" .
 
 :OeOzRJGGAqACNwmr
@@ -219,7 +219,7 @@
 
 :l1hzRJGGAqACNwnM_cardinality
     rdf:type                 ontouml:Cardinality ;
-    ontouml:cardinalityValue "0..5" .
+    ontouml:cardinalityValue "*..5" .
 
 :l1hzRJGGAqACNwnM
     ontouml:isDerived       "false"^^xsd:boolean ;
@@ -253,7 +253,7 @@
 
 :nyVzRJGGAqACNwn3_cardinality
     rdf:type                 ontouml:Cardinality ;
-    ontouml:cardinalityValue "created_invalid..created_invalid" .
+    ontouml:cardinalityValue "created_invalid" .
 
 :nyVzRJGGAqACNwn3
     ontouml:isDerived       "true"^^xsd:boolean ;
@@ -331,12 +331,8 @@
 :V6jIhJGGAqACNxHR_shape
     ontouml:project :fJlIhJGGAqACNw3E .
 
-:aeRzRJGGAqACNwnP_cardinality
-    ontouml:lowerBound "5" ;
-    ontouml:upperBound "1" .
-
 :cMWtRJGGAqACNwm5_cardinality
-    ontouml:lowerBound "0" ;
+    ontouml:lowerBound "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound "*" .
 
 :hz1IhJGGAqACNxGy_shape
@@ -345,19 +341,12 @@
 :jDdIhJGGAqACNxG5
     ontouml:owner :2EDIhJGGAqACNxHJ .
 
-:l1hzRJGGAqACNwnM_cardinality
-    ontouml:lowerBound "0" ;
-    ontouml:upperBound "5" .
-
-:nyVzRJGGAqACNwn3_cardinality
-    ontouml:lowerBound "created_invalid" ;
-    ontouml:upperBound "created_invalid" .
 
 :oeYohJGGAqACNxH9_shape
     ontouml:project :fJlIhJGGAqACNw3E .
 
 :rPqtRJGGAqACNwmx_cardinality
-    ontouml:lowerBound "0" ;
+    ontouml:lowerBound "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound "0" .
 
 :gplIhJGGAqACNw3K

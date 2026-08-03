@@ -99,6 +99,7 @@ Optional arguments provide additional features. All available ontouml-json2graph
 ```text
 usage: ontouml-json2graph [-h] -i INPUT_PATH [-o OUTPUT_PATH] [-a] [-f {turtle,ttl,turtle2,xml,pretty-xml,json-ld,ntriples,nt,nt11,n3,trig,trix,nquads}]
                           [-l LANGUAGE] [-c] [-s] [-u BASE_URI] [-m]
+                          [--invalid-cardinality-policy {preserve,repair,error}]
                           [--invalid-stereotype-policy {preserve,omit,error}] [-v]
 
 OntoUML JSON2Graph Decoder. Version: 1.3.3
@@ -119,6 +120,8 @@ options:
   -u BASE_URI, --base_uri BASE_URI
                         Base URI of the resulting graph. Default is 'https://example.org#'.
   -m, --model_only      Keep only model elements, eliminating all diagrammatic data from output.
+  --invalid-cardinality-policy {preserve,repair,error}
+                        Handle invalid cardinalities: preserve, repair known corpus patterns, or error. Default is 'preserve'.
   --invalid-stereotype-policy {preserve,omit,error}
                         Handle stereotypes invalid for their element type: preserve, omit, or error. Default is 'preserve'.
   -v, --version         Print the software version and exit.
@@ -141,6 +144,7 @@ from json2graph.library import decode_json_project
 
 decoded_graph_project = decode_json_project(json_file_path="path/to/input.json", base_uri="https://myuri.org#",
                                             language="en", correct=True,
+                                            invalid_cardinality_policy="preserve",
                                             invalid_stereotype_policy="preserve")
 ```
 
@@ -156,6 +160,7 @@ from json2graph.library import decode_json_model
 decoded_graph_model = decode_json_model(json_file_path="path/to/input.json", base_uri="https://myuri.org#",
                                         language="en",
                                         correct=True,
+                                        invalid_cardinality_policy="preserve",
                                         invalid_stereotype_policy="preserve")
 ```
 
@@ -220,6 +225,12 @@ Differently, the OntoUML Vocabulary was created to support the serialization, ex
         - `omit`: issues a warning and omits only the stereotype triple;
         - `error`: raises an error and aborts before an output file is generated.
 - Property validations:
+    - Emits `ontouml:lowerBound` as `xsd:nonNegativeInteger` for valid cardinalities.
+    - Handles invalid cardinalities according to `--invalid-cardinality-policy`:
+        - `preserve` (default): preserves the original cardinality value, warns, and omits both bounds;
+        - `repair`: repairs only the malformed separator patterns observed in the audited catalog, or falls back to
+          `preserve` when no safe repair is defined;
+        - `error`: raises an error and aborts before an output file is generated.
     - Reports invalid assertion when a Property stereotype is related to a Class that is known not to be of stereotype 'event'.
     - Sets Class stereotype as 'event' when it is originally 'null' and the class is related to a Property with stereotype.
 

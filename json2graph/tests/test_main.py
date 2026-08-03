@@ -21,11 +21,16 @@ import warnings
 from pathlib import Path
 
 import pytest
-from rdflib import RDF, Graph, Literal, Namespace, URIRef
+from rdflib import RDF, XSD, Graph, Literal, Namespace, URIRef
 
 from .test_aux import compare_graphs, get_test_list
 from ..decode import decode_ontouml_json2graph, write_graph_file
 from ..library import decode_json_model
+from ..modules.cardinalities import (
+    CardinalityRepairWarning,
+    InvalidCardinalityError,
+    InvalidCardinalityWarning,
+)
 from ..modules.input_output import JSONEncodingFallbackWarning, safe_load_json_file
 from ..modules.stereotypes import (
     InvalidStereotypeError,
@@ -110,6 +115,69 @@ def write_invalid_stereotype_project(tmp_path: Path, stereotype: str = "abstract
         encoding="utf-8",
     )
     return input_file
+
+
+def write_cardinality_project(tmp_path: Path, cardinality: str) -> Path:
+    """Write a minimal project containing one Property with the supplied cardinality."""
+    input_file = tmp_path / "cardinality.json"
+    input_file.write_text(
+        json.dumps(
+            {
+                "id": "project-1",
+                "type": "Project",
+                "name": "Example",
+                "model": {
+                    "id": "package-1",
+                    "type": "Package",
+                    "name": "Model",
+                    "contents": [
+                        {
+                            "id": "class-1",
+                            "type": "Class",
+                            "name": "Example",
+                            "stereotype": "kind",
+                            "properties": [
+                                {
+                                    "id": "property-1",
+                                    "type": "Property",
+                                    "name": "attribute",
+                                    "cardinality": cardinality,
+                                }
+                            ],
+                        }
+                    ],
+                },
+            }
+        ),
+        encoding="utf-8",
+    )
+    return input_file
+
+
+def assert_cardinality(
+    ontouml_graph: Graph,
+    value: str,
+    lower_bound: str | None,
+    upper_bound: str | None,
+) -> None:
+    """Assert the preserved Cardinality individual, value, and optional bounds."""
+    property_uri = URIRef(BASE_URI + "property-1")
+    cardinality_uri = URIRef(BASE_URI + "property-1_cardinality")
+
+    assert (property_uri, RDF.type, ONTOUML.Property) in ontouml_graph
+    assert (cardinality_uri, RDF.type, ONTOUML.Cardinality) in ontouml_graph
+    assert (property_uri, ONTOUML.cardinality, cardinality_uri) in ontouml_graph
+    assert set(ontouml_graph.objects(cardinality_uri, ONTOUML.cardinalityValue)) == {Literal(value)}
+
+    actual_lower_bounds = set(ontouml_graph.objects(cardinality_uri, ONTOUML.lowerBound))
+    actual_upper_bounds = set(ontouml_graph.objects(cardinality_uri, ONTOUML.upperBound))
+
+    if lower_bound is None or upper_bound is None:
+        assert actual_lower_bounds == set()
+        assert actual_upper_bounds == set()
+    else:
+        assert actual_lower_bounds == {Literal(lower_bound, datatype=XSD.nonNegativeInteger)}
+        assert actual_upper_bounds == {Literal(upper_bound)}
 
 
 @pytest.mark.parametrize("input_file", LIST_OF_TESTS)
@@ -400,3 +468,179 @@ def test_error_policy_does_not_create_an_output_file(tmp_path: Path, stereotype:
     assert result.returncode != 0
     assert "InvalidStereotypeError" in result.stderr
     assert not (tmp_path / "invalid-stereotype.ttl").exists()
+
+
+@pytest.mark.parametrize(
+    "cardinality",
+    [
+        "1,,*",
+        "2,,*",
+        "0:*",
+        "2...*",
+        "0..",
+        "1..",
+        "-1",
+        "n",
+        "m",
+        "merged_1s",
+        "*..5",
+        "5..1",
+    ],
+)
+def test_preserve_policy_keeps_invalid_cardinality_without_bounds(
+    tmp_path: Path,
+    cardinality: str,
+) -> None:
+    """Verify that preserve policy keeps invalid source text without inventing bounds."""
+    input_file = write_cardinality_project(tmp_path, cardinality)
+
+    with pytest.warns(InvalidCardinalityWarning, match="lowerBound and upperBound were omitted"):
+        ontouml_graph = decode_ontouml_json2graph(
+            json_file_path=str(input_file),
+            invalid_cardinality_policy="preserve",
+        )
+
+    assert_cardinality(ontouml_graph, cardinality, None, None)
+
+
+@pytest.mark.parametrize(
+    ("source", "repaired", "lower_bound", "upper_bound"),
+    [
+        ("1,,*", "1..*", "1", "*"),
+        ("2,,*", "2..*", "2", "*"),
+        ("0:*", "0..*", "0", "*"),
+        ("2...*", "2..*", "2", "*"),
+        ("0..", "0..*", "0", "*"),
+        ("1..", "1..*", "1", "*"),
+    ],
+)
+def test_repair_policy_fixes_only_observed_malformed_patterns(
+    tmp_path: Path,
+    source: str,
+    repaired: str,
+    lower_bound: str,
+    upper_bound: str,
+) -> None:
+    """Verify deterministic repairs for the malformed patterns observed in the catalog."""
+    input_file = write_cardinality_project(tmp_path, source)
+
+    with pytest.warns(CardinalityRepairWarning, match="It was repaired"):
+        ontouml_graph = decode_ontouml_json2graph(
+            json_file_path=str(input_file),
+            invalid_cardinality_policy="repair",
+        )
+
+    assert_cardinality(ontouml_graph, repaired, lower_bound, upper_bound)
+
+
+@pytest.mark.parametrize("cardinality", ["-1", "n", "m", "merged_1s", "*..5", "5..1"])
+def test_repair_policy_falls_back_to_preserve_when_repair_is_unsafe(
+    tmp_path: Path,
+    cardinality: str,
+) -> None:
+    """Verify that repair policy does not invent semantics for unsupported invalid values."""
+    input_file = write_cardinality_project(tmp_path, cardinality)
+
+    with pytest.warns(InvalidCardinalityWarning, match="could not be safely repaired"):
+        ontouml_graph = decode_ontouml_json2graph(
+            json_file_path=str(input_file),
+            invalid_cardinality_policy="repair",
+        )
+
+    assert_cardinality(ontouml_graph, cardinality, None, None)
+
+
+@pytest.mark.parametrize(
+    ("source", "normalized", "lower_bound", "upper_bound"),
+    [
+        ("0..1", "0..1", "0", "1"),
+        ("1..*", "1..*", "1", "*"),
+        ("20..25", "20..25", "20", "25"),
+        ("5", "5..5", "5", "5"),
+        ("*", "0..*", "0", "*"),
+    ],
+)
+def test_valid_cardinality_emits_vocabulary_compliant_lower_bound(
+    tmp_path: Path,
+    source: str,
+    normalized: str,
+    lower_bound: str,
+    upper_bound: str,
+) -> None:
+    """Verify valid cardinalities and the required lower-bound datatype."""
+    input_file = write_cardinality_project(tmp_path, source)
+
+    with warnings.catch_warnings():
+        warnings.simplefilter("error", InvalidCardinalityWarning)
+        warnings.simplefilter("error", CardinalityRepairWarning)
+        ontouml_graph = decode_ontouml_json2graph(json_file_path=str(input_file))
+
+    assert_cardinality(ontouml_graph, normalized, lower_bound, upper_bound)
+
+
+def test_decode_json_model_applies_cardinality_repair_policy(tmp_path: Path) -> None:
+    """Verify that the public library API exposes cardinality repair."""
+    input_file = write_cardinality_project(tmp_path, "0..")
+
+    with pytest.warns(CardinalityRepairWarning, match="It was repaired"):
+        ontouml_graph = decode_json_model(
+            json_file_path=str(input_file),
+            invalid_cardinality_policy="repair",
+        )
+
+    assert_cardinality(ontouml_graph, "0..*", "0", "*")
+
+
+def test_cardinality_error_policy_aborts_decoding(tmp_path: Path) -> None:
+    """Verify that error policy rejects an invalid cardinality."""
+    input_file = write_cardinality_project(tmp_path, "-1")
+
+    with pytest.raises(InvalidCardinalityError, match="Transformation aborted"):
+        decode_ontouml_json2graph(
+            json_file_path=str(input_file),
+            invalid_cardinality_policy="error",
+        )
+
+
+def test_cardinality_error_policy_does_not_create_an_output_file(tmp_path: Path) -> None:
+    """Verify that command-line error policy aborts before writing output."""
+    input_file = write_cardinality_project(tmp_path, "-1")
+
+    result = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "json2graph.decode",
+            "-i",
+            str(input_file),
+            "-o",
+            str(tmp_path),
+            "--invalid-cardinality-policy",
+            "error",
+        ],
+        capture_output=True,
+        check=False,
+        text=True,
+    )
+
+    assert result.returncode != 0
+    assert "InvalidCardinalityError" in result.stderr
+    assert not (tmp_path / "cardinality.ttl").exists()
+
+
+def test_new_cardinality_argument_preserves_existing_positional_api_order(tmp_path: Path) -> None:
+    """Verify that adding cardinality policy does not move the existing stereotype-policy argument."""
+    input_file = write_invalid_stereotype_project(tmp_path)
+
+    with pytest.warns(InvalidStereotypeWarning, match="policy is 'omit'"):
+        ontouml_graph = decode_json_model(
+            str(input_file),
+            BASE_URI,
+            "",
+            False,
+            "omit",
+        )
+
+    element_uri = URIRef(BASE_URI + "class-1")
+    assert (element_uri, RDF.type, ONTOUML.Class) in ontouml_graph
+    assert set(ontouml_graph.objects(element_uri, ONTOUML.stereotype)) == set()

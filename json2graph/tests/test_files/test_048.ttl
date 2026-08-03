@@ -157,13 +157,13 @@
 :1kKApt6GAqACCigT_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :1kKApt6GAqACCigV_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :2ApGVt6GAqACCitz
@@ -250,13 +250,13 @@
 :2yLkVt6GAqACCiZq_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..*" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :2yLkVt6GAqACCiZs_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :3DKIpt6GAqACCist
@@ -347,7 +347,7 @@
 :3k5YVt6GAqACCiMS_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :3mkVt6GAqACCiXq
@@ -411,13 +411,13 @@
 :4bL2Vt6GAqACCi8j_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..*" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :4bL2Vt6GAqACCi8l_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..*" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :4h2Itt6GAqACCgqA
@@ -442,13 +442,13 @@
 :4hxGVt6GAqACCitl_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :4hxGVt6GAqACCitn_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..1" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :4i4qlt6GAqACChWd_shape
@@ -886,13 +886,13 @@
 :9Vm6Vt6GAqACCinP_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :9Vm6Vt6GAqACCinR_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..1" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :9aOWlt6GAqACChoB
@@ -982,7 +982,7 @@
 :A1OQpt6GAqACCimR_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..*" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :AKOwpt6GAqACCiqF
@@ -1102,13 +1102,13 @@
 :BxqYVt6GAqACCiLY_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :BxqYVt6GAqACCiLa_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..1" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :C5MIVt6GAqACCh9L
@@ -1201,25 +1201,25 @@
 :CrjdJt6GAqACCiZS_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :CrjdJt6GAqACCiZU_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :CwboVt6GAqACCiJF_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :CwboVt6GAqACCiJH_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..1" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :CxVUVt6GAqACCidh
@@ -1541,13 +1541,13 @@
 :EcGmVt6GAqACCixs_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :EcGmVt6GAqACCixu_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :EdEVt6GAqACCiU0_shape
@@ -2005,13 +2005,13 @@
 :HqDqVt6GAqACCiiN_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :HqDqVt6GAqACCiiP_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..1" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :HrqUVt6GAqACCibv
@@ -2075,7 +2075,7 @@
 :IXSuVt6GAqACCjDe_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..*" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :IZtwVt6GAqACCh71
@@ -2290,25 +2290,25 @@
 :L1nwpt6GAqACCirU_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..*" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :L1nwpt6GAqACCirW_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :LDKIpt6GAqACCisp_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..*" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :LDKIpt6GAqACCisr_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :LJx8lt6GAqACChD4_shape
@@ -2326,7 +2326,7 @@
 :LdVYVt6GAqACCiMy_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..*" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :LkKApt6GAqACCigX
@@ -2367,7 +2367,7 @@
 :Lpi4Vt6GAqACCiPC_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :LsVwVt6GAqACCh7k_shape
@@ -2447,13 +2447,13 @@
 :NBE4Vt6GAqACCiOg_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..*" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :NBE4Vt6GAqACCiOi_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :NDRkVt6GAqACCiYj
@@ -2505,13 +2505,13 @@
 :NJyIpt6GAqACCisf_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :NJyIpt6GAqACCish_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..1" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :N_HIpt6GAqACCiuf_shape
@@ -2547,13 +2547,13 @@
 :Nxy6Vt6GAqACCimm_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..1" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :Nxy6Vt6GAqACCimo_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..1" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :OKtoVt6GAqACCiIp
@@ -2601,13 +2601,13 @@
 :OvOdJt6GAqACCiYf_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :OvOdJt6GAqACCiYh_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :OzWClt6GAqACChIQ
@@ -2675,7 +2675,7 @@
 :PX6Vt6GAqACCiqR_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..*" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :PYbIVt6GAqACCiCG
@@ -2773,7 +2773,7 @@
 :Pk5YVt6GAqACCiMU_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..*" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :PxiQVt6GAqACCh1U
@@ -2896,19 +2896,19 @@
 :RUWmVt6GAqACCix4_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :Rc9gpt6GAqACCikE_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :Rc9gpt6GAqACCikG_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..1" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :Rf1WVt6GAqACCi2c
@@ -2937,13 +2937,13 @@
 :RpR2Vt6GAqACCi7I_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..*" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :RpR2Vt6GAqACCi7K_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :S5tIpt6GAqACCitp_shape
@@ -2961,13 +2961,13 @@
 :SABmVt6GAqACCiyG_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..1" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :SABmVt6GAqACCiyI_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :T2Aalt6GAqACChbD_shape
@@ -2985,7 +2985,7 @@
 :T3A9Jt6GAqACCiaN_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..*" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :TBE4Vt6GAqACCiOk
@@ -3025,7 +3025,7 @@
 :TCCuVt6GAqACCjDK_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :TE0ctt6GAqACCgli
@@ -3078,7 +3078,7 @@
 :TTEUVt6GAqACCia5_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..*" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :TYbQpt6GAqACCink
@@ -3158,13 +3158,13 @@
 :TrqUVt6GAqACCibr_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..*" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :TrqUVt6GAqACCibt_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..1" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :UFtott6GAqACCgxZ
@@ -3315,19 +3315,19 @@
 :VMo2Vt6GAqACCi5C_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..*" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :VYbQpt6GAqACCing_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :VYbQpt6GAqACCini_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..1" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :VgMilt6GAqACChNT
@@ -3481,13 +3481,13 @@
 :XEc2Vt6GAqACCi5t_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "2..*" ;
-    ontouml:lowerBound       "2" ;
+    ontouml:lowerBound       "2"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :XEc2Vt6GAqACCi5v_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :XJx8lt6GAqACChD6
@@ -3687,13 +3687,13 @@
 :XyOwpt6GAqACCiqB_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..1" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :XyOwpt6GAqACCiqD_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :XygClt6GAqACChF6_shape
@@ -3860,13 +3860,13 @@
 :ZDRkVt6GAqACCiYf_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..*" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :ZDRkVt6GAqACCiYh_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..1" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :ZEaoVt6GAqACCiGl
@@ -3895,25 +3895,25 @@
 :ZHCGVt6GAqACCisX_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :ZHCGVt6GAqACCisZ_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..1" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :ZWM4Vt6GAqACCiOu_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..*" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :ZWM4Vt6GAqACCiOw_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :Z_sgVt6GAqACChvk_shape
@@ -4045,7 +4045,7 @@
 :aApGVt6GAqACCitx_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..1" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :aD6qlt6GAqACChYK
@@ -4085,13 +4085,13 @@
 :aKtoVt6GAqACCiIl_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :aKtoVt6GAqACCiIn_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..1" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :aRDEVt6GAqACCiU__shape
@@ -4416,7 +4416,7 @@
 :ePX6Vt6GAqACCiqP_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :eSGott6GAqACCgv5
@@ -4487,7 +4487,7 @@
 :eufdJt6GAqACCiZ7_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..1" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :evTqlt6GAqACChZx
@@ -4527,13 +4527,13 @@
 :fYYkVt6GAqACCiWO_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..*" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :fYYkVt6GAqACCiWQ_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..*" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :fqDqVt6GAqACCiiR
@@ -4574,25 +4574,25 @@
 :ftNgpt6GAqACCij2_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :fxxoVt6GAqACCiH6_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..1" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :fxxoVt6GAqACCiH8_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..1" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :g1OQpt6GAqACCimT_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :gQJqVt6GAqACCihN_shape
@@ -4610,13 +4610,13 @@
 :gaiuVt6GAqACCjDQ_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :gaiuVt6GAqACCjDS_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..1" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :gpClt6GAqACChJ8_shape
@@ -4659,7 +4659,7 @@
 :hUWmVt6GAqACCix2_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..*" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :hZxilt6GAqACChOD
@@ -4837,7 +4837,7 @@
 :jCCuVt6GAqACCjDI_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..*" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :jRooVt6GAqACCiD__shape
@@ -4867,7 +4867,7 @@
 :jdVYVt6GAqACCiMw_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :jxxalt6GAqACChdG
@@ -4950,13 +4950,13 @@
 :kS_dJt6GAqACCiaD_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :kS_dJt6GAqACCiaF_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..*" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :kbYgpt6GAqACCiiW
@@ -5076,19 +5076,19 @@
 :kxVUVt6GAqACCidd_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..*" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :kxVUVt6GAqACCidf_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..1" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :lMo2Vt6GAqACCi5A_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :lSFkdf6GAqACC1nH
@@ -5182,25 +5182,25 @@
 :mKHApt6GAqACCihc_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "2..*" ;
-    ontouml:lowerBound       "2" ;
+    ontouml:lowerBound       "2"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :mKHApt6GAqACCihe_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :mntUVt6GAqACCidr_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..*" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :mntUVt6GAqACCidt_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..1" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :nJ4EVt6GAqACCiRf
@@ -5566,7 +5566,7 @@
 :qApGVt6GAqACCitv_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :qCNopt6GAqACCiyY
@@ -5648,13 +5648,13 @@
 :r_hUVt6GAqACCic2_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..*" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :r_hUVt6GAqACCic4_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..1" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :rgQqlt6GAqACChWA
@@ -5706,13 +5706,13 @@
 :rmkVt6GAqACCiXm_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..1" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :rmkVt6GAqACCiXo_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..*" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :rzsoVt6GAqACCiFZ_shape
@@ -5730,13 +5730,13 @@
 :sCNopt6GAqACCiyU_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :sCNopt6GAqACCiyW_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..1" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :sPCgVt6GAqACChwL_shape
@@ -6031,13 +6031,13 @@
 :uaJ6Vt6GAqACCioD_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :uaJ6Vt6GAqACCioF_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..1" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :uf1WVt6GAqACCi2a_shape
@@ -6055,7 +6055,7 @@
 :uufdJt6GAqACCiZ5_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :uukGVt6GAqACCirU_shape
@@ -6108,13 +6108,13 @@
 :vLhOVt6GAqACCjAB_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :vLhOVt6GAqACCjAD_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :vOXKlt6GAqACChVc
@@ -6154,13 +6154,13 @@
 :vOv6Vt6GAqACCiqb_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :vOv6Vt6GAqACCiqd_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..*" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :vR38lt6GAqACChFM_shape
@@ -6190,19 +6190,19 @@
 :vtNgpt6GAqACCij0_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..*" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :vwGGVt6GAqACCis2_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :vwGGVt6GAqACCis4_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..*" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :w3sQVt6GAqACCh1G
@@ -6276,13 +6276,13 @@
 :w9WoVt6GAqACCiHQ_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :w9WoVt6GAqACCiHS_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..1" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :wPTIVt6GAqACCiBe_shape
@@ -6300,19 +6300,19 @@
 :wXSuVt6GAqACCjDc_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..*" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :wbYgpt6GAqACCiiS_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..*" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :wbYgpt6GAqACCiiU_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..*" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :wdNgpt6GAqACCij4
@@ -6369,13 +6369,13 @@
 :wsxYVt6GAqACCiME_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :wsxYVt6GAqACCiMG_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :wtgmlt6GAqACChix_shape
@@ -6475,7 +6475,7 @@
 :z3A9Jt6GAqACCiaP_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..*" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :zBfAVt6GAqACChu3_shape
@@ -6505,13 +6505,13 @@
 :zTEUVt6GAqACCia7_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :zpi4Vt6GAqACCiPA_cardinality
     a                        ontouml:Cardinality ;
     ontouml:cardinalityValue "0..1" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :zwCWlt6GAqACChnS_shape

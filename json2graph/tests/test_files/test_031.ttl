@@ -293,7 +293,7 @@
 :52NM1JGGAqACNxK4_cardinality
     rdf:type                 ontouml:Cardinality ;
     ontouml:cardinalityValue "1..1" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :52NM1JGGAqACNxK4
@@ -415,7 +415,7 @@
 :rG7M1JGGAqACNxL6_cardinality
     rdf:type                 ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :rG7M1JGGAqACNxL6
@@ -444,7 +444,7 @@
 :9wnM1JGGAqACNxMI_cardinality
     rdf:type                 ontouml:Cardinality ;
     ontouml:cardinalityValue "1..*" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "*" .
 
 :9wnM1JGGAqACNxMI
@@ -593,7 +593,7 @@
 :FUes1JGGAqACNxOP_cardinality
     rdf:type                 ontouml:Cardinality ;
     ontouml:cardinalityValue "0..1" ;
-    ontouml:lowerBound       "0" ;
+    ontouml:lowerBound       "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :FUes1JGGAqACNxOP
@@ -611,7 +611,7 @@
 :lUes1JGGAqACNxOR_cardinality
     rdf:type                 ontouml:Cardinality ;
     ontouml:cardinalityValue "1..1" ;
-    ontouml:lowerBound       "1" ;
+    ontouml:lowerBound       "1"^^xsd:nonNegativeInteger ;
     ontouml:upperBound       "1" .
 
 :lUes1JGGAqACNxOR
@@ -1368,7 +1368,7 @@
     ontouml:targetView :jk2M1JGGAqACNxHo .
 
 :H7DM1JGGAqACNxLd_cardinality
-    ontouml:lowerBound "0" ;
+    ontouml:lowerBound "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound "*" .
 
 :IYqs1JGGAqACNxNp
@@ -1388,7 +1388,7 @@
     ontouml:targetView :i22M1JGGAqACNxHz .
 
 :LG7M1JGGAqACNxL4_cardinality
-    ontouml:lowerBound "0" ;
+    ontouml:lowerBound "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound "0" .
 
 :Llws1JGGAqACNxMz
@@ -1408,7 +1408,7 @@
     ontouml:targetView :J32M1JGGAqACNxIJ .
 
 :R89M1JGGAqACNxLN_cardinality
-    ontouml:lowerBound "0" ;
+    ontouml:lowerBound "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound "*" .
 
 :RpnM1JGGAqACNxMU
@@ -1428,7 +1428,7 @@
     ontouml:targetView :1HWM1JGGAqACNxHd .
 
 :n7DM1JGGAqACNxLf_cardinality
-    ontouml:lowerBound "0" ;
+    ontouml:lowerBound "0"^^xsd:nonNegativeInteger ;
     ontouml:upperBound "*" .
 
 :oXOs1JGGAqACNxN
