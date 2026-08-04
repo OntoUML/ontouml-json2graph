@@ -40,6 +40,7 @@ For inquiries and further information, please refer to the [comprehensive docstr
     * [Usage](#usage)
         * [Executing as a Script](#executing-as-a-script)
             * [Arguments](#arguments)
+            * [Transformation provenance metadata](#transformation-provenance-metadata)
         * [Importing as a Library](#importing-as-a-library)
             * [decode_json_project](#decodejsonproject)
             * [decode_json_model](#decodejsonmodel)
@@ -100,7 +101,9 @@ Optional arguments provide additional features. All available ontouml-json2graph
 usage: ontouml-json2graph [-h] -i INPUT_PATH [-o OUTPUT_PATH] [-a] [-f {turtle,ttl,turtle2,xml,pretty-xml,json-ld,ntriples,nt,nt11,n3,trig,trix,nquads}]
                           [-l LANGUAGE] [-c] [-s] [-u BASE_URI] [-m]
                           [--invalid-cardinality-policy {preserve,repair,error}]
-                          [--invalid-stereotype-policy {preserve,omit,error}] [-v]
+                          [--invalid-stereotype-policy {preserve,omit,error}]
+                          [--unresolved-model-element-policy {preserve,omit,error}]
+                          [--transformation-metadata {none,embedded,sidecar}] [-v]
 
 OntoUML JSON2Graph Decoder. Version: 1.3.3
 
@@ -124,10 +127,45 @@ options:
                         Handle invalid cardinalities: preserve, repair known corpus patterns, or error. Default is 'preserve'.
   --invalid-stereotype-policy {preserve,omit,error}
                         Handle stereotypes invalid for their element type: preserve, omit, or error. Default is 'preserve'.
+  --unresolved-model-element-policy {preserve,omit,error}
+                        Handle unresolved modelElement references: preserve, omit, or error. Default is 'omit'.
+  --transformation-metadata {none,embedded,sidecar}
+                        Transformation provenance: none, embedded in the output, or a separate Turtle sidecar. Default is 'none'.
   -v, --version         Print the software version and exit.
 
 More information at: https://w3id.org/ontouml/json2graph
 ```
+
+#### Transformation provenance metadata
+
+Transformation metadata is optional and describes the RDF artifact and the process that generated it, not the
+OntoUML model itself.
+
+| Mode | Behavior |
+|---|---|
+| `none` | Default. Writes only the transformed model graph. No timestamp or transformation metadata is added. |
+| `embedded` | Adds transformation provenance to the same RDF document as the model. The timestamp makes this output non-deterministic. |
+| `sidecar` | Writes the model graph unchanged and saves provenance separately as `<output-stem>.provenance.ttl`. This is the recommended provenance mode. |
+
+For example:
+
+```text
+python -m json2graph.decode -i my_ontology.json --transformation-metadata sidecar
+```
+
+For `my_ontology.json` with Turtle output, this creates `my_ontology.ttl` and
+`my_ontology.provenance.ttl`. The provenance uses PROV-O and DCMI terms to record:
+
+- the generated artifact and UTC generation time;
+- the input filename and its SHA-256 identifier;
+- the `ontouml-json2graph` software name and version;
+- output-affecting transformation options as canonical JSON;
+- registered IANA media types for the input, configuration, and output serialization when one exists;
+- conformance to `https://w3id.org/ontouml/vocabulary/v1.1.1` when every OntoUML predicate and object term used by
+  the generated model graph is declared in the bundled vocabulary revision.
+
+RDFLib supports TriX serialization, but IANA does not register a TriX media type. TriX provenance therefore omits
+`dct:format` instead of using an unregistered value.
 
 ### Importing as a Library
 
@@ -145,8 +183,12 @@ from json2graph.library import decode_json_project
 decoded_graph_project = decode_json_project(json_file_path="path/to/input.json", base_uri="https://myuri.org#",
                                             language="en", correct=True,
                                             invalid_cardinality_policy="preserve",
-                                            invalid_stereotype_policy="preserve")
+                                            invalid_stereotype_policy="preserve",
+                                            transformation_metadata="none")
 ```
+
+Library decoding accepts `transformation_metadata="none"` or `"embedded"`. It never creates a sidecar implicitly;
+sidecar output requires the command-line file-writing workflow.
 
 #### decode_json_model
 
@@ -161,7 +203,8 @@ decoded_graph_model = decode_json_model(json_file_path="path/to/input.json", bas
                                         language="en",
                                         correct=True,
                                         invalid_cardinality_policy="preserve",
-                                        invalid_stereotype_policy="preserve")
+                                        invalid_stereotype_policy="preserve",
+                                        transformation_metadata="none")
 ```
 
 #### save_graph_file

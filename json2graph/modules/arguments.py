@@ -19,6 +19,7 @@ from .logger import initialize_logger
 from .metadata import METADATA
 from .model_element_references import UNRESOLVED_MODEL_ELEMENT_POLICIES
 from .stereotypes import INVALID_STEREOTYPE_POLICIES
+from .transformation_metadata import TRANSFORMATION_METADATA_MODES
 from .utils_validations import validate_arg_input
 
 ARGUMENTS = {}
@@ -160,6 +161,15 @@ def initialize_args_script() -> None:
         default="omit",
         help="Handle unresolved modelElement references: preserve, omit, or error. Default is 'omit'.",
     )
+    args_parser.add_argument(
+        "--transformation-metadata",
+        type=str,
+        action="store",
+        choices=TRANSFORMATION_METADATA_MODES,
+        default="none",
+        help="Transformation provenance: none, embedded in the output, or a separate Turtle sidecar. "
+        "Default is 'none'.",
+    )
 
     # AUTOMATIC ARGUMENTS
     args_parser.add_argument("-v", "--version", action="version", help="Print the software version and exit.")
@@ -180,6 +190,7 @@ def initialize_args_script() -> None:
         "model_only": arguments.model_only,
         "output_path": os.path.abspath(arguments.output_path),
         "silent": arguments.silent,
+        "transformation_metadata": arguments.transformation_metadata,
         "unresolved_model_element_policy": arguments.unresolved_model_element_policy,
     }
 
@@ -217,6 +228,7 @@ def initialize_args_import(
     invalid_stereotype_policy: str = "preserve",
     invalid_cardinality_policy: str = "preserve",
     unresolved_model_element_policy: str = "omit",
+    transformation_metadata: str = "none",
 ):
     """Initialize the global variable ARGUMENTS of type dictionary, which contains user-provided \
     (when executed in script mode) or default arguments (when executed as a library or for testing).
@@ -250,6 +262,9 @@ def initialize_args_import(
     :param unresolved_model_element_policy: How to handle unresolved modelElement references. Valid values are
                                             'preserve', 'omit', and 'error'. (Optional)
     :type unresolved_model_element_policy: str
+    :param transformation_metadata: How transformation provenance is returned. Library decoding supports 'none' and
+                                    'embedded'; sidecar output is available in script mode. (Optional)
+    :type transformation_metadata: str
     """
     validate_arg_input(input_path, decode_all=False)
 
@@ -271,6 +286,16 @@ def initialize_args_import(
             f"{list(UNRESOLVED_MODEL_ELEMENT_POLICIES)}."
         )
 
+    if transformation_metadata not in TRANSFORMATION_METADATA_MODES:
+        report_error_requirement_not_met(
+            f"Invalid transformation metadata mode '{transformation_metadata}'. Valid values are: "
+            f"{list(TRANSFORMATION_METADATA_MODES)}."
+        )
+    if transformation_metadata == "sidecar":
+        report_error_requirement_not_met(
+            "Sidecar transformation metadata requires file output and is only available in script mode."
+        )
+
     ARGUMENTS["base_uri"] = base_uri
     ARGUMENTS["correct"] = correct
     ARGUMENTS["format"] = graph_format
@@ -281,6 +306,7 @@ def initialize_args_import(
     ARGUMENTS["model_only"] = model_only
     ARGUMENTS["output_path"] = output_path
     ARGUMENTS["silent"] = silent
+    ARGUMENTS["transformation_metadata"] = transformation_metadata
     ARGUMENTS["unresolved_model_element_policy"] = unresolved_model_element_policy
 
 
@@ -290,6 +316,7 @@ def initialize_args_test(
     invalid_stereotype_policy: str = "preserve",
     invalid_cardinality_policy: str = "preserve",
     unresolved_model_element_policy: str = "omit",
+    transformation_metadata: str = "none",
 ):
     """Initialize the global variable ARGUMENTS of type dictionary, which contains user-provided \
     (when executed in script mode) or default arguments (when executed as a library or for testing).
@@ -306,6 +333,8 @@ def initialize_args_test(
     :type invalid_cardinality_policy: str
     :param unresolved_model_element_policy: How to handle unresolved modelElement references. (Optional)
     :type unresolved_model_element_policy: str
+    :param transformation_metadata: How transformation provenance is returned. (Optional)
+    :type transformation_metadata: str
     """
     validate_arg_input(input_path, decode_all=False)
 
@@ -327,6 +356,12 @@ def initialize_args_test(
             f"{list(UNRESOLVED_MODEL_ELEMENT_POLICIES)}."
         )
 
+    if transformation_metadata not in TRANSFORMATION_METADATA_MODES:
+        report_error_requirement_not_met(
+            f"Invalid transformation metadata mode '{transformation_metadata}'. Valid values are: "
+            f"{list(TRANSFORMATION_METADATA_MODES)}."
+        )
+
     ARGUMENTS["base_uri"] = "https://example.org#"
     ARGUMENTS["correct"] = True
     ARGUMENTS["format"] = "ttl"
@@ -337,4 +372,5 @@ def initialize_args_test(
     ARGUMENTS["model_only"] = False
     ARGUMENTS["output_path"] = "tests" + os.path.sep + "results"
     ARGUMENTS["silent"] = True
+    ARGUMENTS["transformation_metadata"] = transformation_metadata
     ARGUMENTS["unresolved_model_element_policy"] = unresolved_model_element_policy

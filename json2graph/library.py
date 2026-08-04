@@ -24,6 +24,7 @@ def decode_json_project(
     invalid_stereotype_policy: str = "preserve",
     invalid_cardinality_policy: str = "preserve",
     unresolved_model_element_policy: str = "omit",
+    transformation_metadata: str = "none",
 ) -> Graph:
     """Decode elements from OntoUML's abstract and concrete syntax from JSON format into a Knowledge Graph. \
     I.e., domain-level and diagrammatic data are converted to Knowledge Graph.
@@ -51,6 +52,9 @@ def decode_json_project(
     :param unresolved_model_element_policy: How to handle unresolved modelElement references. Valid values are
                                             'preserve', 'omit', and 'error'. Default is 'omit'. (Optional)
     :type unresolved_model_element_policy: str
+    :param transformation_metadata: Optional transformation provenance. Valid values are 'none' (default) and
+                                    'embedded'. (Optional)
+    :type transformation_metadata: str
 
     :return: JSON data decoded into a RDFLib's Graph that is compliant with the OntoUML Vocabulary.
     :rtype: Graph
@@ -66,6 +70,7 @@ def decode_json_project(
         invalid_cardinality_policy=invalid_cardinality_policy,
         invalid_stereotype_policy=invalid_stereotype_policy,
         unresolved_model_element_policy=unresolved_model_element_policy,
+        transformation_metadata=transformation_metadata,
     )
 
     return decoded_graph_project
@@ -79,6 +84,7 @@ def decode_json_model(
     invalid_stereotype_policy: str = "preserve",
     invalid_cardinality_policy: str = "preserve",
     unresolved_model_element_policy: str = "omit",
+    transformation_metadata: str = "none",
 ) -> Graph:
     """Decode elements from OntoUML's abstract syntax from JSON format into a Knowledge Graph. \
     I.e., only domain-level (and not diagrammatic) data is converted to Knowledge Graph.
@@ -106,6 +112,9 @@ def decode_json_model(
     :param unresolved_model_element_policy: How to handle unresolved modelElement references. Valid values are
                                             'preserve', 'omit', and 'error'. Default is 'omit'. (Optional)
     :type unresolved_model_element_policy: str
+    :param transformation_metadata: Optional transformation provenance. Valid values are 'none' (default) and
+                                    'embedded'. (Optional)
+    :type transformation_metadata: str
 
     :return: JSON data decoded into a RDFLib's Graph that is compliant with the OntoUML Vocabulary.
     :rtype: Graph
@@ -121,6 +130,7 @@ def decode_json_model(
         invalid_cardinality_policy=invalid_cardinality_policy,
         invalid_stereotype_policy=invalid_stereotype_policy,
         unresolved_model_element_policy=unresolved_model_element_policy,
+        transformation_metadata=transformation_metadata,
     )
 
     return decoded_graph_model

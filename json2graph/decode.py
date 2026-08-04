@@ -18,6 +18,11 @@ try:
         safe_write_graph_file,
     )
     from .modules.logger import initialize_logger
+    from .modules.transformation_metadata import (
+        build_transformation_metadata,
+        get_transformation_configuration,
+        graph_with_metadata,
+    )
     from .modules.utils_general import get_date_time
     from .modules.utils_validations import validate_execution_mode
     from .modules.errors import report_error_end_of_switch
@@ -31,6 +36,11 @@ except ImportError:
         safe_write_graph_file,
     )
     from modules.logger import initialize_logger
+    from modules.transformation_metadata import (
+        build_transformation_metadata,
+        get_transformation_configuration,
+        graph_with_metadata,
+    )
     from modules.utils_general import get_date_time
     from modules.utils_validations import validate_execution_mode
     from modules.errors import report_error_end_of_switch
@@ -48,6 +58,7 @@ def decode_ontouml_json2graph(
     invalid_stereotype_policy: str = "preserve",
     invalid_cardinality_policy: str = "preserve",
     unresolved_model_element_policy: str = "omit",
+    transformation_metadata: str = "none",
 ) -> Graph:
     """Convert OntoUML JSON data to a Knowledge Graph.
 
@@ -79,6 +90,9 @@ def decode_ontouml_json2graph(
     :param unresolved_model_element_policy: How to handle unresolved modelElement references. Valid values are
                                             'preserve', 'omit', and 'error'. Default is 'omit'. (Optional)
     :type unresolved_model_element_policy: str
+    :param transformation_metadata: Optional transformation provenance. Valid values for library use are 'none'
+                                    (default) and 'embedded'. Sidecar output is available in script mode. (Optional)
+    :type transformation_metadata: str
 
     :return: JSON data decoded into a RDFLib's Graph that is compliant with the OntoUML Vocabulary.
     :rtype: Graph
@@ -104,6 +118,7 @@ def decode_ontouml_json2graph(
             invalid_cardinality_policy=invalid_cardinality_policy,
             invalid_stereotype_policy=invalid_stereotype_policy,
             unresolved_model_element_policy=unresolved_model_element_policy,
+            transformation_metadata=transformation_metadata,
         )
     elif execution_mode == "import":
         args.initialize_args_import(
@@ -116,6 +131,7 @@ def decode_ontouml_json2graph(
             invalid_cardinality_policy=invalid_cardinality_policy,
             invalid_stereotype_policy=invalid_stereotype_policy,
             unresolved_model_element_policy=unresolved_model_element_policy,
+            transformation_metadata=transformation_metadata,
         )
 
     if execution_mode == "script" and not args.ARGUMENTS["silent"]:
@@ -166,6 +182,16 @@ def decode_ontouml_json2graph(
         elapsed_time = round((et - st), 3)
         logger.info(f"Decoding concluded on {end_date_time}. Total execution time: {elapsed_time} seconds.")
 
+    if execution_mode != "script" and args.ARGUMENTS["transformation_metadata"] == "embedded":
+        metadata_graph = build_transformation_metadata(
+            ontouml_graph=ontouml_graph,
+            input_file_path=json_file_path,
+            output_file_name=f"{Path(json_file_path).stem} in-memory graph",
+            graph_format="",
+            configuration=get_transformation_configuration(args.ARGUMENTS),
+        )
+        return graph_with_metadata(ontouml_graph, metadata_graph)
+
     return ontouml_graph
 
 
@@ -206,7 +232,29 @@ def write_graph_file(ontouml_graph: Graph, execution_mode: str = "script") -> st
     output_file_name = loaded_file_name + "." + args.ARGUMENTS["format"]
     output_file_path = base_path + os.path.sep + output_file_name
 
-    safe_write_graph_file(ontouml_graph, output_file_path, args.ARGUMENTS["format"])
+    transformation_metadata = args.ARGUMENTS["transformation_metadata"]
+    output_graph = ontouml_graph
+    metadata_graph = Graph()
+
+    if transformation_metadata in ("embedded", "sidecar"):
+        metadata_graph = build_transformation_metadata(
+            ontouml_graph=ontouml_graph,
+            input_file_path=args.ARGUMENTS["input_path"],
+            output_file_name=output_file_name,
+            graph_format=args.ARGUMENTS["format"],
+            configuration=get_transformation_configuration(args.ARGUMENTS),
+        )
+
+    if transformation_metadata == "embedded":
+        output_graph = graph_with_metadata(ontouml_graph, metadata_graph)
+
+    safe_write_graph_file(output_graph, output_file_path, args.ARGUMENTS["format"])
+
+    if transformation_metadata == "sidecar":
+        sidecar_file_path = str(Path(output_file_path).with_suffix(".provenance.ttl"))
+        safe_write_graph_file(metadata_graph, sidecar_file_path, "ttl")
+        if not args.ARGUMENTS["silent"]:
+            logger.info(f"Transformation metadata sidecar successfully saved at {sidecar_file_path}.")
 
     if not args.ARGUMENTS["silent"]:
         logger.info(f"Output graph file successfully saved at {output_file_path}.\n")
@@ -225,10 +273,8 @@ def decode_all_ontouml_json2graph() -> None:
     list_input_files = glob.glob(os.path.join(args.ARGUMENTS["input_path"], "*.json"))
 
     for input_file in list_input_files:
+        args.ARGUMENTS["input_path"] = input_file
         result_graph = decode_ontouml_json2graph(json_file_path=input_file, execution_mode="script")
-
-        new_file_name = input_file.replace(".json", "." + args.ARGUMENTS["format"])
-        args.ARGUMENTS["input_path"] = new_file_name
         write_graph_file(result_graph, execution_mode="script")
 
 
