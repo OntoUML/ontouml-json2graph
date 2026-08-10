@@ -16,6 +16,8 @@ from .input_output import create_directory_if_not_exists
 from .logger import initialize_logger
 from .metadata import METADATA
 from .model_element_references import UNRESOLVED_MODEL_ELEMENT_POLICIES
+from .path_order import PATH_ORDER_POLICIES
+from .property_assignments import PROPERTY_ASSIGNMENT_POLICIES
 from .stereotypes import INVALID_STEREOTYPE_POLICIES
 from .transformation_metadata import TRANSFORMATION_METADATA_MODES
 from .utils_validations import validate_arg_input
@@ -170,6 +172,24 @@ def initialize_args_script() -> None:
         help="Handle unresolved modelElement references: preserve, omit, or error. Default is 'omit'.",
     )
     args_parser.add_argument(
+        "--path-order-policy",
+        type=str,
+        action="store",
+        choices=PATH_ORDER_POLICIES,
+        default="warn",
+        help="Handle path-point order: warn without representing it, or add a non-normative rdfs:comment. "
+        "Default is 'warn'.",
+    )
+    args_parser.add_argument(
+        "--property-assignment-policy",
+        type=str,
+        action="store",
+        choices=PROPERTY_ASSIGNMENT_POLICIES,
+        default="warn",
+        help="Handle non-empty propertyAssignments maps: warn and omit them, or add canonical JSON in a "
+        "non-normative rdfs:comment. Default is 'warn'.",
+    )
+    args_parser.add_argument(
         "--transformation-metadata",
         type=str,
         action="store",
@@ -201,6 +221,8 @@ def initialize_args_script() -> None:
         "language": arguments.language,
         "model_only": arguments.model_only,
         "output_path": os.path.abspath(arguments.output_path),
+        "path_order_policy": arguments.path_order_policy,
+        "property_assignment_policy": arguments.property_assignment_policy,
         "silent": arguments.silent,
         "transformation_metadata": arguments.transformation_metadata,
         "unresolved_model_element_policy": arguments.unresolved_model_element_policy,
@@ -236,6 +258,8 @@ def initialize_args_import(
     unresolved_model_element_policy: str = "omit",
     transformation_metadata: str = "none",
     append_content_hash: bool = False,
+    path_order_policy: str = "warn",
+    property_assignment_policy: str = "warn",
 ):
     """Initialize the global variable ARGUMENTS of type dictionary, which contains user-provided \
     (when executed in script mode) or default arguments (when executed as a library or for testing).
@@ -274,6 +298,13 @@ def initialize_args_import(
     :type transformation_metadata: str
     :param append_content_hash: If True, append the deterministic content UUID to the supplied base URI. (Optional)
     :type append_content_hash: bool
+    :param path_order_policy: How to handle path-point order. Valid values are 'warn' (default) and 'comment'.
+                              The latter adds a non-normative rdfs:comment annotation. (Optional)
+    :type path_order_policy: str
+    :param property_assignment_policy: How to handle non-empty propertyAssignments maps. Valid values are 'warn'
+                                       (default) and 'comment'. The latter adds their canonical JSON as a
+                                       non-normative rdfs:comment annotation. (Optional)
+    :type property_assignment_policy: str
     """
     validate_arg_input(input_path, decode_all=False)
 
@@ -293,6 +324,17 @@ def initialize_args_import(
         report_error_requirement_not_met(
             f"Invalid unresolved modelElement policy '{unresolved_model_element_policy}'. Valid values are: "
             f"{list(UNRESOLVED_MODEL_ELEMENT_POLICIES)}."
+        )
+
+    if path_order_policy not in PATH_ORDER_POLICIES:
+        report_error_requirement_not_met(
+            f"Invalid path order policy '{path_order_policy}'. Valid values are: {list(PATH_ORDER_POLICIES)}."
+        )
+
+    if property_assignment_policy not in PROPERTY_ASSIGNMENT_POLICIES:
+        report_error_requirement_not_met(
+            f"Invalid property assignment policy '{property_assignment_policy}'. Valid values are: "
+            f"{list(PROPERTY_ASSIGNMENT_POLICIES)}."
         )
 
     if transformation_metadata not in TRANSFORMATION_METADATA_MODES:
@@ -316,6 +358,8 @@ def initialize_args_import(
     ARGUMENTS["language"] = language
     ARGUMENTS["model_only"] = model_only
     ARGUMENTS["output_path"] = output_path
+    ARGUMENTS["path_order_policy"] = path_order_policy
+    ARGUMENTS["property_assignment_policy"] = property_assignment_policy
     ARGUMENTS["silent"] = silent
     ARGUMENTS["transformation_metadata"] = transformation_metadata
     ARGUMENTS["unresolved_model_element_policy"] = unresolved_model_element_policy
@@ -328,6 +372,8 @@ def initialize_args_test(
     invalid_cardinality_policy: str = "preserve",
     unresolved_model_element_policy: str = "omit",
     transformation_metadata: str = "none",
+    path_order_policy: str = "warn",
+    property_assignment_policy: str = "warn",
 ):
     """Initialize the global variable ARGUMENTS of type dictionary, which contains user-provided \
     (when executed in script mode) or default arguments (when executed as a library or for testing).
@@ -346,6 +392,11 @@ def initialize_args_test(
     :type unresolved_model_element_policy: str
     :param transformation_metadata: How transformation provenance is returned. (Optional)
     :type transformation_metadata: str
+    :param path_order_policy: How to handle path-point order. Valid values are 'warn' and 'comment'. (Optional)
+    :type path_order_policy: str
+    :param property_assignment_policy: How to handle non-empty propertyAssignments maps. Valid values are 'warn' and
+                                       'comment'. (Optional)
+    :type property_assignment_policy: str
     """
     validate_arg_input(input_path, decode_all=False)
 
@@ -367,6 +418,17 @@ def initialize_args_test(
             f"{list(UNRESOLVED_MODEL_ELEMENT_POLICIES)}."
         )
 
+    if path_order_policy not in PATH_ORDER_POLICIES:
+        report_error_requirement_not_met(
+            f"Invalid path order policy '{path_order_policy}'. Valid values are: {list(PATH_ORDER_POLICIES)}."
+        )
+
+    if property_assignment_policy not in PROPERTY_ASSIGNMENT_POLICIES:
+        report_error_requirement_not_met(
+            f"Invalid property assignment policy '{property_assignment_policy}'. Valid values are: "
+            f"{list(PROPERTY_ASSIGNMENT_POLICIES)}."
+        )
+
     if transformation_metadata not in TRANSFORMATION_METADATA_MODES:
         report_error_requirement_not_met(
             f"Invalid transformation metadata mode '{transformation_metadata}'. Valid values are: "
@@ -384,6 +446,8 @@ def initialize_args_test(
     ARGUMENTS["language"] = language
     ARGUMENTS["model_only"] = False
     ARGUMENTS["output_path"] = "tests" + os.path.sep + "results"
+    ARGUMENTS["path_order_policy"] = path_order_policy
+    ARGUMENTS["property_assignment_policy"] = property_assignment_policy
     ARGUMENTS["silent"] = True
     ARGUMENTS["transformation_metadata"] = transformation_metadata
     ARGUMENTS["unresolved_model_element_policy"] = unresolved_model_element_policy

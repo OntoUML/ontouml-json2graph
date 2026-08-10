@@ -42,6 +42,8 @@ RDF_MEDIA_TYPES = {
 CONFIGURATION_FIELDS = (
     "language",
     "model_only",
+    "path_order_policy",
+    "property_assignment_policy",
     "correct",
     "invalid_cardinality_policy",
     "invalid_stereotype_policy",

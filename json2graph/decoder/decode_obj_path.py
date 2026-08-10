@@ -15,6 +15,7 @@ from ..decoder.decode_general import (
     create_point,
 )
 from ..modules import arguments as args
+from ..modules.path_order import apply_path_order_policy
 from ..modules.utils_graph import ontouml_ref
 
 
@@ -68,3 +69,12 @@ def create_path_properties(json_data: dict, ontouml_graph: Graph) -> None:
     # Treat each object dictionary
     for path_dict in list_path_dicts:
         set_path_path_point(path_dict, ontouml_graph)
+
+    apply_path_order_policy(
+        path_dicts=list_path_dicts,
+        ontouml_graph=ontouml_graph,
+        policy=args.ARGUMENTS["path_order_policy"],
+        input_path=args.ARGUMENTS["input_path"],
+        base_uri=args.ARGUMENTS["base_uri"],
+        model_only=args.ARGUMENTS["model_only"],
+    )

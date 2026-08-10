@@ -40,6 +40,8 @@ from ..modules.model_element_references import (
     UnresolvedModelElementError,
     UnresolvedModelElementWarning,
 )
+from ..modules.path_order import PathPointOrderWarning
+from ..modules.property_assignments import PropertyAssignmentWarning
 from ..modules.stereotypes import (
     InvalidStereotypeError,
     InvalidStereotypeWarning,
@@ -302,6 +304,82 @@ def write_model_element_reference_project(
     return input_file
 
 
+def write_path_project(tmp_path: Path) -> Path:
+    """Write a minimal project containing one ordered diagram Path."""
+    input_file = tmp_path / "path-order.json"
+    input_file.write_text(
+        json.dumps(
+            {
+                "id": "project-1",
+                "type": "Project",
+                "name": "Example",
+                "model": {
+                    "id": "package-1",
+                    "type": "Package",
+                    "name": "Model",
+                    "contents": [],
+                },
+                "diagrams": [
+                    {
+                        "id": "diagram-1",
+                        "type": "Diagram",
+                        "name": "Diagram",
+                        "owner": {"id": "package-1", "type": "Package"},
+                        "contents": [
+                            {
+                                "id": "view-1",
+                                "type": "RelationView",
+                                "shape": {
+                                    "id": "view-1_path",
+                                    "type": "Path",
+                                    "points": [
+                                        {"x": 10, "y": 20},
+                                        {"x": 10, "y": 40},
+                                        {"x": 30, "y": 40},
+                                    ],
+                                },
+                            }
+                        ],
+                    }
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+    return input_file
+
+
+def write_property_assignment_project(tmp_path: Path, assignments: object) -> Path:
+    """Write a minimal project containing one Class with property assignments."""
+    input_file = tmp_path / "property-assignments.json"
+    input_file.write_text(
+        json.dumps(
+            {
+                "id": "project-1",
+                "type": "Project",
+                "name": "Example",
+                "model": {
+                    "id": "package-1",
+                    "type": "Package",
+                    "name": "Model",
+                    "contents": [
+                        {
+                            "id": "class-1",
+                            "type": "Class",
+                            "name": "Example",
+                            "stereotype": "kind",
+                            "propertyAssignments": assignments,
+                        }
+                    ],
+                },
+            },
+            ensure_ascii=False,
+        ),
+        encoding="utf-8",
+    )
+    return input_file
+
+
 def assert_cardinality(
     ontouml_graph: Graph,
     value: str,
@@ -399,6 +477,200 @@ def test_decode_json_project_preserves_project_and_diagrammatic_elements() -> No
     assert (class_view_uri, RDF.type, ONTOUML.ClassView) in ontouml_graph
     assert (class_view_uri, ONTOUML.shape, rectangle_uri) in ontouml_graph
     assert (rectangle_uri, RDF.type, ONTOUML.Rectangle) in ontouml_graph
+
+
+def test_default_path_order_policy_warns_without_adding_an_annotation(tmp_path: Path) -> None:
+    """Verify that the default preserves the existing graph while reporting order loss."""
+    input_file = write_path_project(tmp_path)
+
+    with pytest.warns(PathPointOrderWarning, match="point triples were emitted without order"):
+        ontouml_graph = decode_json_project(json_file_path=str(input_file), base_uri=BASE_URI)
+
+    path_uri = URIRef(BASE_URI + "view-1_path")
+    expected_points = {URIRef(BASE_URI + f"view-1_path_point_{index}") for index in range(3)}
+
+    assert set(ontouml_graph.objects(path_uri, ONTOUML.point)) == expected_points
+    assert not any(ontouml_graph.triples((path_uri, RDFS.comment, None)))
+
+
+def test_comment_path_order_policy_adds_the_source_sequence_as_text(tmp_path: Path) -> None:
+    """Verify that explicit comment mode adds a deterministic, non-normative annotation."""
+    input_file = write_path_project(tmp_path)
+
+    with pytest.warns(PathPointOrderWarning, match="non-normative rdfs:comment"):
+        ontouml_graph = decode_json_project(
+            json_file_path=str(input_file),
+            base_uri=BASE_URI,
+            path_order_policy="comment",
+        )
+
+    path_uri = URIRef(BASE_URI + "view-1_path")
+    assert set(ontouml_graph.objects(path_uri, RDFS.comment)) == {
+        Literal("Source JSON path point order: (10, 20) -> (10, 40) -> (30, 40).")
+    }
+
+
+def test_model_only_decoding_does_not_report_or_annotate_path_order(tmp_path: Path) -> None:
+    """Verify that a policy for omitted diagram data does not affect model-only output."""
+    input_file = write_path_project(tmp_path)
+
+    with warnings.catch_warnings():
+        warnings.simplefilter("error", PathPointOrderWarning)
+        ontouml_graph = decode_json_model(
+            json_file_path=str(input_file),
+            base_uri=BASE_URI,
+            path_order_policy="comment",
+        )
+
+    assert not any(ontouml_graph.triples((None, RDF.type, ONTOUML.Path)))
+    assert not any(ontouml_graph.triples((None, RDFS.comment, None)))
+
+
+def test_cli_exposes_comment_path_order_policy(tmp_path: Path) -> None:
+    """Verify that command-line users can explicitly request textual path order."""
+    input_file = write_path_project(tmp_path)
+
+    result = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "json2graph.decode",
+            "-i",
+            str(input_file),
+            "-o",
+            str(tmp_path),
+            "--silent",
+            "--base-uri",
+            BASE_URI,
+            "--path-order-policy",
+            "comment",
+        ],
+        capture_output=True,
+        check=False,
+        text=True,
+    )
+
+    assert result.returncode == 0, result.stderr
+    output_graph = Graph().parse(tmp_path / "path-order.ttl", format="turtle")
+    assert set(output_graph.objects(URIRef(BASE_URI + "view-1_path"), RDFS.comment)) == {
+        Literal("Source JSON path point order: (10, 20) -> (10, 40) -> (30, 40).")
+    }
+
+
+def test_invalid_path_order_policy_is_rejected(tmp_path: Path) -> None:
+    """Verify that library decoding rejects unsupported path-order behavior."""
+    input_file = write_path_project(tmp_path)
+
+    with pytest.raises(ValueError, match="Software's requirement not met"):
+        decode_json_project(
+            json_file_path=str(input_file),
+            path_order_policy="sidecar",
+        )
+
+
+def test_default_property_assignment_policy_warns_and_omits_assignments(tmp_path: Path) -> None:
+    """Verify that the default reports each affected element without changing its RDF description."""
+    input_file = write_property_assignment_project(
+        tmp_path,
+        {"documentation": None, "categoryValue": None},
+    )
+
+    with pytest.warns(
+        PropertyAssignmentWarning,
+        match=r"Class ID 'class-1' \(keys: categoryValue, documentation\)",
+    ):
+        ontouml_graph = decode_json_project(json_file_path=str(input_file), base_uri=BASE_URI)
+
+    class_uri = URIRef(BASE_URI + "class-1")
+    assert (class_uri, RDF.type, ONTOUML.Class) in ontouml_graph
+    assert not any(ontouml_graph.triples((class_uri, RDFS.comment, None)))
+    assert not any(ontouml_graph.triples((class_uri, ONTOUML.propertyAssignments, None)))
+
+
+def test_comment_property_assignment_policy_adds_canonical_json_as_text(tmp_path: Path) -> None:
+    """Verify that comment mode preserves heterogeneous source values as deterministic JSON text."""
+    assignments = {
+        "rank": 2,
+        "nested": {"z": 1, "a": "ação"},
+        "labels": ["first", {"type": "Class", "id": "referenced-class"}],
+        "enabled": True,
+        "documentation": None,
+    }
+    input_file = write_property_assignment_project(tmp_path, assignments)
+
+    with pytest.warns(PropertyAssignmentWarning, match="non-normative rdfs:comment"):
+        ontouml_graph = decode_json_model(
+            json_file_path=str(input_file),
+            base_uri=BASE_URI,
+            property_assignment_policy="comment",
+        )
+
+    class_uri = URIRef(BASE_URI + "class-1")
+    expected_json = json.dumps(assignments, ensure_ascii=False, separators=(",", ":"), sort_keys=True)
+    assert set(ontouml_graph.objects(class_uri, RDFS.comment)) == {
+        Literal(f"Source JSON propertyAssignments: {expected_json}")
+    }
+
+
+@pytest.mark.parametrize("assignments", [None, {}])
+def test_null_and_empty_property_assignments_are_ignored_without_warning(
+    tmp_path: Path,
+    assignments: object,
+) -> None:
+    """Verify that absent assignment information does not produce noise or annotations."""
+    input_file = write_property_assignment_project(tmp_path, assignments)
+
+    with warnings.catch_warnings():
+        warnings.simplefilter("error", PropertyAssignmentWarning)
+        ontouml_graph = decode_json_project(
+            json_file_path=str(input_file),
+            base_uri=BASE_URI,
+            property_assignment_policy="comment",
+        )
+
+    assert not any(ontouml_graph.triples((URIRef(BASE_URI + "class-1"), RDFS.comment, None)))
+
+
+def test_cli_exposes_comment_property_assignment_policy(tmp_path: Path) -> None:
+    """Verify that command-line users can explicitly request textual assignment preservation."""
+    input_file = write_property_assignment_project(tmp_path, {"TABLESPACE": None})
+
+    result = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "json2graph.decode",
+            "-i",
+            str(input_file),
+            "-o",
+            str(tmp_path),
+            "--silent",
+            "--base-uri",
+            BASE_URI,
+            "--property-assignment-policy",
+            "comment",
+        ],
+        capture_output=True,
+        check=False,
+        text=True,
+    )
+
+    assert result.returncode == 0, result.stderr
+    output_graph = Graph().parse(tmp_path / "property-assignments.ttl", format="turtle")
+    assert set(output_graph.objects(URIRef(BASE_URI + "class-1"), RDFS.comment)) == {
+        Literal('Source JSON propertyAssignments: {"TABLESPACE":null}')
+    }
+
+
+def test_invalid_property_assignment_policy_is_rejected(tmp_path: Path) -> None:
+    """Verify that library decoding rejects unsupported property-assignment behavior."""
+    input_file = write_property_assignment_project(tmp_path, {"documentation": None})
+
+    with pytest.raises(ValueError, match="Software's requirement not met"):
+        decode_json_project(
+            json_file_path=str(input_file),
+            property_assignment_policy="sidecar",
+        )
 
 
 @pytest.mark.parametrize("encoding", ["utf-8", "cp1252"])
@@ -1414,12 +1686,48 @@ def test_embedded_metadata_describes_the_transformation(tmp_path: Path) -> None:
         "invalid_stereotype_policy": "preserve",
         "language": "",
         "model_only": False,
+        "path_order_policy": "warn",
+        "property_assignment_policy": "warn",
         "transformation_metadata": "embedded",
         "unresolved_model_element_policy": "omit",
     }
     assert (configuration_entity, DCTERMS["format"], URIRef(IANA_MEDIA_TYPES + "application/json")) in output_graph
     assert str(tmp_path) not in " ".join(str(value) for value in output_graph.objects(None, None))
     assert not (tmp_path / "cardinality.provenance.ttl").exists()
+
+
+def test_metadata_records_comment_path_order_policy(tmp_path: Path) -> None:
+    """Verify that provenance records the output-affecting path order option."""
+    input_file = write_path_project(tmp_path)
+
+    with pytest.warns(PathPointOrderWarning):
+        output_graph = decode_json_project(
+            json_file_path=str(input_file),
+            base_uri=BASE_URI,
+            path_order_policy="comment",
+            transformation_metadata="embedded",
+        )
+
+    configuration = get_recorded_configuration(output_graph)
+    assert configuration["path_order_policy"] == "comment"
+    assert any(output_graph.triples((URIRef(BASE_URI + "view-1_path"), RDFS.comment, None)))
+
+
+def test_metadata_records_comment_property_assignment_policy(tmp_path: Path) -> None:
+    """Verify that provenance records the output-affecting property-assignment option."""
+    input_file = write_property_assignment_project(tmp_path, {"documentation": None})
+
+    with pytest.warns(PropertyAssignmentWarning):
+        output_graph = decode_json_project(
+            json_file_path=str(input_file),
+            base_uri=BASE_URI,
+            property_assignment_policy="comment",
+            transformation_metadata="embedded",
+        )
+
+    configuration = get_recorded_configuration(output_graph)
+    assert configuration["property_assignment_policy"] == "comment"
+    assert any(output_graph.triples((URIRef(BASE_URI + "class-1"), RDFS.comment, None)))
 
 
 def test_sidecar_metadata_keeps_the_model_output_unchanged(tmp_path: Path) -> None:

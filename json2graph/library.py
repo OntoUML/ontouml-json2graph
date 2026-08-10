@@ -26,6 +26,8 @@ def decode_json_project(
     unresolved_model_element_policy: str = "omit",
     transformation_metadata: str = "none",
     append_content_hash: bool = False,
+    path_order_policy: str = "warn",
+    property_assignment_policy: str = "warn",
 ) -> Graph:
     """Decode elements from OntoUML's abstract and concrete syntax from JSON format into a Knowledge Graph. \
     I.e., domain-level and diagrammatic data are converted to Knowledge Graph.
@@ -58,6 +60,13 @@ def decode_json_project(
     :type transformation_metadata: str
     :param append_content_hash: If True, append the deterministic content UUID to the supplied base URI. (Optional)
     :type append_content_hash: bool
+    :param path_order_policy: How to handle path-point order. Valid values are 'warn' (default) and 'comment'.
+                              The latter adds a non-normative rdfs:comment annotation. (Optional)
+    :type path_order_policy: str
+    :param property_assignment_policy: How to handle non-empty propertyAssignments maps. Valid values are 'warn'
+                                       (default) and 'comment'. The latter adds their canonical JSON as a
+                                       non-normative rdfs:comment annotation. (Optional)
+    :type property_assignment_policy: str
 
     :return: JSON data decoded into a RDFLib's Graph that is compliant with the OntoUML Vocabulary.
     :rtype: Graph
@@ -75,6 +84,8 @@ def decode_json_project(
         unresolved_model_element_policy=unresolved_model_element_policy,
         transformation_metadata=transformation_metadata,
         append_content_hash=append_content_hash,
+        path_order_policy=path_order_policy,
+        property_assignment_policy=property_assignment_policy,
     )
 
     return decoded_graph_project
@@ -90,6 +101,8 @@ def decode_json_model(
     unresolved_model_element_policy: str = "omit",
     transformation_metadata: str = "none",
     append_content_hash: bool = False,
+    path_order_policy: str = "warn",
+    property_assignment_policy: str = "warn",
 ) -> Graph:
     """Decode elements from OntoUML's abstract syntax from JSON format into a Knowledge Graph. \
     I.e., only domain-level (and not diagrammatic) data is converted to Knowledge Graph.
@@ -122,6 +135,13 @@ def decode_json_model(
     :type transformation_metadata: str
     :param append_content_hash: If True, append the deterministic content UUID to the supplied base URI. (Optional)
     :type append_content_hash: bool
+    :param path_order_policy: How to handle path-point order. Valid values are 'warn' (default) and 'comment'.
+                              Model-only output contains no paths, so this option does not change its graph. (Optional)
+    :type path_order_policy: str
+    :param property_assignment_policy: How to handle non-empty propertyAssignments maps. Valid values are 'warn'
+                                       (default) and 'comment'. The latter adds their canonical JSON as a
+                                       non-normative rdfs:comment annotation. (Optional)
+    :type property_assignment_policy: str
 
     :return: JSON data decoded into a RDFLib's Graph that is compliant with the OntoUML Vocabulary.
     :rtype: Graph
@@ -139,6 +159,8 @@ def decode_json_model(
         unresolved_model_element_policy=unresolved_model_element_policy,
         transformation_metadata=transformation_metadata,
         append_content_hash=append_content_hash,
+        path_order_policy=path_order_policy,
+        property_assignment_policy=property_assignment_policy,
     )
 
     return decoded_graph_model

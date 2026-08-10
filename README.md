@@ -41,6 +41,8 @@ For inquiries and further information, please refer to the [comprehensive docstr
         * [Executing as a Script](#executing-as-a-script)
             * [Arguments](#arguments)
             * [Resource identity and base URIs](#resource-identity-and-base-uris)
+            * [Path point order](#path-point-order)
+            * [Property assignments](#property-assignments)
             * [Transformation provenance metadata](#transformation-provenance-metadata)
         * [Importing as a Library](#importing-as-a-library)
             * [decode_json_project](#decodejsonproject)
@@ -105,6 +107,8 @@ usage: ontouml-json2graph [-h] -i INPUT_PATH [-o OUTPUT_PATH] [-a] [-f {turtle,t
                           [--invalid-cardinality-policy {preserve,repair,error}]
                           [--invalid-stereotype-policy {preserve,omit,error}]
                           [--unresolved-model-element-policy {preserve,omit,error}]
+                          [--path-order-policy {warn,comment}]
+                          [--property-assignment-policy {warn,comment}]
                           [--transformation-metadata {none,embedded,sidecar}] [-v]
 
 OntoUML JSON2Graph Decoder. Version: 2.0.0
@@ -133,6 +137,10 @@ options:
                         Handle stereotypes invalid for their element type: preserve, omit, or error. Default is 'preserve'.
   --unresolved-model-element-policy {preserve,omit,error}
                         Handle unresolved modelElement references: preserve, omit, or error. Default is 'omit'.
+  --path-order-policy {warn,comment}
+                        Handle path-point order: warn without representing it, or add a non-normative rdfs:comment. Default is 'warn'.
+  --property-assignment-policy {warn,comment}
+                        Handle non-empty propertyAssignments maps: warn and omit them, or add canonical JSON in a non-normative rdfs:comment. Default is 'warn'.
   --transformation-metadata {none,embedded,sidecar}
                         Transformation provenance: none, embedded in the output, or a separate Turtle sidecar. Default is 'none'.
   -v, --version         Print the software version and exit.
@@ -173,6 +181,50 @@ mode, an exact `--base-uri` is intentionally shared by every output and generate
 Version 2.0 changes the omitted-base behavior from the shared `https://example.org#` namespace to the deterministic
 `urn:uuid:` namespace. Supply `--base-uri https://example.org#` only when the former behavior is explicitly required.
 
+#### Path point order
+
+The OntoUML JSON format stores each Path's points as an ordered array, but the OntoUML Vocabulary represents them as
+multiple `ontouml:point` values. RDF graphs do not assign an order to those values.
+
+By default, `--path-order-policy warn` keeps the vocabulary-defined graph unchanged and issues a warning that the
+sequence is absent from the RDF structure. To retain the sequence in the same file as human-readable text, use:
+
+```text
+python -m json2graph.decode -i my_ontology.json --path-order-policy comment
+```
+
+The `comment` policy adds one annotation to each affected Path, for example:
+
+```turtle
+:path1 rdfs:comment "Source JSON path point order: (10, 20) -> (10, 40) -> (30, 40)." .
+```
+
+This annotation is non-normative: it is not an OntoUML Vocabulary representation of ordering and standard consumers
+should not treat it as such. Model-only decoding contains no Paths and therefore produces neither path-order comments
+nor path-order warnings.
+
+#### Property assignments
+
+The OntoUML JSON format allows elements to contain a `propertyAssignments` key-value map, but the OntoUML Vocabulary
+does not define an RDF representation for these assignments.
+
+By default, `--property-assignment-policy warn` omits each non-empty map and issues a warning that identifies every
+affected converted element and its assignment keys. To preserve the source map as text in the same RDF file, use:
+
+```text
+python -m json2graph.decode -i my_ontology.json --property-assignment-policy comment
+```
+
+The `comment` policy serializes each map as deterministic canonical JSON in one annotation on its element, for example:
+
+```turtle
+:class1 rdfs:comment "Source JSON propertyAssignments: {\"documentation\":null}" .
+```
+
+Object keys are sorted and array order is retained. `propertyAssignments: null` and empty maps are ignored because
+they contain no assignment information. The annotation is non-normative and not a machine-interpretable OntoUML
+Vocabulary mapping. Comment mode therefore still warns that no formal vocabulary semantics were produced.
+
 #### Transformation provenance metadata
 
 Transformation metadata is optional and describes the RDF artifact and the process that generated it, not the
@@ -197,7 +249,8 @@ For `my_ontology.json` with Turtle output, this creates `my_ontology.ttl` and
 - the input filename and its SHA-256 identifier;
 - the `ontouml-json2graph` software name and version;
 - the requested base URI, content-ID option, effective base URI, serialization format, metadata mode, and other
-  output-affecting transformation options as canonical JSON;
+  output-affecting transformation options, including the path-order and property-assignment policies, as canonical
+  JSON;
 - registered IANA media types for the input, configuration, and output serialization when one exists;
 - conformance to `https://w3id.org/ontouml/vocabulary/v1.1.1` when every OntoUML predicate and object term used by
   the generated model graph is declared in the bundled vocabulary revision.
@@ -228,12 +281,20 @@ decoded_graph_project = decode_json_project(json_file_path="path/to/input.json",
                                             language="en", correct=True,
                                             invalid_cardinality_policy="preserve",
                                             invalid_stereotype_policy="preserve",
+                                            path_order_policy="warn",
+                                            property_assignment_policy="warn",
                                             transformation_metadata="none")
 
 content_scoped_graph = decode_json_project(json_file_path="path/to/input.json",
                                            base_uri="https://myuri.org/models",
                                            append_content_hash=True)
 ```
+
+Set `path_order_policy="comment"` to add the same non-normative textual path-order annotations available through the
+command-line option. The default is `"warn"`.
+
+Set `property_assignment_policy="comment"` to add non-normative textual annotations containing canonical JSON for
+non-empty source `propertyAssignments` maps. The default is `"warn"`, which omits the maps and reports them.
 
 Library decoding accepts `transformation_metadata="none"` or `"embedded"`. It never creates a sidecar implicitly;
 sidecar output requires the command-line file-writing workflow.
@@ -254,6 +315,7 @@ decoded_graph_model = decode_json_model(json_file_path="path/to/input.json", bas
                                         correct=True,
                                         invalid_cardinality_policy="preserve",
                                         invalid_stereotype_policy="preserve",
+                                        property_assignment_policy="warn",
                                         transformation_metadata="none")
 ```
 

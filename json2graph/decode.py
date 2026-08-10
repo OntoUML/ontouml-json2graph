@@ -14,6 +14,10 @@ try:
     from .modules import arguments as args
     from .modules.content_identity import resolve_base_uri
     from .modules.metadata import METADATA
+    from .modules.property_assignments import (
+        apply_property_assignment_policy,
+        collect_property_assignments,
+    )
     from .modules.input_output import (
         safe_load_json_file,
         create_directory_if_not_exists,
@@ -33,6 +37,10 @@ except ImportError:
     from modules import arguments as args
     from modules.content_identity import resolve_base_uri
     from modules.metadata import METADATA
+    from modules.property_assignments import (
+        apply_property_assignment_policy,
+        collect_property_assignments,
+    )
     from modules.input_output import (
         safe_load_json_file,
         create_directory_if_not_exists,
@@ -67,6 +75,8 @@ def decode_ontouml_json2graph(
     unresolved_model_element_policy: str = "omit",
     transformation_metadata: str = "none",
     append_content_hash: bool = False,
+    path_order_policy: str = "warn",
+    property_assignment_policy: str = "warn",
 ) -> Graph:
     """Convert OntoUML JSON data to a Knowledge Graph.
 
@@ -103,6 +113,13 @@ def decode_ontouml_json2graph(
     :type transformation_metadata: str
     :param append_content_hash: If True, append the deterministic content UUID to the supplied base URI. (Optional)
     :type append_content_hash: bool
+    :param path_order_policy: How to handle path-point order. Valid values are 'warn' (default) and 'comment'.
+                              The latter adds a non-normative rdfs:comment annotation. (Optional)
+    :type path_order_policy: str
+    :param property_assignment_policy: How to handle non-empty propertyAssignments maps. Valid values are 'warn'
+                                       (default) and 'comment'. The latter adds their canonical JSON as a
+                                       non-normative rdfs:comment annotation. (Optional)
+    :type property_assignment_policy: str
 
     :return: JSON data decoded into a RDFLib's Graph that is compliant with the OntoUML Vocabulary.
     :rtype: Graph
@@ -129,6 +146,8 @@ def decode_ontouml_json2graph(
             invalid_stereotype_policy=invalid_stereotype_policy,
             unresolved_model_element_policy=unresolved_model_element_policy,
             transformation_metadata=transformation_metadata,
+            path_order_policy=path_order_policy,
+            property_assignment_policy=property_assignment_policy,
         )
     elif execution_mode == "import":
         args.initialize_args_import(
@@ -143,6 +162,8 @@ def decode_ontouml_json2graph(
             unresolved_model_element_policy=unresolved_model_element_policy,
             transformation_metadata=transformation_metadata,
             append_content_hash=append_content_hash,
+            path_order_policy=path_order_policy,
+            property_assignment_policy=property_assignment_policy,
         )
 
     if execution_mode == "script" and not args.ARGUMENTS["silent"]:
@@ -170,6 +191,7 @@ def decode_ontouml_json2graph(
 
     # Load JSON
     json_data = safe_load_json_file(json_file_path)
+    property_assignment_records = collect_property_assignments(json_data)
 
     if execution_mode != "test":
         args.ARGUMENTS["base_uri"] = resolve_base_uri(
@@ -192,6 +214,14 @@ def decode_ontouml_json2graph(
                 ontouml_graph.remove((None, None, s))
         if not args.ARGUMENTS["silent"]:
             logger.info("All diagrammatic data removed from the output. The output contains only model elements.")
+
+    apply_property_assignment_policy(
+        records=property_assignment_records,
+        ontouml_graph=ontouml_graph,
+        policy=args.ARGUMENTS["property_assignment_policy"],
+        input_path=args.ARGUMENTS["input_path"],
+        base_uri=args.ARGUMENTS["base_uri"],
+    )
 
     if execution_mode == "script" and not args.ARGUMENTS["silent"]:
         # Get software's execution conclusion time
