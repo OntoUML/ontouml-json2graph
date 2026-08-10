@@ -9,7 +9,7 @@ extras:
 tool:
   poetry:
     authors:
-      - Pedro Paulo F. Barcelos <p.p.favatobarcelos@utwente.nl>
+      - Pedro Paulo F. Barcelos <pedro.barcelos@health-ri.nl>
     dependencies:
       python: ^3.9
       pyyaml: ^6.0.1

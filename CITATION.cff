@@ -4,14 +4,15 @@
 cff-version: 1.2.0
 title: OntoUML JSON2Graph Decoder
 message: >-
-  Decode a ontouml-schema compliant JSON in an
-  ontouml-metamodel-vocabulary compliant knowledge graph.
+  If you use this software, please cite it using the metadata
+  provided in this file.
 type: software
+version: 2.0.0
 authors:
   - given-names: Pedro Paulo
     family-names: Favato Barcelos
-    email: p.p.favatobarcelos@utwente.nl
-    affiliation: University of Twente
+    email: pedro.barcelos@health-ri.nl
+    affiliation: Health-RI
     orcid: 'https://orcid.org/0000-0003-2736-7817'
   - alias: SCS
     name: 'Semantics, Cybersecurity & Services'
@@ -33,12 +34,14 @@ repository-code: 'https://www.w3id.org/ontouml/json2graph'
 url: 'https://www.w3id.org/ontouml/json2graph/docs'
 repository-artifact: 'https://pypi.org/project/ontouml-json2graph/'
 abstract: >-
-  The OntoUML JSON2Graph (ontouml-json2graph) decodes a JSON
-  file that complies with the ontouml-schema (e.g., the ones
-  exported by the ontouml-vp-plugin) to a graph file that
-  complies with the ontouml-vocabulary. Optionally, the user
-  can enable basic semantic and syntactical verifications to
-  improve the transformation results.
+  The OntoUML JSON2Graph Decoder transforms JSON documents
+  compliant with the OntoUML Schema, including documents
+  exported by the OntoUML Visual Paradigm plugin, into RDF
+  graphs compliant with the OntoUML Vocabulary. It supports
+  model-only and full-project decoding, deterministic resource
+  identifiers, configurable handling of malformed or
+  unrepresentable source constructs, and optional
+  transformation provenance metadata.
 keywords:
   - semantic-web
   - knowledge-graph
@@ -46,4 +49,5 @@ keywords:
   - ontology-driven-development
   - ontouml-schema
   - ontouml-vocabulary
+  - ontouml-metamodel
 license: Apache-2.0
