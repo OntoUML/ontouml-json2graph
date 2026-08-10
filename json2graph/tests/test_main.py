@@ -22,6 +22,7 @@ import warnings
 from pathlib import Path
 
 import pytest
+import tomli
 from rdflib import RDF, RDFS, XSD, Graph, Literal, Namespace, URIRef
 
 from .test_aux import compare_graphs, get_test_list
@@ -34,7 +35,7 @@ from ..modules.cardinalities import (
 )
 from ..modules.content_identity import create_content_uuid, resolve_base_uri
 from ..modules.input_output import JSONEncodingFallbackWarning, safe_load_json_file
-from ..modules.metadata import METADATA
+from ..modules.metadata import METADATA, _read_source_project_version
 from ..modules.model_element_references import (
     UnresolvedModelElementError,
     UnresolvedModelElementWarning,
@@ -1037,6 +1038,49 @@ def run_metadata_cli(input_file: Path, output_directory: Path, mode: str | None 
     if mode is not None:
         command.extend(["--transformation-metadata", mode])
     return subprocess.run(command, capture_output=True, check=False, text=True)
+
+
+def test_source_execution_reports_the_actual_project_version() -> None:
+    """Verify that source-checkout execution reports the version declared by the project."""
+    pyproject_file = Path(__file__).resolve().parents[2] / "pyproject.toml"
+    with pyproject_file.open("rb") as file:
+        expected_version = tomli.load(file)["tool"]["poetry"]["version"]
+
+    assert _read_source_project_version() == expected_version
+    assert METADATA["Version"] == expected_version
+
+    result = subprocess.run(
+        [sys.executable, "-m", "json2graph.decode", "--version"],
+        capture_output=True,
+        check=False,
+        text=True,
+    )
+
+    assert result.returncode == 0
+    assert result.stdout.strip() == f"ontouml-json2graph - version {expected_version}"
+
+    source_bootstrap = (
+        "import importlib.metadata\n"
+        "import runpy\n"
+        "import sys\n"
+        "installed_metadata = importlib.metadata.metadata\n"
+        "def missing_distribution(name):\n"
+        "    if name == 'ontouml-json2graph':\n"
+        "        raise importlib.metadata.PackageNotFoundError(name)\n"
+        "    return installed_metadata(name)\n"
+        "importlib.metadata.metadata = missing_distribution\n"
+        "sys.argv = ['json2graph.decode', '--version']\n"
+        "runpy.run_module('json2graph.decode', run_name='__main__')\n"
+    )
+    source_result = subprocess.run(
+        [sys.executable, "-c", source_bootstrap],
+        capture_output=True,
+        check=False,
+        text=True,
+    )
+
+    assert source_result.returncode == 0
+    assert source_result.stdout.strip() == f"ontouml-json2graph - version {expected_version}"
 
 
 def test_content_uuid_uses_canonical_json_and_preserves_array_order() -> None:
