@@ -1266,6 +1266,18 @@ def get_output_artifact(metadata_graph: Graph) -> URIRef:
     return next(iter(output_artifacts))
 
 
+def get_recorded_configuration(metadata_graph: Graph) -> dict[str, object]:
+    """Return the canonical JSON configuration used by the transformation."""
+    transformation = metadata_graph.value(get_output_artifact(metadata_graph), PROV.wasGeneratedBy)
+    configuration_entities = [
+        entity
+        for entity in metadata_graph.objects(transformation, PROV.used)
+        if (entity, PROV.value, None) in metadata_graph
+    ]
+    assert len(configuration_entities) == 1
+    return json.loads(str(metadata_graph.value(configuration_entities[0], PROV.value)))
+
+
 def test_default_output_omits_transformation_metadata(tmp_path: Path) -> None:
     """Verify that the default output is a pure, deterministic model graph."""
     input_file = write_cardinality_project(tmp_path, "0..1")
@@ -1346,15 +1358,19 @@ def test_embedded_metadata_describes_the_transformation(tmp_path: Path) -> None:
         URIRef(IANA_MEDIA_TYPES + "application/json"),
     ) in output_graph
 
-    configuration = json.loads(str(output_graph.value(configuration_entity, PROV.value)))
+    configuration = get_recorded_configuration(output_graph)
     expected_base_uri = resolve_base_uri(json.loads(input_file.read_text(encoding="utf-8")))
     assert configuration == {
-        "base_uri": expected_base_uri,
+        "append_content_hash": False,
+        "base_uri": None,
         "correct": False,
+        "effective_base_uri": expected_base_uri,
+        "format": "ttl",
         "invalid_cardinality_policy": "preserve",
         "invalid_stereotype_policy": "preserve",
         "language": "",
         "model_only": False,
+        "transformation_metadata": "embedded",
         "unresolved_model_element_policy": "omit",
     }
     assert (configuration_entity, DCTERMS["format"], URIRef(IANA_MEDIA_TYPES + "application/json")) in output_graph
@@ -1385,6 +1401,45 @@ def test_sidecar_metadata_keeps_the_model_output_unchanged(tmp_path: Path) -> No
     output_artifact = get_output_artifact(metadata_graph)
     assert (output_artifact, DCTERMS.title, Literal("cardinality.ttl")) in metadata_graph
     assert (output_artifact, DCTERMS.conformsTo, ONTOUML_VOCABULARY_111) in metadata_graph
+    configuration = get_recorded_configuration(metadata_graph)
+    assert configuration["format"] == "ttl"
+    assert configuration["transformation_metadata"] == "sidecar"
+
+
+@pytest.mark.parametrize(
+    ("requested_base_uri", "append_content_hash"),
+    [
+        (None, False),
+        (BASE_URI, False),
+        ("https://example.org/models", True),
+    ],
+)
+def test_metadata_records_requested_and_effective_base_uri(
+    tmp_path: Path,
+    requested_base_uri: str | None,
+    append_content_hash: bool,
+) -> None:
+    """Verify provenance distinguishes all three base-URI selection modes."""
+    input_file = write_cardinality_project(tmp_path, "0..1")
+    json_data = json.loads(input_file.read_text(encoding="utf-8"))
+
+    output_graph = decode_json_project(
+        json_file_path=str(input_file),
+        base_uri=requested_base_uri,
+        append_content_hash=append_content_hash,
+        transformation_metadata="embedded",
+    )
+
+    configuration = get_recorded_configuration(output_graph)
+    assert configuration["base_uri"] == requested_base_uri
+    assert configuration["append_content_hash"] is append_content_hash
+    assert configuration["effective_base_uri"] == resolve_base_uri(
+        json_data,
+        base_uri=requested_base_uri,
+        append_content_hash=append_content_hash,
+    )
+    assert configuration["format"] is None
+    assert configuration["transformation_metadata"] == "embedded"
 
 
 def test_conformance_is_omitted_when_output_uses_an_undeclared_ontouml_term(tmp_path: Path) -> None:
@@ -1410,6 +1465,10 @@ def test_library_embedded_metadata_never_creates_a_sidecar(tmp_path: Path) -> No
 
     output_artifact = get_output_artifact(output_graph)
     assert (output_artifact, DCTERMS.conformsTo, ONTOUML_VOCABULARY_111) in output_graph
+    configuration = get_recorded_configuration(output_graph)
+    assert configuration["format"] is None
+    assert configuration["model_only"] is True
+    assert configuration["transformation_metadata"] == "embedded"
     assert not list(tmp_path.glob("*.provenance.ttl"))
 
 

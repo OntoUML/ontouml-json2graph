@@ -196,10 +196,14 @@ For `my_ontology.json` with Turtle output, this creates `my_ontology.ttl` and
 - the generated artifact and UTC generation time;
 - the input filename and its SHA-256 identifier;
 - the `ontouml-json2graph` software name and version;
-- output-affecting transformation options as canonical JSON;
+- the requested base URI, content-ID option, effective base URI, serialization format, metadata mode, and other
+  output-affecting transformation options as canonical JSON;
 - registered IANA media types for the input, configuration, and output serialization when one exists;
 - conformance to `https://w3id.org/ontouml/vocabulary/v1.1.1` when every OntoUML predicate and object term used by
   the generated model graph is declared in the bundled vocabulary revision.
+
+The canonical configuration omits input and output paths, the `silent` setting, and batch orchestration. These do not
+change the transformed RDF; the source filename and digest and the output title and media type are recorded separately.
 
 RDFLib supports TriX serialization, but IANA does not register a TriX media type. TriX provenance therefore omits
 `dct:format` instead of using an unregistered value.

@@ -206,7 +206,7 @@ def decode_ontouml_json2graph(
             input_file_path=json_file_path,
             output_file_name=f"{Path(json_file_path).stem} in-memory graph",
             graph_format="",
-            configuration=get_transformation_configuration(args.ARGUMENTS),
+            configuration=get_transformation_configuration(args.ARGUMENTS, graph_format=None),
         )
         return graph_with_metadata(ontouml_graph, metadata_graph)
 
@@ -260,7 +260,10 @@ def write_graph_file(ontouml_graph: Graph, execution_mode: str = "script") -> st
             input_file_path=args.ARGUMENTS["input_path"],
             output_file_name=output_file_name,
             graph_format=args.ARGUMENTS["format"],
-            configuration=get_transformation_configuration(args.ARGUMENTS),
+            configuration=get_transformation_configuration(
+                args.ARGUMENTS,
+                graph_format=args.ARGUMENTS["format"],
+            ),
         )
 
     if transformation_metadata == "embedded":

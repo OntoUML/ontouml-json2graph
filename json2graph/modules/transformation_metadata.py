@@ -40,19 +40,29 @@ RDF_MEDIA_TYPES = {
 }
 
 CONFIGURATION_FIELDS = (
-    "base_uri",
     "language",
     "model_only",
     "correct",
     "invalid_cardinality_policy",
     "invalid_stereotype_policy",
+    "transformation_metadata",
     "unresolved_model_element_policy",
 )
 
 
-def get_transformation_configuration(arguments: Mapping[str, object]) -> dict[str, object]:
-    """Return the output-affecting transformation options as a stable dictionary."""
-    return {field: arguments[field] for field in CONFIGURATION_FIELDS}
+def get_transformation_configuration(
+    arguments: Mapping[str, object],
+    graph_format: str | None,
+) -> dict[str, object]:
+    """Return the requested and effective output options as a stable dictionary."""
+    configuration = {
+        "append_content_hash": arguments["append_content_hash"],
+        "base_uri": arguments["base_uri_input"],
+        "effective_base_uri": arguments["base_uri"],
+        "format": graph_format,
+    }
+    configuration.update({field: arguments[field] for field in CONFIGURATION_FIELDS})
+    return configuration
 
 
 def get_rdf_media_type(graph_format: str) -> URIRef | None:
