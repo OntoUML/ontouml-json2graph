@@ -63,7 +63,7 @@ def decode_json_project(
         json_file_path=json_file_path,
         base_uri=base_uri,
         language=language,
-        model_only=True,
+        model_only=False,
         silent=True,
         correct=correct,
         execution_mode="import",

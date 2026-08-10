@@ -26,7 +26,7 @@ from rdflib import RDF, RDFS, XSD, Graph, Literal, Namespace, URIRef
 
 from .test_aux import compare_graphs, get_test_list
 from ..decode import decode_ontouml_json2graph, write_graph_file
-from ..library import decode_json_model
+from ..library import decode_json_model, decode_json_project
 from ..modules.cardinalities import (
     CardinalityRepairWarning,
     InvalidCardinalityError,
@@ -371,6 +371,31 @@ def test_decode_json_model_preserves_enumeration_literals() -> None:
     ontouml_graph = decode_json_model(json_file_path=ENUMERATION_INPUT_FILE)
 
     assert_enumeration_literals_preserved(ontouml_graph)
+
+
+def test_decode_json_project_preserves_project_and_diagrammatic_elements() -> None:
+    """Verify that the public project-decoding API preserves the complete project."""
+    ontouml_graph = decode_json_project(
+        json_file_path=ENUMERATION_INPUT_FILE,
+        base_uri=BASE_URI,
+    )
+
+    project_uri = URIRef(BASE_URI + "4NWbZJGFYGjgAQm6")
+    package_uri = URIRef(BASE_URI + "4NWbZJGFYGjgAQm6_root")
+    diagram_uri = URIRef(BASE_URI + "cD2bZJGFYGjgAQ2V")
+    class_view_uri = URIRef(BASE_URI + "SSxbZJGFYGjgAQ3X")
+    rectangle_uri = URIRef(BASE_URI + "SSxbZJGFYGjgAQ3X_shape")
+
+    assert_enumeration_literals_preserved(ontouml_graph)
+    assert (project_uri, RDF.type, ONTOUML.Project) in ontouml_graph
+    assert (project_uri, ONTOUML.model, package_uri) in ontouml_graph
+    assert (project_uri, ONTOUML.diagram, diagram_uri) in ontouml_graph
+    assert (package_uri, RDF.type, ONTOUML.Package) in ontouml_graph
+    assert (diagram_uri, RDF.type, ONTOUML.Diagram) in ontouml_graph
+    assert (diagram_uri, ONTOUML.containsView, class_view_uri) in ontouml_graph
+    assert (class_view_uri, RDF.type, ONTOUML.ClassView) in ontouml_graph
+    assert (class_view_uri, ONTOUML.shape, rectangle_uri) in ontouml_graph
+    assert (rectangle_uri, RDF.type, ONTOUML.Rectangle) in ontouml_graph
 
 
 @pytest.mark.parametrize("encoding", ["utf-8", "cp1252"])
