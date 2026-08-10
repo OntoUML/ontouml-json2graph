@@ -1,5 +1,5 @@
-:py:mod:`json2graph.decoder.decode_obj_rectangularshape`
-========================================================
+json2graph.decoder.decode_obj_rectangularshape
+==============================================
 
 .. py:module:: json2graph.decoder.decode_obj_rectangularshape
 
@@ -16,12 +16,8 @@
 
 
 
-Module Contents
----------------
-
-
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
@@ -29,6 +25,8 @@ Functions
    json2graph.decoder.decode_obj_rectangularshape.create_rectangularshape_properties
 
 
+Module Contents
+---------------
 
 .. py:function:: set_rectangularshape_coordinates(rectangularshape_dict, ontouml_graph)
 

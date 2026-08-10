@@ -1,5 +1,5 @@
-:py:mod:`json2graph.decoder`
-============================
+json2graph.decoder
+==================
 
 .. py:module:: json2graph.decoder
 
@@ -11,22 +11,22 @@
 
 Submodules
 ----------
+
 .. toctree::
-   :titlesonly:
    :maxdepth: 1
 
-   decode_general/index.rst
-   decode_main/index.rst
-   decode_obj_class/index.rst
-   decode_obj_diagram/index.rst
-   decode_obj_elementview/index.rst
-   decode_obj_generalization/index.rst
-   decode_obj_generalizationset/index.rst
-   decode_obj_package/index.rst
-   decode_obj_path/index.rst
-   decode_obj_project/index.rst
-   decode_obj_property/index.rst
-   decode_obj_rectangularshape/index.rst
-   decode_obj_relation/index.rst
+   /autoapi/json2graph/decoder/decode_general/index
+   /autoapi/json2graph/decoder/decode_main/index
+   /autoapi/json2graph/decoder/decode_obj_class/index
+   /autoapi/json2graph/decoder/decode_obj_diagram/index
+   /autoapi/json2graph/decoder/decode_obj_elementview/index
+   /autoapi/json2graph/decoder/decode_obj_generalization/index
+   /autoapi/json2graph/decoder/decode_obj_generalizationset/index
+   /autoapi/json2graph/decoder/decode_obj_package/index
+   /autoapi/json2graph/decoder/decode_obj_path/index
+   /autoapi/json2graph/decoder/decode_obj_project/index
+   /autoapi/json2graph/decoder/decode_obj_property/index
+   /autoapi/json2graph/decoder/decode_obj_rectangularshape/index
+   /autoapi/json2graph/decoder/decode_obj_relation/index
 
 

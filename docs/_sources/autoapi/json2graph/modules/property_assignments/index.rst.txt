@@ -1,0 +1,90 @@
+json2graph.modules.property_assignments
+=======================================
+
+.. py:module:: json2graph.modules.property_assignments
+
+.. autoapi-nested-parse::
+
+   Handle property assignments that the OntoUML Vocabulary cannot represent.
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   json2graph.modules.property_assignments.PROPERTY_ASSIGNMENT_POLICIES
+
+
+Exceptions
+----------
+
+.. autoapisummary::
+
+   json2graph.modules.property_assignments.PropertyAssignmentWarning
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   json2graph.modules.property_assignments.PropertyAssignmentRecord
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   json2graph.modules.property_assignments.collect_property_assignments
+   json2graph.modules.property_assignments.apply_property_assignment_policy
+
+
+Module Contents
+---------------
+
+.. py:data:: PROPERTY_ASSIGNMENT_POLICIES
+   :value: ('warn', 'comment')
+
+
+.. py:exception:: PropertyAssignmentWarning
+
+   Bases: :py:obj:`UserWarning`
+
+
+   Warn that property assignments have no formal vocabulary representation.
+
+
+.. py:class:: PropertyAssignmentRecord
+
+   Preserve one source element's non-empty property-assignment map.
+
+
+   .. py:attribute:: element_id
+      :type:  str
+
+
+   .. py:attribute:: element_type
+      :type:  str
+
+
+   .. py:attribute:: canonical_json
+      :type:  str
+
+
+   .. py:attribute:: keys
+      :type:  tuple[str, Ellipsis]
+
+
+.. py:function:: collect_property_assignments(json_data)
+
+   Collect non-empty property-assignment maps before null cleanup mutates the source data.
+
+
+.. py:function:: apply_property_assignment_policy(records, ontouml_graph, policy, input_path, base_uri)
+
+   Warn about omitted assignments or preserve them as non-normative textual annotations.
+
+

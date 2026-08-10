@@ -1,0 +1,61 @@
+json2graph.modules.path_order
+=============================
+
+.. py:module:: json2graph.modules.path_order
+
+.. autoapi-nested-parse::
+
+   Handle path-point order that the OntoUML Vocabulary cannot represent.
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   json2graph.modules.path_order.PATH_ORDER_POLICIES
+
+
+Exceptions
+----------
+
+.. autoapisummary::
+
+   json2graph.modules.path_order.PathPointOrderWarning
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   json2graph.modules.path_order._format_point_sequence
+   json2graph.modules.path_order.apply_path_order_policy
+
+
+Module Contents
+---------------
+
+.. py:data:: PATH_ORDER_POLICIES
+   :value: ('warn', 'comment')
+
+
+.. py:exception:: PathPointOrderWarning
+
+   Bases: :py:obj:`UserWarning`
+
+
+   Warn that path-point order is absent from the vocabulary-defined graph structure.
+
+
+.. py:function:: _format_point_sequence(points)
+
+   Return a deterministic, human-readable sequence of source coordinates.
+
+
+.. py:function:: apply_path_order_policy(path_dicts, ontouml_graph, policy, input_path, base_uri, model_only)
+
+   Warn about path-point order loss or preserve it as a non-normative textual annotation.
+
+

@@ -1,5 +1,5 @@
-:py:mod:`json2graph.library`
-============================
+json2graph.library
+==================
 
 .. py:module:: json2graph.library
 
@@ -16,12 +16,8 @@
 
 
 
-Module Contents
----------------
-
-
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
@@ -30,8 +26,10 @@ Functions
    json2graph.library.save_graph_file
 
 
+Module Contents
+---------------
 
-.. py:function:: decode_json_project(json_file_path, base_uri = 'https://example.org#', language = '', correct = False)
+.. py:function:: decode_json_project(json_file_path, base_uri = None, language = '', correct = False, invalid_stereotype_policy = 'preserve', invalid_cardinality_policy = 'preserve', unresolved_model_element_policy = 'omit', transformation_metadata = 'none', append_content_hash = False, path_order_policy = 'warn', property_assignment_policy = 'warn')
 
    Decode elements from OntoUML's abstract and concrete syntax from JSON format into a Knowledge Graph.     I.e., domain-level and diagrammatic data are converted to Knowledge Graph.
 
@@ -41,20 +39,41 @@ Functions
 
    :param json_file_path: Path to the JSON file to be decoded provided by the user.
    :type json_file_path: str
-   :param base_uri: Base URI to be used for generating URIs for ontology concepts.
-                    Default is "https://example.org#". (Optional)
-   :type base_uri: str
+   :param base_uri: Optional explicit base URI for generated resources. When omitted, a deterministic urn:uuid base
+                    is derived from the parsed JSON document. (Optional)
+   :type base_uri: str or None
    :param language: Language tag to be added to the ontology's concepts. (Optional)
                     This tag specifies the language in which labels and descriptions are provided.
    :type language: str
    :param correct: If True, attempts to correct potential errors during the conversion process. (Optional)
    :type correct: bool
+   :param invalid_stereotype_policy: How to handle stereotypes invalid for their element type. Valid values are
+                                     'preserve', 'omit', and 'error'. Default is 'preserve'. (Optional)
+   :type invalid_stereotype_policy: str
+   :param invalid_cardinality_policy: How to handle invalid cardinalities. Valid values are 'preserve', 'repair',
+                                      and 'error'. Default is 'preserve'. (Optional)
+   :type invalid_cardinality_policy: str
+   :param unresolved_model_element_policy: How to handle unresolved modelElement references. Valid values are
+                                           'preserve', 'omit', and 'error'. Default is 'omit'. (Optional)
+   :type unresolved_model_element_policy: str
+   :param transformation_metadata: Optional transformation provenance. Valid values are 'none' (default) and
+                                   'embedded'. (Optional)
+   :type transformation_metadata: str
+   :param append_content_hash: If True, append the deterministic content UUID to the supplied base URI. (Optional)
+   :type append_content_hash: bool
+   :param path_order_policy: How to handle path-point order. Valid values are 'warn' (default) and 'comment'.
+                             The latter adds a non-normative rdfs:comment annotation. (Optional)
+   :type path_order_policy: str
+   :param property_assignment_policy: How to handle non-empty propertyAssignments maps. Valid values are 'warn'
+                                      (default) and 'comment'. The latter adds their canonical JSON as a
+                                      non-normative rdfs:comment annotation. (Optional)
+   :type property_assignment_policy: str
 
    :return: JSON data decoded into a RDFLib's Graph that is compliant with the OntoUML Vocabulary.
    :rtype: Graph
 
 
-.. py:function:: decode_json_model(json_file_path, base_uri = 'https://example.org#', language = '', correct = False)
+.. py:function:: decode_json_model(json_file_path, base_uri = None, language = '', correct = False, invalid_stereotype_policy = 'preserve', invalid_cardinality_policy = 'preserve', unresolved_model_element_policy = 'omit', transformation_metadata = 'none', append_content_hash = False, path_order_policy = 'warn', property_assignment_policy = 'warn')
 
    Decode elements from OntoUML's abstract syntax from JSON format into a Knowledge Graph.     I.e., only domain-level (and not diagrammatic) data is converted to Knowledge Graph.
 
@@ -64,14 +83,35 @@ Functions
 
    :param json_file_path: Path to the JSON file to be decoded provided by the user.
    :type json_file_path: str
-   :param base_uri: Base URI to be used for generating URIs for ontology concepts.
-                    Default is "https://example.org#". (Optional)
-   :type base_uri: str
+   :param base_uri: Optional explicit base URI for generated resources. When omitted, a deterministic urn:uuid base
+                    is derived from the parsed JSON document. (Optional)
+   :type base_uri: str or None
    :param language: Language tag to be added to the ontology's concepts. (Optional)
                     This tag specifies the language in which labels and descriptions are provided.
    :type language: str
    :param correct: If True, attempts to correct potential errors during the conversion process. (Optional)
    :type correct: bool
+   :param invalid_stereotype_policy: How to handle stereotypes invalid for their element type. Valid values are
+                                     'preserve', 'omit', and 'error'. Default is 'preserve'. (Optional)
+   :type invalid_stereotype_policy: str
+   :param invalid_cardinality_policy: How to handle invalid cardinalities. Valid values are 'preserve', 'repair',
+                                      and 'error'. Default is 'preserve'. (Optional)
+   :type invalid_cardinality_policy: str
+   :param unresolved_model_element_policy: How to handle unresolved modelElement references. Valid values are
+                                           'preserve', 'omit', and 'error'. Default is 'omit'. (Optional)
+   :type unresolved_model_element_policy: str
+   :param transformation_metadata: Optional transformation provenance. Valid values are 'none' (default) and
+                                   'embedded'. (Optional)
+   :type transformation_metadata: str
+   :param append_content_hash: If True, append the deterministic content UUID to the supplied base URI. (Optional)
+   :type append_content_hash: bool
+   :param path_order_policy: How to handle path-point order. Valid values are 'warn' (default) and 'comment'.
+                             Model-only output contains no paths, so this option does not change its graph. (Optional)
+   :type path_order_policy: str
+   :param property_assignment_policy: How to handle non-empty propertyAssignments maps. Valid values are 'warn'
+                                      (default) and 'comment'. The latter adds their canonical JSON as a
+                                      non-normative rdfs:comment annotation. (Optional)
+   :type property_assignment_policy: str
 
    :return: JSON data decoded into a RDFLib's Graph that is compliant with the OntoUML Vocabulary.
    :rtype: Graph

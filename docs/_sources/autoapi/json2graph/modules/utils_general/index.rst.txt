@@ -1,5 +1,5 @@
-:py:mod:`json2graph.modules.utils_general`
-==========================================
+json2graph.modules.utils_general
+================================
 
 .. py:module:: json2graph.modules.utils_general
 
@@ -9,18 +9,16 @@
 
 
 
-Module Contents
----------------
-
-
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
    json2graph.modules.utils_general.get_date_time
 
 
+Module Contents
+---------------
 
 .. py:function:: get_date_time(date_time_format)
 

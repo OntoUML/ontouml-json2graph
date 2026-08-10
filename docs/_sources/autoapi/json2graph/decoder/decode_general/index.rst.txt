@@ -1,5 +1,5 @@
-:py:mod:`json2graph.decoder.decode_general`
-===========================================
+json2graph.decoder.decode_general
+=================================
 
 .. py:module:: json2graph.decoder.decode_general
 
@@ -9,12 +9,16 @@
 
 
 
-Module Contents
----------------
+Attributes
+----------
+
+.. autoapisummary::
+
+   json2graph.decoder.decode_general.LOGGER
 
 
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
@@ -27,18 +31,10 @@ Functions
    json2graph.decoder.decode_general.clean_null_data
 
 
-
-Attributes
-~~~~~~~~~~
-
-.. autoapisummary::
-
-   json2graph.decoder.decode_general.LOGGER
-
+Module Contents
+---------------
 
 .. py:data:: LOGGER
-
-   
 
 .. py:function:: create_point(point_id, x_coord, y_coord, ontouml_graph)
 

@@ -1,5 +1,5 @@
-:py:mod:`json2graph.modules.metadata`
-=====================================
+json2graph.modules.metadata
+===========================
 
 .. py:module:: json2graph.modules.metadata
 
@@ -13,14 +13,37 @@
 
 
 
+Attributes
+----------
+
+.. autoapisummary::
+
+   json2graph.modules.metadata.LOGGER
+   json2graph.modules.metadata.SOURCE_PROJECT_VERSION
+   json2graph.modules.metadata.METADATA
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   json2graph.modules.metadata._read_source_project_version
+
+
 Module Contents
 ---------------
 
 .. py:data:: LOGGER
 
-   
+.. py:function:: _read_source_project_version()
+
+   Return the Poetry project version when executing from a source checkout.
+
+
+.. py:data:: SOURCE_PROJECT_VERSION
+   :value: None
+
 
 .. py:data:: METADATA
-
-   
 

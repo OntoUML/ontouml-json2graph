@@ -1,5 +1,5 @@
-:py:mod:`json2graph.decoder.decode_obj_elementview`
-===================================================
+json2graph.decoder.decode_obj_elementview
+=========================================
 
 .. py:module:: json2graph.decoder.decode_obj_elementview
 
@@ -16,12 +16,16 @@
 
 
 
-Module Contents
----------------
+Attributes
+----------
+
+.. autoapisummary::
+
+   json2graph.decoder.decode_obj_elementview.ELEMENT_VIEW_TYPES
 
 
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
@@ -29,19 +33,12 @@ Functions
    json2graph.decoder.decode_obj_elementview.create_elementview_properties
 
 
-
-Attributes
-~~~~~~~~~~
-
-.. autoapisummary::
-
-   json2graph.decoder.decode_obj_elementview.ELEMENT_VIEW_TYPES
-
+Module Contents
+---------------
 
 .. py:data:: ELEMENT_VIEW_TYPES
    :value: ['ClassView', 'PackageView', 'GeneralizationSetView', 'RelationView', 'GeneralizationView', 'NoteView']
 
-   
 
 .. py:function:: set_elementview_relations(elementview_dict, ontouml_graph)
 

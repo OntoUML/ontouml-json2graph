@@ -1,5 +1,5 @@
-:py:mod:`json2graph.tests.test_aux`
-===================================
+json2graph.tests.test_aux
+=========================
 
 .. py:module:: json2graph.tests.test_aux
 
@@ -9,12 +9,8 @@
 
 
 
-Module Contents
----------------
-
-
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
@@ -23,6 +19,8 @@ Functions
    json2graph.tests.test_aux.compare_graphs
 
 
+Module Contents
+---------------
 
 .. py:function:: get_test_list()
 

@@ -1,5 +1,5 @@
-:py:mod:`json2graph.decoder.decode_obj_path`
-============================================
+json2graph.decoder.decode_obj_path
+==================================
 
 .. py:module:: json2graph.decoder.decode_obj_path
 
@@ -16,12 +16,8 @@
 
 
 
-Module Contents
----------------
-
-
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
@@ -29,6 +25,8 @@ Functions
    json2graph.decoder.decode_obj_path.create_path_properties
 
 
+Module Contents
+---------------
 
 .. py:function:: set_path_path_point(path_dict, ontouml_graph)
 

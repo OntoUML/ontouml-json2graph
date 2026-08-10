@@ -1,5 +1,5 @@
-:py:mod:`json2graph.decoder.decode_obj_diagram`
-===============================================
+json2graph.decoder.decode_obj_diagram
+=====================================
 
 .. py:module:: json2graph.decoder.decode_obj_diagram
 
@@ -16,12 +16,8 @@
 
 
 
-Module Contents
----------------
-
-
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
@@ -30,6 +26,8 @@ Functions
    json2graph.decoder.decode_obj_diagram.create_diagram_properties
 
 
+Module Contents
+---------------
 
 .. py:function:: set_diagram_owner_modelelement(diagram_dict, ontouml_graph)
 

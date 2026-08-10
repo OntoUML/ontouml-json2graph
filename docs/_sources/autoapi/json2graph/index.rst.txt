@@ -1,5 +1,5 @@
-:py:mod:`json2graph`
-====================
+json2graph
+==========
 
 .. py:module:: json2graph
 
@@ -9,24 +9,16 @@
 
 
 
-Subpackages
------------
-.. toctree::
-   :titlesonly:
-   :maxdepth: 3
-
-   decoder/index.rst
-   modules/index.rst
-   tests/index.rst
-
-
 Submodules
 ----------
+
 .. toctree::
-   :titlesonly:
    :maxdepth: 1
 
-   decode/index.rst
-   library/index.rst
+   /autoapi/json2graph/decode/index
+   /autoapi/json2graph/decoder/index
+   /autoapi/json2graph/library/index
+   /autoapi/json2graph/modules/index
+   /autoapi/json2graph/tests/index
 
 

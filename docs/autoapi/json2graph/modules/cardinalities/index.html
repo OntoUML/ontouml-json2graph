@@ -1,0 +1,271 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>json2graph.modules.cardinalities &mdash; ontouml-json2graph  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/sphinx_rtd_size.css?v=f26ae176" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="json2graph.modules.content_identity" href="../content_identity/index.html" />
+    <link rel="prev" title="json2graph.modules.arguments" href="../arguments/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            ontouml-json2graph
+              <img src="../../../../_static/logo-json2graph-reduced.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../README.html">The OntoUML JSON2Graph Transformation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">json2graph</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../decode/index.html">json2graph.decode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../decoder/index.html">json2graph.decoder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../library/index.html">json2graph.library</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">json2graph.modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tests/index.html">json2graph.tests</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">ontouml-json2graph</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">json2graph</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">json2graph.modules</a></li>
+      <li class="breadcrumb-item active">json2graph.modules.cardinalities</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/json2graph/modules/cardinalities/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-json2graph.modules.cardinalities">
+<span id="json2graph-modules-cardinalities"></span><h1>json2graph.modules.cardinalities<a class="headerlink" href="#module-json2graph.modules.cardinalities" title="Link to this heading"></a></h1>
+<p>Validate OntoUML cardinalities and apply the configured handling policy.</p>
+<section id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#json2graph.modules.cardinalities.INVALID_CARDINALITY_POLICIES" title="json2graph.modules.cardinalities.INVALID_CARDINALITY_POLICIES"><code class="xref py py-obj docutils literal notranslate"><span class="pre">INVALID_CARDINALITY_POLICIES</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#json2graph.modules.cardinalities._EXACT_CARDINALITY" title="json2graph.modules.cardinalities._EXACT_CARDINALITY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_EXACT_CARDINALITY</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#json2graph.modules.cardinalities._RANGE_CARDINALITY" title="json2graph.modules.cardinalities._RANGE_CARDINALITY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_RANGE_CARDINALITY</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#json2graph.modules.cardinalities._REPAIR_PATTERNS" title="json2graph.modules.cardinalities._REPAIR_PATTERNS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_REPAIR_PATTERNS</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="exceptions">
+<h2>Exceptions<a class="headerlink" href="#exceptions" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#json2graph.modules.cardinalities.InvalidCardinalityWarning" title="json2graph.modules.cardinalities.InvalidCardinalityWarning"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InvalidCardinalityWarning</span></code></a></p></td>
+<td><p>Warn that an invalid cardinality was preserved without inferred bounds.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#json2graph.modules.cardinalities.CardinalityRepairWarning" title="json2graph.modules.cardinalities.CardinalityRepairWarning"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CardinalityRepairWarning</span></code></a></p></td>
+<td><p>Warn that a known malformed cardinality pattern was repaired.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#json2graph.modules.cardinalities.InvalidCardinalityError" title="json2graph.modules.cardinalities.InvalidCardinalityError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InvalidCardinalityError</span></code></a></p></td>
+<td><p>Report that error policy rejected an invalid cardinality.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#json2graph.modules.cardinalities._parse_valid_cardinality" title="json2graph.modules.cardinalities._parse_valid_cardinality"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_parse_valid_cardinality</span></code></a>(cardinality)</p></td>
+<td><p>Return a normalized cardinality and its bounds, or None when invalid.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#json2graph.modules.cardinalities._repair_cardinality" title="json2graph.modules.cardinalities._repair_cardinality"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_repair_cardinality</span></code></a>(cardinality)</p></td>
+<td><p>Repair only malformed separator patterns observed in the audited corpus.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#json2graph.modules.cardinalities.resolve_cardinality" title="json2graph.modules.cardinalities.resolve_cardinality"><code class="xref py py-obj docutils literal notranslate"><span class="pre">resolve_cardinality</span></code></a>(cardinality, property_id, policy)</p></td>
+<td><p>Resolve a source cardinality according to the selected invalid-value policy.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="json2graph.modules.cardinalities.INVALID_CARDINALITY_POLICIES">
+<span class="sig-prename descclassname"><span class="pre">json2graph.modules.cardinalities.</span></span><span class="sig-name descname"><span class="pre">INVALID_CARDINALITY_POLICIES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('preserve',</span> <span class="pre">'repair',</span> <span class="pre">'error')</span></em><a class="headerlink" href="#json2graph.modules.cardinalities.INVALID_CARDINALITY_POLICIES" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="json2graph.modules.cardinalities._EXACT_CARDINALITY">
+<span class="sig-prename descclassname"><span class="pre">json2graph.modules.cardinalities.</span></span><span class="sig-name descname"><span class="pre">_EXACT_CARDINALITY</span></span><a class="headerlink" href="#json2graph.modules.cardinalities._EXACT_CARDINALITY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="json2graph.modules.cardinalities._RANGE_CARDINALITY">
+<span class="sig-prename descclassname"><span class="pre">json2graph.modules.cardinalities.</span></span><span class="sig-name descname"><span class="pre">_RANGE_CARDINALITY</span></span><a class="headerlink" href="#json2graph.modules.cardinalities._RANGE_CARDINALITY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="json2graph.modules.cardinalities._REPAIR_PATTERNS">
+<span class="sig-prename descclassname"><span class="pre">json2graph.modules.cardinalities.</span></span><span class="sig-name descname"><span class="pre">_REPAIR_PATTERNS</span></span><a class="headerlink" href="#json2graph.modules.cardinalities._REPAIR_PATTERNS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="json2graph.modules.cardinalities.InvalidCardinalityWarning">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">json2graph.modules.cardinalities.</span></span><span class="sig-name descname"><span class="pre">InvalidCardinalityWarning</span></span><a class="headerlink" href="#json2graph.modules.cardinalities.InvalidCardinalityWarning" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">UserWarning</span></code></p>
+<p>Warn that an invalid cardinality was preserved without inferred bounds.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="json2graph.modules.cardinalities.CardinalityRepairWarning">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">json2graph.modules.cardinalities.</span></span><span class="sig-name descname"><span class="pre">CardinalityRepairWarning</span></span><a class="headerlink" href="#json2graph.modules.cardinalities.CardinalityRepairWarning" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">UserWarning</span></code></p>
+<p>Warn that a known malformed cardinality pattern was repaired.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="json2graph.modules.cardinalities.InvalidCardinalityError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">json2graph.modules.cardinalities.</span></span><span class="sig-name descname"><span class="pre">InvalidCardinalityError</span></span><a class="headerlink" href="#json2graph.modules.cardinalities.InvalidCardinalityError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">ValueError</span></code></p>
+<p>Report that error policy rejected an invalid cardinality.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="json2graph.modules.cardinalities._parse_valid_cardinality">
+<span class="sig-prename descclassname"><span class="pre">json2graph.modules.cardinalities.</span></span><span class="sig-name descname"><span class="pre">_parse_valid_cardinality</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cardinality</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.modules.cardinalities._parse_valid_cardinality" title="Link to this definition"></a></dt>
+<dd><p>Return a normalized cardinality and its bounds, or None when invalid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cardinality</strong> (<em>str</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>tuple[str, str, str] | None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="json2graph.modules.cardinalities._repair_cardinality">
+<span class="sig-prename descclassname"><span class="pre">json2graph.modules.cardinalities.</span></span><span class="sig-name descname"><span class="pre">_repair_cardinality</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cardinality</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.modules.cardinalities._repair_cardinality" title="Link to this definition"></a></dt>
+<dd><p>Repair only malformed separator patterns observed in the audited corpus.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cardinality</strong> (<em>str</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>tuple[str, str, str] | None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="json2graph.modules.cardinalities.resolve_cardinality">
+<span class="sig-prename descclassname"><span class="pre">json2graph.modules.cardinalities.</span></span><span class="sig-name descname"><span class="pre">resolve_cardinality</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cardinality</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">property_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">policy</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.modules.cardinalities.resolve_cardinality" title="Link to this definition"></a></dt>
+<dd><p>Resolve a source cardinality according to the selected invalid-value policy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cardinality</strong> (<em>str</em>)</p></li>
+<li><p><strong>property_id</strong> (<em>str</em>)</p></li>
+<li><p><strong>policy</strong> (<em>str</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>tuple[str, str | None, str | None]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../arguments/index.html" class="btn btn-neutral float-left" title="json2graph.modules.arguments" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../content_identity/index.html" class="btn btn-neutral float-right" title="json2graph.modules.content_identity" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Semantics, Cybersecurity &amp; Services (SCS), University of Twente, the Netherlands.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

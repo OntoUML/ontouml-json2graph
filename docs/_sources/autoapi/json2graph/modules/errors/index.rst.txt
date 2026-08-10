@@ -1,5 +1,5 @@
-:py:mod:`json2graph.modules.errors`
-===================================
+json2graph.modules.errors
+=========================
 
 .. py:module:: json2graph.modules.errors
 
@@ -12,12 +12,16 @@
 
 
 
-Module Contents
----------------
+Attributes
+----------
+
+.. autoapisummary::
+
+   json2graph.modules.errors.LOGGER
 
 
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
@@ -28,18 +32,10 @@ Functions
    json2graph.modules.errors.report_error_io_write
 
 
-
-Attributes
-~~~~~~~~~~
-
-.. autoapisummary::
-
-   json2graph.modules.errors.LOGGER
-
+Module Contents
+---------------
 
 .. py:data:: LOGGER
-
-   
 
 .. py:function:: report_error_requirement_not_met(error_message)
 

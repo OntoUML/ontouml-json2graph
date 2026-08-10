@@ -1,0 +1,94 @@
+json2graph.modules.cardinalities
+================================
+
+.. py:module:: json2graph.modules.cardinalities
+
+.. autoapi-nested-parse::
+
+   Validate OntoUML cardinalities and apply the configured handling policy.
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   json2graph.modules.cardinalities.INVALID_CARDINALITY_POLICIES
+   json2graph.modules.cardinalities._EXACT_CARDINALITY
+   json2graph.modules.cardinalities._RANGE_CARDINALITY
+   json2graph.modules.cardinalities._REPAIR_PATTERNS
+
+
+Exceptions
+----------
+
+.. autoapisummary::
+
+   json2graph.modules.cardinalities.InvalidCardinalityWarning
+   json2graph.modules.cardinalities.CardinalityRepairWarning
+   json2graph.modules.cardinalities.InvalidCardinalityError
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   json2graph.modules.cardinalities._parse_valid_cardinality
+   json2graph.modules.cardinalities._repair_cardinality
+   json2graph.modules.cardinalities.resolve_cardinality
+
+
+Module Contents
+---------------
+
+.. py:data:: INVALID_CARDINALITY_POLICIES
+   :value: ('preserve', 'repair', 'error')
+
+
+.. py:data:: _EXACT_CARDINALITY
+
+.. py:data:: _RANGE_CARDINALITY
+
+.. py:data:: _REPAIR_PATTERNS
+
+.. py:exception:: InvalidCardinalityWarning
+
+   Bases: :py:obj:`UserWarning`
+
+
+   Warn that an invalid cardinality was preserved without inferred bounds.
+
+
+.. py:exception:: CardinalityRepairWarning
+
+   Bases: :py:obj:`UserWarning`
+
+
+   Warn that a known malformed cardinality pattern was repaired.
+
+
+.. py:exception:: InvalidCardinalityError
+
+   Bases: :py:obj:`ValueError`
+
+
+   Report that error policy rejected an invalid cardinality.
+
+
+.. py:function:: _parse_valid_cardinality(cardinality)
+
+   Return a normalized cardinality and its bounds, or None when invalid.
+
+
+.. py:function:: _repair_cardinality(cardinality)
+
+   Repair only malformed separator patterns observed in the audited corpus.
+
+
+.. py:function:: resolve_cardinality(cardinality, property_id, policy)
+
+   Resolve a source cardinality according to the selected invalid-value policy.
+
+

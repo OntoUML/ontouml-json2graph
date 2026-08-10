@@ -1,5 +1,5 @@
-:py:mod:`json2graph.modules.utils_graph`
-========================================
+json2graph.modules.utils_graph
+==============================
 
 .. py:module:: json2graph.modules.utils_graph
 
@@ -9,12 +9,16 @@
 
 
 
-Module Contents
----------------
+Attributes
+----------
+
+.. autoapisummary::
+
+   json2graph.modules.utils_graph.LOGGER
 
 
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
@@ -25,18 +29,10 @@ Functions
    json2graph.modules.utils_graph.rename_uriref_resource
 
 
-
-Attributes
-~~~~~~~~~~
-
-.. autoapisummary::
-
-   json2graph.modules.utils_graph.LOGGER
-
+Module Contents
+---------------
 
 .. py:data:: LOGGER
-
-   
 
 .. py:function:: ontouml_ref(entity)
 

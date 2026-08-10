@@ -1,5 +1,5 @@
-:py:mod:`json2graph.modules.utils_validations`
-==============================================
+json2graph.modules.utils_validations
+====================================
 
 .. py:module:: json2graph.modules.utils_validations
 
@@ -9,12 +9,8 @@
 
 
 
-Module Contents
----------------
-
-
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
@@ -22,6 +18,8 @@ Functions
    json2graph.modules.utils_validations.validate_execution_mode
 
 
+Module Contents
+---------------
 
 .. py:function:: validate_arg_input(input_path, decode_all)
 

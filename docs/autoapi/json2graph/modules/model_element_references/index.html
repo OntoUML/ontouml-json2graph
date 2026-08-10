@@ -1,0 +1,225 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>json2graph.modules.model_element_references &mdash; ontouml-json2graph  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/sphinx_rtd_size.css?v=f26ae176" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="json2graph.modules.path_order" href="../path_order/index.html" />
+    <link rel="prev" title="json2graph.modules.metadata" href="../metadata/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            ontouml-json2graph
+              <img src="../../../../_static/logo-json2graph-reduced.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../README.html">The OntoUML JSON2Graph Transformation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">json2graph</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../decode/index.html">json2graph.decode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../decoder/index.html">json2graph.decoder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../library/index.html">json2graph.library</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">json2graph.modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tests/index.html">json2graph.tests</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">ontouml-json2graph</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">json2graph</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">json2graph.modules</a></li>
+      <li class="breadcrumb-item active">json2graph.modules.model_element_references</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/json2graph/modules/model_element_references/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-json2graph.modules.model_element_references">
+<span id="json2graph-modules-model-element-references"></span><h1>json2graph.modules.model_element_references<a class="headerlink" href="#module-json2graph.modules.model_element_references" title="Link to this heading"></a></h1>
+<p>Validate diagrammatic references to model elements and apply the configured policy.</p>
+<section id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#json2graph.modules.model_element_references.UNRESOLVED_MODEL_ELEMENT_POLICIES" title="json2graph.modules.model_element_references.UNRESOLVED_MODEL_ELEMENT_POLICIES"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UNRESOLVED_MODEL_ELEMENT_POLICIES</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="exceptions">
+<h2>Exceptions<a class="headerlink" href="#exceptions" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#json2graph.modules.model_element_references.UnresolvedModelElementWarning" title="json2graph.modules.model_element_references.UnresolvedModelElementWarning"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UnresolvedModelElementWarning</span></code></a></p></td>
+<td><p>Warn that an ElementView references an element absent from the project model.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#json2graph.modules.model_element_references.UnresolvedModelElementError" title="json2graph.modules.model_element_references.UnresolvedModelElementError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UnresolvedModelElementError</span></code></a></p></td>
+<td><p>Report that error policy rejected an unresolved modelElement reference.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#json2graph.modules.model_element_references._collect_model_element_ids" title="json2graph.modules.model_element_references._collect_model_element_ids"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_collect_model_element_ids</span></code></a>(model_package)</p></td>
+<td><p>Collect IDs of elements canonically defined by Package.contents containment.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#json2graph.modules.model_element_references.apply_unresolved_model_element_policy" title="json2graph.modules.model_element_references.apply_unresolved_model_element_policy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">apply_unresolved_model_element_policy</span></code></a>(project_data, ...)</p></td>
+<td><p>Handle unresolved ElementView.modelElement references according to policy.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="json2graph.modules.model_element_references.UNRESOLVED_MODEL_ELEMENT_POLICIES">
+<span class="sig-prename descclassname"><span class="pre">json2graph.modules.model_element_references.</span></span><span class="sig-name descname"><span class="pre">UNRESOLVED_MODEL_ELEMENT_POLICIES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('preserve',</span> <span class="pre">'omit',</span> <span class="pre">'error')</span></em><a class="headerlink" href="#json2graph.modules.model_element_references.UNRESOLVED_MODEL_ELEMENT_POLICIES" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="json2graph.modules.model_element_references.UnresolvedModelElementWarning">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">json2graph.modules.model_element_references.</span></span><span class="sig-name descname"><span class="pre">UnresolvedModelElementWarning</span></span><a class="headerlink" href="#json2graph.modules.model_element_references.UnresolvedModelElementWarning" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">UserWarning</span></code></p>
+<p>Warn that an ElementView references an element absent from the project model.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="json2graph.modules.model_element_references.UnresolvedModelElementError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">json2graph.modules.model_element_references.</span></span><span class="sig-name descname"><span class="pre">UnresolvedModelElementError</span></span><a class="headerlink" href="#json2graph.modules.model_element_references.UnresolvedModelElementError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">ValueError</span></code></p>
+<p>Report that error policy rejected an unresolved modelElement reference.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="json2graph.modules.model_element_references._collect_model_element_ids">
+<span class="sig-prename descclassname"><span class="pre">json2graph.modules.model_element_references.</span></span><span class="sig-name descname"><span class="pre">_collect_model_element_ids</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_package</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.modules.model_element_references._collect_model_element_ids" title="Link to this definition"></a></dt>
+<dd><p>Collect IDs of elements canonically defined by Package.contents containment.</p>
+<p>Reference dictionaries elsewhere in the JSON are deliberately excluded so
+that a dangling reference cannot make itself appear resolved.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>model_package</strong> (<em>dict</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="json2graph.modules.model_element_references.apply_unresolved_model_element_policy">
+<span class="sig-prename descclassname"><span class="pre">json2graph.modules.model_element_references.</span></span><span class="sig-name descname"><span class="pre">apply_unresolved_model_element_policy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">project_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">policy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#json2graph.modules.model_element_references.apply_unresolved_model_element_policy" title="Link to this definition"></a></dt>
+<dd><p>Handle unresolved ElementView.modelElement references according to policy.</p>
+<p>Only <code class="docutils literal notranslate"><span class="pre">modelElement</span></code> references on objects contained by diagrams are
+evaluated. Other reference categories, including <code class="docutils literal notranslate"><span class="pre">source</span></code>, <code class="docutils literal notranslate"><span class="pre">target</span></code>,
+<code class="docutils literal notranslate"><span class="pre">propertyType</span></code>, <code class="docutils literal notranslate"><span class="pre">general</span></code>, and <code class="docutils literal notranslate"><span class="pre">specific</span></code>, are outside this policy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>project_data</strong> (<em>dict</em>) – Cleaned OntoUML Project dictionary to validate.</p></li>
+<li><p><strong>policy</strong> (<em>str</em>) – One of <code class="docutils literal notranslate"><span class="pre">preserve</span></code>, <code class="docutils literal notranslate"><span class="pre">omit</span></code>, or <code class="docutils literal notranslate"><span class="pre">error</span></code>.</p></li>
+<li><p><strong>input_path</strong> (<em>str</em>) – Path of the JSON file containing the reference.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../metadata/index.html" class="btn btn-neutral float-left" title="json2graph.modules.metadata" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../path_order/index.html" class="btn btn-neutral float-right" title="json2graph.modules.path_order" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Semantics, Cybersecurity &amp; Services (SCS), University of Twente, the Netherlands.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

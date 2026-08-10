@@ -1,5 +1,5 @@
-:py:mod:`json2graph.modules.messages`
-=====================================
+json2graph.modules.messages
+===========================
 
 .. py:module:: json2graph.modules.messages
 
@@ -9,12 +9,16 @@
 
 
 
-Module Contents
----------------
+Attributes
+----------
+
+.. autoapisummary::
+
+   json2graph.modules.messages.LOGGER
 
 
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
@@ -22,18 +26,10 @@ Functions
    json2graph.modules.messages.print_decode_log_message
 
 
-
-Attributes
-~~~~~~~~~~
-
-.. autoapisummary::
-
-   json2graph.modules.messages.LOGGER
-
+Module Contents
+---------------
 
 .. py:data:: LOGGER
-
-   
 
 .. py:function:: get_decode_log_message(object_dict, warning_code, property_name, att_valid_stereotype = '')
 

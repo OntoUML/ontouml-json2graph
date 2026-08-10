@@ -1,5 +1,5 @@
-:py:mod:`json2graph.decoder.decode_obj_class`
-=============================================
+json2graph.decoder.decode_obj_class
+===================================
 
 .. py:module:: json2graph.decoder.decode_obj_class
 
@@ -15,12 +15,8 @@
 
 
 
-Module Contents
----------------
-
-
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
@@ -37,6 +33,8 @@ Functions
    json2graph.decoder.decode_obj_class.create_class_properties
 
 
+Module Contents
+---------------
 
 .. py:function:: validate_class_attribute_constraints(class_dict)
 
@@ -104,11 +102,11 @@ Functions
 
 .. py:function:: set_class_stereotype(class_dict, ontouml_graph)
 
-   Set ontouml:stereotype property between an instance of ontouml:Class and an instance representing an     ontouml:ClassStereotype.
+   Normalize and handle an ontouml:Class's stereotype using the configured policy.
 
    Warning messages:
        - VCS1: Mandatory stereotype not assigned to a class. Result is invalid.
-       - VCS2: Class has invalid stereotype associated to it. Result is invalid.
+       - InvalidStereotypeWarning: Assigned stereotype is invalid for Class elements.
 
    :param class_dict: Class object loaded as a dictionary.
    :type class_dict: dict

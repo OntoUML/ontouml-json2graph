@@ -1,5 +1,5 @@
-:py:mod:`json2graph.decoder.decode_obj_generalization`
-======================================================
+json2graph.decoder.decode_obj_generalization
+============================================
 
 .. py:module:: json2graph.decoder.decode_obj_generalization
 
@@ -16,12 +16,8 @@
 
 
 
-Module Contents
----------------
-
-
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
@@ -29,6 +25,8 @@ Functions
    json2graph.decoder.decode_obj_generalization.create_generalization_properties
 
 
+Module Contents
+---------------
 
 .. py:function:: set_generalization_relations(generalization_dict, ontouml_graph)
 

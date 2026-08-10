@@ -1,5 +1,5 @@
-:py:mod:`json2graph.decoder.decode_obj_property`
-================================================
+json2graph.decoder.decode_obj_property
+======================================
 
 .. py:module:: json2graph.decoder.decode_obj_property
 
@@ -16,12 +16,16 @@
 
 
 
-Module Contents
----------------
+Attributes
+----------
+
+.. autoapisummary::
+
+   json2graph.decoder.decode_obj_property.LOGGER
 
 
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
@@ -33,18 +37,10 @@ Functions
    json2graph.decoder.decode_obj_property.create_property_properties
 
 
-
-Attributes
-~~~~~~~~~~
-
-.. autoapisummary::
-
-   json2graph.decoder.decode_obj_property.LOGGER
-
+Module Contents
+---------------
 
 .. py:data:: LOGGER
-
-   
 
 .. py:function:: validate_property_stereotype(ontouml_graph)
 
@@ -90,14 +86,14 @@ Attributes
 
 .. py:function:: determine_cardinality_bounds(cardinalities, property_id)
 
-   Receive a string with an ontouml:Cardinality's ontouml:cardinalityValue, fix its format and decouple it into     its ontouml:lowerBound and ontouml:upperBound. Checks and displays warning if the obtained values are not valid.
+   Resolve a cardinality and decouple valid values into lower and upper bounds.
 
    :param cardinalities: String containing the value of the cardinality to be decoupled into lower and upper bounds.
    :type cardinalities: str
    :param property_id: ID of the Property that owns the cardinality being treated. Used in case of invalid cardinality.
    :type property_id: str
-   :return: Tuple of three elements: full cardinality, cardinality's lower bound, and cardinality's upper bound.
-   :rtype: (str, str, str)
+   :return: Full cardinality and optional lower and upper bounds.
+   :rtype: tuple[str, str | None, str | None]
 
 
 .. py:function:: set_cardinality_relations(property_dict, ontouml_graph)

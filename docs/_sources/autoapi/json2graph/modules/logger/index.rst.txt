@@ -1,5 +1,5 @@
-:py:mod:`json2graph.modules.logger`
-===================================
+json2graph.modules.logger
+=========================
 
 .. py:module:: json2graph.modules.logger
 
@@ -11,18 +11,16 @@
 
 
 
-Module Contents
----------------
-
-
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
    json2graph.modules.logger.initialize_logger
 
 
+Module Contents
+---------------
 
 .. py:function:: initialize_logger(execution_mode = 'script')
 

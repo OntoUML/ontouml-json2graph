@@ -1,5 +1,5 @@
-:py:mod:`json2graph.modules.input_output`
-=========================================
+json2graph.modules.input_output
+===============================
 
 .. py:module:: json2graph.modules.input_output
 
@@ -9,12 +9,24 @@
 
 
 
-Module Contents
----------------
+Attributes
+----------
+
+.. autoapisummary::
+
+   json2graph.modules.input_output.LOGGER
+
+
+Exceptions
+----------
+
+.. autoapisummary::
+
+   json2graph.modules.input_output.JSONEncodingFallbackWarning
 
 
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
@@ -23,18 +35,18 @@ Functions
    json2graph.modules.input_output.safe_write_graph_file
 
 
-
-Attributes
-~~~~~~~~~~
-
-.. autoapisummary::
-
-   json2graph.modules.input_output.LOGGER
-
+Module Contents
+---------------
 
 .. py:data:: LOGGER
 
-   
+.. py:exception:: JSONEncodingFallbackWarning
+
+   Bases: :py:obj:`UserWarning`
+
+
+   Warn that a JSON input required a fallback character encoding.
+
 
 .. py:function:: create_directory_if_not_exists(directory_path, file_description)
 

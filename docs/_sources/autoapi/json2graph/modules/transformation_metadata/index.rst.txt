@@ -1,0 +1,100 @@
+json2graph.modules.transformation_metadata
+==========================================
+
+.. py:module:: json2graph.modules.transformation_metadata
+
+.. autoapi-nested-parse::
+
+   Build optional provenance metadata for OntoUML JSON transformations.
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   json2graph.modules.transformation_metadata.TRANSFORMATION_METADATA_MODES
+   json2graph.modules.transformation_metadata.DCTERMS
+   json2graph.modules.transformation_metadata.PROV
+   json2graph.modules.transformation_metadata.ONTOUML_VOCABULARY_VERSION_IRI
+   json2graph.modules.transformation_metadata.IANA_MEDIA_TYPE_BASE
+   json2graph.modules.transformation_metadata.JSON_MEDIA_TYPE
+   json2graph.modules.transformation_metadata.RDF_MEDIA_TYPES
+   json2graph.modules.transformation_metadata.CONFIGURATION_FIELDS
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   json2graph.modules.transformation_metadata.get_transformation_configuration
+   json2graph.modules.transformation_metadata.get_rdf_media_type
+   json2graph.modules.transformation_metadata._sha256_identifier
+   json2graph.modules.transformation_metadata._defined_ontouml_terms
+   json2graph.modules.transformation_metadata.uses_only_declared_ontouml_terms
+   json2graph.modules.transformation_metadata.build_transformation_metadata
+   json2graph.modules.transformation_metadata.graph_with_metadata
+
+
+Module Contents
+---------------
+
+.. py:data:: TRANSFORMATION_METADATA_MODES
+   :value: ('none', 'embedded', 'sidecar')
+
+
+.. py:data:: DCTERMS
+
+.. py:data:: PROV
+
+.. py:data:: ONTOUML_VOCABULARY_VERSION_IRI
+
+.. py:data:: IANA_MEDIA_TYPE_BASE
+   :value: 'https://www.iana.org/assignments/media-types/'
+
+
+.. py:data:: JSON_MEDIA_TYPE
+
+.. py:data:: RDF_MEDIA_TYPES
+
+.. py:data:: CONFIGURATION_FIELDS
+   :value: ('language', 'model_only', 'path_order_policy', 'property_assignment_policy', 'correct',...
+
+
+.. py:function:: get_transformation_configuration(arguments, graph_format)
+
+   Return the requested and effective output options as a stable dictionary.
+
+
+.. py:function:: get_rdf_media_type(graph_format)
+
+   Return the registered IANA media-type URI for an RDFLib serialization name.
+
+
+.. py:function:: _sha256_identifier(input_file_path)
+
+   Return a SHA-256 identifier for an input file without exposing its path.
+
+
+.. py:function:: _defined_ontouml_terms()
+
+   Return the terms declared by the bundled OntoUML Vocabulary revision.
+
+
+.. py:function:: uses_only_declared_ontouml_terms(ontouml_graph)
+
+   Check that every used OntoUML predicate and object term is declared.
+
+
+.. py:function:: build_transformation_metadata(ontouml_graph, input_file_path, output_file_name, graph_format, configuration, generated_at = None)
+
+   Describe the output artifact and the activity that generated it.
+
+
+.. py:function:: graph_with_metadata(ontouml_graph, metadata_graph)
+
+   Return a graph containing model and metadata triples without mutating the model graph.
+
+

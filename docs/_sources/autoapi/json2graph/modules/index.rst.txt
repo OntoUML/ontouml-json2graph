@@ -1,5 +1,5 @@
-:py:mod:`json2graph.modules`
-============================
+json2graph.modules
+==================
 
 .. py:module:: json2graph.modules
 
@@ -11,19 +11,27 @@
 
 Submodules
 ----------
+
 .. toctree::
-   :titlesonly:
    :maxdepth: 1
 
-   arguments/index.rst
-   errors/index.rst
-   input_output/index.rst
-   logger/index.rst
-   messages/index.rst
-   metadata/index.rst
-   sparql_queries/index.rst
-   utils_general/index.rst
-   utils_graph/index.rst
-   utils_validations/index.rst
+   /autoapi/json2graph/modules/arguments/index
+   /autoapi/json2graph/modules/cardinalities/index
+   /autoapi/json2graph/modules/content_identity/index
+   /autoapi/json2graph/modules/errors/index
+   /autoapi/json2graph/modules/input_output/index
+   /autoapi/json2graph/modules/logger/index
+   /autoapi/json2graph/modules/messages/index
+   /autoapi/json2graph/modules/metadata/index
+   /autoapi/json2graph/modules/model_element_references/index
+   /autoapi/json2graph/modules/path_order/index
+   /autoapi/json2graph/modules/property_assignments/index
+   /autoapi/json2graph/modules/sparql_queries/index
+   /autoapi/json2graph/modules/stereotypes/index
+   /autoapi/json2graph/modules/text_values/index
+   /autoapi/json2graph/modules/transformation_metadata/index
+   /autoapi/json2graph/modules/utils_general/index
+   /autoapi/json2graph/modules/utils_graph/index
+   /autoapi/json2graph/modules/utils_validations/index
 
 

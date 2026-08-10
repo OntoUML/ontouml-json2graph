@@ -1,5 +1,5 @@
-:py:mod:`json2graph.decoder.decode_obj_package`
-===============================================
+json2graph.decoder.decode_obj_package
+=====================================
 
 .. py:module:: json2graph.decoder.decode_obj_package
 
@@ -16,12 +16,8 @@
 
 
 
-Module Contents
----------------
-
-
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
@@ -30,6 +26,8 @@ Functions
    json2graph.decoder.decode_obj_package.create_package_properties
 
 
+Module Contents
+---------------
 
 .. py:function:: get_package_contents(package_dict, package_id, list_contents = [])
 

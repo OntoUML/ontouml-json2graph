@@ -1,5 +1,5 @@
-:py:mod:`json2graph.decoder.decode_obj_project`
-===============================================
+json2graph.decoder.decode_obj_project
+=====================================
 
 .. py:module:: json2graph.decoder.decode_obj_project
 
@@ -16,12 +16,8 @@
 
 
 
-Module Contents
----------------
-
-
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
@@ -31,6 +27,8 @@ Functions
    json2graph.decoder.decode_obj_project.create_project_properties
 
 
+Module Contents
+---------------
 
 .. py:function:: set_ontoumlelement_project_project(project_dict, ontouml_graph, element_counting)
 
