@@ -5,12 +5,14 @@ import glob
 import inspect
 import os
 import time
+import warnings
 from pathlib import Path
 
 from rdflib import RDF, Graph
 
 try:
     from .modules import arguments as args
+    from .modules.content_identity import resolve_base_uri
     from .modules.metadata import METADATA
     from .modules.input_output import (
         safe_load_json_file,
@@ -29,6 +31,7 @@ try:
     from .decoder.decode_main import decode_json_to_graph
 except ImportError:
     from modules import arguments as args
+    from modules.content_identity import resolve_base_uri
     from modules.metadata import METADATA
     from modules.input_output import (
         safe_load_json_file,
@@ -47,9 +50,13 @@ except ImportError:
     from decoder.decode_main import decode_json_to_graph
 
 
+class SharedBatchBaseURIWarning(UserWarning):
+    """Warn that multiple batch outputs intentionally share one explicit namespace."""
+
+
 def decode_ontouml_json2graph(
     json_file_path: str,
-    base_uri: str = "https://example.org#",
+    base_uri: str | None = None,
     language: str = "",
     model_only: bool = False,
     silent: bool = True,
@@ -59,6 +66,7 @@ def decode_ontouml_json2graph(
     invalid_cardinality_policy: str = "preserve",
     unresolved_model_element_policy: str = "omit",
     transformation_metadata: str = "none",
+    append_content_hash: bool = False,
 ) -> Graph:
     """Convert OntoUML JSON data to a Knowledge Graph.
 
@@ -67,9 +75,9 @@ def decode_ontouml_json2graph(
 
     :param json_file_path: Path to the JSON file to be decoded provided by the user.
     :type json_file_path: str
-    :param base_uri: Base URI to be used for generating URIs for ontology concepts.
-                     Default is https://example.org#. (Optional)
-    :type base_uri: str
+    :param base_uri: Optional explicit base URI for generated resources. When omitted, a deterministic urn:uuid base
+                     is derived from the parsed JSON document. (Optional)
+    :type base_uri: str or None
     :param language: Language tag to be added to the ontology's concepts. (Optional)
     :type language: str
     :param model_only: If True, only the OntoUML model will be extracted without diagrammatic information. (Optional)
@@ -93,6 +101,8 @@ def decode_ontouml_json2graph(
     :param transformation_metadata: Optional transformation provenance. Valid values for library use are 'none'
                                     (default) and 'embedded'. Sidecar output is available in script mode. (Optional)
     :type transformation_metadata: str
+    :param append_content_hash: If True, append the deterministic content UUID to the supplied base URI. (Optional)
+    :type append_content_hash: bool
 
     :return: JSON data decoded into a RDFLib's Graph that is compliant with the OntoUML Vocabulary.
     :rtype: Graph
@@ -132,6 +142,7 @@ def decode_ontouml_json2graph(
             invalid_stereotype_policy=invalid_stereotype_policy,
             unresolved_model_element_policy=unresolved_model_element_policy,
             transformation_metadata=transformation_metadata,
+            append_content_hash=append_content_hash,
         )
 
     if execution_mode == "script" and not args.ARGUMENTS["silent"]:
@@ -159,6 +170,13 @@ def decode_ontouml_json2graph(
 
     # Load JSON
     json_data = safe_load_json_file(json_file_path)
+
+    if execution_mode != "test":
+        args.ARGUMENTS["base_uri"] = resolve_base_uri(
+            json_data=json_data,
+            base_uri=args.ARGUMENTS["base_uri_input"],
+            append_content_hash=args.ARGUMENTS["append_content_hash"],
+        )
 
     # Decode JSON into Graph
     ontouml_graph = decode_json_to_graph(json_data, language, execution_mode)
@@ -270,7 +288,20 @@ def decode_all_ontouml_json2graph() -> None:
     The output graphs are saved in the output directory chosen by the user as argument.
     """
     # Getting all
-    list_input_files = glob.glob(os.path.join(args.ARGUMENTS["input_path"], "*.json"))
+    list_input_files = sorted(glob.glob(os.path.join(args.ARGUMENTS["input_path"], "*.json")))
+
+    if (
+        len(list_input_files) > 1
+        and args.ARGUMENTS["base_uri_input"] is not None
+        and not args.ARGUMENTS["append_content_hash"]
+    ):
+        warnings.warn(
+            "All batch outputs will use the same explicit base URI. Their resources can collide if the graphs are "
+            "combined. Use --base-uri-with-content-id to create a separate content-derived namespace for each "
+            "distinct JSON document.",
+            SharedBatchBaseURIWarning,
+            stacklevel=2,
+        )
 
     for input_file in list_input_files:
         args.ARGUMENTS["input_path"] = input_file

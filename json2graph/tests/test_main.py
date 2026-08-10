@@ -32,6 +32,7 @@ from ..modules.cardinalities import (
     InvalidCardinalityError,
     InvalidCardinalityWarning,
 )
+from ..modules.content_identity import create_content_uuid, resolve_base_uri
 from ..modules.input_output import JSONEncodingFallbackWarning, safe_load_json_file
 from ..modules.metadata import METADATA
 from ..modules.model_element_references import (
@@ -358,6 +359,7 @@ def test_model_only_preserves_enumeration_literals() -> None:
     """Verify that model-only decoding preserves literals while removing diagrammatic elements."""
     ontouml_graph = decode_ontouml_json2graph(
         json_file_path=ENUMERATION_INPUT_FILE,
+        base_uri=BASE_URI,
         model_only=True,
         execution_mode="import",
     )
@@ -368,7 +370,7 @@ def test_model_only_preserves_enumeration_literals() -> None:
 
 def test_decode_json_model_preserves_enumeration_literals() -> None:
     """Verify that the public model-decoding API preserves enumeration literals."""
-    ontouml_graph = decode_json_model(json_file_path=ENUMERATION_INPUT_FILE)
+    ontouml_graph = decode_json_model(json_file_path=ENUMERATION_INPUT_FILE, base_uri=BASE_URI)
 
     assert_enumeration_literals_preserved(ontouml_graph)
 
@@ -429,7 +431,7 @@ def test_empty_text_shape_value_is_omitted_without_warning(tmp_path: Path) -> No
 
     with warnings.catch_warnings():
         warnings.simplefilter("error", UnsupportedTextValueWarning)
-        ontouml_graph = decode_ontouml_json2graph(json_file_path=str(input_file))
+        ontouml_graph = decode_ontouml_json2graph(json_file_path=str(input_file), base_uri=BASE_URI)
 
     text_shape_uri = URIRef(BASE_URI + "view-1_shape")
     assert (text_shape_uri, RDF.type, ONTOUML.Text) in ontouml_graph
@@ -442,7 +444,7 @@ def test_non_empty_text_shape_value_is_warned_and_omitted(tmp_path: Path) -> Non
     input_file = write_text_shape_project(tmp_path, width=80, height=42, value="Legacy label")
 
     with pytest.warns(UnsupportedTextValueWarning, match="Legacy label"):
-        ontouml_graph = decode_ontouml_json2graph(json_file_path=str(input_file))
+        ontouml_graph = decode_ontouml_json2graph(json_file_path=str(input_file), base_uri=BASE_URI)
 
     text_shape_uri = URIRef(BASE_URI + "view-1_shape")
     assert (text_shape_uri, RDF.type, ONTOUML.Text) in ontouml_graph
@@ -467,7 +469,7 @@ def test_dimensions_use_non_negative_integer_datatype(
     """Verify that positive and zero dimensions follow OntoUML Vocabulary v1.1.1."""
     input_file = write_text_shape_project(tmp_path, width=width, height=height)
 
-    ontouml_graph = decode_ontouml_json2graph(json_file_path=str(input_file))
+    ontouml_graph = decode_ontouml_json2graph(json_file_path=str(input_file), base_uri=BASE_URI)
 
     text_shape_uri = URIRef(BASE_URI + "view-1_shape")
     assert set(ontouml_graph.objects(text_shape_uri, ONTOUML.width)) == {
@@ -651,6 +653,7 @@ def test_decoding_applies_invalid_stereotype_policy(
     with pytest.warns(InvalidStereotypeWarning, match=f"policy is '{policy}'"):
         ontouml_graph = decode_ontouml_json2graph(
             json_file_path=str(input_file),
+            base_uri=BASE_URI,
             invalid_stereotype_policy=policy,
         )
 
@@ -677,6 +680,7 @@ def test_decoding_applies_policy_to_stereotype_from_wrong_element_type(
     with pytest.warns(InvalidStereotypeWarning, match="recognized for Relation, but not for Class"):
         ontouml_graph = decode_ontouml_json2graph(
             json_file_path=str(input_file),
+            base_uri=BASE_URI,
             invalid_stereotype_policy=policy,
         )
 
@@ -739,6 +743,7 @@ def test_preserve_policy_keeps_invalid_cardinality_without_bounds(
     with pytest.warns(InvalidCardinalityWarning, match="lowerBound and upperBound were omitted"):
         ontouml_graph = decode_ontouml_json2graph(
             json_file_path=str(input_file),
+            base_uri=BASE_URI,
             invalid_cardinality_policy="preserve",
         )
 
@@ -769,6 +774,7 @@ def test_repair_policy_fixes_only_observed_malformed_patterns(
     with pytest.warns(CardinalityRepairWarning, match="It was repaired"):
         ontouml_graph = decode_ontouml_json2graph(
             json_file_path=str(input_file),
+            base_uri=BASE_URI,
             invalid_cardinality_policy="repair",
         )
 
@@ -786,6 +792,7 @@ def test_repair_policy_falls_back_to_preserve_when_repair_is_unsafe(
     with pytest.warns(InvalidCardinalityWarning, match="could not be safely repaired"):
         ontouml_graph = decode_ontouml_json2graph(
             json_file_path=str(input_file),
+            base_uri=BASE_URI,
             invalid_cardinality_policy="repair",
         )
 
@@ -815,7 +822,7 @@ def test_valid_cardinality_emits_vocabulary_compliant_lower_bound(
     with warnings.catch_warnings():
         warnings.simplefilter("error", InvalidCardinalityWarning)
         warnings.simplefilter("error", CardinalityRepairWarning)
-        ontouml_graph = decode_ontouml_json2graph(json_file_path=str(input_file))
+        ontouml_graph = decode_ontouml_json2graph(json_file_path=str(input_file), base_uri=BASE_URI)
 
     assert_cardinality(ontouml_graph, normalized, lower_bound, upper_bound)
 
@@ -827,6 +834,7 @@ def test_decode_json_model_applies_cardinality_repair_policy(tmp_path: Path) -> 
     with pytest.warns(CardinalityRepairWarning, match="It was repaired"):
         ontouml_graph = decode_json_model(
             json_file_path=str(input_file),
+            base_uri=BASE_URI,
             invalid_cardinality_policy="repair",
         )
 
@@ -897,7 +905,7 @@ def test_default_policy_omits_unresolved_model_element_reference(
     input_file = write_model_element_reference_project(tmp_path, referenced_element_type)
 
     with pytest.warns(UnresolvedModelElementWarning, match="policy is 'omit'") as warning_records:
-        ontouml_graph = decode_ontouml_json2graph(json_file_path=str(input_file))
+        ontouml_graph = decode_ontouml_json2graph(json_file_path=str(input_file), base_uri=BASE_URI)
 
     warning_message = str(warning_records[0].message)
     assert str(input_file) in warning_message
@@ -927,6 +935,7 @@ def test_preserve_policy_retains_unresolved_model_element_reference(
     with pytest.warns(UnresolvedModelElementWarning, match="policy is 'preserve'"):
         ontouml_graph = decode_ontouml_json2graph(
             json_file_path=str(input_file),
+            base_uri=BASE_URI,
             unresolved_model_element_policy="preserve",
         )
 
@@ -943,7 +952,7 @@ def test_resolved_model_element_reference_is_preserved_without_warning(tmp_path:
 
     with warnings.catch_warnings():
         warnings.simplefilter("error", UnresolvedModelElementWarning)
-        ontouml_graph = decode_ontouml_json2graph(json_file_path=str(input_file))
+        ontouml_graph = decode_ontouml_json2graph(json_file_path=str(input_file), base_uri=BASE_URI)
 
     element_view_uri = URIRef(BASE_URI + "view-1")
     referenced_element_uri = URIRef(BASE_URI + "referenced-element-1")
@@ -1005,6 +1014,7 @@ def test_decode_json_model_exposes_unresolved_model_element_policy(tmp_path: Pat
     with pytest.warns(UnresolvedModelElementWarning, match="policy is 'preserve'"):
         ontouml_graph = decode_json_model(
             json_file_path=str(input_file),
+            base_uri=BASE_URI,
             unresolved_model_element_policy="preserve",
         )
 
@@ -1027,6 +1037,226 @@ def run_metadata_cli(input_file: Path, output_directory: Path, mode: str | None 
     if mode is not None:
         command.extend(["--transformation-metadata", mode])
     return subprocess.run(command, capture_output=True, check=False, text=True)
+
+
+def test_content_uuid_uses_canonical_json_and_preserves_array_order() -> None:
+    """Verify that insignificant object formatting is ignored while array order remains significant."""
+    first_document = {"name": "Café", "items": [1, 2], "enabled": True}
+    reordered_object = {"enabled": True, "items": [1, 2], "name": "Café"}
+    reordered_array = {"name": "Café", "items": [2, 1], "enabled": True}
+
+    assert str(create_content_uuid(first_document)) == "ec1f2fd6-ec3e-536e-851f-1df8e963816f"
+    assert create_content_uuid(first_document) == create_content_uuid(reordered_object)
+    assert create_content_uuid(first_document) != create_content_uuid(reordered_array)
+
+
+def test_default_base_uri_is_deterministic_for_the_same_json(tmp_path: Path) -> None:
+    """Verify that repeated decoding produces the same content-derived resource identifiers."""
+    input_file = write_cardinality_project(tmp_path, "0..1")
+    json_data = json.loads(input_file.read_text(encoding="utf-8"))
+    expected_base_uri = f"urn:uuid:{create_content_uuid(json_data)}#"
+    expected_class = URIRef(expected_base_uri + "class-1")
+
+    first_graph = decode_json_project(json_file_path=str(input_file))
+    second_graph = decode_json_project(json_file_path=str(input_file))
+
+    assert set(first_graph) == set(second_graph)
+    assert (expected_class, RDF.type, ONTOUML.Class) in first_graph
+
+
+def test_default_base_uri_ignores_json_whitespace_and_key_order(tmp_path: Path) -> None:
+    """Verify that equivalent parsed JSON produces equal graphs and identifiers."""
+    first_input = write_cardinality_project(tmp_path, "0..1")
+    json_data = json.loads(first_input.read_text(encoding="utf-8"))
+    second_input = tmp_path / "reformatted.json"
+    second_input.write_text(
+        json.dumps(json_data, ensure_ascii=False, indent=4, sort_keys=True),
+        encoding="utf-8",
+    )
+
+    first_graph = decode_json_project(json_file_path=str(first_input))
+    second_graph = decode_json_project(json_file_path=str(second_input))
+
+    assert set(first_graph) == set(second_graph)
+
+
+def test_content_change_produces_a_different_default_base_uri(tmp_path: Path) -> None:
+    """Verify that different canonical JSON documents receive different namespaces."""
+    first_input = write_cardinality_project(tmp_path, "0..1").rename(tmp_path / "first.json")
+    second_input = write_cardinality_project(tmp_path, "1..*").rename(tmp_path / "second.json")
+    first_data = json.loads(first_input.read_text(encoding="utf-8"))
+    second_data = json.loads(second_input.read_text(encoding="utf-8"))
+    first_class = URIRef(resolve_base_uri(first_data) + "class-1")
+    second_class = URIRef(resolve_base_uri(second_data) + "class-1")
+
+    first_graph = decode_json_project(json_file_path=str(first_input))
+    second_graph = decode_json_project(json_file_path=str(second_input))
+
+    assert first_class != second_class
+    assert (first_class, RDF.type, ONTOUML.Class) in first_graph
+    assert (second_class, RDF.type, ONTOUML.Class) in second_graph
+
+
+def test_project_and_model_decoding_share_the_same_default_base_uri(tmp_path: Path) -> None:
+    """Verify that model-only filtering does not alter document identity."""
+    input_file = write_cardinality_project(tmp_path, "0..1")
+    json_data = json.loads(input_file.read_text(encoding="utf-8"))
+    expected_class = URIRef(resolve_base_uri(json_data) + "class-1")
+
+    project_graph = decode_json_project(json_file_path=str(input_file))
+    model_graph = decode_json_model(json_file_path=str(input_file))
+
+    assert (expected_class, RDF.type, ONTOUML.Class) in project_graph
+    assert (expected_class, RDF.type, ONTOUML.Class) in model_graph
+
+
+def test_explicit_base_uri_is_used_without_a_content_id(tmp_path: Path) -> None:
+    """Verify exact explicit-base behavior in the library API."""
+    input_file = write_cardinality_project(tmp_path, "0..1")
+
+    ontouml_graph = decode_json_project(
+        json_file_path=str(input_file),
+        base_uri="https://pp.pp/model",
+    )
+
+    assert (URIRef("https://pp.pp/model#class-1"), RDF.type, ONTOUML.Class) in ontouml_graph
+
+
+def test_explicit_base_uri_can_include_the_content_id(tmp_path: Path) -> None:
+    """Verify content-scoped explicit-base behavior in the library API."""
+    input_file = write_cardinality_project(tmp_path, "0..1")
+    json_data = json.loads(input_file.read_text(encoding="utf-8"))
+    expected_base_uri = f"https://pp.pp/{create_content_uuid(json_data)}#"
+
+    ontouml_graph = decode_json_project(
+        json_file_path=str(input_file),
+        base_uri="https://pp.pp#",
+        append_content_hash=True,
+    )
+
+    assert (URIRef(expected_base_uri + "class-1"), RDF.type, ONTOUML.Class) in ontouml_graph
+
+
+def test_invalid_explicit_base_uri_is_rejected(tmp_path: Path) -> None:
+    """Verify that library users receive the same base-URI validation as CLI users."""
+    input_file = write_cardinality_project(tmp_path, "0..1")
+
+    with pytest.raises(ValueError, match="absolute URI"):
+        decode_json_project(json_file_path=str(input_file), base_uri="relative/path")
+
+
+def test_cli_base_uri_options_are_mutually_exclusive(tmp_path: Path) -> None:
+    """Verify that the CLI rejects conflicting exact and content-scoped bases."""
+    input_file = write_cardinality_project(tmp_path, "0..1")
+
+    result = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "json2graph.decode",
+            "-i",
+            str(input_file),
+            "--base-uri",
+            "https://pp.pp#",
+            "--base-uri-with-content-id",
+            "https://pp.pp#",
+        ],
+        capture_output=True,
+        check=False,
+        text=True,
+    )
+
+    assert result.returncode != 0
+    assert "not allowed with argument" in result.stderr
+
+
+@pytest.mark.parametrize(
+    ("base_option", "expected_parent"),
+    [
+        ([], None),
+        (["--base-uri-with-content-id", "https://pp.pp#"], "https://pp.pp"),
+    ],
+)
+def test_batch_mode_creates_content_scoped_namespaces(
+    tmp_path: Path,
+    base_option: list[str],
+    expected_parent: str | None,
+) -> None:
+    """Verify safe content-derived namespaces for default and explicitly scoped batches."""
+    input_directory = tmp_path / "inputs"
+    output_directory = tmp_path / "outputs"
+    input_directory.mkdir()
+    output_directory.mkdir()
+    first_input = write_cardinality_project(input_directory, "0..1").rename(input_directory / "first.json")
+    second_input = write_cardinality_project(input_directory, "1..*").rename(input_directory / "second.json")
+
+    result = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "json2graph.decode",
+            "-a",
+            "-i",
+            str(input_directory),
+            "-o",
+            str(output_directory),
+            "--silent",
+            *base_option,
+        ],
+        capture_output=True,
+        check=False,
+        text=True,
+    )
+
+    assert result.returncode == 0, result.stderr
+    expected_classes = []
+    for input_file in (first_input, second_input):
+        json_data = json.loads(input_file.read_text(encoding="utf-8"))
+        if expected_parent is None:
+            base_uri = resolve_base_uri(json_data)
+        else:
+            base_uri = f"{expected_parent}/{create_content_uuid(json_data)}#"
+        expected_class = URIRef(base_uri + "class-1")
+        expected_classes.append(expected_class)
+        output_graph = Graph().parse(output_directory / f"{input_file.stem}.ttl", format="turtle")
+        assert (expected_class, RDF.type, ONTOUML.Class) in output_graph
+
+    assert expected_classes[0] != expected_classes[1]
+
+
+def test_batch_mode_allows_and_warns_about_an_explicit_shared_base(tmp_path: Path) -> None:
+    """Verify that an intentional exact batch namespace is preserved with a collision warning."""
+    input_directory = tmp_path / "inputs"
+    output_directory = tmp_path / "outputs"
+    input_directory.mkdir()
+    output_directory.mkdir()
+    write_cardinality_project(input_directory, "0..1").rename(input_directory / "first.json")
+    write_cardinality_project(input_directory, "1..*").rename(input_directory / "second.json")
+
+    result = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "json2graph.decode",
+            "-a",
+            "-i",
+            str(input_directory),
+            "-o",
+            str(output_directory),
+            "--silent",
+            "--base-uri",
+            BASE_URI,
+        ],
+        capture_output=True,
+        check=False,
+        text=True,
+    )
+
+    assert result.returncode == 0, result.stderr
+    assert "resources can collide" in result.stderr
+    for output_file in output_directory.glob("*.ttl"):
+        output_graph = Graph().parse(output_file, format="turtle")
+        assert (URIRef(BASE_URI + "class-1"), RDF.type, ONTOUML.Class) in output_graph
 
 
 def get_output_artifact(metadata_graph: Graph) -> URIRef:
@@ -1117,8 +1347,9 @@ def test_embedded_metadata_describes_the_transformation(tmp_path: Path) -> None:
     ) in output_graph
 
     configuration = json.loads(str(output_graph.value(configuration_entity, PROV.value)))
+    expected_base_uri = resolve_base_uri(json.loads(input_file.read_text(encoding="utf-8")))
     assert configuration == {
-        "base_uri": BASE_URI,
+        "base_uri": expected_base_uri,
         "correct": False,
         "invalid_cardinality_policy": "preserve",
         "invalid_stereotype_policy": "preserve",

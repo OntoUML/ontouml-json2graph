@@ -10,8 +10,6 @@ default values (when executed as test or as a library).
 import argparse
 import os
 
-import validators
-
 from .errors import report_error_requirement_not_met
 from .cardinalities import INVALID_CARDINALITY_POLICIES
 from .input_output import create_directory_if_not_exists
@@ -123,13 +121,23 @@ def initialize_args_script() -> None:
         default=False,
         help="Silent mode. Does not present validation warnings and errors.",
     )
-    args_parser.add_argument(
+    base_uri_group = args_parser.add_mutually_exclusive_group()
+    base_uri_group.add_argument(
         "-u",
+        "--base-uri",
         "--base_uri",
         type=str,
         action="store",
-        default="https://example.org#",
-        help="Base URI of the resulting graph. Default is 'https://example.org#'.",
+        default=None,
+        help="Use this exact base URI for generated resources. By default, a deterministic urn:uuid base is derived "
+        "from each JSON document.",
+    )
+    base_uri_group.add_argument(
+        "--base-uri-with-content-id",
+        type=str,
+        action="store",
+        default=None,
+        help="Use this URI as a parent and append the document's deterministic content UUID.",
     )
     args_parser.add_argument(
         "-m",
@@ -178,8 +186,12 @@ def initialize_args_script() -> None:
     arguments = args_parser.parse_args()
 
     # Asserting dictionary keys
+    requested_base_uri = arguments.base_uri if arguments.base_uri is not None else arguments.base_uri_with_content_id
+    append_content_hash = arguments.base_uri_with_content_id is not None
     arguments_dictionary = {
-        "base_uri": arguments.base_uri,
+        "append_content_hash": append_content_hash,
+        "base_uri": requested_base_uri,
+        "base_uri_input": requested_base_uri,
         "correct": arguments.correct,
         "decode_all": arguments.decode_all,
         "format": arguments.format,
@@ -204,12 +216,6 @@ def initialize_args_script() -> None:
         create_directory_if_not_exists(arguments.output_path, "output directory")
         LOGGER.info("The provided output directory did not exist and was created.")
 
-    # Checking if provided URI is valid. I.e., if it has '/' or '#' at the end. If it does not, add a '#'
-    if not validators.url(arguments.base_uri):
-        report_error_requirement_not_met("Provided base URI is invalid. Execution finished.")
-    elif (arguments.base_uri[-1] != "#") and (arguments.base_uri[-1] != "/"):
-        arguments_dictionary["base_uri"] += "#"
-
     LOGGER.debug(f"Arguments parsed. Obtained values are: {arguments_dictionary}.")
 
     global ARGUMENTS
@@ -219,7 +225,7 @@ def initialize_args_script() -> None:
 def initialize_args_import(
     input_path: str = "not_initialized",
     output_path: str = os.getcwd(),
-    base_uri: str = "https://example.org#",
+    base_uri: str | None = None,
     graph_format: str = "ttl",
     language: str = "",
     model_only: bool = False,
@@ -229,6 +235,7 @@ def initialize_args_import(
     invalid_cardinality_policy: str = "preserve",
     unresolved_model_element_policy: str = "omit",
     transformation_metadata: str = "none",
+    append_content_hash: bool = False,
 ):
     """Initialize the global variable ARGUMENTS of type dictionary, which contains user-provided \
     (when executed in script mode) or default arguments (when executed as a library or for testing).
@@ -239,9 +246,9 @@ def initialize_args_import(
     :type input_path: str
     :param output_path: Path to the directory in which the result file(s) will be saved. (Optional)
     :type output_path: str
-    :param base_uri: Base URI to be used for generating URIs for ontology concepts. (Optional)
-                     Default is "https://example.org#".
-    :type base_uri: str
+    :param base_uri: Optional explicit base URI for generated resources. When omitted, a deterministic urn:uuid base
+                     is derived from the parsed JSON document. (Optional)
+    :type base_uri: str or None
     :param graph_format: Format for saving the resulting knowledge graph. (Optional)
                          Default value is 'ttl' (Turtle syntax).
     :type graph_format: str
@@ -265,6 +272,8 @@ def initialize_args_import(
     :param transformation_metadata: How transformation provenance is returned. Library decoding supports 'none' and
                                     'embedded'; sidecar output is available in script mode. (Optional)
     :type transformation_metadata: str
+    :param append_content_hash: If True, append the deterministic content UUID to the supplied base URI. (Optional)
+    :type append_content_hash: bool
     """
     validate_arg_input(input_path, decode_all=False)
 
@@ -296,7 +305,9 @@ def initialize_args_import(
             "Sidecar transformation metadata requires file output and is only available in script mode."
         )
 
+    ARGUMENTS["append_content_hash"] = append_content_hash
     ARGUMENTS["base_uri"] = base_uri
+    ARGUMENTS["base_uri_input"] = base_uri
     ARGUMENTS["correct"] = correct
     ARGUMENTS["format"] = graph_format
     ARGUMENTS["input_path"] = input_path
@@ -362,7 +373,9 @@ def initialize_args_test(
             f"{list(TRANSFORMATION_METADATA_MODES)}."
         )
 
+    ARGUMENTS["append_content_hash"] = False
     ARGUMENTS["base_uri"] = "https://example.org#"
+    ARGUMENTS["base_uri_input"] = "https://example.org#"
     ARGUMENTS["correct"] = True
     ARGUMENTS["format"] = "ttl"
     ARGUMENTS["input_path"] = input_path

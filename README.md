@@ -40,6 +40,7 @@ For inquiries and further information, please refer to the [comprehensive docstr
     * [Usage](#usage)
         * [Executing as a Script](#executing-as-a-script)
             * [Arguments](#arguments)
+            * [Resource identity and base URIs](#resource-identity-and-base-uris)
             * [Transformation provenance metadata](#transformation-provenance-metadata)
         * [Importing as a Library](#importing-as-a-library)
             * [decode_json_project](#decodejsonproject)
@@ -99,13 +100,14 @@ Optional arguments provide additional features. All available ontouml-json2graph
 
 ```text
 usage: ontouml-json2graph [-h] -i INPUT_PATH [-o OUTPUT_PATH] [-a] [-f {turtle,ttl,turtle2,xml,pretty-xml,json-ld,ntriples,nt,nt11,n3,trig,trix,nquads}]
-                          [-l LANGUAGE] [-c] [-s] [-u BASE_URI] [-m]
+                          [-l LANGUAGE] [-c] [-s]
+                          [-u BASE_URI | --base-uri-with-content-id BASE_URI_WITH_CONTENT_ID] [-m]
                           [--invalid-cardinality-policy {preserve,repair,error}]
                           [--invalid-stereotype-policy {preserve,omit,error}]
                           [--unresolved-model-element-policy {preserve,omit,error}]
                           [--transformation-metadata {none,embedded,sidecar}] [-v]
 
-OntoUML JSON2Graph Decoder. Version: 1.3.3
+OntoUML JSON2Graph Decoder. Version: 2.0.0
 
 options:
   -h, --help            show this help message and exit
@@ -120,8 +122,10 @@ options:
                         Language tag for the ontology's concepts. Default is 'None'.
   -c, --correct         Enables syntactical and semantic validations and corrections.
   -s, --silent          Silent mode. Does not present validation warnings and errors.
-  -u BASE_URI, --base_uri BASE_URI
-                        Base URI of the resulting graph. Default is 'https://example.org#'.
+  -u BASE_URI, --base-uri BASE_URI, --base_uri BASE_URI
+                        Use this exact base URI for generated resources. By default, a deterministic urn:uuid base is derived from each JSON document.
+  --base-uri-with-content-id BASE_URI_WITH_CONTENT_ID
+                        Use this URI as a parent and append the document's deterministic content UUID.
   -m, --model_only      Keep only model elements, eliminating all diagrammatic data from output.
   --invalid-cardinality-policy {preserve,repair,error}
                         Handle invalid cardinalities: preserve, repair known corpus patterns, or error. Default is 'preserve'.
@@ -135,6 +139,39 @@ options:
 
 More information at: https://w3id.org/ontouml/json2graph
 ```
+
+#### Resource identity and base URIs
+
+When no base URI is supplied, JSON2Graph derives a deterministic namespace from the parsed JSON document:
+
+```text
+urn:uuid:<content-uuid>#
+```
+
+The document is serialized as canonical JSON with sorted object keys, compact separators, preserved array order, and
+UTF-8 characters. JSON2Graph calculates its SHA-256 digest and converts that digest into a UUIDv5 using the permanent
+JSON2Graph namespace UUID `3f6e741a-4a05-5962-83d0-343fc9d7dc22`. Consequently, formatting and object-key order do
+not affect the namespace, while content changes do. The same input receives the same resource identifiers in
+single-file and batch modes, including when only model elements are requested.
+
+Use `--base-uri` when an exact user-controlled namespace is required:
+
+```text
+python -m json2graph.decode -i my_ontology.json --base-uri https://example.org/models/my-model#
+```
+
+Use `--base-uri-with-content-id` to treat the supplied URI as a parent and append the deterministic content UUID:
+
+```text
+python -m json2graph.decode -i my_ontology.json --base-uri-with-content-id https://example.org/models
+```
+
+This produces `https://example.org/models/<content-uuid>#`. The two base-URI options are mutually exclusive. In batch
+mode, an exact `--base-uri` is intentionally shared by every output and generates a collision warning; the default and
+`--base-uri-with-content-id` provide content-scoped namespaces.
+
+Version 2.0 changes the omitted-base behavior from the shared `https://example.org#` namespace to the deterministic
+`urn:uuid:` namespace. Supply `--base-uri https://example.org#` only when the former behavior is explicitly required.
 
 #### Transformation provenance metadata
 
@@ -177,6 +214,9 @@ The library provides the following functions for decoding OntoUML JSON data and 
 
 The `decode_json_project` function allows you to decode the complete OntoUML JSON data (including elements from OntoUML's abstract and concrete syntax) into a knowledge graph that conforms to the OntoUML Vocabulary. This function provides customization options, such as specifying the base URI for ontology concepts, adding language tags, and enabling error correction. With this function domain-level and diagrammatic data are converted to Knowledge Graph.
 
+When `base_uri` is omitted, the library uses the same deterministic `urn:uuid:` namespace as the command-line
+interface. Set `append_content_hash=True` with a supplied `base_uri` to append the content-derived UUID.
+
 ```python
 from json2graph.library import decode_json_project
 
@@ -185,6 +225,10 @@ decoded_graph_project = decode_json_project(json_file_path="path/to/input.json",
                                             invalid_cardinality_policy="preserve",
                                             invalid_stereotype_policy="preserve",
                                             transformation_metadata="none")
+
+content_scoped_graph = decode_json_project(json_file_path="path/to/input.json",
+                                           base_uri="https://myuri.org/models",
+                                           append_content_hash=True)
 ```
 
 Library decoding accepts `transformation_metadata="none"` or `"embedded"`. It never creates a sidecar implicitly;
@@ -195,6 +239,8 @@ sidecar output requires the command-line file-writing workflow.
 The `decode_json_model` function decodes OntoUML JSON data representing a model-level view into a knowledge graph that adheres to the OntoUML Vocabulary.
 
 Differently from the `decode_json_model`, this function decodes only elements from the OntoUML's abstract syntax. I.e., only domain-level (and not diagrammatic) data is converted to knowledge graph. It offers options for base URI, language tags, and error correction.
+
+The default and explicit base-URI rules are identical to `decode_json_project`.
 
 ```python
 from json2graph.library import decode_json_model

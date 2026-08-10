@@ -18,13 +18,14 @@ from .modules.input_output import safe_write_graph_file
 
 def decode_json_project(
     json_file_path: str,
-    base_uri: str = "https://example.org#",
+    base_uri: str | None = None,
     language: str = "",
     correct: bool = False,
     invalid_stereotype_policy: str = "preserve",
     invalid_cardinality_policy: str = "preserve",
     unresolved_model_element_policy: str = "omit",
     transformation_metadata: str = "none",
+    append_content_hash: bool = False,
 ) -> Graph:
     """Decode elements from OntoUML's abstract and concrete syntax from JSON format into a Knowledge Graph. \
     I.e., domain-level and diagrammatic data are converted to Knowledge Graph.
@@ -35,9 +36,9 @@ def decode_json_project(
 
     :param json_file_path: Path to the JSON file to be decoded provided by the user.
     :type json_file_path: str
-    :param base_uri: Base URI to be used for generating URIs for ontology concepts.
-                     Default is "https://example.org#". (Optional)
-    :type base_uri: str
+    :param base_uri: Optional explicit base URI for generated resources. When omitted, a deterministic urn:uuid base
+                     is derived from the parsed JSON document. (Optional)
+    :type base_uri: str or None
     :param language: Language tag to be added to the ontology's concepts. (Optional)
                      This tag specifies the language in which labels and descriptions are provided.
     :type language: str
@@ -55,6 +56,8 @@ def decode_json_project(
     :param transformation_metadata: Optional transformation provenance. Valid values are 'none' (default) and
                                     'embedded'. (Optional)
     :type transformation_metadata: str
+    :param append_content_hash: If True, append the deterministic content UUID to the supplied base URI. (Optional)
+    :type append_content_hash: bool
 
     :return: JSON data decoded into a RDFLib's Graph that is compliant with the OntoUML Vocabulary.
     :rtype: Graph
@@ -71,6 +74,7 @@ def decode_json_project(
         invalid_stereotype_policy=invalid_stereotype_policy,
         unresolved_model_element_policy=unresolved_model_element_policy,
         transformation_metadata=transformation_metadata,
+        append_content_hash=append_content_hash,
     )
 
     return decoded_graph_project
@@ -78,13 +82,14 @@ def decode_json_project(
 
 def decode_json_model(
     json_file_path: str,
-    base_uri: str = "https://example.org#",
+    base_uri: str | None = None,
     language: str = "",
     correct: bool = False,
     invalid_stereotype_policy: str = "preserve",
     invalid_cardinality_policy: str = "preserve",
     unresolved_model_element_policy: str = "omit",
     transformation_metadata: str = "none",
+    append_content_hash: bool = False,
 ) -> Graph:
     """Decode elements from OntoUML's abstract syntax from JSON format into a Knowledge Graph. \
     I.e., only domain-level (and not diagrammatic) data is converted to Knowledge Graph.
@@ -95,9 +100,9 @@ def decode_json_model(
 
     :param json_file_path: Path to the JSON file to be decoded provided by the user.
     :type json_file_path: str
-    :param base_uri: Base URI to be used for generating URIs for ontology concepts.
-                     Default is "https://example.org#". (Optional)
-    :type base_uri: str
+    :param base_uri: Optional explicit base URI for generated resources. When omitted, a deterministic urn:uuid base
+                     is derived from the parsed JSON document. (Optional)
+    :type base_uri: str or None
     :param language: Language tag to be added to the ontology's concepts. (Optional)
                      This tag specifies the language in which labels and descriptions are provided.
     :type language: str
@@ -115,6 +120,8 @@ def decode_json_model(
     :param transformation_metadata: Optional transformation provenance. Valid values are 'none' (default) and
                                     'embedded'. (Optional)
     :type transformation_metadata: str
+    :param append_content_hash: If True, append the deterministic content UUID to the supplied base URI. (Optional)
+    :type append_content_hash: bool
 
     :return: JSON data decoded into a RDFLib's Graph that is compliant with the OntoUML Vocabulary.
     :rtype: Graph
@@ -131,6 +138,7 @@ def decode_json_model(
         invalid_stereotype_policy=invalid_stereotype_policy,
         unresolved_model_element_policy=unresolved_model_element_policy,
         transformation_metadata=transformation_metadata,
+        append_content_hash=append_content_hash,
     )
 
     return decoded_graph_model
