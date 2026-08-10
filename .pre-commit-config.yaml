@@ -1,7 +1,6 @@
 minimum_pre_commit_version: "3.4.0"
 default_install_hook_types: [pre-commit, pre-push]
 default_stages: [pre-commit]
-exclude: ^(?:docs|sphinx)/
 
 repos:
   - repo: https://github.com/python-poetry/poetry

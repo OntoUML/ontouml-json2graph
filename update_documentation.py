@@ -1,4 +1,4 @@
-"""Build and publish the project's Sphinx documentation."""
+"""Build the project's Sphinx documentation."""
 
 import shutil
 import subprocess
@@ -12,10 +12,10 @@ LOGGER = initialize_logger()
 
 
 def execute_documentation_commands() -> None:
-    """Build the Sphinx documentation and replace ``docs`` only after success."""
+    """Build the Sphinx documentation strictly and replace its local HTML output after success."""
     base_dir = Path(__file__).resolve().parent
-    sphinx_dir = base_dir / "sphinx"
-    docs_dir = base_dir / "docs"
+    source_dir = base_dir / "docs"
+    output_dir = source_dir / "_build" / "html"
 
     with tempfile.TemporaryDirectory(prefix="ontouml-json2graph-docs-") as temporary_directory:
         build_dir = Path(temporary_directory) / "build"
@@ -28,10 +28,13 @@ def execute_documentation_commands() -> None:
                 "sphinx",
                 "-M",
                 "html",
-                ".",
+                str(source_dir),
                 str(build_dir),
+                "-W",
+                "--keep-going",
+                "-n",
             ],
-            cwd=sphinx_dir,
+            cwd=base_dir,
             check=True,
         )
 
@@ -39,11 +42,12 @@ def execute_documentation_commands() -> None:
         if not built_html_dir.is_dir():
             raise FileNotFoundError(f"Sphinx did not create the expected HTML directory: {built_html_dir}")
 
-        if docs_dir.exists():
-            shutil.rmtree(docs_dir)
-        shutil.copytree(built_html_dir, docs_dir)
+        if output_dir.exists():
+            shutil.rmtree(output_dir)
+        output_dir.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copytree(built_html_dir, output_dir)
 
-    LOGGER.info(f"Documentation successfully generated at '{docs_dir}'.")
+    LOGGER.info(f"Documentation successfully generated at '{output_dir}'.")
 
 
 if __name__ == "__main__":
