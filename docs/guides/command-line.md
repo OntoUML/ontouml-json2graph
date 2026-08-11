@@ -11,14 +11,18 @@ python -m json2graph.decode --help
 
 ## Convert one file
 
-```console
-python -m json2graph.decode -i my_ontology.json -o results -f ttl
+The repository's canonical example uses `docs/examples/minimal-project.json`.
+Run this command from `docs/examples`:
+
+```{literalinclude} ../examples/cli-usage.txt
+:language: console
 ```
 
 The input must be an existing file whose path contains `.json`. The output
 directory defaults to the current working directory and is created when it does
 not exist. The output filename is the input stem followed by the selected format
-as its extension.
+as its extension. The canonical command writes
+`output/minimal-project.ttl`.
 
 Use `--model_only` to remove project and diagrammatic resources:
 

@@ -1,0 +1,58 @@
+usage: ontouml-json2graph [-h] -i INPUT_PATH [-o OUTPUT_PATH] [-a]
+                          [-f {turtle,ttl,turtle2,xml,pretty-xml,json-ld,ntriples,nt,nt11,n3,trig,trix,nquads}]
+                          [-l LANGUAGE] [-c] [-s] [-u BASE_URI |
+                          --base-uri-with-content-id BASE_URI_WITH_CONTENT_ID] [-m]
+                          [--invalid-cardinality-policy {preserve,repair,error}]
+                          [--invalid-stereotype-policy {preserve,omit,error}]
+                          [--unresolved-model-element-policy {preserve,omit,error}]
+                          [--path-order-policy {warn,comment}]
+                          [--property-assignment-policy {warn,comment}]
+                          [--transformation-metadata {none,embedded,sidecar}] [-v]
+
+OntoUML JSON2Graph Decoder. Version: 2.0.0
+
+options:
+  -h, --help            show this help message and exit
+  -i, --input_path INPUT_PATH
+                        The path of the JSON file or directory with JSON files to be decoded.
+  -o, --output_path OUTPUT_PATH
+                        The path of the directory in which the resulting decoded file(s) will be
+                        saved. Default is the working directory.
+  -a, --decode_all      Convert direct *.json children of the input directory (non-recursive).
+  -f, --format {turtle,ttl,turtle2,xml,pretty-xml,json-ld,ntriples,nt,nt11,n3,trig,trix,nquads}
+                        Format to save the decoded file. Default is 'ttl'.
+  -l, --language LANGUAGE
+                        Language tag for source name literals. By default, no language tag is
+                        added.
+  -c, --correct         Enable the legacy class and property validation and correction pass.
+  -s, --silent          Suppress progress and legacy validation log messages. Python warnings and
+                        errors are still reported.
+  -u, --base-uri, --base_uri BASE_URI
+                        Use this absolute base URI for generated resources, adding an identifier
+                        separator when needed. By default, a deterministic urn:uuid base is
+                        derived from each JSON document.
+  --base-uri-with-content-id BASE_URI_WITH_CONTENT_ID
+                        Use this URI as a parent and append the document's deterministic content
+                        UUID.
+  -m, --model_only      Keep only model elements, eliminating all diagrammatic data from output.
+  --invalid-cardinality-policy {preserve,repair,error}
+                        Handle invalid cardinalities: preserve, repair known corpus patterns, or
+                        error. Default is 'preserve'.
+  --invalid-stereotype-policy {preserve,omit,error}
+                        Handle stereotypes invalid for their element type: preserve, omit, or
+                        error. Default is 'preserve'.
+  --unresolved-model-element-policy {preserve,omit,error}
+                        Handle unresolved modelElement references: preserve, omit, or error.
+                        Default is 'omit'.
+  --path-order-policy {warn,comment}
+                        Handle path-point order: warn without representing it, or add a non-
+                        normative rdfs:comment. Default is 'warn'.
+  --property-assignment-policy {warn,comment}
+                        Handle non-empty propertyAssignments maps: warn and omit them, or add
+                        canonical JSON in a non-normative rdfs:comment. Default is 'warn'.
+  --transformation-metadata {none,embedded,sidecar}
+                        Transformation provenance: none, embedded in the output, or a separate
+                        Turtle sidecar. Default is 'none'.
+  -v, --version         Print the software version and exit.
+
+More information at: https://w3id.org/ontouml/json2graph

@@ -1,0 +1,18 @@
+{
+  "id": "example-project",
+  "name": "Minimal example",
+  "type": "Project",
+  "model": {
+    "id": "example-model",
+    "name": "Minimal model",
+    "type": "Package",
+    "contents": [
+      {
+        "id": "person",
+        "name": "Person",
+        "type": "Class",
+        "stereotype": "kind"
+      }
+    ]
+  }
+}

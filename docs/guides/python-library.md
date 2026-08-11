@@ -3,16 +3,18 @@
 The supported library interface exposes two decoders and one graph-writing
 utility from `json2graph.library`.
 
-## Decode a complete project
+## Decode and write a complete project
 
-```python
-from json2graph.library import decode_json_project
+The repository's canonical example reads `minimal-project.json`, returns an
+RDFLib graph, and writes it as Turtle. Run it from `docs/examples`:
 
-graph = decode_json_project("my_ontology.json")
+```{literalinclude} ../examples/library-usage.py
+:language: python
 ```
 
 `decode_json_project` returns model, project, and supported diagrammatic
-resources in an RDFLib `Graph`.
+resources in an RDFLib `Graph`. Library decoding does not write a model file;
+the example calls `save_graph_file` explicitly.
 
 ## Decode model information only
 
@@ -24,16 +26,6 @@ graph = decode_json_model("my_ontology.json")
 
 `decode_json_model` removes project and diagrammatic resources while retaining
 domain-level model resources, including enumeration literals.
-
-## Write a graph
-
-Library decoding does not write a model file. Serialize explicitly with:
-
-```python
-from json2graph.library import save_graph_file
-
-save_graph_file(graph, "my_ontology.ttl", "ttl")
-```
 
 The accepted syntax names are listed in the
 [Python API reference](../reference/python-api.rst) and match the CLI's supported

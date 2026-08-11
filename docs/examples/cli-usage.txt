@@ -1,0 +1,1 @@
+python -m json2graph.decode -i minimal-project.json -o output -f ttl --silent

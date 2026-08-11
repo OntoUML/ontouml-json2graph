@@ -12,7 +12,14 @@ poetry run python update_documentation.py
 The builder performs a clean Sphinx build with warnings treated as errors and
 nitpicky reference checking enabled. A successful run therefore verifies the
 page hierarchy, internal references, and generated Python API page before it
-replaces the local HTML output.
+replaces the local HTML output. It also regenerates
+`docs/reference/cli-help.txt` from the current parser before building.
+
+Canonical documentation examples live under `docs/examples/`. Sphinx includes
+those files directly, and `json2graph/tests/test_documentation.py` executes the
+same CLI and Python examples. Run `poetry run pytest` after changing an example
+or interface. The tests also fail when the checked-in CLI help differs from the
+current parser output.
 
 Documentation is divided by responsibility:
 
