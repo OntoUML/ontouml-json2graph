@@ -1,23 +1,66 @@
 # Limitations and diagnostics
 
-The transformation parses JSON and expects the OntoUML JSON structure used by
-the project. It does not perform JSON Schema validation before decoding.
+## Input validation and encoding
 
-Some source information has no direct normative representation in the OntoUML
-Vocabulary. The main cases are:
+The decoder parses JSON and expects the OntoUML JSON structure. It does not run
+the OntoUML JSON Schema or another structural validation step before traversing
+the document. Malformed JSON, absent required structures, unexpected types, and
+unsupported values can therefore raise parser or runtime errors during
+decoding.
 
-- order among path points;
-- non-empty `propertyAssignments`; and
-- the legacy diagrammatic `Text.value` field.
+UTF-8 is attempted first. A Unicode decoding failure triggers a CP1252 retry and
+`JSONEncodingFallbackWarning`. The parsed data is otherwise handled identically.
 
-Depending on the available policy, the transformer can warn, omit affected
-information, preserve source values, raise an error, or add a non-normative
-comment. A non-normative comment records context but does not extend the
-OntoUML Vocabulary or make the source information structurally representable.
+## Information without a normative representation
 
-Warnings are also used for recovered text encoding and malformed or invalid
-values handled by a non-error policy. Errors stop the affected transformation.
+OntoUML Vocabulary 1.1.1 does not directly represent:
 
-See [Policies and configuration](policies.md) for the control categories and
-[Transformation overview](transformation.md) for their place in the conversion
-flow.
+- order among a Path's point values;
+- non-empty `propertyAssignments` maps; or
+- content stored in the legacy diagrammatic `Text.value` field.
+
+Path order and property assignments can be recorded as non-normative
+`rdfs:comment` text. Those comments do not extend the vocabulary and should not
+be interpreted as a formal graph structure. A non-empty `Text.value` is omitted
+with `UnsupportedTextValueWarning`; an empty value is omitted silently.
+
+## Invalid and incomplete source values
+
+Explicit policies control invalid stereotypes, invalid cardinalities, and
+unresolved diagrammatic `modelElement` references. A non-error policy can
+preserve or omit affected information and emits a warning. An `error` policy
+raises an exception and prevents command-line file output.
+
+Invalid `width` or `height` values that are not non-negative integers are logged
+and omitted. Valid zero values are retained as `xsd:nonNegativeInteger`, in
+accordance with OntoUML Vocabulary 1.1.1.
+
+When initial RDF serialization fails, the file writer retries after normalizing
+invalid URI references. If writing still fails with an operating-system error,
+the error is propagated.
+
+## Diagnostic channels
+
+The transformation uses two diagnostic channels:
+
+- logger messages for progress, supplied defaults, legacy validation and
+  correction activity, and some malformed values; and
+- Python warnings for encoding fallback, stereotype normalization and policy
+  decisions, cardinality repair, unresolved references, shared batch identity,
+  and non-representable source information.
+
+CLI `--silent` and the library's silent execution suppress logger progress and
+legacy validation messages. They do not suppress Python warnings or exceptions.
+Applications can capture or filter warnings through Python's `warnings` module.
+
+## Reconstruction qualification
+
+Complete-project output retains project and supported diagrammatic resources,
+but it is not a guarantee of byte-for-byte or semantically lossless source
+reconstruction. JSON formatting, object-key order, null fields, and unsupported
+or policy-omitted information are not preserved as source JSON. Non-normative
+comments can retain selected source context, but consumers need explicit logic
+to interpret them.
+
+See [Policies and configuration](policies.md) for exact consequences and
+[Transformation overview](transformation.md) for processing order.

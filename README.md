@@ -3,450 +3,129 @@
 ![GitHub - Release Date - PublishedAt](https://img.shields.io/github/release-date/ontouml/ontouml-json2graph)
 ![GitHub - Last Commit - Branch](https://img.shields.io/github/last-commit/ontouml/ontouml-json2graph/main)
 ![PyPI - Project](https://img.shields.io/pypi/v/ontouml-json2graph)
-![Language - Top](https://img.shields.io/github/languages/top/ontouml/ontouml-json2graph)
 ![Language - Version](https://img.shields.io/pypi/pyversions/ontouml-json2graph)
 ![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/ontouml/ontouml-json2graph)
 ![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/OntoUML/ontouml-json2graph/badge)
-![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)
-![License - GitHub](https://img.shields.io/github/license/ontouml/ontouml-json2graph)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://github.com/pre-commit/pre-commit)
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/OntoUML/ontouml-json2graph/main.svg)](https://results.pre-commit.ci/latest/github/OntoUML/ontouml-json2graph/main)
-![Website](https://img.shields.io/website/http/ontouml.github.io/ontouml-json2graph.svg)
-![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/ontouml/ontouml-json2graph/code_testing.yml)
+![License - GitHub](https://img.shields.io/github/license/ontouml/ontouml-json2graph)
 
-# The OntoUML JSON2Graph Transformation
+# OntoUML JSON2Graph
 
-<p align="center"><img src="https://raw.githubusercontent.com/OntoUML/ontouml-json2graph/main/json2graph/resources/logo-json2graph.png" width="740"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/OntoUML/ontouml-json2graph/main/json2graph/resources/logo-json2graph.png" width="740" alt="OntoUML JSON2Graph logo"></p>
 
-The OntoUML JSON2Graph (ontouml-json2graph) decodes a JSON file that complies with the [ontouml-schema](https://w3id.org/ontouml/schema) (e.g., the ones exported by the [ontouml-vp-plugin](https://github.com/OntoUML/ontouml-vp-plugin)) to a graph file that complies with the [ontouml-vocabulary](https://github.com/OntoUML/ontouml-vocabulary).
+`ontouml-json2graph` transforms OntoUML JSON projects into RDF graphs that use
+the [OntoUML Vocabulary](https://w3id.org/ontouml/vocabulary). It can retain
+project and diagrammatic information or produce a model-only graph.
 
-When transforming a model, you can choose to represent only the core concepts of the model or include all of its information, including diagrammatic elements, as part of the knowledge graph. Additionally, users have the choice to enable basic semantic and syntactical verifications, ensuring enhanced and accurate transformation results.
-
-This application was developed using the [RDFLib](https://rdflib.readthedocs.io/en/stable/) and Python 3.11. The generated graph file can be serialized in the diverse [formats supported by the RDFLib](https://rdflib.readthedocs.io/en/stable/intro_to_parsing.html#saving-rdf), which are Turtle, RDF/XML, JSON-LD, N-Triples, Notation-3, Trig, Trix, and N-Quads.
-
-**📦 PyPI Package:**
-The transformation is conveniently [available as a PyPI package](https://pypi.org/project/ontouml-json2graph/), which allows users to use it as an executable script or import it as a library into other Python projects.
-
-**📚 Code Documentation:**
-For inquiries and further information, please refer to the [comprehensive docstring-generated documentation](https://w3id.org/ontouml/json2graph/docs) available for this project.
-
-## Contents
-
-<!-- TOC -->
-
-* [The OntoUML JSON2Graph Transformation](#the-ontouml-json2graph-transformation)
-    * [Contents](#contents)
-    * [Installation](#installation)
-    * [Usage](#usage)
-        * [Executing as a Script](#executing-as-a-script)
-            * [Arguments](#arguments)
-            * [Resource identity and base URIs](#resource-identity-and-base-uris)
-            * [Path point order](#path-point-order)
-            * [Property assignments](#property-assignments)
-            * [Transformation provenance metadata](#transformation-provenance-metadata)
-        * [Importing as a Library](#importing-as-a-library)
-            * [decode_json_project](#decodejsonproject)
-            * [decode_json_model](#decodejsonmodel)
-            * [save_graph_file](#savegraphfile)
-        * [Input and Output](#input-and-output)
-        * [OntoUML Vocabulary and gUFO](#ontouml-vocabulary-and-gufo)
-    * [Basic Syntactical and Sematic Validation](#basic-syntactical-and-sematic-validation)
-    * [Permanent URLs and Identifiers](#permanent-urls-and-identifiers)
-    * [Related Projects](#related-projects)
-    * [Development Contribution](#development-contribution)
-    * [Author](#author)
-
-<!-- TOC -->
+Use the command-line interface to convert files directly, or the supported
+Python API to obtain an RDFLib `Graph`. The package supports Python 3.10 or
+newer.
 
 ## Installation
 
-Before using the OntoUML JSON2Graph Decoder, you need to [download and install Python](https://www.python.org/downloads/). To install the application you simply need to perform the following command:
-
-```text
+```console
 pip install ontouml-json2graph
 ```
 
-All dependencies will be installed automatically, and you will be ready to use the ontouml-json2graph package.
+## Command-line quick start
 
-## Usage
+Convert one JSON file to Turtle in the current directory:
 
-After being installed, the OntoUML JSON2Graph Decoder can be used as an **executable script** or **imported as a library** into another Python project.
-
-The output of the transformation, i.e., the graph file, will be saved into a directory named `results` in the same path in which the software was executed.
-
-### Executing as a Script
-
-For executing the software, run the following command on the terminal inside the project's folder:
-
-```txt
-python -m json2graph.decode -i [path_to_json] [OPTIONAL ARGUMENTS]
+```console
+python -m json2graph.decode -i my_ontology.json
 ```
 
-For example, to decode the JSON file `my_ontology.json` and save the output graph in the Turtle format, you would run the following command:
+Choose an output directory and serialization explicitly:
 
-```txt
-python -m json2graph.decode -i turtle my_ontology.json
+```console
+python -m json2graph.decode -i my_ontology.json -o results -f json-ld
 ```
 
-You can also use the script to decode multiple JSON files. To do this, you would use the `decode_all` option ('-a' argument).
-For example, to decode all the JSON files in 'my_data' directory you have to run the following command:
+Convert every `.json` file directly inside a directory:
 
-```txt
-python -m json2graph.decode -a -i my_data
+```console
+python -m json2graph.decode -a -i models -o results
 ```
 
-#### Arguments
+Display all supported options and their defaults with:
 
-The only mandatory argument is `path_to_json`, which must be substituted for the input file's location on your computer.
-Optional arguments provide additional features. All available ontouml-json2graph arguments can be observed below.
-
-```text
-usage: ontouml-json2graph [-h] -i INPUT_PATH [-o OUTPUT_PATH] [-a] [-f {turtle,ttl,turtle2,xml,pretty-xml,json-ld,ntriples,nt,nt11,n3,trig,trix,nquads}]
-                          [-l LANGUAGE] [-c] [-s]
-                          [-u BASE_URI | --base-uri-with-content-id BASE_URI_WITH_CONTENT_ID] [-m]
-                          [--invalid-cardinality-policy {preserve,repair,error}]
-                          [--invalid-stereotype-policy {preserve,omit,error}]
-                          [--unresolved-model-element-policy {preserve,omit,error}]
-                          [--path-order-policy {warn,comment}]
-                          [--property-assignment-policy {warn,comment}]
-                          [--transformation-metadata {none,embedded,sidecar}] [-v]
-
-OntoUML JSON2Graph Decoder. Version: 2.0.0
-
-options:
-  -h, --help            show this help message and exit
-  -i INPUT_PATH, --input_path INPUT_PATH
-                        The path of the JSON file or directory with JSON files to be decoded.
-  -o OUTPUT_PATH, --output_path OUTPUT_PATH
-                        The path of the directory in which the resulting decoded file(s) will be saved. Default is the working directory.
-  -a, --decode_all      Converts all JSON files in the informed path.
-  -f {turtle,ttl,turtle2,xml,pretty-xml,json-ld,ntriples,nt,nt11,n3,trig,trix,nquads}, --format {turtle,ttl,turtle2,xml,pretty-xml,json-ld,ntriples,nt,nt11,n3,trig,trix,nquads}
-                        Format to save the decoded file. Default is 'ttl'.
-  -l LANGUAGE, --language LANGUAGE
-                        Language tag for the ontology's concepts. Default is 'None'.
-  -c, --correct         Enables syntactical and semantic validations and corrections.
-  -s, --silent          Silent mode. Does not present validation warnings and errors.
-  -u BASE_URI, --base-uri BASE_URI, --base_uri BASE_URI
-                        Use this exact base URI for generated resources. By default, a deterministic urn:uuid base is derived from each JSON document.
-  --base-uri-with-content-id BASE_URI_WITH_CONTENT_ID
-                        Use this URI as a parent and append the document's deterministic content UUID.
-  -m, --model_only      Keep only model elements, eliminating all diagrammatic data from output.
-  --invalid-cardinality-policy {preserve,repair,error}
-                        Handle invalid cardinalities: preserve, repair known corpus patterns, or error. Default is 'preserve'.
-  --invalid-stereotype-policy {preserve,omit,error}
-                        Handle stereotypes invalid for their element type: preserve, omit, or error. Default is 'preserve'.
-  --unresolved-model-element-policy {preserve,omit,error}
-                        Handle unresolved modelElement references: preserve, omit, or error. Default is 'omit'.
-  --path-order-policy {warn,comment}
-                        Handle path-point order: warn without representing it, or add a non-normative rdfs:comment. Default is 'warn'.
-  --property-assignment-policy {warn,comment}
-                        Handle non-empty propertyAssignments maps: warn and omit them, or add canonical JSON in a non-normative rdfs:comment. Default is 'warn'.
-  --transformation-metadata {none,embedded,sidecar}
-                        Transformation provenance: none, embedded in the output, or a separate Turtle sidecar. Default is 'none'.
-  -v, --version         Print the software version and exit.
-
-More information at: https://w3id.org/ontouml/json2graph
+```console
+python -m json2graph.decode --help
 ```
 
-#### Resource identity and base URIs
-
-When no base URI is supplied, JSON2Graph derives a deterministic namespace from the parsed JSON document:
-
-```text
-urn:uuid:<content-uuid>#
-```
-
-The document is serialized as canonical JSON with sorted object keys, compact separators, preserved array order, and
-UTF-8 characters. JSON2Graph calculates its SHA-256 digest and converts that digest into a UUIDv5 using the permanent
-JSON2Graph namespace UUID `3f6e741a-4a05-5962-83d0-343fc9d7dc22`. Consequently, formatting and object-key order do
-not affect the namespace, while content changes do. The same input receives the same resource identifiers in
-single-file and batch modes, including when only model elements are requested.
-
-Use `--base-uri` when an exact user-controlled namespace is required:
-
-```text
-python -m json2graph.decode -i my_ontology.json --base-uri https://example.org/models/my-model#
-```
-
-Use `--base-uri-with-content-id` to treat the supplied URI as a parent and append the deterministic content UUID:
-
-```text
-python -m json2graph.decode -i my_ontology.json --base-uri-with-content-id https://example.org/models
-```
-
-This produces `https://example.org/models/<content-uuid>#`. The two base-URI options are mutually exclusive. In batch
-mode, an exact `--base-uri` is intentionally shared by every output and generates a collision warning; the default and
-`--base-uri-with-content-id` provide content-scoped namespaces.
-
-Version 2.0 changes the omitted-base behavior from the shared `https://example.org#` namespace to the deterministic
-`urn:uuid:` namespace. Supply `--base-uri https://example.org#` only when the former behavior is explicitly required.
-
-#### Path point order
-
-The OntoUML JSON format stores each Path's points as an ordered array, but the OntoUML Vocabulary represents them as
-multiple `ontouml:point` values. RDF graphs do not assign an order to those values.
-
-By default, `--path-order-policy warn` keeps the vocabulary-defined graph unchanged and issues a warning that the
-sequence is absent from the RDF structure. To retain the sequence in the same file as human-readable text, use:
-
-```text
-python -m json2graph.decode -i my_ontology.json --path-order-policy comment
-```
-
-The `comment` policy adds one annotation to each affected Path, for example:
-
-```turtle
-:path1 rdfs:comment "Source JSON path point order: (10, 20) -> (10, 40) -> (30, 40)." .
-```
-
-This annotation is non-normative: it is not an OntoUML Vocabulary representation of ordering and standard consumers
-should not treat it as such. Model-only decoding contains no Paths and therefore produces neither path-order comments
-nor path-order warnings.
-
-#### Property assignments
-
-The OntoUML JSON format allows elements to contain a `propertyAssignments` key-value map, but the OntoUML Vocabulary
-does not define an RDF representation for these assignments.
-
-By default, `--property-assignment-policy warn` omits each non-empty map and issues a warning that identifies every
-affected converted element and its assignment keys. To preserve the source map as text in the same RDF file, use:
-
-```text
-python -m json2graph.decode -i my_ontology.json --property-assignment-policy comment
-```
-
-The `comment` policy serializes each map as deterministic canonical JSON in one annotation on its element, for example:
-
-```turtle
-:class1 rdfs:comment "Source JSON propertyAssignments: {\"documentation\":null}" .
-```
-
-Object keys are sorted and array order is retained. `propertyAssignments: null` and empty maps are ignored because
-they contain no assignment information. The annotation is non-normative and not a machine-interpretable OntoUML
-Vocabulary mapping. Comment mode therefore still warns that no formal vocabulary semantics were produced.
-
-#### Transformation provenance metadata
-
-Transformation metadata is optional and describes the RDF artifact and the process that generated it, not the
-OntoUML model itself.
-
-| Mode | Behavior |
-|---|---|
-| `none` | Default. Writes only the transformed model graph. No timestamp or transformation metadata is added. |
-| `embedded` | Adds transformation provenance to the same RDF document as the model. The timestamp makes this output non-deterministic. |
-| `sidecar` | Writes the model graph unchanged and saves provenance separately as `<output-stem>.provenance.ttl`. This is the recommended provenance mode. |
-
-For example:
-
-```text
-python -m json2graph.decode -i my_ontology.json --transformation-metadata sidecar
-```
-
-For `my_ontology.json` with Turtle output, this creates `my_ontology.ttl` and
-`my_ontology.provenance.ttl`. The provenance uses PROV-O and DCMI terms to record:
-
-- the generated artifact and UTC generation time;
-- the input filename and its SHA-256 identifier;
-- the `ontouml-json2graph` software name and version;
-- the requested base URI, content-ID option, effective base URI, serialization format, metadata mode, and other
-  output-affecting transformation options, including the path-order and property-assignment policies, as canonical
-  JSON;
-- registered IANA media types for the input, configuration, and output serialization when one exists;
-- conformance to `https://w3id.org/ontouml/vocabulary/v1.1.1` when every OntoUML predicate and object term used by
-  the generated model graph is declared in the bundled vocabulary revision.
-
-The canonical configuration omits input and output paths, the `silent` setting, and batch orchestration. These do not
-change the transformed RDF; the source filename and digest and the output title and media type are recorded separately.
-
-RDFLib supports TriX serialization, but IANA does not register a TriX media type. TriX provenance therefore omits
-`dct:format` instead of using an unregistered value.
-
-### Importing as a Library
-
-The `library.py` module ([full documentation](https://dev.ontouml.org/ontouml-json2graph/autoapi/json2graph/library/index.html)) is a user-friendly component of the `ontouml-json2graph` package. By encapsulating complex functionalities, this library empowers users to seamlessly integrate OntoUML JSON conversion capabilities into their projects. In addition to conversion functions, the library provides a utility function for safely saving OntoUML graphs to files in the desired syntax.
-
-The library provides the following functions for decoding OntoUML JSON data and saving OntoUML graphs to files:
-
-#### decode_json_project
-
-The `decode_json_project` function allows you to decode the complete OntoUML JSON data (including elements from OntoUML's abstract and concrete syntax) into a knowledge graph that conforms to the OntoUML Vocabulary. This function provides customization options, such as specifying the base URI for ontology concepts, adding language tags, and enabling error correction. With this function domain-level and diagrammatic data are converted to Knowledge Graph.
-
-When `base_uri` is omitted, the library uses the same deterministic `urn:uuid:` namespace as the command-line
-interface. Set `append_content_hash=True` with a supplied `base_uri` to append the content-derived UUID.
+## Python quick start
 
 ```python
-from json2graph.library import decode_json_project
+from json2graph.library import decode_json_project, save_graph_file
 
-decoded_graph_project = decode_json_project(json_file_path="path/to/input.json", base_uri="https://myuri.org#",
-                                            language="en", correct=True,
-                                            invalid_cardinality_policy="preserve",
-                                            invalid_stereotype_policy="preserve",
-                                            path_order_policy="warn",
-                                            property_assignment_policy="warn",
-                                            transformation_metadata="none")
-
-content_scoped_graph = decode_json_project(json_file_path="path/to/input.json",
-                                           base_uri="https://myuri.org/models",
-                                           append_content_hash=True)
+graph = decode_json_project("my_ontology.json")
+save_graph_file(graph, "my_ontology.ttl", "ttl")
 ```
 
-Set `path_order_policy="comment"` to add the same non-normative textual path-order annotations available through the
-command-line option. The default is `"warn"`.
+The supported public API consists of:
 
-Set `property_assignment_policy="comment"` to add non-normative textual annotations containing canonical JSON for
-non-empty source `propertyAssignments` maps. The default is `"warn"`, which omits the maps and reports them.
+- `decode_json_project` for model and diagrammatic information;
+- `decode_json_model` for model-only output; and
+- `save_graph_file` for explicit RDF serialization.
 
-Library decoding accepts `transformation_metadata="none"` or `"embedded"`. It never creates a sidecar implicitly;
-sidecar output requires the command-line file-writing workflow.
+## Important behavior
 
-#### decode_json_model
+- Without an explicit base URI, the package derives a deterministic
+  `urn:uuid:` namespace from the parsed JSON content.
+- The default policies preserve invalid stereotypes and cardinality source
+  values where possible, omit unresolved diagrammatic `modelElement`
+  references, and warn about information that the vocabulary cannot represent.
+- The `correct` option enables a legacy set of class and property corrections.
+  It is independent of the explicit policy options.
+- Input is decoded as UTF-8, with a warned CP1252 fallback. The package expects
+  the OntoUML JSON structure but does not perform JSON Schema validation.
+- Complete-project output is not a guarantee of lossless reconstruction. Path
+  point order, non-empty `propertyAssignments`, and legacy diagrammatic
+  `Text.value` content have no direct normative representation in OntoUML
+  Vocabulary 1.1.1.
 
-The `decode_json_model` function decodes OntoUML JSON data representing a model-level view into a knowledge graph that adheres to the OntoUML Vocabulary.
+See the [documentation](https://w3id.org/ontouml/json2graph/docs) for the
+complete CLI and Python guides, policy consequences, diagnostics, limitations,
+and 1.x-to-2.0 migration guidance.
 
-Differently from the `decode_json_model`, this function decodes only elements from the OntoUML's abstract syntax. I.e., only domain-level (and not diagrammatic) data is converted to knowledge graph. It offers options for base URI, language tags, and error correction.
+## Development
 
-The default and explicit base-URI rules are identical to `decode_json_project`.
+Install the project and development dependencies with Poetry:
 
-```python
-from json2graph.library import decode_json_model
-
-decoded_graph_model = decode_json_model(json_file_path="path/to/input.json", base_uri="https://myuri.org#",
-                                        language="en",
-                                        correct=True,
-                                        invalid_cardinality_policy="preserve",
-                                        invalid_stereotype_policy="preserve",
-                                        property_assignment_policy="warn",
-                                        transformation_metadata="none")
+```console
+poetry install
 ```
 
-#### save_graph_file
+Run the primary validation commands from the repository root:
 
-The `save_graph_file` utility function provides a convenient way to save an OntoUML graph as an RDF file in the desired syntax.
-
-```python
-from json2graph.library import save_graph_file
-
-output_file_path = "./output_graph.ttl"
-syntax = "ttl"  # Choose the desired syntax: "xml", "n3", "nt", etc.
-save_graph_file(ontouml_graph, output_file_path, syntax)
+```console
+poetry check --strict --lock
+poetry run python update_documentation.py
+poetry run pytest
+poetry run pre-commit run --all-files
 ```
 
-The valid syntax options are the ones that [can be parsed by the RDFLib](https://rdflib.readthedocs.io/en/stable/intro_to_parsing.html#saving-rdf): turtle, ttl, turtle2, xml, pretty-xml, json-ld, ntriples, nt, nt11, n3, trig, trix, and nquads.
+Generated Sphinx HTML is written to `docs/_build/html` and is not committed.
 
-### Input and Output
+## Project links
 
-This software's **input
-** is a JSON file that complies with the [OntoUML Schema](https://w3id.org/ontouml/schema). This JSON file can be obtained from the [ontouml-vp-plugin](https://w3id.org/ontouml/vp-plugin)'s export feature. The JSON2Graph Decoder was tested to guarantee its compatibility with the JSON generated by the plugin's [version 0.5.3](https://w3id.org/ontouml/vp-plugin/v0.5.3).
+- [Documentation](https://w3id.org/ontouml/json2graph/docs)
+- [PyPI](https://pypi.org/project/ontouml-json2graph/)
+- [Releases](https://w3id.org/ontouml/json2graph/releases)
+- [Issue tracker](https://github.com/OntoUML/ontouml-json2graph/issues)
+- [OntoUML Schema](https://w3id.org/ontouml/schema)
+- [OntoUML Vocabulary](https://w3id.org/ontouml/vocabulary)
+- [OntoUML Metamodel](https://w3id.org/ontouml/metamodel)
 
-The transformation's **output
-** corresponds to the OntoUML Model serialized as a graph. The saved file information is described by the [OntoUML Vocabulary](https://w3id.org/ontouml/vocabulary) and can be saved in the [different formats that are supported by the RDFLib](https://rdflib.readthedocs.io/en/stable/intro_to_parsing.html#saving-rdf).
-This output graph may contain the model's diagrammatic information or not, depending on the user's provided arguments.
-The [OntoUML Vocabulary documentation](https://dev.ontouml.org/ontouml-vocabulary/#mozTocId376551) contains a usage overview, presenting information about all available elements, and about how to use them, including examples of SPARQL queries.
+## Author and organization
 
-Both the input and output of the software are built upon the same metamodel, the [OntoUML Metamodel](https://w3id.org/ontouml/metamodel), which facilitates the conversion between different representations.
+The author of `ontouml-json2graph` is
+[Pedro Paulo Favato Barcelos](https://orcid.org/0000-0003-2736-7817).
 
-### OntoUML Vocabulary and gUFO
+The project is maintained in the
+[OntoUML organization](https://github.com/OntoUML), linked to the
+[Semantics, Cybersecurity & Services Group](https://www.utwente.nl/en/eemcs/scs/)
+at the [University of Twente](https://www.utwente.nl/), The Netherlands.
 
-The ontouml-vp-plugin has a feature that enables an ontology to be transformed from OntoUML to a graph format. This feature is called the [Model Transformation to OWL with gUFO](https://github.com/OntoUML/ontouml-vp-plugin/#model-transformation-to-owl-with-gufo).
-**[gUFO](https://nemo-ufes.github.io/gufo/)** is a lightweight implementation of the OntoUML's underlying foundational ontology, the Unified Foundational
-Ontology (UFO).
-
-Even though an ontology represented in gUFO and in the OntoUML Vocabulary are both suitable for Semantic Web OWL 2 DL applications, these two representations are different and were created with different purposes.
-
-gUFO is intended for reuse in the definition of UFO-based lightweight ontologies. Reuse of gUFO consists in instantiating and/or specializing the various entities defined in the ontology, inheriting from it the domain-independent distinctions of UFO. A key feature of UFO (and hence, gUFO) is that it includes two taxonomies: one with classes whose instances are individuals (classes in this taxonomy include gufo:Object, gufo:Event) and another with classes whose instances are types (classes in this taxonomy include gufo:Kind, gufo:Phase, gufo:Category).
-
-Differently, the OntoUML Vocabulary was created to support the serialization, exchange, publishing of OntoUML as linked data, and to be used in Semantic Web applications. Models in this format are machine-readable resources intended to support the needs of tool developers and researchers, enabling the performance of complex analysis using the SPARQL querying language with no need for additional software. In addition, as it contains the concrete elements (i.e., diagrammatic data such as diagrams and diagram elements) of OntoUML projects, it can also be used to fully reconstruct the original models.
-
-## Basic Syntactical and Sematic Validation
-
-- Class validations:
-    - Reports Class with incompatible attributes isExtensional (not 'null') and isPowertype (set as 'True').
-    - Sets Class stereotype as 'collective' when the Class's stereotype is 'null' and its isExtensional attribute is 'True'.
-    - Sets Class stereotype as 'type' when the Class's stereotype is 'null' and its isPowertype attribute is 'True'.
-    - Removes the Class's isExtensional attribute if the Class's stereotype is not 'collective'.
-    - Sets the Class's isPowertype attribute as 'False' if the Class's stereotype is not 'type'.
-    - Sets the Class's order attribute to '1' if the Class's stereotype is not 'type' and its order different from '1'.
-    - Sets the Class's order attribute to '2' if the Class's stereotype is 'type' and its order is '1'.
-    - Reports mandatory Class stereotype missing.
-- Stereotype handling:
-    - Normalizes every assigned stereotype to lowerCamelCase.
-    - Checks the normalized value against the recognized stereotype list for the assigned element type: Class,
-      Relation, or Property.
-    - Emits the canonical valid triple and an explicit normalization warning when a lexical variant such as `Role` or
-      `Kind` normalizes to a valid stereotype for that element type.
-    - Handles stereotypes that are nonexistent or invalid for their assigned element type according to
-      `--invalid-stereotype-policy`:
-        - `preserve` (default): generates the normalized stereotype triple and issues a warning;
-        - `omit`: issues a warning and omits only the stereotype triple;
-        - `error`: raises an error and aborts before an output file is generated.
-- Property validations:
-    - Emits `ontouml:lowerBound` as `xsd:nonNegativeInteger` for valid cardinalities.
-    - Handles invalid cardinalities according to `--invalid-cardinality-policy`:
-        - `preserve` (default): preserves the original cardinality value, warns, and omits both bounds;
-        - `repair`: repairs only the malformed separator patterns observed in the audited catalog, or falls back to
-          `preserve` when no safe repair is defined;
-        - `error`: raises an error and aborts before an output file is generated.
-    - Reports invalid assertion when a Property stereotype is related to a Class that is known not to be of stereotype 'event'.
-    - Sets Class stereotype as 'event' when it is originally 'null' and the class is related to a Property with stereotype.
-- Diagrammatic value handling:
-    - Targets OntoUML Vocabulary v1.1.1 and emits `ontouml:width` and `ontouml:height` as
-      `xsd:nonNegativeInteger`, preserving zero-valued dimensions.
-    - Omits the legacy `value` field from `ontouml:Text` shapes instead of mapping it to `ontouml:text`, whose
-      domain is `ontouml:Note`.
-    - Omits empty `Text.value` fields silently and issues `UnsupportedTextValueWarning` before omitting a non-empty
-      value that cannot be represented by OntoUML Vocabulary v1.1.1.
-
-## Permanent URLs and Identifiers
-
-- Repository: [https://w3id.org/ontouml/json2graph](https://w3id.org/ontouml/json2graph)
-- Documentation: [https://w3id.org/ontouml/json2graph/docs](https://w3id.org/ontouml/json2graph/docs)
-- Releases:
-    - All releases: [https://w3id.org/ontouml/json2graph/releases](https://w3id.org/ontouml/json2graph/releases)
-    - Latest release: [https://w3id.org/ontouml/json2graph/latest](https://w3id.org/ontouml/json2graph/latest)
-    - Specific release: https://w3id.org/ontouml/json2graph/v<n>, where \<n\> represents the version number (e.g., '1.0.0')
-
-## Related Projects
-
-- **[OntoUML Metamodel](https://w3id.org/ontouml/metamodel)**:
-  Implementation-independent OntoUML Metamodel. Unlike the UML profile, this version is independent of UML and presents only the concepts officially supported in the language. This metamodel covers the abstract and concrete syntaxes of the language and serves as the reference for all projects in the [OntoUML as a Service (OaaS)](https://ceur-ws.org/Vol-2969/paper29-FOMI.pdf) ecosystem, including its different model serializations.
-
-
-- **[OntoUML Vocabulary](https://w3id.org/ontouml/vocabulary)**:
-  An OntoUML Metamodel's serialization in Turtle (ttl) format. This vocabulary supports the serialization, exchange, and publishing of OntoUML models as graphs that can be used for Semantic Web and Linked Data applications.
-
-
-- **[OntoUML Schema](https://w3id.org/ontouml/schema)**:
-  An OntoUML Metamodel's serialization in JSON format. The JSON is a format better suited for manipulation within software code. It supports the exchange of models between modeling tools and the OntoUML server, providing model intelligent services.
-
-
-- **[ontouml-vp-plugin](https://w3id.org/ontouml/vp-plugin)**:
-  The OntoUML Plugin for Visual Paradigm adds features designed for OntoUML modelers to any version of the Visual Paradigm - a modeling editor that provides a [free for non-commercial version](https://www.visual-paradigm.com/download/community.jsp).
-  These features range from enabling OntoUML stereotypes in class diagrams to model verification and transformation.
-
-## Development Contribution
-
-We encourage you to contribute to the development of this software.
-
-The dependencies to develop this software are not the same as the ones to execute it. Hence, it is necessary run the following command on the terminal inside the project's folder to install all necessary dependencies:
-
-```text
-pip install -r requirements.txt
-```
-
-You also need run `pre-commit install` to set up the git hook scripts.
-
-The ontouml-json2graph package was developed using test-driven-based development. Multiple tests are available inside the following folder: `ontouml-json2graph/json2graph/tests`. To execute the tests, run the following command from inside the project's root folder:
-
-```text
-pytest .\json2graph\tests\test_main.py
-```
-
-The tests' code documentation [is also available](https://dev.ontouml.org/ontouml-json2graph/autoapi/json2graph/tests/index.html).
-
-## Author
-
-This project is maintained by the [Semantics, Cybersecurity & Services (SCS) Group](https://www.utwente.nl/en/eemcs/scs/) of the [University of Twente](https://www.utwente.nl/), The Netherlands. Its developer is:
-
-- [Pedro Paulo Favato Barcelos](https://orcid.org/0000-0003-2736-7817) [[GitHub](https://github.com/pedropaulofb)] [[LinkedIn](https://www.linkedin.com/in/pedro-paulo-favato-barcelos/)]
-
-Feel free to get in touch using the provided links. For questions, contributions, or to report any problem, you can **[open an issue](https://github.com/OntoUML/ontouml-json2graph/issues)** at this repository.
+The software is distributed under the [Apache License 2.0](LICENSE).

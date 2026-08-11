@@ -90,7 +90,7 @@ def initialize_args_script() -> None:
         "-a",
         "--decode_all",
         action="store_true",
-        help="Converts all JSON files in the informed path.",
+        help="Convert direct *.json children of the input directory (non-recursive).",
     )
     args_parser.add_argument(
         "-f",
@@ -107,21 +107,21 @@ def initialize_args_script() -> None:
         type=str,
         action="store",
         default="",
-        help="Language tag for the ontology's concepts. Default is 'None'.",
+        help="Language tag for source name literals. By default, no language tag is added.",
     )
     args_parser.add_argument(
         "-c",
         "--correct",
         action="store_true",
         default=False,
-        help="Enables syntactical and semantic validations and corrections.",
+        help="Enable the legacy class and property validation and correction pass.",
     )
     args_parser.add_argument(
         "-s",
         "--silent",
         action="store_true",
         default=False,
-        help="Silent mode. Does not present validation warnings and errors.",
+        help="Suppress progress and legacy validation log messages. Python warnings and errors are still reported.",
     )
     base_uri_group = args_parser.add_mutually_exclusive_group()
     base_uri_group.add_argument(
@@ -131,8 +131,8 @@ def initialize_args_script() -> None:
         type=str,
         action="store",
         default=None,
-        help="Use this exact base URI for generated resources. By default, a deterministic urn:uuid base is derived "
-        "from each JSON document.",
+        help="Use this absolute base URI for generated resources, adding an identifier separator when needed. "
+        "By default, a deterministic urn:uuid base is derived from each JSON document.",
     )
     base_uri_group.add_argument(
         "--base-uri-with-content-id",
