@@ -42,4 +42,5 @@ source_suffix = {
 
 html_theme = "sphinx_rtd_theme"
 html_logo = "../json2graph/resources/logo-json2graph.svg"
+html_favicon = "../json2graph/resources/favicon-json2graph.ico"
 html_title = f"{project} {release} documentation"
