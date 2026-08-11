@@ -133,4 +133,5 @@ The project is maintained in the
 [Semantics, Cybersecurity & Services Group](https://www.utwente.nl/en/eemcs/scs/)
 at the [University of Twente](https://www.utwente.nl/), The Netherlands.
 
-The software is distributed under the [Apache License 2.0](LICENSE).
+The software is distributed under the
+[Apache License 2.0](https://github.com/OntoUML/ontouml-json2graph/blob/main/LICENSE).
