@@ -32,3 +32,15 @@ Documentation is divided by responsibility:
 The root README is the package and repository entry point. Detailed behavior
 should have one primary location in the Sphinx sources and be linked from the
 README rather than maintained independently in both places.
+
+## Continuous integration and publication
+
+The `Documentation` GitHub Actions workflow runs the documentation tests and
+strict Sphinx builder for pull requests and pushes that can affect the rendered
+site. Pull requests validate the documentation without publishing it. A
+successful build on `main` uploads `docs/_build/html` and deploys it to the
+`github-pages` environment.
+
+Configure the repository's GitHub Pages source as **GitHub Actions** before the
+first deployment. Generated HTML remains a workflow artifact and must not be
+committed.
