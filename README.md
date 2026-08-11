@@ -121,7 +121,12 @@ Generated Sphinx HTML is written to `docs/_build/html` and is not committed.
 ## Author and organization
 
 The author of `ontouml-json2graph` is
-[Pedro Paulo Favato Barcelos](https://orcid.org/0000-0003-2736-7817).
+[Pedro Paulo Favato Barcelos](https://w3id.org/pedropaulofb).
+
+[![Personal website](https://img.shields.io/badge/Website-pedropaulofb-0B6E99?style=flat-square)](https://w3id.org/pedropaulofb)
+[![GitHub profile](https://img.shields.io/badge/GitHub-pedropaulofb-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/pedropaulofb)
+[![LinkedIn profile](https://img.shields.io/badge/LinkedIn-Pedro%20Paulo-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pedro-paulo-favato-barcelos/)
+[![ORCID profile](https://img.shields.io/badge/ORCID-0000--0003--2736--7817-A6CE39?style=flat-square&logo=orcid&logoColor=white)](https://orcid.org/0000-0003-2736-7817)
 
 The project is maintained in the
 [OntoUML organization](https://github.com/OntoUML), linked to the
