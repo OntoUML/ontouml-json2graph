@@ -1316,7 +1316,7 @@ def test_source_execution_reports_the_actual_project_version() -> None:
     """Verify that source-checkout execution reports the version declared by the project."""
     pyproject_file = Path(__file__).resolve().parents[2] / "pyproject.toml"
     with pyproject_file.open("rb") as file:
-        expected_version = tomli.load(file)["tool"]["poetry"]["version"]
+        expected_version = tomli.load(file)["project"]["version"]
 
     assert _read_source_project_version() == expected_version
     assert METADATA["Version"] == expected_version

@@ -17,20 +17,28 @@ global METADATA
 
 
 def _read_source_project_version() -> str | None:
-    """Return the Poetry project version when executing from a source checkout."""
+    """Return the PEP 621 project version when executing from a source checkout."""
     pyproject_file = Path(__file__).resolve().parents[2] / "pyproject.toml"
     if not pyproject_file.is_file():
         return None
 
     try:
-        version_match = re.search(
-            r'^version\s*=\s*["\']([^"\']+)["\']',
+        project_match = re.search(
+            r"^\[project\]\s*$\n(?P<body>.*?)(?=^\[|\Z)",
             pyproject_file.read_text(encoding="utf-8"),
-            flags=re.MULTILINE,
+            flags=re.MULTILINE | re.DOTALL,
         )
     except OSError:
         return None
 
+    if project_match is None:
+        return None
+
+    version_match = re.search(
+        r'^version\s*=\s*["\']([^"\']+)["\']',
+        project_match.group("body"),
+        flags=re.MULTILINE,
+    )
     if version_match is None:
         return None
     return version_match.group(1)

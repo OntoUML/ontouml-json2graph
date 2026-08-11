@@ -14,7 +14,7 @@ REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, os.fspath(REPOSITORY_ROOT))
 
 with (REPOSITORY_ROOT / "pyproject.toml").open("rb") as pyproject_file:
-    project_metadata = tomllib.load(pyproject_file)["tool"]["poetry"]
+    project_metadata = tomllib.load(pyproject_file)["project"]
 
 project = "ontouml-json2graph"
 author = "Pedro Paulo Favato Barcelos"

@@ -1,26 +1,30 @@
-[tool.poetry]
+[project]
 name = "ontouml-json2graph"
 version = "2.0.0"
 description = "OntoUML JSON2Graph Decoder"
 license = "Apache-2.0"
-authors = ["Pedro Paulo F. Barcelos <pedro.barcelos@health-ri.nl>"]
+authors = [
+    { name = "Pedro Paulo F. Barcelos", email = "pedro.barcelos@health-ri.nl" },
+]
 readme = "README.md"
-homepage = "https://w3id.org/ontouml/json2graph"
-repository = "https://w3id.org/ontouml/json2graph"
-documentation = "https://w3id.org/ontouml/json2graph/docs"
+requires-python = ">=3.10,<4.0"
 keywords = ["semantic-web", "knowledge-graph", "ontouml", "ontology-driven-development", "ontouml-schema", "ontouml-vocabulary", "ontouml-metamodel"]
-packages = [{ include = "json2graph" }]
-exclude = ["json2graph/tests"]
+dependencies = [
+    "importlib>=1.0.4,<2.0.0",
+    "PyYAML>=6.0.1,<7.0.0",
+    "rdflib>=7.1.4,<8.0.0",
+    "validators>=0.32.0,<0.36",
+]
 
-[tool.poetry.urls]
+[project.urls]
+Homepage = "https://w3id.org/ontouml/json2graph"
+Repository = "https://w3id.org/ontouml/json2graph"
+Documentation = "https://w3id.org/ontouml/json2graph/docs"
 "PyPi Project" = "https://pypi.org/project/ontouml-json2graph/"
 
-[tool.poetry.dependencies]
-python = "^3.10"
-pyyaml = "^6.0.1"
-rdflib = "^7.1.4"
-validators = ">=0.32.0,<0.36"
-importlib = "^1.0.4"
+[tool.poetry]
+packages = [{ include = "json2graph" }]
+exclude = ["json2graph/tests"]
 
 [tool.poetry.group.dev.dependencies]
 sphinx = ">=7.2.6,<9.0.0"
