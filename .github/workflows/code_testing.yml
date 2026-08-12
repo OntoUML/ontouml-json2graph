@@ -1,6 +1,10 @@
 name: Code Testing
 
-on: push
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
 
 permissions:
   contents: read
@@ -34,4 +38,4 @@ jobs:
           pip install -r requirements.txt
 
       - name: Testing with pytest
-        run: pytest ./json2graph/tests/test_main.py
+        run: python -m pytest -q json2graph/tests --ignore=json2graph/tests/test_documentation.py
