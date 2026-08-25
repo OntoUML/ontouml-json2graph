@@ -7,7 +7,7 @@ message: >-
   If you use this software, please cite it using the metadata
   provided in this file.
 type: software
-version: 2.0.0
+version: 2.0.1
 authors:
   - given-names: Pedro Paulo
     family-names: Favato Barcelos

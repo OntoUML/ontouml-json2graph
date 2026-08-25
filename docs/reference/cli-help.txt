@@ -9,7 +9,7 @@ usage: ontouml-json2graph [-h] -i INPUT_PATH [-o OUTPUT_PATH] [-a]
                           [--property-assignment-policy {warn,comment}]
                           [--transformation-metadata {none,embedded,sidecar}] [-v]
 
-OntoUML JSON2Graph Decoder. Version: 2.0.0
+OntoUML JSON2Graph Decoder. Version: 2.0.1
 
 options:
   -h, --help            show this help message and exit

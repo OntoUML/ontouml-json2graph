@@ -172,6 +172,49 @@ def write_cardinality_project(tmp_path: Path, cardinality: str) -> Path:
     return input_file
 
 
+def write_language_project(
+    tmp_path: Path,
+    filename: str = "language.json",
+    prefix: str = "Language",
+) -> Path:
+    """Write a minimal project with distinct source-name values."""
+    input_file = tmp_path / filename
+    input_file.write_text(
+        json.dumps(
+            {
+                "id": "project-1",
+                "type": "Project",
+                "name": f"{prefix} project",
+                "model": {
+                    "id": "package-1",
+                    "type": "Package",
+                    "name": f"{prefix} model",
+                    "contents": [
+                        {
+                            "id": "class-1",
+                            "type": "Class",
+                            "name": f"{prefix} class",
+                            "stereotype": "kind",
+                        }
+                    ],
+                },
+            }
+        ),
+        encoding="utf-8",
+    )
+    return input_file
+
+
+def assert_source_name_language(
+    ontouml_graph: Graph,
+    expected_names: set[str],
+    language: str | None,
+) -> None:
+    """Assert the exact language state of every source-name literal."""
+    expected_literals = {Literal(name, lang=language) for name in expected_names}
+    assert set(ontouml_graph.objects(None, ONTOUML.name)) == expected_literals
+
+
 def write_text_shape_project(
     tmp_path: Path,
     width: int,
@@ -432,6 +475,122 @@ def test_ontouml_json2graph(input_file: str) -> None:
     is_equal = compare_graphs(resulting_graph_file, expected_graph_file, test_name)
 
     assert is_equal
+
+
+def test_cli_language_option_applies_language_to_source_names(tmp_path: Path) -> None:
+    """Verify that the single-file CLI forwards an explicit language tag."""
+    output_directory = tmp_path / "output"
+    output_directory.mkdir()
+    input_file = write_language_project(tmp_path)
+    expected_names = {"Language project", "Language model", "Language class"}
+
+    result = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "json2graph.decode",
+            "-i",
+            str(input_file),
+            "-o",
+            str(output_directory),
+            "-f",
+            "ttl",
+            "--language",
+            "en",
+            "--silent",
+        ],
+        capture_output=True,
+        check=False,
+        text=True,
+    )
+
+    assert result.returncode == 0, result.stderr
+    output_graph = Graph().parse(output_directory / "language.ttl", format="turtle")
+    assert_source_name_language(output_graph, expected_names, "en")
+
+
+def test_cli_without_language_keeps_source_names_untagged(tmp_path: Path) -> None:
+    """Verify that omitting the CLI language option preserves untagged names."""
+    output_directory = tmp_path / "output"
+    output_directory.mkdir()
+    input_file = write_language_project(tmp_path)
+    expected_names = {"Language project", "Language model", "Language class"}
+
+    result = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "json2graph.decode",
+            "-i",
+            str(input_file),
+            "-o",
+            str(output_directory),
+            "-f",
+            "ttl",
+            "--silent",
+        ],
+        capture_output=True,
+        check=False,
+        text=True,
+    )
+
+    assert result.returncode == 0, result.stderr
+    output_graph = Graph().parse(output_directory / "language.ttl", format="turtle")
+    assert_source_name_language(output_graph, expected_names, None)
+
+
+def test_public_python_api_language_behavior_is_unchanged(tmp_path: Path) -> None:
+    """Verify that the public Python API continues to apply language tags."""
+    input_file = write_language_project(tmp_path)
+    expected_names = {"Language project", "Language model", "Language class"}
+
+    output_graph = decode_json_project(json_file_path=str(input_file), language="en")
+
+    assert_source_name_language(output_graph, expected_names, "en")
+
+
+def test_batch_cli_language_option_applies_language_to_every_output(tmp_path: Path) -> None:
+    """Verify that the batch CLI applies the language tag to every output."""
+    input_directory = tmp_path / "inputs"
+    output_directory = tmp_path / "outputs"
+    input_directory.mkdir()
+    output_directory.mkdir()
+    projects = [
+        (
+            write_language_project(input_directory, "first.json", "First"),
+            {"First project", "First model", "First class"},
+        ),
+        (
+            write_language_project(input_directory, "second.json", "Second"),
+            {"Second project", "Second model", "Second class"},
+        ),
+    ]
+
+    result = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "json2graph.decode",
+            "-a",
+            "-i",
+            str(input_directory),
+            "-o",
+            str(output_directory),
+            "-f",
+            "ttl",
+            "--language",
+            "en",
+            "--silent",
+        ],
+        capture_output=True,
+        check=False,
+        text=True,
+    )
+
+    assert result.returncode == 0, result.stderr
+    for input_file, expected_names in projects:
+        output_graph = Graph().parse(output_directory / f"{input_file.stem}.ttl", format="turtle")
+        assert_source_name_language(output_graph, expected_names, "en")
 
 
 def test_model_only_preserves_enumeration_literals() -> None:
