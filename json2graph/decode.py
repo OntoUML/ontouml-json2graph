@@ -338,7 +338,11 @@ def decode_all_ontouml_json2graph() -> None:
 
     for input_file in list_input_files:
         args.ARGUMENTS["input_path"] = input_file
-        result_graph = decode_ontouml_json2graph(json_file_path=input_file, execution_mode="script")
+        result_graph = decode_ontouml_json2graph(
+            json_file_path=input_file,
+            language=args.ARGUMENTS["language"],
+            execution_mode="script",
+        )
         write_graph_file(result_graph, execution_mode="script")
 
 
@@ -355,6 +359,10 @@ if __name__ == "__main__":
         decode_all_ontouml_json2graph()
     else:
         # Convert JSON to Knowledge Graph
-        decoded_graph = decode_ontouml_json2graph(json_file_path=args.ARGUMENTS["input_path"], execution_mode="script")
+        decoded_graph = decode_ontouml_json2graph(
+            json_file_path=args.ARGUMENTS["input_path"],
+            language=args.ARGUMENTS["language"],
+            execution_mode="script",
+        )
         # Saves knowledge graph
         write_graph_file(decoded_graph, execution_mode="script")
