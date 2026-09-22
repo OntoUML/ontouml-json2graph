@@ -4,17 +4,44 @@ import json
 import os
 import warnings
 
-from rdflib import Graph, URIRef
+from rdflib import Graph, Literal, URIRef
+from rdflib.plugins.serializers.turtle import TurtleSerializer
 
 from .errors import report_error_io_read, report_error_io_write
 from .logger import initialize_logger
 from .utils_graph import rename_uriref_resource, fix_uri
 
 LOGGER = initialize_logger()
+_TURTLE_SYNTAXES = {"ttl", "turtle", "turtle2"}
 
 
 class JSONEncodingFallbackWarning(UserWarning):
     """Warn that a JSON input required a fallback character encoding."""
+
+
+class _WhitespaceSafeTurtleSerializer(TurtleSerializer):
+    """Serialize multiline literals without physical line breaks in their lexical form."""
+
+    @staticmethod
+    def _escaped_multiline_literal(literal: Literal) -> str:
+        """Return Turtle syntax preserving a multiline literal's exact lexical value."""
+        encoded = str(literal).replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n").replace("\r", "\\r")
+        quoted = f'"{encoded}"'
+
+        if literal.language:
+            return f"{quoted}@{literal.language}"
+
+        if literal.datatype:
+            return f"{quoted}^^<{literal.datatype}>"
+
+        return quoted
+
+    def label(self, node, position: int) -> str:
+        """Return a Turtle label, escaping physical newlines in multiline literals."""
+        if isinstance(node, Literal) and ("\n" in node or "\r" in node):
+            return self._escaped_multiline_literal(node)
+
+        return super().label(node, position)
 
 
 def create_directory_if_not_exists(directory_path: str, file_description: str) -> None:
@@ -66,6 +93,21 @@ def safe_load_json_file(json_path: str) -> dict:
     return json_data
 
 
+def _serialize_graph(ontouml_graph: Graph, output_file_path: str, syntax: str) -> None:
+    """Serialize a graph, using whitespace-safe Turtle output for Turtle syntaxes."""
+    if syntax in _TURTLE_SYNTAXES:
+        with open(output_file_path, "wb") as output_stream:
+            serializer = _WhitespaceSafeTurtleSerializer(ontouml_graph)
+            serializer.serialize(
+                output_stream,
+                encoding="utf-8",
+                spacious=(syntax == "turtle2"),
+            )
+        return
+
+    ontouml_graph.serialize(destination=output_file_path, encoding="utf-8", format=syntax)
+
+
 def safe_write_graph_file(ontouml_graph: Graph, output_file_path: str, syntax: str) -> None:
     """Safely saves the graph into a file in the informed destination with the desired syntax.
 
@@ -78,7 +120,7 @@ def safe_write_graph_file(ontouml_graph: Graph, output_file_path: str, syntax: s
     """
     # Regular case (all URIRef resources have valid URIs)
     try:
-        ontouml_graph.serialize(destination=output_file_path, encoding="utf-8", format=syntax)
+        _serialize_graph(ontouml_graph, output_file_path, syntax)
     except Exception:
         # Special treatment for the cases where the graph has URIRef resources that are not valid URIs
         try:
@@ -101,7 +143,7 @@ def safe_write_graph_file(ontouml_graph: Graph, output_file_path: str, syntax: s
                     new_o_name = new_o.toPython()
                     if old_o_name != new_o_name:
                         rename_uriref_resource(ontouml_graph, old_o, new_o)
-            ontouml_graph.serialize(destination=output_file_path, encoding="utf-8", format=syntax)
+            _serialize_graph(ontouml_graph, output_file_path, syntax)
         except OSError as errorOS:
             file_description = "output graph file"
             report_error_io_write(output_file_path, file_description, errorOS)
