@@ -1,0 +1,9 @@
+Model: Simple Genealogy Ontology
+Source repository: https://github.com/OntoUML/ontouml-models
+Source path: models/genealogy2013/ontology.json
+Pinned repository revision: 8f7333603d54ef1c483b66c6f52d671424da1f9a
+Pinned source URL: https://github.com/OntoUML/ontouml-models/blob/8f7333603d54ef1c483b66c6f52d671424da1f9a/models/genealogy2013/ontology.json
+Upstream JSON blob: 3ff60402e893c56a62c88c22df37291cacb7471f
+License of this vendored JSON: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+License source: models/genealogy2013/metadata.yaml at the pinned repository revision
+Modification: final newline added to satisfy repository formatting; JSON content otherwise unchanged

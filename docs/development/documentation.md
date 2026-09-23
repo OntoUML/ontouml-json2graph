@@ -21,6 +21,10 @@ same CLI and Python examples. Run `poetry run pytest` after changing an example
 or interface. The tests also fail when the checked-in CLI help differs from the
 current parser output.
 
+Vendored documentation examples from outside this repository must record their
+upstream source, pinned revision, and applicable license. Test executable
+examples directly in the documentation tests.
+
 Documentation is divided by responsibility:
 
 - task-oriented instructions belong in `guides/`;

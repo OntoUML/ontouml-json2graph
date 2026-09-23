@@ -41,33 +41,16 @@ should be removed.
 ## Run the canonical example
 
 The repository contains one minimal project used by both the CLI and library
-examples. The test suite executes these exact files, and Sphinx includes them
-without copying their contents into the pages.
-
-Canonical input:
-
-```{literalinclude} examples/minimal-project.json
-:language: json
-```
-
-From `docs/examples`, run the tested CLI command:
-
-```{literalinclude} examples/cli-usage.txt
-:language: console
-```
-
-The equivalent tested library program is:
-
-```{literalinclude} examples/library-usage.py
-:language: python
-```
+examples. Run the tested commands from `docs/examples`. The [Examples](examples.md)
+page includes this minimal input and a complete catalog model with further
+command-line and Python recipes.
 
 ## Choose the output scope
 
 - Complete-project decoding retains model, project, and supported diagrammatic
   resources.
 - Model-only decoding retains domain-level model resources, including
-  enumeration literals, and removes project and diagrammatic resources.
+  enumeration literals, and removes packages, project, and diagrammatic resources.
 
 Both routes use the same transformation core and policy defaults.
 

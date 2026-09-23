@@ -10,6 +10,7 @@ and reference sections when you need precise transformation or interface details
 ## Choose a route
 
 - [Get started](getting-started.md) with the interface and output scope that fit your use case.
+- Try the [examples](examples.md) with a minimal project and a catalog model.
 - Use the [command-line guide](guides/command-line.md) to convert files or directories.
 - Use the [Python library guide](guides/python-library.md) to integrate conversion into Python code.
 - Read about [transformation behavior](concepts/transformation.md),
@@ -22,6 +23,7 @@ and reference sections when you need precise transformation or interface details
 :caption: Start here
 
 getting-started
+examples
 ```
 
 ```{toctree}
