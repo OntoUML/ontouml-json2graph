@@ -58,7 +58,7 @@ repos:
       - id: pydocstyle
 
   - repo: https://github.com/python-poetry/poetry-plugin-export
-    rev: 1.10.1
+    rev: 1.10.2
     hooks:
       - id: poetry-export
         additional_dependencies: [poetry==2.4.1]
